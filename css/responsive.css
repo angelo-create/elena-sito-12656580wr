@@ -167,12 +167,17 @@
 
     .nav-menu .nav-link {
         font-size: 1.3rem;
-        color: #1a1a1a;
+        color: #000000 !important;
         font-weight: 600;
         padding: 0.75rem 0;
         display: block;
         width: 100%;
         text-align: center;
+        text-decoration: none;
+    }
+
+    .nav-menu .nav-link::after {
+        display: none;
     }
 
     .nav-menu .nav-cta {
@@ -180,6 +185,8 @@
         padding: 1rem 2.5rem;
         font-size: 0.9rem;
         width: auto;
+        color: #ffffff !important;
+        background: #e91e63;
     }
 
     /* Mobile Dropdown */
@@ -195,7 +202,7 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        color: #1a1a1a;
+        color: #000000 !important;
         font-weight: 600;
         padding: 0.75rem 0;
         width: 100%;
