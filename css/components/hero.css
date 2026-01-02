@@ -13,10 +13,10 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 45%;
+    width: 50%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: top left;
     z-index: 1;
 }
 
