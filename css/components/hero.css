@@ -147,8 +147,8 @@
 
 .hero-video-box {
     width: 100%;
-    max-width: 480px;
-    aspect-ratio: 9/16;
+    max-width: 560px;
+    aspect-ratio: 16/9;
     background: linear-gradient(145deg, var(--pink-primary), var(--pink-dark));
     border-radius: 16px;
     overflow: hidden;
