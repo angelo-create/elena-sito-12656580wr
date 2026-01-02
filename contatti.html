@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatura | Elena Giordani - X-Fit Academy</title>
+    <meta name="description" content="Compila il form di selezione per candidarti a X-Fit Academy. Inizia il tuo percorso di trasformazione con Elena Giordani.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav nav-light" id="navbar">
+        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Il Metodo</a>
+            <a href="team.html" class="nav-link" onclick="closeMobileMenu()">Il Team</a>
+            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="contatti.html" class="nav-cta active" onclick="closeMobileMenu()">Candidati</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero page-hero-pink">
+        <div class="page-hero-content">
+            <span class="page-hero-badge">Candidatura</span>
+            <h1 class="page-hero-title">Inizia il tuo percorso</h1>
+            <p class="page-hero-subtitle">Compila il form di selezione. Non e una semplice iscrizione: vogliamo conoscerti e capire se X-Fit Academy fa per te.</p>
+        </div>
+    </section>
+
+    <!-- SELECTION PROCESS -->
+    <section class="section">
+        <div class="container">
+            <div class="selection-intro">
+                <div class="selection-intro-content">
+                    <h2>Perche un <span class="highlight">form di selezione</span>?</h2>
+                    <p>
+                        Non accettiamo tutte le candidature. Non perche siamo esclusivi, ma perche
+                        vogliamo assicurarci che X-Fit Academy sia davvero il percorso giusto per te.
+                    </p>
+                    <p>
+                        Crediamo che per ottenere risultati serve impegno, costanza e la giusta mentalita.
+                        Il form ci aiuta a capire chi sei, da dove parti e cosa vuoi ottenere.
+                    </p>
+                </div>
+                <div class="selection-intro-steps">
+                    <div class="selection-step">
+                        <div class="selection-step-number">1</div>
+                        <div class="selection-step-content">
+                            <h4>Compila il form</h4>
+                            <p>Rispondi alle domande con sincerita</p>
+                        </div>
+                    </div>
+                    <div class="selection-step">
+                        <div class="selection-step-number">2</div>
+                        <div class="selection-step-content">
+                            <h4>Chiamata conoscitiva</h4>
+                            <p>Ti contattiamo per una chiacchierata</p>
+                        </div>
+                    </div>
+                    <div class="selection-step">
+                        <div class="selection-step-number">3</div>
+                        <div class="selection-step-content">
+                            <h4>Proposta personalizzata</h4>
+                            <p>Creiamo un percorso su misura per te</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Form di Selezione</h2>
+                    <p>Compila tutti i campi per candidarti a X-Fit Academy</p>
+                </div>
+
+                <!--
+                    NOTA: Qui va integrato il form di GoHighLevel.
+                    URL originale: https://lp.elenagiordani.com/selezione
+
+                    Per integrare il form, sostituire questo placeholder con:
+                    1. Un iframe che punta al form GHL
+                    2. Oppure il widget embed fornito da GoHighLevel
+
+                    Esempio iframe:
+                    <iframe
+                        src="https://lp.elenagiordani.com/selezione?utm_source=website&utm_medium=organic&utm_campaign=candidatura"
+                        width="100%"
+                        height="800"
+                        frameborder="0">
+                    </iframe>
+                -->
+
+                <div class="form-embed-placeholder">
+                    <div class="form-embed-message">
+                        <p><strong>Form di selezione in caricamento...</strong></p>
+                        <p>Se il form non si carica, <a href="https://lp.elenagiordani.com/selezione?utm_source=website&utm_medium=organic&utm_campaign=candidatura" target="_blank">clicca qui per aprirlo in una nuova pagina</a>.</p>
+                    </div>
+
+                    <!-- IFRAME EMBED - Decommentare quando il form e' disponibile -->
+                    <iframe
+                        src="https://lp.elenagiordani.com/selezione?utm_source=website&utm_medium=organic&utm_campaign=candidatura"
+                        class="form-iframe"
+                        width="100%"
+                        height="900"
+                        frameborder="0"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALTERNATIVE CONTACT -->
+    <section class="section">
+        <div class="container">
+            <div class="alternative-contact">
+                <h3>Preferisci contattarci direttamente?</h3>
+                <div class="contact-options">
+                    <a href="https://wa.me/39XXXXXXXXXX" target="_blank" class="contact-option">
+                        <span class="contact-option-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </span>
+                        <span class="contact-option-text">
+                            <strong>WhatsApp</strong>
+                            <span>Scrivici un messaggio</span>
+                        </span>
+                    </a>
+                    <a href="https://www.instagram.com/elenagiordani_/" target="_blank" class="contact-option">
+                        <span class="contact-option-icon">&#128248;</span>
+                        <span class="contact-option-text">
+                            <strong>Instagram</strong>
+                            <span>@elenagiordani_</span>
+                        </span>
+                    </a>
+                    <a href="mailto:info@elenagiordani.com" class="contact-option">
+                        <span class="contact-option-icon">&#9993;</span>
+                        <span class="contact-option-text">
+                            <strong>Email</strong>
+                            <span>info@elenagiordani.com</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ MINI -->
+    <section class="section section-pink">
+        <div class="container">
+            <div class="faq-mini">
+                <h3>Domande frequenti sulla candidatura</h3>
+                <div class="faq-mini-grid">
+                    <div class="faq-mini-item">
+                        <h4>Quanto costa X-Fit Academy?</h4>
+                        <p>Il costo varia in base al percorso personalizzato. Lo discuteremo durante la chiamata conoscitiva.</p>
+                    </div>
+                    <div class="faq-mini-item">
+                        <h4>Quanto dura il percorso?</h4>
+                        <p>Il percorso completo dura 12 mesi, ma esistono anche opzioni piu brevi.</p>
+                    </div>
+                    <div class="faq-mini-item">
+                        <h4>Cosa succede dopo il form?</h4>
+                        <p>Ti contattiamo entro 24-48 ore per una chiamata conoscitiva gratuita.</p>
+                    </div>
+                    <div class="faq-mini-item">
+                        <h4>Posso pagare a rate?</h4>
+                        <p>Si, offriamo diverse opzioni di pagamento rateale senza interessi.</p>
+                    </div>
+                </div>
+                <a href="index.html#faq" class="btn-outline">Vedi tutte le FAQ &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>
+                    Il primo percorso in Italia dedicato alle donne che unisce
+                    corpo, alimentazione e mente. 100% live.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
+                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
+                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="libri.html">Libri</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="team.html">Il Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="contatti.html">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/ElenaGiordaniFit" target="_blank">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

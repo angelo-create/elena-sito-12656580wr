@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina non trovata | Elena Giordani - X-Fit Academy</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav nav-light" id="navbar">
+        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Il Metodo</a>
+            <a href="team.html" class="nav-link" onclick="closeMobileMenu()">Il Team</a>
+            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+        </div>
+    </nav>
+
+    <!-- 404 CONTENT -->
+    <section class="error-page">
+        <div class="error-content">
+            <div class="error-number">404</div>
+            <h1 class="error-title">Ops! Pagina non trovata</h1>
+            <p class="error-text">
+                La pagina che stai cercando non esiste o e stata spostata.
+                Ma non preoccuparti, ti aiutiamo noi a ritrovare la strada!
+            </p>
+            <div class="error-actions">
+                <a href="index.html" class="btn-primary">
+                    Torna alla Home
+                    <span>&rarr;</span>
+                </a>
+                <a href="contatti.html" class="btn-outline">
+                    Contattaci
+                </a>
+            </div>
+            <div class="error-links">
+                <p>Oppure visita una di queste pagine:</p>
+                <ul>
+                    <li><a href="chi-sono.html">Chi Sono</a></li>
+                    <li><a href="metodo.html">Il Metodo E.A.S.Y.</a></li>
+                    <li><a href="risultati.html">Risultati</a></li>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>
+                    Il primo percorso in Italia dedicato alle donne che unisce
+                    corpo, alimentazione e mente. 100% live.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
+                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
+                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="libri.html">Libri</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="team.html">Il Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="contatti.html">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/ElenaGiordaniFit" target="_blank">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <style>
+        .error-page {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .error-content {
+            max-width: 600px;
+        }
+
+        .error-number {
+            font-size: clamp(6rem, 20vw, 12rem);
+            font-weight: 800;
+            color: var(--pink-primary);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .error-text {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .error-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .error-links {
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .error-links p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .error-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .error-links a {
+            color: var(--pink-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .error-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .error-links ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+
+</body>
+</html>

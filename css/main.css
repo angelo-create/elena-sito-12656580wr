@@ -26,6 +26,7 @@
 @import url('components/press.css');
 @import url('components/footer.css');
 @import url('components/modal.css');
+@import url('components/pages.css');
 
 /* ===== Responsive ===== */
 @import url('responsive.css');

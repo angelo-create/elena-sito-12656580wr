@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Coming Soon | Elena Giordani - X-Fit Academy</title>
+    <meta name="description" content="Il nuovo shop di Elena Giordani sta arrivando. Prodotti digitali, merchandising e molto altro. Iscriviti per essere avvisata del lancio.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav nav-light" id="navbar">
+        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Il Metodo</a>
+            <a href="team.html" class="nav-link" onclick="closeMobileMenu()">Il Team</a>
+            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+        </div>
+    </nav>
+
+    <!-- COMING SOON HERO -->
+    <section class="coming-soon-hero">
+        <div class="coming-soon-content">
+            <span class="coming-soon-badge">Coming Soon</span>
+            <h1 class="coming-soon-title">
+                Lo Shop delle<br>
+                <span class="highlight">Inarrestabili</span>
+            </h1>
+            <p class="coming-soon-subtitle">
+                Prodotti digitali, merchandising esclusivo e tutto quello che serve
+                per la tua trasformazione. Stiamo lavorando per portarti qualcosa di speciale.
+            </p>
+            <div class="coming-soon-timer">
+                <div class="timer-item">
+                    <div class="timer-number" id="days">--</div>
+                    <div class="timer-label">Giorni</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="hours">--</div>
+                    <div class="timer-label">Ore</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="minutes">--</div>
+                    <div class="timer-label">Minuti</div>
+                </div>
+                <div class="timer-item">
+                    <div class="timer-number" id="seconds">--</div>
+                    <div class="timer-label">Secondi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREVIEW SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">ANTEPRIMA</span>
+                <h2 class="section-title">Cosa <span class="highlight">troverai</span></h2>
+            </div>
+            <div class="shop-preview-grid">
+                <div class="shop-preview-card">
+                    <div class="shop-preview-icon">&#128218;</div>
+                    <h3>Prodotti Digitali</h3>
+                    <p>
+                        E-book, guide pratiche, piani alimentari e workout scaricabili.
+                        Contenuti premium per approfondire il metodo E.A.S.Y.
+                    </p>
+                </div>
+                <div class="shop-preview-card">
+                    <div class="shop-preview-icon">&#128085;</div>
+                    <h3>Abbigliamento</h3>
+                    <p>
+                        T-shirt, leggins e abbigliamento sportivo con il logo delle Inarrestabili.
+                        Qualita premium per allenarti con stile.
+                    </p>
+                </div>
+                <div class="shop-preview-card">
+                    <div class="shop-preview-icon">&#127862;</div>
+                    <h3>Accessori</h3>
+                    <p>
+                        Borracce, borse sportive, fasce elastiche e tutto l'equipaggiamento
+                        per i tuoi allenamenti a casa e in palestra.
+                    </p>
+                </div>
+                <div class="shop-preview-card">
+                    <div class="shop-preview-icon">&#127873;</div>
+                    <h3>Box Regalo</h3>
+                    <p>
+                        Confezioni regalo per le amiche che vogliono iniziare il loro percorso.
+                        Il regalo perfetto per chi vuoi bene.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTIFY SECTION -->
+    <section class="section section-pink">
+        <div class="container">
+            <div class="notify-box">
+                <h2>Vuoi essere la prima a saperlo?</h2>
+                <p>
+                    Lascia la tua email e ti avviseremo appena lo shop sara online.
+                    Riceverai anche un codice sconto esclusivo per il lancio!
+                </p>
+                <form class="notify-form">
+                    <input type="email" placeholder="La tua email" class="notify-input" required>
+                    <button type="submit" class="notify-btn">Avvisami</button>
+                </form>
+                <p class="notify-disclaimer">
+                    &#127381; Chi si iscrive ora ricevera uno sconto esclusivo del 20% sul primo ordine.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BACK TO SITE -->
+    <section class="section">
+        <div class="container">
+            <div class="back-cta">
+                <h3>Nel frattempo...</h3>
+                <p>Scopri i nostri contenuti gratuiti o candidati per entrare in X-Fit Academy.</p>
+                <div class="back-cta-buttons">
+                    <a href="risorse-gratuite.html" class="btn-outline">Risorse Gratuite</a>
+                    <a href="contatti.html" class="btn-primary">Candidati &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>
+                    Il primo percorso in Italia dedicato alle donne che unisce
+                    corpo, alimentazione e mente. 100% live.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
+                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
+                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="libri.html">Libri</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="team.html">Il Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="contatti.html">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/ElenaGiordaniFit" target="_blank">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Countdown Timer - Set launch date (example: 3 months from now)
+        const launchDate = new Date();
+        launchDate.setMonth(launchDate.getMonth() + 3);
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = launchDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+
+</body>
+</html>
