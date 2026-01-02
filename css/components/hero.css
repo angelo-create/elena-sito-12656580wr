@@ -135,12 +135,19 @@
 .hero-video-box {
     width: 100%;
     max-width: 480px;
-    aspect-ratio: 16/9;
+    aspect-ratio: 9/16;
     background: linear-gradient(145deg, var(--pink-primary), var(--pink-dark));
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 30px 60px rgba(233,30,99,0.3);
     position: relative;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .hero-video-placeholder {
