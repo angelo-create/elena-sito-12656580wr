@@ -1,0 +1,83 @@
+/* ===== BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--white);
+    color: var(--gray-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+    padding: 7rem 4rem;
+}
+
+.section-black {
+    background: var(--black);
+    color: var(--white);
+}
+
+.section-pink {
+    background: var(--pink-soft);
+}
+
+.section-gray {
+    background: var(--gray-softer);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-header.center {
+    text-align: center;
+}
+
+.section-number {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--pink-primary);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.section-title {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.section-title .highlight {
+    color: var(--pink-primary);
+}
+
+.section-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--gray-light);
+    max-width: 580px;
+    margin-top: 1.5rem;
+    line-height: 1.8;
+}
+
+.section-header.center .section-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}

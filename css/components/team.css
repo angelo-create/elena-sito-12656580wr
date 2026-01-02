@@ -1,0 +1,307 @@
+/* ===== TEAM SECTION ===== */
+.team-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.team-intro-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.team-intro-text p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.team-intro-highlight {
+    background: var(--pink-soft);
+    padding: 2rem 2.5rem;
+    margin-top: 2rem;
+}
+
+.team-intro-highlight p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--gray-dark);
+    margin: 0;
+    font-style: italic;
+}
+
+.team-intro-image {
+    aspect-ratio: 4/3;
+    background: linear-gradient(145deg, var(--pink-soft), var(--pink-primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.team-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.team-card:hover .team-card-image {
+    transform: scale(1.05);
+}
+
+.team-card-image-wrapper {
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.team-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.team-card-content {
+    padding: 2rem;
+}
+
+.team-card-role {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pink-primary);
+    margin-bottom: 0.5rem;
+}
+
+.team-card-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.team-card-bio {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--gray-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.team-card-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.team-card-link:hover {
+    color: var(--pink-primary);
+}
+
+/* ===== SPECIALIST PAGE TEMPLATE ===== */
+.specialist-hero {
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--gray-softer);
+}
+
+.specialist-hero-image {
+    background: linear-gradient(145deg, var(--pink-primary), var(--pink-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--white);
+    text-align: center;
+}
+
+.specialist-hero-content {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.specialist-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink-primary);
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--pink-soft);
+    width: fit-content;
+}
+
+.specialist-name {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+}
+
+.specialist-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--gray-light);
+    margin-bottom: 2rem;
+}
+
+.specialist-quote {
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gray-medium);
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--pink-primary);
+    margin-bottom: 2rem;
+}
+
+.specialist-credentials {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.specialist-credential {
+    text-align: center;
+}
+
+.specialist-credential-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--pink-primary);
+    line-height: 1;
+}
+
+.specialist-credential-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    margin-top: 0.25rem;
+}
+
+.specialist-details {
+    padding: 5rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.specialist-section {
+    margin-bottom: 4rem;
+}
+
+.specialist-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.specialist-section p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray-light);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+}
+
+.specialist-expertise {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.expertise-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--gray-softer);
+}
+
+.expertise-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--pink-soft);
+    color: var(--pink-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.expertise-text h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.expertise-text p {
+    font-size: 0.85rem;
+    color: var(--gray-light);
+    margin: 0;
+}
+
+.specialist-schedule {
+    background: var(--pink-soft);
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.schedule-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.schedule-info p {
+    font-size: 0.9rem;
+    color: var(--gray-light);
+    margin: 0;
+}

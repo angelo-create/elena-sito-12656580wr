@@ -1,0 +1,140 @@
+/* ===== LETTER TO WOMEN ===== */
+.letter-section {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.letter-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: var(--pink-soft);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.letter-grid {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.letter-image {
+    position: relative;
+}
+
+.letter-image-box {
+    aspect-ratio: 3/4;
+    background: linear-gradient(145deg, var(--pink-primary), var(--pink-dark));
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(233,30,99,0.2);
+}
+
+.letter-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    text-align: center;
+}
+
+.letter-image-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--white);
+    padding: 1.25rem 1.75rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border-radius: 12px;
+}
+
+.letter-image-badge-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--pink-primary);
+    line-height: 1;
+}
+
+.letter-image-badge-text {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    margin-top: 0.25rem;
+}
+
+.letter-content {
+    position: relative;
+    z-index: 10;
+}
+
+.letter-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.3;
+}
+
+.letter-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.letter-subtitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pink-primary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.letter-text {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.9;
+    color: var(--gray-medium);
+}
+
+.letter-text p {
+    margin-bottom: 1.25rem;
+}
+
+.letter-text .highlight {
+    color: var(--pink-primary);
+    font-weight: 600;
+}
+
+.letter-signature {
+    margin-top: 2rem;
+}
+
+.letter-signature-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gray-dark);
+}
+
+.letter-signature-role {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--pink-primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+}

@@ -1,0 +1,126 @@
+/* ===== TRANSFORMATIONS ===== */
+.transformations-section {
+    background: var(--gray-softer);
+}
+
+.transformations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.transformation-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transformation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(233,30,99,0.2);
+}
+
+.transformation-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.transformations-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.transformations-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.transformations-stat {
+    text-align: center;
+}
+
+.transformations-stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--pink-primary);
+}
+
+.transformations-stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-light);
+    margin-top: 0.25rem;
+}
+
+/* Legacy transformations grid (alternative layout) */
+.transformations-grid-alt {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 180px;
+    gap: 1rem;
+}
+
+.transformation-card-alt {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: linear-gradient(145deg, var(--pink-soft), var(--pink-primary));
+}
+
+.transformation-card-alt:nth-child(1) { grid-row: span 2; }
+.transformation-card-alt:nth-child(4) { grid-row: span 2; }
+.transformation-card-alt:nth-child(6) { grid-column: span 2; }
+
+.transformation-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.transformation-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.transformation-card:hover .transformation-overlay { opacity: 1; }
+
+.transformation-result {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.transformation-time {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}

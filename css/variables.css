@@ -1,0 +1,15 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --pink-primary: #E91E63;
+    --pink-light: #FF4081;
+    --pink-soft: #FCE4EC;
+    --pink-dark: #C2185B;
+    --gray-dark: #1a1a1a;
+    --gray-medium: #333333;
+    --gray-light: #666666;
+    --gray-softer: #f5f5f5;
+    --success-green: #4CAF50;
+    --error-red: #f44336;
+}

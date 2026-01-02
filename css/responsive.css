@@ -1,0 +1,361 @@
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-video-container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .hero-stats { justify-content: center; }
+    .hero-cta-group { justify-content: center; }
+
+    .letter-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .letter-image {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .letter-content {
+        text-align: center;
+    }
+
+    .letter-text {
+        text-align: left;
+    }
+
+    .team-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .specialist-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .book-card {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    .programs-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .program-card.featured { transform: none; }
+
+    .transformations-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-modal-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .how-timeline::before {
+        left: 40px;
+    }
+
+    .how-step {
+        grid-template-columns: 80px 1fr;
+        gap: 1.5rem;
+    }
+
+    .how-step-content {
+        text-align: left !important;
+    }
+
+    .how-step-visual {
+        display: none;
+    }
+
+    .how-step:nth-child(even) .how-step-content {
+        grid-column: 2;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .event-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .event-date {
+        max-width: 140px;
+        margin: 0 auto;
+    }
+
+    .video-container {
+        grid-template-columns: 1fr;
+    }
+
+    .press-articles {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-container {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-intro {
+        position: relative;
+        top: 0;
+    }
+
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .nav-menu .nav-link {
+        font-size: 1.25rem;
+        color: var(--black);
+    }
+
+    .nav-menu .nav-cta {
+        margin-top: 1rem;
+        padding: 1rem 2.5rem;
+        font-size: 0.85rem;
+    }
+
+    .section {
+        padding: 4rem 1.5rem;
+    }
+
+    .hero-content {
+        padding: 6rem 1.5rem 4rem;
+    }
+
+    .hero-video-container {
+        max-width: 100%;
+        margin: 0 auto 2rem;
+    }
+
+    .hero-video-box {
+        border-radius: 12px;
+    }
+
+    .hero-video-play {
+        width: 50px;
+        height: 50px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .hero-stat-number {
+        font-size: 2rem;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .letter-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .letter-image {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .letter-image-badge {
+        right: 0;
+        bottom: -1rem;
+    }
+
+    .letter-title {
+        font-size: 2rem;
+    }
+
+    .letter-text {
+        font-size: 0.95rem;
+    }
+
+    .btn-primary, .btn-outline {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        padding: 1rem 2rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .specialist-hero-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .specialist-name {
+        font-size: 2rem;
+    }
+
+    .specialist-expertise {
+        grid-template-columns: 1fr;
+    }
+
+    .method-card {
+        flex: 0 0 280px;
+    }
+
+    .book-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .book-cover {
+        max-width: 160px;
+        margin: 0 auto;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-brand p { max-width: none; }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .video-container {
+        padding: 4rem 1.5rem;
+    }
+
+    .video-title {
+        font-size: 1.75rem;
+    }
+
+    .video-stats {
+        gap: 2rem;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-header h2 {
+        font-size: 2rem;
+    }
+
+    .faq-intro h2 {
+        font-size: 1.75rem;
+    }
+
+    .press-articles {
+        padding: 0 1.5rem;
+    }
+
+    .transformations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .transformations-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .gallery-modal-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .lightbox-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+
+    .how-timeline::before {
+        left: 30px;
+    }
+
+    .how-step {
+        grid-template-columns: 60px 1fr;
+        gap: 1rem;
+    }
+
+    .how-step-visual {
+        display: none;
+    }
+
+    .how-step:nth-child(even) .how-step-content {
+        grid-column: 2;
+    }
+
+    .how-step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.25rem;
+    }
+}

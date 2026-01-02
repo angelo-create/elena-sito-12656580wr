@@ -1,0 +1,146 @@
+/* ===== SOCIAL SECTION ===== */
+.social-section {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-section::before {
+    content: 'FOLLOW';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25vw;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.social-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+.social-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.social-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.social-header h2 span {
+    color: var(--pink-primary);
+}
+
+.social-header p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.social-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pink-primary), var(--pink-light));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.social-card:hover::before {
+    transform: scaleX(1);
+}
+
+.social-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-10px);
+    border-color: var(--pink-primary);
+}
+
+.social-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.social-handle {
+    font-size: 0.85rem;
+    color: var(--pink-primary);
+    margin-bottom: 1rem;
+}
+
+.social-followers {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+}
+
+.social-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.5rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.social-btn:hover {
+    background: var(--pink-primary);
+    border-color: var(--pink-primary);
+}

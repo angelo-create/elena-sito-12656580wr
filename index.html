@@ -5,3015 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elena Giordani | X-Fit Academy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --black: #000000;
-            --white: #FFFFFF;
-            --pink-primary: #E91E63;
-            --pink-light: #FF4081;
-            --pink-soft: #FCE4EC;
-            --pink-dark: #C2185B;
-            --gray-dark: #1a1a1a;
-            --gray-medium: #333333;
-            --gray-light: #666666;
-            --gray-softer: #f5f5f5;
-            --success-green: #4CAF50;
-            --error-red: #f44336;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--white);
-            color: var(--gray-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ===== NAVIGATION ===== */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1.25rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .nav.dark {
-            background: rgba(0,0,0,0.95);
-        }
-
-        .nav.dark .nav-logo,
-        .nav.dark .nav-link {
-            color: var(--white);
-        }
-
-        .nav-logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--black);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--gray-dark);
-            text-decoration: none;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--pink-primary);
-            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-link:hover {
-            color: var(--pink-primary);
-        }
-
-        .nav-cta {
-            background: var(--pink-primary);
-            color: var(--white);
-            padding: 0.875rem 2rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .nav-cta:hover {
-            background: var(--pink-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(233,30,99,0.3);
-        }
-
-        /* Mobile Hamburger */
-        .nav-hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-            padding: 10px;
-        }
-
-        .nav-hamburger span {
-            width: 25px;
-            height: 2px;
-            background: var(--black);
-            transition: all 0.3s ease;
-        }
-
-        .nav.dark .nav-hamburger span {
-            background: var(--white);
-        }
-
-        .nav-hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .nav-hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .nav-hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            background: var(--black);
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .hero-gradient {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(233,30,99,0.15) 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 8rem 4rem;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text {
-            color: var(--white);
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.25rem;
-            border: 1px solid rgba(233,30,99,0.3);
-            background: rgba(233,30,99,0.05);
-        }
-
-        .hero-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--pink-primary);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        .hero-title {
-            font-size: clamp(2.8rem, 5.5vw, 5rem);
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.04em;
-            margin-bottom: 2rem;
-        }
-
-        .hero-title span {
-            display: block;
-        }
-
-        .hero-title .accent {
-            color: var(--pink-primary);
-            font-style: italic;
-            font-weight: 600;
-        }
-
-        .hero-subtitle {
-            font-size: 1.05rem;
-            font-weight: 300;
-            line-height: 1.9;
-            color: rgba(255,255,255,0.7);
-            max-width: 480px;
-            margin-bottom: 3rem;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .hero-stat-number {
-            font-size: 2.75rem;
-            font-weight: 700;
-            color: var(--white);
-            line-height: 1;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-stat-number span {
-            color: var(--pink-primary);
-        }
-
-        .hero-stat-label {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            margin-top: 0.5rem;
-        }
-
-        .hero-cta-group {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--pink-primary);
-            color: var(--white);
-            padding: 1.25rem 2.5rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .btn-primary:hover {
-            background: var(--pink-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(233,30,99,0.4);
-        }
-
-        .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: transparent;
-            color: var(--white);
-            padding: 1.25rem 2.5rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--white);
-            background: var(--white);
-            color: var(--black);
-        }
-
-        .hero-video-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-video-box {
-            width: 100%;
-            max-width: 480px;
-            aspect-ratio: 16/9;
-            background: linear-gradient(145deg, var(--pink-primary), var(--pink-dark));
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(233,30,99,0.3);
-            position: relative;
-        }
-
-        .hero-video-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .hero-video-placeholder:hover {
-            background: rgba(0,0,0,0.1);
-        }
-
-        .hero-video-play {
-            width: 70px;
-            height: 70px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .hero-video-placeholder:hover .hero-video-play {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.1);
-        }
-
-        .hero-video-placeholder span {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--white);
-        }
-
-        /* ===== MARQUEE ===== */
-        .marquee {
-            background: var(--pink-primary);
-            padding: 1rem 0;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        .marquee-content {
-            display: inline-flex;
-            animation: marquee 40s linear infinite;
-        }
-
-        .marquee-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 0 2rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--white);
-        }
-
-        .marquee-item::after {
-            content: '✦';
-            font-size: 0.6rem;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* ===== SECTIONS ===== */
-        .section {
-            padding: 7rem 4rem;
-        }
-
-        .section-black {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .section-pink {
-            background: var(--pink-soft);
-        }
-
-        .section-gray {
-            background: var(--gray-softer);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-        }
-
-        .section-header.center {
-            text-align: center;
-        }
-
-        .section-number {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            color: var(--pink-primary);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .section-title {
-            font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-        }
-
-        .section-title .highlight {
-            color: var(--pink-primary);
-        }
-
-        .section-subtitle {
-            font-size: 1.05rem;
-            font-weight: 300;
-            color: var(--gray-light);
-            max-width: 580px;
-            margin-top: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .section-header.center .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ===== TEAM SECTION ===== */
-        .team-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 5rem;
-        }
-
-        .team-intro-text h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .team-intro-text p {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--gray-light);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .team-intro-highlight {
-            background: var(--pink-soft);
-            padding: 2rem 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .team-intro-highlight p {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--gray-dark);
-            margin: 0;
-            font-style: italic;
-        }
-
-        .team-intro-image {
-            aspect-ratio: 4/3;
-            background: linear-gradient(145deg, var(--pink-soft), var(--pink-primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .team-card {
-            background: var(--white);
-            border: 1px solid rgba(0,0,0,0.06);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .team-card:hover .team-card-image {
-            transform: scale(1.05);
-        }
-
-        .team-card-image-wrapper {
-            overflow: hidden;
-            aspect-ratio: 1;
-        }
-
-        .team-card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .team-card-content {
-            padding: 2rem;
-        }
-
-        .team-card-role {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .team-card-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.02em;
-        }
-
-        .team-card-bio {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--gray-light);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .team-card-link {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--black);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .team-card-link:hover {
-            color: var(--pink-primary);
-        }
-
-        /* ===== SPECIALIST PAGE TEMPLATE ===== */
-        .specialist-hero {
-            min-height: 70vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: var(--gray-softer);
-        }
-
-        .specialist-hero-image {
-            background: linear-gradient(145deg, var(--pink-primary), var(--pink-light));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .specialist-hero-content {
-            padding: 5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .specialist-badge {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1rem;
-            padding: 0.5rem 1rem;
-            background: var(--pink-soft);
-            width: fit-content;
-        }
-
-        .specialist-name {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.03em;
-        }
-
-        .specialist-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--gray-light);
-            margin-bottom: 2rem;
-        }
-
-        .specialist-quote {
-            font-size: 1.25rem;
-            font-weight: 400;
-            font-style: italic;
-            color: var(--gray-medium);
-            line-height: 1.6;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--pink-primary);
-            margin-bottom: 2rem;
-        }
-
-        .specialist-credentials {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .specialist-credential {
-            text-align: center;
-        }
-
-        .specialist-credential-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--pink-primary);
-            line-height: 1;
-        }
-
-        .specialist-credential-label {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gray-light);
-            margin-top: 0.25rem;
-        }
-
-        .specialist-details {
-            padding: 5rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .specialist-section {
-            margin-bottom: 4rem;
-        }
-
-        .specialist-section h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .specialist-section p {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--gray-light);
-            line-height: 1.9;
-            margin-bottom: 1rem;
-        }
-
-        .specialist-expertise {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .expertise-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--gray-softer);
-        }
-
-        .expertise-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--pink-soft);
-            color: var(--pink-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .expertise-text h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .expertise-text p {
-            font-size: 0.85rem;
-            color: var(--gray-light);
-            margin: 0;
-        }
-
-        .specialist-schedule {
-            background: var(--pink-soft);
-            padding: 2rem 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .schedule-info h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .schedule-info p {
-            font-size: 0.9rem;
-            color: var(--gray-light);
-            margin: 0;
-        }
-
-        /* ===== LETTER TO WOMEN ===== */
-        .letter-section {
-            background: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .letter-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background: var(--pink-soft);
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
-        }
-
-        .letter-grid {
-            position: relative;
-            z-index: 10;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .letter-image {
-            position: relative;
-        }
-
-        .letter-image-box {
-            aspect-ratio: 3/4;
-            background: linear-gradient(145deg, var(--pink-primary), var(--pink-dark));
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(233,30,99,0.2);
-        }
-
-        .letter-image-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .letter-image-badge {
-            position: absolute;
-            bottom: -1.5rem;
-            right: -1.5rem;
-            background: var(--white);
-            padding: 1.25rem 1.75rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            border-radius: 12px;
-        }
-
-        .letter-image-badge-number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--pink-primary);
-            line-height: 1;
-        }
-
-        .letter-image-badge-text {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gray-light);
-            margin-top: 0.25rem;
-        }
-
-        .letter-content {
-            position: relative;
-            z-index: 10;
-        }
-
-        .letter-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.3;
-        }
-
-        .letter-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .letter-subtitle {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--pink-primary);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
-
-        .letter-text {
-            font-size: 1.05rem;
-            font-weight: 400;
-            line-height: 1.9;
-            color: var(--gray-medium);
-        }
-
-        .letter-text p {
-            margin-bottom: 1.25rem;
-        }
-
-        .letter-text .highlight {
-            color: var(--pink-primary);
-            font-weight: 600;
-        }
-
-        .letter-signature {
-            margin-top: 2rem;
-        }
-
-        .letter-signature-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            font-style: italic;
-            color: var(--gray-dark);
-        }
-
-        .letter-signature-role {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--pink-primary);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-top: 0.25rem;
-        }
-
-        /* ===== METHOD E.A.S.Y. ===== */
-        .method-section {
-            background: var(--white);
-            padding: 7rem 0;
-            overflow: hidden;
-        }
-
-        .method-header {
-            padding: 0 4rem;
-            max-width: 1400px;
-            margin: 0 auto 4rem;
-        }
-
-        .method-scroll {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0 4rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-
-        .method-scroll::-webkit-scrollbar { display: none; }
-
-        .method-card {
-            flex: 0 0 380px;
-            scroll-snap-align: start;
-            background: var(--gray-softer);
-            padding: 3rem 2.5rem;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .method-card:hover {
-            background: var(--black);
-            color: var(--white);
-            transform: translateY(-10px);
-        }
-
-        .method-card:hover .method-letter { color: var(--pink-primary); }
-        .method-card:hover .method-desc { color: rgba(255,255,255,0.7); }
-
-        .method-letter {
-            font-size: 7rem;
-            font-weight: 800;
-            line-height: 1;
-            color: var(--pink-soft);
-            transition: color 0.4s ease;
-            letter-spacing: -0.05em;
-        }
-
-        .method-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            margin-top: -0.5rem;
-        }
-
-        .method-desc {
-            font-size: 0.9rem;
-            font-weight: 400;
-            line-height: 1.7;
-            color: var(--gray-light);
-            transition: color 0.4s ease;
-        }
-
-        /* ===== BOOKS SECTION ===== */
-        .books-section {
-            background: linear-gradient(135deg, var(--gray-softer) 0%, var(--white) 100%);
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .book-card {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 2rem;
-            align-items: start;
-            padding: 2.5rem;
-            background: var(--white);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .book-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.1);
-        }
-
-        .book-cover {
-            aspect-ratio: 2/3;
-            background: linear-gradient(145deg, var(--pink-soft), var(--pink-primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--white);
-            text-align: center;
-            padding: 1rem;
-            box-shadow: 0 15px 40px rgba(233,30,99,0.2);
-        }
-
-        .book-info {
-            padding-top: 0.25rem;
-        }
-
-        .book-badge {
-            display: inline-block;
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 0.35rem 0.75rem;
-            background: var(--pink-soft);
-            color: var(--pink-primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .book-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 0.35rem;
-            letter-spacing: -0.02em;
-        }
-
-        .book-subtitle {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--gray-light);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .book-desc {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--gray-medium);
-            line-height: 1.65;
-            margin-bottom: 1.25rem;
-        }
-
-        .book-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--black);
-            color: var(--white);
-            padding: 0.875rem 1.5rem;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .book-btn:hover {
-            background: var(--pink-primary);
-        }
-
-        /* ===== TRANSFORMATIONS ===== */
-        .transformations-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 180px;
-            gap: 1rem;
-        }
-
-        .transformation-card {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            background: linear-gradient(145deg, var(--pink-soft), var(--pink-primary));
-        }
-
-        .transformation-card:nth-child(1) { grid-row: span 2; }
-        .transformation-card:nth-child(4) { grid-row: span 2; }
-        .transformation-card:nth-child(6) { grid-column: span 2; }
-
-        .transformation-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--white);
-        }
-
-        .transformation-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .transformation-card:hover .transformation-overlay { opacity: 1; }
-
-        .transformation-result {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .transformation-time {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.7);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* ===== EVENTS SECTION ===== */
-        .events-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .event-card {
-            display: grid;
-            grid-template-columns: 140px 1fr auto;
-            gap: 2.5rem;
-            padding: 2.5rem;
-            background: var(--white);
-            border: 1px solid rgba(0,0,0,0.06);
-            align-items: center;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .event-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-            border-color: var(--pink-primary);
-        }
-
-        .event-date {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--pink-soft);
-        }
-
-        .event-day {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--pink-primary);
-            line-height: 1;
-        }
-
-        .event-month {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--gray-medium);
-            margin-top: 0.25rem;
-        }
-
-        .event-info h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .event-location {
-            font-size: 0.9rem;
-            color: var(--gray-light);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .event-desc {
-            font-size: 0.85rem;
-            color: var(--gray-light);
-            margin-top: 0.75rem;
-            line-height: 1.6;
-        }
-
-        .event-btn {
-            padding: 1rem 2rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            background: var(--pink-primary);
-            color: var(--white);
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .event-btn:hover {
-            background: var(--pink-dark);
-        }
-
-        /* ===== BLOG SECTION ===== */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .blog-card {
-            background: var(--white);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            overflow: hidden;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .blog-image {
-            aspect-ratio: 16/10;
-            background: linear-gradient(145deg, var(--gray-softer), var(--pink-soft));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--gray-light);
-        }
-
-        .blog-content {
-            padding: 2rem;
-        }
-
-        .blog-category {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .blog-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.02em;
-        }
-
-        .blog-excerpt {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--gray-light);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-link {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--black);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .blog-link:hover {
-            color: var(--pink-primary);
-        }
-
-        /* ===== PROGRAMS ===== */
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .program-card {
-            background: var(--white);
-            padding: 3rem 2.5rem;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            border: 1px solid rgba(0,0,0,0.06);
-        }
-
-        .program-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 4px;
-            background: var(--pink-primary);
-            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .program-card:hover::before { width: 100%; }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .program-card.featured {
-            background: var(--black);
-            color: var(--white);
-            border: none;
-            transform: scale(1.02);
-        }
-
-        .program-card.featured:hover {
-            transform: scale(1.02) translateY(-10px);
-        }
-
-        .program-badge {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 0.5rem 1rem;
-            background: var(--pink-soft);
-            color: var(--pink-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .program-card.featured .program-badge {
-            background: rgba(233,30,99,0.2);
-        }
-
-        .program-name {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .program-price {
-            font-size: 2.25rem;
-            font-weight: 800;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.02em;
-        }
-
-        .program-price span {
-            font-size: 0.9rem;
-            font-weight: 400;
-            opacity: 0.6;
-        }
-
-        .program-desc {
-            font-size: 0.9rem;
-            font-weight: 400;
-            line-height: 1.7;
-            opacity: 0.7;
-            margin-bottom: 2rem;
-        }
-
-        .program-btn {
-            width: 100%;
-            padding: 1.1rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            background: transparent;
-            border: 2px solid currentColor;
-            color: inherit;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .program-btn:hover {
-            background: var(--pink-primary);
-            border-color: var(--pink-primary);
-            color: var(--white);
-        }
-
-        .program-card.featured .program-btn {
-            border-color: var(--white);
-        }
-
-        .program-card.featured .program-btn:hover {
-            background: var(--white);
-            color: var(--black);
-        }
-
-        /* ===== CTA Section ===== */
-        .cta-section {
-            background: var(--black);
-            padding: 9rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-bg-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 18vw;
-            font-weight: 900;
-            color: rgba(255,255,255,0.03);
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 10;
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-            font-weight: 700;
-            color: var(--white);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
-        }
-
-        .cta-title span {
-            color: var(--pink-primary);
-            font-style: italic;
-        }
-
-        .cta-text {
-            font-size: 1.05rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--pink-primary);
-            color: var(--white);
-            padding: 1.4rem 3rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .cta-btn:hover {
-            background: var(--pink-light);
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(233,30,99,0.4);
-        }
-
-        /* ===== VIDEO SECTION ===== */
-        .video-section {
-            background: var(--black);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .video-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(233,30,99,0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .video-container {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 6rem 4rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .video-wrapper {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-        }
-
-        .video-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            background: linear-gradient(135deg, var(--pink-primary), var(--pink-light));
-            border-radius: 10px;
-            z-index: -1;
-        }
-
-        .video-iframe {
-            width: 100%;
-            aspect-ratio: 16/9;
-            border: none;
-            display: block;
-        }
-
-        .video-placeholder {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-
-        .video-placeholder:hover {
-            background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
-        }
-
-        .video-play-btn {
-            width: 80px;
-            height: 80px;
-            background: var(--pink-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            transition: all 0.4s ease;
-            animation: pulse-video 2s infinite;
-        }
-
-        @keyframes pulse-video {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(233,30,99,0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(233,30,99,0); }
-        }
-
-        .video-play-btn::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 20px solid white;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            margin-left: 5px;
-        }
-
-        .video-placeholder span {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .video-content {
-            color: var(--white);
-        }
-
-        .video-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(233,30,99,0.2);
-            padding: 0.5rem 1rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .video-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .video-title span {
-            color: var(--pink-primary);
-        }
-
-        .video-desc {
-            font-size: 1rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .video-stats {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .video-stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--pink-primary);
-        }
-
-        .video-stat-label {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-        }
-
-        /* ===== PRESS SECTION ===== */
-        .press-section {
-            background: var(--white);
-            overflow: hidden;
-        }
-
-        .press-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .press-logos-scroll {
-            position: relative;
-            overflow: hidden;
-            padding: 2rem 0;
-            margin-bottom: 4rem;
-        }
-
-        .press-logos-track {
-            display: flex;
-            gap: 4rem;
-            animation: scroll-logos 30s linear infinite;
-        }
-
-        @keyframes scroll-logos {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .press-logo-item {
-            flex-shrink: 0;
-            padding: 1.5rem 3rem;
-            background: var(--gray-softer);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 200px;
-            transition: all 0.4s ease;
-        }
-
-        .press-logo-item:hover {
-            background: var(--pink-soft);
-            transform: scale(1.05);
-        }
-
-        .press-logo-item span {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--gray-medium);
-            white-space: nowrap;
-        }
-
-        .press-articles {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 4rem;
-        }
-
-        .press-card {
-            background: var(--white);
-            border: 1px solid rgba(0,0,0,0.08);
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .press-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 0;
-            background: var(--pink-primary);
-            transition: height 0.4s ease;
-        }
-
-        .press-card:hover::before {
-            height: 100%;
-        }
-
-        .press-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .press-card-source {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1rem;
-        }
-
-        .press-card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            line-height: 1.4;
-            margin-bottom: 1rem;
-            color: var(--gray-dark);
-        }
-
-        .press-card-date {
-            font-size: 0.8rem;
-            color: var(--gray-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .press-card-link {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--black);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .press-card-link:hover {
-            color: var(--pink-primary);
-            gap: 1rem;
-        }
-
-        /* ===== FAQ SECTION ===== */
-        .faq-section {
-            background: linear-gradient(180deg, var(--gray-softer) 0%, var(--white) 100%);
-        }
-
-        .faq-container {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .faq-intro {
-            position: sticky;
-            top: 120px;
-            height: fit-content;
-        }
-
-        .faq-intro-badge {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1rem;
-        }
-
-        .faq-intro h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .faq-intro p {
-            font-size: 1rem;
-            color: var(--gray-light);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .faq-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--black);
-            color: var(--white);
-            padding: 1rem 2rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.4s ease;
-        }
-
-        .faq-cta:hover {
-            background: var(--pink-primary);
-            transform: translateX(10px);
-        }
-
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .faq-item {
-            background: var(--white);
-            border: 1px solid rgba(0,0,0,0.06);
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .faq-item:hover {
-            border-color: var(--pink-primary);
-            box-shadow: 0 10px 40px rgba(233,30,99,0.1);
-        }
-
-        .faq-item.active {
-            border-color: var(--pink-primary);
-            box-shadow: 0 20px 60px rgba(233,30,99,0.15);
-        }
-
-        .faq-question {
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item.active .faq-question {
-            background: var(--pink-soft);
-        }
-
-        .faq-question h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--gray-dark);
-            margin: 0;
-            flex: 1;
-            padding-right: 1rem;
-        }
-
-        .faq-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gray-softer);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--pink-primary);
-            transition: all 0.4s ease;
-            flex-shrink: 0;
-        }
-
-        .faq-item.active .faq-icon {
-            background: var(--pink-primary);
-            color: var(--white);
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .faq-answer-content {
-            padding: 0 2rem 2rem;
-            font-size: 0.95rem;
-            color: var(--gray-light);
-            line-height: 1.8;
-        }
-
-        /* ===== SOCIAL SECTION ===== */
-        .social-section {
-            background: var(--black);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-section::before {
-            content: 'FOLLOW';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 25vw;
-            font-weight: 900;
-            color: rgba(255,255,255,0.02);
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        .social-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 6rem 4rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .social-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .social-header h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .social-header h2 span {
-            color: var(--pink-primary);
-        }
-
-        .social-header p {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.6);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .social-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--pink-primary), var(--pink-light));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .social-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .social-card:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-10px);
-            border-color: var(--pink-primary);
-        }
-
-        .social-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-        }
-
-        .social-handle {
-            font-size: 0.85rem;
-            color: var(--pink-primary);
-            margin-bottom: 1rem;
-        }
-
-        .social-followers {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 0.25rem;
-        }
-
-        .social-label {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 1.5rem;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.3);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .social-btn:hover {
-            background: var(--pink-primary);
-            border-color: var(--pink-primary);
-        }
-        .footer {
-            background: var(--gray-dark);
-            color: var(--white);
-            padding: 5rem 4rem 2.5rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            max-width: 1400px;
-            margin: 0 auto 4rem;
-        }
-
-        .footer-brand p {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.8;
-            margin-top: 1.5rem;
-            max-width: 300px;
-        }
-
-        .footer-logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .footer-col h4 {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-col a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .footer-col a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.4);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-social a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--pink-primary);
-        }
-
-        /* ===== MODAL ===== */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.9);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--white);
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 40px;
-            height: 40px;
-            background: var(--black);
-            color: var(--white);
-            border: none;
-            cursor: pointer;
-            font-size: 1.25rem;
-            z-index: 10;
-            transition: background 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: var(--pink-primary);
-        }
-
-        /* ===== HOW IT WORKS ===== */
-        .how-section {
-            background: var(--white);
-        }
-
-        .how-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .how-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .how-timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .how-timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--pink-soft), var(--pink-primary), var(--pink-soft));
-        }
-
-        .how-step {
-            display: grid;
-            grid-template-columns: 1fr 80px 1fr;
-            gap: 2rem;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .how-step:nth-child(odd) .how-step-content {
-            text-align: right;
-        }
-
-        .how-step:nth-child(even) .how-step-content {
-            grid-column: 3;
-        }
-
-        .how-step:nth-child(even) .how-step-visual {
-            grid-column: 1;
-            grid-row: 1;
-        }
-
-        .how-step-number {
-            width: 80px;
-            height: 80px;
-            background: var(--white);
-            border: 3px solid var(--pink-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--pink-primary);
-            box-shadow: 0 5px 20px rgba(233,30,99,0.15);
-            position: relative;
-            z-index: 5;
-        }
-
-        .how-step-content {
-            padding: 1.5rem;
-        }
-
-        .how-step-badge {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .how-step-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-
-        .how-step-desc {
-            font-size: 0.95rem;
-            color: var(--gray-light);
-            line-height: 1.7;
-        }
-
-        .how-step-visual {
-            background: var(--pink-soft);
-            border-radius: 16px;
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 180px;
-        }
-
-        .how-step-icon {
-            font-size: 4rem;
-        }
-
-        .how-cta-box {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2.5rem;
-            background: var(--pink-soft);
-            border-radius: 16px;
-        }
-
-        .how-cta-box h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .how-cta-box p {
-            color: var(--gray-light);
-            margin-bottom: 1.5rem;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ===== TRANSFORMATIONS ===== */
-        .transformations-section {
-            background: var(--gray-softer);
-        }
-
-        .transformations-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .transformation-card {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            background: var(--white);
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .transformation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(233,30,99,0.2);
-        }
-
-        .transformation-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .transformations-cta {
-            text-align: center;
-            margin-top: 2.5rem;
-        }
-
-        .btn-gallery {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--pink-primary);
-            color: var(--white);
-            padding: 1rem 2rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-gallery:hover {
-            background: var(--pink-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(233,30,99,0.3);
-        }
-
-        .btn-gallery-count {
-            background: rgba(255,255,255,0.2);
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        .transformations-stats {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 16px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .transformations-stat {
-            text-align: center;
-        }
-
-        .transformations-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--pink-primary);
-        }
-
-        .transformations-stat-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gray-light);
-            margin-top: 0.25rem;
-        }
-
-        /* ===== GALLERY MODAL ===== */
-        .gallery-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--white);
-            z-index: 2000;
-            overflow-y: auto;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-modal.active {
-            transform: translateY(0);
-        }
-
-        .gallery-modal-header {
-            position: sticky;
-            top: 0;
-            background: var(--white);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--gray-softer);
-            z-index: 10;
-        }
-
-        .gallery-modal-header h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .gallery-modal-close {
-            width: 40px;
-            height: 40px;
-            background: var(--gray-softer);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-modal-close:hover {
-            background: var(--pink-primary);
-            color: var(--white);
-        }
-
-        .gallery-modal-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.75rem;
-            padding: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-thumb {
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-thumb:hover {
-            transform: scale(1.02);
-        }
-
-        .gallery-thumb img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ===== LIGHTBOX ===== */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .lightbox.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.1);
-            border: none;
-            border-radius: 50%;
-            color: var(--white);
-            font-size: 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .lightbox-close:hover {
-            background: var(--pink-primary);
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.1);
-            border: none;
-            border-radius: 50%;
-            color: var(--white);
-            font-size: 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .lightbox-nav:hover {
-            background: var(--pink-primary);
-        }
-
-        .lightbox-prev {
-            left: 1.5rem;
-        }
-
-        .lightbox-next {
-            right: 1.5rem;
-        }
-
-        .lightbox-image {
-            max-width: 90%;
-            max-height: 90vh;
-            object-fit: contain;
-        }
-
-        /* ===== WHATSAPP FLOAT ===== */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 100px;
-            right: 25px;
-            width: 55px;
-            height: 55px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-float svg {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1200px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-video-container {
-                max-width: 100%;
-                margin: 0 auto;
-            }
-
-            .hero-stats { justify-content: center; }
-            .hero-cta-group { justify-content: center; }
-
-            .letter-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .letter-image {
-                max-width: 350px;
-                margin: 0 auto;
-            }
-
-            .letter-content {
-                text-align: center;
-            }
-
-            .letter-text {
-                text-align: left;
-            }
-
-            .team-intro {
-                grid-template-columns: 1fr;
-            }
-
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .specialist-hero {
-                grid-template-columns: 1fr;
-            }
-
-            .books-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .book-card {
-                max-width: 550px;
-                margin: 0 auto;
-            }
-
-            .programs-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
-                margin: 0 auto;
-            }
-
-            .program-card.featured { transform: none; }
-
-            .transformations-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .gallery-modal-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .how-timeline::before {
-                left: 40px;
-            }
-
-            .how-step {
-                grid-template-columns: 80px 1fr;
-                gap: 1.5rem;
-            }
-
-            .how-step-content {
-                text-align: left !important;
-            }
-
-            .how-step-visual {
-                display: none;
-            }
-
-            .how-step:nth-child(even) .how-step-content {
-                grid-column: 2;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .event-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .event-date {
-                max-width: 140px;
-                margin: 0 auto;
-            }
-
-            .video-container {
-                grid-template-columns: 1fr;
-            }
-
-            .press-articles {
-                grid-template-columns: 1fr;
-            }
-
-            .faq-container {
-                grid-template-columns: 1fr;
-            }
-
-            .faq-intro {
-                position: relative;
-                top: 0;
-            }
-
-            .social-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: var(--white);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                transform: translateX(100%);
-                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-                z-index: 1000;
-            }
-
-            .nav-menu.active {
-                transform: translateX(0);
-            }
-
-            .nav-menu .nav-link {
-                font-size: 1.25rem;
-                color: var(--black);
-            }
-
-            .nav-menu .nav-cta {
-                margin-top: 1rem;
-                padding: 1rem 2.5rem;
-                font-size: 0.85rem;
-            }
-
-            .section {
-                padding: 4rem 1.5rem;
-            }
-
-            .hero-content {
-                padding: 6rem 1.5rem 4rem;
-            }
-
-            .hero-video-container {
-                max-width: 100%;
-                margin: 0 auto 2rem;
-            }
-
-            .hero-video-box {
-                border-radius: 12px;
-            }
-
-            .hero-video-play {
-                width: 50px;
-                height: 50px;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .hero-stats {
-                flex-wrap: wrap;
-                gap: 1.5rem;
-            }
-
-            .hero-stat-number {
-                font-size: 2rem;
-            }
-
-            .hero-cta-group {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .letter-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .letter-image {
-                max-width: 280px;
-                margin: 0 auto;
-            }
-
-            .letter-image-badge {
-                right: 0;
-                bottom: -1rem;
-            }
-
-            .letter-title {
-                font-size: 2rem;
-            }
-
-            .letter-text {
-                font-size: 0.95rem;
-            }
-
-            .btn-primary, .btn-outline {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-                padding: 1rem 2rem;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .specialist-hero-content {
-                padding: 3rem 1.5rem;
-            }
-
-            .specialist-name {
-                font-size: 2rem;
-            }
-
-            .specialist-expertise {
-                grid-template-columns: 1fr;
-            }
-
-            .method-card {
-                flex: 0 0 280px;
-            }
-
-            .book-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .book-cover {
-                max-width: 160px;
-                margin: 0 auto;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-brand p { max-width: none; }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .video-container {
-                padding: 4rem 1.5rem;
-            }
-
-            .video-title {
-                font-size: 1.75rem;
-            }
-
-            .video-stats {
-                gap: 2rem;
-            }
-
-            .social-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .social-header h2 {
-                font-size: 2rem;
-            }
-
-            .faq-intro h2 {
-                font-size: 1.75rem;
-            }
-
-            .press-articles {
-                padding: 0 1.5rem;
-            }
-
-            .transformations-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.75rem;
-            }
-
-            .transformations-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .gallery-modal-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.5rem;
-                padding: 1rem;
-            }
-
-            .lightbox-nav {
-                width: 45px;
-                height: 45px;
-                font-size: 1.5rem;
-            }
-
-            .lightbox-prev { left: 0.5rem; }
-            .lightbox-next { right: 0.5rem; }
-
-            .how-timeline::before {
-                left: 30px;
-            }
-
-            .how-step {
-                grid-template-columns: 60px 1fr;
-                gap: 1rem;
-            }
-
-            .how-step-visual {
-                display: none;
-            }
-
-            .how-step:nth-child(even) .how-step-content {
-                grid-column: 2;
-            }
-
-            .how-step-number {
-                width: 60px;
-                height: 60px;
-                font-size: 1.25rem;
-            }
-        }
-
-        /* ===== PROTOTYPE BADGE ===== */
-        .prototype-badge {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--pink-primary);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            z-index: 9999;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
@@ -3050,17 +42,17 @@
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-badge">
-                    X-Fit Academy • 100% Live da Casa
+                    X-Fit Academy - 100% Live da Casa
                 </div>
                 <h1 class="hero-title">
-                    <span>Non è una dieta.</span>
-                    <span>Non è un allenamento.</span>
-                    <span class="accent">È un cambio di vita.</span>
+                    <span>Non e una dieta.</span>
+                    <span>Non e un allenamento.</span>
+                    <span class="accent">E un cambio di vita.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Il primo percorso in Italia dedicato esclusivamente alle donne. 
-                    Allenamento, alimentazione e supporto emotivo. 
-                    Perché si cambia dentro per cambiare fuori.
+                    Il primo percorso in Italia dedicato esclusivamente alle donne.
+                    Allenamento, alimentazione e supporto emotivo.
+                    Perche si cambia dentro per cambiare fuori.
                 </p>
                 <div class="hero-stats">
                     <div class="hero-stat">
@@ -3079,7 +71,7 @@
                 <div class="hero-cta-group">
                     <a href="#percorsi" class="btn-primary">
                         Scopri i Percorsi
-                        <span>→</span>
+                        <span>&rarr;</span>
                     </a>
                     <a href="#metodo" class="btn-outline">
                         Il Metodo E.A.S.Y.
@@ -3135,29 +127,29 @@
                 </div>
             </div>
             <div class="letter-content">
-                <div class="letter-icon">✉</div>
+                <div class="letter-icon">&#9993;</div>
                 <h2 class="letter-title">Cara Donna</h2>
                 <p class="letter-subtitle">Una lettera per te, da Elena</p>
                 <div class="letter-text">
                     <p>
-                        So cosa stai vivendo. So cosa significa guardarti allo specchio e non riconoscerti più. 
-                        So cosa vuol dire aver provato mille diete, mille allenamenti, mille promesse... 
+                        So cosa stai vivendo. So cosa significa guardarti allo specchio e non riconoscerti piu.
+                        So cosa vuol dire aver provato mille diete, mille allenamenti, mille promesse...
                         per poi tornare sempre al punto di partenza.
                     </p>
                     <p>
-                        So cosa significa mettere tutti prima di te: i figli, il lavoro, il partner, la casa. 
-                        E alla fine della giornata non avere più niente per te stessa. 
-                        <span class="highlight">Lo so perché ci sono passata anche io.</span>
+                        So cosa significa mettere tutti prima di te: i figli, il lavoro, il partner, la casa.
+                        E alla fine della giornata non avere piu niente per te stessa.
+                        <span class="highlight">Lo so perche ci sono passata anche io.</span>
                     </p>
                     <p>
-                        A 19 anni mi hanno diagnosticato un tumore. A 38 ho lasciato un lavoro sicuro 
-                        per inseguire un sogno. Ho capito che la mia salute non era negoziabile. 
+                        A 19 anni mi hanno diagnosticato un tumore. A 38 ho lasciato un lavoro sicuro
+                        per inseguire un sogno. Ho capito che la mia salute non era negoziabile.
                         E ho deciso che avrei aiutato altre donne a capire la stessa cosa.
                     </p>
                     <p>
-                        Non ti prometto miracoli. Non ti dico che in un mese cambierai la tua vita. 
-                        <span class="highlight">Ti dico che se decidi di lavorare su te stessa, 
-                        non tornerai mai più quella di prima.</span>
+                        Non ti prometto miracoli. Non ti dico che in un mese cambierai la tua vita.
+                        <span class="highlight">Ti dico che se decidi di lavorare su te stessa,
+                        non tornerai mai piu quella di prima.</span>
                     </p>
                     <p>
                         <span class="highlight">Sei pronta a fare il primo passo?</span>
@@ -3179,13 +171,13 @@
                     <span class="section-number">IL TEAM MEDICO</span>
                     <h2>Non sei seguita solo da me.<br>Hai un intero <span class="highlight">team di specialisti</span>.</h2>
                     <p>
-                        Ogni martedì all'ora di pranzo, le nostre donne hanno accesso esclusivo 
-                        a incontri con medici specialisti. Possono fare domande, chiedere chiarimenti 
+                        Ogni martedi all'ora di pranzo, le nostre donne hanno accesso esclusivo
+                        a incontri con medici specialisti. Possono fare domande, chiedere chiarimenti
                         e ricevere supporto su tematiche specifiche.
                     </p>
                     <p>
-                        X-Fit Academy non è un pacchetto fitness online. È un sistema completo 
-                        che ha l'obiettivo di fare divulgazione ed educazione, rendendo le donne 
+                        X-Fit Academy non e un pacchetto fitness online. E un sistema completo
+                        che ha l'obiettivo di fare divulgazione ed educazione, rendendo le donne
                         finalmente padrone della loro vita.
                     </p>
                     <div class="team-intro-highlight">
@@ -3207,10 +199,10 @@
                         <span class="team-card-role">Medico Oncologo</span>
                         <h3 class="team-card-name">Dott.ssa Francesca Cuppone</h3>
                         <p class="team-card-bio">
-                            Dirigente AIFA, specializzata presso La Sapienza e il Memorial Sloan Kettering di New York. 
+                            Dirigente AIFA, specializzata presso La Sapienza e il Memorial Sloan Kettering di New York.
                             Esperta in prevenzione, farmacologia e ricerca clinica oncologica.
                         </p>
-                        <a href="#" class="team-card-link">Scopri di più →</a>
+                        <a href="#" class="team-card-link">Scopri di piu &rarr;</a>
                     </div>
                 </div>
 
@@ -3223,10 +215,10 @@
                         <span class="team-card-role">Genetista</span>
                         <h3 class="team-card-name">Dott. Alessandro Lisi</h3>
                         <p class="team-card-bio">
-                            Ricercatore alla University of Southern California. 
+                            Ricercatore alla University of Southern California.
                             Premiato all'ASHG 2024, specializzato in genomica e salute femminile.
                         </p>
-                        <a href="#" class="team-card-link">Scopri di più →</a>
+                        <a href="#" class="team-card-link">Scopri di piu &rarr;</a>
                     </div>
                 </div>
 
@@ -3239,10 +231,10 @@
                         <span class="team-card-role">Psicoterapeuta</span>
                         <h3 class="team-card-name">Dott.ssa Floriana Mariotti</h3>
                         <p class="team-card-bio">
-                            Psicologa, Psicoterapeuta e Sessuologa Clinica. 
+                            Psicologa, Psicoterapeuta e Sessuologa Clinica.
                             Specializzata nel lavoro con le donne: desiderio, regolazione emotiva e relazione con il corpo.
                         </p>
-                        <a href="#" class="team-card-link">Scopri di più →</a>
+                        <a href="#" class="team-card-link">Scopri di piu &rarr;</a>
                     </div>
                 </div>
 
@@ -3255,10 +247,10 @@
                         <span class="team-card-role">Fisioterapista</span>
                         <h3 class="team-card-name">Dott. Luca Cara</h3>
                         <p class="team-card-bio">
-                            Specializzato in riabilitazione ortopedica e diastasi addominale. 
+                            Specializzato in riabilitazione ortopedica e diastasi addominale.
                             Esperto in recupero funzionale per post-gravidanza e menopausa.
                         </p>
-                        <a href="#" class="team-card-link">Scopri di più →</a>
+                        <a href="#" class="team-card-link">Scopri di piu &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -3268,8 +260,8 @@
     <!-- SPECIALIST MODAL -->
     <div class="modal-overlay" id="specialistModal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeSpecialistModal()">×</button>
-            
+            <button class="modal-close" onclick="closeSpecialistModal()">&times;</button>
+
             <div class="specialist-hero">
                 <div class="specialist-hero-image">
                     [Foto Professionista<br>Full Size]
@@ -3279,8 +271,8 @@
                     <h1 class="specialist-name" id="modalName">Dott.ssa [Nome Cognome]</h1>
                     <p class="specialist-title" id="modalTitle">Psicologa clinica e del benessere</p>
                     <blockquote class="specialist-quote" id="modalQuote">
-                        "Il cambiamento fisico inizia sempre dalla mente. 
-                        Il mio ruolo è accompagnare ogni donna a scoprire la forza che ha dentro."
+                        "Il cambiamento fisico inizia sempre dalla mente.
+                        Il mio ruolo e accompagnare ogni donna a scoprire la forza che ha dentro."
                     </blockquote>
                     <div class="specialist-credentials">
                         <div class="specialist-credential">
@@ -3297,9 +289,9 @@
 
             <div class="specialist-details">
                 <div class="specialist-section">
-                    <h3>Chi è</h3>
+                    <h3>Chi e</h3>
                     <p id="modalBio">
-                        [Biografia completa del professionista. Formazione, esperienza, 
+                        [Biografia completa del professionista. Formazione, esperienza,
                         specializzazioni e approccio al lavoro con le donne dell'Academy.]
                     </p>
                 </div>
@@ -3308,28 +300,28 @@
                     <h3>Aree di competenza</h3>
                     <div class="specialist-expertise" id="modalExpertise">
                         <div class="expertise-item">
-                            <div class="expertise-icon">✓</div>
+                            <div class="expertise-icon">&#10003;</div>
                             <div class="expertise-text">
                                 <h4>Area 1</h4>
                                 <p>Descrizione dell'area di competenza</p>
                             </div>
                         </div>
                         <div class="expertise-item">
-                            <div class="expertise-icon">✓</div>
+                            <div class="expertise-icon">&#10003;</div>
                             <div class="expertise-text">
                                 <h4>Area 2</h4>
                                 <p>Descrizione dell'area di competenza</p>
                             </div>
                         </div>
                         <div class="expertise-item">
-                            <div class="expertise-icon">✓</div>
+                            <div class="expertise-icon">&#10003;</div>
                             <div class="expertise-text">
                                 <h4>Area 3</h4>
                                 <p>Descrizione dell'area di competenza</p>
                             </div>
                         </div>
                         <div class="expertise-item">
-                            <div class="expertise-icon">✓</div>
+                            <div class="expertise-icon">&#10003;</div>
                             <div class="expertise-text">
                                 <h4>Area 4</h4>
                                 <p>Descrizione dell'area di competenza</p>
@@ -3341,11 +333,11 @@
                 <div class="specialist-schedule">
                     <div class="schedule-info">
                         <h4>Quando lo trovi in Academy</h4>
-                        <p>Ogni martedì alle 13:00 — Sessione Q&A con le iscritte</p>
+                        <p>Ogni martedi alle 13:00 - Sessione Q&A con le iscritte</p>
                     </div>
                     <a href="#percorsi" class="btn-primary" onclick="closeSpecialistModal()">
                         Entra in Academy
-                        <span>→</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
             </div>
@@ -3358,8 +350,8 @@
             <span class="section-number">IL METODO</span>
             <h2 class="section-title">E.A.S.Y.</h2>
             <p class="section-subtitle">
-                4 pilastri fondamentali per una trasformazione definitiva. 
-                Non è teoria, è pratica testata su oltre 2300 donne.
+                4 pilastri fondamentali per una trasformazione definitiva.
+                Non e teoria, e pratica testata su oltre 2300 donne.
             </p>
         </div>
         <div class="method-scroll">
@@ -3367,15 +359,15 @@
                 <div class="method-letter">E</div>
                 <h3 class="method-name">Esercizio</h3>
                 <p class="method-desc">
-                    Niente video pre-registrati. Sessioni LIVE dove Elena ti vede, 
-                    ti corregge e ti motiva in tempo reale. L'intensità cresce con te.
+                    Niente video pre-registrati. Sessioni LIVE dove Elena ti vede,
+                    ti corregge e ti motiva in tempo reale. L'intensita cresce con te.
                 </p>
             </div>
             <div class="method-card">
                 <div class="method-letter">A</div>
                 <h3 class="method-name">Alimentazione</h3>
                 <p class="method-desc">
-                    Non ti do una dieta da 3 mesi. Ti insegno a mangiare per tutta la vita. 
+                    Non ti do una dieta da 3 mesi. Ti insegno a mangiare per tutta la vita.
                     Senza pesare nulla, senza rinunce assurde, senza sensi di colpa.
                 </p>
             </div>
@@ -3383,7 +375,7 @@
                 <div class="method-letter">S</div>
                 <h3 class="method-name">Supporto</h3>
                 <p class="method-desc">
-                    Il giorno 3 è quando l'85% delle persone molla. Noi siamo lì. 
+                    Il giorno 3 e quando l'85% delle persone molla. Noi siamo li.
                     Community, gruppo WhatsApp, supporto psicologico quando serve.
                 </p>
             </div>
@@ -3391,8 +383,8 @@
                 <div class="method-letter">Y</div>
                 <h3 class="method-name">You</h3>
                 <p class="method-desc">
-                    La tua salute non è negoziabile. Non è egoismo prenderti cura di te. 
-                    È responsabilità. Impari a mettere te stessa al primo posto.
+                    La tua salute non e negoziabile. Non e egoismo prenderti cura di te.
+                    E responsabilita. Impari a mettere te stessa al primo posto.
                 </p>
             </div>
         </div>
@@ -3416,25 +408,25 @@
                             <span class="how-step-badge">Step 01</span>
                             <h3 class="how-step-title">Prima ti ascoltiamo</h3>
                             <p class="how-step-desc">
-                                Tutto inizia con una chiamata gratuita. Non è una vendita: vogliamo capire chi sei, da dove parti e cosa vuoi ottenere.
+                                Tutto inizia con una chiamata gratuita. Non e una vendita: vogliamo capire chi sei, da dove parti e cosa vuoi ottenere.
                             </p>
                         </div>
                         <div class="how-step-number">01</div>
                         <div class="how-step-visual">
-                            <div class="how-step-icon">🎯</div>
+                            <div class="how-step-icon">&#127919;</div>
                         </div>
                     </div>
 
                     <div class="how-step">
                         <div class="how-step-visual">
-                            <div class="how-step-icon">📊</div>
+                            <div class="how-step-icon">&#128202;</div>
                         </div>
                         <div class="how-step-number">02</div>
                         <div class="how-step-content">
                             <span class="how-step-badge">Step 02</span>
                             <h3 class="how-step-title">Poi analizziamo</h3>
                             <p class="how-step-desc">
-                                Valutiamo il percorso necessario: quanto tempo serve, quale intensità, quale supporto. Ogni donna è diversa.
+                                Valutiamo il percorso necessario: quanto tempo serve, quale intensita, quale supporto. Ogni donna e diversa.
                             </p>
                         </div>
                     </div>
@@ -3449,7 +441,7 @@
                         </div>
                         <div class="how-step-number">03</div>
                         <div class="how-step-visual">
-                            <div class="how-step-icon">✨</div>
+                            <div class="how-step-icon">&#10024;</div>
                         </div>
                     </div>
                 </div>
@@ -3457,7 +449,7 @@
                 <div class="how-cta-box">
                     <h3>Pronta a fare il primo passo?</h3>
                     <p>Prenota una chiamata gratuita. Zero pressione, solo chiarezza.</p>
-                    <a href="#" class="btn-primary">Prenota la tua chiamata <span>→</span></a>
+                    <a href="#" class="btn-primary">Prenota la tua chiamata <span>&rarr;</span></a>
                 </div>
             </div>
         </div>
@@ -3469,7 +461,7 @@
             <div class="section-header center">
                 <span class="section-number">RISULTATI REALI</span>
                 <h2 class="section-title">Oltre 2300 <span class="highlight">trasformazioni</span></h2>
-                <p class="section-subtitle">Non foto stock. Donne vere che hanno deciso di investire su sé stesse.</p>
+                <p class="section-subtitle">Non foto stock. Donne vere che hanno deciso di investire su se stesse.</p>
             </div>
 
             <div class="transformations-grid">
@@ -3510,7 +502,7 @@
                     <div class="transformations-stat-label">Soddisfatte</div>
                 </div>
                 <div class="transformations-stat">
-                    <div class="transformations-stat-number">4.9★</div>
+                    <div class="transformations-stat-number">4.9&#9733;</div>
                     <div class="transformations-stat-label">Rating</div>
                 </div>
             </div>
@@ -3521,7 +513,7 @@
     <div class="gallery-modal" id="galleryModal">
         <div class="gallery-modal-header">
             <h3>Tutte le trasformazioni</h3>
-            <button class="gallery-modal-close" onclick="closeGalleryModal()">×</button>
+            <button class="gallery-modal-close" onclick="closeGalleryModal()">&times;</button>
         </div>
         <div class="gallery-modal-grid" id="galleryGrid">
             <!-- Populated by JS -->
@@ -3530,10 +522,10 @@
 
     <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" onclick="closeLightbox()">×</button>
-        <button class="lightbox-nav lightbox-prev" onclick="showPrevImage()">‹</button>
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="showPrevImage()">&#8249;</button>
         <img class="lightbox-image" id="lightboxImage" src="" alt="Trasformazione">
-        <button class="lightbox-nav lightbox-next" onclick="showNextImage()">›</button>
+        <button class="lightbox-nav lightbox-next" onclick="showNextImage()">&#8250;</button>
     </div>
 
     <!-- BOOKS SECTION -->
@@ -3545,7 +537,7 @@
                     Le guide per la tua <span class="highlight">trasformazione</span>
                 </h2>
                 <p class="section-subtitle">
-                    Due libri scritti per accompagnarti passo dopo passo 
+                    Due libri scritti per accompagnarti passo dopo passo
                     nel tuo percorso verso il benessere.
                 </p>
             </div>
@@ -3555,16 +547,16 @@
                         [Copertina<br>"Nel Corpo Che Vuoi"]
                     </div>
                     <div class="book-info">
-                        <span class="book-badge">Primo Libro • 2023</span>
+                        <span class="book-badge">Primo Libro - 2023</span>
                         <h3 class="book-title">Nel Corpo Che Vuoi</h3>
                         <p class="book-subtitle">Riscopri il tuo Benessere in 12 Settimane</p>
                         <p class="book-desc">
-                            Un manuale pratico, concreto, da usare anche come agenda. 
-                            Ti guiderò lungo un percorso di 12 settimane per sviluppare 
-                            una mentalità inarrestabile.
+                            Un manuale pratico, concreto, da usare anche come agenda.
+                            Ti guidero lungo un percorso di 12 settimane per sviluppare
+                            una mentalita inarrestabile.
                         </p>
                         <a href="https://www.amazon.it/Nel-Corpo-Che-Vuoi-Benessere/dp/B0C2SQ8R82" target="_blank" class="book-btn">
-                            Acquista su Amazon →
+                            Acquista su Amazon &rarr;
                         </a>
                     </div>
                 </div>
@@ -3573,16 +565,16 @@
                         [Copertina<br>"Il Primo Passo"]
                     </div>
                     <div class="book-info">
-                        <span class="book-badge">Nuovo • 2025</span>
+                        <span class="book-badge">Nuovo - 2025</span>
                         <h3 class="book-title">Il Primo Passo</h3>
                         <p class="book-subtitle">Come riscoprirsi Donne Inarrestabili in 7 giorni</p>
                         <p class="book-desc">
-                            Storie, testimonianze ed esercizi pratici per affrontare 
-                            ogni cambiamento. In 7 giorni imparerai a sviluppare 
-                            una mentalità inarrestabile.
+                            Storie, testimonianze ed esercizi pratici per affrontare
+                            ogni cambiamento. In 7 giorni imparerai a sviluppare
+                            una mentalita inarrestabile.
                         </p>
                         <a href="https://www.amazon.it/Primo-Passo-riscoprirsi-Inarrestabili-giorni/dp/B0F7KT2ZRV" target="_blank" class="book-btn">
-                            Acquista su Amazon →
+                            Acquista su Amazon &rarr;
                         </a>
                     </div>
                 </div>
@@ -3599,7 +591,7 @@
                     Incontriamoci <span class="highlight">dal vivo</span>
                 </h2>
                 <p class="section-subtitle">
-                    Non solo lezioni online. Organizziamo eventi fisici 
+                    Non solo lezioni online. Organizziamo eventi fisici
                     per abbracciarci, conoscerci e crescere insieme.
                 </p>
             </div>
@@ -3611,13 +603,13 @@
                     </div>
                     <div class="event-info">
                         <h3>Nel Corpo Che Vuoi Live 2026</h3>
-                        <p class="event-location">📍 Bellaria Igea Marina (RN)</p>
+                        <p class="event-location">&#128205; Bellaria Igea Marina (RN)</p>
                         <p class="event-desc">
-                            3 giorni di immersione nel fitness, mindset e nutrizione al femminile. 
+                            3 giorni di immersione nel fitness, mindset e nutrizione al femminile.
                             Allenamenti, workshop, masterclass e tanto supporto.
                         </p>
                     </div>
-                    <a href="#" class="event-btn">Scopri di più</a>
+                    <a href="#" class="event-btn">Scopri di piu</a>
                 </div>
                 <div class="event-card">
                     <div class="event-date">
@@ -3626,9 +618,9 @@
                     </div>
                     <div class="event-info">
                         <h3>Escape Weekend</h3>
-                        <p class="event-location">📍 Location esclusiva</p>
+                        <p class="event-location">&#128205; Location esclusiva</p>
                         <p class="event-desc">
-                            Un weekend di fuga dalla routine per ricaricarti, 
+                            Un weekend di fuga dalla routine per ricaricarti,
                             allenarti e connetterti con le altre Inarrestabili.
                         </p>
                     </div>
@@ -3654,22 +646,22 @@
                         <span class="blog-category">Alimentazione</span>
                         <h3 class="blog-title">Come gestire la fame emotiva senza sensi di colpa</h3>
                         <p class="blog-excerpt">
-                            La fame emotiva non è il nemico. È un segnale. 
+                            La fame emotiva non e il nemico. E un segnale.
                             Impara a riconoscerla e a rispondere nel modo giusto.
                         </p>
-                        <a href="#" class="blog-link">Leggi l'articolo →</a>
+                        <a href="#" class="blog-link">Leggi l'articolo &rarr;</a>
                     </div>
                 </article>
                 <article class="blog-card">
                     <div class="blog-image">[Immagine Articolo]</div>
                     <div class="blog-content">
                         <span class="blog-category">Mindset</span>
-                        <h3 class="blog-title">Perché l'85% delle persone molla al terzo giorno</h3>
+                        <h3 class="blog-title">Perche l'85% delle persone molla al terzo giorno</h3>
                         <p class="blog-excerpt">
-                            Il giorno 3 è il momento critico. Ecco cosa succede 
+                            Il giorno 3 e il momento critico. Ecco cosa succede
                             nel tuo cervello e come superarlo.
                         </p>
-                        <a href="#" class="blog-link">Leggi l'articolo →</a>
+                        <a href="#" class="blog-link">Leggi l'articolo &rarr;</a>
                     </div>
                 </article>
                 <article class="blog-card">
@@ -3678,10 +670,10 @@
                         <span class="blog-category">Allenamento</span>
                         <h3 class="blog-title">Allenarsi dopo i 40: cosa cambia davvero</h3>
                         <p class="blog-excerpt">
-                            Il tuo corpo cambia, il tuo allenamento deve adattarsi. 
+                            Il tuo corpo cambia, il tuo allenamento deve adattarsi.
                             Ecco come farlo nel modo giusto.
                         </p>
-                        <a href="#" class="blog-link">Leggi l'articolo →</a>
+                        <a href="#" class="blog-link">Leggi l'articolo &rarr;</a>
                     </div>
                 </article>
             </div>
@@ -3701,9 +693,9 @@
                 <div class="program-card">
                     <span class="program-badge">Entry Point</span>
                     <h3 class="program-name">Il Primo Passo</h3>
-                    <div class="program-price">€37 <span>una tantum</span></div>
+                    <div class="program-price">&euro;37 <span>una tantum</span></div>
                     <p class="program-desc">
-                        La Sfida 7 Giorni per iniziare la tua trasformazione. 
+                        La Sfida 7 Giorni per iniziare la tua trasformazione.
                         Scopri il metodo E.A.S.Y. e senti i primi risultati.
                     </p>
                     <button class="program-btn">Inizia la Sfida</button>
@@ -3713,7 +705,7 @@
                     <h3 class="program-name">X-Fit Academy</h3>
                     <div class="program-price">Su misura</div>
                     <p class="program-desc">
-                        12 mesi di trasformazione completa. Allenamenti live, 
+                        12 mesi di trasformazione completa. Allenamenti live,
                         alimentazione, supporto e team medico. Per sempre.
                     </p>
                     <button class="program-btn">Candidati Ora</button>
@@ -3723,10 +715,10 @@
                     <h3 class="program-name">Club Inarrestabili</h3>
                     <div class="program-price">Membership</div>
                     <p class="program-desc">
-                        La community esclusiva per chi ha completato l'Academy. 
+                        La community esclusiva per chi ha completato l'Academy.
                         Mantieni i risultati per sempre.
                     </p>
-                    <button class="program-btn">Scopri di più</button>
+                    <button class="program-btn">Scopri di piu</button>
                 </div>
             </div>
         </div>
@@ -3736,7 +728,7 @@
     <section class="video-section">
         <div class="video-container">
             <div class="video-wrapper">
-                <iframe 
+                <iframe
                     class="video-iframe"
                     src="https://stream24.ilsole24ore.com/video/italia/x-fit-academy-community-il-benessere-donne-100percento-live-web/AFwDx3xD?embed=true"
                     allowfullscreen
@@ -3745,15 +737,15 @@
             </div>
             <div class="video-content">
                 <div class="video-badge">
-                    <span>📺</span> Come visto su
+                    <span>&#128250;</span> Come visto su
                 </div>
                 <h2 class="video-title">
                     Elena Giordani su<br>
                     <span>Il Sole 24 Ore</span>
                 </h2>
                 <p class="video-desc">
-                    "X-Fit Academy: la community per il benessere delle donne, 100% live sul web" 
-                    — Un'intervista esclusiva che racconta la visione, il metodo e l'impatto 
+                    "X-Fit Academy: la community per il benessere delle donne, 100% live sul web"
+                    - Un'intervista esclusiva che racconta la visione, il metodo e l'impatto
                     dell'Academy sulla vita di migliaia di donne.
                 </p>
                 <div class="video-stats">
@@ -3780,7 +772,7 @@
                 </h2>
             </div>
         </div>
-        
+
         <!-- Scrolling Logos -->
         <div class="press-logos-scroll">
             <div class="press-logos-track">
@@ -3807,43 +799,43 @@
             <article class="press-card" onclick="window.open('https://stream24.ilsole24ore.com/video/italia/x-fit-academy-community-il-benessere-donne-100percento-live-web/AFwDx3xD', '_blank')">
                 <div class="press-card-source">Il Sole 24 Ore</div>
                 <h3 class="press-card-title">X-Fit Academy: la community per il benessere delle donne 100% live sul web</h3>
-                <div class="press-card-date">Video Intervista • 2025</div>
-                <a href="#" class="press-card-link">Guarda il video →</a>
+                <div class="press-card-date">Video Intervista - 2025</div>
+                <a href="#" class="press-card-link">Guarda il video &rarr;</a>
             </article>
 
             <article class="press-card" onclick="window.open('https://dilei.it/benessere/elena-giordani-x-fit-academy-intervista/1726879/', '_blank')">
                 <div class="press-card-source">DiLei</div>
                 <h3 class="press-card-title">Elena Giordani: "Col mio metodo le donne diventano registe del proprio benessere"</h3>
                 <div class="press-card-date">Maggio 2025</div>
-                <a href="#" class="press-card-link">Leggi l'articolo →</a>
+                <a href="#" class="press-card-link">Leggi l'articolo &rarr;</a>
             </article>
 
             <article class="press-card" onclick="window.open('https://www.fattitaliani.it/2025/05/bellaria-igea-marina-dal-16-al-18.html', '_blank')">
                 <div class="press-card-source">Fattitaliani.it</div>
                 <h3 class="press-card-title">Bellaria Igea Marina, dal 16 al 18 maggio "Nel Corpo Che Vuoi Live"</h3>
                 <div class="press-card-date">12 Maggio 2025</div>
-                <a href="#" class="press-card-link">Leggi l'articolo →</a>
+                <a href="#" class="press-card-link">Leggi l'articolo &rarr;</a>
             </article>
 
             <article class="press-card" onclick="window.open('https://www.politicamentecorretto.com/2025/05/17/prosegue-nel-corpo-che-vuoi-live-2025/', '_blank')">
                 <div class="press-card-source">Politicamentecorretto.com</div>
                 <h3 class="press-card-title">Prosegue "Nel Corpo Che Vuoi Live 2025": tre giorni di fitness e mindset</h3>
                 <div class="press-card-date">17 Maggio 2025</div>
-                <a href="#" class="press-card-link">Leggi l'articolo →</a>
+                <a href="#" class="press-card-link">Leggi l'articolo &rarr;</a>
             </article>
 
             <article class="press-card" onclick="window.open('https://www.comunicati-stampa.net/com/nel-corpo-che-vuoi-live-2025-tre-giorni-di-fitness-mindset-e-nutrizione-al-femminile-per-superare-i-tuoi-limiti-e-ottenere-il-corpo-e-la-sicurezza-che-meriti.html', '_blank')">
                 <div class="press-card-source">Comunicati-Stampa.net</div>
                 <h3 class="press-card-title">Nel Corpo Che Vuoi Live 2025: tre giorni di fitness, mindset e nutrizione al femminile</h3>
                 <div class="press-card-date">12 Maggio 2025</div>
-                <a href="#" class="press-card-link">Leggi l'articolo →</a>
+                <a href="#" class="press-card-link">Leggi l'articolo &rarr;</a>
             </article>
 
             <article class="press-card" onclick="window.open('https://cloud.radioradio.it/index.php/s/ZnT5bGLPJkmL596?dir=/&openfile=true', '_blank')">
                 <div class="press-card-source">Radio Radio</div>
                 <h3 class="press-card-title">Intervista esclusiva a Elena Giordani: il fenomeno X-Fit Academy</h3>
-                <div class="press-card-date">Intervista Audio • 2025</div>
-                <a href="#" class="press-card-link">Ascolta l'intervista →</a>
+                <div class="press-card-date">Intervista Audio - 2025</div>
+                <a href="#" class="press-card-link">Ascolta l'intervista &rarr;</a>
             </article>
         </div>
     </section>
@@ -3856,27 +848,27 @@
                     <span class="faq-intro-badge">Domande Frequenti</span>
                     <h2>Hai ancora<br>qualche dubbio?</h2>
                     <p>
-                        È normale avere domande prima di iniziare un percorso di trasformazione. 
-                        Qui trovi le risposte alle domande più comuni delle nostre iscritte.
+                        E normale avere domande prima di iniziare un percorso di trasformazione.
+                        Qui trovi le risposte alle domande piu comuni delle nostre iscritte.
                     </p>
                     <a href="#" class="faq-cta">
                         Parla con noi
-                        <span>→</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
 
                 <div class="faq-list">
                     <div class="faq-item active">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <h3>Per chi è adatta X-Fit Academy?</h3>
+                            <h3>Per chi e adatta X-Fit Academy?</h3>
                             <div class="faq-icon">+</div>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                X-Fit Academy è pensata per donne dai 35 ai 55 anni che vogliono ritrovare 
-                                forma fisica, energia e sicurezza in sé stesse. Non importa il tuo livello 
-                                di partenza: il metodo E.A.S.Y. si adatta a te, che tu sia una principiante 
-                                assoluta o già allenata. L'importante è avere la voglia di metterti in gioco.
+                                X-Fit Academy e pensata per donne dai 35 ai 55 anni che vogliono ritrovare
+                                forma fisica, energia e sicurezza in se stesse. Non importa il tuo livello
+                                di partenza: il metodo E.A.S.Y. si adatta a te, che tu sia una principiante
+                                assoluta o gia allenata. L'importante e avere la voglia di metterti in gioco.
                             </div>
                         </div>
                     </div>
@@ -3888,9 +880,9 @@
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                Gli allenamenti durano circa 45-60 minuti. Consigliamo 3-4 sessioni a settimana, 
-                                ma il bello del 100% live è che puoi seguire quando vuoi: le lezioni restano 
-                                disponibili in replica. Molte donne si allenano la mattina presto o la sera, 
+                                Gli allenamenti durano circa 45-60 minuti. Consigliamo 3-4 sessioni a settimana,
+                                ma il bello del 100% live e che puoi seguire quando vuoi: le lezioni restano
+                                disponibili in replica. Molte donne si allenano la mattina presto o la sera,
                                 adattando il percorso alla propria routine.
                             </div>
                         </div>
@@ -3903,9 +895,9 @@
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                Tutte le lezioni sono in diretta streaming, non registrate. Questo significa 
-                                che Elena e il team ti vedono, ti correggono in tempo reale e rispondono 
-                                alle tue domande. È come avere una personal trainer a casa tua, ma con 
+                                Tutte le lezioni sono in diretta streaming, non registrate. Questo significa
+                                che Elena e il team ti vedono, ti correggono in tempo reale e rispondono
+                                alle tue domande. E come avere una personal trainer a casa tua, ma con
                                 il supporto di una community di migliaia di donne.
                             </div>
                         </div>
@@ -3918,9 +910,9 @@
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                Assolutamente sì. Il team include un fisioterapista specializzato (Dott. Luca Cara) 
-                                che supervisiona i protocolli e offre consulenze. Gli esercizi vengono sempre 
-                                proposti con varianti per ogni livello e condizione fisica. In caso di patologie 
+                                Assolutamente si. Il team include un fisioterapista specializzato (Dott. Luca Cara)
+                                che supervisiona i protocolli e offre consulenze. Gli esercizi vengono sempre
+                                proposti con varianti per ogni livello e condizione fisica. In caso di patologie
                                 specifiche, ti consigliamo sempre di consultare il tuo medico.
                             </div>
                         </div>
@@ -3928,15 +920,15 @@
 
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <h3>Qual è la differenza tra Il Primo Passo e X-Fit Academy?</h3>
+                            <h3>Qual e la differenza tra Il Primo Passo e X-Fit Academy?</h3>
                             <div class="faq-icon">+</div>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                <strong>Il Primo Passo</strong> è un percorso introduttivo di 7 giorni (€37) 
-                                per scoprire il metodo e capire se fa per te. <strong>X-Fit Academy</strong> 
-                                è il percorso completo annuale con allenamenti quotidiani, team medico, 
-                                community e supporto continuativo. Molte donne iniziano con Il Primo Passo 
+                                <strong>Il Primo Passo</strong> e un percorso introduttivo di 7 giorni (&euro;37)
+                                per scoprire il metodo e capire se fa per te. <strong>X-Fit Academy</strong>
+                                e il percorso completo annuale con allenamenti quotidiani, team medico,
+                                community e supporto continuativo. Molte donne iniziano con Il Primo Passo
                                 per poi entrare nell'Academy.
                             </div>
                         </div>
@@ -3949,9 +941,9 @@
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                Sì, offriamo diverse opzioni di pagamento rateale per rendere il percorso 
-                                accessibile a tutte. Durante la call conoscitiva ti verranno illustrate 
-                                tutte le possibilità. Il nostro obiettivo è rimuovere ogni ostacolo 
+                                Si, offriamo diverse opzioni di pagamento rateale per rendere il percorso
+                                accessibile a tutte. Durante la call conoscitiva ti verranno illustrate
+                                tutte le possibilita. Il nostro obiettivo e rimuovere ogni ostacolo
                                 tra te e la tua trasformazione.
                             </div>
                         </div>
@@ -3964,9 +956,9 @@
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                Ogni martedì all'ora di pranzo, le iscritte possono partecipare a sessioni 
-                                Q&A con i nostri specialisti: psicologa, genetista, oncologa e fisioterapista. 
-                                Puoi fare domande, chiedere chiarimenti e ricevere supporto professionale 
+                                Ogni martedi all'ora di pranzo, le iscritte possono partecipare a sessioni
+                                Q&A con i nostri specialisti: psicologa, genetista, oncologa e fisioterapista.
+                                Puoi fare domande, chiedere chiarimenti e ricevere supporto professionale
                                 su tematiche di salute, alimentazione, mindset e movimento.
                             </div>
                         </div>
@@ -3982,53 +974,53 @@
             <div class="social-header">
                 <h2>Seguimi sui <span>social</span></h2>
                 <p>
-                    Contenuti gratuiti, tips quotidiani e la community più 
+                    Contenuti gratuiti, tips quotidiani e la community piu
                     motivante che tu abbia mai visto.
                 </p>
             </div>
 
             <div class="social-grid">
                 <div class="social-card">
-                    <div class="social-icon">📸</div>
+                    <div class="social-icon">&#128248;</div>
                     <div class="social-name">Instagram</div>
                     <div class="social-handle">@elenagiordani_</div>
                     <div class="social-followers">180K+</div>
                     <div class="social-label">Followers</div>
                     <a href="https://www.instagram.com/elenagiordani_/" target="_blank" class="social-btn">
-                        Segui →
+                        Segui &rarr;
                     </a>
                 </div>
 
                 <div class="social-card">
-                    <div class="social-icon">👥</div>
+                    <div class="social-icon">&#128101;</div>
                     <div class="social-name">Facebook</div>
                     <div class="social-handle">Elena Giordani</div>
                     <div class="social-followers">50K+</div>
                     <div class="social-label">Followers</div>
                     <a href="https://www.facebook.com/ElenaGiordaniFit" target="_blank" class="social-btn">
-                        Segui →
+                        Segui &rarr;
                     </a>
                 </div>
 
                 <div class="social-card">
-                    <div class="social-icon">▶️</div>
+                    <div class="social-icon">&#9654;&#65039;</div>
                     <div class="social-name">YouTube</div>
                     <div class="social-handle">Elena Giordani</div>
                     <div class="social-followers">25K+</div>
                     <div class="social-label">Iscritti</div>
                     <a href="https://www.youtube.com/@ElenaGiordani" target="_blank" class="social-btn">
-                        Iscriviti →
+                        Iscriviti &rarr;
                     </a>
                 </div>
 
                 <div class="social-card">
-                    <div class="social-icon">🎵</div>
+                    <div class="social-icon">&#127925;</div>
                     <div class="social-name">TikTok</div>
                     <div class="social-handle">@elenagiordani_</div>
                     <div class="social-followers">15K+</div>
                     <div class="social-label">Followers</div>
                     <a href="https://www.tiktok.com/@elenagiordani_" target="_blank" class="social-btn">
-                        Segui →
+                        Segui &rarr;
                     </a>
                 </div>
             </div>
@@ -4044,12 +1036,12 @@
                 inizia con <span>una scelta</span>.
             </h2>
             <p class="cta-text">
-                Non ti dico che in un mese cambierai la tua vita. Ti dico che se decidi 
-                di lavorare su te stessa, non tornerai mai più quella di prima.
+                Non ti dico che in un mese cambierai la tua vita. Ti dico che se decidi
+                di lavorare su te stessa, non tornerai mai piu quella di prima.
             </p>
             <a href="#percorsi" class="cta-btn">
                 Inizia il tuo percorso
-                <span>→</span>
+                <span>&rarr;</span>
             </a>
         </div>
     </section>
@@ -4060,7 +1052,7 @@
             <div class="footer-brand">
                 <div class="footer-logo">ELENA GIORDANI</div>
                 <p>
-                    Il primo percorso in Italia dedicato alle donne che unisce 
+                    Il primo percorso in Italia dedicato alle donne che unisce
                     corpo, alimentazione e mente. 100% live.
                 </p>
             </div>
@@ -4091,7 +1083,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2025 Elena Giordani. Tutti i diritti riservati.</span>
+            <span>&copy; 2025 Elena Giordani. Tutti i diritti riservati.</span>
             <div class="footer-social">
                 <a href="#">Instagram</a>
                 <a href="#">Facebook</a>
@@ -4100,257 +1092,9 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const hamburger = document.getElementById('navHamburger');
-            const menu = document.getElementById('navMenu');
-            hamburger.classList.toggle('active');
-            menu.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-        }
-
-        function closeMobileMenu() {
-            const hamburger = document.getElementById('navHamburger');
-            const menu = document.getElementById('navMenu');
-            hamburger.classList.remove('active');
-            menu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Navbar background on scroll
-        const nav = document.getElementById('navbar');
-        const hero = document.querySelector('.hero');
-        
-        window.addEventListener('scroll', () => {
-            if(window.scrollY > hero.offsetHeight - 100) {
-                nav.classList.remove('dark');
-            } else {
-                nav.classList.add('dark');
-            }
-        });
-
-        nav.classList.add('dark');
-
-        // Horizontal scroll
-        const methodScroll = document.querySelector('.method-scroll');
-        if(methodScroll) {
-            methodScroll.addEventListener('wheel', (e) => {
-                if(e.deltaY !== 0) {
-                    e.preventDefault();
-                    methodScroll.scrollLeft += e.deltaY;
-                }
-            });
-        }
-
-        // Modal functions
-        function openSpecialistModal(type) {
-            document.getElementById('specialistModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Here you would populate the modal with the correct specialist data
-            // For now it shows placeholder content
-        }
-
-        function closeSpecialistModal() {
-            document.getElementById('specialistModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on overlay click
-        document.getElementById('specialistModal').addEventListener('click', function(e) {
-            if(e.target === this) {
-                closeSpecialistModal();
-            }
-        });
-
-        // Close modal on ESC
-        document.addEventListener('keydown', function(e) {
-            if(e.key === 'Escape') {
-                closeSpecialistModal();
-            }
-        });
-
-        // FAQ Toggle
-        function toggleFaq(element) {
-            const faqItem = element.closest('.faq-item');
-            const allItems = document.querySelectorAll('.faq-item');
-            
-            allItems.forEach(item => {
-                if(item !== faqItem) {
-                    item.classList.remove('active');
-                }
-            });
-            
-            faqItem.classList.toggle('active');
-        }
-
-        // Pause press logos on hover
-        const pressTrack = document.querySelector('.press-logos-track');
-        if(pressTrack) {
-            pressTrack.addEventListener('mouseenter', () => {
-                pressTrack.style.animationPlayState = 'paused';
-            });
-            pressTrack.addEventListener('mouseleave', () => {
-                pressTrack.style.animationPlayState = 'running';
-            });
-        }
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe social cards for animation
-        document.querySelectorAll('.social-card, .press-card, .faq-item').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-            observer.observe(card);
-        });
-
-        // Counter animation for social followers
-        function animateCounter(element, target) {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if(current >= target) {
-                    clearInterval(timer);
-                    current = target;
-                }
-                element.textContent = Math.floor(current).toLocaleString() + '+';
-            }, 30);
-        }
-
-        // Trigger counter animation when social section is visible
-        const socialSection = document.querySelector('.social-section');
-        if(socialSection) {
-            const socialObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        document.querySelectorAll('.social-followers').forEach(el => {
-                            const text = el.textContent;
-                            const num = parseInt(text.replace(/[^0-9]/g, '')) * 1000;
-                            animateCounter(el, num / 1000);
-                        });
-                        socialObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            socialObserver.observe(socialSection);
-        }
-
-        // ===== TRANSFORMATIONS GALLERY =====
-        const transformationIds = [
-            '1XjrfjHV-t_swoK6fE8EcHXw-FdUUpRKg',
-            '11U2umV07yCNEcw2-EoxxkRESn0HLX2X4',
-            '1f9u1Ic00nys8FtjNHg12quy6bbi0xArN',
-            '1JS-3IkIDi7qXSGtj7hXTGD5l0qPZJPTh',
-            '1ILtoToU4fX93Ktf0zJvLxaUHsKr5D7-m',
-            '12TBAcFoGawql1t5BNYMP2s-tsNcGFKYd',
-            '1vQXMmVlE1qL5C2BPqRFHX0mGSo5d7-lK',
-            '1wYRqTnHx8pJvLmC3BkQDo9eGSf2d6-mN',
-            '1xZStUoIy9qKwMnD4ClREp0fHTg3e7-nO',
-            '1yATuVpJz0rLxNoE5DmSFq1gIUh4f8-oP',
-            '1zBUvWqKA1sMyOpF6EnTGr2hJVi5g9-pQ',
-            '1ACVwXrLB2tNzPqG7FoUHs3iKWj6hA-qR'
-        ];
-
-        let currentLightboxIndex = 0;
-
-        function getDriveThumbUrl(id) {
-            return `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
-        }
-
-        function getDriveLargeUrl(id) {
-            return `https://drive.google.com/thumbnail?id=${id}&sz=w1200`;
-        }
-
-        function openGalleryModal() {
-            const modal = document.getElementById('galleryModal');
-            const grid = document.getElementById('galleryGrid');
-            
-            // Clear and populate grid
-            grid.innerHTML = '';
-            transformationIds.forEach((id, index) => {
-                const thumb = document.createElement('div');
-                thumb.className = 'gallery-thumb';
-                thumb.innerHTML = `<img src="${getDriveThumbUrl(id)}" alt="Trasformazione ${index + 1}" loading="lazy">`;
-                thumb.onclick = () => openLightbox(index);
-                grid.appendChild(thumb);
-            });
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeGalleryModal() {
-            const modal = document.getElementById('galleryModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function openLightbox(index) {
-            currentLightboxIndex = index;
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightboxImage');
-            img.src = getDriveLargeUrl(transformationIds[index]);
-            lightbox.classList.add('active');
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-        }
-
-        function showPrevImage() {
-            currentLightboxIndex = (currentLightboxIndex - 1 + transformationIds.length) % transformationIds.length;
-            const img = document.getElementById('lightboxImage');
-            img.src = getDriveLargeUrl(transformationIds[currentLightboxIndex]);
-        }
-
-        function showNextImage() {
-            currentLightboxIndex = (currentLightboxIndex + 1) % transformationIds.length;
-            const img = document.getElementById('lightboxImage');
-            img.src = getDriveLargeUrl(transformationIds[currentLightboxIndex]);
-        }
-
-        // Keyboard navigation for gallery
-        document.addEventListener('keydown', function(e) {
-            const lightbox = document.getElementById('lightbox');
-            const galleryModal = document.getElementById('galleryModal');
-            
-            if (lightbox && lightbox.classList.contains('active')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrevImage();
-                if (e.key === 'ArrowRight') showNextImage();
-            } else if (galleryModal && galleryModal.classList.contains('active')) {
-                if (e.key === 'Escape') closeGalleryModal();
-            }
-        });
-    </script>
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
 
 </body>
 </html>

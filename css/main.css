@@ -1,0 +1,31 @@
+/*
+ * Elena Giordani - X-Fit Academy
+ * Main CSS File
+ * Version: 7.2
+ *
+ * This file imports all CSS components for the website.
+ * Organized structure for maintainability and scalability.
+ */
+
+/* ===== Core Styles ===== */
+@import url('variables.css');
+@import url('base.css');
+
+/* ===== Components ===== */
+@import url('components/navigation.css');
+@import url('components/buttons.css');
+@import url('components/hero.css');
+@import url('components/letter.css');
+@import url('components/team.css');
+@import url('components/method.css');
+@import url('components/programs.css');
+@import url('components/transformations.css');
+@import url('components/faq.css');
+@import url('components/social.css');
+@import url('components/video.css');
+@import url('components/press.css');
+@import url('components/footer.css');
+@import url('components/modal.css');
+
+/* ===== Responsive ===== */
+@import url('responsive.css');

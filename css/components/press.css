@@ -1,0 +1,130 @@
+/* ===== PRESS SECTION ===== */
+.press-section {
+    background: var(--white);
+    overflow: hidden;
+}
+
+.press-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.press-logos-scroll {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+}
+
+.press-logos-track {
+    display: flex;
+    gap: 4rem;
+    animation: scroll-logos 30s linear infinite;
+}
+
+@keyframes scroll-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.press-logo-item {
+    flex-shrink: 0;
+    padding: 1.5rem 3rem;
+    background: var(--gray-softer);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    transition: all 0.4s ease;
+}
+
+.press-logo-item:hover {
+    background: var(--pink-soft);
+    transform: scale(1.05);
+}
+
+.press-logo-item span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-medium);
+    white-space: nowrap;
+}
+
+.press-articles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.press-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.press-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--pink-primary);
+    transition: height 0.4s ease;
+}
+
+.press-card:hover::before {
+    height: 100%;
+}
+
+.press-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.press-card-source {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pink-primary);
+    margin-bottom: 1rem;
+}
+
+.press-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    color: var(--gray-dark);
+}
+
+.press-card-date {
+    font-size: 0.8rem;
+    color: var(--gray-light);
+    margin-bottom: 1.5rem;
+}
+
+.press-card-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.press-card-link:hover {
+    color: var(--pink-primary);
+    gap: 1rem;
+}
