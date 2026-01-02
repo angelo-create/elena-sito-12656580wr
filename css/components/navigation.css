@@ -188,3 +188,27 @@
     background: var(--pink-soft);
     color: var(--pink-primary);
 }
+
+/* ===== MOBILE MENU OVERRIDE ===== */
+@media (max-width: 768px) {
+    /* Force black text on mobile menu regardless of nav.dark */
+    .nav .nav-menu .nav-link,
+    .nav.dark .nav-menu .nav-link,
+    .nav .nav-menu.active .nav-link,
+    .nav.dark .nav-menu.active .nav-link {
+        color: #000000 !important;
+    }
+
+    .nav .nav-dropdown-toggle,
+    .nav.dark .nav-dropdown-toggle,
+    .nav .nav-menu.active .nav-dropdown-toggle,
+    .nav.dark .nav-menu.active .nav-dropdown-toggle {
+        color: #000000 !important;
+    }
+
+    .nav .nav-menu .nav-cta,
+    .nav.dark .nav-menu .nav-cta {
+        color: #ffffff !important;
+        background: #e91e63 !important;
+    }
+}
