@@ -31,24 +31,31 @@ function initMobileDropdowns() {
     const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
 
     dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            // Only handle on mobile
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                e.stopPropagation();
+        // Use both click and touchend for better mobile support
+        ['click', 'touchend'].forEach(eventType => {
+            toggle.addEventListener(eventType, function(e) {
+                // Only handle on mobile
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
 
-                const dropdown = this.closest('.nav-dropdown');
+                    const dropdown = this.closest('.nav-dropdown');
 
-                // Close other dropdowns
-                document.querySelectorAll('.nav-dropdown').forEach(d => {
-                    if (d !== dropdown) {
-                        d.classList.remove('open');
-                    }
-                });
+                    if (!dropdown) return;
 
-                // Toggle current dropdown
-                dropdown.classList.toggle('open');
-            }
+                    // Close other dropdowns
+                    document.querySelectorAll('.nav-dropdown').forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.remove('open');
+                        }
+                    });
+
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('open');
+
+                    console.log('Dropdown toggled:', dropdown.classList.contains('open'));
+                }
+            }, { passive: false });
         });
     });
 
