@@ -19,6 +19,58 @@ function closeMobileMenu() {
     hamburger.classList.remove('active');
     menu.classList.remove('active');
     document.body.style.overflow = '';
+
+    // Close all dropdowns
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        dropdown.classList.remove('open');
+    });
+}
+
+// ===== MOBILE DROPDOWN TOGGLE =====
+function initMobileDropdowns() {
+    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            // Only handle on mobile
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const dropdown = this.closest('.nav-dropdown');
+
+                // Close other dropdowns
+                document.querySelectorAll('.nav-dropdown').forEach(d => {
+                    if (d !== dropdown) {
+                        d.classList.remove('open');
+                    }
+                });
+
+                // Toggle current dropdown
+                dropdown.classList.toggle('open');
+            }
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelectorAll('.nav-dropdown').forEach(d => {
+                    d.classList.remove('open');
+                });
+            }
+        }
+    });
+
+    // Close dropdowns on window resize to desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            document.querySelectorAll('.nav-dropdown').forEach(d => {
+                d.classList.remove('open');
+            });
+        }
+    });
 }
 
 // ===== SMOOTH SCROLL =====
@@ -192,4 +244,5 @@ document.addEventListener('DOMContentLoaded', function() {
     initPressLogos();
     initScrollAnimations();
     initCounterAnimation();
+    initMobileDropdowns();
 });

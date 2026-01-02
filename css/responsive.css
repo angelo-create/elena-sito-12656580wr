@@ -146,10 +146,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 1.5rem;
         transform: translateX(100%);
         transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         z-index: 1000;
+        padding: 2rem;
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -157,7 +159,7 @@
     }
 
     .nav-menu .nav-link {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         color: var(--black);
     }
 
@@ -165,6 +167,75 @@
         margin-top: 1rem;
         padding: 1rem 2.5rem;
         font-size: 0.85rem;
+    }
+
+    /* Mobile Dropdown */
+    .nav-dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-dropdown-toggle {
+        justify-content: center;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: none;
+        background: var(--gray-light);
+        border-radius: 8px;
+        margin-top: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .nav-dropdown-menu::before {
+        display: none;
+    }
+
+    .nav-dropdown.open .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        max-height: 300px;
+        padding: 0.75rem 0;
+        margin-top: 0.75rem;
+    }
+
+    .nav-dropdown-menu a {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        text-align: center;
+        display: block;
+        color: var(--gray-dark);
+    }
+
+    .nav-dropdown-menu a:hover {
+        background: var(--pink-soft);
+        color: var(--pink-primary);
+    }
+
+    .dropdown-arrow {
+        transition: transform 0.3s ease;
+        font-size: 0.75rem;
+    }
+
+    .nav-dropdown.open .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Fix hamburger z-index when menu is active */
+    .nav-hamburger.active span {
+        background: var(--black) !important;
     }
 
     .section {
@@ -357,5 +428,115 @@
         width: 60px;
         height: 60px;
         font-size: 1.25rem;
+    }
+
+    /* Additional Mobile Fixes */
+    .prototype-badge {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.75rem;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .marquee-item {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .cta-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .cta-title {
+        font-size: 1.75rem;
+    }
+
+    .cta-bg-text {
+        font-size: 15vw;
+    }
+
+    .method-section {
+        padding: 4rem 1rem;
+    }
+
+    .method-header {
+        padding: 0 1rem;
+    }
+
+    .method-scroll {
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    /* Fix for dropdown hover on desktop overriding mobile */
+    .nav-dropdown:hover .nav-dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+    }
+
+    .nav-dropdown.open:hover .nav-dropdown-menu,
+    .nav-dropdown.open .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        max-height: 300px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-stat-number {
+        font-size: 1.5rem;
+    }
+
+    .hero-stat-label {
+        font-size: 0.7rem;
+    }
+
+    .section {
+        padding: 3rem 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .letter-title {
+        font-size: 1.6rem;
+    }
+
+    .btn-primary, .btn-outline {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .timer-item {
+        min-width: 65px;
+        padding: 0.75rem;
+    }
+
+    .timer-number {
+        font-size: 1.5rem;
+    }
+
+    .timer-label {
+        font-size: 0.7rem;
+    }
+
+    .page-hero-title {
+        font-size: 1.75rem;
+    }
+
+    .page-hero-subtitle {
+        font-size: 0.95rem;
     }
 }
