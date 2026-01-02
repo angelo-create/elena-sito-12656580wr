@@ -142,7 +142,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: var(--white);
+        background: #ffffff;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -159,8 +159,9 @@
     }
 
     .nav-menu .nav-link {
-        font-size: 1.1rem;
-        color: var(--black);
+        font-size: 1.2rem;
+        color: #1a1a1a;
+        font-weight: 600;
     }
 
     .nav-menu .nav-cta {
@@ -407,27 +408,60 @@
     .lightbox-prev { left: 0.5rem; }
     .lightbox-next { right: 0.5rem; }
 
+    /* How Section Mobile - Complete Redesign */
+    .how-timeline {
+        padding: 1rem 0;
+    }
+
     .how-timeline::before {
-        left: 30px;
+        display: none;
     }
 
     .how-step {
-        grid-template-columns: 60px 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         gap: 1rem;
+        margin-bottom: 2.5rem;
+        padding: 1.5rem;
+        background: var(--gray-light);
+        border-radius: 16px;
     }
 
     .how-step-visual {
         display: none;
     }
 
+    .how-step:nth-child(odd) .how-step-content,
     .how-step:nth-child(even) .how-step-content {
-        grid-column: 2;
+        text-align: center;
+        grid-column: auto;
+        padding: 0;
     }
 
     .how-step-number {
         width: 60px;
         height: 60px;
         font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .how-step-title {
+        font-size: 1.25rem;
+    }
+
+    .how-step-desc {
+        font-size: 0.9rem;
+    }
+
+    .how-cta-box {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .how-cta-box h3 {
+        font-size: 1.1rem;
     }
 
     /* Additional Mobile Fixes */
