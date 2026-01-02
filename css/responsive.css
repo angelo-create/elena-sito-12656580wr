@@ -165,7 +165,9 @@
         transform: translateX(0);
     }
 
-    .nav-menu .nav-link {
+    .nav-menu .nav-link,
+    .nav.dark .nav-menu .nav-link,
+    .nav-menu.active .nav-link {
         font-size: 1.3rem;
         color: #000000 !important;
         font-weight: 600;
@@ -180,7 +182,8 @@
         display: none;
     }
 
-    .nav-menu .nav-cta {
+    .nav-menu .nav-cta,
+    .nav.dark .nav-menu .nav-cta {
         margin-top: 1.5rem;
         padding: 1rem 2.5rem;
         font-size: 0.9rem;
@@ -195,7 +198,9 @@
         text-align: center;
     }
 
-    .nav-dropdown-toggle {
+    .nav-dropdown-toggle,
+    .nav.dark .nav-dropdown-toggle,
+    .nav-menu.active .nav-dropdown-toggle {
         justify-content: center;
         font-size: 1.3rem;
         cursor: pointer;
