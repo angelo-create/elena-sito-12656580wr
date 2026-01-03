@@ -182,13 +182,11 @@
     .nav {
         padding: 1rem 1.5rem;
         background: #000 !important;
-        transition: transform 0.3s ease, background 0.3s ease;
-        transform: translateY(0);
+        transition: background 0.3s ease;
     }
 
     .nav.dark {
         background: transparent !important;
-        transform: translateY(-100%);
     }
 
     .nav-hamburger {
