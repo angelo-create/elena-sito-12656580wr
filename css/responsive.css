@@ -133,28 +133,19 @@
 }
 
 @media (max-width: 768px) {
-    /* Hero background image - mobile FIXED */
+    /* Hero background image - mobile */
     .hero-bg-image {
-        position: fixed;
+        position: absolute;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         opacity: 0.6;
         object-position: 85% top;
         top: 0;
         left: 0;
     }
 
-    .hero {
-        position: relative;
-    }
-
     .hero-gradient {
         background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
     }
 
     /* Hero mobile layout: everything in first viewport */
@@ -190,6 +181,11 @@
 
     .nav {
         padding: 1rem 1.5rem;
+        background: #000 !important;
+        transition: background 0.3s ease;
+    }
+
+    .nav.dark {
         background: transparent !important;
     }
 
