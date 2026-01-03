@@ -1,6 +1,7 @@
 // React Mobile Hero Component (wrapped in IIFE to avoid conflicts)
 (function() {
     const { useState, useEffect, useRef } = React;
+    let heroRoot = null; // Store root reference to avoid recreating
 
     // Animated Counter Component
     const AnimatedCounter = ({ end, suffix = '', duration = 2000 }) => {
@@ -159,12 +160,12 @@
         );
     };
 
-    // Mount only on mobile
+    // Mount only once on mobile
     const mountReactHero = () => {
         const container = document.getElementById('react-mobile-hero-root');
-        if (container && window.innerWidth <= 768) {
-            const root = ReactDOM.createRoot(container);
-            root.render(React.createElement(MobileHero));
+        if (container && window.innerWidth <= 768 && !heroRoot) {
+            heroRoot = ReactDOM.createRoot(container);
+            heroRoot.render(React.createElement(MobileHero));
             container.style.display = 'block';
 
             // Hide original hero content on mobile
@@ -182,7 +183,7 @@
         mountReactHero();
     }
 
-    // Handle resize
+    // Handle resize - just show/hide, don't remount
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
@@ -193,7 +194,10 @@
             if (window.innerWidth <= 768) {
                 if (container) {
                     container.style.display = 'block';
-                    mountReactHero();
+                    // Only mount if not already mounted
+                    if (!heroRoot) {
+                        mountReactHero();
+                    }
                 }
                 if (originalHeroContent) {
                     originalHeroContent.style.display = 'none';

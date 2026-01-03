@@ -1,6 +1,7 @@
 // React Mobile Header Component (wrapped in IIFE to avoid conflicts)
 (function() {
     const { useState, useEffect } = React;
+    let headerRoot = null; // Store root reference to avoid recreating
 
     const MobileHeader = () => {
         const [isOpen, setIsOpen] = useState(false);
@@ -136,12 +137,12 @@
         );
     };
 
-    // Mount only on mobile
+    // Mount only once on mobile
     const mountReactHeader = () => {
         const container = document.getElementById('react-mobile-header-root');
-        if (container && window.innerWidth <= 768) {
-            const root = ReactDOM.createRoot(container);
-            root.render(React.createElement(MobileHeader));
+        if (container && window.innerWidth <= 768 && !headerRoot) {
+            headerRoot = ReactDOM.createRoot(container);
+            headerRoot.render(React.createElement(MobileHeader));
         }
     };
 
@@ -152,7 +153,7 @@
         mountReactHeader();
     }
 
-    // Re-mount on resize
+    // Handle resize - just show/hide, don't remount
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
@@ -160,8 +161,11 @@
             const container = document.getElementById('react-mobile-header-root');
             if (container) {
                 if (window.innerWidth <= 768) {
-                    mountReactHeader();
                     container.style.display = 'block';
+                    // Only mount if not already mounted
+                    if (!headerRoot) {
+                        mountReactHeader();
+                    }
                 } else {
                     container.style.display = 'none';
                 }
