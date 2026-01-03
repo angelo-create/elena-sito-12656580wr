@@ -254,20 +254,17 @@
                         <p>"Credo fortemente nella consapevolezza come chiave per cambiare la vita."</p>
                     </div>
                 </div>
-                <div class="team-intro-image">
-                    [Foto del Team<br>in sessione]
-                </div>
             </div>
 
             <div class="team-grid">
-                <!-- Francesca Cuppone - Oncologa -->
+                <!-- Federica Cuppone - Oncologa -->
                 <div class="team-card" onclick="openSpecialistModal('cuppone')">
                     <div class="team-card-image-wrapper">
-                        <img class="team-card-image" src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9330ab5c901d68408.jpeg" alt="Dott.ssa Francesca Cuppone">
+                        <img class="team-card-image" src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9330ab5c901d68408.jpeg" alt="Dott.ssa Federica Cuppone">
                     </div>
                     <div class="team-card-content">
                         <span class="team-card-role">Medico Oncologo</span>
-                        <h3 class="team-card-name">Dott.ssa Francesca Cuppone</h3>
+                        <h3 class="team-card-name">Dott.ssa Federica Cuppone</h3>
                         <p class="team-card-bio">
                             Dirigente AIFA, specializzata presso La Sapienza e il Memorial Sloan Kettering di New York.
                             Esperta in prevenzione, farmacologia e ricerca clinica oncologica.
@@ -700,62 +697,6 @@
         </div>
     </section>
 
-    <!-- BLOG SECTION -->
-    <section id="blog" class="section section-gray">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">BLOG</span>
-                <h2 class="section-title">
-                    Articoli e <span class="highlight">risorse</span>
-                </h2>
-            </div>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=400&fit=crop" alt="Alimentazione sana" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Alimentazione</span>
-                        <h3 class="blog-title">Come gestire la fame emotiva senza sensi di colpa</h3>
-                        <p class="blog-excerpt">
-                            La fame emotiva non e il nemico. E un segnale.
-                            Impara a riconoscerla e a rispondere nel modo giusto.
-                        </p>
-                        <a href="#" class="blog-link">Leggi l'articolo &rarr;</a>
-                    </div>
-                </article>
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop" alt="Mindset e motivazione" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Mindset</span>
-                        <h3 class="blog-title">Perche l'85% delle persone molla al terzo giorno</h3>
-                        <p class="blog-excerpt">
-                            Il giorno 3 e il momento critico. Ecco cosa succede
-                            nel tuo cervello e come superarlo.
-                        </p>
-                        <a href="#" class="blog-link">Leggi l'articolo &rarr;</a>
-                    </div>
-                </article>
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=400&fit=crop" alt="Allenamento donna" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Allenamento</span>
-                        <h3 class="blog-title">Allenarsi dopo i 40: cosa cambia davvero</h3>
-                        <p class="blog-excerpt">
-                            Il tuo corpo cambia, il tuo allenamento deve adattarsi.
-                            Ecco come farlo nel modo giusto.
-                        </p>
-                        <a href="#" class="blog-link">Leggi l'articolo &rarr;</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
     <!-- PROGRAMS -->
     <section id="percorsi" class="section section-pink">
         <div class="container">
@@ -765,8 +706,9 @@
                     Scegli il tuo <span class="highlight">punto di partenza</span>
                 </h2>
             </div>
-            <div class="programs-grid">
-                <div class="program-card">
+            <div class="programs-grid programs-grid-enhanced">
+                <div class="program-card program-card-enhanced">
+                    <div class="program-icon">&#128640;</div>
                     <span class="program-badge">Entry Point</span>
                     <h3 class="program-name">Il Primo Passo</h3>
                     <div class="program-price">&euro;37 <span>una tantum</span></div>
@@ -774,9 +716,16 @@
                         La Sfida 7 Giorni per iniziare la tua trasformazione.
                         Scopri il metodo E.A.S.Y. e senti i primi risultati.
                     </p>
+                    <ul class="program-features">
+                        <li>&#10003; 7 giorni di allenamento</li>
+                        <li>&#10003; Video tutorial</li>
+                        <li>&#10003; Piano alimentare base</li>
+                    </ul>
                     <button class="program-btn">Inizia la Sfida</button>
                 </div>
-                <div class="program-card featured">
+                <div class="program-card program-card-enhanced featured">
+                    <div class="program-popular">Piu Scelto</div>
+                    <div class="program-icon">&#11088;</div>
                     <span class="program-badge">Percorso Completo</span>
                     <h3 class="program-name">X-Fit Academy</h3>
                     <div class="program-price">Su misura</div>
@@ -784,9 +733,16 @@
                         12 mesi di trasformazione completa. Allenamenti live,
                         alimentazione, supporto e team medico. Per sempre.
                     </p>
+                    <ul class="program-features">
+                        <li>&#10003; Allenamenti live quotidiani</li>
+                        <li>&#10003; Team medico dedicato</li>
+                        <li>&#10003; Piano nutrizionale personalizzato</li>
+                        <li>&#10003; Community esclusiva</li>
+                    </ul>
                     <button class="program-btn">Candidati Ora</button>
                 </div>
-                <div class="program-card">
+                <div class="program-card program-card-enhanced">
+                    <div class="program-icon">&#128081;</div>
                     <span class="program-badge">Per chi ha completato</span>
                     <h3 class="program-name">Club Inarrestabili</h3>
                     <div class="program-price">Membership</div>
@@ -794,6 +750,11 @@
                         La community esclusiva per chi ha completato l'Academy.
                         Mantieni i risultati per sempre.
                     </p>
+                    <ul class="program-features">
+                        <li>&#10003; Accesso alla community</li>
+                        <li>&#10003; Allenamenti mensili</li>
+                        <li>&#10003; Eventi esclusivi</li>
+                    </ul>
                     <button class="program-btn">Scopri di piu</button>
                 </div>
             </div>
@@ -1058,48 +1019,15 @@
                 </p>
             </div>
 
-            <div class="social-grid">
-                <div class="social-card">
+            <div class="social-grid social-grid-single">
+                <div class="social-card social-card-featured">
                     <div class="social-icon">&#128248;</div>
                     <div class="social-name">Instagram</div>
                     <div class="social-handle">@elenagiordani_</div>
                     <div class="social-followers">180K+</div>
                     <div class="social-label">Followers</div>
                     <a href="https://www.instagram.com/elenagiordani_/" target="_blank" class="social-btn">
-                        Segui &rarr;
-                    </a>
-                </div>
-
-                <div class="social-card">
-                    <div class="social-icon">&#128101;</div>
-                    <div class="social-name">Facebook</div>
-                    <div class="social-handle">Elena Giordani</div>
-                    <div class="social-followers">50K+</div>
-                    <div class="social-label">Followers</div>
-                    <a href="https://www.facebook.com/ElenaGiordaniFit" target="_blank" class="social-btn">
-                        Segui &rarr;
-                    </a>
-                </div>
-
-                <div class="social-card">
-                    <div class="social-icon">&#9654;&#65039;</div>
-                    <div class="social-name">YouTube</div>
-                    <div class="social-handle">Elena Giordani</div>
-                    <div class="social-followers">25K+</div>
-                    <div class="social-label">Iscritti</div>
-                    <a href="https://www.youtube.com/@ElenaGiordani" target="_blank" class="social-btn">
-                        Iscriviti &rarr;
-                    </a>
-                </div>
-
-                <div class="social-card">
-                    <div class="social-icon">&#127925;</div>
-                    <div class="social-name">TikTok</div>
-                    <div class="social-handle">@elenagiordani_</div>
-                    <div class="social-followers">15K+</div>
-                    <div class="social-label">Followers</div>
-                    <a href="https://www.tiktok.com/@elenagiordani_" target="_blank" class="social-btn">
-                        Segui &rarr;
+                        Seguimi su Instagram &rarr;
                     </a>
                 </div>
             </div>
@@ -1157,7 +1085,6 @@
                 <ul>
                     <li><a href="contatti.html">Candidatura</a></li>
                     <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.facebook.com/ElenaGiordaniFit" target="_blank">Facebook</a></li>
                 </ul>
             </div>
         </div>

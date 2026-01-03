@@ -144,3 +144,43 @@
     background: var(--pink-primary);
     border-color: var(--pink-primary);
 }
+
+/* Single Instagram Card */
+.social-grid-single {
+    display: flex;
+    justify-content: center;
+}
+
+.social-card-featured {
+    max-width: 400px;
+    padding: 3.5rem 3rem;
+    background: linear-gradient(135deg, rgba(233,30,99,0.15) 0%, rgba(255,255,255,0.08) 100%);
+    border: 2px solid var(--pink-primary);
+    border-radius: 16px;
+}
+
+.social-card-featured .social-icon {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.social-card-featured .social-followers {
+    font-size: 2.5rem;
+}
+
+.social-card-featured .social-btn {
+    background: var(--pink-primary);
+    border-color: var(--pink-primary);
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+    border-radius: 8px;
+}
+
+.social-card-featured .social-btn:hover {
+    background: var(--pink-dark);
+    border-color: var(--pink-dark);
+    transform: scale(1.02);
+}

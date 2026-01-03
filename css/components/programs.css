@@ -115,6 +115,78 @@
     color: var(--black);
 }
 
+/* ===== ENHANCED PROGRAMS ===== */
+.programs-grid-enhanced {
+    gap: 2.5rem;
+}
+
+.program-card-enhanced {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 16px;
+}
+
+.program-card-enhanced.featured {
+    border-radius: 16px;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+}
+
+.program-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.program-popular {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--pink-primary);
+    color: var(--white);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+.program-card-enhanced .program-badge {
+    align-self: center;
+}
+
+.program-card-enhanced .program-name {
+    font-size: 1.8rem;
+}
+
+.program-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+}
+
+.program-features li {
+    font-size: 0.85rem;
+    color: inherit;
+    opacity: 0.8;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(128,128,128,0.15);
+}
+
+.program-features li:last-child {
+    border-bottom: none;
+}
+
+.program-card-enhanced .program-btn {
+    margin-top: auto;
+    border-radius: 8px;
+}
+
 /* ===== BOOKS SECTION ===== */
 .books-section {
     background: linear-gradient(135deg, var(--gray-softer) 0%, var(--white) 100%);
