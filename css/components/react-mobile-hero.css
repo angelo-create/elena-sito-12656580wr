@@ -22,6 +22,29 @@
         min-height: 100dvh;
     }
 
+    /* Animation keyframes - run once */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUpScale {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
     /* Badge */
     .rmh-hero-badge {
         display: inline-flex;
@@ -38,14 +61,11 @@
         color: #e91e63;
         margin-bottom: 1.25rem;
         opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        transition-delay: var(--delay);
     }
 
     .rmh-hero.loaded .rmh-hero-badge {
-        opacity: 1;
-        transform: translateY(0);
+        animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation-delay: var(--delay);
     }
 
     .rmh-hero-badge-dot {
@@ -72,14 +92,11 @@
         line-height: 1.1;
         color: #fff;
         opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-        transition-delay: var(--delay);
     }
 
     .rmh-hero.loaded .rmh-hero-title-line {
-        opacity: 1;
-        transform: translateY(0);
+        animation: fadeInUp 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation-delay: var(--delay);
     }
 
     .rmh-hero-title-line:nth-child(1) {
@@ -107,14 +124,11 @@
         margin-bottom: 1.25rem;
         max-width: 340px;
         opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        transition-delay: var(--delay);
     }
 
     .rmh-hero.loaded .rmh-hero-subtitle {
-        opacity: 1;
-        transform: translateY(0);
+        animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation-delay: var(--delay);
     }
 
     /* Video */
@@ -124,14 +138,11 @@
         margin-bottom: 1.25rem;
         position: relative;
         opacity: 0;
-        transform: translateY(30px) scale(0.95);
-        transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-        transition-delay: var(--delay);
     }
 
     .rmh-hero.loaded .rmh-hero-video {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+        animation: fadeInUpScale 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation-delay: var(--delay);
     }
 
     .rmh-hero-video-glow {
@@ -162,14 +173,11 @@
         gap: 0.75rem;
         margin-bottom: 1.5rem;
         opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        transition-delay: var(--delay);
     }
 
     .rmh-hero.loaded .rmh-hero-cta {
-        opacity: 1;
-        transform: translateY(0);
+        animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation-delay: var(--delay);
     }
 
     .rmh-hero-btn {
@@ -224,27 +232,21 @@
         border-top: 1px solid rgba(255, 255, 255, 0.15);
         width: 100%;
         opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        transition-delay: var(--delay);
     }
 
     .rmh-hero.loaded .rmh-hero-stats {
-        opacity: 1;
-        transform: translateY(0);
+        animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation-delay: var(--delay);
     }
 
     .rmh-hero-stat {
         text-align: center;
         opacity: 0;
-        transform: translateY(15px);
-        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        transition-delay: var(--stat-delay);
     }
 
     .rmh-hero.loaded .rmh-hero-stat {
-        opacity: 1;
-        transform: translateY(0);
+        animation: fadeInUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation-delay: var(--stat-delay);
     }
 
     .rmh-hero-stat-number {
