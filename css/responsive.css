@@ -180,7 +180,7 @@
     .hero-badge { order: 1; margin-bottom: 0.5rem; }
     .hero-title { order: 2; margin-bottom: 0.5rem; }
     .hero-subtitle { order: 3; margin-bottom: 1rem; font-size: 0.85rem !important; }
-    .hero-video-container { order: 4; margin-bottom: 1rem; width: 85%; }
+    .hero-video-container { order: 4; margin-bottom: 1rem; width: 100%; }
     .hero-cta-group { order: 5; margin-top: 0; gap: 0.5rem; }
     .hero-stats { order: 6; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); gap: 1rem; width: 100%; justify-content: center; }
 
@@ -190,6 +190,7 @@
 
     .nav {
         padding: 1rem 1.5rem;
+        background: transparent !important;
     }
 
     .nav-hamburger {
