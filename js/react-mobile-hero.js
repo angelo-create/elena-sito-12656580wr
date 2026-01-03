@@ -49,10 +49,13 @@
     // Main Mobile Hero Component
     const MobileHero = () => {
         const [isLoaded, setIsLoaded] = useState(false);
+        const [animationComplete, setAnimationComplete] = useState(false);
 
         useEffect(() => {
             // Trigger animations after mount
             setTimeout(() => setIsLoaded(true), 100);
+            // Mark animations as complete after they finish
+            setTimeout(() => setAnimationComplete(true), 2000);
         }, []);
 
         const stats = [
@@ -62,7 +65,7 @@
         ];
 
         return React.createElement('div', {
-            className: `rmh-hero ${isLoaded ? 'loaded' : ''}`
+            className: `rmh-hero ${isLoaded ? 'loaded' : ''} ${animationComplete ? 'animation-done' : ''}`
         },
             // Badge
             React.createElement('div', {

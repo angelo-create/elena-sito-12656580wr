@@ -267,4 +267,21 @@
         color: rgba(255, 255, 255, 0.6);
         margin-top: 0.25rem;
     }
+
+    /* Once animations complete, force visible state */
+    .rmh-hero.animation-done .rmh-hero-badge,
+    .rmh-hero.animation-done .rmh-hero-title-line,
+    .rmh-hero.animation-done .rmh-hero-subtitle,
+    .rmh-hero.animation-done .rmh-hero-video,
+    .rmh-hero.animation-done .rmh-hero-cta,
+    .rmh-hero.animation-done .rmh-hero-stats,
+    .rmh-hero.animation-done .rmh-hero-stat {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    .rmh-hero.animation-done .rmh-hero-video {
+        transform: scale(1) !important;
+    }
 }
