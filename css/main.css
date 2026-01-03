@@ -28,6 +28,7 @@
 @import url('components/modal.css');
 @import url('components/pages.css');
 @import url('components/react-mobile-header.css');
+@import url('components/react-mobile-hero.css');
 
 /* ===== Responsive ===== */
 @import url('responsive.css');
