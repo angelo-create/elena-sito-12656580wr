@@ -136,11 +136,11 @@
     /* Hero background image - mobile */
     .hero-bg-image {
         width: 100%;
-        height: 70%;
-        opacity: 0.5;
-        object-position: top center;
-        top: auto;
-        bottom: 0;
+        height: 100%;
+        opacity: 0.6;
+        object-position: 70% top;
+        top: 0;
+        bottom: auto;
     }
 
     .hero-gradient {
