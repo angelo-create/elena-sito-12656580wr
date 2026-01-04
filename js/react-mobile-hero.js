@@ -81,15 +81,15 @@
                 React.createElement('span', {
                     className: 'rmh-hero-title-line',
                     style: { '--delay': '0.3s' }
-                }, 'Non e una dieta.'),
+                }, 'Non è una dieta.'),
                 React.createElement('span', {
                     className: 'rmh-hero-title-line',
                     style: { '--delay': '0.4s' }
-                }, 'Non e un allenamento.'),
+                }, 'Non è un allenamento.'),
                 React.createElement('span', {
                     className: 'rmh-hero-title-line accent',
                     style: { '--delay': '0.5s' }
-                }, 'E un cambio di vita.')
+                }, 'È un cambio di vita.')
             ),
 
             // Subtitle
@@ -97,7 +97,7 @@
                 className: 'rmh-hero-subtitle',
                 style: { '--delay': '0.6s' }
             },
-                'Il primo percorso in Italia dedicato esclusivamente alle donne. Allenamento, alimentazione e supporto emotivo. Perche si cambia dentro per cambiare fuori.'
+                'Il primo percorso in Italia dedicato esclusivamente alle donne. Allenamento, alimentazione e supporto emotivo. Perché si cambia dentro per cambiare fuori.'
             ),
 
             // Video
