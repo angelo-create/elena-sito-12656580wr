@@ -3,32 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nel Corpo Che Vuoi Live 2026 | 16-18 Maggio - Elena Giordani</title>
-    <meta name="description" content="3 giorni di immersione totale nel fitness, mindset e nutrizione al femminile. 16-18 Maggio 2026, Bellaria Igea Marina. Prenota il tuo posto.">
-    <meta name="keywords" content="Elena Giordani, evento maggio, Nel Corpo Che Vuoi Live, fitness femminile, Bellaria Igea Marina">
+    <title>Nel Corpo Che Vuoi Live | 9-10 Maggio 2026 | Elena Giordani</title>
+    <meta name="description" content="2 giorni di immersione totale dal vivo con Elena Giordani. 9-10 Maggio 2026, Shangri-La Roma. Solo 140 posti.">
+    <meta name="keywords" content="Elena Giordani, evento maggio, Nel Corpo Che Vuoi Live, fitness femminile, Roma, Shangri-La">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.elenagiordani.com/evento-maggio">
-    <meta property="og:title" content="Nel Corpo Che Vuoi Live 2026 | 16-18 Maggio">
-    <meta property="og:description" content="3 giorni di immersione totale nel fitness, mindset e nutrizione al femminile. Bellaria Igea Marina.">
-    <meta property="og:image" content="https://www.elenagiordani.com/assets/images/og-evento-maggio.jpg">
+    <meta property="og:title" content="Nel Corpo Che Vuoi Live | 9-10 Maggio 2026">
+    <meta property="og:description" content="2 giorni per riaccendere la donna che sei. Shangri-La, Roma. Solo 140 posti.">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Nel Corpo Che Vuoi Live 2026 | 16-18 Maggio">
-    <meta property="twitter:description" content="3 giorni di immersione totale nel fitness, mindset e nutrizione al femminile. Bellaria Igea Marina.">
-
-    <!-- Fonts & CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
-    <link rel="stylesheet" href="css/components/evento-maggio.css?v=1767489274">
+
+    <style>
+        /* ===== EVENTO-SPECIFIC STYLES ===== */
+
+        /* Community */
+        .ev-community { max-width: 800px; margin: 0 auto; text-align: center; }
+        .ev-community p { font-size: 1.15rem; line-height: 1.9; margin-bottom: 1rem; color: rgba(255,255,255,0.8); }
+        .ev-community .ev-emphasis { font-size: 1.6rem; font-weight: 700; color: var(--white); margin: 2.5rem 0; }
+
+        /* Program */
+        .ev-program-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3rem; }
+        .ev-program-day { background: linear-gradient(135deg, #1A1A1A, #0F0F0F); border-radius: 8px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+        .ev-program-day:hover { border-color: rgba(233,30,99,0.3); transform: translateY(-5px); }
+        .ev-day-badge { display: inline-block; background: var(--pink-primary); color: var(--white); padding: 0.5rem 1.25rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .ev-day-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+        .ev-day-time { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; font-weight: 500; }
+        .ev-day-subtitle { font-size: 1.15rem; color: var(--pink-primary); font-weight: 600; font-style: italic; margin-bottom: 1.75rem; }
+        .ev-day-list { list-style: none; border-radius: 4px; overflow: hidden; padding: 0; }
+        .ev-day-list li { padding: 1rem 1.25rem 1rem 3rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.9); }
+        .ev-day-list li:nth-child(odd) { background: rgba(255,255,255,0.05); }
+        .ev-day-list li:nth-child(even) { background: rgba(0,0,0,0.3); }
+        .ev-day-list li::before { content: ''; position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 10px; height: 10px; background: var(--pink-primary); border-radius: 2px; }
+        .ev-program-note { text-align: center; margin-top: 2.5rem; font-style: italic; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .ev-experience-box { background: #1A1A1A; border: 2px solid rgba(233,30,99,0.4); border-radius: 4px; padding: 2.5rem; text-align: center; max-width: 650px; margin: 3rem auto 0; }
+        .ev-experience-box p:first-child { font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+        .ev-experience-box p:last-child { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; }
+
+        /* Benefits */
+        .ev-benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .ev-benefits-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 750px; margin: 1.5rem auto 0; }
+        .ev-benefit-card { background: linear-gradient(135deg, #1A1A1A, #0F0F0F); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--pink-primary); transition: all 0.3s ease; }
+        .ev-benefit-card:hover { transform: translateX(10px); background: linear-gradient(135deg, #1F1F1F, #141414); }
+        .ev-benefit-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .ev-benefit-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+        .ev-benefit-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin: 0; }
+
+        /* Pricing */
+        .ev-pricing-urgency { background: transparent; color: var(--pink-primary); padding: 0.9rem 2rem; border-radius: 4px; border: 2px solid var(--pink-primary); display: inline-block; margin-bottom: 3rem; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; }
+        .ev-countdown-container { margin: 3rem 0; }
+        .ev-countdown-label { font-size: 1.05rem; color: rgba(255,255,255,0.8); margin-bottom: 1.25rem; }
+        .ev-countdown-label strong { color: var(--pink-primary); }
+        .ev-countdown { display: flex; justify-content: center; gap: 1.25rem; }
+        .ev-countdown-item { text-align: center; }
+        .ev-countdown-number { background: #1A1A1A; border: 1px solid rgba(233,30,99,0.3); color: var(--pink-primary); font-size: 1.75rem; font-weight: 700; width: 75px; height: 75px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .ev-countdown-text { font-size: 0.65rem; color: rgba(255,255,255,0.5); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.15em; }
+        .ev-pricing-single { max-width: 500px; margin: 0 auto; }
+        .ev-pricing-card { background: linear-gradient(135deg, #1A1A1A, #0F0F0F); border-radius: 8px; padding: 3rem; border: 2px solid var(--pink-primary); position: relative; overflow: hidden; }
+        .ev-pricing-card::before { content: 'OFFERTA LIMITATA'; position: absolute; top: 22px; right: -45px; background: var(--pink-primary); color: var(--white); padding: 0.5rem 3rem; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; transform: rotate(45deg); }
+        .ev-pricing-label { font-size: 0.7rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+        .ev-pricing-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 2rem; color: rgba(255,255,255,0.8); }
+        .ev-pricing-option { padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ev-pricing-option:last-of-type { border-bottom: none; }
+        .ev-pricing-option-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--white); }
+        .ev-pricing-option-subtitle { font-size: 0.8rem; color: var(--pink-primary); font-weight: 500; margin-bottom: 0.75rem; }
+        .ev-pricing-price { font-size: 2.5rem; font-weight: 800; color: var(--pink-primary); }
+        .ev-pricing-price .old { font-size: 1.25rem; color: rgba(255,255,255,0.4); text-decoration: line-through; font-weight: 400; margin-right: 0.75rem; }
+        .ev-pricing-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); margin: 0.5rem 0; }
+        .ev-pricing-duo { background: rgba(233,30,99,0.1); border-radius: 4px; padding: 1.25rem; margin-top: 0.75rem; }
+        .ev-pricing-duo p:first-child { font-size: 0.95rem; color: rgba(255,255,255,0.8); margin: 0; }
+        .ev-pricing-duo p:last-child { font-size: 1.35rem; font-weight: 700; color: var(--pink-primary); margin: 0.5rem 0 0; }
+        .ev-pricing-tip { font-size: 0.85rem; color: var(--pink-primary); font-style: italic; margin-top: 1.5rem; margin-bottom: 1.75rem; }
+        .ev-btn-pricing { width: 100%; text-align: center; justify-content: center; }
+        .ev-pricing-trust { display: flex; justify-content: center; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
+        .ev-pricing-trust span { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+        /* Gallery - Creative Collage */
+        .ev-gallery-collage {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 120px;
+            gap: 0.75rem;
+            margin-top: 3rem;
+        }
+        .ev-gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .ev-gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        .ev-gallery-item:hover { z-index: 2; transform: scale(1.05) rotate(0deg) !important; }
+        .ev-gallery-item:hover img { transform: scale(1.15); }
+        .ev-gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .ev-gallery-item:hover::after { opacity: 1; }
+
+        /* Collage layout - varied sizes */
+        .ev-gallery-item:nth-child(1)  { grid-column: 1 / 5;  grid-row: 1 / 4; }
+        .ev-gallery-item:nth-child(2)  { grid-column: 5 / 8;  grid-row: 1 / 3; transform: rotate(1.5deg); }
+        .ev-gallery-item:nth-child(3)  { grid-column: 8 / 13; grid-row: 1 / 4; }
+        .ev-gallery-item:nth-child(4)  { grid-column: 5 / 8;  grid-row: 3 / 5; transform: rotate(-1deg); }
+        .ev-gallery-item:nth-child(5)  { grid-column: 1 / 4;  grid-row: 4 / 6; transform: rotate(-1.5deg); }
+        .ev-gallery-item:nth-child(6)  { grid-column: 4 / 7;  grid-row: 5 / 8; }
+        .ev-gallery-item:nth-child(7)  { grid-column: 8 / 13; grid-row: 4 / 7; transform: rotate(1deg); }
+        .ev-gallery-item:nth-child(8)  { grid-column: 1 / 4;  grid-row: 6 / 9; }
+        .ev-gallery-item:nth-child(9)  { grid-column: 7 / 10; grid-row: 7 / 10; transform: rotate(-1.5deg); }
+        .ev-gallery-item:nth-child(10) { grid-column: 10 / 13; grid-row: 7 / 9; transform: rotate(2deg); }
+        .ev-gallery-item:nth-child(11) { grid-column: 4 / 7;  grid-row: 8 / 10; transform: rotate(1deg); }
+        .ev-gallery-item:nth-child(12) { grid-column: 10 / 13; grid-row: 9 / 11; transform: rotate(-1deg); }
+        .ev-gallery-item:nth-child(13) { grid-column: 1 / 5;  grid-row: 9 / 12; }
+        .ev-gallery-item:nth-child(14) { grid-column: 5 / 8;  grid-row: 10 / 12; transform: rotate(1.5deg); }
+        .ev-gallery-item:nth-child(15) { grid-column: 8 / 10; grid-row: 10 / 12; transform: rotate(-2deg); }
+        .ev-gallery-item:nth-child(16) { grid-column: 7 / 13; grid-row: 11 / 14; }
+
+        /* Section background images - cinematic integration */
+        .ev-bg-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .ev-bg-reveal {
+            position: absolute;
+            top: 0;
+            width: 45%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ev-bg-reveal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0;
+            filter: grayscale(0.2);
+            transition: opacity 1.5s ease;
+        }
+        .ev-bg-reveal.visible img { opacity: 0.4; }
+        /* Right side reveal - fades from right to left */
+        .ev-bg-reveal.ev-right {
+            right: 0;
+            -webkit-mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+            mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+        }
+        /* Left side reveal - fades from left to right */
+        .ev-bg-reveal.ev-left {
+            left: 0;
+            -webkit-mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+            mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+        }
+        /* Pink tint overlay on bg images */
+        .ev-bg-reveal::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(233,30,99,0.08), transparent);
+            pointer-events: none;
+        }
+        .ev-bg-section .container { position: relative; z-index: 1; }
+
+        /* Horizontal photo strip */
+        .ev-photostrip {
+            overflow: hidden;
+            padding: 3rem 0;
+            background: #000;
+            position: relative;
+        }
+        .ev-photostrip::before,
+        .ev-photostrip::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .ev-photostrip::before { left: 0; background: linear-gradient(90deg, #000, transparent); }
+        .ev-photostrip::after { right: 0; background: linear-gradient(-90deg, #000, transparent); }
+        .ev-photostrip-track {
+            display: flex;
+            gap: 1.25rem;
+            animation: ev-scroll-strip 30s linear infinite;
+            width: max-content;
+        }
+        .ev-photostrip-track:hover { animation-play-state: paused; }
+        .ev-photostrip-img {
+            width: 280px;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .ev-photostrip-img:nth-child(odd) { transform: rotate(-2deg); margin-top: 1rem; }
+        .ev-photostrip-img:nth-child(even) { transform: rotate(2deg); margin-bottom: 1rem; }
+        .ev-photostrip-img img { width: 100%; height: 100%; object-fit: cover; }
+        @keyframes ev-scroll-strip {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Video Cards */
+        .ev-video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+        .ev-video-card { border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; background: #1A1A1A; position: relative; display: block; aspect-ratio: 9/16; cursor: pointer; }
+        .ev-video-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .ev-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(233,30,99,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--white); transition: all 0.3s ease; }
+        .ev-video-card:hover { border-color: rgba(233,30,99,0.5); transform: scale(1.03); }
+        .ev-video-card:hover .ev-video-play { background: var(--pink-primary); transform: translate(-50%, -50%) scale(1.1); }
+
+        /* Video Modal */
+        .ev-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; align-items: center; justify-content: center; }
+        .ev-modal.active { display: flex; }
+        .ev-modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); cursor: pointer; }
+        .ev-modal-content { position: relative; z-index: 2; width: 90%; max-width: 400px; }
+        .ev-modal-close { position: absolute; top: -50px; right: 0; background: none; border: none; color: var(--white); font-size: 2.5rem; cursor: pointer; transition: color 0.3s ease; line-height: 1; }
+        .ev-modal-close:hover { color: var(--pink-primary); }
+        .ev-modal-wrapper { position: relative; width: 100%; aspect-ratio: 9/16; background: #000; border-radius: 12px; overflow: hidden; }
+        .ev-modal-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* FAQ */
+        .ev-faq-list { max-width: 800px; margin: 0 auto; }
+        .ev-faq-item { background: linear-gradient(135deg, #1A1A1A, #0F0F0F); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .ev-faq-question { padding: 1.5rem 1.75rem; font-size: 1rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; background: none; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; gap: 1rem; }
+        .ev-faq-question:hover { background: rgba(233,30,99,0.1); }
+        .ev-faq-toggle { font-size: 1.5rem; color: var(--pink-primary); font-weight: 300; transition: transform 0.3s ease; flex-shrink: 0; }
+        .ev-faq-item.open .ev-faq-toggle { transform: rotate(45deg); }
+        .ev-faq-answer { padding: 0 1.75rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; }
+        .ev-faq-item.open .ev-faq-answer { padding: 0 1.75rem 1.5rem; max-height: 500px; }
+        .ev-faq-answer p { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.7; }
+
+        /* Final CTA */
+        .ev-final-cta { background: var(--pink-primary); text-align: center; padding: 7rem 2rem; }
+        .ev-final-cta-content { max-width: 650px; margin: 0 auto; }
+        .ev-final-cta h2 { color: var(--white); margin-bottom: 1.75rem; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; }
+        .ev-final-cta p { color: rgba(255,255,255,0.9); font-size: 1.15rem; line-height: 1.8; margin-bottom: 0.75rem; }
+        .ev-final-cta .ev-question { font-size: 1.85rem; font-weight: 700; font-style: italic; color: var(--white); margin: 2.5rem 0; }
+        .ev-btn-white { display: inline-flex; align-items: center; gap: 1rem; background: var(--white); color: var(--pink-primary); padding: 1.25rem 2.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .ev-btn-white:hover { background: #0A0A0A; color: var(--white); transform: translateY(-3px); }
+        .ev-final-trust { margin-top: 1.75rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+        /* Sticky CTA */
+        .ev-sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #0A0A0A; padding: 0.75rem 1.25rem; box-shadow: 0 -4px 30px rgba(0,0,0,0.5); z-index: 1000; border-top: 1px solid rgba(233,30,99,0.3); }
+        .ev-sticky-cta .btn-primary { width: 100%; justify-content: center; }
+
+        /* Emotion Parallax Breaks */
+        .ev-emotion {
+            position: relative;
+            height: 65vh;
+            min-height: 400px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ev-emotion-bg {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 100%;
+            height: 140%;
+            object-fit: cover;
+            will-change: transform;
+        }
+        .ev-emotion-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+            z-index: 1;
+        }
+        .ev-emotion-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            padding: 0 2rem;
+        }
+        .ev-emotion-text p {
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 300;
+            color: var(--white);
+            line-height: 1.4;
+            font-style: italic;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            margin: 0;
+        }
+        .ev-emotion-text p strong {
+            font-weight: 700;
+            color: var(--pink-light);
+        }
+
+        /* Responsive overrides */
+        @media (max-width: 1200px) {
+            .ev-program-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
+            .ev-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .ev-benefits-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+            .ev-bg-reveal { width: 35%; }
+        }
+        @media (max-width: 768px) {
+            .ev-program-grid { grid-template-columns: 1fr; }
+            .ev-benefits-grid, .ev-benefits-grid-2 { grid-template-columns: 1fr; max-width: 100%; }
+            .ev-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .ev-video-play { width: 50px; height: 50px; font-size: 1.25rem; }
+            .ev-countdown-number { width: 60px; height: 60px; font-size: 1.5rem; }
+            .ev-final-cta { padding: 4rem 1.5rem 7rem; }
+            .ev-sticky-cta { display: block; }
+            .ev-pricing-card { padding: 2rem 1.5rem; }
+            .ev-emotion { height: 50vh; min-height: 300px; }
+            .ev-gallery-collage { grid-auto-rows: 90px; }
+            .ev-bg-reveal { display: none; }
+            .ev-photostrip-img { width: 220px; height: 160px; }
+        }
+        @media (max-width: 576px) {
+            .ev-gallery-collage {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: auto;
+                gap: 0.5rem;
+            }
+            .ev-gallery-item { grid-column: auto !important; grid-row: auto !important; aspect-ratio: 1/1; transform: none !important; }
+            .ev-photostrip-img { width: 180px; height: 130px; }
+            .ev-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+            .ev-video-play { width: 40px; height: 40px; font-size: 1rem; }
+            .ev-countdown { gap: 0.5rem; }
+            .ev-countdown-number { width: 55px; height: 55px; font-size: 1.25rem; }
+            .ev-pricing-card::before { font-size: 0.5rem; right: -50px; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- React Mobile Header Container -->
+    <!-- React Mobile Header Mount Point -->
     <div id="react-mobile-header-root"></div>
 
     <!-- NAVIGATION -->
@@ -64,437 +382,437 @@
         </div>
     </nav>
 
-    <!-- EVENT HERO -->
-    <section class="evento-hero">
-        <div class="evento-hero-overlay"></div>
-        <div class="evento-hero-content">
-            <span class="evento-hero-badge">16 - 18 Maggio 2026</span>
-            <h1 class="evento-hero-title">
-                Nel Corpo Che Vuoi<br>
-                <span>Live 2026</span>
-            </h1>
-            <p class="evento-hero-subtitle">
-                3 giorni di immersione totale nel fitness, mindset e nutrizione al femminile.
-                Un'esperienza unica per superare i tuoi limiti.
-            </p>
-            <div class="evento-hero-location">
-                &#128205; Bellaria Igea Marina (RN)
+    <!-- HERO -->
+    <section class="hero">
+        <img
+            src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png"
+            alt="Elena Giordani"
+            class="hero-bg-image"
+        >
+        <div class="hero-gradient"></div>
+        <div id="react-mobile-hero-root"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    9-10 Maggio 2026 &bull; Shangri-La, Roma
+                </div>
+                <h1 class="hero-title">
+                    <span>2 Giorni Per Riaccendere</span>
+                    <span class="accent">La Donna Che Sei.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    L'evento dal vivo che aspettavi. Solo 140 posti.
+                    Quando finiscono, finiscono.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">140</div>
+                        <div class="hero-stat-label">Posti Totali</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">2<span>gg</span></div>
+                        <div class="hero-stat-label">Di Immersione</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">100<span>%</span></div>
+                        <div class="hero-stat-label">Dal Vivo</div>
+                    </div>
+                </div>
+                <div class="hero-cta-group">
+                    <a href="https://buy.stripe.com/6oU14neixdEc3ee1QJ77O0o" class="btn-primary">
+                        Voglio Esserci
+                        <span>&rarr;</span>
+                    </a>
+                    <a href="#pricing" class="btn-outline">
+                        Vedi Prezzi
+                    </a>
+                </div>
             </div>
-            <div class="evento-hero-countdown" id="eventCountdown">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="countdownDays">--</span>
-                    <span class="countdown-label">Giorni</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="countdownHours">--</span>
-                    <span class="countdown-label">Ore</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="countdownMinutes">--</span>
-                    <span class="countdown-label">Minuti</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="countdownSeconds">--</span>
-                    <span class="countdown-label">Secondi</span>
+            <div class="hero-video-container">
+                <div class="hero-video-box">
+                    <video
+                        class="hero-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                    >
+                        <source src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68f9475cc3bfa481489d26b7.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
-            <a href="#prenota" class="btn-primary evento-hero-cta">
-                Prenota il tuo posto
-                <span>&rarr;</span>
-            </a>
         </div>
     </section>
 
-    <!-- COSA TI ASPETTA -->
-    <section class="section">
+    <!-- CI VEDIAMO A ROMA -->
+    <section class="section section-black ev-bg-section">
+        <div class="ev-bg-reveal ev-right" data-reveal>
+            <img src="https://drive.google.com/thumbnail?id=1TaHcjGqrsV3hoiLdLeRW0dwYzLEjiZc-&sz=w800" alt="" loading="lazy">
+        </div>
         <div class="container">
-            <div class="section-header center">
-                <span class="section-number">COSA TI ASPETTA</span>
-                <h2 class="section-title">3 giorni che ti <span class="highlight">cambieranno</span></h2>
-                <p class="evento-section-desc">
-                    Non un semplice evento fitness. Un'esperienza trasformativa che unisce corpo, mente e community.
-                </p>
+            <div class="ev-community">
+                <h2 class="section-title" style="color: var(--white);">Finalmente ci abbracciamo <span class="highlight">dal vivo.</span></h2>
+                <p>Lo sai com'è.</p>
+                <p>Ci vediamo ogni giorno in live. Ci scriviamo su WhatsApp. Festeggiamo ogni traguardo insieme. Piangiamo insieme. Ci rialziamo insieme.</p>
+                <p>Ma c'è qualcosa che attraverso uno schermo non passa.</p>
+                <p>L'energia di una sala con 140 Inarrestabili. Gli abbracci veri. Quegli sguardi che dicono <em>"ce l'hai fatta"</em> senza bisogno di parole.</p>
+                <p class="ev-emphasis">Il 9-10 maggio ci vediamo a Roma.<br><span class="highlight"><em>Di persona. Finalmente.</em></span></p>
+                <a href="https://buy.stripe.com/6oU14neixdEc3ee1QJ77O0o" class="btn-outline">
+                    Riserva il tuo posto
+                    <span>&rarr;</span>
+                </a>
             </div>
-            <div class="evento-highlights-grid">
-                <div class="evento-highlight-card">
-                    <div class="evento-highlight-icon">&#128170;</div>
-                    <h3>Allenamenti con Elena</h3>
-                    <p>Sessioni LIVE esclusive guidate da Elena in persona. Allenamenti pensati per tutti i livelli, dall'inizio alla sfida.</p>
-                </div>
-                <div class="evento-highlight-card">
-                    <div class="evento-highlight-icon">&#127891;</div>
-                    <h3>Workshop Esclusivi</h3>
-                    <p>Masterclass di nutrizione, mindset e gestione dello stress con il team di specialisti dell'Academy.</p>
-                </div>
-                <div class="evento-highlight-card">
-                    <div class="evento-highlight-icon">&#129309;</div>
-                    <h3>Community dal Vivo</h3>
-                    <p>Conosci le altre Inarrestabili, condividi la tua storia e crea connessioni che durano per sempre.</p>
-                </div>
-                <div class="evento-highlight-card">
-                    <div class="evento-highlight-icon">&#127828;</div>
-                    <h3>Masterclass Nutrizione</h3>
-                    <p>Impara a mangiare bene per sempre. Workshop pratici con ricette, strategie e consigli personalizzati.</p>
-                </div>
-                <div class="evento-highlight-card">
-                    <div class="evento-highlight-icon">&#129504;</div>
-                    <h3>Sessioni Mindset</h3>
-                    <p>Lavora sulla tua mente con la Dott.ssa Mariotti. Supera blocchi mentali e costruisci una mentalita vincente.</p>
-                </div>
-                <div class="evento-highlight-card">
-                    <div class="evento-highlight-icon">&#127881;</div>
-                    <h3>Serata Speciale</h3>
-                    <p>Cena di gala, musica e divertimento. Una serata indimenticabile per celebrare insieme il percorso fatto.</p>
-                </div>
-            </div>
+        </div>
+    </section>
+
+    <!-- EMOTION BREAK 1 -->
+    <section class="ev-emotion">
+        <img src="https://drive.google.com/thumbnail?id=1uXA1NsoEYRn_X4FuFkPX-xJnBoFOzPmI&sz=w1600" alt="" class="ev-emotion-bg" data-parallax>
+        <div class="ev-emotion-overlay"></div>
+        <div class="ev-emotion-text">
+            <p>Quegli sguardi che dicono <strong>"ce l'hai fatta"</strong> senza bisogno di parole.</p>
         </div>
     </section>
 
     <!-- PROGRAMMA -->
-    <section class="section section-gray">
+    <section class="section section-black ev-bg-section" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
+        <div class="ev-bg-reveal ev-left" data-reveal>
+            <img src="https://drive.google.com/thumbnail?id=1Bly37lA2uJ9vTGYrg7JOAis-bQXSR8DS&sz=w800" alt="" loading="lazy">
+        </div>
         <div class="container">
             <div class="section-header center">
                 <span class="section-number">IL PROGRAMMA</span>
-                <h2 class="section-title">3 giorni di <span class="highlight">immersione totale</span></h2>
+                <h2 class="section-title" style="color: var(--white);">2 giorni di <span class="highlight"><em>immersione totale</em></span></h2>
             </div>
-            <div class="evento-programma">
-                <div class="evento-giorno">
-                    <div class="evento-giorno-header">
-                        <span class="evento-giorno-number">Giorno 1</span>
-                        <h3>Venerdi 16 Maggio</h3>
-                        <p>Arrivo &amp; Accoglienza</p>
-                    </div>
-                    <div class="evento-giorno-timeline">
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">14:00</span>
-                            <div class="evento-slot-content">
-                                <strong>Check-in &amp; Registrazione</strong>
-                                <p>Accoglienza, kit di benvenuto e sistemazione</p>
-                            </div>
-                        </div>
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">16:00</span>
-                            <div class="evento-slot-content">
-                                <strong>Sessione di Apertura con Elena</strong>
-                                <p>Benvenuto ufficiale e allenamento inaugurale</p>
-                            </div>
-                        </div>
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">19:00</span>
-                            <div class="evento-slot-content">
-                                <strong>Cena di Benvenuto</strong>
-                                <p>Prima serata insieme per conoscersi</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="ev-program-grid">
+                <div class="ev-program-day">
+                    <div class="ev-day-badge">Giorno 1</div>
+                    <h3 class="ev-day-title">Sabato 9 Maggio</h3>
+                    <p class="ev-day-time">&#128336; 10:00 - 18:00 + Apericena</p>
+                    <p class="ev-day-subtitle">&#128293; La Riaccensione</p>
+                    <ul class="ev-day-list">
+                        <li>Accoglienza e connessione con Elena e le altre X-Fitter</li>
+                        <li>Workshop Mindset: sblocca la mente prima del corpo</li>
+                        <li>Sessione movimento insieme</li>
+                        <li>Serata community <em>(opzionale)</em></li>
+                    </ul>
                 </div>
-                <div class="evento-giorno">
-                    <div class="evento-giorno-header">
-                        <span class="evento-giorno-number">Giorno 2</span>
-                        <h3>Sabato 17 Maggio</h3>
-                        <p>Full Immersion</p>
-                    </div>
-                    <div class="evento-giorno-timeline">
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">07:00</span>
-                            <div class="evento-slot-content">
-                                <strong>Allenamento all'alba in spiaggia</strong>
-                                <p>Sessione speciale con vista mare</p>
-                            </div>
-                        </div>
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">10:00</span>
-                            <div class="evento-slot-content">
-                                <strong>Workshop Nutrizione</strong>
-                                <p>Masterclass pratica con il team medico</p>
-                            </div>
-                        </div>
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">14:30</span>
-                            <div class="evento-slot-content">
-                                <strong>Sessione Mindset</strong>
-                                <p>Workshop con la Dott.ssa Mariotti</p>
-                            </div>
-                        </div>
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">17:00</span>
-                            <div class="evento-slot-content">
-                                <strong>Allenamento Power</strong>
-                                <p>La sessione piu intensa del weekend con Elena</p>
-                            </div>
-                        </div>
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">20:30</span>
-                            <div class="evento-slot-content">
-                                <strong>Serata di Gala</strong>
-                                <p>Cena speciale, musica e celebrazioni</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="ev-program-day">
+                    <div class="ev-day-badge">Giorno 2</div>
+                    <h3 class="ev-day-title">Domenica 10 Maggio</h3>
+                    <p class="ev-day-time">&#128336; 9:30 - 13:00</p>
+                    <p class="ev-day-subtitle">&#128170; La Trasformazione</p>
+                    <ul class="ev-day-list">
+                        <li>Workshop Nutrizione: mangiare per energia, non per punizione</li>
+                        <li>Allenamento live con Elena</li>
+                        <li>Il tuo piano d'azione per le 12 settimane successive</li>
+                        <li>Cerimonia di chiusura: "Ora sei un'Inarrestabile"</li>
+                    </ul>
                 </div>
-                <div class="evento-giorno">
-                    <div class="evento-giorno-header">
-                        <span class="evento-giorno-number">Giorno 3</span>
-                        <h3>Domenica 18 Maggio</h3>
-                        <p>Chiusura &amp; Rinascita</p>
-                    </div>
-                    <div class="evento-giorno-timeline">
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">08:00</span>
-                            <div class="evento-slot-content">
-                                <strong>Yoga &amp; Meditazione</strong>
-                                <p>Sessione rigenerante per corpo e mente</p>
-                            </div>
-                        </div>
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">10:30</span>
-                            <div class="evento-slot-content">
-                                <strong>Talk con Elena: Il Tuo Piano d'Azione</strong>
-                                <p>Come portare a casa tutto cio che hai imparato</p>
-                            </div>
-                        </div>
-                        <div class="evento-slot">
-                            <span class="evento-slot-time">13:00</span>
-                            <div class="evento-slot-content">
-                                <strong>Pranzo di Chiusura &amp; Saluti</strong>
-                                <p>L'ultimo momento insieme prima di tornare a casa trasformate</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <p class="ev-program-note">*Programma dettagliato via email dopo l'iscrizione</p>
+            <div class="ev-experience-box">
+                <p>&#127869; Vuoi vivere l'esperienza completa?</p>
+                <p>Aggiungi pranzo e apericena per non perderti neanche un momento con Elena e le altre X-Fitter.<br><em>(Opzioni disponibili nel carrello)</em></p>
             </div>
         </div>
     </section>
 
-    <!-- PER CHI E -->
-    <section class="section">
+    <!-- EMOTION BREAK 2 -->
+    <section class="ev-emotion">
+        <img src="https://drive.google.com/thumbnail?id=1NXl91IEI9lSZe9VslptmlUE8teE4YLr4&sz=w1600" alt="" class="ev-emotion-bg" data-parallax>
+        <div class="ev-emotion-overlay"></div>
+        <div class="ev-emotion-text">
+            <p>140 donne. <strong>Una sola energia.</strong></p>
+        </div>
+    </section>
+
+    <!-- COSA PORTI A CASA -->
+    <section class="section section-black ev-bg-section">
+        <div class="ev-bg-reveal ev-right" data-reveal>
+            <img src="https://drive.google.com/thumbnail?id=14l_7meYVtEW-hdmTdkUIA1pK1KCZP98D&sz=w800" alt="" loading="lazy">
+        </div>
         <div class="container">
             <div class="section-header center">
-                <span class="section-number">PER CHI E</span>
-                <h2 class="section-title">Questo evento fa per te se...</h2>
+                <span class="section-number">COSA PORTI A CASA</span>
+                <h2 class="section-title" style="color: var(--white);">Non torni a casa solo con <span class="highlight"><em>belle sensazioni.</em></span></h2>
             </div>
-            <div class="evento-perchi-grid">
-                <div class="evento-perchi-item">
-                    <span class="evento-perchi-check">&#10003;</span>
-                    <p>Vuoi vivere l'esperienza X-Fit Academy dal vivo</p>
+            <div class="ev-benefits-grid">
+                <div class="ev-benefit-card">
+                    <div class="ev-benefit-icon">&#129504;</div>
+                    <h4>La mente allenata a non mollare</h4>
+                    <p>Il vero segreto che nessuna dieta ti insegna</p>
                 </div>
-                <div class="evento-perchi-item">
-                    <span class="evento-perchi-check">&#10003;</span>
-                    <p>Senti il bisogno di staccare dalla routine e dedicarti a te stessa</p>
+                <div class="ev-benefit-card">
+                    <div class="ev-benefit-icon">&#127851;</div>
+                    <h4>Strategie per la fame emotiva</h4>
+                    <p>Capirai perché succede e come fermarla</p>
                 </div>
-                <div class="evento-perchi-item">
-                    <span class="evento-perchi-check">&#10003;</span>
-                    <p>Vuoi conoscere Elena e il team di persona</p>
+                <div class="ev-benefit-card">
+                    <div class="ev-benefit-icon">&#128203;</div>
+                    <h4>Piano d'azione 12 settimane</h4>
+                    <p>Concreto, passo dopo passo</p>
                 </div>
-                <div class="evento-perchi-item">
-                    <span class="evento-perchi-check">&#10003;</span>
-                    <p>Desideri fare amicizia con donne che condividono i tuoi stessi obiettivi</p>
+            </div>
+            <div class="ev-benefits-grid ev-benefits-grid-2">
+                <div class="ev-benefit-card">
+                    <div class="ev-benefit-icon">&#128111;</div>
+                    <h4>139 X-Fitter che ti capiscono</h4>
+                    <p>Alcune diventeranno amiche per la vita</p>
                 </div>
-                <div class="evento-perchi-item">
-                    <span class="evento-perchi-check">&#10003;</span>
-                    <p>Vuoi imparare strategie pratiche di allenamento, nutrizione e mindset</p>
-                </div>
-                <div class="evento-perchi-item">
-                    <span class="evento-perchi-check">&#10003;</span>
-                    <p>Cerchi la spinta definitiva per la tua trasformazione</p>
+                <div class="ev-benefit-card">
+                    <div class="ev-benefit-icon">&#9889;</div>
+                    <h4>L'energia per ricominciare davvero</h4>
+                    <p>Quella scintilla che pensavi di aver perso</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NUMERI EDIZIONI PASSATE -->
+    <!-- EMOTION BREAK 3 -->
+    <section class="ev-emotion">
+        <img src="https://drive.google.com/thumbnail?id=1vIglDUSCIVGgG-itwq5GO2l-My3APcpH&sz=w1600" alt="" class="ev-emotion-bg" data-parallax>
+        <div class="ev-emotion-overlay"></div>
+        <div class="ev-emotion-text">
+            <p>Alcune diventeranno <strong>amiche per la vita.</strong></p>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section section-black" id="pricing" style="background: #000;">
+        <div class="container" style="text-align: center;">
+            <div class="section-header center">
+                <span class="section-number">PRENOTA</span>
+                <h2 class="section-title" style="color: var(--white);">Il tuo posto <span class="highlight"><em>ti aspetta</em></span></h2>
+            </div>
+            <div class="ev-pricing-urgency">&#9888;&#65039; SOLO 140 POSTI DISPONIBILI</div>
+
+            <div class="ev-countdown-container">
+                <p class="ev-countdown-label">&#9200; <strong>Il prezzo salirà tra <span id="days-text">0</span> giorni</strong></p>
+                <div class="ev-countdown" id="countdown">
+                    <div class="ev-countdown-item">
+                        <div class="ev-countdown-number" id="days">00</div>
+                        <div class="ev-countdown-text">Giorni</div>
+                    </div>
+                    <div class="ev-countdown-item">
+                        <div class="ev-countdown-number" id="hours">00</div>
+                        <div class="ev-countdown-text">Ore</div>
+                    </div>
+                    <div class="ev-countdown-item">
+                        <div class="ev-countdown-number" id="minutes">00</div>
+                        <div class="ev-countdown-text">Min</div>
+                    </div>
+                    <div class="ev-countdown-item">
+                        <div class="ev-countdown-number" id="seconds">00</div>
+                        <div class="ev-countdown-text">Sec</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ev-pricing-single">
+                <div class="ev-pricing-card">
+                    <div class="ev-pricing-label">&#128293; Prezzo Academy</div>
+                    <h3 class="ev-pricing-title">Riservato alle iscritte X-Fit Academy</h3>
+
+                    <div class="ev-pricing-option">
+                        <p class="ev-pricing-option-title">Vieni da sola</p>
+                        <p class="ev-pricing-price"><span class="old">207&euro;</span>127&euro;</p>
+                    </div>
+
+                    <div class="ev-pricing-divider"></div>
+
+                    <div class="ev-pricing-option">
+                        <p class="ev-pricing-option-title">Porta un'amica</p>
+                        <p class="ev-pricing-option-subtitle">&#128073; Per chi NON è iscritta all'Academy</p>
+                        <div class="ev-pricing-duo">
+                            <p>Tu: <strong>107&euro;</strong> &nbsp;+&nbsp; Lei: <strong>127&euro;</strong></p>
+                            <p>= 234&euro; in due</p>
+                        </div>
+                    </div>
+
+                    <p class="ev-pricing-tip">&#128161; Risparmiate insieme. Trasformatevi insieme.</p>
+
+                    <a href="https://buy.stripe.com/6oU14neixdEc3ee1QJ77O0o" class="btn-primary ev-btn-pricing">
+                        Prenota Ora
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ev-pricing-trust">
+                <span>&#128274; Pagamento sicuro</span>
+                <span>&#128222; Domande? Scrivici su WhatsApp</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORIZONTAL PHOTO STRIP -->
+    <div class="ev-photostrip">
+        <div class="ev-photostrip-track">
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1uXA1NsoEYRn_X4FuFkPX-xJnBoFOzPmI&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1c66Ga2GsF5y25XUjTyvFz_oCgFTXp_GF&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1NXl91IEI9lSZe9VslptmlUE8teE4YLr4&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1COekbdwW7TEpQskVpLe6VH2ro4wmIQd1&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1unjbXHxgqrHOGzGYfIom7oorrbvp_6Gk&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1Bly37lA2uJ9vTGYrg7JOAis-bQXSR8DS&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1d8UTyvufmJJ-rr3MV7RbUedU7cYL9LQx&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1phSxlQ7GaRbwdc5GHBRMojVrRbpA3G1K&sz=w600" alt="Evento" loading="lazy"></div>
+            <!-- Duplicate for seamless loop -->
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1uXA1NsoEYRn_X4FuFkPX-xJnBoFOzPmI&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1c66Ga2GsF5y25XUjTyvFz_oCgFTXp_GF&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1NXl91IEI9lSZe9VslptmlUE8teE4YLr4&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1COekbdwW7TEpQskVpLe6VH2ro4wmIQd1&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1unjbXHxgqrHOGzGYfIom7oorrbvp_6Gk&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1Bly37lA2uJ9vTGYrg7JOAis-bQXSR8DS&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1d8UTyvufmJJ-rr3MV7RbUedU7cYL9LQx&sz=w600" alt="Evento" loading="lazy"></div>
+            <div class="ev-photostrip-img"><img src="https://drive.google.com/thumbnail?id=1phSxlQ7GaRbwdc5GHBRMojVrRbpA3G1K&sz=w600" alt="Evento" loading="lazy"></div>
+        </div>
+    </div>
+
+    <!-- GALLERY - CREATIVE COLLAGE -->
     <section class="section section-black">
         <div class="container">
             <div class="section-header center">
-                <span class="section-number" style="color: var(--pink-primary);">EDIZIONI PASSATE</span>
-                <h2 class="section-title" style="color: var(--white);">I numeri parlano <span class="highlight">chiaro</span></h2>
+                <span class="section-number">RICORDI</span>
+                <h2 class="section-title" style="color: var(--white);">Alcuni attimi <span class="highlight"><em>vissuti l'anno scorso</em></span></h2>
             </div>
-            <div class="evento-stats-grid">
-                <div class="evento-stat-item">
-                    <div class="evento-stat-number">200+</div>
-                    <div class="evento-stat-label">Partecipanti nel 2025</div>
-                </div>
-                <div class="evento-stat-item">
-                    <div class="evento-stat-number">3</div>
-                    <div class="evento-stat-label">Edizioni completate</div>
-                </div>
-                <div class="evento-stat-item">
-                    <div class="evento-stat-number">98%</div>
-                    <div class="evento-stat-label">Vogliono tornare</div>
-                </div>
-                <div class="evento-stat-item">
-                    <div class="evento-stat-number">8</div>
-                    <div class="evento-stat-label">Paesi rappresentati</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIAL -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">DICONO DI NOI</span>
-                <h2 class="section-title">Chi ha partecipato <span class="highlight">racconta</span></h2>
-            </div>
-            <div class="evento-testimonials-grid">
-                <div class="evento-testimonial-card">
-                    <div class="evento-testimonial-quote">
-                        "L'esperienza piu bella della mia vita. Ho pianto, ho riso, mi sono allenata come mai prima.
-                        Non vedo l'ora di tornare."
-                    </div>
-                    <div class="evento-testimonial-author">
-                        <div class="evento-testimonial-avatar">[Foto]</div>
-                        <div>
-                            <div class="evento-testimonial-name">Laura, 38 anni</div>
-                            <div class="evento-testimonial-detail">Partecipante 2025</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="evento-testimonial-card">
-                    <div class="evento-testimonial-quote">
-                        "Pensavo fosse solo un evento di fitness, invece mi ha cambiato il modo di vedere me stessa.
-                        Le amicizie che ho creato valgono tutto."
-                    </div>
-                    <div class="evento-testimonial-author">
-                        <div class="evento-testimonial-avatar">[Foto]</div>
-                        <div>
-                            <div class="evento-testimonial-name">Federica, 45 anni</div>
-                            <div class="evento-testimonial-detail">Partecipante 2024 e 2025</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="evento-testimonial-card">
-                    <div class="evento-testimonial-quote">
-                        "Sono arrivata sola e spaventata. Sono tornata a casa con 50 nuove amiche
-                        e una determinazione che non credevo di avere."
-                    </div>
-                    <div class="evento-testimonial-author">
-                        <div class="evento-testimonial-avatar">[Foto]</div>
-                        <div>
-                            <div class="evento-testimonial-name">Simona, 41 anni</div>
-                            <div class="evento-testimonial-detail">Partecipante 2025</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="ev-gallery-collage">
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1uXA1NsoEYRn_X4FuFkPX-xJnBoFOzPmI&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1TaHcjGqrsV3hoiLdLeRW0dwYzLEjiZc-&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1c66Ga2GsF5y25XUjTyvFz_oCgFTXp_GF&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=10Hr53gNvWDHH69c8W-ah1rQrkEjRBZb6&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1NXl91IEI9lSZe9VslptmlUE8teE4YLr4&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1vIglDUSCIVGgG-itwq5GO2l-My3APcpH&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1XZZTSCpUpPUlIg1seCbTQdaWO3eAVfEk&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1COekbdwW7TEpQskVpLe6VH2ro4wmIQd1&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=14l_7meYVtEW-hdmTdkUIA1pK1KCZP98D&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1unjbXHxgqrHOGzGYfIom7oorrbvp_6Gk&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1Bly37lA2uJ9vTGYrg7JOAis-bQXSR8DS&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=12zg16oaJvp-5GExtn0rH0D54yvNIVXty&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1d8UTyvufmJJ-rr3MV7RbUedU7cYL9LQx&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1YNjZwhiTuOebDgv54ZBId5O0T92u-NZO&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1phSxlQ7GaRbwdc5GHBRMojVrRbpA3G1K&sz=w800" alt="Evento 2024" loading="lazy"></div>
+                <div class="ev-gallery-item"><img src="https://drive.google.com/thumbnail?id=1hrffbrNak4U9ZYbmlrwR-pB5_bkVufHa&sz=w800" alt="Evento 2024" loading="lazy"></div>
             </div>
         </div>
     </section>
 
-    <!-- INFO PRATICHE -->
-    <section class="section section-gray">
+    <!-- VIDEO TESTIMONIANZE -->
+    <section class="section section-black">
         <div class="container">
             <div class="section-header center">
-                <span class="section-number">INFO PRATICHE</span>
-                <h2 class="section-title">Tutto quello che devi <span class="highlight">sapere</span></h2>
+                <span class="section-number">TESTIMONIANZE</span>
+                <h2 class="section-title" style="color: var(--white);">Chi c'era l'anno scorso <span class="highlight"><em>racconta</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Ascolta direttamente da loro com'è stato</p>
             </div>
-            <div class="evento-info-grid">
-                <div class="evento-info-card">
-                    <div class="evento-info-icon">&#128197;</div>
-                    <h4>Quando</h4>
-                    <p>16-18 Maggio 2026<br>Venerdi pomeriggio - Domenica pranzo</p>
+
+            <div class="ev-video-grid">
+                <div class="ev-video-card" data-video="10PVE74pgSVvC5r3BOleCvW-hUYRAlMRc">
+                    <img src="https://drive.google.com/thumbnail?id=10PVE74pgSVvC5r3BOleCvW-hUYRAlMRc&sz=w400" alt="Testimonianza">
+                    <div class="ev-video-play">&#9654;</div>
                 </div>
-                <div class="evento-info-card">
-                    <div class="evento-info-icon">&#128205;</div>
-                    <h4>Dove</h4>
-                    <p>Bellaria Igea Marina (RN)<br>Location da comunicare ai partecipanti</p>
+                <div class="ev-video-card" data-video="1DkBcGR7IkZ6v1DTxFxCE33MDs-7S00oN">
+                    <img src="https://drive.google.com/thumbnail?id=1DkBcGR7IkZ6v1DTxFxCE33MDs-7S00oN&sz=w400" alt="Testimonianza">
+                    <div class="ev-video-play">&#9654;</div>
                 </div>
-                <div class="evento-info-card">
-                    <div class="evento-info-icon">&#127968;</div>
-                    <h4>Alloggio</h4>
-                    <p>Possibilita di soggiorno in hotel convenzionato<br>Pacchetti con e senza pernottamento</p>
+                <div class="ev-video-card" data-video="1G3xDXOnkEIm8v7JGqRLtqFgF_adHeSHl">
+                    <img src="https://drive.google.com/thumbnail?id=1G3xDXOnkEIm8v7JGqRLtqFgF_adHeSHl&sz=w400" alt="Testimonianza">
+                    <div class="ev-video-play">&#9654;</div>
                 </div>
-                <div class="evento-info-card">
-                    <div class="evento-info-icon">&#127860;</div>
-                    <h4>Pasti</h4>
-                    <p>Tutti i pasti inclusi<br>Menu studiato dal team nutrizionista</p>
+                <div class="ev-video-card" data-video="1IzZZhY3WCCdjLWc3pqgEnTZXQgDiWczH">
+                    <img src="https://drive.google.com/thumbnail?id=1IzZZhY3WCCdjLWc3pqgEnTZXQgDiWczH&sz=w400" alt="Testimonianza">
+                    <div class="ev-video-play">&#9654;</div>
+                </div>
+                <div class="ev-video-card" data-video="1grzdutJPx4jUE90G65ZLjploFQ1Xyw4B">
+                    <img src="https://drive.google.com/thumbnail?id=1grzdutJPx4jUE90G65ZLjploFQ1Xyw4B&sz=w400" alt="Testimonianza">
+                    <div class="ev-video-play">&#9654;</div>
+                </div>
+                <div class="ev-video-card" data-video="1oek4Zog-pfgz9a8O54Lz8G-9NeE6qE-r">
+                    <img src="https://drive.google.com/thumbnail?id=1oek4Zog-pfgz9a8O54Lz8G-9NeE6qE-r&sz=w400" alt="Testimonianza">
+                    <div class="ev-video-play">&#9654;</div>
                 </div>
             </div>
+
+            <div class="ev-modal" id="videoModal">
+                <div class="ev-modal-overlay"></div>
+                <div class="ev-modal-content">
+                    <button class="ev-modal-close">&times;</button>
+                    <div class="ev-modal-wrapper">
+                        <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://buy.stripe.com/6oU14neixdEc3ee1QJ77O0o" class="btn-primary">
+                    Voglio Esserci
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMOTION BREAK 4 -->
+    <section class="ev-emotion">
+        <img src="https://drive.google.com/thumbnail?id=1XZZTSCpUpPUlIg1seCbTQdaWO3eAVfEk&sz=w1600" alt="" class="ev-emotion-bg" data-parallax>
+        <div class="ev-emotion-overlay"></div>
+        <div class="ev-emotion-text">
+            <p>L'anno scorso hanno pianto, riso, <strong>rinato.</strong></p>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section">
+    <section class="section section-black ev-bg-section">
+        <div class="ev-bg-reveal ev-left" data-reveal>
+            <img src="https://drive.google.com/thumbnail?id=1c66Ga2GsF5y25XUjTyvFz_oCgFTXp_GF&sz=w800" alt="" loading="lazy">
+        </div>
         <div class="container">
             <div class="section-header center">
-                <span class="section-number">DOMANDE FREQUENTI</span>
-                <h2 class="section-title">Hai dei <span class="highlight">dubbi</span>?</h2>
+                <span class="section-number">DOMANDE</span>
+                <h2 class="section-title" style="color: var(--white);">Info <span class="highlight"><em>pratiche</em></span></h2>
             </div>
-            <div class="evento-faq-list">
-                <div class="evento-faq-item">
-                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        Devo essere gia iscritta all'Academy per partecipare?
-                        <span class="evento-faq-toggle">+</span>
-                    </button>
-                    <div class="evento-faq-answer">
-                        <p>No, l'evento e aperto a tutte le donne, anche a chi non fa ancora parte dell'Academy. E un'ottima occasione per conoscere il metodo E.A.S.Y. dal vivo.</p>
-                    </div>
+            <div class="ev-faq-list">
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Dove si svolge l'evento?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Shangri-La, Via Odescalchi 35 - 00147 Roma (zona EUR). Indicazioni dettagliate via email dopo l'iscrizione.</p></div>
                 </div>
-                <div class="evento-faq-item">
-                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        Che livello di fitness serve?
-                        <span class="evento-faq-toggle">+</span>
-                    </button>
-                    <div class="evento-faq-answer">
-                        <p>Nessun livello particolare. Gli allenamenti sono pensati per essere adattabili a tutti i livelli: dalle principianti alle piu esperte. Ogni esercizio ha varianti facilitate.</p>
-                    </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">C'è un hotel convenzionato?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Sì. Ti invieremo le convenzioni con hotel nelle vicinanze dopo l'iscrizione.</p></div>
                 </div>
-                <div class="evento-faq-item">
-                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        Posso venire da sola?
-                        <span class="evento-faq-toggle">+</span>
-                    </button>
-                    <div class="evento-faq-answer">
-                        <p>Assolutamente si! La maggior parte delle partecipanti viene da sola. L'evento e pensato proprio per creare connessioni. Non sarai mai sola, te lo promettiamo.</p>
-                    </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Cosa devo portare?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Abbigliamento comodo per le sessioni pratiche e tanta voglia di esserci. Tappetini disponibili in sala.</p></div>
                 </div>
-                <div class="evento-faq-item">
-                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        Il pernottamento e incluso?
-                        <span class="evento-faq-toggle">+</span>
-                    </button>
-                    <div class="evento-faq-answer">
-                        <p>Sono disponibili pacchetti con e senza pernottamento. Abbiamo convenzioni con hotel vicini alla location dell'evento per offrirti la migliore esperienza.</p>
-                    </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Posso portare un'amica che non è in Academy?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Sì! La formula "Porta un'amica" è pensata proprio per questo. Lei paga 127&euro;.</p></div>
                 </div>
-                <div class="evento-faq-item">
-                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        Cosa devo portare?
-                        <span class="evento-faq-toggle">+</span>
-                    </button>
-                    <div class="evento-faq-answer">
-                        <p>Abbigliamento sportivo comodo, scarpe da ginnastica, tappetino yoga (opzionale), costume da bagno e tanta voglia di metterti in gioco! Ti invieremo una lista completa dopo l'iscrizione.</p>
-                    </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">E se non posso più venire?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Puoi cedere il biglietto a un'altra persona comunicandocelo almeno 7 giorni prima.</p></div>
                 </div>
-                <div class="evento-faq-item">
-                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        I posti sono limitati?
-                        <span class="evento-faq-toggle">+</span>
-                    </button>
-                    <div class="evento-faq-answer">
-                        <p>Si, i posti sono limitati per garantire un'esperienza di qualita. L'anno scorso abbiamo fatto sold out in poche settimane. Ti consigliamo di prenotare il prima possibile.</p>
-                    </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">I posti sono davvero limitati?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Sì. 140 posti, non uno di più. L'anno scorso sold-out in pochi giorni.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA SECTION -->
-    <section class="cta-section" id="prenota">
-        <div class="cta-bg-text">LIVE</div>
-        <div class="cta-content">
-            <h2 class="cta-title">
-                Ci vediamo a<br>
-                <span>Bellaria Igea Marina</span>?
-            </h2>
-            <p class="cta-text">
-                I posti sono limitati. Non aspettare: prenota il tuo posto per l'esperienza
-                che cambiera il tuo modo di vivere il fitness e te stessa.
-            </p>
-            <a href="contatti.html" class="cta-btn">
-                Prenota il tuo posto
+    <!-- FINAL CTA -->
+    <section class="ev-final-cta">
+        <div class="ev-final-cta-content">
+            <h2>140 posti. 140 Inarrestabili.</h2>
+            <p>Sai già cosa significa far parte di questa community.</p>
+            <p>Sai già cosa significa allenarsi insieme, crescere insieme, non mollare insieme.</p>
+            <p>Ora immagina tutto questo <strong>dal vivo</strong>. In una sala. Con Elena e le altre X-Fitter.</p>
+            <p class="ev-question">Tu ci sei?</p>
+            <a href="https://buy.stripe.com/6oU14neixdEc3ee1QJ77O0o" class="ev-btn-white">
+                Sì, Ci Sono
                 <span>&rarr;</span>
             </a>
+            <p class="ev-final-trust">&#128274; Pagamento sicuro &bull; &#128222; Hai domande? Scrivici su WhatsApp</p>
         </div>
     </section>
 
@@ -542,39 +860,123 @@
         </div>
     </footer>
 
+    <!-- STICKY CTA (mobile) -->
+    <div class="ev-sticky-cta">
+        <a href="https://buy.stripe.com/6oU14neixdEc3ee1QJ77O0o" class="btn-primary">
+            Prenota Ora <span>&rarr;</span>
+        </a>
+    </div>
+
     <script src="js/main.js?v=1767489274"></script>
 
     <!-- React (for mobile header) -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="js/react-mobile-header.js?v=1767489274"></script>
+    <script src="js/react-mobile-hero.js?v=1767489274"></script>
 
-    <!-- Countdown Timer -->
     <script>
-    (function() {
-        var eventDate = new Date('2026-05-16T14:00:00+02:00').getTime();
+        // FAQ Accordion
+        document.querySelectorAll('.ev-faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = btn.closest('.ev-faq-item');
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.ev-faq-item').forEach(function(el) { el.classList.remove('open'); });
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Countdown Timer - 10 Febbraio 2026
+        var earlyBirdEnd = new Date('2026-02-10T23:59:59').getTime();
         function updateCountdown() {
             var now = new Date().getTime();
-            var diff = eventDate - now;
-            if (diff <= 0) {
-                document.getElementById('countdownDays').textContent = '0';
-                document.getElementById('countdownHours').textContent = '0';
-                document.getElementById('countdownMinutes').textContent = '0';
-                document.getElementById('countdownSeconds').textContent = '0';
+            var distance = earlyBirdEnd - now;
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<p style="color:var(--pink-primary);font-weight:600;">Offerta terminata!</p>';
+                document.querySelector('.ev-countdown-label').innerHTML = '&#9200; <strong>Il prezzo è aumentato</strong>';
                 return;
             }
-            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            document.getElementById('countdownDays').textContent = days;
-            document.getElementById('countdownHours').textContent = hours;
-            document.getElementById('countdownMinutes').textContent = minutes;
-            document.getElementById('countdownSeconds').textContent = seconds;
+            var d = Math.floor(distance / (1000*60*60*24));
+            var h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+            var m = Math.floor((distance % (1000*60*60)) / (1000*60));
+            var s = Math.floor((distance % (1000*60)) / 1000);
+            document.getElementById('days').textContent = d.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = h.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = s.toString().padStart(2, '0');
+            document.getElementById('days-text').textContent = d;
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
-    })();
+
+        // Sticky CTA on scroll (mobile)
+        window.addEventListener('scroll', function() {
+            var sticky = document.querySelector('.ev-sticky-cta');
+            if (window.innerWidth <= 768 && window.scrollY > 500) {
+                sticky.style.display = 'block';
+            } else {
+                sticky.style.display = 'none';
+            }
+        });
+
+        // Video Modal
+        var videoModal = document.getElementById('videoModal');
+        var videoFrame = document.getElementById('videoFrame');
+        var modalClose = document.querySelector('.ev-modal-close');
+        var modalOverlay = document.querySelector('.ev-modal-overlay');
+
+        document.querySelectorAll('.ev-video-card[data-video]').forEach(function(card) {
+            card.addEventListener('click', function() {
+                var videoId = card.getAttribute('data-video');
+                videoFrame.src = 'https://drive.google.com/file/d/' + videoId + '/preview';
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            videoFrame.src = '';
+            document.body.style.overflow = '';
+        }
+        modalClose.addEventListener('click', closeVideoModal);
+        modalOverlay.addEventListener('click', closeVideoModal);
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeVideoModal(); });
+
+        // Parallax scroll for emotion backgrounds
+        var parallaxImages = document.querySelectorAll('[data-parallax]');
+        function updateParallax() {
+            var scrollY = window.scrollY;
+            parallaxImages.forEach(function(img) {
+                var section = img.closest('.ev-emotion');
+                var rect = section.getBoundingClientRect();
+                var sectionTop = rect.top + scrollY;
+                var sectionHeight = section.offsetHeight;
+                var viewportHeight = window.innerHeight;
+                // Only animate when section is in viewport
+                if (rect.bottom > 0 && rect.top < viewportHeight) {
+                    var progress = (viewportHeight - rect.top) / (viewportHeight + sectionHeight);
+                    var translateY = (progress - 0.5) * 80; // -40px to +40px range
+                    img.style.transform = 'translate3d(0,' + translateY + 'px,0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        updateParallax();
+
+        // Background reveals on scroll
+        var bgReveals = document.querySelectorAll('[data-reveal]');
+        function checkReveals() {
+            bgReveals.forEach(function(el) {
+                var rect = el.parentElement.getBoundingClientRect();
+                var viewH = window.innerHeight;
+                if (rect.top < viewH * 0.85 && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveals, { passive: true });
+        checkReveals();
     </script>
 
 </body>
