@@ -104,6 +104,21 @@
   max-width: 12.5rem;
 }
 
+.media-logo-text {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.media-logo-text:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 
 /* ------------------------------------------------------------
    3. PRESS SECTION (Il Sole 24 Ore)
