@@ -160,12 +160,12 @@
   font-weight: 300;
 }
 
-.video-section {
+.section-press .video-section {
   position: relative;
   margin-bottom: 4rem;
 }
 
-.video-frame {
+.section-press .video-frame {
   position: relative;
   background: #1A1A1A;
   border-radius: 8px;
@@ -173,16 +173,24 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.video-container {
-  position: relative;
+.section-press .video-container {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+  align-items: normal;
+  max-width: none;
+  margin: 0;
+  padding: 0;
   padding-bottom: 56.25%;
+  z-index: auto;
+  position: relative;
   height: 0;
   overflow: hidden;
   border-radius: 4px;
   background: #000;
 }
 
-.video-container iframe {
+.section-press .video-container iframe {
   position: absolute;
   top: 0;
   left: 0;
