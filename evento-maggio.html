@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nel Corpo Che Vuoi Live 2026 | 16-18 Maggio - Elena Giordani</title>
+    <meta name="description" content="3 giorni di immersione totale nel fitness, mindset e nutrizione al femminile. 16-18 Maggio 2026, Bellaria Igea Marina. Prenota il tuo posto.">
+    <meta name="keywords" content="Elena Giordani, evento maggio, Nel Corpo Che Vuoi Live, fitness femminile, Bellaria Igea Marina">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.elenagiordani.com/evento-maggio">
+    <meta property="og:title" content="Nel Corpo Che Vuoi Live 2026 | 16-18 Maggio">
+    <meta property="og:description" content="3 giorni di immersione totale nel fitness, mindset e nutrizione al femminile. Bellaria Igea Marina.">
+    <meta property="og:image" content="https://www.elenagiordani.com/assets/images/og-evento-maggio.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Nel Corpo Che Vuoi Live 2026 | 16-18 Maggio">
+    <meta property="twitter:description" content="3 giorni di immersione totale nel fitness, mindset e nutrizione al femminile. Bellaria Igea Marina.">
+
+    <!-- Fonts & CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+    <link rel="stylesheet" href="css/components/evento-maggio.css?v=1767489274">
+</head>
+<body>
+
+    <!-- React Mobile Header Container -->
+    <div id="react-mobile-header-root"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="navbar">
+        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
+                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
+                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
+                    <a href="press.html" onclick="closeMobileMenu()">Press & Media</a>
+                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
+                </div>
+            </div>
+            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+        </div>
+    </nav>
+
+    <!-- EVENT HERO -->
+    <section class="evento-hero">
+        <div class="evento-hero-overlay"></div>
+        <div class="evento-hero-content">
+            <span class="evento-hero-badge">16 - 18 Maggio 2026</span>
+            <h1 class="evento-hero-title">
+                Nel Corpo Che Vuoi<br>
+                <span>Live 2026</span>
+            </h1>
+            <p class="evento-hero-subtitle">
+                3 giorni di immersione totale nel fitness, mindset e nutrizione al femminile.
+                Un'esperienza unica per superare i tuoi limiti.
+            </p>
+            <div class="evento-hero-location">
+                &#128205; Bellaria Igea Marina (RN)
+            </div>
+            <div class="evento-hero-countdown" id="eventCountdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdownDays">--</span>
+                    <span class="countdown-label">Giorni</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdownHours">--</span>
+                    <span class="countdown-label">Ore</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdownMinutes">--</span>
+                    <span class="countdown-label">Minuti</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdownSeconds">--</span>
+                    <span class="countdown-label">Secondi</span>
+                </div>
+            </div>
+            <a href="#prenota" class="btn-primary evento-hero-cta">
+                Prenota il tuo posto
+                <span>&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- COSA TI ASPETTA -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">COSA TI ASPETTA</span>
+                <h2 class="section-title">3 giorni che ti <span class="highlight">cambieranno</span></h2>
+                <p class="evento-section-desc">
+                    Non un semplice evento fitness. Un'esperienza trasformativa che unisce corpo, mente e community.
+                </p>
+            </div>
+            <div class="evento-highlights-grid">
+                <div class="evento-highlight-card">
+                    <div class="evento-highlight-icon">&#128170;</div>
+                    <h3>Allenamenti con Elena</h3>
+                    <p>Sessioni LIVE esclusive guidate da Elena in persona. Allenamenti pensati per tutti i livelli, dall'inizio alla sfida.</p>
+                </div>
+                <div class="evento-highlight-card">
+                    <div class="evento-highlight-icon">&#127891;</div>
+                    <h3>Workshop Esclusivi</h3>
+                    <p>Masterclass di nutrizione, mindset e gestione dello stress con il team di specialisti dell'Academy.</p>
+                </div>
+                <div class="evento-highlight-card">
+                    <div class="evento-highlight-icon">&#129309;</div>
+                    <h3>Community dal Vivo</h3>
+                    <p>Conosci le altre Inarrestabili, condividi la tua storia e crea connessioni che durano per sempre.</p>
+                </div>
+                <div class="evento-highlight-card">
+                    <div class="evento-highlight-icon">&#127828;</div>
+                    <h3>Masterclass Nutrizione</h3>
+                    <p>Impara a mangiare bene per sempre. Workshop pratici con ricette, strategie e consigli personalizzati.</p>
+                </div>
+                <div class="evento-highlight-card">
+                    <div class="evento-highlight-icon">&#129504;</div>
+                    <h3>Sessioni Mindset</h3>
+                    <p>Lavora sulla tua mente con la Dott.ssa Mariotti. Supera blocchi mentali e costruisci una mentalita vincente.</p>
+                </div>
+                <div class="evento-highlight-card">
+                    <div class="evento-highlight-icon">&#127881;</div>
+                    <h3>Serata Speciale</h3>
+                    <p>Cena di gala, musica e divertimento. Una serata indimenticabile per celebrare insieme il percorso fatto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMMA -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">IL PROGRAMMA</span>
+                <h2 class="section-title">3 giorni di <span class="highlight">immersione totale</span></h2>
+            </div>
+            <div class="evento-programma">
+                <div class="evento-giorno">
+                    <div class="evento-giorno-header">
+                        <span class="evento-giorno-number">Giorno 1</span>
+                        <h3>Venerdi 16 Maggio</h3>
+                        <p>Arrivo &amp; Accoglienza</p>
+                    </div>
+                    <div class="evento-giorno-timeline">
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">14:00</span>
+                            <div class="evento-slot-content">
+                                <strong>Check-in &amp; Registrazione</strong>
+                                <p>Accoglienza, kit di benvenuto e sistemazione</p>
+                            </div>
+                        </div>
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">16:00</span>
+                            <div class="evento-slot-content">
+                                <strong>Sessione di Apertura con Elena</strong>
+                                <p>Benvenuto ufficiale e allenamento inaugurale</p>
+                            </div>
+                        </div>
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">19:00</span>
+                            <div class="evento-slot-content">
+                                <strong>Cena di Benvenuto</strong>
+                                <p>Prima serata insieme per conoscersi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="evento-giorno">
+                    <div class="evento-giorno-header">
+                        <span class="evento-giorno-number">Giorno 2</span>
+                        <h3>Sabato 17 Maggio</h3>
+                        <p>Full Immersion</p>
+                    </div>
+                    <div class="evento-giorno-timeline">
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">07:00</span>
+                            <div class="evento-slot-content">
+                                <strong>Allenamento all'alba in spiaggia</strong>
+                                <p>Sessione speciale con vista mare</p>
+                            </div>
+                        </div>
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">10:00</span>
+                            <div class="evento-slot-content">
+                                <strong>Workshop Nutrizione</strong>
+                                <p>Masterclass pratica con il team medico</p>
+                            </div>
+                        </div>
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">14:30</span>
+                            <div class="evento-slot-content">
+                                <strong>Sessione Mindset</strong>
+                                <p>Workshop con la Dott.ssa Mariotti</p>
+                            </div>
+                        </div>
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">17:00</span>
+                            <div class="evento-slot-content">
+                                <strong>Allenamento Power</strong>
+                                <p>La sessione piu intensa del weekend con Elena</p>
+                            </div>
+                        </div>
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">20:30</span>
+                            <div class="evento-slot-content">
+                                <strong>Serata di Gala</strong>
+                                <p>Cena speciale, musica e celebrazioni</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="evento-giorno">
+                    <div class="evento-giorno-header">
+                        <span class="evento-giorno-number">Giorno 3</span>
+                        <h3>Domenica 18 Maggio</h3>
+                        <p>Chiusura &amp; Rinascita</p>
+                    </div>
+                    <div class="evento-giorno-timeline">
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">08:00</span>
+                            <div class="evento-slot-content">
+                                <strong>Yoga &amp; Meditazione</strong>
+                                <p>Sessione rigenerante per corpo e mente</p>
+                            </div>
+                        </div>
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">10:30</span>
+                            <div class="evento-slot-content">
+                                <strong>Talk con Elena: Il Tuo Piano d'Azione</strong>
+                                <p>Come portare a casa tutto cio che hai imparato</p>
+                            </div>
+                        </div>
+                        <div class="evento-slot">
+                            <span class="evento-slot-time">13:00</span>
+                            <div class="evento-slot-content">
+                                <strong>Pranzo di Chiusura &amp; Saluti</strong>
+                                <p>L'ultimo momento insieme prima di tornare a casa trasformate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PER CHI E -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">PER CHI E</span>
+                <h2 class="section-title">Questo evento fa per te se...</h2>
+            </div>
+            <div class="evento-perchi-grid">
+                <div class="evento-perchi-item">
+                    <span class="evento-perchi-check">&#10003;</span>
+                    <p>Vuoi vivere l'esperienza X-Fit Academy dal vivo</p>
+                </div>
+                <div class="evento-perchi-item">
+                    <span class="evento-perchi-check">&#10003;</span>
+                    <p>Senti il bisogno di staccare dalla routine e dedicarti a te stessa</p>
+                </div>
+                <div class="evento-perchi-item">
+                    <span class="evento-perchi-check">&#10003;</span>
+                    <p>Vuoi conoscere Elena e il team di persona</p>
+                </div>
+                <div class="evento-perchi-item">
+                    <span class="evento-perchi-check">&#10003;</span>
+                    <p>Desideri fare amicizia con donne che condividono i tuoi stessi obiettivi</p>
+                </div>
+                <div class="evento-perchi-item">
+                    <span class="evento-perchi-check">&#10003;</span>
+                    <p>Vuoi imparare strategie pratiche di allenamento, nutrizione e mindset</p>
+                </div>
+                <div class="evento-perchi-item">
+                    <span class="evento-perchi-check">&#10003;</span>
+                    <p>Cerchi la spinta definitiva per la tua trasformazione</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUMERI EDIZIONI PASSATE -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number" style="color: var(--pink-primary);">EDIZIONI PASSATE</span>
+                <h2 class="section-title" style="color: var(--white);">I numeri parlano <span class="highlight">chiaro</span></h2>
+            </div>
+            <div class="evento-stats-grid">
+                <div class="evento-stat-item">
+                    <div class="evento-stat-number">200+</div>
+                    <div class="evento-stat-label">Partecipanti nel 2025</div>
+                </div>
+                <div class="evento-stat-item">
+                    <div class="evento-stat-number">3</div>
+                    <div class="evento-stat-label">Edizioni completate</div>
+                </div>
+                <div class="evento-stat-item">
+                    <div class="evento-stat-number">98%</div>
+                    <div class="evento-stat-label">Vogliono tornare</div>
+                </div>
+                <div class="evento-stat-item">
+                    <div class="evento-stat-number">8</div>
+                    <div class="evento-stat-label">Paesi rappresentati</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">DICONO DI NOI</span>
+                <h2 class="section-title">Chi ha partecipato <span class="highlight">racconta</span></h2>
+            </div>
+            <div class="evento-testimonials-grid">
+                <div class="evento-testimonial-card">
+                    <div class="evento-testimonial-quote">
+                        "L'esperienza piu bella della mia vita. Ho pianto, ho riso, mi sono allenata come mai prima.
+                        Non vedo l'ora di tornare."
+                    </div>
+                    <div class="evento-testimonial-author">
+                        <div class="evento-testimonial-avatar">[Foto]</div>
+                        <div>
+                            <div class="evento-testimonial-name">Laura, 38 anni</div>
+                            <div class="evento-testimonial-detail">Partecipante 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="evento-testimonial-card">
+                    <div class="evento-testimonial-quote">
+                        "Pensavo fosse solo un evento di fitness, invece mi ha cambiato il modo di vedere me stessa.
+                        Le amicizie che ho creato valgono tutto."
+                    </div>
+                    <div class="evento-testimonial-author">
+                        <div class="evento-testimonial-avatar">[Foto]</div>
+                        <div>
+                            <div class="evento-testimonial-name">Federica, 45 anni</div>
+                            <div class="evento-testimonial-detail">Partecipante 2024 e 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="evento-testimonial-card">
+                    <div class="evento-testimonial-quote">
+                        "Sono arrivata sola e spaventata. Sono tornata a casa con 50 nuove amiche
+                        e una determinazione che non credevo di avere."
+                    </div>
+                    <div class="evento-testimonial-author">
+                        <div class="evento-testimonial-avatar">[Foto]</div>
+                        <div>
+                            <div class="evento-testimonial-name">Simona, 41 anni</div>
+                            <div class="evento-testimonial-detail">Partecipante 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO PRATICHE -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">INFO PRATICHE</span>
+                <h2 class="section-title">Tutto quello che devi <span class="highlight">sapere</span></h2>
+            </div>
+            <div class="evento-info-grid">
+                <div class="evento-info-card">
+                    <div class="evento-info-icon">&#128197;</div>
+                    <h4>Quando</h4>
+                    <p>16-18 Maggio 2026<br>Venerdi pomeriggio - Domenica pranzo</p>
+                </div>
+                <div class="evento-info-card">
+                    <div class="evento-info-icon">&#128205;</div>
+                    <h4>Dove</h4>
+                    <p>Bellaria Igea Marina (RN)<br>Location da comunicare ai partecipanti</p>
+                </div>
+                <div class="evento-info-card">
+                    <div class="evento-info-icon">&#127968;</div>
+                    <h4>Alloggio</h4>
+                    <p>Possibilita di soggiorno in hotel convenzionato<br>Pacchetti con e senza pernottamento</p>
+                </div>
+                <div class="evento-info-card">
+                    <div class="evento-info-icon">&#127860;</div>
+                    <h4>Pasti</h4>
+                    <p>Tutti i pasti inclusi<br>Menu studiato dal team nutrizionista</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">DOMANDE FREQUENTI</span>
+                <h2 class="section-title">Hai dei <span class="highlight">dubbi</span>?</h2>
+            </div>
+            <div class="evento-faq-list">
+                <div class="evento-faq-item">
+                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Devo essere gia iscritta all'Academy per partecipare?
+                        <span class="evento-faq-toggle">+</span>
+                    </button>
+                    <div class="evento-faq-answer">
+                        <p>No, l'evento e aperto a tutte le donne, anche a chi non fa ancora parte dell'Academy. E un'ottima occasione per conoscere il metodo E.A.S.Y. dal vivo.</p>
+                    </div>
+                </div>
+                <div class="evento-faq-item">
+                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Che livello di fitness serve?
+                        <span class="evento-faq-toggle">+</span>
+                    </button>
+                    <div class="evento-faq-answer">
+                        <p>Nessun livello particolare. Gli allenamenti sono pensati per essere adattabili a tutti i livelli: dalle principianti alle piu esperte. Ogni esercizio ha varianti facilitate.</p>
+                    </div>
+                </div>
+                <div class="evento-faq-item">
+                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Posso venire da sola?
+                        <span class="evento-faq-toggle">+</span>
+                    </button>
+                    <div class="evento-faq-answer">
+                        <p>Assolutamente si! La maggior parte delle partecipanti viene da sola. L'evento e pensato proprio per creare connessioni. Non sarai mai sola, te lo promettiamo.</p>
+                    </div>
+                </div>
+                <div class="evento-faq-item">
+                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Il pernottamento e incluso?
+                        <span class="evento-faq-toggle">+</span>
+                    </button>
+                    <div class="evento-faq-answer">
+                        <p>Sono disponibili pacchetti con e senza pernottamento. Abbiamo convenzioni con hotel vicini alla location dell'evento per offrirti la migliore esperienza.</p>
+                    </div>
+                </div>
+                <div class="evento-faq-item">
+                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Cosa devo portare?
+                        <span class="evento-faq-toggle">+</span>
+                    </button>
+                    <div class="evento-faq-answer">
+                        <p>Abbigliamento sportivo comodo, scarpe da ginnastica, tappetino yoga (opzionale), costume da bagno e tanta voglia di metterti in gioco! Ti invieremo una lista completa dopo l'iscrizione.</p>
+                    </div>
+                </div>
+                <div class="evento-faq-item">
+                    <button class="evento-faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        I posti sono limitati?
+                        <span class="evento-faq-toggle">+</span>
+                    </button>
+                    <div class="evento-faq-answer">
+                        <p>Si, i posti sono limitati per garantire un'esperienza di qualita. L'anno scorso abbiamo fatto sold out in poche settimane. Ti consigliamo di prenotare il prima possibile.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="prenota">
+        <div class="cta-bg-text">LIVE</div>
+        <div class="cta-content">
+            <h2 class="cta-title">
+                Ci vediamo a<br>
+                <span>Bellaria Igea Marina</span>?
+            </h2>
+            <p class="cta-text">
+                I posti sono limitati. Non aspettare: prenota il tuo posto per l'esperienza
+                che cambiera il tuo modo di vivere il fitness e te stessa.
+            </p>
+            <a href="contatti.html" class="cta-btn">
+                Prenota il tuo posto
+                <span>&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>
+                    Il primo percorso in Italia dedicato alle donne che unisce
+                    corpo, alimentazione e mente. 100% live.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
+                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
+                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="libri.html">Libri</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="team.html">Il Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="contatti.html">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=1767489274"></script>
+
+    <!-- React (for mobile header) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="js/react-mobile-header.js?v=1767489274"></script>
+
+    <!-- Countdown Timer -->
+    <script>
+    (function() {
+        var eventDate = new Date('2026-05-16T14:00:00+02:00').getTime();
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var diff = eventDate - now;
+            if (diff <= 0) {
+                document.getElementById('countdownDays').textContent = '0';
+                document.getElementById('countdownHours').textContent = '0';
+                document.getElementById('countdownMinutes').textContent = '0';
+                document.getElementById('countdownSeconds').textContent = '0';
+                return;
+            }
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById('countdownDays').textContent = days;
+            document.getElementById('countdownHours').textContent = hours;
+            document.getElementById('countdownMinutes').textContent = minutes;
+            document.getElementById('countdownSeconds').textContent = seconds;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    })();
+    </script>
+
+</body>
+</html>
