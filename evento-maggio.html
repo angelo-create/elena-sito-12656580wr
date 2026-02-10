@@ -54,15 +54,16 @@
         .ev-experience-box p:last-child { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin: 0; }
 
         /* Benefits - Bento Grid */
-        .ev-bento { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 1rem; margin-top: 3rem; }
-        .ev-bento-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.25rem; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .ev-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .ev-bento-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.75rem 2.5rem; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
         .ev-bento-card:hover { border-color: rgba(233,30,99,0.25); transform: translateY(-4px); }
         .ev-bento-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(233,30,99,0.08), transparent 70%); pointer-events: none; }
-        .ev-bento-card.ev-bento-wide { grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; }
-        .ev-bento-icon { font-size: 2.5rem; margin-bottom: 1.25rem; display: block; }
-        .ev-bento-wide .ev-bento-icon { font-size: 3.5rem; margin-bottom: 0; }
-        .ev-bento-card h4 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; line-height: 1.3; }
-        .ev-bento-card p { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.6; }
+        .ev-bento-card.ev-bento-wide { grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding: 3rem 2.75rem; }
+        .ev-bento-card:nth-child(4) { grid-column: span 2; }
+        .ev-bento-icon { width: 3.75rem; height: 3.75rem; margin-bottom: 1.5rem; display: block; color: var(--pink-primary); flex-shrink: 0; }
+        .ev-bento-wide .ev-bento-icon { width: 5rem; height: 5rem; margin-bottom: 0; }
+        .ev-bento-card h4 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3; }
+        .ev-bento-card p { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.7; }
         .ev-bento-number { position: absolute; bottom: -0.5rem; right: 1.25rem; font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; user-select: none; }
 
         /* Pricing - Split Layout */
@@ -276,8 +277,8 @@
         /* Emotion Parallax Breaks */
         .ev-emotion {
             position: relative;
-            height: 65vh;
-            min-height: 400px;
+            height: 45vh;
+            min-height: 320px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -290,6 +291,7 @@
             width: 100%;
             height: 140%;
             object-fit: cover;
+            object-position: center 30%;
             will-change: transform;
         }
         .ev-emotion-overlay {
@@ -334,16 +336,15 @@
             .ev-video-play { width: 50px; height: 50px; font-size: 1.25rem; }
             .ev-final-cta { padding: 4rem 1.5rem 7rem; }
             .ev-sticky-cta { display: block; }
-            .ev-emotion { height: 50vh; min-height: 300px; }
+            .ev-emotion { height: 35vh; min-height: 250px; }
             .ev-gallery-collage { grid-auto-rows: 90px; }
             .ev-bg-reveal { display: none; }
             .ev-photostrip-img { width: 220px; height: 160px; }
             .ev-timeline::before { left: 20px; }
-            .ev-timeline-day { grid-template-columns: auto 1fr; }
+            .ev-timeline-day { grid-template-columns: auto 1fr; position: relative; }
             .ev-timeline-dot { grid-column: 1 !important; margin-left: 10px; margin-right: 1.5rem; }
-            .ev-timeline-card { grid-column: 2 !important; }
-            .ev-timeline-number { display: none; }
-            .ev-timeline-card { padding: 1.75rem; }
+            .ev-timeline-card { grid-column: 2 !important; padding: 1.75rem; position: relative; z-index: 1; }
+            .ev-timeline-number { display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: clamp(4rem, 15vw, 6rem); padding: 0; z-index: 0; text-align: right; }
             .ev-bento { grid-template-columns: 1fr; }
             .ev-bento-card.ev-bento-wide { grid-column: span 1; grid-template-columns: auto 1fr; }
             .ev-pricing-split { grid-template-columns: 1fr; gap: 2rem; }
@@ -408,7 +409,6 @@
             class="hero-bg-image"
         >
         <div class="hero-gradient"></div>
-        <div id="react-mobile-hero-root"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-badge">
@@ -538,7 +538,7 @@
             </div>
             <p class="ev-program-note">*Programma dettagliato via email dopo l'iscrizione</p>
             <div class="ev-experience-box">
-                <p>&#127869; Vuoi vivere l'esperienza completa?</p>
+                <p><svg style="width:1.1em;height:1.1em;vertical-align:-0.1em;margin-right:0.2rem" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg> Vuoi vivere l'esperienza completa?</p>
                 <p>Aggiungi pranzo e apericena per non perderti neanche un momento con Elena e le altre X-Fitter.<br><em>(Opzioni disponibili nel carrello)</em></p>
             </div>
         </div>
@@ -565,7 +565,7 @@
             </div>
             <div class="ev-bento">
                 <div class="ev-bento-card ev-bento-wide">
-                    <span class="ev-bento-icon">&#129504;</span>
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.6 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
                     <div>
                         <h4>La mente allenata a non mollare</h4>
                         <p>Il vero segreto che nessuna dieta ti insegna. Imparerai a riconoscere i pensieri che ti sabotano e a sostituirli con quelli che ti portano avanti.</p>
@@ -573,25 +573,25 @@
                     <div class="ev-bento-number">01</div>
                 </div>
                 <div class="ev-bento-card">
-                    <span class="ev-bento-icon">&#127851;</span>
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.8 1-1.1a5.5 5.5 0 0 0 0-7.7z"/></svg>
                     <h4>Strategie per la fame emotiva</h4>
                     <p>Capirai perché succede e come fermarla</p>
                     <div class="ev-bento-number">02</div>
                 </div>
                 <div class="ev-bento-card">
-                    <span class="ev-bento-icon">&#128203;</span>
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6"/><path d="M9 16h4"/></svg>
                     <h4>Piano d'azione 12 settimane</h4>
                     <p>Concreto, passo dopo passo</p>
                     <div class="ev-bento-number">03</div>
                 </div>
                 <div class="ev-bento-card">
-                    <span class="ev-bento-icon">&#128111;</span>
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     <h4>139 X-Fitter che ti capiscono</h4>
                     <p>Alcune diventeranno amiche per la vita</p>
                     <div class="ev-bento-number">04</div>
                 </div>
                 <div class="ev-bento-card ev-bento-wide">
-                    <span class="ev-bento-icon">&#9889;</span>
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     <div>
                         <h4>L'energia per ricominciare davvero</h4>
                         <p>Quella scintilla che pensavi di aver perso. Due giorni che cambieranno il modo in cui ti vedi, ti parli e ti alleni.</p>
@@ -844,7 +844,7 @@
                 Sì, Ci Sono
                 <span>&rarr;</span>
             </a>
-            <p class="ev-final-trust">&#128274; Pagamento sicuro &bull; &#128222; Hai domande? Scrivici su WhatsApp</p>
+            <p class="ev-final-trust"><svg style="width:0.85em;height:0.85em;vertical-align:-0.05em;margin-right:0.1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pagamento sicuro &bull; <svg style="width:0.85em;height:0.85em;vertical-align:-0.05em;margin-right:0.1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Scrivici su WhatsApp</p>
         </div>
     </section>
 
@@ -905,7 +905,6 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="js/react-mobile-header.js?v=1767489274"></script>
-    <script src="js/react-mobile-hero.js?v=1767489274"></script>
 
     <script>
         // FAQ Accordion

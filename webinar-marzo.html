@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hai gi&agrave; mollato i buoni propositi? | Webinar Gratuito 10-11-12 Marzo</title>
+    <meta name="description" content="Il 90% delle donne ha gi&agrave; abbandonato i propositi di gennaio. In 3 sere gratuite scopri perch&eacute; succede e come cambiare per sempre. 10-11-12 Marzo ore 18:30.">
+    <meta property="og:title" content="Hai gi&agrave; mollato i buoni propositi? Scopri perch&eacute; (non &egrave; colpa tua)">
+    <meta property="og:description" content="Il 90% molla entro marzo. In 3 sere gratuite scopri cosa fare diversamente. 2300+ donne lo hanno gi&agrave; fatto. 10-11-12 Marzo, ore 18:30.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+
+    <style>
+        /* ===== WEBINAR-SPECIFIC STYLES ===== */
+
+        /* Marquee */
+        .wb-marquee { background: var(--pink-primary); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
+        .wb-marquee-track { display: inline-flex; animation: wb-scroll 30s linear infinite; }
+        .wb-marquee-item { display: inline-flex; align-items: center; gap: 2rem; padding: 0 2rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+        .wb-marquee-item::after { content: '\2726'; font-size: 0.5rem; }
+        @keyframes wb-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Community text */
+        .wb-community { max-width: 800px; margin: 0 auto; text-align: center; }
+        .wb-community p { font-size: 1.15rem; line-height: 1.9; margin-bottom: 1rem; color: rgba(255,255,255,0.8); }
+        .wb-community .wb-emphasis { font-size: 1.5rem; font-weight: 700; color: var(--white); margin: 2.5rem 0; }
+
+        /* Countdown */
+        .wb-countdown { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .wb-countdown-item { text-align: center; }
+        .wb-countdown-number { background: rgba(233,30,99,0.08); border: 1px solid rgba(233,30,99,0.2); color: var(--pink-primary); font-size: 1.5rem; font-weight: 700; width: 65px; height: 65px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .wb-countdown-text { font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.15em; }
+
+        /* Bento Grid */
+        .wb-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .wb-bento-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.75rem 2.5rem; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .wb-bento-card:hover { border-color: rgba(233,30,99,0.25); transform: translateY(-4px); }
+        .wb-bento-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(233,30,99,0.08), transparent 70%); pointer-events: none; }
+        .wb-bento-card.wb-bento-wide { grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding: 3rem 2.75rem; }
+        .wb-bento-icon { width: 3.75rem; height: 3.75rem; margin-bottom: 1.5rem; display: block; color: var(--pink-primary); flex-shrink: 0; }
+        .wb-bento-wide .wb-bento-icon { width: 5rem; height: 5rem; margin-bottom: 0; }
+        .wb-bento-card h4 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3; }
+        .wb-bento-card p { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.7; }
+        .wb-bento-number { position: absolute; bottom: -0.5rem; right: 1.25rem; font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; user-select: none; }
+
+        /* Timeline */
+        .wb-timeline { position: relative; max-width: 900px; margin: 4rem auto 0; }
+        .wb-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, transparent, var(--pink-primary), var(--pink-primary), transparent); transform: translateX(-50%); }
+        .wb-timeline-day { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: start; margin-bottom: 4rem; position: relative; }
+        .wb-timeline-day:last-child { margin-bottom: 0; }
+        .wb-timeline-dot { width: 20px; height: 20px; background: var(--pink-primary); border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 30px rgba(233,30,99,0.5); justify-self: center; margin-top: 2rem; }
+        .wb-timeline-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2.5rem; position: relative; backdrop-filter: blur(10px); }
+        .wb-timeline-card:hover { border-color: rgba(233,30,99,0.2); }
+        .wb-timeline-day:nth-child(odd) .wb-timeline-card { grid-column: 1; }
+        .wb-timeline-day:nth-child(odd) .wb-timeline-dot { grid-column: 2; }
+        .wb-timeline-day:nth-child(odd) .wb-timeline-number { grid-column: 3; }
+        .wb-timeline-day:nth-child(even) .wb-timeline-number { grid-column: 1; text-align: right; }
+        .wb-timeline-day:nth-child(even) .wb-timeline-dot { grid-column: 2; }
+        .wb-timeline-day:nth-child(even) .wb-timeline-card { grid-column: 3; }
+        .wb-timeline-number { font-size: clamp(6rem, 12vw, 10rem); font-weight: 900; color: rgba(233,30,99,0.08); line-height: 0.85; padding: 0 1.5rem; user-select: none; }
+        .wb-timeline-label { font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.75rem; }
+        .wb-timeline-title { font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+        .wb-timeline-subtitle { font-size: 1rem; color: rgba(255,255,255,0.6); font-style: italic; margin-bottom: 1.5rem; line-height: 1.6; }
+        .wb-timeline-list { list-style: none; padding: 0; margin: 0; }
+        .wb-timeline-list li { padding: 0.75rem 0; padding-left: 1.75rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .wb-timeline-list li:last-child { border-bottom: none; }
+        .wb-timeline-list li::before { content: ''; position: absolute; left: 0; top: 1.1rem; width: 8px; height: 8px; background: var(--pink-primary); border-radius: 50%; }
+
+        /* Emotion Breaks */
+        .wb-emotion { position: relative; height: 45vh; min-height: 320px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .wb-emotion-bg { position: absolute; top: -20%; left: 0; width: 100%; height: 140%; object-fit: cover; object-position: center 30%; will-change: transform; }
+        .wb-emotion-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%); z-index: 1; }
+        .wb-emotion-text { position: relative; z-index: 2; text-align: center; max-width: 700px; padding: 0 2rem; }
+        .wb-emotion-text p { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 300; color: var(--white); line-height: 1.4; font-style: italic; text-shadow: 0 2px 20px rgba(0,0,0,0.5); margin: 0; }
+        .wb-emotion-text p strong { font-weight: 700; color: var(--pink-light); }
+
+        /* Background reveals */
+        .wb-bg-section { position: relative; overflow: hidden; }
+        .wb-bg-reveal { position: absolute; top: 0; width: 45%; height: 100%; pointer-events: none; z-index: 0; }
+        .wb-bg-reveal img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; filter: grayscale(0.2); transition: opacity 1.5s ease; }
+        .wb-bg-reveal.visible img { opacity: 0.4; }
+        .wb-bg-reveal.wb-right { right: 0; -webkit-mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); }
+        .wb-bg-reveal.wb-left { left: 0; -webkit-mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); }
+        .wb-bg-reveal::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(233,30,99,0.08), transparent); pointer-events: none; }
+        .wb-bg-section .container { position: relative; z-index: 1; }
+
+        /* Testimonial cards */
+        .wb-testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .wb-testimonial { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2.5rem; }
+        .wb-testimonial-stars { color: #FFD700; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1.25rem; }
+        .wb-testimonial blockquote { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
+        .wb-testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .wb-testimonial-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--white); }
+        .wb-testimonial-name { font-size: 0.9rem; font-weight: 700; color: var(--white); }
+        .wb-testimonial-result { font-size: 0.75rem; color: var(--pink-primary); margin-top: 0.2rem; }
+
+        /* FAQ */
+        .wb-faq-list { max-width: 800px; margin: 0 auto; }
+        .wb-faq-item { background: linear-gradient(135deg, #1A1A1A, #0F0F0F); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .wb-faq-question { padding: 1.5rem 1.75rem; font-size: 1rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; background: none; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; gap: 1rem; }
+        .wb-faq-question:hover { background: rgba(233,30,99,0.1); }
+        .wb-faq-toggle { font-size: 1.5rem; color: var(--pink-primary); font-weight: 300; transition: transform 0.3s ease; flex-shrink: 0; }
+        .wb-faq-item.open .wb-faq-toggle { transform: rotate(45deg); }
+        .wb-faq-answer { padding: 0 1.75rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; }
+        .wb-faq-item.open .wb-faq-answer { padding: 0 1.75rem 1.5rem; max-height: 500px; }
+        .wb-faq-answer p { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.7; }
+
+        /* Final CTA */
+        .wb-final-cta { background: var(--pink-primary); text-align: center; padding: 7rem 2rem; }
+        .wb-final-cta-content { max-width: 650px; margin: 0 auto; }
+        .wb-final-cta h2 { color: var(--white); margin-bottom: 1.75rem; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; }
+        .wb-final-cta p { color: rgba(255,255,255,0.9); font-size: 1.15rem; line-height: 1.8; margin-bottom: 0.75rem; }
+        .wb-final-cta .wb-question { font-size: 1.85rem; font-weight: 700; font-style: italic; color: var(--white); margin: 2.5rem 0; }
+        .wb-btn-white { display: inline-flex; align-items: center; gap: 1rem; background: var(--white); color: var(--pink-primary); padding: 1.25rem 2.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); font-family: 'Poppins', sans-serif; }
+        .wb-btn-white:hover { background: #0A0A0A; color: var(--white); transform: translateY(-3px); }
+        .wb-final-trust { margin-top: 1.75rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+        /* Sticky CTA */
+        .wb-sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #0A0A0A; padding: 0.75rem 1.25rem; box-shadow: 0 -4px 30px rgba(0,0,0,0.5); z-index: 1000; border-top: 1px solid rgba(233,30,99,0.3); }
+        .wb-sticky-cta .btn-primary { width: 100%; justify-content: center; }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .wb-bg-reveal { width: 35%; }
+        }
+        @media (max-width: 768px) {
+            .wb-bento { grid-template-columns: 1fr; }
+            .wb-bento-card.wb-bento-wide { grid-column: span 1; grid-template-columns: auto 1fr; }
+            .wb-testimonials { grid-template-columns: 1fr; }
+            .wb-final-cta { padding: 4rem 1.5rem 7rem; }
+            .wb-sticky-cta { display: block; }
+            .wb-emotion { height: 35vh; min-height: 250px; }
+            .wb-bg-reveal { display: none; }
+            .wb-countdown { justify-content: center; }
+            .wb-timeline::before { left: 20px; }
+            .wb-timeline-day { grid-template-columns: auto 1fr; position: relative; }
+            .wb-timeline-dot { grid-column: 1 !important; margin-left: 10px; margin-right: 1.5rem; }
+            .wb-timeline-card { grid-column: 2 !important; padding: 1.75rem; position: relative; z-index: 1; }
+            .wb-timeline-number { display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: clamp(4rem, 15vw, 6rem); padding: 0; z-index: 0; text-align: right; }
+        }
+        @media (max-width: 576px) {
+            .wb-countdown { gap: 0.5rem; }
+            .wb-countdown-number { width: 55px; height: 55px; font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- React Mobile Header Mount Point -->
+    <div id="react-mobile-header-root"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="navbar">
+        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
+                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
+                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
+                    <a href="press.html" onclick="closeMobileMenu()">Press &amp; Media</a>
+                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
+                </div>
+            </div>
+            <a href="#iscriviti" class="nav-cta" onclick="closeMobileMenu()">Iscriviti Gratis</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="Elena Giordani" class="hero-bg-image">
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    Webinar Gratuito &bull; 10-11-12 Marzo &bull; Ore 18:30
+                </div>
+                <h1 class="hero-title">
+                    <span>Hai Gi&agrave; Mollato I</span>
+                    <span class="accent">Buoni Propositi?</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A gennaio ti eri promessa che stavolta sarebbe stato diverso. Il problema non &egrave; che molli &mdash; &egrave; che non hai mai fatto il primo passo giusto. In 3 sere gratuite scopri qual &egrave;.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">2300<span>+</span></div>
+                        <div class="hero-stat-label">Non Hanno Pi&ugrave; Mollato</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">3</div>
+                        <div class="hero-stat-label">Sere Gratuite</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">100<span>%</span></div>
+                        <div class="hero-stat-label">Online &amp; Live</div>
+                    </div>
+                </div>
+                <div class="hero-cta-group">
+                    <a href="#iscriviti" class="btn-primary">
+                        Scopri Cosa Fare Diversamente
+                        <span>&rarr;</span>
+                    </a>
+                    <a href="#programma" class="btn-outline">
+                        Vedi Il Programma
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="wb-marquee">
+        <div class="wb-marquee-track">
+            <span class="wb-marquee-item">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
+            <span class="wb-marquee-item">3 Sere Gratuite</span>
+            <span class="wb-marquee-item">10-11-12 Marzo ore 18:30</span>
+            <span class="wb-marquee-item">Online da casa tua</span>
+            <span class="wb-marquee-item">2300+ donne trasformate</span>
+            <span class="wb-marquee-item">Posti limitati</span>
+            <span class="wb-marquee-item">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
+            <span class="wb-marquee-item">3 Sere Gratuite</span>
+            <span class="wb-marquee-item">10-11-12 Marzo ore 18:30</span>
+            <span class="wb-marquee-item">Online da casa tua</span>
+            <span class="wb-marquee-item">2300+ donne trasformate</span>
+            <span class="wb-marquee-item">Posti limitati</span>
+        </div>
+    </div>
+
+    <!-- SUONA FAMILIARE? -->
+    <section class="section section-black wb-bg-section">
+        <div class="wb-bg-reveal wb-right" data-reveal>
+            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="wb-community">
+                <h2 class="section-title" style="color: var(--white);">Gennaio &egrave; passato. <span class="highlight"><em>E i buoni propositi?</em></span></h2>
+                <p>Non sei l'unica. Il 90% delle persone molla entro marzo.</p>
+                <p>Hai iniziato la dieta. L'abbonamento in palestra. Il programma online. E poi, come sempre, hai mollato.</p>
+                <p>Ma il problema non sei tu. &Egrave; che nessuno ti ha mai spiegato qual &egrave; il <strong>primo passo vero</strong> &mdash; quello che fa la differenza tra chi molla e chi non si ferma pi&ugrave;.</p>
+                <p class="wb-emphasis">In 3 sere gratuite, scopri qual &egrave;.<br><span class="highlight"><em>Senza giudizio. Senza fuffa.</em></span></p>
+                <a href="#iscriviti" class="btn-outline">
+                    Voglio scoprirlo
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMOTION BREAK 1 -->
+    <section class="wb-emotion">
+        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="wb-emotion-bg" data-parallax>
+        <div class="wb-emotion-overlay"></div>
+        <div class="wb-emotion-text">
+            <p>Il cambiamento vero non inizia con una dieta. Inizia con <strong>il primo passo giusto.</strong></p>
+        </div>
+    </section>
+
+    <!-- COSA TI BLOCCA (Bento Grid) -->
+    <section class="section section-black wb-bg-section">
+        <div class="wb-bg-reveal wb-left" data-reveal>
+            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">SUONA FAMILIARE?</span>
+                <h2 class="section-title" style="color: var(--white);">Perch&eacute; molli <span class="highlight"><em>ogni volta</em></span></h2>
+            </div>
+            <div class="wb-bento">
+                <div class="wb-bento-card wb-bento-wide">
+                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/></svg>
+                    <div>
+                        <h4>&ldquo;Da luned&igrave; ricomincio&rdquo;</h4>
+                        <p>L'hai detto anche a gennaio. E a febbraio. Ogni volta ricominci da zero &mdash; e ogni volta dura sempre meno. Il problema non &egrave; la volont&agrave;. &Egrave; l'approccio.</p>
+                    </div>
+                    <div class="wb-bento-number">01</div>
+                </div>
+                <div class="wb-bento-card">
+                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <h4>La primavera ti spaventa</h4>
+                    <p>Le giornate si allungano, i vestiti si alleggeriscono. E tu vorresti sentirti diversa.</p>
+                    <div class="wb-bento-number">02</div>
+                </div>
+                <div class="wb-bento-card">
+                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.8 1-1.1a5.5 5.5 0 0 0 0-7.7z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                    <h4>Sei stanca di sentirti in colpa</h4>
+                    <p>Ogni programma mollato &egrave; una promessa mancata a te stessa.</p>
+                    <div class="wb-bento-number">03</div>
+                </div>
+                <div class="wb-bento-card wb-bento-wide">
+                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <div>
+                        <h4>Non hai mai iniziato davvero</h4>
+                        <p>Hai iniziato mille volte. Ma il primo passo vero &mdash; quello che fa la differenza &mdash; non l'hai ancora fatto. E nessuno ti ha mai spiegato qual &egrave;.</p>
+                    </div>
+                    <div class="wb-bento-number">04</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMOTION BREAK 2 -->
+    <section class="wb-emotion">
+        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="wb-emotion-bg" data-parallax>
+        <div class="wb-emotion-overlay"></div>
+        <div class="wb-emotion-text">
+            <p>2300 donne hanno smesso di mollare. <strong>Cosa sanno loro che tu ancora no?</strong></p>
+        </div>
+    </section>
+
+    <!-- PROGRAMMA 3 SERE (Timeline) -->
+    <section class="section section-black wb-bg-section" id="programma" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
+        <div class="wb-bg-reveal wb-right" data-reveal>
+            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">3 SERE, 1 SVOLTA</span>
+                <h2 class="section-title" style="color: var(--white);">Cosa scoprirai <span class="highlight"><em>(che nessuno ti dice)</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Non il solito webinar motivazionale. Tre serate concrete con strategie che 2300 donne hanno gi&agrave; usato per smettere di mollare.</p>
+            </div>
+            <div class="wb-timeline">
+                <div class="wb-timeline-day">
+                    <div class="wb-timeline-card">
+                        <div class="wb-timeline-label">Marted&igrave; 10 Marzo &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Perch&eacute; a marzo hai gi&agrave; mollato</h3>
+                        <p class="wb-timeline-subtitle">Il vero motivo non &egrave; la forza di volont&agrave;. &Egrave; qualcosa che nessun personal trainer ti ha mai spiegato.</p>
+                        <ul class="wb-timeline-list">
+                            <li>L'errore invisibile che sabota ogni tuo tentativo</li>
+                            <li>Perch&eacute; la motivazione di gennaio &egrave; destinata a finire</li>
+                            <li>Il primo passo che cambia tutto (da fare subito)</li>
+                        </ul>
+                    </div>
+                    <div class="wb-timeline-dot"></div>
+                    <div class="wb-timeline-number">01</div>
+                </div>
+                <div class="wb-timeline-day">
+                    <div class="wb-timeline-number">02</div>
+                    <div class="wb-timeline-dot"></div>
+                    <div class="wb-timeline-card">
+                        <div class="wb-timeline-label">Mercoled&igrave; 11 Marzo &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Il sistema delle donne che non mollano pi&ugrave;</h3>
+                        <p class="wb-timeline-subtitle">Non servono diete estreme o 2 ore in palestra. Serve un metodo che funziona con la tua vita reale.</p>
+                        <ul class="wb-timeline-list">
+                            <li>I 4 pilastri del Metodo E.A.S.Y. (e perch&eacute; funziona)</li>
+                            <li>Cosa hanno in comune le donne che ce l'hanno fatta</li>
+                            <li>Storie reali: da &ldquo;mollo sempre&rdquo; a &ldquo;non mi fermo pi&ugrave;&rdquo;</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wb-timeline-day">
+                    <div class="wb-timeline-card">
+                        <div class="wb-timeline-label">Gioved&igrave; 12 Marzo &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Il primo passo (quello vero)</h3>
+                        <p class="wb-timeline-subtitle">Non un piano da 90 giorni. Un singolo passo concreto da fare domani mattina.</p>
+                        <ul class="wb-timeline-list">
+                            <li>Perch&eacute; un solo passo vale pi&ugrave; di mille programmi</li>
+                            <li>Come costruirlo intorno alla tua vita reale</li>
+                            <li>Sessione Q&amp;A live &mdash; chiedi tutto quello che vuoi</li>
+                        </ul>
+                    </div>
+                    <div class="wb-timeline-dot"></div>
+                    <div class="wb-timeline-number">03</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#iscriviti" class="btn-primary">
+                    Voglio Esserci
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHI TI GUIDERA -->
+    <section class="section section-black wb-bg-section">
+        <div class="wb-bg-reveal wb-left" data-reveal>
+            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="wb-community">
+                <span class="section-number">CHI TI GUIDER&Agrave;</span>
+                <h2 class="section-title" style="color: var(--white); margin-bottom: 2rem;">Probabilmente non mi conosci. <span class="highlight"><em>Ecco perch&eacute; dovresti.</em></span></h2>
+                <p>Mi chiamo Elena Giordani. Ho creato X-Fit Academy dopo aver visto centinaia di donne provare diete, palestre, programmi online &mdash; e mollare ogni volta.</p>
+                <p>Ho capito che il problema non era la loro volont&agrave;. Era l'approccio.</p>
+                <p>Cos&igrave; ho costruito il <strong>Metodo E.A.S.Y.</strong>: un sistema in 4 pilastri (Esercizio, Alimentazione, Supporto, You) che ha aiutato oltre 2300 donne in 8 paesi. Non prometto miracoli. Prometto un metodo che funziona con la vita vera.</p>
+                <div class="hero-stats" style="justify-content: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">2300<span>+</span></div>
+                        <div class="hero-stat-label">Donne Che Non Mollano Pi&ugrave;</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">97<span>%</span></div>
+                        <div class="hero-stat-label">Soddisfazione</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">8</div>
+                        <div class="hero-stat-label">Paesi Nel Mondo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMOTION BREAK 3 -->
+    <section class="wb-emotion">
+        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="wb-emotion-bg" data-parallax>
+        <div class="wb-emotion-overlay"></div>
+        <div class="wb-emotion-text">
+            <p>Anche loro erano scettiche. Anche loro avevano <strong>provato di tutto.</strong></p>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">ERANO AL PUNTO DI PARTENZA</span>
+                <h2 class="section-title" style="color: var(--white);">Non conoscevano Elena. <span class="highlight"><em>Poi hanno partecipato.</em></span></h2>
+            </div>
+            <div class="wb-testimonials">
+                <div class="wb-testimonial">
+                    <div class="wb-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>&ldquo;Non avevo idea di chi fosse Elena. Un'amica mi ha mandato il link. Dopo la prima sera ho capito perch&eacute; mollavo sempre. Sono 6 mesi che non mi fermo pi&ugrave;.&rdquo;</blockquote>
+                    <div class="wb-testimonial-author">
+                        <div class="wb-testimonial-avatar">S</div>
+                        <div>
+                            <div class="wb-testimonial-name">Silvia M.</div>
+                            <div class="wb-testimonial-result">-12kg in 5 mesi</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wb-testimonial">
+                    <div class="wb-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>&ldquo;Mi sono iscritta pensando 'sar&agrave; il solito webinar'. Alla terza sera avevo le lacrime agli occhi. Ha cambiato il mio rapporto con il corpo e con me stessa.&rdquo;</blockquote>
+                    <div class="wb-testimonial-author">
+                        <div class="wb-testimonial-avatar">F</div>
+                        <div>
+                            <div class="wb-testimonial-name">Francesca R.</div>
+                            <div class="wb-testimonial-result">Trasformazione completa</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wb-testimonial">
+                    <div class="wb-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>&ldquo;Avevo mollato i propositi di gennaio a met&agrave; febbraio. Ho visto il webinar per caso, mi ci sono iscritta e per la prima volta ho un metodo che funziona con i miei tempi.&rdquo;</blockquote>
+                    <div class="wb-testimonial-author">
+                        <div class="wb-testimonial-avatar">G</div>
+                        <div>
+                            <div class="wb-testimonial-name">Giulia D.</div>
+                            <div class="wb-testimonial-result">-8kg in 3 mesi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ISCRIZIONE CON COUNTDOWN -->
+    <section class="section section-black" id="iscriviti" style="background: #000;">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">POSTI LIMITATI</span>
+                <h2 class="section-title" style="color: var(--white);">Non ti serve un altro programma. <span class="highlight"><em>Ti serve il primo passo giusto.</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Il cambiamento vero non avviene in 21 giorni. Ma inizia sempre da un singolo passo &mdash; quello che non hai ancora fatto. In 3 sere gratuite scopri qual &egrave;.</p>
+            </div>
+            <div style="text-align: center;">
+                <div class="wb-countdown" id="countdown" style="justify-content: center; margin-bottom: 2rem;">
+                    <div class="wb-countdown-item">
+                        <div class="wb-countdown-number" id="cd-days">00</div>
+                        <div class="wb-countdown-text">Giorni</div>
+                    </div>
+                    <div class="wb-countdown-item">
+                        <div class="wb-countdown-number" id="cd-hours">00</div>
+                        <div class="wb-countdown-text">Ore</div>
+                    </div>
+                    <div class="wb-countdown-item">
+                        <div class="wb-countdown-number" id="cd-mins">00</div>
+                        <div class="wb-countdown-text">Min</div>
+                    </div>
+                    <div class="wb-countdown-item">
+                        <div class="wb-countdown-number" id="cd-secs">00</div>
+                        <div class="wb-countdown-text">Sec</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem;">alla prima serata</p>
+                <a href="https://wa.me/393762543276?text=Ciao%20Elena!%20Voglio%20iscrivermi%20al%20webinar%20del%2010-11-12%20Marzo!" class="btn-primary" style="font-size: 0.85rem; padding: 1.5rem 3rem;">
+                    Voglio Il Mio Posto Gratuito
+                    <span>&rarr;</span>
+                </a>
+                <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem;">Nessun costo &bull; Nessun impegno &bull; Nessuna vendita aggressiva</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-black wb-bg-section">
+        <div class="wb-bg-reveal wb-left" data-reveal>
+            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">DOMANDE</span>
+                <h2 class="section-title" style="color: var(--white);">Hai qualche <span class="highlight"><em>dubbio?</em></span></h2>
+            </div>
+            <div class="wb-faq-list">
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Non conosco Elena Giordani. Perch&eacute; dovrei fidarmi?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>&Egrave; normale &mdash; la maggior parte delle partecipanti non la conosceva prima del webinar. I numeri parlano da soli: oltre 2300 donne trasformate in 8 paesi, 97% di tasso di soddisfazione. E il webinar &egrave; gratuito, quindi non rischi nulla. Ascolta la prima sera e decidi tu se continuare.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">&Egrave; davvero gratuito? Qual &egrave; la fregatura?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>Nessuna fregatura. &Egrave; 100% gratuito, nessun costo nascosto. Elena condivide queste serate perch&eacute; crede che ogni donna meriti di capire perch&eacute; molla &mdash; prima di decidere se investire in un percorso. Se poi vorrai approfondire, avrai tutte le informazioni. Ma nessun obbligo.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Ho gi&agrave; provato di tutto e niente ha funzionato. Perch&eacute; questo dovrebbe essere diverso?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>Proprio di questo parla la prima sera: perch&eacute; tutti i programmi che hai provato non hanno funzionato. Spoiler: non &egrave; colpa della tua forza di volont&agrave;. Il Metodo E.A.S.Y. parte da un approccio completamente diverso &mdash; ed &egrave; per questo che il 97% delle donne lo consiglia.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Devo partecipare a tutte e 3 le sere?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>Ogni sera si costruisce su quella precedente, quindi consigliamo di seguire tutte e 3 per il massimo valore. Ma se ne perdi una, puoi comunque partecipare alle altre.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Come partecipo? Serve scaricare qualcosa?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>No, basta un telefono, tablet o computer con connessione internet. Dopo l'iscrizione riceverai tutte le istruzioni via WhatsApp con il link di accesso. Semplicissimo.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Posso portare un'amica?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>Assolutamente s&igrave;! Anzi, le trasformazioni pi&ugrave; belle le vediamo quando le donne partecipano insieme. Condividi questa pagina con chi pensi ne abbia bisogno.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="wb-final-cta">
+        <div class="wb-final-cta-content">
+            <h2>Quest'anno pu&ograve; essere diverso.</h2>
+            <p>Non con l'ennesima dieta. Non con un programma da 90 giorni.</p>
+            <p>Ma con un singolo passo &mdash; quello giusto. Quello che le 2300 donne prima di te hanno fatto per non mollare pi&ugrave;.</p>
+            <p class="wb-question">Tu fai il primo passo?</p>
+            <a href="https://wa.me/393762543276?text=Ciao%20Elena!%20Voglio%20iscrivermi%20al%20webinar%20del%2010-11-12%20Marzo!" class="wb-btn-white">
+                S&igrave;, Voglio Esserci
+                <span>&rarr;</span>
+            </a>
+            <p class="wb-final-trust">100% gratuito &bull; Online &bull; 10-11-12 Marzo ore 18:30</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
+                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
+                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="libri.html">Libri</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="team.html">Il Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="contatti.html">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="#">Cookie Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA (mobile) -->
+    <div class="wb-sticky-cta">
+        <a href="https://wa.me/393762543276?text=Ciao%20Elena!%20Voglio%20iscrivermi%20al%20webinar%20del%2010-11-12%20Marzo!" class="btn-primary">
+            Iscriviti Gratis <span>&rarr;</span>
+        </a>
+    </div>
+
+    <script src="js/main.js?v=1767489274"></script>
+
+    <!-- React (for mobile header) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="js/react-mobile-header.js?v=1767489274"></script>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.wb-faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = btn.closest('.wb-faq-item');
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.wb-faq-item').forEach(function(el) { el.classList.remove('open'); });
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Countdown Timer - 10 Marzo 2026 18:30
+        var webinarStart = new Date('2026-03-10T18:30:00+01:00').getTime();
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var distance = webinarStart - now;
+            if (distance < 0) {
+                document.getElementById('cd-days').textContent = '0';
+                document.getElementById('cd-hours').textContent = '0';
+                document.getElementById('cd-mins').textContent = '0';
+                document.getElementById('cd-secs').textContent = '0';
+                return;
+            }
+            var d = Math.floor(distance / (1000*60*60*24));
+            var h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+            var m = Math.floor((distance % (1000*60*60)) / (1000*60));
+            var s = Math.floor((distance % (1000*60)) / 1000);
+            document.getElementById('cd-days').textContent = d.toString().padStart(2, '0');
+            document.getElementById('cd-hours').textContent = h.toString().padStart(2, '0');
+            document.getElementById('cd-mins').textContent = m.toString().padStart(2, '0');
+            document.getElementById('cd-secs').textContent = s.toString().padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Sticky CTA on scroll (mobile)
+        window.addEventListener('scroll', function() {
+            var sticky = document.querySelector('.wb-sticky-cta');
+            if (window.innerWidth <= 768 && window.scrollY > 500) {
+                sticky.style.display = 'block';
+            } else {
+                sticky.style.display = 'none';
+            }
+        });
+
+        // Parallax scroll for emotion backgrounds
+        var parallaxImages = document.querySelectorAll('[data-parallax]');
+        function updateParallax() {
+            var scrollY = window.scrollY;
+            parallaxImages.forEach(function(img) {
+                var section = img.closest('.wb-emotion');
+                var rect = section.getBoundingClientRect();
+                var sectionHeight = section.offsetHeight;
+                var viewportHeight = window.innerHeight;
+                if (rect.bottom > 0 && rect.top < viewportHeight) {
+                    var progress = (viewportHeight - rect.top) / (viewportHeight + sectionHeight);
+                    var translateY = (progress - 0.5) * 80;
+                    img.style.transform = 'translate3d(0,' + translateY + 'px,0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        updateParallax();
+
+        // Background reveals on scroll
+        var bgReveals = document.querySelectorAll('[data-reveal]');
+        function checkReveals() {
+            bgReveals.forEach(function(el) {
+                var rect = el.parentElement.getBoundingClientRect();
+                var viewH = window.innerHeight;
+                if (rect.top < viewH * 0.85 && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveals, { passive: true });
+        checkReveals();
+    </script>
+
+</body>
+</html>

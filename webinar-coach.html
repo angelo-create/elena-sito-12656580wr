@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Fitness Femminile | Webinar Gratuito | Elena Giordani - XFit Academy</title>
+    <meta name="description" content="Webinar gratuito: scopri perche' il fitness femminile over 40 e' la specializzazione piu' richiesta. Con Elena Giordani, fondatrice di XFit Academy. Posti limitati.">
+    <meta name="keywords" content="coach fitness femminile, formazione personal trainer, fitness over 40, Elena Giordani, XFit Academy, certificazione CONI, OPES">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.elenagiordani.com/webinar-coach">
+    <meta property="og:title" content="Coach Fitness Femminile | Webinar Gratuito con Elena Giordani">
+    <meta property="og:description" content="Nel fitness c'e' un buco enorme: donne over 40 che nessuno sa allenare. Scopri come diventare la professionista che manca. Webinar gratuito, posti limitati.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css">
+
+    <style>
+        /* ===== WEBINAR COACH - PAGE-SPECIFIC STYLES ===== */
+
+        /* Hero - Coach variant with form */
+        .wc-hero {
+            position: relative;
+            min-height: 100vh;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            padding: 7rem 4rem;
+            overflow: hidden;
+        }
+
+        .wc-hero::before {
+            content: '';
+            position: absolute;
+            top: -12.5rem;
+            right: -12.5rem;
+            width: 37.5rem;
+            height: 37.5rem;
+            background: radial-gradient(circle, rgba(233,30,99,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .wc-hero-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .wc-hero-content {
+            max-width: 35rem;
+        }
+
+        .wc-pre-headline {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .wc-pre-headline::before {
+            content: '';
+            width: 2rem;
+            height: 1px;
+            background: var(--pink-primary);
+        }
+
+        .wc-hero-title {
+            font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .wc-hero-title em {
+            color: var(--pink-primary);
+            font-style: normal;
+        }
+
+        .wc-hero-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .wc-hero-subtitle strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .wc-event-info {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .wc-event-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .wc-event-item svg {
+            width: 1rem;
+            height: 1rem;
+            color: var(--pink-primary);
+            flex-shrink: 0;
+        }
+
+        .wc-scarcity {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--pink-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Registration Form */
+        .wc-form-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2.75rem 2.5rem;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .wc-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--pink-primary);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .wc-form-badge {
+            display: inline-block;
+            background: rgba(233,30,99,0.1);
+            border: 1px solid rgba(233,30,99,0.25);
+            color: var(--pink-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .wc-form-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .wc-form-subtitle {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 2rem;
+        }
+
+        .wc-form-group {
+            margin-bottom: 1rem;
+        }
+
+        .wc-form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.05em;
+        }
+
+        .wc-form-input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .wc-form-input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .wc-form-input:focus {
+            outline: none;
+            border-color: var(--pink-primary);
+            background: rgba(233,30,99,0.05);
+        }
+
+        .wc-form-submit {
+            width: 100%;
+            padding: 1.15rem 2rem;
+            background: var(--pink-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            margin-top: 0.5rem;
+        }
+
+        .wc-form-submit:hover {
+            background: var(--pink-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(233,30,99,0.4);
+        }
+
+        .wc-form-privacy {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.35);
+            margin-top: 1rem;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Pain Points Section */
+        .wc-pain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .wc-pain-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .wc-pain-item:hover {
+            border-color: rgba(233,30,99,0.2);
+        }
+
+        .wc-pain-icon {
+            width: 2rem;
+            height: 2rem;
+            flex-shrink: 0;
+            color: var(--pink-primary);
+            margin-top: 0.1rem;
+        }
+
+        .wc-pain-text {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .wc-pain-close {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1.05rem;
+            color: var(--white);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Insight Section */
+        .wc-insight {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .wc-insight-title {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .wc-insight p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.9;
+            margin-bottom: 1rem;
+        }
+
+        .wc-insight .wc-result-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .wc-insight .wc-result-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+        }
+
+        .wc-insight .wc-result-list li::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.95rem;
+            width: 6px;
+            height: 6px;
+            background: var(--pink-primary);
+            border-radius: 50%;
+        }
+
+        .wc-insight .wc-insight-emphasis {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .wc-insight .wc-insight-cta {
+            font-size: 1.1rem;
+            color: var(--pink-primary);
+            font-weight: 600;
+            font-style: italic;
+            margin-top: 1.5rem;
+        }
+
+        /* Learn Section - numbered items */
+        .wc-learn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .wc-learn-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px;
+            padding: 2.25rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .wc-learn-card:hover {
+            border-color: rgba(233,30,99,0.25);
+            transform: translateY(-4px);
+        }
+
+        .wc-learn-card::before {
+            content: '';
+            position: absolute;
+            top: -5rem;
+            right: -5rem;
+            width: 10rem;
+            height: 10rem;
+            background: radial-gradient(circle, rgba(233,30,99,0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .wc-learn-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(233,30,99,0.1);
+            line-height: 1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+
+        .wc-learn-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .wc-learn-card p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Elena Bio Section */
+        .wc-bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .wc-bio-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+        }
+
+        .wc-bio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .wc-bio-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+
+        .wc-bio-content h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .wc-bio-text {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .wc-bio-credentials {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem;
+        }
+
+        .wc-bio-credentials li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .wc-bio-credentials li:last-child {
+            border-bottom: none;
+        }
+
+        .wc-bio-credentials li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 8px;
+            height: 8px;
+            background: var(--pink-primary);
+            border-radius: 50%;
+        }
+
+        .wc-bio-quote {
+            border-left: 3px solid var(--pink-primary);
+            padding: 1.25rem 1.5rem;
+            background: rgba(233,30,99,0.06);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* Target Section */
+        .wc-target {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wc-target-list {
+            list-style: none;
+            padding: 0;
+            margin: 3rem 0 2rem;
+        }
+
+        .wc-target-list li {
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .wc-target-list li:last-child {
+            border-bottom: none;
+        }
+
+        .wc-target-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.25rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid var(--pink-primary);
+            border-radius: 50%;
+        }
+
+        .wc-target-list li::after {
+            content: '';
+            position: absolute;
+            left: 0.3rem;
+            top: 1.55rem;
+            width: 0.65rem;
+            height: 0.35rem;
+            border-left: 2px solid var(--pink-primary);
+            border-bottom: 2px solid var(--pink-primary);
+            transform: rotate(-45deg);
+        }
+
+        .wc-target-exclusion {
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Final CTA with form */
+        .wc-cta-final {
+            background: var(--pink-primary);
+            text-align: center;
+            padding: 7rem 2rem;
+        }
+
+        .wc-cta-final-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .wc-cta-final h2 {
+            color: var(--white);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .wc-cta-final p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .wc-cta-final .wc-event-details {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            margin: 2rem 0;
+            font-weight: 500;
+        }
+
+        .wc-cta-final .ev-btn-white {
+            margin-top: 0.5rem;
+        }
+
+        .wc-cta-final-trust {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Sticky CTA */
+        .wc-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0A0A0A;
+            padding: 0.75rem 1.25rem;
+            box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
+            z-index: 1000;
+            border-top: 1px solid rgba(233,30,99,0.3);
+        }
+
+        .wc-sticky-cta .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .wc-hero {
+                padding: 5rem 2rem;
+            }
+
+            .wc-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .wc-hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .wc-pre-headline {
+                justify-content: center;
+            }
+
+            .wc-event-info {
+                justify-content: center;
+            }
+
+            .wc-scarcity {
+                display: block;
+                text-align: center;
+            }
+
+            .wc-form-card {
+                max-width: 28rem;
+                margin: 0 auto;
+            }
+
+            .wc-bio-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .wc-bio-image {
+                max-width: 20rem;
+                margin: 0 auto;
+            }
+
+            .wc-bio-content {
+                text-align: center;
+            }
+
+            .wc-bio-quote {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wc-hero {
+                padding: 4rem 1.5rem;
+                min-height: auto;
+            }
+
+            .wc-pain-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wc-learn-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wc-sticky-cta {
+                display: block;
+            }
+
+            .wc-cta-final {
+                padding: 4rem 1.5rem 7rem;
+            }
+
+            .wc-event-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wc-form-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- React Mobile Header Mount Point -->
+    <div id="react-mobile-header-root"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="navbar">
+        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
+                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
+                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
+                    <a href="press.html" onclick="closeMobileMenu()">Press & Media</a>
+                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
+                </div>
+            </div>
+            <a href="#iscriviti" class="nav-cta" onclick="closeMobileMenu()">Iscriviti al Webinar</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="wc-hero" id="top">
+        <div class="wc-hero-grid">
+            <div class="wc-hero-content">
+                <div class="wc-pre-headline">
+                    Sei una personal trainer o lavori nel fitness?
+                </div>
+                <h1 class="wc-hero-title">
+                    Nel fitness c'&egrave; un buco enorme. Si chiama: <em>donne over 40 che nessuno sa allenare.</em>
+                </h1>
+                <p class="wc-hero-subtitle">
+                    Webinar gratuito con <strong>Elena Giordani</strong> &mdash; Fondatrice di XFit Academy, 20 anni di esperienza, 2.400 donne seguite. Corso con certificazione OPES/CONI.
+                </p>
+                <div class="wc-event-info">
+                    <div class="wc-event-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        <span>Marzo 2026</span>
+                    </div>
+                    <div class="wc-event-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Orario da definire</span>
+                    </div>
+                    <div class="wc-event-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                        <span>Online su Zoom</span>
+                    </div>
+                </div>
+                <p class="wc-scarcity">
+                    <svg style="width:0.75rem;height:0.75rem;vertical-align:-0.05rem;margin-right:0.25rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Posti limitati &mdash; Il webinar non sar&agrave; registrato
+                </p>
+            </div>
+
+            <div id="iscriviti">
+                <div class="wc-form-card">
+                    <div class="wc-form-badge">Webinar Gratuito</div>
+                    <h2 class="wc-form-title">Riserva il tuo posto</h2>
+                    <p class="wc-form-subtitle">Compila il form per ricevere il link di accesso</p>
+                    <form id="webinarForm" action="#" method="POST">
+                        <div class="wc-form-group">
+                            <label class="wc-form-label" for="wc-nome">Nome *</label>
+                            <input class="wc-form-input" type="text" id="wc-nome" name="nome" placeholder="Il tuo nome" required>
+                        </div>
+                        <div class="wc-form-group">
+                            <label class="wc-form-label" for="wc-email">Email *</label>
+                            <input class="wc-form-input" type="email" id="wc-email" name="email" placeholder="La tua email" required>
+                        </div>
+                        <div class="wc-form-group">
+                            <label class="wc-form-label" for="wc-telefono">Telefono <span style="font-weight:400;color:rgba(255,255,255,0.35)">(opzionale)</span></label>
+                            <input class="wc-form-input" type="tel" id="wc-telefono" name="telefono" placeholder="Il tuo numero">
+                        </div>
+                        <button type="submit" class="wc-form-submit">
+                            Riserva il Tuo Posto Gratuito &rarr;
+                        </button>
+                    </form>
+                    <p class="wc-form-privacy">Gratuito &bull; Online &bull; Posti limitati<br>I tuoi dati sono al sicuro. Zero spam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IL PROBLEMA -->
+    <section class="section section-black ev-bg-section">
+        <div class="ev-bg-reveal ev-right" data-reveal>
+            <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">IL PROBLEMA</span>
+                <h2 class="section-title" style="color: var(--white);">Ti riconosci in una di <span class="highlight"><em>queste situazioni?</em></span></h2>
+            </div>
+            <div class="wc-pain-grid">
+                <div class="wc-pain-item">
+                    <svg class="wc-pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <p class="wc-pain-text">Lavori con clienti misti ma con le donne over 40 non ottieni gli stessi risultati</p>
+                </div>
+                <div class="wc-pain-item">
+                    <svg class="wc-pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    <p class="wc-pain-text">Ti senti una delle tante &mdash; fai lo stesso lavoro di mille altre trainer</p>
+                </div>
+                <div class="wc-pain-item">
+                    <svg class="wc-pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <p class="wc-pain-text">Non hai una specializzazione e il mercato ti sembra saturo</p>
+                </div>
+                <div class="wc-pain-item">
+                    <svg class="wc-pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    <p class="wc-pain-text">Hai fatto corsi su corsi, ma ti manca ancora un metodo tuo</p>
+                </div>
+                <div class="wc-pain-item">
+                    <svg class="wc-pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <p class="wc-pain-text">Non sai cosa rispondere quando una cliente ti parla di menopausa, stress, ritenzione</p>
+                </div>
+                <div class="wc-pain-item">
+                    <svg class="wc-pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <p class="wc-pain-text">Vorresti una nicchia chiara, ma non sai quale scegliere</p>
+                </div>
+                <div class="wc-pain-item" style="grid-column: 1 / -1; max-width: 28rem; margin: 0 auto;">
+                    <svg class="wc-pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <p class="wc-pain-text">Sogni di fare la coach come lavoro vero, con una direzione precisa</p>
+                </div>
+            </div>
+            <p class="wc-pain-close">Se hai fatto s&igrave; anche solo a una di queste, questo webinar &egrave; per te.</p>
+        </div>
+    </section>
+
+    <!-- EMOTION BREAK -->
+    <section class="ev-emotion">
+        <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png" alt="" class="ev-emotion-bg" data-parallax>
+        <div class="ev-emotion-overlay"></div>
+        <div class="ev-emotion-text">
+            <p>Il 90% dei protocolli fitness ignora il corpo femminile. <strong>Chi lo sa, domina il mercato.</strong></p>
+        </div>
+    </section>
+
+    <!-- L'INSIGHT -->
+    <section class="section section-black ev-bg-section">
+        <div class="ev-bg-reveal ev-left" data-reveal>
+            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="wc-insight">
+                <span class="section-number" style="display:block;text-align:center;margin-bottom:1.5rem;">L'INSIGHT</span>
+                <h2 class="wc-insight-title">Il problema non sei tu. <span class="highlight"><em>&Egrave; quello che non ti hanno mai insegnato.</em></span></h2>
+                <p>Il 90% delle formazioni fitness sono costruite studiando corpi maschili.</p>
+                <p>Poi quei protocolli vengono applicati alle donne come se fossero universali.</p>
+                <p class="wc-insight-emphasis">Il risultato?</p>
+                <ul class="wc-result-list">
+                    <li>Donne che non vedono risultati</li>
+                    <li>Donne che si stancano cronicamente</li>
+                    <li>Donne che mollano e pensano di essere sbagliate</li>
+                </ul>
+                <p>E tu, come trainer, ti senti impotente.</p>
+                <p class="wc-insight-emphasis">Ma non &egrave; colpa tua.</p>
+                <p class="wc-insight-cta">Ti manca un pezzo. Un pezzo che in questo webinar ti mostrer&ograve;.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COSA IMPARERAI -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">COSA IMPARERAI</span>
+                <h2 class="section-title" style="color: var(--white);">In questo webinar <span class="highlight"><em>scoprirai</em></span></h2>
+            </div>
+            <div class="wc-learn-grid">
+                <div class="wc-learn-card">
+                    <div class="wc-learn-number">01</div>
+                    <h4>Perch&eacute; il corpo femminile risponde diversamente</h4>
+                    <p>E cosa cambia dopo i 30, 40, 50 anni. Le basi fisiologiche che la maggior parte dei corsi non insegna.</p>
+                </div>
+                <div class="wc-learn-card">
+                    <div class="wc-learn-number">02</div>
+                    <h4>L'errore che fa il 90% delle trainer</h4>
+                    <p>Quando allena donne stressate o in perimenopausa. E perch&eacute; i protocolli standard non funzionano.</p>
+                </div>
+                <div class="wc-learn-card">
+                    <div class="wc-learn-number">03</div>
+                    <h4>Il principio "modulare, non spingere"</h4>
+                    <p>La chiave per risultati duraturi, non yo-yo. L'approccio che distingue una specialista da una trainer generica.</p>
+                </div>
+                <div class="wc-learn-card">
+                    <div class="wc-learn-number">04</div>
+                    <h4>La specializzazione pi&ugrave; richiesta del mercato</h4>
+                    <p>Perch&eacute; il fitness femminile over 40 &egrave; la specializzazione pi&ugrave; richiesta &mdash; e come pu&ograve; diventare il tuo posizionamento unico, con certificazione CONI.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#iscriviti" class="btn-primary">
+                    Riserva il Tuo Posto Gratuito
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHI È ELENA -->
+    <section class="section section-black ev-bg-section" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">CHI TI GUIDER&Agrave;</span>
+                <h2 class="section-title" style="color: var(--white);">Elena <span class="highlight"><em>Giordani</em></span></h2>
+            </div>
+            <div class="wc-bio-grid">
+                <div class="wc-bio-image">
+                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="Elena Giordani" loading="lazy">
+                </div>
+                <div class="wc-bio-content">
+                    <p class="wc-bio-text">
+                        Elena Giordani &egrave; preparatrice atletico-sportiva e fondatrice di XFit Academy, il primo percorso in Italia dedicato esclusivamente al benessere femminile a 360 gradi.
+                    </p>
+                    <ul class="wc-bio-credentials">
+                        <li>Oltre 20 anni di esperienza sul campo</li>
+                        <li>Pi&ugrave; di 2.400 donne seguite personalmente</li>
+                        <li>Community di 180.000 donne in 5 anni</li>
+                        <li>Interviste e pubblicazioni sulle principali testate nazionali</li>
+                        <li>Creatrice del Metodo E.A.S.Y. (Esercizio, Alimentazione, Supporto, You)</li>
+                    </ul>
+                    <div class="wc-bio-quote">
+                        "Ho creato la formazione che avrei voluto trovare io quando ho iniziato."
+                    </div>
+                    <div class="ev-stats-row" style="margin-top: 2.5rem;">
+                        <div class="ev-stat">
+                            <div class="ev-stat-number">OPES</div>
+                            <div class="ev-stat-label">Certificazione CONI</div>
+                        </div>
+                        <div class="ev-stat">
+                            <div class="ev-stat-number">8</div>
+                            <div class="ev-stat-label">Paesi nel mondo</div>
+                        </div>
+                        <div class="ev-stat">
+                            <div class="ev-stat-number">100%</div>
+                            <div class="ev-stat-label">Metodo testato sul campo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMOTION BREAK 2 -->
+    <section class="ev-emotion">
+        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="ev-emotion-bg" data-parallax>
+        <div class="ev-emotion-overlay"></div>
+        <div class="ev-emotion-text">
+            <p>Una nicchia da milioni di donne. <strong>Zero trainer specializzate.</strong></p>
+        </div>
+    </section>
+
+    <!-- A CHI È RIVOLTO -->
+    <section class="section section-black ev-bg-section">
+        <div class="ev-bg-reveal ev-right" data-reveal>
+            <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="wc-target">
+                <div class="section-header center">
+                    <span class="section-number">PER CHI &Egrave;</span>
+                    <h2 class="section-title" style="color: var(--white);">Questo webinar &egrave; <span class="highlight"><em>per te se</em></span></h2>
+                </div>
+                <ul class="wc-target-list">
+                    <li>Sei una personal trainer che lavora con clienti misti e vuoi specializzarti</li>
+                    <li>Sei una coach con certificazioni generiche ma senti che ti manca una direzione</li>
+                    <li>Sei appassionata di fitness e vuoi trasformarlo in una professione con un posizionamento chiaro</li>
+                    <li>Vuoi uscire dalla guerra dei prezzi e diventare una professionista riconosciuta</li>
+                    <li>Cerchi non solo formazione, ma un'opportunit&agrave; concreta di crescita</li>
+                </ul>
+                <p class="wc-target-exclusion">Non &egrave; per chi cerca scorciatoie o attestati facili.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-black ev-bg-section">
+        <div class="ev-bg-reveal ev-left" data-reveal>
+            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">DOMANDE</span>
+                <h2 class="section-title" style="color: var(--white);">Info <span class="highlight"><em>pratiche</em></span></h2>
+            </div>
+            <div class="ev-faq-list">
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Il webinar sar&agrave; registrato?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>No, &egrave; live e non sar&agrave; disponibile in replay. Per questo ti consigliamo di riservare subito il tuo posto.</p></div>
+                </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Devo gi&agrave; avere certificazioni?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>No, &egrave; aperto anche a chi parte da zero. Il webinar &egrave; pensato sia per chi lavora gi&agrave; nel fitness sia per chi vuole iniziare.</p></div>
+                </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Quanto dura?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Circa 60-75 minuti di contenuto puro, con la possibilit&agrave; di fare domande live alla fine.</p></div>
+                </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Cosa mi serve per partecipare?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Solo una connessione internet e voglia di crescere professionalmente. Puoi partecipare da computer, tablet o smartphone.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINALE -->
+    <section class="wc-cta-final">
+        <div class="wc-cta-final-content">
+            <h2>Il primo passo? Esserci.</h2>
+            <p>Questo webinar non sar&agrave; registrato.</p>
+            <p>Se senti che &egrave; il momento di fare un salto professionale vero &mdash; con un metodo testato e certificazione CONI &mdash; riserva il tuo posto ora.</p>
+            <div class="wc-event-details">
+                Marzo 2026 &bull; Online su Zoom &bull; Gratuito
+            </div>
+            <a href="#iscriviti" class="ev-btn-white">
+                Riserva il Tuo Posto Gratuito
+                <span>&rarr;</span>
+            </a>
+            <p class="wc-cta-final-trust">
+                <svg style="width:0.85rem;height:0.85rem;vertical-align:-0.05rem;margin-right:0.1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Gratuito &bull; Online &bull; Posti limitati
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>
+                    Il primo percorso in Italia dedicato alle donne che unisce
+                    corpo, alimentazione e mente. 100% live.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
+                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
+                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="libri.html">Libri</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="team.html">Il Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="contatti.html">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA (mobile) -->
+    <div class="wc-sticky-cta">
+        <a href="#iscriviti" class="btn-primary">
+            Iscriviti Gratis <span>&rarr;</span>
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+
+    <!-- React (for mobile header) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="js/react-mobile-header.js"></script>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.ev-faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = btn.closest('.ev-faq-item');
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.ev-faq-item').forEach(function(el) { el.classList.remove('open'); });
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Sticky CTA on scroll (mobile)
+        window.addEventListener('scroll', function() {
+            var sticky = document.querySelector('.wc-sticky-cta');
+            if (window.innerWidth <= 768 && window.scrollY > 500) {
+                sticky.style.display = 'block';
+            } else {
+                sticky.style.display = 'none';
+            }
+        });
+
+        // Parallax scroll for emotion backgrounds
+        var parallaxImages = document.querySelectorAll('[data-parallax]');
+        function updateParallax() {
+            var scrollY = window.scrollY;
+            parallaxImages.forEach(function(img) {
+                var section = img.closest('.ev-emotion');
+                var rect = section.getBoundingClientRect();
+                var sectionTop = rect.top + scrollY;
+                var sectionHeight = section.offsetHeight;
+                var viewportHeight = window.innerHeight;
+                if (rect.bottom > 0 && rect.top < viewportHeight) {
+                    var progress = (viewportHeight - rect.top) / (viewportHeight + sectionHeight);
+                    var translateY = (progress - 0.5) * 80;
+                    img.style.transform = 'translate3d(0,' + translateY + 'px,0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        updateParallax();
+
+        // Background reveals on scroll
+        var bgReveals = document.querySelectorAll('[data-reveal]');
+        function checkReveals() {
+            bgReveals.forEach(function(el) {
+                var rect = el.parentElement.getBoundingClientRect();
+                var viewH = window.innerHeight;
+                if (rect.top < viewH * 0.85 && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveals, { passive: true });
+        checkReveals();
+
+        // Form submission
+        document.getElementById('webinarForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var nome = document.getElementById('wc-nome').value;
+            var email = document.getElementById('wc-email').value;
+            var telefono = document.getElementById('wc-telefono').value;
+
+            // WhatsApp fallback
+            var msg = 'Ciao Elena! Voglio iscrivermi al webinar Coach Fitness Femminile.%0A%0ANome: ' + encodeURIComponent(nome) + '%0AEmail: ' + encodeURIComponent(email);
+            if (telefono) msg += '%0ATelefono: ' + encodeURIComponent(telefono);
+            window.open('https://wa.me/393762543276?text=' + msg, '_blank');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
