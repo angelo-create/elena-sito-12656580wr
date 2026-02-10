@@ -1,6 +1,6 @@
 /* ===== TRANSFORMATIONS ===== */
 .transformations-section {
-    background: var(--gray-softer);
+    background: #0A0A0A;
 }
 
 .transformations-grid {
@@ -15,7 +15,7 @@
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    background: var(--white);
+    background: #1A1A1A;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -42,7 +42,8 @@
     gap: 4rem;
     margin-top: 3rem;
     padding: 2rem;
-    background: var(--white);
+    background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 16px;
     max-width: 700px;
     margin-left: auto;
@@ -63,7 +64,7 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--gray-light);
+    color: rgba(255,255,255,0.6);
     margin-top: 0.25rem;
 }
 
@@ -79,7 +80,7 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    background: linear-gradient(145deg, var(--pink-soft), var(--pink-primary));
+    background: linear-gradient(145deg, rgba(233,30,99,0.15), var(--pink-primary));
 }
 
 .transformation-card-alt:nth-child(1) { grid-row: span 2; }

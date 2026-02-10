@@ -1,6 +1,6 @@
 /* ===== PRESS SECTION ===== */
 .press-section {
-    background: var(--white);
+    background: var(--black);
     overflow: hidden;
 }
 
@@ -30,7 +30,8 @@
 .press-logo-item {
     flex-shrink: 0;
     padding: 1.5rem 3rem;
-    background: var(--gray-softer);
+    background: #1A1A1A;
+    border: 1px solid rgba(255,255,255,0.06);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,14 +40,14 @@
 }
 
 .press-logo-item:hover {
-    background: var(--pink-soft);
+    background: rgba(233,30,99,0.08);
     transform: scale(1.05);
 }
 
 .press-logo-item span {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--gray-medium);
+    color: rgba(255,255,255,0.7);
     white-space: nowrap;
 }
 
@@ -60,8 +61,8 @@
 }
 
 .press-card {
-    background: var(--white);
-    border: 1px solid rgba(0,0,0,0.08);
+    background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+    border: 1px solid rgba(255,255,255,0.1);
     padding: 2rem;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     position: relative;
@@ -85,7 +86,8 @@
 
 .press-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    border-color: rgba(233,30,99,0.3);
 }
 
 .press-card-source {
@@ -102,12 +104,12 @@
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 1rem;
-    color: var(--gray-dark);
+    color: var(--white);
 }
 
 .press-card-date {
     font-size: 0.8rem;
-    color: var(--gray-light);
+    color: rgba(255,255,255,0.6);
     margin-bottom: 1.5rem;
 }
 
@@ -116,7 +118,7 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
     display: inline-flex;
     align-items: center;

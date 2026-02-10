@@ -301,7 +301,7 @@
 
 .comparison-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
   margin-bottom: 4rem;
 }
@@ -485,7 +485,7 @@
 
 .phases-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -681,7 +681,7 @@
 
 .workouts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
@@ -801,7 +801,7 @@
 
 .transformations-mashup-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   max-width: 1400px;
   margin: 0 auto 3rem;
@@ -1087,7 +1087,7 @@
 
 .method-pillars {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-bottom: 5rem;
   position: relative;
@@ -1190,7 +1190,7 @@
 
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2.5rem;
 }
 
@@ -1478,7 +1478,7 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -1719,7 +1719,7 @@
 
 .pricing-grid-points {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 3rem;
 }
@@ -1982,16 +1982,28 @@
   .comparison-grid {
     grid-template-columns: 1fr;
   }
+  .phases-grid {
+    grid-template-columns: 1fr;
+  }
   .workouts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
   .transformations-mashup-grid {
-    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
+  }
+  .method-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .pricing-grid-points {
+    grid-template-columns: 1fr;
   }
 }
 
