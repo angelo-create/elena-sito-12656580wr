@@ -33,19 +33,22 @@
         /* Countdown */
         .wb-countdown { display: flex; gap: 1rem; margin-bottom: 2rem; }
         .wb-countdown-item { text-align: center; }
-        .wb-countdown-number { background: rgba(233,30,99,0.08); border: 1px solid rgba(233,30,99,0.2); color: var(--pink-primary); font-size: 1.5rem; font-weight: 700; width: 65px; height: 65px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .wb-countdown-number { background: rgba(233,30,99,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(233,30,99,0.2); color: var(--pink-primary); font-size: 1.5rem; font-weight: 700; width: 70px; height: 70px; border-radius: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(233,30,99,0.1), inset 0 1px 0 rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+        .wb-countdown-number::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.3), transparent); }
         .wb-countdown-text { font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.15em; }
 
         /* Bento Grid */
         .wb-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
-        .wb-bento-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 2.75rem 2.5rem; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
-        .wb-bento-card:hover { border-color: rgba(233,30,99,0.25); transform: translateY(-4px); }
-        .wb-bento-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(233,30,99,0.08), transparent 70%); pointer-events: none; }
+        .wb-bento-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.75rem 2.5rem; position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); }
+        .wb-bento-card:hover { border-color: rgba(233,30,99,0.35); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(233,30,99,0.12), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
+        .wb-bento-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(233,30,99,0.1), transparent 70%); pointer-events: none; transition: opacity 0.5s ease; }
+        .wb-bento-card:hover::before { opacity: 1.5; }
+        .wb-bento-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
         .wb-bento-card.wb-bento-wide { grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding: 3rem 2.75rem; }
-        .wb-bento-icon { width: 3.75rem; height: 3.75rem; margin-bottom: 1.5rem; display: block; color: var(--pink-primary); flex-shrink: 0; }
+        .wb-bento-icon { width: 3.75rem; height: 3.75rem; margin-bottom: 1.5rem; display: block; color: var(--pink-primary); flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(233,30,99,0.3)); }
         .wb-bento-wide .wb-bento-icon { width: 5rem; height: 5rem; margin-bottom: 0; }
         .wb-bento-card h4 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3; }
-        .wb-bento-card p { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.7; }
+        .wb-bento-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.7; }
         .wb-bento-number { position: absolute; bottom: -0.5rem; right: 1.25rem; font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; user-select: none; }
 
         /* Timeline */
@@ -53,9 +56,11 @@
         .wb-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, transparent, var(--pink-primary), var(--pink-primary), transparent); transform: translateX(-50%); }
         .wb-timeline-day { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: start; margin-bottom: 4rem; position: relative; }
         .wb-timeline-day:last-child { margin-bottom: 0; }
-        .wb-timeline-dot { width: 20px; height: 20px; background: var(--pink-primary); border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 30px rgba(233,30,99,0.5); justify-self: center; margin-top: 2rem; }
-        .wb-timeline-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2.5rem; position: relative; backdrop-filter: blur(10px); }
-        .wb-timeline-card:hover { border-color: rgba(233,30,99,0.2); }
+        .wb-timeline-dot { width: 20px; height: 20px; background: var(--pink-primary); border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 30px rgba(233,30,99,0.5), 0 0 60px rgba(233,30,99,0.2); justify-self: center; margin-top: 2rem; }
+        .wb-timeline-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+        .wb-timeline-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); pointer-events: none; }
+        .wb-timeline-card::after { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(233,30,99,0.06), transparent 60%); pointer-events: none; }
+        .wb-timeline-card:hover { border-color: rgba(233,30,99,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(233,30,99,0.1), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
         .wb-timeline-day:nth-child(odd) .wb-timeline-card { grid-column: 1; }
         .wb-timeline-day:nth-child(odd) .wb-timeline-dot { grid-column: 2; }
         .wb-timeline-day:nth-child(odd) .wb-timeline-number { grid-column: 3; }
@@ -63,13 +68,14 @@
         .wb-timeline-day:nth-child(even) .wb-timeline-dot { grid-column: 2; }
         .wb-timeline-day:nth-child(even) .wb-timeline-card { grid-column: 3; }
         .wb-timeline-number { font-size: clamp(6rem, 12vw, 10rem); font-weight: 900; color: rgba(233,30,99,0.08); line-height: 0.85; padding: 0 1.5rem; user-select: none; }
-        .wb-timeline-label { font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.75rem; }
-        .wb-timeline-title { font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-        .wb-timeline-subtitle { font-size: 1rem; color: rgba(255,255,255,0.6); font-style: italic; margin-bottom: 1.5rem; line-height: 1.6; }
-        .wb-timeline-list { list-style: none; padding: 0; margin: 0; }
-        .wb-timeline-list li { padding: 0.75rem 0; padding-left: 1.75rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .wb-timeline-label { font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+        .wb-timeline-title { font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; position: relative; z-index: 1; }
+        .wb-timeline-subtitle { font-size: 1rem; color: rgba(255,255,255,0.6); font-style: italic; margin-bottom: 1.5rem; line-height: 1.6; position: relative; z-index: 1; }
+        .wb-timeline-list { list-style: none; padding: 0; margin: 0; position: relative; z-index: 1; }
+        .wb-timeline-list li { padding: 0.85rem 0; padding-left: 1.75rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
         .wb-timeline-list li:last-child { border-bottom: none; }
-        .wb-timeline-list li::before { content: ''; position: absolute; left: 0; top: 1.1rem; width: 8px; height: 8px; background: var(--pink-primary); border-radius: 50%; }
+        .wb-timeline-list li::before { content: ''; position: absolute; left: 0; top: 1.15rem; width: 8px; height: 8px; background: var(--pink-primary); border-radius: 50%; box-shadow: 0 0 10px rgba(233,30,99,0.4); }
+        .wb-timeline-list li:hover { color: var(--white); padding-left: 2rem; }
 
         /* Emotion Breaks */
         .wb-emotion { position: relative; height: 45vh; min-height: 320px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
@@ -91,22 +97,27 @@
 
         /* Testimonial cards */
         .wb-testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-        .wb-testimonial { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2.5rem; }
-        .wb-testimonial-stars { color: #FFD700; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1.25rem; }
-        .wb-testimonial blockquote { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
-        .wb-testimonial-author { display: flex; align-items: center; gap: 1rem; }
-        .wb-testimonial-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--white); }
+        .wb-testimonial { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+        .wb-testimonial::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
+        .wb-testimonial::after { content: '\201C'; position: absolute; top: 1rem; right: 1.5rem; font-size: 4rem; font-weight: 700; color: rgba(233,30,99,0.08); line-height: 1; pointer-events: none; }
+        .wb-testimonial:hover { border-color: rgba(233,30,99,0.25); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(233,30,99,0.08), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
+        .wb-testimonial-stars { color: #FFD700; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1.25rem; filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+        .wb-testimonial blockquote { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+        .wb-testimonial-author { display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+        .wb-testimonial-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--white); box-shadow: 0 4px 12px rgba(233,30,99,0.3); }
         .wb-testimonial-name { font-size: 0.9rem; font-weight: 700; color: var(--white); }
         .wb-testimonial-result { font-size: 0.75rem; color: var(--pink-primary); margin-top: 0.2rem; }
 
         /* FAQ */
         .wb-faq-list { max-width: 800px; margin: 0 auto; }
-        .wb-faq-item { background: linear-gradient(135deg, #1A1A1A, #0F0F0F); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .wb-faq-item { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .wb-faq-item:hover { border-color: rgba(255,255,255,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08); }
+        .wb-faq-item.open { border-color: rgba(233,30,99,0.25); box-shadow: 0 12px 40px rgba(233,30,99,0.08), 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08); }
         .wb-faq-question { padding: 1.5rem 1.75rem; font-size: 1rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; background: none; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; gap: 1rem; }
-        .wb-faq-question:hover { background: rgba(233,30,99,0.1); }
-        .wb-faq-toggle { font-size: 1.5rem; color: var(--pink-primary); font-weight: 300; transition: transform 0.3s ease; flex-shrink: 0; }
+        .wb-faq-question:hover { background: rgba(233,30,99,0.06); }
+        .wb-faq-toggle { font-size: 1.5rem; color: var(--pink-primary); font-weight: 300; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(233,30,99,0.3)); }
         .wb-faq-item.open .wb-faq-toggle { transform: rotate(45deg); }
-        .wb-faq-answer { padding: 0 1.75rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; }
+        .wb-faq-answer { padding: 0 1.75rem; max-height: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
         .wb-faq-item.open .wb-faq-answer { padding: 0 1.75rem 1.5rem; max-height: 500px; }
         .wb-faq-answer p { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.7; }
 
