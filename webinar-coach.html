@@ -31,6 +31,31 @@
             overflow: hidden;
         }
 
+        .wc-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .wc-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .wc-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(0,0,0,0.85) 0%,
+                rgba(0,0,0,0.7) 40%,
+                rgba(0,0,0,0.5) 100%
+            );
+        }
+
         .wc-hero::before {
             content: '';
             position: absolute;
@@ -40,6 +65,7 @@
             height: 37.5rem;
             background: radial-gradient(circle, rgba(233,30,99,0.15), transparent 70%);
             pointer-events: none;
+            z-index: 1;
         }
 
         .wc-hero-grid {
@@ -94,7 +120,7 @@
         .wc-hero-subtitle {
             font-size: 1rem;
             font-weight: 300;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.85);
             line-height: 1.8;
             margin-bottom: 2rem;
         }
@@ -116,7 +142,7 @@
             align-items: center;
             gap: 0.5rem;
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.8);
         }
 
         .wc-event-item svg {
@@ -508,10 +534,23 @@
             font-weight: 500;
         }
 
-        /* Target Section */
+        /* Target Section - White variant */
+        .wc-target-section {
+            background: var(--white);
+            padding: 7rem 4rem;
+        }
+
         .wc-target {
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .wc-target .section-number {
+            color: var(--pink-primary);
+        }
+
+        .wc-target .section-title {
+            color: var(--black) !important;
         }
 
         .wc-target-list {
@@ -521,13 +560,13 @@
         }
 
         .wc-target-list li {
-            padding: 1rem 0;
-            padding-left: 2.5rem;
+            padding: 1.25rem 1.5rem 1.25rem 3.5rem;
             position: relative;
             font-size: 1rem;
-            color: rgba(255,255,255,0.8);
+            color: var(--black);
             line-height: 1.6;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            font-weight: 400;
         }
 
         .wc-target-list li:last-child {
@@ -538,31 +577,37 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 1.25rem;
-            width: 1.25rem;
-            height: 1.25rem;
-            border: 2px solid var(--pink-primary);
+            top: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: var(--pink-primary);
             border-radius: 50%;
         }
 
         .wc-target-list li::after {
             content: '';
             position: absolute;
-            left: 0.3rem;
-            top: 1.55rem;
-            width: 0.65rem;
-            height: 0.35rem;
-            border-left: 2px solid var(--pink-primary);
-            border-bottom: 2px solid var(--pink-primary);
+            left: 0.35rem;
+            top: 1.85rem;
+            width: 0.75rem;
+            height: 0.4rem;
+            border-left: 2.5px solid var(--white);
+            border-bottom: 2.5px solid var(--white);
             transform: rotate(-45deg);
         }
 
         .wc-target-exclusion {
             text-align: center;
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.4);
+            color: rgba(0,0,0,0.4);
             font-style: italic;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .wc-target-section {
+                padding: 4rem 1.5rem;
+            }
         }
 
         /* Final CTA with form */
@@ -609,23 +654,55 @@
             color: rgba(255,255,255,0.7);
         }
 
-        /* OPES Certification Banner */
+        /* FAQ White variant */
+        .wc-faq-white {
+            background: var(--white);
+            padding: 7rem 4rem;
+        }
+
+        .wc-faq-white .section-number {
+            color: var(--pink-primary);
+        }
+
+        .wc-faq-white .section-title {
+            color: var(--black) !important;
+        }
+
+        .wc-faq-white .ev-faq-question {
+            color: var(--black);
+            border-bottom-color: rgba(0,0,0,0.08);
+        }
+
+        .wc-faq-white .ev-faq-answer p {
+            color: rgba(0,0,0,0.7);
+        }
+
+        .wc-faq-white .ev-faq-toggle {
+            color: var(--pink-primary);
+        }
+
+        @media (max-width: 768px) {
+            .wc-faq-white {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        /* OPES Certification Banner - Prominent */
         .wc-opes-banner {
             background: var(--white);
-            padding: 4rem 2rem;
+            padding: 5rem 4rem;
+            border-top: 4px solid var(--pink-primary);
         }
 
         .wc-opes-inner {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 3rem;
+            text-align: center;
         }
 
         .wc-opes-logo {
-            flex-shrink: 0;
-            width: 14rem;
+            width: 16rem;
+            margin: 0 auto 2rem;
         }
 
         .wc-opes-logo img {
@@ -634,8 +711,18 @@
             display: block;
         }
 
-        .wc-opes-text {
-            flex: 1;
+        .wc-opes-cert-name {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .wc-opes-cert-name em {
+            color: var(--pink-primary);
+            font-style: normal;
         }
 
         .wc-opes-label {
@@ -644,7 +731,7 @@
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--pink-primary);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .wc-opes-disclaimer {
@@ -655,15 +742,21 @@
             letter-spacing: -0.01em;
         }
 
+        .wc-opes-sub {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: rgba(0,0,0,0.6);
+            margin-top: 0.5rem;
+            line-height: 1.6;
+        }
+
         @media (max-width: 768px) {
-            .wc-opes-inner {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
+            .wc-opes-banner {
+                padding: 4rem 1.5rem;
             }
 
             .wc-opes-logo {
-                width: 10rem;
+                width: 12rem;
             }
         }
 
@@ -688,6 +781,15 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
+            .wc-hero-bg::after {
+                background: linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.8) 0%,
+                    rgba(0,0,0,0.7) 50%,
+                    rgba(0,0,0,0.85) 100%
+                );
+            }
+
             .wc-hero {
                 padding: 5rem 2rem;
             }
@@ -815,6 +917,9 @@
 
     <!-- HERO -->
     <section class="wc-hero" id="top">
+        <div class="wc-hero-bg">
+            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="eager">
+        </div>
         <div class="wc-hero-grid">
             <div class="wc-hero-content">
                 <div class="wc-pre-headline">
@@ -824,7 +929,7 @@
                     10 milioni di donne over 40 cercano una trainer che le capisca. <em>Le specialiste sono quasi zero.</em>
                 </h1>
                 <p class="wc-hero-subtitle">
-                    Webinar gratuito con <strong>Elena Giordani</strong> &mdash; preparatrice atletica, 20 anni sul campo, 2.400 donne seguite in 8 paesi. Scopri perch&eacute; questa &egrave; la specializzazione pi&ugrave; richiesta del fitness italiano &mdash; e come ottenerla con certificazione OPES/CONI.
+                    Webinar gratuito con <strong>Elena Giordani</strong> &mdash; preparatrice atletica, 20 anni sul campo, 2.400 donne seguite in 8 paesi. Scopri il percorso per diventare certificata <strong>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> con diploma OPES riconosciuto CONI.
                 </p>
                 <div class="wc-event-info">
                     <div class="wc-event-item">
@@ -945,7 +1050,7 @@
                     <li>Abbandono entro 3 mesi &mdash; e la cliente pensa di essere lei il problema</li>
                 </ul>
                 <p>Non &egrave; un problema di impegno. &Egrave; un problema di formazione. La tua scuola non ti ha insegnato la fisiologia femminile perch&eacute; quasi nessuna scuola lo fa.</p>
-                <p class="wc-insight-cta">In questo webinar vedrai esattamente cosa cambia &mdash; e cosa devi sapere per ottenere risultati reali.</p>
+                <p class="wc-insight-cta">In questo webinar vedrai esattamente cosa cambia &mdash; e il percorso per diventare certificata &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo; con diploma OPES.</p>
             </div>
         </div>
     </section>
@@ -975,8 +1080,8 @@
                 </div>
                 <div class="wc-learn-card">
                     <div class="wc-learn-number">04</div>
-                    <h4>Come trasformare questa competenza in un posizionamento pagato di pi&ugrave;</h4>
-                    <p>I numeri del mercato, il percorso di certificazione OPES/CONI, e perch&eacute; le trainer specializzate in fitness femminile guadagnano di pi&ugrave; lavorando meno.</p>
+                    <h4>Il percorso per diventare certificata &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</h4>
+                    <p>I numeri del mercato, il diploma OPES riconosciuto CONI, e perch&eacute; le trainer certificate in fitness femminile guadagnano di pi&ugrave; lavorando meno.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 3rem;">
@@ -1038,11 +1143,10 @@
             <div class="wc-opes-logo">
                 <img src="images/logo-opes-roma.jpg" alt="OPES Roma - Comitato Provinciale" loading="lazy">
             </div>
-            <div class="wc-opes-text">
-                <p class="wc-opes-label">Certificazione Ufficiale</p>
-                <p class="wc-opes-disclaimer">Diploma rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021</p>
-                <p class="wc-opes-disclaimer" style="font-weight: 400; font-size: 0.85rem; margin-top: 0.5rem; color: rgba(0,0,0,0.6);">OPES, Ente di Promozione Sportiva, riconosciuto dal CONI e dal CIP.</p>
-            </div>
+            <p class="wc-opes-label">Certificazione Ufficiale</p>
+            <h3 class="wc-opes-cert-name">Diventa certificata <em>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</em></h3>
+            <p class="wc-opes-disclaimer">Diploma rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021</p>
+            <p class="wc-opes-sub">OPES, Ente di Promozione Sportiva, riconosciuto dal CONI e dal CIP.</p>
         </div>
     </section>
 
@@ -1051,42 +1155,34 @@
         <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="ev-emotion-bg" data-parallax>
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
-            <p>Una trainer specializzata in fitness femminile over 40 guadagna di pi&ugrave;, lavora meno e non compete sul prezzo. <strong>Ce ne sono pochissime.</strong></p>
+            <p>Una trainer certificata in Fitness Femminile &mdash; Metodo XFit Academy guadagna di pi&ugrave;, lavora meno e non compete sul prezzo. <strong>Ce ne sono pochissime.</strong></p>
         </div>
     </section>
 
     <!-- A CHI È RIVOLTO -->
-    <section class="section section-black ev-bg-section">
-        <div class="ev-bg-reveal ev-right" data-reveal>
-            <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png" alt="" loading="lazy">
-        </div>
-        <div class="container">
-            <div class="wc-target">
-                <div class="section-header center">
-                    <span class="section-number">PER CHI &Egrave;</span>
-                    <h2 class="section-title" style="color: var(--white);">Iscriviti solo se rientri in <span class="highlight"><em>uno di questi profili</em></span></h2>
-                </div>
-                <ul class="wc-target-list">
-                    <li>Personal trainer con clienti misti che vuole specializzarsi nella fascia pi&ugrave; redditizia del mercato</li>
-                    <li>Coach con 1-3 certificazioni generiche che non si sono ancora tradotte in un posizionamento chiaro</li>
-                    <li>Professionista del fitness che vuole smettere di competere sul prezzo e farsi pagare per una competenza specifica</li>
-                    <li>Aspirante coach che vuole entrare nel settore con un vantaggio competitivo reale e una certificazione CONI</li>
-                    <li>Chi cerca un metodo testato su 2.400 donne, non un altro corso teorico</li>
-                </ul>
-                <p class="wc-target-exclusion">Non &egrave; per chi vuole attestati facili o non intende investire nella propria formazione.</p>
+    <section class="wc-target-section">
+        <div class="wc-target">
+            <div class="section-header center">
+                <span class="section-number">PER CHI &Egrave;</span>
+                <h2 class="section-title">Iscriviti solo se rientri in <span class="highlight"><em>uno di questi profili</em></span></h2>
             </div>
+            <ul class="wc-target-list">
+                <li>Personal trainer con clienti misti che vuole specializzarsi nella fascia pi&ugrave; redditizia del mercato</li>
+                <li>Coach con 1-3 certificazioni generiche che non si sono ancora tradotte in un posizionamento chiaro</li>
+                <li>Professionista del fitness che vuole smettere di competere sul prezzo e farsi pagare per una competenza specifica</li>
+                <li>Aspirante coach che vuole entrare nel settore con un vantaggio competitivo reale e una certificazione OPES riconosciuta CONI</li>
+                <li>Chi vuole ottenere il diploma in <strong>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> e distinguersi nel mercato</li>
+            </ul>
+            <p class="wc-target-exclusion">Non &egrave; per chi vuole attestati facili o non intende investire nella propria formazione.</p>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section section-black ev-bg-section">
-        <div class="ev-bg-reveal ev-left" data-reveal>
-            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
-        </div>
+    <section class="wc-faq-white">
         <div class="container">
             <div class="section-header center">
                 <span class="section-number">DOMANDE</span>
-                <h2 class="section-title" style="color: var(--white);">Info <span class="highlight"><em>pratiche</em></span></h2>
+                <h2 class="section-title">Info <span class="highlight"><em>pratiche</em></span></h2>
             </div>
             <div class="ev-faq-list">
                 <div class="ev-faq-item">
@@ -1105,6 +1201,10 @@
                     <button class="ev-faq-question">Cosa mi serve per partecipare?<span class="ev-faq-toggle">+</span></button>
                     <div class="ev-faq-answer"><p>Una connessione internet. Funziona da computer, tablet o smartphone via Zoom. Riceverai il link via email dopo l'iscrizione.</p></div>
                 </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Che certificazione posso ottenere?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Il percorso completo porta al diploma in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;, rilasciato da OPES ai fini dell'Art. 25 del D.Lgs 36/2021. OPES &egrave; Ente di Promozione Sportiva riconosciuto dal CONI e dal CIP. Nel webinar scoprirai tutti i dettagli del percorso.</p></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1114,9 +1214,9 @@
         <div class="wc-cta-final-content">
             <h2>75 minuti che possono ridefinire la tua carriera.</h2>
             <p>Questo webinar non sar&agrave; registrato e non sar&agrave; ripetuto.</p>
-            <p>Dentro ci sono i dati di mercato, il metodo testato su 2.400 donne e il percorso per ottenere la certificazione OPES/CONI. Il costo &egrave; zero. Il costo di non esserci lo decidi tu.</p>
+            <p>Dentro c'&egrave; il percorso per diventare certificata <strong>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> con diploma OPES riconosciuto CONI. Il costo &egrave; zero. Il costo di non esserci lo decidi tu.</p>
             <div class="wc-event-details">
-                Marzo 2026 &bull; Online su Zoom &bull; Gratuito
+                Marzo 2026 &bull; Online su Zoom &bull; Gratuito &bull; Certificazione OPES
             </div>
             <a href="#iscriviti" class="ev-btn-white">
                 Riserva il Tuo Posto Gratuito
