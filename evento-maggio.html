@@ -60,8 +60,10 @@
         .ev-bento-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(233,30,99,0.08), transparent 70%); pointer-events: none; }
         .ev-bento-card.ev-bento-wide { grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding: 3rem 2.75rem; }
         .ev-bento-card:nth-child(4) { grid-column: span 2; }
-        .ev-bento-icon { width: 3.75rem; height: 3.75rem; margin-bottom: 1.5rem; display: block; color: var(--pink-primary); flex-shrink: 0; }
-        .ev-bento-wide .ev-bento-icon { width: 5rem; height: 5rem; margin-bottom: 0; }
+        .ev-bento-card { text-align: center; }
+        .ev-bento-icon { width: 3.75rem; height: 3.75rem; margin: 0 auto 1.5rem; display: block; color: var(--pink-primary); flex-shrink: 0; }
+        .ev-bento-wide .ev-bento-icon { width: 5rem; height: 5rem; margin: 0; }
+        .ev-bento-card.ev-bento-wide { text-align: left; }
         .ev-bento-card h4 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3; }
         .ev-bento-card p { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.7; }
         .ev-bento-number { position: absolute; bottom: -0.5rem; right: 1.25rem; font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; user-select: none; }
@@ -532,7 +534,6 @@
                 </div>
                 <div class="ev-timeline-day">
                     <div class="ev-timeline-number">02</div>
-                    <div class="ev-timeline-dot"></div>
                     <div class="ev-timeline-card">
                         <div class="ev-timeline-label">Domenica 10 Maggio</div>
                         <h3 class="ev-timeline-title">Il Reset</h3>
