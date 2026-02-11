@@ -9,9 +9,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255,255,255,0.98);
+    background: rgba(0,0,0,0.95);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -27,7 +27,7 @@
 .nav-logo {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
     letter-spacing: -0.02em;
     transition: color 0.3s ease;
@@ -42,7 +42,7 @@
 .nav-link {
     font-size: 0.75rem;
     font-weight: 500;
-    color: var(--gray-dark);
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -101,7 +101,7 @@
 .nav-hamburger span {
     width: 25px;
     height: 2px;
-    background: var(--black);
+    background: var(--white);
     transition: all 0.3s ease;
 }
 
@@ -147,11 +147,12 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: var(--white);
+    background: #1A1A1A;
+    border: 1px solid rgba(255,255,255,0.1);
     min-width: 200px;
     padding: 1rem 0;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -166,7 +167,7 @@
     transform: translateX(-50%);
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--white);
+    border-bottom: 8px solid #1A1A1A;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {
@@ -179,31 +180,31 @@
     display: block;
     padding: 0.75rem 1.5rem;
     font-size: 0.85rem;
-    color: var(--gray-dark);
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
 .nav-dropdown-menu a:hover {
-    background: var(--pink-soft);
+    background: rgba(233,30,99,0.1);
     color: var(--pink-primary);
 }
 
 /* ===== MOBILE MENU OVERRIDE ===== */
 @media (max-width: 768px) {
-    /* Force black text on mobile menu regardless of nav.dark */
+    /* Force white text on mobile menu for dark theme */
     .nav .nav-menu .nav-link,
     .nav.dark .nav-menu .nav-link,
     .nav .nav-menu.active .nav-link,
     .nav.dark .nav-menu.active .nav-link {
-        color: #000000 !important;
+        color: #ffffff !important;
     }
 
     .nav .nav-dropdown-toggle,
     .nav.dark .nav-dropdown-toggle,
     .nav .nav-menu.active .nav-dropdown-toggle,
     .nav.dark .nav-menu.active .nav-dropdown-toggle {
-        color: #000000 !important;
+        color: #ffffff !important;
     }
 
     .nav .nav-menu .nav-cta,

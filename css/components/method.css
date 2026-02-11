@@ -1,6 +1,6 @@
 /* ===== METHOD E.A.S.Y. ===== */
 .method-section {
-    background: var(--white);
+    background: var(--black);
     padding: 7rem 0;
     overflow: hidden;
 }
@@ -26,16 +26,18 @@
 .method-card {
     flex: 0 0 380px;
     scroll-snap-align: start;
-    background: var(--gray-softer);
+    background: #1A1A1A;
     padding: 3rem 2.5rem;
     position: relative;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(255,255,255,0.06);
 }
 
 .method-card:hover {
-    background: var(--black);
+    background: #111;
     color: var(--white);
     transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(233,30,99,0.15);
 }
 
 .method-card:hover .method-letter { color: var(--pink-primary); }
@@ -45,7 +47,7 @@
     font-size: 7rem;
     font-weight: 800;
     line-height: 1;
-    color: var(--pink-soft);
+    color: rgba(233,30,99,0.3);
     transition: color 0.4s ease;
     letter-spacing: -0.05em;
 }
@@ -55,19 +57,20 @@
     font-weight: 700;
     margin-bottom: 1rem;
     margin-top: -0.5rem;
+    color: var(--white);
 }
 
 .method-desc {
     font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.7;
-    color: var(--gray-light);
+    color: rgba(255,255,255,0.6);
     transition: color 0.4s ease;
 }
 
 /* ===== HOW IT WORKS ===== */
 .how-section {
-    background: var(--white);
+    background: var(--black);
 }
 
 .how-container {
@@ -93,7 +96,7 @@
     transform: translateX(-50%);
     width: 3px;
     height: 100%;
-    background: linear-gradient(180deg, var(--pink-soft), var(--pink-primary), var(--pink-soft));
+    background: linear-gradient(180deg, rgba(233,30,99,0.2), var(--pink-primary), rgba(233,30,99,0.2));
 }
 
 .how-step {
@@ -120,7 +123,7 @@
 .how-step-number {
     width: 80px;
     height: 80px;
-    background: var(--white);
+    background: #1A1A1A;
     border: 3px solid var(--pink-primary);
     border-radius: 50%;
     display: flex;
@@ -152,16 +155,17 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
+    color: var(--white);
 }
 
 .how-step-desc {
     font-size: 0.95rem;
-    color: var(--gray-light);
+    color: rgba(255,255,255,0.6);
     line-height: 1.7;
 }
 
 .how-step-visual {
-    background: var(--pink-soft);
+    background: rgba(233,30,99,0.08);
     border-radius: 16px;
     padding: 2rem;
     display: flex;
@@ -178,17 +182,18 @@
     text-align: center;
     margin-top: 3rem;
     padding: 2.5rem;
-    background: var(--pink-soft);
+    background: rgba(233,30,99,0.08);
     border-radius: 16px;
 }
 
 .how-cta-box h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
+    color: var(--white);
 }
 
 .how-cta-box p {
-    color: var(--gray-light);
+    color: rgba(255,255,255,0.6);
     margin-bottom: 1.5rem;
     max-width: 450px;
     margin-left: auto;

@@ -1,6 +1,6 @@
 /* ===== LETTER TO WOMEN ===== */
 .letter-section {
-    background: var(--white);
+    background: var(--black);
     position: relative;
     overflow: hidden;
 }
@@ -11,7 +11,7 @@
     right: 0;
     width: 40%;
     height: 100%;
-    background: var(--pink-soft);
+    background: rgba(233,30,99,0.05);
     clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -54,9 +54,10 @@
     position: absolute;
     bottom: -1.5rem;
     right: -1.5rem;
-    background: var(--white);
+    background: #1A1A1A;
+    border: 1px solid rgba(255,255,255,0.1);
     padding: 1.25rem 1.75rem;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     border-radius: 12px;
 }
 
@@ -72,7 +73,7 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--gray-light);
+    color: rgba(255,255,255,0.6);
     margin-top: 0.25rem;
 }
 
@@ -92,6 +93,7 @@
     font-weight: 700;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    color: var(--white);
 }
 
 .letter-subtitle {
@@ -107,7 +109,7 @@
     font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.9;
-    color: var(--gray-medium);
+    color: rgba(255,255,255,0.7);
 }
 
 .letter-text p {
@@ -127,7 +129,7 @@
     font-size: 1.5rem;
     font-weight: 600;
     font-style: italic;
-    color: var(--gray-dark);
+    color: var(--white);
 }
 
 .letter-signature-role {
