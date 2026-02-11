@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Completato | Elena Giordani - XFit Academy</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+</head>
+<body>
+
+    <div id="react-mobile-header-root"></div>
+
+    <nav class="nav nav-light" id="navbar">
+        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
+                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
+                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
+                    <a href="press.html" onclick="closeMobileMenu()">Press &amp; Media</a>
+                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
+                </div>
+            </div>
+            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+        </div>
+    </nav>
+
+    <section class="page-hero" style="background: var(--black); min-height: 80vh; display: flex; align-items: center;">
+        <div class="container" style="text-align: center;">
+            <span class="section-number" style="color: var(--success-green);">PAGAMENTO COMPLETATO</span>
+            <h1 class="section-title" style="color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem;">
+                Benvenuta nel percorso<br><span class="highlight"><em>Coach XFit Academy</em></span>
+            </h1>
+            <p style="color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 300; max-width: 35rem; margin: 0 auto 2.5rem; line-height: 1.7;">
+                Il tuo pagamento &egrave; stato ricevuto con successo. Riceverai una email di conferma con tutti i dettagli per accedere al corso e i prossimi passi.
+            </p>
+            <a href="index.html" class="btn-primary">
+                Torna alla Home <span>&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
+                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
+                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="libri.html">Libri</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="team.html">Il Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="contatti.html">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=1767489274"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="js/react-mobile-header.js?v=1767489274"></script>
+</body>
+</html>

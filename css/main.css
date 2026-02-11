@@ -36,5 +36,8 @@
 /* ===== Landing Page ===== */
 @import url('components/landing.css');
 
+/* ===== Shop / E-Commerce ===== */
+@import url('components/shop.css');
+
 /* ===== Responsive ===== */
 @import url('responsive.css');

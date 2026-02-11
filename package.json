@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "name": "elena-giordani-site",
+  "dependencies": {
+    "stripe": "^17.0.0"
+  }
+}

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Fitness Femminile - Metodo XFit Academy | Elena Giordani</title>
+    <meta name="description" content="Diventa Coach del Fitness Femminile con il Metodo XFit Academy. 60 ore di formazione, Diploma OPES riconosciuto CONI. Corso blended: online live + in presenza a Roma.">
+    <meta name="keywords" content="coach fitness femminile, formazione personal trainer, fitness over 40, Elena Giordani, XFit Academy, certificazione CONI, OPES, diploma">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://www.elenagiordani.com/percorso-coach">
+    <meta property="og:title" content="Coach Fitness Femminile - Metodo XFit Academy | Elena Giordani">
+    <meta property="og:description" content="Il primo corso in Italia per diventare Coach specializzata nel Fitness Femminile over 40. 60 ore, Diploma OPES riconosciuto CONI.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+</head>
+<body>
+
+    <!-- React Mobile Header Container -->
+    <div id="react-mobile-header-root"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav nav-light" id="navbar">
+        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
+                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
+                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
+                    <a href="press.html" onclick="closeMobileMenu()">Press &amp; Media</a>
+                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
+                </div>
+            </div>
+            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO -->
+    <!-- ============================================ -->
+    <section class="page-hero" style="background: var(--black); min-height: 80vh; display: flex; align-items: center;">
+        <div class="container" style="text-align: center;">
+            <span class="section-number" style="color: var(--pink-primary);">FORMAZIONE PROFESSIONALE</span>
+            <h1 class="section-title" style="color: var(--white); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem;">
+                Diventa Coach del<br><span class="highlight"><em>Fitness Femminile</em></span>
+            </h1>
+            <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; font-weight: 300; max-width: 40rem; margin: 0 auto 2rem; line-height: 1.7;">
+                Il primo corso in Italia per diventare specialista nell&rsquo;allenamento femminile over 40.<br>
+                60 ore di formazione &middot; Diploma OPES riconosciuto CONI &middot; Metodo XFit Academy.
+            </p>
+            <a href="#acquista" class="btn-primary">
+                Iscriviti Ora <span>&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- IL CORSO IN NUMERI -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--black);">
+        <div class="container">
+            <div class="shop-stats">
+                <div class="shop-stat">
+                    <div class="shop-stat-number">60</div>
+                    <div class="shop-stat-label">Ore certificate</div>
+                </div>
+                <div class="shop-stat">
+                    <div class="shop-stat-number">4</div>
+                    <div class="shop-stat-label">Mesi di formazione</div>
+                </div>
+                <div class="shop-stat">
+                    <div class="shop-stat-number">OPES</div>
+                    <div class="shop-stat-label">Diploma riconosciuto CONI</div>
+                </div>
+                <div class="shop-stat">
+                    <div class="shop-stat-number">2</div>
+                    <div class="shop-stat-label">Weekend in presenza</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- COSA IMPARERAI - 5 MODULI -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--black);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number" style="color: var(--pink-primary);">IL PROGRAMMA</span>
+                <h2 class="section-title" style="color: var(--white);">5 moduli per diventare <span class="highlight"><em>specialista</em></span></h2>
+                <p style="color: rgba(255,255,255,0.6); font-weight: 300; max-width: 35rem; margin: 1rem auto 0;">
+                    Un percorso completo: dalla fisiologia alla pratica, dal coaching alla certificazione.
+                </p>
+            </div>
+            <div class="shop-modules-grid">
+
+                <!-- Modulo 1 -->
+                <div class="shop-module-card">
+                    <div class="shop-module-number">Modulo 01</div>
+                    <div class="shop-module-date">14 Marzo &middot; Zoom (6h)</div>
+                    <h4 class="shop-module-title">Identit&agrave; della Coach e Metodo XFit Academy</h4>
+                    <p class="shop-module-desc">Ruolo professionale della coach, dinamiche emotive e comportamentali delle donne, confini del supporto e responsabilit&agrave;.</p>
+                    <span class="shop-module-tag">Online Live</span>
+                </div>
+
+                <!-- Modulo 2 -->
+                <div class="shop-module-card">
+                    <div class="shop-module-number">Modulo 02</div>
+                    <div class="shop-module-date">28 Marzo &middot; Zoom (6h)</div>
+                    <h4 class="shop-module-title">Metabolismo e Allenamento Femminile over 40</h4>
+                    <p class="shop-module-desc">Fasi della vita della donna, processi metabolici, sarcopenia, infiammazione sistemica e adattamenti dell&rsquo;allenamento.</p>
+                    <span class="shop-module-tag">Online Live</span>
+                </div>
+
+                <!-- Modulo 3 -->
+                <div class="shop-module-card">
+                    <div class="shop-module-number">Modulo 03</div>
+                    <div class="shop-module-date">11&ndash;12 Aprile &middot; Roma (16h)</div>
+                    <h4 class="shop-module-title">Biomeccanica, Tecnica e Simulazioni Pratiche</h4>
+                    <p class="shop-module-desc">Biomeccanica applicata al corpo femminile, tecnica degli esercizi, cue correttivi, allenamento funzionale e prevenzione infortuni.</p>
+                    <span class="shop-module-tag">In Presenza</span>
+                </div>
+
+                <!-- Modulo 4 -->
+                <div class="shop-module-card">
+                    <div class="shop-module-number">Modulo 04</div>
+                    <div class="shop-module-date">2 Maggio &middot; Zoom (6h)</div>
+                    <h4 class="shop-module-title">Strategia, Coaching e Leadership</h4>
+                    <p class="shop-module-desc">Leadership della coach, gestione del gruppo, comunicazione e motivazione, linee guida educative su reset metabolico.</p>
+                    <span class="shop-module-tag">Online Live</span>
+                </div>
+
+                <!-- Modulo 5 -->
+                <div class="shop-module-card">
+                    <div class="shop-module-number">Modulo 05</div>
+                    <div class="shop-module-date">30&ndash;31 Maggio &middot; Roma (16h)</div>
+                    <h4 class="shop-module-title">Esame Finale e Certificazione</h4>
+                    <p class="shop-module-desc">Role play, micro-lezioni, coaching reale, feedback strutturato. Esame pratico, presentazione project work e consegna del diploma.</p>
+                    <span class="shop-module-tag">In Presenza</span>
+                </div>
+
+                <!-- Project Work -->
+                <div class="shop-module-card">
+                    <div class="shop-module-number">Tra le sessioni</div>
+                    <div class="shop-module-date">15,5 ore di lavoro autonomo</div>
+                    <h4 class="shop-module-title">Project Work Applicativi</h4>
+                    <p class="shop-module-desc">Analisi di casi reali, progettazione di percorsi di allenamento, preparazione alla gestione della classe e studio dei materiali.</p>
+                    <span class="shop-module-tag">Autonomo</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PER CHI È -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">PER CHI &Egrave;</span>
+                <h2 class="section-title">Il corso &egrave; per te se sei <span class="highlight"><em>una di queste</em></span></h2>
+            </div>
+            <div class="shop-target-grid">
+                <div class="shop-target-card">
+                    <div class="shop-target-icon">&#127947;&#65039;</div>
+                    <h4>Personal Trainer</h4>
+                    <p>Lavori gi&agrave; nel fitness ma vuoi specializzarti nel femminile over 40 con un metodo testato e una certificazione OPES riconosciuta CONI.</p>
+                </div>
+                <div class="shop-target-card">
+                    <div class="shop-target-icon">&#127891;</div>
+                    <h4>Aspirante Coach</h4>
+                    <p>Vuoi entrare nel settore con un vantaggio competitivo reale. Non una scuola generica: una specializzazione che manca sul mercato.</p>
+                </div>
+                <div class="shop-target-card">
+                    <div class="shop-target-icon">&#128640;</div>
+                    <h4>Professionista del Benessere</h4>
+                    <p>Nutrizionista, fisioterapista o coach che vuole aggiungere competenze pratiche sull&rsquo;allenamento femminile e ampliare la propria offerta.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <p style="font-size: 0.8rem; color: var(--gray-light); font-style: italic;">
+                    Non &egrave; per chi vuole attestati facili o non intende investire nella propria formazione professionale.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CHI TI GUIDERÀ -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--black);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number" style="color: var(--pink-primary);">CHI TI GUIDER&Agrave;</span>
+                <h2 class="section-title" style="color: var(--white);">I numeri di <span class="highlight"><em>Elena Giordani</em></span></h2>
+            </div>
+            <div class="shop-bio-grid">
+                <div class="shop-bio-image">
+                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="Elena Giordani" loading="lazy">
+                </div>
+                <div>
+                    <p class="shop-bio-text">
+                        Preparatrice atletico-sportiva. 20 anni sul campo. Ha fondato XFit Academy &mdash; il primo percorso in Italia dedicato esclusivamente alla preparazione fisica femminile &mdash; quando nessun altro lo faceva. Oggi forma le trainer che domani lavoreranno in questa nicchia.
+                    </p>
+                    <ul class="shop-bio-credentials">
+                        <li>2.400 donne seguite personalmente in 8 paesi</li>
+                        <li>Community di 180.000 donne costruita in 5 anni</li>
+                        <li>Pubblicata su Corriere, Repubblica, Elle, Cosmopolitan</li>
+                        <li>Certificazione OPES riconosciuta CONI</li>
+                        <li>Creatrice del Metodo E.A.S.Y. &mdash; testato, non teorico</li>
+                    </ul>
+                    <div class="shop-bio-quote">
+                        &ldquo;Ho creato la formazione che avrei voluto trovare io quando ho iniziato &mdash; perch&eacute; non esisteva.&rdquo;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CERTIFICAZIONE OPES -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--white);">
+        <div class="container" style="text-align: center; max-width: 50rem;">
+            <img src="images/logo-opes-roma.jpg" alt="OPES Roma" loading="lazy" style="height: 5rem; margin-bottom: 2rem;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem;">
+                Diploma Professionale in <em>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</em>
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--gray-light); margin-bottom: 1rem; line-height: 1.7;">
+                Diploma rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021.<br>
+                OPES, Ente di Promozione Sportiva, riconosciuto dal CONI e dal CIP.
+            </p>
+            <p style="font-size: 0.85rem; color: var(--gray-light); line-height: 1.7;">
+                Il diploma &egrave; <strong>nominale</strong> e include l&rsquo;inserimento negli <strong>elenchi tecnici OPES</strong>.<br>
+                Potrai lavorare in palestre, centri sportivi, associazioni, studi personal training e attivit&agrave; in proprio.
+            </p>
+            <p style="font-size: 0.9rem; color: var(--black); font-weight: 600; margin-top: 1.5rem;">
+                Le migliori certificate potranno entrare nel team di XFit Academy come coach ufficiali.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TIMER + PRICING -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--black); padding-bottom: 7rem;" id="acquista">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number" style="color: var(--pink-primary);">INVESTIMENTO</span>
+                <h2 class="section-title" style="color: var(--white);">Scegli come <span class="highlight"><em>pagare</em></span></h2>
+            </div>
+
+            <!-- Timer 24h -->
+            <div class="shop-timer-wrapper" id="timerWrapper">
+                <p class="shop-timer-label">Offerta riservata &mdash; scade tra</p>
+                <div class="shop-timer">
+                    <div class="shop-timer-item">
+                        <span class="shop-timer-number" id="timer-hours">--</span>
+                        <span class="shop-timer-unit">Ore</span>
+                    </div>
+                    <div class="shop-timer-item">
+                        <span class="shop-timer-number" id="timer-minutes">--</span>
+                        <span class="shop-timer-unit">Minuti</span>
+                    </div>
+                    <div class="shop-timer-item">
+                        <span class="shop-timer-number" id="timer-seconds">--</span>
+                        <span class="shop-timer-unit">Secondi</span>
+                    </div>
+                </div>
+            </div>
+            <p class="shop-timer-expired" id="timerExpired">L&rsquo;offerta early bird &egrave; scaduta. Il prezzo attuale &egrave; quello intero.</p>
+
+            <!-- Pricing Cards -->
+            <div class="shop-pricing-grid">
+
+                <!-- Card 1: Pagamento Unico (Stripe) -->
+                <div class="shop-pricing-card shop-pricing-featured">
+                    <div class="shop-pricing-badge">Consigliato</div>
+                    <h3 class="shop-pricing-name">Pagamento Unico</h3>
+                    <p class="shop-pricing-original" id="price-full-original">&euro;3.000</p>
+                    <div class="shop-pricing-price" id="price-full">&euro;1.800</div>
+                    <p class="shop-pricing-desc">Un unico pagamento, accesso immediato al percorso completo.</p>
+                    <ul class="shop-pricing-features">
+                        <li>Accesso immediato a tutti i moduli</li>
+                        <li>Risparmio massimo</li>
+                        <li>Kit formativo incluso</li>
+                        <li>Pagamento sicuro con Stripe</li>
+                    </ul>
+                    <button class="btn-primary shop-pricing-btn" data-payment="stripe">
+                        ACQUISTA ORA <span>&rarr;</span>
+                    </button>
+                    <div class="shop-pricing-trust">
+                        <span>Pagamento sicuro SSL &middot; Stripe</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: 12 Rate (PagoDil) -->
+                <div class="shop-pricing-card">
+                    <h3 class="shop-pricing-name">12 Rate Mensili</h3>
+                    <p class="shop-pricing-original" id="price-12-original">&euro;250/mese</p>
+                    <div class="shop-pricing-price" id="price-12">&euro;150<span>/mese</span></div>
+                    <p class="shop-pricing-desc">12 rate mensili senza interessi con PagoDil by Cofidis.</p>
+                    <ul class="shop-pricing-features">
+                        <li>Zero interessi</li>
+                        <li>Addebito automatico mensile</li>
+                        <li>Kit formativo incluso</li>
+                        <li>Powered by Cofidis</li>
+                    </ul>
+                    <button class="btn-primary shop-pricing-btn" data-payment="pagodil" disabled>
+                        PRESTO DISPONIBILE
+                    </button>
+                    <div class="shop-pricing-trust">
+                        <span>PagoDil by Cofidis</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: 24 Rate (AppPago) -->
+                <div class="shop-pricing-card">
+                    <h3 class="shop-pricing-name">24 Rate Mensili</h3>
+                    <p class="shop-pricing-original" id="price-24-original">&euro;125/mese</p>
+                    <div class="shop-pricing-price" id="price-24">&euro;75<span>/mese</span></div>
+                    <p class="shop-pricing-desc">24 rate mensili per la massima flessibilit&agrave; con AppPago.</p>
+                    <ul class="shop-pricing-features">
+                        <li>Rate leggere e sostenibili</li>
+                        <li>Approvazione rapida</li>
+                        <li>Kit formativo incluso</li>
+                        <li>Powered by AppPago</li>
+                    </ul>
+                    <button class="btn-primary shop-pricing-btn" data-payment="apppago" disabled>
+                        PRESTO DISPONIBILE
+                    </button>
+                    <div class="shop-pricing-trust">
+                        <span>AppPago</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ -->
+    <!-- ============================================ -->
+    <section class="section shop-faq" style="background: var(--white);">
+        <div class="container" style="max-width: 50rem;">
+            <div class="section-header center">
+                <span class="section-number">DOMANDE FREQUENTI</span>
+                <h2 class="section-title">Hai qualche <span class="highlight"><em>dubbio?</em></span></h2>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Il corso rilascia una certificazione riconosciuta?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>S&igrave;. Al superamento dell&rsquo;esame finale riceverai il Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo; rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021. OPES &egrave; un Ente di Promozione Sportiva riconosciuto dal CONI e dal CIP.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Devo essere gi&agrave; personal trainer per partecipare?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. Il corso &egrave; pensato sia per chi lavora gi&agrave; nel settore e vuole specializzarsi, sia per chi vuole entrare nel mondo del fitness femminile con una formazione completa e certificata.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Come funziona la modalit&agrave; blended?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Il corso alterna sessioni online live su Zoom (puoi partecipare da casa) a weekend in presenza a Roma presso Box R1. Le sessioni online coprono teoria e strategia, quelle in presenza sono dedicate alla pratica, biomeccanica e all&rsquo;esame finale.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Le lezioni online vengono registrate?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>S&igrave;, tutte le sessioni live su Zoom vengono registrate e messe a disposizione delle partecipanti. La presenza alle sessioni in presenza a Roma &egrave; invece obbligatoria per la certificazione.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Posso pagare a rate?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>S&igrave;. Offriamo il pagamento in 12 rate mensili con PagoDil (Cofidis) o in 24 rate mensili con AppPago, entrambi senza interessi. In alternativa puoi pagare in un&rsquo;unica soluzione con carta di credito tramite Stripe.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Cosa succede dopo la certificazione?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Riceverai il diploma nominale OPES con inserimento negli elenchi tecnici. Potrai lavorare in palestre, centri sportivi, associazioni e in proprio. Le migliori certificate avranno la possibilit&agrave; di entrare nel team di XFit Academy come coach ufficiali del programma di Elena Giordani.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CTA FINALE -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--black); text-align: center;">
+        <div class="container" style="max-width: 40rem;">
+            <h2 class="section-title" style="color: var(--white); font-size: clamp(1.75rem, 3.5vw, 2.5rem);">
+                Non &egrave; solo una certificazione.<br><span class="highlight"><em>&Egrave; un&rsquo;opportunit&agrave; di carriera.</em></span>
+            </h2>
+            <p style="color: rgba(255,255,255,0.6); font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7;">
+                Il fitness femminile over 40 &egrave; il settore che cresce di pi&ugrave;. E nessuno lo sta formando seriamente. Fino ad ora.
+            </p>
+            <a href="#acquista" class="btn-primary">
+                Iscriviti Ora <span>&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>
+                    Il primo percorso in Italia dedicato alle donne che unisce
+                    corpo, alimentazione e mente. 100% live.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
+                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
+                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="libri.html">Libri</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="team.html">Il Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="contatti.html">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=1767489274"></script>
+    <script src="js/shop.js?v=1767489274"></script>
+
+    <!-- React (for mobile header) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="js/react-mobile-header.js?v=1767489274"></script>
+
+</body>
+</html>
