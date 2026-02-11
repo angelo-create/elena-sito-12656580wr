@@ -758,6 +758,128 @@
             line-height: 1.6;
         }
 
+        .wc-opes-pathway {
+            margin-top: 2.5rem;
+            text-align: left;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wc-opes-pathway-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+
+        .wc-opes-pathway-note {
+            background: rgba(233,30,99,0.06);
+            border-left: 3px solid var(--pink-primary);
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .wc-opes-pathway-note p {
+            font-size: 0.9rem;
+            color: var(--black);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .wc-opes-pathway-note strong {
+            font-weight: 600;
+        }
+
+        .wc-opes-where-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .wc-opes-where-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .wc-opes-where-list li {
+            padding: 0.6rem 1rem 0.6rem 2rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: rgba(0,0,0,0.7);
+            line-height: 1.5;
+        }
+
+        .wc-opes-where-list li::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0.95rem;
+            width: 6px;
+            height: 6px;
+            background: var(--pink-primary);
+            border-radius: 50%;
+        }
+
+        .wc-opes-extras {
+            font-size: 0.9rem;
+            color: rgba(0,0,0,0.7);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .wc-opes-extras strong {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .wc-opes-opportunity {
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            background: var(--black);
+            border-radius: 12px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wc-opes-opportunity p {
+            font-size: 0.95rem;
+            color: var(--white);
+            font-weight: 600;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .wc-opes-opportunity em {
+            color: var(--pink-primary);
+            font-style: normal;
+        }
+
+        .wc-opes-webinar-cta {
+            margin-top: 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--pink-primary);
+            font-style: italic;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .wc-opes-where-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .wc-opes-banner {
                 padding: 4rem 1.5rem;
@@ -765,6 +887,77 @@
 
             .wc-opes-logo {
                 width: 12rem;
+            }
+        }
+
+        /* Press Logos Strip */
+        .wc-press {
+            background: var(--white);
+            padding: 3.5rem 4rem;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .wc-press-label {
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(0,0,0,0.35);
+            margin-bottom: 2rem;
+        }
+
+        .wc-press-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .wc-press-logo {
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .wc-press-logo:hover {
+            opacity: 0.85;
+        }
+
+        .wc-press-logo img {
+            height: 1.75rem;
+            width: auto;
+            display: block;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .wc-press-logo:hover img {
+            filter: grayscale(0%);
+        }
+
+        .wc-press-logo span {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--black);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .wc-press {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .wc-press-logos {
+                gap: 2rem;
+            }
+
+            .wc-press-logo img {
+                height: 1.25rem;
             }
         }
 
@@ -937,7 +1130,7 @@
                     10 milioni di donne over 40 cercano una trainer che le capisca. <em>Le specialiste sono quasi zero.</em>
                 </h1>
                 <p class="wc-hero-subtitle">
-                    Webinar gratuito con <strong>Elena Giordani</strong> &mdash; preparatrice atletica, 20 anni sul campo, 2.400 donne seguite in 8 paesi. Scopri il percorso per diventare certificata <strong>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> con diploma OPES riconosciuto CONI.
+                    Webinar gratuito con <strong>Elena Giordani</strong> &mdash; preparatrice atletica, 20 anni sul campo, 2.400 donne seguite in 8 paesi. Scopri il percorso esclusivo per ottenere il <strong>Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> rilasciato da OPES &mdash; riservato solo alle partecipanti del webinar.
                 </p>
                 <div class="wc-event-info">
                     <div class="wc-event-item">
@@ -995,7 +1188,7 @@
         <div class="container">
             <div class="section-header center">
                 <span class="section-number">IL PROBLEMA</span>
-                <h2 class="section-title" style="color: var(--white);">7 segnali che il tuo business &egrave; <span class="highlight"><em>a rischio commoditizzazione</em></span></h2>
+                <h2 class="section-title" style="color: var(--white);">7 segnali che il tuo business <span class="highlight"><em>sta diventando invisibile</em></span></h2>
             </div>
             <div class="wc-pain-grid">
                 <div class="wc-pain-item">
@@ -1058,7 +1251,7 @@
                     <li>Abbandono entro 3 mesi &mdash; e la cliente pensa di essere lei il problema</li>
                 </ul>
                 <p>Non &egrave; un problema di impegno. &Egrave; un problema di formazione. La tua scuola non ti ha insegnato la fisiologia femminile perch&eacute; quasi nessuna scuola lo fa.</p>
-                <p class="wc-insight-cta">In questo webinar vedrai esattamente cosa cambia &mdash; e il percorso per diventare certificata &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo; con diploma OPES.</p>
+                <p class="wc-insight-cta">In questo webinar gratuito vedrai esattamente cosa cambia &mdash; e scoprirai tutti i dettagli del percorso per ottenere il Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo; rilasciato da OPES.</p>
             </div>
         </div>
     </section>
@@ -1145,6 +1338,21 @@
         </div>
     </section>
 
+    <!-- PRESS / MEDIA -->
+    <section class="wc-press">
+        <p class="wc-press-label">Come vista su</p>
+        <div class="wc-press-logos">
+            <div class="wc-press-logo"><img src="https://i2.res.24o.it/img2015/Logo_Il_Sole_24_Ore.png" alt="Il Sole 24 Ore"></div>
+            <div class="wc-press-logo"><img src="https://dilei.it/wp-content/themes/italiaonline-dilei/images/logo_publisher.png" alt="DiLei"></div>
+            <div class="wc-press-logo"><img src="https://www.radioradio.it/media/2024/07/logo4TS-01.png" alt="Radio Radio"></div>
+            <div class="wc-press-logo"><img src="https://www.emiliaromagnanews24.it/wp-content/uploads/2024/12/emiliaromagnanews24.png" alt="Emilia Romagna News 24"></div>
+            <div class="wc-press-logo"><span>Corriere</span></div>
+            <div class="wc-press-logo"><span>Repubblica</span></div>
+            <div class="wc-press-logo"><span>Elle</span></div>
+            <div class="wc-press-logo"><span>Cosmopolitan</span></div>
+        </div>
+    </section>
+
     <!-- CERTIFICAZIONE OPES -->
     <section class="wc-opes-banner">
         <div class="wc-opes-inner">
@@ -1152,9 +1360,33 @@
                 <img src="images/logo-opes-roma.jpg" alt="OPES Roma - Comitato Provinciale" loading="lazy">
             </div>
             <p class="wc-opes-label">Certificazione Ufficiale</p>
-            <h3 class="wc-opes-cert-name">Diventa certificata <em>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</em></h3>
+            <h3 class="wc-opes-cert-name">Diploma Professionale in <em>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</em></h3>
             <p class="wc-opes-disclaimer">Diploma rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021</p>
             <p class="wc-opes-sub">OPES, Ente di Promozione Sportiva, riconosciuto dal CONI e dal CIP.</p>
+
+            <div class="wc-opes-pathway">
+                <p class="wc-opes-pathway-title">Come funziona il percorso</p>
+                <div class="wc-opes-pathway-note">
+                    <p><strong>Il webinar &egrave; gratuito e non rilascia certificazioni.</strong> &Egrave; il primo passo per scoprire il percorso formativo. La certificazione avviene attraverso un corso successivo al webinar, <strong>riservato esclusivamente alle partecipanti del webinar.</strong></p>
+                </div>
+
+                <p class="wc-opes-where-title">Con il diploma potrai lavorare in:</p>
+                <ul class="wc-opes-where-list">
+                    <li>Palestre</li>
+                    <li>Centri sportivi</li>
+                    <li>Associazioni e SSD</li>
+                    <li>Studi personal training</li>
+                    <li>Attivit&agrave; in proprio</li>
+                </ul>
+
+                <p class="wc-opes-extras">Il diploma &egrave; <strong>nominale</strong> e include l&rsquo;inserimento negli <strong>elenchi tecnici OPES</strong>.</p>
+            </div>
+
+            <div class="wc-opes-opportunity">
+                <p>Le migliori certificate potranno entrare nel team di <em>XFit Academy</em> come coach ufficiali del programma di Elena Giordani.</p>
+            </div>
+
+            <p class="wc-opes-webinar-cta">Nel webinar scoprirai tutti i dettagli del percorso formativo e professionale.</p>
         </div>
     </section>
 
@@ -1163,7 +1395,7 @@
         <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="ev-emotion-bg" data-parallax>
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
-            <p>Una trainer certificata in Fitness Femminile &mdash; Metodo XFit Academy guadagna di pi&ugrave;, lavora meno e non compete sul prezzo. <strong>Ce ne sono pochissime.</strong></p>
+            <p>Le trainer certificate migliori entreranno nel team di XFit Academy come coach ufficiali. <strong>Non &egrave; solo una certificazione. &Egrave; un'opportunit&agrave; di carriera.</strong></p>
         </div>
     </section>
 
@@ -1180,6 +1412,7 @@
                 <li>Professionista del fitness che vuole smettere di competere sul prezzo e farsi pagare per una competenza specifica</li>
                 <li>Aspirante coach che vuole entrare nel settore con un vantaggio competitivo reale e una certificazione OPES riconosciuta CONI</li>
                 <li>Chi vuole ottenere il diploma in <strong>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> e distinguersi nel mercato</li>
+                <li>Chi ambisce a entrare nel team di <strong>XFit Academy come coach ufficiale</strong> del programma di Elena Giordani</li>
             </ul>
             <p class="wc-target-exclusion">Non &egrave; per chi vuole attestati facili o non intende investire nella propria formazione.</p>
         </div>
@@ -1210,8 +1443,8 @@
                     <div class="ev-faq-answer"><p>Una connessione internet. Funziona da computer, tablet o smartphone via Zoom. Riceverai il link via email dopo l'iscrizione.</p></div>
                 </div>
                 <div class="ev-faq-item">
-                    <button class="ev-faq-question">Che certificazione posso ottenere?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>Il percorso completo porta al diploma in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;, rilasciato da OPES ai fini dell'Art. 25 del D.Lgs 36/2021. OPES &egrave; Ente di Promozione Sportiva riconosciuto dal CONI e dal CIP. Nel webinar scoprirai tutti i dettagli del percorso.</p></div>
+                    <button class="ev-faq-question">Il webinar rilascia una certificazione?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>No, il webinar &egrave; gratuito e non rilascia certificazioni. Il percorso di certificazione &egrave; successivo al webinar ed &egrave; riservato esclusivamente alle partecipanti. Al termine del corso otterrai il Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;, rilasciato da OPES ai fini dell'Art. 25 del D.Lgs 36/2021. Il diploma &egrave; nominale, include l'inserimento negli elenchi tecnici OPES, e ti abilita a lavorare in palestre, centri sportivi, associazioni e SSD, studi personal training e attivit&agrave; in proprio. Nel webinar scoprirai tutti i dettagli.</p></div>
                 </div>
             </div>
         </div>
@@ -1222,7 +1455,7 @@
         <div class="wc-cta-final-content">
             <h2>75 minuti che possono ridefinire la tua carriera.</h2>
             <p>Questo webinar non sar&agrave; registrato e non sar&agrave; ripetuto.</p>
-            <p>Dentro c'&egrave; il percorso per diventare certificata <strong>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> con diploma OPES riconosciuto CONI. Il costo &egrave; zero. Il costo di non esserci lo decidi tu.</p>
+            <p>Scoprirai il percorso esclusivo per ottenere il <strong>Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> rilasciato da OPES &mdash; riservato solo a chi partecipa al webinar. Le migliori certificate potranno entrare nel team di Elena come coach ufficiali. Il costo &egrave; zero. Il costo di non esserci lo decidi tu.</p>
             <div class="wc-event-details">
                 Marzo 2026 &bull; Online su Zoom &bull; Gratuito &bull; Certificazione OPES
             </div>
