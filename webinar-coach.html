@@ -609,6 +609,64 @@
             color: rgba(255,255,255,0.7);
         }
 
+        /* OPES Certification Banner */
+        .wc-opes-banner {
+            background: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .wc-opes-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .wc-opes-logo {
+            flex-shrink: 0;
+            width: 14rem;
+        }
+
+        .wc-opes-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .wc-opes-text {
+            flex: 1;
+        }
+
+        .wc-opes-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .wc-opes-disclaimer {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 768px) {
+            .wc-opes-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .wc-opes-logo {
+                width: 10rem;
+            }
+        }
+
         /* Sticky CTA */
         .wc-sticky-cta {
             display: none;
@@ -970,6 +1028,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICAZIONE OPES -->
+    <section class="wc-opes-banner">
+        <div class="wc-opes-inner">
+            <div class="wc-opes-logo">
+                <img src="images/logo-opes-roma.jpg" alt="OPES Roma - Comitato Provinciale" loading="lazy">
+            </div>
+            <div class="wc-opes-text">
+                <p class="wc-opes-label">Certificazione Ufficiale</p>
+                <p class="wc-opes-disclaimer">Diploma rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021</p>
+                <p class="wc-opes-disclaimer" style="font-weight: 400; font-size: 0.85rem; margin-top: 0.5rem; color: rgba(0,0,0,0.6);">OPES, Ente di Promozione Sportiva, riconosciuto dal CONI e dal CIP.</p>
             </div>
         </div>
     </section>
