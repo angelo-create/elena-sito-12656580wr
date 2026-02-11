@@ -28,8 +28,8 @@ module.exports = async function handler(req, res) {
         quantity: 1,
       }],
       customer_email: customerEmail || undefined,
-      success_url: `${process.env.SITE_URL}/pagamento-successo.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.SITE_URL}/percorso-coach.html?cancelled=true`,
+      success_url: `${process.env.SITE_URL}/pagamento-successo?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.SITE_URL}/percorso-coach?cancelled=true`,
       metadata: {
         product: 'percorso-coach-1-livello',
         earlyBird: earlyBird ? 'true' : 'false',

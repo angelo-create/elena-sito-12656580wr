@@ -133,7 +133,7 @@
                     React.createElement('span', { className: 'rmh-hero-btn-arrow' }, '→')
                 ),
                 React.createElement('a', {
-                    href: 'metodo.html',
+                    href: '/metodo',
                     className: 'rmh-hero-btn secondary'
                 }, 'Il Metodo E.A.S.Y.')
             ),

@@ -37,24 +37,24 @@
         };
 
         const menuItems = [
-            { href: 'chi-sono.html', label: 'Chi Sono' },
-            { href: 'metodo.html', label: 'Metodo' },
-            { href: 'risultati.html', label: 'Risultati' },
+            { href: '/chi-sono', label: 'Chi Sono' },
+            { href: '/metodo', label: 'Metodo' },
+            { href: '/risultati', label: 'Risultati' },
             {
                 label: 'Risorse',
                 dropdown: [
-                    { href: 'libri.html', label: 'Libri' },
-                    { href: 'eventi.html', label: 'Eventi' },
-                    { href: 'risorse-gratuite.html', label: 'Risorse Gratuite' },
-                    { href: 'shop.html', label: 'Shop' }
+                    { href: '/libri', label: 'Libri' },
+                    { href: '/eventi', label: 'Eventi' },
+                    { href: '/risorse-gratuite', label: 'Risorse Gratuite' },
+                    { href: '/shop', label: 'Shop' }
                 ]
             },
             {
                 label: 'Per Aziende',
                 dropdown: [
-                    { href: 'partner.html', label: 'Diventa Partner' },
-                    { href: 'press.html', label: 'Press & Media' },
-                    { href: 'team.html', label: 'Team Medico' }
+                    { href: '/partner', label: 'Diventa Partner' },
+                    { href: '/press', label: 'Press & Media' },
+                    { href: '/team', label: 'Team Medico' }
                 ]
             }
         ];
@@ -66,7 +66,7 @@
             },
                 // Logo
                 React.createElement('a', {
-                    href: 'index.html',
+                    href: '/',
                     className: 'rmh-logo'
                 }, 'ELENA GIORDANI'),
 
@@ -127,7 +127,7 @@
 
                     // CTA Button
                     React.createElement('a', {
-                        href: 'contatti.html',
+                        href: '/contatti',
                         className: 'rmh-cta',
                         onClick: closeMenu,
                         style: { '--delay': '0.4s' }
