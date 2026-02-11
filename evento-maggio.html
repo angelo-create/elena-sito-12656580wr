@@ -331,6 +331,9 @@
             .ev-pricing-left { text-align: center; }
             .ev-countdown { justify-content: center; }
         }
+        @media (max-width: 1024px) {
+            .ev-bento { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             .ev-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
             .ev-video-play { width: 50px; height: 50px; font-size: 1.25rem; }
@@ -347,6 +350,7 @@
             .ev-timeline-number { display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: clamp(4rem, 15vw, 6rem); padding: 0; z-index: 0; text-align: right; }
             .ev-bento { grid-template-columns: 1fr; }
             .ev-bento-card.ev-bento-wide { grid-column: span 1; grid-template-columns: auto 1fr; }
+            .ev-bento-card:nth-child(4) { grid-column: span 1; }
             .ev-pricing-split { grid-template-columns: 1fr; gap: 2rem; }
             .ev-pricing-left { text-align: center; }
             .ev-countdown { justify-content: center; }
@@ -360,6 +364,9 @@
             .ev-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
             .ev-video-play { width: 40px; height: 40px; font-size: 1rem; }
             .ev-countdown { gap: 0.5rem; }
+            .ev-bento-card.ev-bento-wide { grid-template-columns: 1fr; }
+            .ev-bento-wide .ev-bento-icon { margin: 0 auto 1rem; }
+            .ev-bento-card.ev-bento-wide > div { text-align: center; }
         }
     </style>
 </head>
@@ -922,8 +929,8 @@
             });
         });
 
-        // Countdown Timer - 10 Febbraio 2026
-        var earlyBirdEnd = new Date('2026-02-10T23:59:59').getTime();
+        // Countdown Timer - 1 Maggio 2026
+        var earlyBirdEnd = new Date('2026-05-01T23:59:59').getTime();
         function updateCountdown() {
             var now = new Date().getTime();
             var distance = earlyBirdEnd - now;
