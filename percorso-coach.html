@@ -58,17 +58,15 @@
     <!-- ============================================ -->
     <!-- HERO -->
     <!-- ============================================ -->
-    <section class="page-hero" style="background: var(--black); min-height: 80vh; display: flex; align-items: center;">
-        <div class="container" style="text-align: center;">
-            <span class="section-number" style="color: var(--pink-primary);">FORMAZIONE PROFESSIONALE</span>
-            <h1 class="section-title" style="color: var(--white); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem;">
-                Diventa Coach del<br><span class="highlight"><em>Fitness Femminile</em></span>
-            </h1>
-            <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; font-weight: 300; max-width: 40rem; margin: 0 auto 2rem; line-height: 1.7;">
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <span class="page-hero-badge">Formazione Professionale</span>
+            <h1 class="page-hero-title">Diventa Coach del<br><span class="highlight"><em>Fitness Femminile</em></span></h1>
+            <p class="page-hero-subtitle">
                 Il primo corso in Italia per diventare specialista nell&rsquo;allenamento femminile over 40.<br>
                 60 ore di formazione &middot; Diploma OPES riconosciuto CONI &middot; Metodo XFit Academy.
             </p>
-            <a href="#acquista" class="btn-primary">
+            <a href="#acquista" class="btn-primary" style="margin-top: 2rem;">
                 Iscriviti Ora <span>&rarr;</span>
             </a>
         </div>
@@ -106,8 +104,8 @@
     <section class="section" style="background: var(--black);">
         <div class="container">
             <div class="section-header center">
-                <span class="section-number" style="color: var(--pink-primary);">IL PROGRAMMA</span>
-                <h2 class="section-title" style="color: var(--white);">5 moduli per diventare <span class="highlight"><em>specialista</em></span></h2>
+                <span class="section-number">IL PROGRAMMA</span>
+                <h2 class="section-title">5 moduli per diventare <span class="highlight"><em>specialista</em></span></h2>
                 <p style="color: rgba(255,255,255,0.6); font-weight: 300; max-width: 35rem; margin: 1rem auto 0;">
                     Un percorso completo: dalla fisiologia alla pratica, dal coaching alla certificazione.
                 </p>
@@ -179,7 +177,7 @@
         <div class="container">
             <div class="section-header center">
                 <span class="section-number">PER CHI &Egrave;</span>
-                <h2 class="section-title">Il corso &egrave; per te se sei <span class="highlight"><em>una di queste</em></span></h2>
+                <h2 class="section-title" style="color: var(--black);">Il corso &egrave; per te se sei <span class="highlight"><em>una di queste</em></span></h2>
             </div>
             <div class="shop-target-grid">
                 <div class="shop-target-card">
@@ -212,8 +210,8 @@
     <section class="section" style="background: var(--black);">
         <div class="container">
             <div class="section-header center">
-                <span class="section-number" style="color: var(--pink-primary);">CHI TI GUIDER&Agrave;</span>
-                <h2 class="section-title" style="color: var(--white);">I numeri di <span class="highlight"><em>Elena Giordani</em></span></h2>
+                <span class="section-number">CHI TI GUIDER&Agrave;</span>
+                <h2 class="section-title">I numeri di <span class="highlight"><em>Elena Giordani</em></span></h2>
             </div>
             <div class="shop-bio-grid">
                 <div class="shop-bio-image">
@@ -244,7 +242,7 @@
     <section class="section" style="background: var(--white);">
         <div class="container" style="text-align: center; max-width: 50rem;">
             <img src="images/logo-opes-roma.jpg" alt="OPES Roma" loading="lazy" style="height: 5rem; margin-bottom: 2rem;">
-            <h3 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; color: var(--black);">
                 Diploma Professionale in <em>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</em>
             </h3>
             <p style="font-size: 0.85rem; color: var(--gray-light); margin-bottom: 1rem; line-height: 1.7;">
@@ -267,8 +265,8 @@
     <section class="section" style="background: var(--black); padding-bottom: 7rem;" id="acquista">
         <div class="container">
             <div class="section-header center">
-                <span class="section-number" style="color: var(--pink-primary);">INVESTIMENTO</span>
-                <h2 class="section-title" style="color: var(--white);">Scegli come <span class="highlight"><em>pagare</em></span></h2>
+                <span class="section-number">INVESTIMENTO</span>
+                <h2 class="section-title">Scegli come <span class="highlight"><em>pagare</em></span></h2>
             </div>
 
             <!-- Timer 24h -->
@@ -366,66 +364,78 @@
         <div class="container" style="max-width: 50rem;">
             <div class="section-header center">
                 <span class="section-number">DOMANDE FREQUENTI</span>
-                <h2 class="section-title">Hai qualche <span class="highlight"><em>dubbio?</em></span></h2>
+                <h2 class="section-title" style="color: var(--black);">Hai qualche <span class="highlight"><em>dubbio?</em></span></h2>
             </div>
 
             <div class="faq-item" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <span>Il corso rilascia una certificazione riconosciuta?</span>
-                    <span class="faq-toggle">+</span>
+                    <h3>Il corso rilascia una certificazione riconosciuta?</h3>
+                    <div class="faq-icon">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>S&igrave;. Al superamento dell&rsquo;esame finale riceverai il Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo; rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021. OPES &egrave; un Ente di Promozione Sportiva riconosciuto dal CONI e dal CIP.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-question">
-                    <span>Devo essere gi&agrave; personal trainer per partecipare?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>No. Il corso &egrave; pensato sia per chi lavora gi&agrave; nel settore e vuole specializzarsi, sia per chi vuole entrare nel mondo del fitness femminile con una formazione completa e certificata.</p>
+                    <div class="faq-answer-content">
+                        <p>S&igrave;. Al superamento dell&rsquo;esame finale riceverai il Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo; rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021. OPES &egrave; un Ente di Promozione Sportiva riconosciuto dal CONI e dal CIP.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="faq-item" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <span>Come funziona la modalit&agrave; blended?</span>
-                    <span class="faq-toggle">+</span>
+                    <h3>Devo essere gi&agrave; personal trainer per partecipare?</h3>
+                    <div class="faq-icon">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>Il corso alterna sessioni online live su Zoom (puoi partecipare da casa) a weekend in presenza a Roma presso Box R1. Le sessioni online coprono teoria e strategia, quelle in presenza sono dedicate alla pratica, biomeccanica e all&rsquo;esame finale.</p>
+                    <div class="faq-answer-content">
+                        <p>No. Il corso &egrave; pensato sia per chi lavora gi&agrave; nel settore e vuole specializzarsi, sia per chi vuole entrare nel mondo del fitness femminile con una formazione completa e certificata.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="faq-item" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <span>Le lezioni online vengono registrate?</span>
-                    <span class="faq-toggle">+</span>
+                    <h3>Come funziona la modalit&agrave; blended?</h3>
+                    <div class="faq-icon">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>S&igrave;, tutte le sessioni live su Zoom vengono registrate e messe a disposizione delle partecipanti. La presenza alle sessioni in presenza a Roma &egrave; invece obbligatoria per la certificazione.</p>
+                    <div class="faq-answer-content">
+                        <p>Il corso alterna sessioni online live su Zoom (puoi partecipare da casa) a weekend in presenza a Roma presso Box R1. Le sessioni online coprono teoria e strategia, quelle in presenza sono dedicate alla pratica, biomeccanica e all&rsquo;esame finale.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="faq-item" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <span>Posso pagare a rate?</span>
-                    <span class="faq-toggle">+</span>
+                    <h3>Le lezioni online vengono registrate?</h3>
+                    <div class="faq-icon">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>S&igrave;. Offriamo il pagamento in 12 rate mensili con PagoDil (Cofidis) o in 24 rate mensili con AppPago, entrambi senza interessi. In alternativa puoi pagare in un&rsquo;unica soluzione con carta di credito tramite Stripe.</p>
+                    <div class="faq-answer-content">
+                        <p>S&igrave;, tutte le sessioni live su Zoom vengono registrate e messe a disposizione delle partecipanti. La presenza alle sessioni in presenza a Roma &egrave; invece obbligatoria per la certificazione.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="faq-item" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <span>Cosa succede dopo la certificazione?</span>
-                    <span class="faq-toggle">+</span>
+                    <h3>Posso pagare a rate?</h3>
+                    <div class="faq-icon">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>Riceverai il diploma nominale OPES con inserimento negli elenchi tecnici. Potrai lavorare in palestre, centri sportivi, associazioni e in proprio. Le migliori certificate avranno la possibilit&agrave; di entrare nel team di XFit Academy come coach ufficiali del programma di Elena Giordani.</p>
+                    <div class="faq-answer-content">
+                        <p>S&igrave;. Offriamo il pagamento in 12 rate mensili con PagoDil (Cofidis) o in 24 rate mensili con AppPago, entrambi senza interessi. In alternativa puoi pagare in un&rsquo;unica soluzione con carta di credito tramite Stripe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <h3>Cosa succede dopo la certificazione?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Riceverai il diploma nominale OPES con inserimento negli elenchi tecnici. Potrai lavorare in palestre, centri sportivi, associazioni e in proprio. Le migliori certificate avranno la possibilit&agrave; di entrare nel team di XFit Academy come coach ufficiali del programma di Elena Giordani.</p>
+                    </div>
                 </div>
             </div>
 
@@ -437,7 +447,7 @@
     <!-- ============================================ -->
     <section class="section" style="background: var(--black); text-align: center;">
         <div class="container" style="max-width: 40rem;">
-            <h2 class="section-title" style="color: var(--white); font-size: clamp(1.75rem, 3.5vw, 2.5rem);">
+            <h2 class="section-title" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">
                 Non &egrave; solo una certificazione.<br><span class="highlight"><em>&Egrave; un&rsquo;opportunit&agrave; di carriera.</em></span>
             </h2>
             <p style="color: rgba(255,255,255,0.6); font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7;">

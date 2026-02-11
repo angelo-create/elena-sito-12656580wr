@@ -415,9 +415,42 @@
     line-height: 1.6;
 }
 
-/* --- FAQ override for dark background --- */
+/* --- FAQ override for white background --- */
 .shop-faq .faq-item {
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.shop-faq .faq-item:hover {
+    border-color: var(--pink-primary);
+    box-shadow: 0 10px 40px rgba(233,30,99,0.08);
+}
+
+.shop-faq .faq-item.active {
+    border-color: var(--pink-primary);
+    box-shadow: 0 20px 60px rgba(233,30,99,0.1);
+}
+
+.shop-faq .faq-question h3 {
+    color: var(--black);
+}
+
+.shop-faq .faq-item.active .faq-question {
+    background: rgba(233,30,99,0.05);
+}
+
+.shop-faq .faq-icon {
+    background: rgba(0,0,0,0.05);
+    color: var(--pink-primary);
+}
+
+.shop-faq .faq-item.active .faq-icon {
+    background: var(--pink-primary);
+    color: var(--white);
+}
+
+.shop-faq .faq-answer-content {
+    color: var(--gray-light);
 }
 
 /* --- Responsive --- */
