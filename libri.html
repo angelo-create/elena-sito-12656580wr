@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I Libri | Elena Giordani - X-Fit Academy</title>
     <meta name="description" content="Scopri i libri di Elena Giordani: 'Nel Corpo Che Vuoi' e 'Il Primo Passo'. Guide pratiche per la tua trasformazione.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
@@ -41,7 +43,7 @@
 
     <!-- PAGE HERO WRAPPER -->
     <div class="page-hero-wrapper">
-        <img src="img/elena-2025/IMG_9820.jpeg" alt="Elena Giordani" class="page-hero-bg" loading="eager">
+        <img src="img/elena-webp/IMG_9820.webp" alt="Elena Giordani" class="page-hero-bg" loading="eager">
         <div class="page-hero-gradient"></div>
 
 
@@ -59,7 +61,7 @@
         <div class="container">
             <div class="book-detail">
                 <div class="book-detail-cover">
-                    <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767392827/51i-KYucT1L._SY522__clvolt.jpg" alt="Il Primo Passo - Copertina" class="book-cover-img">
+                    <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767392827/51i-KYucT1L._SY522__clvolt.jpg" alt="Il Primo Passo - Copertina" class="book-cover-img" loading="lazy">
                     <div class="book-badge-new">Nuovo 2025</div>
                 </div>
                 <div class="book-detail-content">
@@ -110,7 +112,7 @@
         <div class="container">
             <div class="book-detail book-detail-reverse">
                 <div class="book-detail-cover">
-                    <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767392826/51v4Ll3gu5L._SY522__zc2bhz.jpg" alt="Nel Corpo Che Vuoi - Copertina" class="book-cover-img">
+                    <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767392826/51v4Ll3gu5L._SY522__zc2bhz.jpg" alt="Nel Corpo Che Vuoi - Copertina" class="book-cover-img" loading="lazy">
                 </div>
                 <div class="book-detail-content">
                     <span class="book-detail-badge">Primo Libro - 2023</span>
@@ -161,7 +163,7 @@
             <div class="story-grid">
                 <div class="story-image">
                     <div class="story-image-box">
-                        <img src="img/elena-2025/IMG_9820.jpeg" alt="Elena Giordani con il libro Nel Corpo Che Vuoi" loading="lazy">
+                        <img src="img/elena-webp/IMG_9820.webp" alt="Elena Giordani con il libro Nel Corpo Che Vuoi" loading="lazy">
                     </div>
                 </div>
                 <div class="story-content">
@@ -188,7 +190,7 @@
 
             <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
                 <button class="wa-lightbox-close">&times;</button>
-                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg">
+                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg" loading="lazy">
             </div>
 
             <script>
@@ -217,7 +219,7 @@
                     rows.forEach(function(row) {
                         var html = '';
                         row.imgs.forEach(function(n) {
-                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/testimonianze-whatsapp/whatsapp-' + n + '.jpg" alt="Testimonianza" loading="lazy"></div>';
+                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/whatsapp-webp/whatsapp-' + n + '.webp" alt="Testimonianza" loading="lazy"></div>';
                         });
                         row.el.innerHTML = html;
                         var isDown = false, startX, scrollLeft;

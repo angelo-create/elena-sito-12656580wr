@@ -13,6 +13,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 
     <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -55,7 +57,7 @@
 
     <!-- SECTION 1: HERO (identical to index.html) -->
     <section class="hero">
-        <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png" alt="Elena Giordani" class="hero-bg-image">
+        <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png" alt="Elena Giordani" class="hero-bg-image" loading="lazy">
         <div class="hero-gradient"></div>
         <div id="react-mobile-hero-root"></div>
         <div class="hero-content">
@@ -169,7 +171,7 @@
 
     <!-- EMOTION BREAK 1 -->
     <section class="ev-emotion">
-        <img src="img/elena-2025/IMG_9821.jpeg" alt="Elena Giordani" class="ev-emotion-bg" data-parallax>
+        <img src="img/elena-webp/IMG_9821.webp" alt="Elena Giordani" class="ev-emotion-bg" data-parallax loading="lazy">
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
             <p>Non è una dieta. Non è un allenamento. <strong>È un cambio di vita.</strong></p>
@@ -179,7 +181,7 @@
     <!-- SECTION 4: COMPARISON + SECTION 5: PHILOSOPHY QUOTE -->
     <section class="problem-section ev-bg-section">
         <div class="ev-bg-reveal ev-right" data-reveal>
-            <img src="img/evento-2025/EDO05146.jpg" alt="Elena Giordani" loading="lazy">
+            <img src="img/evento-webp/EDO05146.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container-academy">
             <div class="problem-header">
@@ -270,7 +272,7 @@
 
     <!-- EMOTION BREAK 2 -->
     <section class="ev-emotion">
-        <img src="img/evento-2025/EDO05352.jpg" alt="Elena Giordani" class="ev-emotion-bg" data-parallax>
+        <img src="img/evento-webp/EDO05352.webp" alt="Elena Giordani" class="ev-emotion-bg" data-parallax loading="lazy">
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
             <p>Insieme siamo <strong>inarrestabili.</strong></p>
@@ -298,7 +300,7 @@
     <!-- SECTION 8: WORKOUTS -->
     <section class="section-workouts ev-bg-section" id="allenamenti">
         <div class="ev-bg-reveal ev-left" data-reveal>
-            <img src="img/evento-2025/EDO05280.jpg" alt="Elena Giordani" loading="lazy">
+            <img src="img/evento-webp/EDO05280.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container-workouts">
             <div class="workouts-header">
@@ -344,7 +346,7 @@
 
     <!-- EMOTION BREAK 3 -->
     <section class="ev-emotion">
-        <img src="img/elena-2025/IMG_9823.jpeg" alt="Elena Giordani" class="ev-emotion-bg" data-parallax>
+        <img src="img/elena-webp/IMG_9823.webp" alt="Elena Giordani" class="ev-emotion-bg" data-parallax loading="lazy">
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
             <p>Il tuo corpo cambia quando cambi <strong>mentalità.</strong></p>
@@ -368,7 +370,7 @@
             <script>
             (function() {
                 var images = [];
-                for (var i = 37; i <= 186; i++) images.push('img/prima-e-dopo/' + i + '.png');
+                for (var i = 37; i <= 186; i++) images.push('img/prima-e-dopo-webp/' + i + '.webp');
                 for (var j = images.length - 1; j > 0; j--) {
                     var k = Math.floor(Math.random() * (j + 1));
                     var tmp = images[j]; images[j] = images[k]; images[k] = tmp;
@@ -444,7 +446,7 @@
                 rows.forEach(function(row) {
                     var html = '';
                     row.imgs.forEach(function(n) {
-                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/testimonianze-whatsapp/whatsapp-' + n + '.jpg" alt="Testimonianza" loading="lazy"></div>';
+                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/whatsapp-webp/whatsapp-' + n + '.webp" alt="Testimonianza" loading="lazy"></div>';
                     });
                     row.el.innerHTML = html;
                     var isDown = false, startX, scrollLeft;
@@ -476,7 +478,7 @@
 
             <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
                 <button class="wa-lightbox-close">&times;</button>
-                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg">
+                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg" loading="lazy">
             </div>
 
             <script>
@@ -498,7 +500,7 @@
     <!-- SECTION 10: METHOD E.A.S.Y. -->
     <section class="method-section ev-bg-section" id="metodo">
         <div class="ev-bg-reveal ev-right" data-reveal>
-            <img src="img/evento-2025/EDO05106.jpg" alt="Elena Giordani" loading="lazy">
+            <img src="img/evento-webp/EDO05106.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container-page">
             <div class="method-intro">
@@ -582,7 +584,7 @@
 
     <!-- EMOTION BREAK 4 -->
     <section class="ev-emotion">
-        <img src="img/evento-2025/EDO05213.jpg" alt="Elena Giordani" class="ev-emotion-bg" data-parallax>
+        <img src="img/evento-webp/EDO05213.webp" alt="Elena Giordani" class="ev-emotion-bg" data-parallax loading="lazy">
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
             <p>La tua salute non è <strong>negoziabile.</strong></p>
@@ -642,7 +644,7 @@
             </div>
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="team-photo"><img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9330ab5c901d68408.jpeg" alt="Dott.ssa Federica Cuppone"></div>
+                    <div class="team-photo"><img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9330ab5c901d68408.jpeg" alt="Dott.ssa Federica Cuppone" loading="lazy"></div>
                     <div class="team-card-header"><div class="team-icon">&#129658;</div><div class="team-badge">Medico Oncologo</div></div>
                     <h3 class="team-name">Dott.ssa Federica Cuppone</h3>
                     <p class="team-role">Medico Oncologo e Dirigente presso AIFA<br>(Agenzia Italiana del Farmaco)</p>
@@ -655,7 +657,7 @@
                     <div class="team-focus"><strong>Per le donne dell'Academy:</strong> Valutazione scientifica dell'impatto dell'attività fisica e dell'alimentazione sui processi infiammatori e sulla prevenzione oncologica.</div>
                 </div>
                 <div class="team-card">
-                    <div class="team-photo"><img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a953e35024fa4fdf78.jpeg" alt="Alessandro Lisi, PhD"></div>
+                    <div class="team-photo"><img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a953e35024fa4fdf78.jpeg" alt="Alessandro Lisi, PhD" loading="lazy"></div>
                     <div class="team-card-header"><div class="team-icon">&#129516;</div><div class="team-badge">Genetista</div></div>
                     <h3 class="team-name">Alessandro Lisi, PhD</h3>
                     <p class="team-role">Ricercatore in Genetica e Biologia Umana<br>University of Southern California (USC)</p>
@@ -669,7 +671,7 @@
                     <div class="team-focus"><strong>Per le donne dell'Academy:</strong> Analisi scientifica della risposta genetica individuale all'alimentazione, all'attività fisica e ai processi di invecchiamento cellulare.</div>
                 </div>
                 <div class="team-card">
-                    <div class="team-photo"><img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9d0b2ee42bfb22fd5.jpeg" alt="Dott.ssa Floriana Mariotti"></div>
+                    <div class="team-photo"><img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9d0b2ee42bfb22fd5.jpeg" alt="Dott.ssa Floriana Mariotti" loading="lazy"></div>
                     <div class="team-card-header"><div class="team-icon">&#129504;</div><div class="team-badge">Psicoterapeuta</div></div>
                     <h3 class="team-name">Dott.ssa Floriana Mariotti</h3>
                     <p class="team-role">Psicologa, Psicoterapeuta e Sessuologa Clinica</p>
@@ -682,7 +684,7 @@
                     <div class="team-focus"><strong>Per le donne dell'Academy:</strong> Accompagnamento nei momenti di transizione (pre-menopausa, menopausa, cambiamenti identitari) con approccio scientifico centrato sull'esperienza soggettiva.</div>
                 </div>
                 <div class="team-card">
-                    <div class="team-photo"><img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a95c5cabb07d0622bf.jpeg" alt="Luca Cara"></div>
+                    <div class="team-photo"><img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a95c5cabb07d0622bf.jpeg" alt="Luca Cara" loading="lazy"></div>
                     <div class="team-card-header"><div class="team-icon">&#128170;</div><div class="team-badge">Fisioterapista</div></div>
                     <h3 class="team-name">Luca Cara</h3>
                     <p class="team-role">Fisioterapista specializzato in riabilitazione ortopedica<br>e gestione dell'atleta</p>
@@ -708,7 +710,7 @@
 
     <!-- EMOTION BREAK 5 -->
     <section class="ev-emotion">
-        <img src="img/elena-2025/IMG_9822.jpeg" alt="Elena Giordani" class="ev-emotion-bg" data-parallax>
+        <img src="img/elena-webp/IMG_9822.webp" alt="Elena Giordani" class="ev-emotion-bg" data-parallax loading="lazy">
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
             <p>Scienza, metodo e <strong>cuore.</strong></p>

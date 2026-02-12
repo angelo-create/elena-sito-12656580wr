@@ -12,6 +12,8 @@
     <meta property="og:image" content="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
@@ -193,7 +195,7 @@
 
     <!-- HERO -->
     <section class="hero">
-        <img src="img/elena-2025/IMG_9183.jpeg" alt="Elena Giordani" class="hero-bg-image">
+        <img src="img/elena-webp/IMG_9183.webp" alt="Elena Giordani" class="hero-bg-image" loading="lazy">
         <div class="hero-gradient"></div>
         <div class="hero-content">
             <div class="hero-text">
@@ -255,7 +257,7 @@
     <!-- SUONA FAMILIARE? -->
     <section class="section section-black wb-bg-section">
         <div class="wb-bg-reveal wb-right" data-reveal>
-            <img src="img/elena-2025/Elena81.jpeg" alt="Elena Giordani" loading="lazy">
+            <img src="img/elena-webp/Elena81.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="wb-community">
@@ -274,7 +276,7 @@
 
     <!-- EMOTION BREAK 1 -->
     <section class="wb-emotion">
-        <img src="img/evento-2025/EDO05106.jpg" alt="Elena Giordani" class="wb-emotion-bg" data-parallax>
+        <img src="img/evento-webp/EDO05106.webp" alt="Elena Giordani" class="wb-emotion-bg" data-parallax loading="lazy">
         <div class="wb-emotion-overlay"></div>
         <div class="wb-emotion-text">
             <p>Il cambiamento vero non inizia con una dieta. Inizia con <strong>il primo passo giusto.</strong></p>
@@ -284,7 +286,7 @@
     <!-- COSA TI BLOCCA (Bento Grid) -->
     <section class="section section-black wb-bg-section">
         <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="img/elena-2025/IMG_9821.jpeg" alt="Elena Giordani" loading="lazy">
+            <img src="img/elena-webp/IMG_9821.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="section-header center">
@@ -326,7 +328,7 @@
 
     <!-- EMOTION BREAK 2 -->
     <section class="wb-emotion">
-        <img src="img/evento-2025/EDO05352.jpg" alt="Elena Giordani" class="wb-emotion-bg" data-parallax>
+        <img src="img/evento-webp/EDO05352.webp" alt="Elena Giordani" class="wb-emotion-bg" data-parallax loading="lazy">
         <div class="wb-emotion-overlay"></div>
         <div class="wb-emotion-text">
             <p>2300 donne hanno smesso di mollare. <strong>Cosa sanno loro che tu ancora no?</strong></p>
@@ -336,7 +338,7 @@
     <!-- PROGRAMMA 3 SERE (Timeline) -->
     <section class="section section-black wb-bg-section" id="programma" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
         <div class="wb-bg-reveal wb-right" data-reveal>
-            <img src="img/evento-2025/EDO05142.jpg" alt="Elena Giordani" loading="lazy">
+            <img src="img/evento-webp/EDO05142.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="section-header center">
@@ -400,7 +402,7 @@
     <!-- CHI TI GUIDERA -->
     <section class="section section-black wb-bg-section">
         <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="img/evento-2025/EDO05146.jpg" alt="Elena Giordani" loading="lazy">
+            <img src="img/evento-webp/EDO05146.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="wb-community">
@@ -429,7 +431,7 @@
 
     <!-- EMOTION BREAK 3 -->
     <section class="wb-emotion">
-        <img src="img/elena-2025/IMG_9823.jpeg" alt="Elena Giordani" class="wb-emotion-bg" data-parallax>
+        <img src="img/elena-webp/IMG_9823.webp" alt="Elena Giordani" class="wb-emotion-bg" data-parallax loading="lazy">
         <div class="wb-emotion-overlay"></div>
         <div class="wb-emotion-text">
             <p>Anche loro erano scettiche. Anche loro avevano <strong>provato di tutto.</strong></p>
@@ -450,7 +452,7 @@
 
             <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
                 <button class="wa-lightbox-close">&times;</button>
-                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg">
+                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg" loading="lazy">
             </div>
 
             <script>
@@ -479,7 +481,7 @@
                     rows.forEach(function(row) {
                         var html = '';
                         row.imgs.forEach(function(n) {
-                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/testimonianze-whatsapp/whatsapp-' + n + '.jpg" alt="Testimonianza" loading="lazy"></div>';
+                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/whatsapp-webp/whatsapp-' + n + '.webp" alt="Testimonianza" loading="lazy"></div>';
                         });
                         row.el.innerHTML = html;
                         var isDown = false, startX, scrollLeft;
@@ -548,7 +550,7 @@
                 rows.forEach(function(row) {
                     var html = '';
                     row.imgs.forEach(function(name) {
-                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/commenti-webinar/' + name + '.jpg" alt="Commento webinar" loading="lazy"></div>';
+                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/commenti-webp/' + name + '.webp" alt="Commento webinar" loading="lazy"></div>';
                     });
                     row.el.innerHTML = html;
                     var isDown = false, startX, scrollLeft;
@@ -620,7 +622,7 @@
     <!-- FAQ -->
     <section class="section section-black wb-bg-section">
         <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="img/elena-2025/IMG_9822.jpeg" alt="Elena Giordani" loading="lazy">
+            <img src="img/elena-webp/IMG_9822.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="section-header center">

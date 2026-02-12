@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Risultati e Trasformazioni | Elena Giordani - X-Fit Academy</title>
     <meta name="description" content="Oltre 2300 trasformazioni reali. Scopri i risultati delle donne che hanno seguito il Metodo E.A.S.Y. di X-Fit Academy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
@@ -162,7 +164,7 @@
             <script>
             (function() {
                 var images = [];
-                for (var i = 37; i <= 186; i++) images.push('img/prima-e-dopo/' + i + '.png');
+                for (var i = 37; i <= 186; i++) images.push('img/prima-e-dopo-webp/' + i + '.webp');
                 for (var j = images.length - 1; j > 0; j--) {
                     var k = Math.floor(Math.random() * (j + 1));
                     var tmp = images[j]; images[j] = images[k]; images[k] = tmp;
@@ -222,7 +224,7 @@
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
         <button class="lightbox-nav lightbox-prev" onclick="showPrevImage()">&#8249;</button>
-        <img class="lightbox-image" id="lightboxImage" src="" alt="Trasformazione">
+        <img class="lightbox-image" id="lightboxImage" src="" alt="Trasformazione" loading="lazy">
         <button class="lightbox-nav lightbox-next" onclick="showNextImage()">&#8250;</button>
     </div>
 
@@ -253,7 +255,7 @@
                 rows.forEach(function(row) {
                     var html = '';
                     row.imgs.forEach(function(n) {
-                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/testimonianze-whatsapp/whatsapp-' + n + '.jpg" alt="Testimonianza" loading="lazy"></div>';
+                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/whatsapp-webp/whatsapp-' + n + '.webp" alt="Testimonianza" loading="lazy"></div>';
                     });
                     row.el.innerHTML = html;
                     var isDown = false, startX, scrollLeft;
@@ -285,7 +287,7 @@
 
             <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
                 <button class="wa-lightbox-close">&times;</button>
-                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg">
+                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg" loading="lazy">
             </div>
 
             <script>
