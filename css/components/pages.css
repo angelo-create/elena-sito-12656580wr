@@ -1,22 +1,23 @@
 /* ===== PAGE SPECIFIC STYLES ===== */
 
-/* ===== PAGE HERO ===== */
+/* ===== PAGE HERO (same visual as .hero on homepage) ===== */
 .page-hero {
+    min-height: 60vh;
     background: var(--black);
     position: relative;
+    display: flex;
+    align-items: center;
     overflow: hidden;
-    padding: 8rem 2rem 4rem;
-    text-align: center;
 }
 
 .page-hero-bg {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 55%;
     height: 100%;
     object-fit: cover;
-    object-position: right top;
+    object-position: top center;
     z-index: 1;
 }
 
@@ -26,52 +27,57 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.1) 100%);
     z-index: 2;
 }
 
 .page-hero-content {
-    max-width: 800px;
-    margin: 0 auto;
     position: relative;
-    z-index: 3;
+    z-index: 10;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 10rem 4rem 5rem;
 }
 
 .page-hero-badge {
-    display: inline-block;
-    padding: 0.5rem 1.25rem;
-    border: 1px solid rgba(233,30,99,0.3);
-    background: rgba(233,30,99,0.05);
-    color: var(--pink-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    color: var(--pink-primary);
+    margin-bottom: 2rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid rgba(233,30,99,0.3);
+    background: rgba(233,30,99,0.05);
 }
 
 .page-hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
     font-weight: 800;
     color: var(--white);
-    margin-bottom: 1rem;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    max-width: 600px;
 }
 
 .page-hero-title .highlight em,
 .page-hero-title .accent {
     color: var(--pink-primary);
     font-style: italic;
+    font-weight: 600;
 }
 
 .page-hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 480px;
+    line-height: 1.9;
 }
 
 /* ===== NAV LIGHT (for internal pages) ===== */
@@ -2281,15 +2287,32 @@
 
 @media (max-width: 768px) {
     .page-hero {
-        padding: 6rem 1.5rem 3rem;
+        min-height: auto;
+    }
+
+    .page-hero-bg {
+        width: 100%;
+        left: 0;
+        right: auto;
     }
 
     .page-hero-gradient {
-        background: rgba(0,0,0,0.7);
+        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%);
+    }
+
+    .page-hero-content {
+        text-align: center;
+        padding: 6rem 1.5rem 3rem;
     }
 
     .page-hero-title {
         font-size: 2rem;
+        max-width: 100%;
+    }
+
+    .page-hero-subtitle {
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .values-grid,
