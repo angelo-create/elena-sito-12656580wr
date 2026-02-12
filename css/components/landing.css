@@ -2214,10 +2214,10 @@
     padding: 4rem 1.5rem;
   }
   .comparison-card {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   .philosophy-quote {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
   }
 
   /* --- Phases --- */
@@ -2248,10 +2248,10 @@
     gap: 1.25rem;
   }
   .workout-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
   }
   .workouts-cta-box {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem;
   }
 
   /* --- Transformations --- */
@@ -2280,7 +2280,7 @@
     padding: 4rem 1.5rem;
   }
   .method-hero {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem;
   }
   .easy-letters {
     gap: 0.75rem;
@@ -2295,17 +2295,17 @@
     gap: 1.5rem;
   }
   .method-section .pillar-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
   }
   .why-it-works {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem;
   }
   .why-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   .method-quote {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem;
   }
 
   /* --- Annual --- */
@@ -2332,14 +2332,14 @@
     gap: 1.5rem;
   }
   .team-card {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   .team-photo {
     height: 16rem;
     margin: 0 0 1.25rem 0;
   }
   .team-quote {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
   }
 
   /* --- Pricing --- */
@@ -2348,11 +2348,20 @@
   }
   .pricing-truth-box {
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    padding: 2rem;
     text-align: center;
   }
   .pricing-grid-points {
     grid-template-columns: 1fr;
+  }
+  .pricing-point {
+    padding: 2rem;
+  }
+  .pricing-why-box {
+    padding: 2rem;
+  }
+  .stat-box {
+    padding: 2rem;
   }
 
   /* --- CTA Final --- */
@@ -2388,13 +2397,13 @@
     padding: 1.5rem 1.25rem;
   }
   .stat-box {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem;
   }
   .comparison-card {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
   .philosophy-quote {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
   }
   .phase-card {
     padding: 1.5rem;
@@ -2408,7 +2417,7 @@
     padding: 3rem 1.25rem;
   }
   .workout-card {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
   }
   .section-transformations {
     padding: 3rem 1rem;
@@ -2439,19 +2448,31 @@
     padding: 2rem 1.5rem;
   }
   .team-card {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
   .team-photo {
     height: 15rem;
   }
   .team-quote {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
   }
   .pricing-why-box {
-    padding: 2rem 1.25rem;
+    padding: 1.5rem;
   }
   .pricing-truth-box {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
+  }
+  .pricing-point {
+    padding: 1.5rem;
+  }
+  .method-section .pillar-card {
+    padding: 1.5rem;
+  }
+  .why-it-works {
+    padding: 1.5rem;
+  }
+  .method-quote {
+    padding: 1.5rem;
   }
   .cta-final {
     padding: 3rem 1rem;
