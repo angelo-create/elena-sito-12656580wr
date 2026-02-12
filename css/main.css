@@ -3584,47 +3584,152 @@ body {
 }
 
 
-/* ===== COMPARISON TABLE ===== */
-.comparison-table {
-    max-width: 800px;
+/* ===== VS COMPARISON DUO ===== */
+.vs-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 900px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+}
+
+.vs-card {
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.comparison-header,
-.comparison-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.comparison-header {
-    background: var(--black);
-    color: var(--white);
-    font-weight: 600;
-}
-
-.comparison-col {
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.comparison-col:nth-child(2),
-.comparison-col:nth-child(3) {
+.vs-card-header {
+    padding: 1.5rem 2rem;
     text-align: center;
 }
 
-.comparison-col-highlight {
-    background: rgba(233, 30, 99, 0.08);
-    color: var(--pink-primary);
-    font-weight: 600;
+.vs-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
 }
 
-.comparison-header .comparison-col-highlight {
+/* Hero card - X-Fit Academy */
+.vs-card-hero {
+    background: var(--black);
+    border: 2px solid var(--pink-primary);
+}
+
+.vs-card-hero .vs-card-header {
     background: var(--pink-primary);
+}
+
+.vs-card-hero .vs-card-title {
     color: var(--white);
+}
+
+.vs-card-hero .vs-card-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vs-card-hero .vs-card-list li:last-child {
+    border-bottom: none;
+}
+
+.vs-card-hero .vs-card-list strong {
+    color: var(--white);
+}
+
+.vs-card-hero .vs-card-list span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Other card */
+.vs-card-other {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vs-card-other .vs-card-header {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.vs-card-other .vs-card-title {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.vs-card-other .vs-card-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vs-card-other .vs-card-list li:last-child {
+    border-bottom: none;
+}
+
+.vs-card-other .vs-card-list strong {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.vs-card-other .vs-card-list span {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Shared list styles */
+.vs-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vs-card-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 2rem;
+}
+
+.vs-card-list li div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.vs-card-list strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.vs-card-list span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Check / X icons */
+.vs-check,
+.vs-x {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+}
+
+.vs-check svg,
+.vs-x svg {
+    width: 0.85rem;
+    height: 0.85rem;
+}
+
+.vs-check {
+    background: rgba(233, 30, 99, 0.15);
+    color: var(--pink-primary);
+}
+
+.vs-x {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.3);
 }
 
 /* ===== TESTIMONIAL METHOD ===== */
@@ -5409,12 +5514,14 @@ body {
         align-items: center;
     }
 
-    .comparison-table {
-        font-size: 0.85rem;
+    .vs-duo {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 28rem;
     }
 
-    .comparison-col {
-        padding: 0.75rem;
+    .vs-card-list li {
+        padding: 1rem 1.5rem;
     }
 
     .event-list-card {
@@ -6123,7 +6230,7 @@ body {
 }
 
 .ev-bg-reveal.visible img {
-    opacity: 0.4;
+    opacity: 0.2;
 }
 
 .ev-bg-reveal.ev-right {
@@ -6702,6 +6809,7 @@ body {
 
 
 /* === components/landing.css === */
+
 /* ============================================================
    LANDING PAGE - Elena Academy Info Page
    /info-academy
@@ -6720,6 +6828,82 @@ body {
 
 .highlight-gradient {
   color: var(--pink-primary);
+}
+
+/* Glass card shared pseudo-elements */
+.stat-box::before,
+.comparison-bad::before,
+.comparison-good::before,
+.phase-card::before,
+.workout-card::before,
+.method-section .pillar-card::before,
+.why-it-works::before,
+.annual-column::before,
+.team-card::before,
+.pricing-point::before,
+.philosophy-quote::before,
+.method-hero::before,
+.method-quote::before,
+.team-quote::before,
+.pricing-why-box::before,
+.pricing-truth-box::before,
+.all-loaded-message::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(233, 30, 99, 0.08), transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.stat-box:hover::before,
+.comparison-bad:hover::before,
+.comparison-good:hover::before,
+.phase-card:hover::before,
+.workout-card:hover::before,
+.method-section .pillar-card:hover::before,
+.why-it-works:hover::before,
+.annual-column:hover::before,
+.team-card:hover::before,
+.pricing-point:hover::before,
+.philosophy-quote:hover::before,
+.method-hero:hover::before,
+.method-quote:hover::before,
+.team-quote:hover::before,
+.pricing-why-box:hover::before,
+.pricing-truth-box:hover::before,
+.all-loaded-message:hover::before {
+  opacity: 1.5;
+}
+
+.stat-box::after,
+.comparison-bad::after,
+.comparison-good::after,
+.phase-card::after,
+.workout-card::after,
+.method-section .pillar-card::after,
+.why-it-works::after,
+.annual-column::after,
+.team-card::after,
+.pricing-point::after,
+.philosophy-quote::after,
+.method-hero::after,
+.method-quote::after,
+.team-quote::after,
+.pricing-why-box::after,
+.pricing-truth-box::after,
+.all-loaded-message::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  pointer-events: none;
 }
 
 .section-title-academy {
@@ -6959,15 +7143,21 @@ body {
 .stat-box {
   text-align: center;
   padding: 2rem 1.5rem;
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .stat-box:hover {
-  transform: translateY(-5px);
-  border-color: rgba(233, 30, 99, 0.3);
+  transform: translateY(-6px);
+  border-color: rgba(233, 30, 99, 0.35);
+  box-shadow: 0 20px 60px rgba(233, 30, 99, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .stat-number {
@@ -7011,9 +7201,9 @@ body {
 }
 
 .comparison-card {
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 2.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .comparison-card:hover {
@@ -7021,8 +7211,13 @@ body {
 }
 
 .comparison-bad {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
 .comparison-bad:hover {
@@ -7030,9 +7225,13 @@ body {
 }
 
 .comparison-good {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.07);
   border: 2px solid rgba(233, 30, 99, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: relative;
+  overflow: hidden;
 }
 
 .comparison-good:hover {
@@ -7118,11 +7317,15 @@ body {
 .philosophy-quote {
   max-width: 900px;
   margin: 0 auto;
-  background: #1A1A1A;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 3rem;
   position: relative;
+  overflow: hidden;
   border: 2px solid rgba(233, 30, 99, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .quote-icon-big {
@@ -7194,11 +7397,16 @@ body {
 }
 
 .phase-card {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
   padding: 2.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
 }
 
@@ -7384,18 +7592,28 @@ body {
 }
 
 .workouts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
 
+.workouts-grid .workout-card {
+  flex: 0 1 calc(33.333% - 1rem);
+}
+
 .workout-card {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 4px solid var(--pink-primary);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -7647,9 +7865,14 @@ body {
 .all-loaded-message {
   text-align: center;
   padding: 3rem 2.5rem;
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
   margin-top: 2.5rem;
   max-width: 700px;
   margin-left: auto;
@@ -7728,13 +7951,17 @@ body {
 }
 
 .method-hero {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 4rem 3rem;
   margin-bottom: 5rem;
   position: relative;
+  overflow: hidden;
   z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .method-hero::before {
@@ -7801,11 +8028,16 @@ body {
 }
 
 .method-section .pillar-card {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 2.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
 }
 
 .method-section .pillar-card:hover {
@@ -7816,7 +8048,7 @@ body {
 .pillar-icon-wrap {
   width: 3.75rem;
   height: 3.75rem;
-  background: rgba(233, 30, 99, 0.15);
+  background: var(--pink-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -7827,7 +8059,7 @@ body {
 .method-section .pillar-letter {
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--pink-primary);
+  color: var(--white);
 }
 
 .pillar-title {
@@ -7876,9 +8108,14 @@ body {
 }
 
 .why-it-works {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
   padding: 4rem 3rem;
   margin-bottom: 5rem;
   position: relative;
@@ -7935,13 +8172,17 @@ body {
 .method-quote {
   max-width: 900px;
   margin: 0 auto;
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 3rem;
   text-align: center;
   position: relative;
+  overflow: hidden;
   z-index: 1;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .quote-icon-method {
@@ -8046,11 +8287,16 @@ body {
 }
 
 .annual-column {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.04);
   padding: 2.5rem;
-  border-radius: 8px;
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .annual-column:hover {
@@ -8190,11 +8436,14 @@ body {
 }
 
 .team-card {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
   overflow: hidden;
 }
@@ -8309,11 +8558,15 @@ body {
 .team-quote {
   max-width: 900px;
   margin: 0 auto;
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 3rem;
   position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .quote-icon-team {
@@ -8380,12 +8633,17 @@ body {
 }
 
 .pricing-why-box {
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 2.5rem;
   text-align: center;
   margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .pricing-icon-wrap {
@@ -8431,13 +8689,18 @@ body {
 }
 
 .pricing-point {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 4px solid var(--pink-primary);
-  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .pricing-point:hover {
@@ -8476,9 +8739,14 @@ body {
 }
 
 .pricing-truth-box {
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
   padding: 3rem;
   display: flex;
   align-items: flex-start;
@@ -9007,8 +9275,6 @@ body {
     padding: 1rem 2rem;
   }
 }
-
-
 /* === components/shop.css === */
 /* ===== SHOP / PRODUCT PAGE ===== */
 
@@ -11327,5 +11593,83 @@ body {
     .page-hero-subtitle {
         font-size: 0.95rem;
     }
+}
+
+/* ===== SVG ICON SYSTEM ===== */
+.workout-icon svg,
+.value-icon svg,
+.audience-icon svg,
+.partnership-icon svg,
+.book-feature-icon svg,
+.highlight-icon svg,
+.sector-icon svg,
+.truth-icon svg,
+.shop-target-icon svg,
+.team-page-highlight-icon svg,
+.social-cta-icon svg {
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: middle;
+}
+
+.team-icon svg,
+.column-icon svg,
+.comparison-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.icon-bad svg,
+.icon-good svg {
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: middle;
+}
+
+.team-credentials svg {
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: var(--pink-primary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: -0.1em;
+    margin-right: 0.15rem;
+}
+
+.contact-option-icon svg {
+    width: 1em;
+    height: 1em;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.event-list-location svg {
+    width: 0.9em;
+    height: 0.9em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: -0.1em;
 }
 

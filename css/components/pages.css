@@ -613,48 +613,8 @@
 }
 
 
-/* ===== COMPARISON TABLE ===== */
-.comparison-table {
-    max-width: 800px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-.comparison-header,
-.comparison-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.comparison-header {
-    background: var(--black);
-    color: var(--white);
-    font-weight: 600;
-}
-
-.comparison-col {
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.comparison-col:nth-child(2),
-.comparison-col:nth-child(3) {
-    text-align: center;
-}
-
-.comparison-col-highlight {
-    background: rgba(233, 30, 99, 0.08);
-    color: var(--pink-primary);
-    font-weight: 600;
-}
-
-.comparison-header .comparison-col-highlight {
-    background: var(--pink-primary);
-    color: var(--white);
-}
+/* ===== VS COMPARISON DUO ===== */
+/* (main styles in main.css bundled file) */
 
 /* ===== TESTIMONIAL METHOD ===== */
 .method-testimonial {
@@ -2423,14 +2383,6 @@
     .story-stats {
         flex-direction: column;
         align-items: center;
-    }
-
-    .comparison-table {
-        font-size: 0.85rem;
-    }
-
-    .comparison-col {
-        padding: 0.75rem;
     }
 
     .event-list-card {
