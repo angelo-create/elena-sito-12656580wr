@@ -4014,12 +4014,14 @@ body {
         width: 10rem;
     }
     .scroll-rows-masonry .scroll-item {
+        width: auto;
         height: 18rem;
     }
 }
 
 @media (max-width: 480px) {
     .scroll-rows-masonry .scroll-item {
+        width: auto;
         height: 14rem;
     }
 }
