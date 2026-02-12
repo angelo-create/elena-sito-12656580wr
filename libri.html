@@ -31,16 +31,8 @@
                 <div class="nav-dropdown-menu">
                     <a href="/libri" onclick="closeMobileMenu()">Libri</a>
                     <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="/risorse-gratuite" onclick="closeMobileMenu()">Risorse Gratuite</a>
                     <a href="/shop" onclick="closeMobileMenu()">Shop</a>
-                </div>
-            </div>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">▾</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="/partner" onclick="closeMobileMenu()">Diventa Partner</a>
-                    <a href="/press" onclick="closeMobileMenu()">Press & Media</a>
-                    <a href="/team" onclick="closeMobileMenu()">Team Medico</a>
+                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
                 </div>
             </div>
             <a href="/contatti" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
@@ -49,6 +41,7 @@
 
     <!-- PAGE HERO -->
     <section class="page-hero page-hero-pink">
+        <div class="page-hero-bg" style="background-image: url('img/elena-2025/IMG_9820.jpeg')"></div>
         <div class="page-hero-content">
             <span class="page-hero-badge">Libri</span>
             <h1 class="page-hero-title">Le guide per la tua trasformazione</h1>
@@ -156,6 +149,25 @@
         </div>
     </section>
 
+    <!-- L'AUTRICE -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image">
+                    <div class="story-image-box">
+                        <img src="img/elena-2025/IMG_9820.jpeg" alt="Elena Giordani con il libro Nel Corpo Che Vuoi" loading="lazy">
+                    </div>
+                </div>
+                <div class="story-content">
+                    <span class="section-number">L'AUTRICE</span>
+                    <h2 class="section-title" style="color: var(--white);">Elena <span class="highlight">Giordani</span></h2>
+                    <p style="color: rgba(255,255,255,0.7);">Life Health Coach, preparatrice atletico-sportiva e creatrice del Metodo E.A.S.Y. Con oltre 20 anni di esperienza e una community di 180.000 donne, Elena ha trasformato la vita di migliaia di persone.</p>
+                    <p style="color: rgba(255,255,255,0.7);">I suoi libri racchiudono anni di esperienza pratica, storie reali e strumenti concreti per chi vuole trasformare il proprio corpo e la propria mentalit&agrave;.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- REVIEWS -->
     <section class="section">
         <div class="container">
@@ -163,41 +175,76 @@
                 <span class="section-number">RECENSIONI</span>
                 <h2 class="section-title">Cosa dicono le <span class="highlight">lettrici</span></h2>
             </div>
-            <div class="book-reviews-grid">
-                <div class="book-review">
-                    <div class="book-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="book-review-text">
-                        "Finalmente un libro pratico! Non le solite teorie, ma esercizi concreti
-                        che puoi fare subito. Lo consiglio a tutte le donne che vogliono cambiare."
-                    </p>
-                    <div class="book-review-author">
-                        <span class="book-review-name">Valentina M.</span>
-                        <span class="book-review-verified">Acquisto verificato</span>
-                    </div>
-                </div>
-                <div class="book-review">
-                    <div class="book-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="book-review-text">
-                        "Ho comprato entrambi i libri e sono fantastici. Elena scrive come parla:
-                        diretta, motivante, senza giri di parole. Li ho già regalati a 3 amiche."
-                    </p>
-                    <div class="book-review-author">
-                        <span class="book-review-name">Francesca T.</span>
-                        <span class="book-review-verified">Acquisto verificato</span>
-                    </div>
-                </div>
-                <div class="book-review">
-                    <div class="book-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="book-review-text">
-                        "Il Primo Passo è stato il mio punto di partenza. Dopo 7 giorni
-                        mi sono iscritta all'Academy. Adesso sono una persona nuova."
-                    </p>
-                    <div class="book-review-author">
-                        <span class="book-review-name">Laura B.</span>
-                        <span class="book-review-verified">Acquisto verificato</span>
-                    </div>
-                </div>
+            <div class="scroll-rows-wrapper">
+                <div class="scroll-row" id="waRowLibA"></div>
+                <div class="scroll-row" id="waRowLibB"></div>
             </div>
+
+            <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
+                <button class="wa-lightbox-close">&times;</button>
+                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg">
+            </div>
+
+            <script>
+                function openWaLightbox(el) {
+                    var src = el.querySelector('img').src;
+                    document.getElementById('waLightboxImg').src = src;
+                    document.getElementById('waLightbox').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeWaLightbox() {
+                    document.getElementById('waLightbox').classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeWaLightbox(); });
+
+                (function() {
+                    var allImgs = ['19', '20', '21', '22', '23', '24'];
+                    for (var j = allImgs.length - 1; j > 0; j--) {
+                        var k = Math.floor(Math.random() * (j + 1));
+                        var tmp = allImgs[j]; allImgs[j] = allImgs[k]; allImgs[k] = tmp;
+                    }
+                    var rows = [
+                        { el: document.getElementById('waRowLibA'), imgs: allImgs.slice(0, 3), speed: 0.5, dir: 1 },
+                        { el: document.getElementById('waRowLibB'), imgs: allImgs.slice(3), speed: 0.4, dir: -1 }
+                    ];
+                    rows.forEach(function(row) {
+                        var html = '';
+                        row.imgs.forEach(function(n) {
+                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/testimonianze-whatsapp/whatsapp-' + n + '.jpg" alt="Testimonianza" loading="lazy"></div>';
+                        });
+                        row.el.innerHTML = html;
+                        var isDown = false, startX, scrollLeft;
+                        row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
+                        row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
+                        row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
+                        row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
+                        row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
+                        row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
+                        row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                    });
+                    rows.forEach(function(row) {
+                        if (row.dir === -1) {
+                            row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
+                        }
+                    });
+                    function autoScroll() {
+                        rows.forEach(function(row) {
+                            if (!row.paused) {
+                                row.el.scrollLeft += row.speed * row.dir;
+                                var maxScroll = row.el.scrollWidth - row.el.clientWidth;
+                                if (row.dir === 1 && row.el.scrollLeft >= maxScroll) {
+                                    row.el.scrollLeft = 0;
+                                } else if (row.dir === -1 && row.el.scrollLeft <= 0) {
+                                    row.el.scrollLeft = maxScroll;
+                                }
+                            }
+                        });
+                        requestAnimationFrame(autoScroll);
+                    }
+                    autoScroll();
+                })();
+            </script>
         </div>
     </section>
 
@@ -240,17 +287,15 @@
             <div class="footer-col">
                 <h4>Risorse</h4>
                 <ul>
-                    <li><a href="/risorse-gratuite">Risorse Gratuite</a></li>
                     <li><a href="/libri">Libri</a></li>
                     <li><a href="/eventi">Eventi</a></li>
-                    <li><a href="/team">Il Team</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contatti</h4>
                 <ul>
                     <li><a href="/contatti">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>

@@ -31,16 +31,8 @@
                 <div class="nav-dropdown-menu">
                     <a href="/libri" onclick="closeMobileMenu()">Libri</a>
                     <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="/risorse-gratuite" onclick="closeMobileMenu()">Risorse Gratuite</a>
                     <a href="/shop" onclick="closeMobileMenu()">Shop</a>
-                </div>
-            </div>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">▾</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="/partner" onclick="closeMobileMenu()">Diventa Partner</a>
-                    <a href="/press" onclick="closeMobileMenu()">Press & Media</a>
-                    <a href="/team" onclick="closeMobileMenu()">Team Medico</a>
+                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
                 </div>
             </div>
             <a href="/contatti" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
@@ -49,6 +41,7 @@
 
     <!-- PAGE HERO -->
     <section class="page-hero page-hero-pink">
+        <div class="page-hero-bg" style="background-image: url('img/elena-2025/Elena81.jpeg')"></div>
         <div class="page-hero-content">
             <span class="page-hero-badge">Il Metodo</span>
             <h1 class="page-hero-title">E.A.S.Y.</h1>
@@ -182,49 +175,82 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- PALINSESTO SETTIMANALE -->
     <section class="section">
         <div class="container">
             <div class="section-header center">
-                <span class="section-number">COME FUNZIONA</span>
-                <h2 class="section-title">Una giornata tipo in <span class="highlight">Academy</span></h2>
+                <span class="section-number">PALINSESTO</span>
+                <h2 class="section-title">Una settimana tipo in <span class="highlight">Academy</span></h2>
             </div>
-            <div class="day-timeline">
-                <div class="day-item">
-                    <div class="day-time">06:30</div>
-                    <div class="day-content">
-                        <h4>Prima sessione LIVE</h4>
-                        <p>Allenamento mattutino per chi preferisce iniziare presto la giornata</p>
-                    </div>
+            <div class="schedule-grid">
+
+                <div class="schedule-card">
+                    <div class="schedule-day">Luned&igrave;</div>
+                    <div class="schedule-subtitle">Fitness Workout</div>
+                    <ul class="schedule-sessions">
+                        <li><span class="schedule-time">06.00</span> Evolution</li>
+                        <li><span class="schedule-time">06.00</span> Empower</li>
+                        <li><span class="schedule-time">06.30</span> Empower</li>
+                        <li><span class="schedule-time">13.00</span> Empower/Evolution</li>
+                        <li><span class="schedule-time">18.45</span> Empower (anche scalato)</li>
+                    </ul>
                 </div>
-                <div class="day-item">
-                    <div class="day-time">09:00</div>
-                    <div class="day-content">
-                        <h4>Sessione classica</h4>
-                        <p>La lezione principale del giorno con Elena</p>
-                    </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-day">Marted&igrave;</div>
+                    <ul class="schedule-sessions">
+                        <li><span class="schedule-time">06.00</span> Yoga</li>
+                        <li><span class="schedule-time">06.00</span> Replica Fitness Empower/Evolution</li>
+                        <li><span class="schedule-time">13.00</span> Sessione Coaching</li>
+                        <li><span class="schedule-time">18.45</span> Yoga</li>
+                    </ul>
                 </div>
-                <div class="day-item">
-                    <div class="day-time">13:00</div>
-                    <div class="day-content">
-                        <h4>Martedi: Q&A Team Medico</h4>
-                        <p>Sessione settimanale con gli specialisti per domande e consulenze</p>
-                    </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-day">Mercoled&igrave;</div>
+                    <div class="schedule-subtitle">Fitness Workout</div>
+                    <ul class="schedule-sessions">
+                        <li><span class="schedule-time">06.00</span> Evolution</li>
+                        <li><span class="schedule-time">06.00</span> Empower</li>
+                        <li><span class="schedule-time">06.30</span> Empower</li>
+                        <li><span class="schedule-time">13.00</span> Empower/Evolution</li>
+                        <li><span class="schedule-time">18.45</span> Empower (anche scalato)</li>
+                    </ul>
                 </div>
-                <div class="day-item">
-                    <div class="day-time">18:30</div>
-                    <div class="day-content">
-                        <h4>Sessione serale</h4>
-                        <p>Per chi lavora e preferisce allenarsi dopo l'ufficio</p>
-                    </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-day">Gioved&igrave;</div>
+                    <ul class="schedule-sessions">
+                        <li><span class="schedule-time">06.00</span> Pilates</li>
+                        <li><span class="schedule-time">06.00</span> Replica Fitness Empower/Evolution</li>
+                        <li><span class="schedule-time">18.45</span> Pilates</li>
+                    </ul>
                 </div>
-                <div class="day-item">
-                    <div class="day-time">24/7</div>
-                    <div class="day-content">
-                        <h4>Community & Replay</h4>
-                        <p>Gruppo WhatsApp sempre attivo e tutte le lezioni disponibili in replica</p>
-                    </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-day">Venerd&igrave;</div>
+                    <div class="schedule-subtitle">X-Fit Tribe Day Fitness</div>
+                    <ul class="schedule-sessions">
+                        <li><span class="schedule-time">06.00</span> Tribe</li>
+                        <li><span class="schedule-time">06.30</span> Tribe</li>
+                        <li><span class="schedule-time">13.00</span> Tribe</li>
+                        <li><span class="schedule-time">18.45</span> Tribe</li>
+                    </ul>
                 </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-day">Sabato</div>
+                    <ul class="schedule-sessions">
+                        <li><span class="schedule-time">08.00</span> Wellness Rotation</li>
+                    </ul>
+                    <p class="schedule-note">tra Yoga, Posturale e Pilates</p>
+                </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-day">Domenica</div>
+                    <p class="schedule-special">2 volte al mese sessione di Running/Cardio Power</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -274,20 +300,80 @@
     <!-- TESTIMONIAL -->
     <section class="section">
         <div class="container">
-            <div class="method-testimonial">
-                <div class="testimonial-quote">
-                    "Il metodo E.A.S.Y. ha cambiato la mia vita. Non è stato facile, ma per la prima volta
-                    ho capito che il problema non era la mia forza di volonta. Era che nessuno mi aveva
-                    mai insegnato come fare davvero."
-                </div>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar"><img src="https://drive.google.com/thumbnail?id=10PVE74pgSVvC5r3BOleCvW-hUYRAlMRc&sz=w120" alt="Michela" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
-                    <div class="testimonial-info">
-                        <div class="testimonial-name">Michela, 42 anni</div>
-                        <div class="testimonial-detail">-18 kg in 8 mesi</div>
-                    </div>
-                </div>
+            <div class="section-header center">
+                <span class="section-number">TESTIMONIANZE</span>
+                <h2 class="section-title">Le loro <span class="highlight">parole</span></h2>
             </div>
+            <div class="scroll-rows-wrapper">
+                <div class="scroll-row" id="waRowMetA"></div>
+                <div class="scroll-row" id="waRowMetB"></div>
+            </div>
+
+            <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
+                <button class="wa-lightbox-close">&times;</button>
+                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg">
+            </div>
+
+            <script>
+                function openWaLightbox(el) {
+                    var src = el.querySelector('img').src;
+                    document.getElementById('waLightboxImg').src = src;
+                    document.getElementById('waLightbox').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeWaLightbox() {
+                    document.getElementById('waLightbox').classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeWaLightbox(); });
+
+                (function() {
+                    var allImgs = ['13', '14', '15', '16', '17', '18'];
+                    for (var j = allImgs.length - 1; j > 0; j--) {
+                        var k = Math.floor(Math.random() * (j + 1));
+                        var tmp = allImgs[j]; allImgs[j] = allImgs[k]; allImgs[k] = tmp;
+                    }
+                    var rows = [
+                        { el: document.getElementById('waRowMetA'), imgs: allImgs.slice(0, 3), speed: 0.5, dir: 1 },
+                        { el: document.getElementById('waRowMetB'), imgs: allImgs.slice(3), speed: 0.4, dir: -1 }
+                    ];
+                    rows.forEach(function(row) {
+                        var html = '';
+                        row.imgs.forEach(function(n) {
+                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/testimonianze-whatsapp/whatsapp-' + n + '.jpg" alt="Testimonianza" loading="lazy"></div>';
+                        });
+                        row.el.innerHTML = html;
+                        var isDown = false, startX, scrollLeft;
+                        row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
+                        row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
+                        row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
+                        row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
+                        row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
+                        row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
+                        row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                    });
+                    rows.forEach(function(row) {
+                        if (row.dir === -1) {
+                            row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
+                        }
+                    });
+                    function autoScroll() {
+                        rows.forEach(function(row) {
+                            if (!row.paused) {
+                                row.el.scrollLeft += row.speed * row.dir;
+                                var maxScroll = row.el.scrollWidth - row.el.clientWidth;
+                                if (row.dir === 1 && row.el.scrollLeft >= maxScroll) {
+                                    row.el.scrollLeft = 0;
+                                } else if (row.dir === -1 && row.el.scrollLeft <= 0) {
+                                    row.el.scrollLeft = maxScroll;
+                                }
+                            }
+                        });
+                        requestAnimationFrame(autoScroll);
+                    }
+                    autoScroll();
+                })();
+            </script>
         </div>
     </section>
 
@@ -330,17 +416,15 @@
             <div class="footer-col">
                 <h4>Risorse</h4>
                 <ul>
-                    <li><a href="/risorse-gratuite">Risorse Gratuite</a></li>
                     <li><a href="/libri">Libri</a></li>
                     <li><a href="/eventi">Eventi</a></li>
-                    <li><a href="/team">Il Team</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contatti</h4>
                 <ul>
                     <li><a href="/contatti">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>

@@ -45,16 +45,8 @@
                 dropdown: [
                     { href: '/libri', label: 'Libri' },
                     { href: '/eventi', label: 'Eventi' },
-                    { href: '/risorse-gratuite', label: 'Risorse Gratuite' },
-                    { href: '/shop', label: 'Shop' }
-                ]
-            },
-            {
-                label: 'Per Aziende',
-                dropdown: [
-                    { href: '/partner', label: 'Diventa Partner' },
-                    { href: '/press', label: 'Press & Media' },
-                    { href: '/team', label: 'Team Medico' }
+                    { href: '/shop', label: 'Shop' },
+                    { href: '/press', label: 'Leggi i miei articoli' }
                 ]
             }
         ];
