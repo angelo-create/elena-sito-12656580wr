@@ -1,16 +1,13 @@
 /* ===== PAGE SPECIFIC STYLES ===== */
 
-/* ===== PAGE HERO (same visual as .hero on homepage) ===== */
-.page-hero {
-    min-height: 60vh;
-    background: var(--black);
+/* ===== PAGE HERO WRAPPER (image spans hero + first section) ===== */
+.page-hero-wrapper {
     position: relative;
-    display: flex;
-    align-items: center;
+    background: var(--black);
     overflow: hidden;
 }
 
-.page-hero-bg {
+.page-hero-wrapper > .page-hero-bg {
     position: absolute;
     top: 0;
     right: 0;
@@ -21,7 +18,7 @@
     z-index: 1;
 }
 
-.page-hero-gradient {
+.page-hero-wrapper > .page-hero-gradient {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,13 +28,17 @@
     z-index: 2;
 }
 
-.page-hero-content {
+/* ===== PAGE HERO SECTION ===== */
+.page-hero {
     position: relative;
-    z-index: 10;
+    z-index: 3;
+}
+
+.page-hero-content {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 10rem 4rem 5rem;
+    padding: 10rem 4rem 4rem;
 }
 
 .page-hero-badge {
@@ -78,6 +79,34 @@
     color: rgba(255, 255, 255, 0.7);
     max-width: 480px;
     line-height: 1.9;
+}
+
+/* ===== SECTION INSIDE WRAPPER (dark overlay treatment) ===== */
+.page-hero-wrapper > .section {
+    position: relative;
+    z-index: 3;
+    background: transparent !important;
+}
+
+.page-hero-wrapper > .section h2,
+.page-hero-wrapper > .section h3,
+.page-hero-wrapper > .section h4,
+.page-hero-wrapper > .section label {
+    color: var(--white);
+}
+
+.page-hero-wrapper > .section p,
+.page-hero-wrapper > .section li,
+.page-hero-wrapper > .section span {
+    color: rgba(255,255,255,0.7);
+}
+
+.page-hero-wrapper > .section .highlight {
+    color: var(--pink-primary);
+}
+
+.page-hero-wrapper > .section a:not(.btn-primary):not(.nav-cta) {
+    color: var(--pink-primary);
 }
 
 /* ===== NAV LIGHT (for internal pages) ===== */
@@ -2286,23 +2315,19 @@
 }
 
 @media (max-width: 768px) {
-    .page-hero {
-        min-height: auto;
-    }
-
-    .page-hero-bg {
+    .page-hero-wrapper > .page-hero-bg {
         width: 100%;
         left: 0;
         right: auto;
     }
 
-    .page-hero-gradient {
-        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%);
+    .page-hero-wrapper > .page-hero-gradient {
+        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.85) 100%);
     }
 
     .page-hero-content {
         text-align: center;
-        padding: 6rem 1.5rem 3rem;
+        padding: 6rem 1.5rem 2rem;
     }
 
     .page-hero-title {
