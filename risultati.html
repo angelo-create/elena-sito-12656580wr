@@ -265,6 +265,7 @@
             <div class="scroll-rows-wrapper scroll-rows-masonry">
                 <div class="scroll-row" id="waRow1"></div>
                 <div class="scroll-row" id="waRow2"></div>
+                <div class="scroll-row" id="waRow3"></div>
             </div>
 
             <script>
@@ -277,8 +278,9 @@
                 }
                 var isMobile = window.innerWidth <= 768;
                 var rows = [
-                    { el: document.getElementById('waRow1'), imgs: allWa.slice(0, 15), speed: 0.5, dir: 1 },
-                    { el: document.getElementById('waRow2'), imgs: allWa.slice(15), speed: 0.4, dir: -1 }
+                    { el: document.getElementById('waRow1'), imgs: allWa.slice(0, 10), speed: 0.5, dir: 1 },
+                    { el: document.getElementById('waRow2'), imgs: allWa.slice(10, 20), speed: 0.4, dir: -1 },
+                    { el: document.getElementById('waRow3'), imgs: allWa.slice(20), speed: 0.45, dir: 1 }
                 ];
                 rows.forEach(function(row) {
                     var html = '';

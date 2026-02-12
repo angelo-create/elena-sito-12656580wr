@@ -3995,9 +3995,13 @@ body {
 }
 
 /* ===== HORIZONTAL MASONRY SCROLL (variable-width items) ===== */
+.scroll-rows-masonry {
+    gap: 0.75rem;
+}
+
 .scroll-rows-masonry .scroll-item {
     width: auto;
-    height: 16rem;
+    height: 10rem;
 }
 
 .scroll-rows-masonry .scroll-item img {
@@ -4015,14 +4019,14 @@ body {
     }
     .scroll-rows-masonry .scroll-item {
         width: auto;
-        height: 18rem;
+        height: 10rem;
     }
 }
 
 @media (max-width: 480px) {
     .scroll-rows-masonry .scroll-item {
         width: auto;
-        height: 14rem;
+        height: 8rem;
     }
 }
 
