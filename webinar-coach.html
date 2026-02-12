@@ -14,1069 +14,8 @@
     <meta property="og:description" content="Nel fitness c'e' un buco enorme: donne over 40 che nessuno sa allenare. Scopri come diventare la professionista che manca. Webinar gratuito, posti limitati.">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components/react-mobile-header.css">
-
-    <style>
-        /* ===== WEBINAR COACH - PAGE-SPECIFIC STYLES ===== */
-
-        /* Hero - Coach variant with form */
-        .wc-hero {
-            position: relative;
-            min-height: 100vh;
-            background: var(--black);
-            display: flex;
-            align-items: center;
-            padding: 7rem 4rem;
-            overflow: hidden;
-        }
-
-        .wc-hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-
-        .wc-hero-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .wc-hero-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to right,
-                rgba(0,0,0,0.85) 0%,
-                rgba(0,0,0,0.7) 40%,
-                rgba(0,0,0,0.5) 100%
-            );
-        }
-
-        .wc-hero::before {
-            content: '';
-            position: absolute;
-            top: -12.5rem;
-            right: -12.5rem;
-            width: 37.5rem;
-            height: 37.5rem;
-            background: radial-gradient(circle, rgba(233,30,99,0.15), transparent 70%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .wc-hero-grid {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .wc-hero-content {
-            max-width: 35rem;
-        }
-
-        .wc-pre-headline {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .wc-pre-headline::before {
-            content: '';
-            width: 2rem;
-            height: 1px;
-            background: var(--pink-primary);
-        }
-
-        .wc-hero-title {
-            font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-            font-weight: 800;
-            color: var(--white);
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 1.5rem;
-        }
-
-        .wc-hero-title em {
-            color: var(--pink-primary);
-            font-style: normal;
-        }
-
-        .wc-hero-subtitle {
-            font-size: 1rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.85);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .wc-hero-subtitle strong {
-            color: var(--white);
-            font-weight: 600;
-        }
-
-        .wc-event-info {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .wc-event-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .wc-event-item svg {
-            width: 1rem;
-            height: 1rem;
-            color: var(--pink-primary);
-            flex-shrink: 0;
-        }
-
-        .wc-scarcity {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--pink-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        /* Registration Form */
-        .wc-form-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 2.75rem 2.5rem;
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-
-        .wc-form-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--pink-primary);
-            border-radius: 20px 20px 0 0;
-        }
-
-        .wc-form-badge {
-            display: inline-block;
-            background: rgba(233,30,99,0.1);
-            border: 1px solid rgba(233,30,99,0.25);
-            color: var(--pink-primary);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .wc-form-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-        }
-
-        .wc-form-subtitle {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 2rem;
-        }
-
-        .wc-form-group {
-            margin-bottom: 1rem;
-        }
-
-        .wc-form-label {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 0.4rem;
-            letter-spacing: 0.05em;
-        }
-
-        .wc-form-input {
-            width: 100%;
-            padding: 0.9rem 1rem;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            color: var(--white);
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .wc-form-input::placeholder {
-            color: rgba(255,255,255,0.3);
-        }
-
-        .wc-form-input:focus {
-            outline: none;
-            border-color: var(--pink-primary);
-            background: rgba(233,30,99,0.05);
-        }
-
-        .wc-form-submit {
-            width: 100%;
-            padding: 1.15rem 2rem;
-            background: var(--pink-primary);
-            color: var(--white);
-            border: none;
-            border-radius: 0;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            margin-top: 0.5rem;
-        }
-
-        .wc-form-submit:hover {
-            background: var(--pink-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(233,30,99,0.4);
-        }
-
-        .wc-form-privacy {
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.35);
-            margin-top: 1rem;
-            text-align: center;
-            line-height: 1.5;
-        }
-
-        /* Pain Points Section */
-        .wc-pain-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            max-width: 900px;
-            margin: 3rem auto 0;
-        }
-
-        .wc-pain-item {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 12px;
-            padding: 1.5rem 1.75rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .wc-pain-item:hover {
-            border-color: rgba(233,30,99,0.2);
-        }
-
-        .wc-pain-icon {
-            width: 2rem;
-            height: 2rem;
-            flex-shrink: 0;
-            color: var(--pink-primary);
-            margin-top: 0.1rem;
-        }
-
-        .wc-pain-text {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
-            line-height: 1.6;
-        }
-
-        .wc-pain-close {
-            text-align: center;
-            margin-top: 2.5rem;
-            font-size: 1.05rem;
-            color: var(--white);
-            font-weight: 600;
-            font-style: italic;
-        }
-
-        /* Insight Section */
-        .wc-insight {
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        .wc-insight-title {
-            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            color: var(--white);
-            line-height: 1.2;
-            margin-bottom: 2rem;
-            letter-spacing: -0.02em;
-            text-align: center;
-        }
-
-        .wc-insight p {
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.7);
-            line-height: 1.9;
-            margin-bottom: 1rem;
-        }
-
-        .wc-insight .wc-result-list {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .wc-insight .wc-result-list li {
-            padding: 0.5rem 0;
-            position: relative;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.8);
-            font-style: italic;
-        }
-
-        .wc-insight .wc-result-list li::before {
-            content: '';
-            position: absolute;
-            left: -1.5rem;
-            top: 0.95rem;
-            width: 6px;
-            height: 6px;
-            background: var(--pink-primary);
-            border-radius: 50%;
-        }
-
-        .wc-insight .wc-insight-emphasis {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        .wc-insight .wc-insight-cta {
-            font-size: 1.1rem;
-            color: var(--pink-primary);
-            font-weight: 600;
-            font-style: italic;
-            margin-top: 1.5rem;
-        }
-
-        /* Learn Section - numbered items */
-        .wc-learn-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 3rem auto 0;
-        }
-
-        .wc-learn-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 20px;
-            padding: 2.25rem 2rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .wc-learn-card:hover {
-            border-color: rgba(233,30,99,0.25);
-            transform: translateY(-4px);
-        }
-
-        .wc-learn-card::before {
-            content: '';
-            position: absolute;
-            top: -5rem;
-            right: -5rem;
-            width: 10rem;
-            height: 10rem;
-            background: radial-gradient(circle, rgba(233,30,99,0.08), transparent 70%);
-            pointer-events: none;
-        }
-
-        .wc-learn-number {
-            font-size: 4rem;
-            font-weight: 900;
-            color: rgba(233,30,99,0.1);
-            line-height: 1;
-            margin-bottom: 1rem;
-            letter-spacing: -0.05em;
-        }
-
-        .wc-learn-card h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 0.6rem;
-            line-height: 1.3;
-        }
-
-        .wc-learn-card p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* Elena Bio Section */
-        .wc-bio-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .wc-bio-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 3/4;
-        }
-
-        .wc-bio-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .wc-bio-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30%;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-        }
-
-        .wc-bio-content h2 {
-            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            color: var(--white);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .wc-bio-text {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .wc-bio-credentials {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2rem;
-        }
-
-        .wc-bio-credentials li {
-            padding: 0.6rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.8);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .wc-bio-credentials li:last-child {
-            border-bottom: none;
-        }
-
-        .wc-bio-credentials li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 1rem;
-            width: 8px;
-            height: 8px;
-            background: var(--pink-primary);
-            border-radius: 50%;
-        }
-
-        .wc-bio-quote {
-            border-left: 3px solid var(--pink-primary);
-            padding: 1.25rem 1.5rem;
-            background: rgba(233,30,99,0.06);
-            border-radius: 0 8px 8px 0;
-            font-size: 1.05rem;
-            font-style: italic;
-            color: var(--white);
-            font-weight: 500;
-        }
-
-        /* Target Section - White variant */
-        .wc-target-section {
-            background: var(--white);
-            padding: 7rem 4rem;
-        }
-
-        .wc-target {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .wc-target .section-number {
-            color: var(--pink-primary);
-        }
-
-        .wc-target .section-title {
-            color: var(--black) !important;
-        }
-
-        .wc-target-list {
-            list-style: none;
-            padding: 0;
-            margin: 3rem 0 2rem;
-        }
-
-        .wc-target-list li {
-            padding: 1.25rem 1.5rem 1.25rem 3.5rem;
-            position: relative;
-            font-size: 1rem;
-            color: var(--black);
-            line-height: 1.6;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-            font-weight: 400;
-        }
-
-        .wc-target-list li:last-child {
-            border-bottom: none;
-        }
-
-        .wc-target-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-            background: var(--pink-primary);
-            border-radius: 50%;
-        }
-
-        .wc-target-list li::after {
-            content: '';
-            position: absolute;
-            left: 0.35rem;
-            top: 1.85rem;
-            width: 0.75rem;
-            height: 0.4rem;
-            border-left: 2.5px solid var(--white);
-            border-bottom: 2.5px solid var(--white);
-            transform: rotate(-45deg);
-        }
-
-        .wc-target-exclusion {
-            text-align: center;
-            font-size: 0.85rem;
-            color: rgba(0,0,0,0.4);
-            font-style: italic;
-            margin-top: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .wc-target-section {
-                padding: 4rem 1.5rem;
-            }
-        }
-
-        /* Final CTA with form */
-        .wc-cta-final {
-            background: var(--pink-primary);
-            text-align: center;
-            padding: 7rem 2rem;
-        }
-
-        .wc-cta-final-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .wc-cta-final h2 {
-            color: var(--white);
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .wc-cta-final p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 0.75rem;
-        }
-
-        .wc-cta-final .wc-event-details {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.8);
-            margin: 2rem 0;
-            font-weight: 500;
-        }
-
-        .wc-cta-final .ev-btn-white {
-            margin-top: 0.5rem;
-        }
-
-        .wc-cta-final-trust {
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.7);
-        }
-
-        /* FAQ White variant */
-        .wc-faq-white {
-            background: var(--white);
-            padding: 7rem 4rem;
-        }
-
-        .wc-faq-white .section-number {
-            color: var(--pink-primary);
-        }
-
-        .wc-faq-white .section-title {
-            color: var(--black) !important;
-        }
-
-        .wc-faq-white .ev-faq-item {
-            background: var(--gray-softer, #f5f5f5);
-            border: 1px solid rgba(0,0,0,0.06);
-        }
-
-        .wc-faq-white .ev-faq-question {
-            color: var(--black);
-        }
-
-        .wc-faq-white .ev-faq-question:hover {
-            background: rgba(233,30,99,0.05);
-        }
-
-        .wc-faq-white .ev-faq-answer p {
-            color: rgba(0,0,0,0.7);
-        }
-
-        .wc-faq-white .ev-faq-toggle {
-            color: var(--pink-primary);
-        }
-
-        @media (max-width: 768px) {
-            .wc-faq-white {
-                padding: 4rem 1.5rem;
-            }
-        }
-
-        /* OPES Certification Banner - Prominent */
-        .wc-opes-banner {
-            background: var(--white);
-            padding: 5rem 4rem;
-            border-top: 4px solid var(--pink-primary);
-        }
-
-        .wc-opes-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .wc-opes-logo {
-            width: 16rem;
-            margin: 0 auto 2rem;
-        }
-
-        .wc-opes-logo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .wc-opes-cert-name {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 700;
-            color: var(--black);
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .wc-opes-cert-name em {
-            color: var(--pink-primary);
-            font-style: normal;
-        }
-
-        .wc-opes-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1rem;
-        }
-
-        .wc-opes-disclaimer {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--black);
-            line-height: 1.6;
-            letter-spacing: -0.01em;
-        }
-
-        .wc-opes-sub {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: rgba(0,0,0,0.6);
-            margin-top: 0.5rem;
-            line-height: 1.6;
-        }
-
-        .wc-opes-pathway {
-            margin-top: 2.5rem;
-            text-align: left;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .wc-opes-pathway-title {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1.25rem;
-            text-align: center;
-        }
-
-        .wc-opes-pathway-note {
-            background: rgba(233,30,99,0.06);
-            border-left: 3px solid var(--pink-primary);
-            padding: 1rem 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .wc-opes-pathway-note p {
-            font-size: 0.9rem;
-            color: var(--black);
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        .wc-opes-pathway-note strong {
-            font-weight: 600;
-        }
-
-        .wc-opes-where-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--black);
-            margin-bottom: 1rem;
-        }
-
-        .wc-opes-where-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-        }
-
-        .wc-opes-where-list li {
-            padding: 0.6rem 1rem 0.6rem 2rem;
-            position: relative;
-            font-size: 0.9rem;
-            color: rgba(0,0,0,0.7);
-            line-height: 1.5;
-        }
-
-        .wc-opes-where-list li::before {
-            content: '';
-            position: absolute;
-            left: 0.5rem;
-            top: 0.95rem;
-            width: 6px;
-            height: 6px;
-            background: var(--pink-primary);
-            border-radius: 50%;
-        }
-
-        .wc-opes-extras {
-            font-size: 0.9rem;
-            color: rgba(0,0,0,0.7);
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
-        }
-
-        .wc-opes-extras strong {
-            color: var(--black);
-            font-weight: 600;
-        }
-
-        .wc-opes-opportunity {
-            margin-top: 2rem;
-            padding: 1.5rem 2rem;
-            background: var(--black);
-            border-radius: 12px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .wc-opes-opportunity p {
-            font-size: 0.95rem;
-            color: var(--white);
-            font-weight: 600;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .wc-opes-opportunity em {
-            color: var(--pink-primary);
-            font-style: normal;
-        }
-
-        .wc-opes-webinar-cta {
-            margin-top: 2rem;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--pink-primary);
-            font-style: italic;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .wc-opes-where-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .wc-opes-banner {
-                padding: 4rem 1.5rem;
-            }
-
-            .wc-opes-logo {
-                width: 12rem;
-            }
-        }
-
-        /* Press Logos Strip */
-        .wc-press {
-            background: var(--white);
-            padding: 3.5rem 4rem;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-
-        .wc-press-label {
-            text-align: center;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: rgba(0,0,0,0.35);
-            margin-bottom: 2rem;
-        }
-
-        .wc-press-logos {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .wc-press-logo {
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .wc-press-logo:hover {
-            opacity: 0.85;
-        }
-
-        .wc-press-logo img {
-            height: 1.75rem;
-            width: auto;
-            display: block;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .wc-press-logo:hover img {
-            filter: grayscale(0%);
-        }
-
-        .wc-press-logo span {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--black);
-            white-space: nowrap;
-        }
-
-        @media (max-width: 768px) {
-            .wc-press {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .wc-press-logos {
-                gap: 2rem;
-            }
-
-            .wc-press-logo img {
-                height: 1.25rem;
-            }
-        }
-
-        /* Sticky CTA */
-        .wc-sticky-cta {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #0A0A0A;
-            padding: 0.75rem 1.25rem;
-            box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
-            z-index: 1000;
-            border-top: 1px solid rgba(233,30,99,0.3);
-        }
-
-        .wc-sticky-cta .btn-primary {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .wc-hero-bg::after {
-                background: linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,0.8) 0%,
-                    rgba(0,0,0,0.7) 50%,
-                    rgba(0,0,0,0.85) 100%
-                );
-            }
-
-            .wc-hero {
-                padding: 5rem 2rem;
-            }
-
-            .wc-hero-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .wc-hero-content {
-                max-width: 100%;
-                text-align: center;
-            }
-
-            .wc-pre-headline {
-                justify-content: center;
-            }
-
-            .wc-event-info {
-                justify-content: center;
-            }
-
-            .wc-scarcity {
-                display: block;
-                text-align: center;
-            }
-
-            .wc-form-card {
-                max-width: 28rem;
-                margin: 0 auto;
-            }
-
-            .wc-bio-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .wc-bio-image {
-                max-width: 20rem;
-                margin: 0 auto;
-            }
-
-            .wc-bio-content {
-                text-align: center;
-            }
-
-            .wc-bio-quote {
-                text-align: left;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .wc-hero {
-                padding: 4rem 1.5rem;
-                min-height: auto;
-            }
-
-            .wc-pain-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .wc-learn-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .wc-sticky-cta {
-                display: block;
-            }
-
-            .wc-cta-final {
-                padding: 4rem 1.5rem 7rem;
-            }
-
-            .wc-event-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.75rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .wc-form-card {
-                padding: 2rem 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css?v=1739404800">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1739404800">
 </head>
 <body>
 
@@ -1130,7 +69,10 @@
                     10 milioni di donne over 40 cercano una trainer che le capisca. <em>Le specialiste sono quasi zero.</em>
                 </h1>
                 <p class="wc-hero-subtitle">
-                    Webinar gratuito con <strong>Elena Giordani</strong> &mdash; preparatrice atletica, 20 anni sul campo, 2.400 donne seguite in 8 paesi. Scopri il percorso esclusivo per ottenere il <strong>Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> rilasciato da OPES &mdash; riservato solo alle partecipanti del webinar.
+                    Webinar gratuito con <strong>Elena Giordani</strong> &mdash; preparatrice atletica, 20 anni sul campo, 2.400 donne seguite in 8 paesi. Scopri il percorso per la <strong>certificazione OPES</strong> riservata alle partecipanti.
+                </p>
+                <p class="wc-hero-subtitle-short">
+                    Webinar gratuito con <strong>Elena Giordani</strong> &mdash; 20 anni, 2.400 donne, 8 paesi. <strong>Certificazione OPES riconosciuta CONI.</strong>
                 </p>
                 <div class="wc-event-info">
                     <div class="wc-event-item">
@@ -1226,7 +168,7 @@
 
     <!-- EMOTION BREAK -->
     <section class="ev-emotion">
-        <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png" alt="" class="ev-emotion-bg" data-parallax>
+        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="ev-emotion-bg" data-parallax>
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
             <p>Il corpo femminile dopo i 40 cambia ogni 5 anni. <strong>I protocolli standard no.</strong></p>
@@ -1251,7 +193,7 @@
                     <li>Abbandono entro 3 mesi &mdash; e la cliente pensa di essere lei il problema</li>
                 </ul>
                 <p>Non &egrave; un problema di impegno. &Egrave; un problema di formazione. La tua scuola non ti ha insegnato la fisiologia femminile perch&eacute; quasi nessuna scuola lo fa.</p>
-                <p class="wc-insight-cta">In questo webinar gratuito vedrai esattamente cosa cambia &mdash; e scoprirai tutti i dettagli del percorso per ottenere il Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo; rilasciato da OPES.</p>
+                <p class="wc-insight-cta">In questo webinar gratuito vedrai esattamente cosa cambia &mdash; e scoprirai il percorso verso la certificazione OPES.</p>
             </div>
         </div>
     </section>
@@ -1295,7 +237,7 @@
     </section>
 
     <!-- CHI È ELENA -->
-    <section class="section section-black ev-bg-section" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
+    <section class="section section-black ev-bg-section">
         <div class="container">
             <div class="section-header center">
                 <span class="section-number">CHI TI GUIDER&Agrave;</span>
@@ -1392,7 +334,7 @@
 
     <!-- EMOTION BREAK 2 -->
     <section class="ev-emotion">
-        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="ev-emotion-bg" data-parallax>
+        <img src="https://res.cloudinary.com/dbuk5abrs/image/upload/v1767391795/6932cebfec99b39d6990391c_wjv0y9.png" alt="" class="ev-emotion-bg" data-parallax>
         <div class="ev-emotion-overlay"></div>
         <div class="ev-emotion-text">
             <p>Le trainer certificate migliori entreranno nel team di XFit Academy come coach ufficiali. <strong>Non &egrave; solo una certificazione. &Egrave; un'opportunit&agrave; di carriera.</strong></p>
@@ -1419,32 +361,67 @@
     </section>
 
     <!-- FAQ -->
-    <section class="wc-faq-white">
+    <section class="wc-faq-white shop-faq">
         <div class="container">
             <div class="section-header center">
                 <span class="section-number">DOMANDE</span>
                 <h2 class="section-title">Info <span class="highlight"><em>pratiche</em></span></h2>
             </div>
-            <div class="ev-faq-list">
-                <div class="ev-faq-item">
-                    <button class="ev-faq-question">Il webinar sar&agrave; registrato?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>No. &Egrave; live, non verr&agrave; registrato e non sar&agrave; ripetuto. Chi non c'&egrave;, non c'&egrave;.</p></div>
+            <div class="faq-list">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <h3>Il webinar sar&agrave; registrato?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>No. &Egrave; live, non verr&agrave; registrato e non sar&agrave; ripetuto. Chi non c'&egrave;, non c'&egrave;.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="ev-faq-item">
-                    <button class="ev-faq-question">Devo gi&agrave; avere certificazioni?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>No. Il webinar &egrave; utile sia a chi lavora gi&agrave; nel fitness sia a chi vuole entrarci con un posizionamento preciso. I contenuti sono accessibili a tutti, i dati sono di livello professionale.</p></div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <h3>Devo gi&agrave; avere certificazioni?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>No. Il webinar &egrave; utile sia a chi lavora gi&agrave; nel fitness sia a chi vuole entrarci con un posizionamento preciso. I contenuti sono accessibili a tutti, i dati sono di livello professionale.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="ev-faq-item">
-                    <button class="ev-faq-question">Quanto dura e cosa ricever&ograve;?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>75 minuti di contenuto, pi&ugrave; sessione domande e risposte live. Nessun pitch per i primi 60 minuti &mdash; solo dati, casi studio e metodo.</p></div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <h3>Quanto dura e cosa ricever&ograve;?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>75 minuti di contenuto, pi&ugrave; sessione domande e risposte live. Nessun pitch per i primi 60 minuti &mdash; solo dati, casi studio e metodo.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="ev-faq-item">
-                    <button class="ev-faq-question">Cosa mi serve per partecipare?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>Una connessione internet. Funziona da computer, tablet o smartphone via Zoom. Riceverai il link via email dopo l'iscrizione.</p></div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <h3>Cosa mi serve per partecipare?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Una connessione internet. Funziona da computer, tablet o smartphone via Zoom. Riceverai il link via email dopo l'iscrizione.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="ev-faq-item">
-                    <button class="ev-faq-question">Il webinar rilascia una certificazione?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>No, il webinar &egrave; gratuito e non rilascia certificazioni. Il percorso di certificazione &egrave; successivo al webinar ed &egrave; riservato esclusivamente alle partecipanti. Al termine del corso otterrai il Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;, rilasciato da OPES ai fini dell'Art. 25 del D.Lgs 36/2021. Il diploma &egrave; nominale, include l'inserimento negli elenchi tecnici OPES, e ti abilita a lavorare in palestre, centri sportivi, associazioni e SSD, studi personal training e attivit&agrave; in proprio. Nel webinar scoprirai tutti i dettagli.</p></div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <h3>Il webinar rilascia una certificazione?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>No, il webinar &egrave; gratuito. Nel webinar scoprirai tutti i dettagli del percorso di certificazione OPES, riservato alle partecipanti.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1455,7 +432,7 @@
         <div class="wc-cta-final-content">
             <h2>75 minuti che possono ridefinire la tua carriera.</h2>
             <p>Questo webinar non sar&agrave; registrato e non sar&agrave; ripetuto.</p>
-            <p>Scoprirai il percorso esclusivo per ottenere il <strong>Diploma Professionale in &ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</strong> rilasciato da OPES &mdash; riservato solo a chi partecipa al webinar. Le migliori certificate potranno entrare nel team di Elena come coach ufficiali. Il costo &egrave; zero. Il costo di non esserci lo decidi tu.</p>
+            <p>Scopri il percorso verso la <strong>certificazione OPES</strong> e la possibilit&agrave; di entrare nel team di Elena come coach ufficiale. Il costo &egrave; zero. Il costo di non esserci lo decidi tu.</p>
             <div class="wc-event-details">
                 Marzo 2026 &bull; Online su Zoom &bull; Gratuito &bull; Certificazione OPES
             </div>
@@ -1521,24 +498,14 @@
         </a>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=1739404800"></script>
 
     <!-- React (for mobile header) -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="js/react-mobile-header.js"></script>
+    <script src="js/react-mobile-header.js?v=1739404800"></script>
 
     <script>
-        // FAQ Accordion
-        document.querySelectorAll('.ev-faq-question').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var item = btn.closest('.ev-faq-item');
-                var isOpen = item.classList.contains('open');
-                document.querySelectorAll('.ev-faq-item').forEach(function(el) { el.classList.remove('open'); });
-                if (!isOpen) item.classList.add('open');
-            });
-        });
-
         // Sticky CTA on scroll (mobile)
         window.addEventListener('scroll', function() {
             var sticky = document.querySelector('.wc-sticky-cta');

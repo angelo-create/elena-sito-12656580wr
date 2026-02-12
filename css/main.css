@@ -39,5 +39,8 @@
 /* ===== Shop / E-Commerce ===== */
 @import url('components/shop.css');
 
+/* ===== Webinar Coach ===== */
+@import url('components/webinar-coach.css');
+
 /* ===== Responsive ===== */
 @import url('responsive.css');
