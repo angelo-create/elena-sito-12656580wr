@@ -4006,6 +4006,13 @@ body {
 }
 
 @media (max-width: 768px) {
+    .scroll-row {
+        overflow: hidden;
+        touch-action: pan-y;
+    }
+    .scroll-row .scroll-item {
+        width: 10rem;
+    }
     .scroll-rows-masonry .scroll-item {
         height: 18rem;
     }

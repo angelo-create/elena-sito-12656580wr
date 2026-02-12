@@ -185,9 +185,10 @@
                     row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
                     row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
                     row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
-                    row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
-                    row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
-                    row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                    var startY, isHorizontal = false;
+                    row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; startY = e.touches[0].pageY; scrollLeft = row.el.scrollLeft; isHorizontal = false; }, {passive: true});
+                    row.el.addEventListener('touchmove', function(e) { var dx = Math.abs(e.touches[0].pageX - startX), dy = Math.abs(e.touches[0].pageY - startY); if (!isHorizontal && dx > dy && dx > 10) { isHorizontal = true; row.paused = true; } if (isHorizontal) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); } }, {passive: true});
+                    row.el.addEventListener('touchend', function() { if (isHorizontal) { setTimeout(function() { row.paused = false; }, 2000); } });
                 });
                 rows.forEach(function(row) {
                     if (row.dir === -1) { row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth; }
@@ -263,9 +264,10 @@
                     row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
                     row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
                     row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
-                    row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
-                    row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
-                    row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                    var startY, isHorizontal = false;
+                    row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; startY = e.touches[0].pageY; scrollLeft = row.el.scrollLeft; isHorizontal = false; }, {passive: true});
+                    row.el.addEventListener('touchmove', function(e) { var dx = Math.abs(e.touches[0].pageX - startX), dy = Math.abs(e.touches[0].pageY - startY); if (!isHorizontal && dx > dy && dx > 10) { isHorizontal = true; row.paused = true; } if (isHorizontal) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); } }, {passive: true});
+                    row.el.addEventListener('touchend', function() { if (isHorizontal) { setTimeout(function() { row.paused = false; }, 2000); } });
                 });
                 rows.forEach(function(row) {
                     if (row.dir === -1) { row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth; }
