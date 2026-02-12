@@ -2373,11 +2373,15 @@
 
     .page-hero-gallery {
         width: 100%;
-        opacity: 0.2;
+        opacity: 0.45;
+    }
+
+    .page-hero-gallery-col:nth-child(3) {
+        display: none;
     }
 
     .page-hero-wrapper > .page-hero-gradient {
-        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.85) 100%);
+        background: rgba(0,0,0,0.6);
     }
 
     .page-hero-content {
