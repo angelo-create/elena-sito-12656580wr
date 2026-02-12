@@ -6,6 +6,17 @@
 (function() {
     'use strict';
 
+    function showShopMessage(msg) {
+        var existing = document.querySelector('.shop-toast');
+        if (existing) existing.remove();
+        var el = document.createElement('div');
+        el.className = 'shop-toast';
+        el.textContent = msg;
+        el.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--black);color:var(--white);padding:1rem 2rem;font-size:0.9rem;z-index:9999;border-left:3px solid var(--pink-primary);max-width:90vw;';
+        document.body.appendChild(el);
+        setTimeout(function() { el.remove(); }, 4000);
+    }
+
     var TIMER_KEY = 'eg_shop_first_visit';
     var TIMER_DURATION = 24 * 60 * 60 * 1000; // 24h in ms
 
@@ -157,7 +168,7 @@
         .then(function(result) {
             if (!result.ok) {
                 if (result.data.available === false) {
-                    alert(result.data.message || 'Questa opzione non e\u0300 ancora disponibile.');
+                    showShopMessage(result.data.message || 'Questa opzione non è ancora disponibile.');
                 } else {
                     throw new Error(result.data.error || 'Errore nel pagamento');
                 }
@@ -169,8 +180,7 @@
             }
         })
         .catch(function(err) {
-            console.error('Payment error:', err);
-            alert('Si e\u0300 verificato un errore. Riprova o contattaci.');
+            showShopMessage('Si è verificato un errore. Riprova o contattaci.');
         })
         .finally(function() {
             btn.disabled = false;

@@ -7,7 +7,7 @@
 // ===== TRANSFORMATIONS GALLERY =====
 const transformationImages = [];
 for (let i = 37; i <= 186; i++) {
-    transformationImages.push('img/prima-e-dopo/' + i + '.png');
+    transformationImages.push('img/prima-e-dopo-webp/' + i + '.webp');
 }
 
 let currentLightboxIndex = 0;
