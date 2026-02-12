@@ -28,6 +28,56 @@
     z-index: 2;
 }
 
+/* ===== PAGE HERO GALLERY (scrolling testimonials) ===== */
+.page-hero-gallery {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    gap: 0.75rem;
+    overflow: hidden;
+    padding: 0 0.75rem;
+}
+
+.page-hero-gallery-col {
+    flex: 1;
+    overflow: hidden;
+}
+
+.page-hero-gallery-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    animation: gallery-up 60s linear infinite;
+}
+
+.page-hero-gallery-col:nth-child(2) .page-hero-gallery-scroll {
+    animation: gallery-down 55s linear infinite;
+}
+
+.page-hero-gallery-col:nth-child(3) .page-hero-gallery-scroll {
+    animation-duration: 50s;
+}
+
+.page-hero-gallery-scroll img {
+    width: 100%;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+@keyframes gallery-up {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+@keyframes gallery-down {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
 /* ===== PAGE HERO SECTION ===== */
 .page-hero {
     position: relative;
@@ -2319,6 +2369,11 @@
         width: 100%;
         left: 0;
         right: auto;
+    }
+
+    .page-hero-gallery {
+        width: 100%;
+        opacity: 0.2;
     }
 
     .page-hero-wrapper > .page-hero-gradient {
