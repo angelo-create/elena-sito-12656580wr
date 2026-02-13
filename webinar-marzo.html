@@ -54,7 +54,11 @@
     <!-- PANNELLO ADMIN — si attiva con ?admin nell'URL -->
     <script>
     (function() {
-        if (location.search.indexOf('admin') === -1) return;
+        // Accesso: ?x=vfit + password
+        var params = new URLSearchParams(location.search);
+        if (params.get('x') !== 'vfit') return;
+        var pwd = prompt('Password admin:');
+        if (pwd !== 'VfitAdmin!') { alert('Password errata.'); return; }
         document.addEventListener('DOMContentLoaded', function() {
             var W = window.WEBINAR;
             var isoDate = W.countdownISO.split('T')[0];
@@ -444,34 +448,6 @@
     </style>
 </head>
 <body>
-
-    <!-- React Mobile Header Mount Point -->
-    <div id="react-mobile-header-root"></div>
-
-    <!-- NAVIGATION -->
-    <nav class="nav" id="navbar">
-        <a href="/" class="nav-logo">ELENA GIORDANI</a>
-        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-menu" id="navMenu">
-            <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
-            <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
-            <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="/libri" onclick="closeMobileMenu()">Libri</a>
-                    <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="/shop" onclick="closeMobileMenu()">Shop</a>
-                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
-                </div>
-            </div>
-            <a href="#iscriviti" class="nav-cta" onclick="closeMobileMenu()">Iscriviti Gratis</a>
-        </div>
-    </nav>
 
     <!-- HERO -->
     <section class="hero">
@@ -1103,34 +1079,11 @@
                 <div class="footer-logo">ELENA GIORDANI</div>
                 <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
             </div>
-            <div class="footer-col">
-                <h4>Percorsi</h4>
-                <ul>
-                    <li><a href="/#percorsi">Il Primo Passo</a></li>
-                    <li><a href="/#percorsi">X-Fit Academy</a></li>
-                    <li><a href="/#percorsi">Club Inarrestabili</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Risorse</h4>
-                <ul>
-                    <li><a href="/libri">Libri</a></li>
-                    <li><a href="/eventi">Eventi</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contatti</h4>
-                <ul>
-                    <li><a href="/contatti">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
-                </ul>
-            </div>
         </div>
         <div class="footer-bottom">
             <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
             <div class="footer-legal">
-                <a href="#">Cookie Policy</a>
-                <a href="#">Privacy Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
             </div>
         </div>
     </footer>
