@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Se la pagina è caricata dentro l'iframe del form GHL, esce e apre a schermo intero -->
+    <script>if(window.self!==window.top){try{window.top.location.href=window.location.href}catch(e){}}</script>
     <title>Sei Dentro! - 3 Sere con Elena Giordani</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
@@ -33,7 +35,8 @@
         whatsappMessaggio: "Ci sar\u00f2 al webinar del 10-11-12 Marzo!"
     };
     // URL params da GHL sovrascrivono il config (se presenti)
-    // Redirect GHL: webinar-marzo-grazie.html?data=...&codice=...&link=...&luogo=...
+    // ─── REDIRECT URL DA INCOLLARE IN GHL (Form → Settings → Thank You) ───
+    // https://TUO-DOMINIO/webinar-marzo-grazie.html?data={{custom_values.data}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}&luogo={{custom_values.luogo_webinar}}
     (function() {
         var p = new URLSearchParams(location.search);
         if (p.get('data'))   THANKYOU.data = p.get('data');
