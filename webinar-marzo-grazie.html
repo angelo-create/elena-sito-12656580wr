@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sei Dentro! - 3 Sere con Elena Giordani</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+
+    <style>
+        /* ===== THANK YOU PAGE STYLES ===== */
+
+        /* Success Header */
+        .ty-hero {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 5rem;
+            overflow: hidden;
+        }
+
+        .ty-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .ty-hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, var(--black) 100%);
+            z-index: 1;
+        }
+
+        .ty-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .ty-check-icon {
+            width: 5rem;
+            height: 5rem;
+            background: var(--pink-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: ty-scaleIn 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 0 60px rgba(233,30,99,0.4), 0 0 120px rgba(233,30,99,0.15);
+        }
+
+        .ty-check-icon svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @keyframes ty-scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .ty-hero-content h1 {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .ty-hero-content h1 .highlight {
+            color: var(--pink-primary);
+        }
+
+        .ty-hero-content > p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Info Card */
+        .ty-info-card {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(233,30,99,0.25);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 650px;
+            margin: -2rem auto 0;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+        }
+
+        .ty-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent);
+            pointer-events: none;
+        }
+
+        .ty-info-card h2 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .ty-info-card .ty-info-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .ty-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ty-info-item {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+
+        .ty-info-item .ty-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ty-info-item .ty-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.25rem;
+        }
+
+        .ty-info-item .ty-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .ty-access-code {
+            background: rgba(233,30,99,0.08);
+            border: 1px dashed rgba(233,30,99,0.35);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .ty-access-code .ty-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .ty-access-code .ty-code {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--pink-primary);
+            letter-spacing: 0.1em;
+        }
+
+        /* Warning */
+        .ty-warning {
+            max-width: 650px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .ty-warning-card {
+            background: rgba(255,193,7,0.06);
+            border: 1px solid rgba(255,193,7,0.2);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+        }
+
+        .ty-warning-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+        }
+
+        .ty-warning-card strong {
+            color: #FFC107;
+        }
+
+        /* Steps */
+        .ty-steps-inner {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .ty-step-card {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .ty-step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+            pointer-events: none;
+        }
+
+        .ty-step-card:hover {
+            border-color: rgba(233,30,99,0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(233,30,99,0.08), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .ty-step-number {
+            width: 3.25rem;
+            height: 3.25rem;
+            background: var(--pink-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--white);
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(233,30,99,0.3);
+        }
+
+        .ty-step-content {
+            flex: 1;
+        }
+
+        .ty-step-content h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .ty-step-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .ty-step-content p strong {
+            color: var(--white);
+        }
+
+        .ty-step-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .ty-step-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .ty-btn-whatsapp {
+            background: #25D366;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+        }
+
+        .ty-btn-whatsapp:hover {
+            box-shadow: 0 12px 35px rgba(37,211,102,0.45);
+        }
+
+        .ty-btn-calendar {
+            background: #4285F4;
+            box-shadow: 0 8px 25px rgba(66,133,244,0.3);
+        }
+
+        .ty-btn-calendar:hover {
+            box-shadow: 0 12px 35px rgba(66,133,244,0.45);
+        }
+
+        .ty-btn-instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            box-shadow: 0 8px 25px rgba(225,48,108,0.3);
+        }
+
+        .ty-btn-instagram:hover {
+            box-shadow: 0 12px 35px rgba(225,48,108,0.45);
+        }
+
+        /* Referral */
+        .ty-referral-card {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(233,30,99,0.25);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+        }
+
+        .ty-referral-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent);
+            pointer-events: none;
+        }
+
+        .ty-referral-emoji {
+            font-size: 3rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .ty-referral-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .ty-referral-card h3 span {
+            color: var(--pink-primary);
+        }
+
+        .ty-referral-card > p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .ty-referral-quote {
+            background: rgba(233,30,99,0.08);
+            border-left: 3px solid var(--pink-primary);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .ty-referral-quote p {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .ty-referral-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .ty-referral-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .ty-referral-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .ty-referral-btn.ty-share {
+            background: #25D366;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+        }
+
+        .ty-referral-btn.ty-copy {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .ty-referral-btn.ty-copy:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        .ty-copy-feedback {
+            font-size: 0.8rem;
+            color: var(--pink-primary);
+            margin-top: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .ty-copy-feedback.show {
+            opacity: 1;
+        }
+
+        /* Done */
+        .ty-done {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .ty-done h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .ty-done p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .ty-done .ty-signature {
+            font-style: italic;
+            color: var(--pink-primary);
+            font-weight: 600;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ty-hero {
+                padding: 8rem 1.5rem 4rem;
+                min-height: 40vh;
+            }
+
+            .ty-info-card {
+                margin: -1.5rem 1.5rem 0;
+                padding: 2rem 1.5rem;
+            }
+
+            .ty-info-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .ty-warning {
+                padding: 0 1.5rem;
+            }
+
+            .ty-step-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .ty-step-number {
+                margin: 0 auto;
+            }
+
+            .ty-step-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .ty-referral-card {
+                margin: 0 1.5rem;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- React Mobile Header Mount Point -->
+    <div id="react-mobile-header-root"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="navbar">
+        <a href="/" class="nav-logo">ELENA GIORDANI</a>
+        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <div class="nav-dropdown">
+                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
+                <div class="nav-dropdown-menu">
+                    <a href="/libri" onclick="closeMobileMenu()">Libri</a>
+                    <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="/shop" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SUCCESS -->
+    <section class="ty-hero">
+        <img src="img/elena-webp/IMG_9183.webp" alt="" class="ty-hero-bg" loading="eager">
+        <div class="ty-hero-gradient"></div>
+        <div class="ty-hero-content">
+            <div class="ty-check-icon">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h1>Perfetto, <span class="highlight">sei dentro!</span></h1>
+            <p>La tua iscrizione &egrave; confermata. Segui i passi qui sotto per assicurarti il tuo posto.</p>
+        </div>
+    </section>
+
+    <!-- WEBINAR INFO -->
+    <section class="section section-black" style="padding-top: 0;">
+        <div class="container">
+            <div class="ty-info-card">
+                <h2>Il Webinar</h2>
+                <p class="ty-info-title">3 Sere con Elena Giordani</p>
+
+                <div class="ty-info-grid">
+                    <div class="ty-info-item">
+                        <div class="ty-icon">&#128197;</div>
+                        <div class="ty-label">Quando</div>
+                        <div class="ty-value">{{custom_values.data}}</div>
+                    </div>
+                    <div class="ty-info-item">
+                        <div class="ty-icon">&#128344;</div>
+                        <div class="ty-label">Orario</div>
+                        <div class="ty-value">Ore 18:30</div>
+                    </div>
+                    <div class="ty-info-item">
+                        <div class="ty-icon">&#128205;</div>
+                        <div class="ty-label">Dove</div>
+                        <div class="ty-value">{{custom_values.luogo_webinar}}</div>
+                    </div>
+                </div>
+
+                <div class="ty-access-code">
+                    <div class="ty-label">Il tuo codice di accesso</div>
+                    <div class="ty-code">{{custom_values.codice_accesso_webinar}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WARNING -->
+    <div class="ty-warning">
+        <div class="ty-warning-card">
+            <p>&#9888;&#65039; <strong>Solo chi completa i 3 passi qui sotto ricever&agrave; il link di accesso.</strong><br>Se non lo fai ora, perderai il tuo posto.</p>
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">3 PASSI FONDAMENTALI</span>
+                <h2 class="section-title" style="color: var(--white);">Cosa devi fare <span class="highlight"><em>adesso</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Non rimandare. Bastano 2 minuti.</p>
+            </div>
+            <div class="ty-steps-inner">
+                <!-- STEP 1: WHATSAPP -->
+                <div class="ty-step-card">
+                    <div class="ty-step-number">1</div>
+                    <div class="ty-step-content">
+                        <h3>Conferma su WhatsApp</h3>
+                        <p>Clicca il pulsante e scrivimi <strong>&ldquo;Ci sar&ograve;!&rdquo;</strong> per confermare la tua presenza e ricevere i promemoria.</p>
+                        <a href="https://wa.me/393762543276?text=Ci%20sar%C3%B2%20al%20webinar%20del%2010-11-12%20Marzo!" class="ty-step-btn ty-btn-whatsapp">
+                            Conferma su WhatsApp <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- STEP 2: CALENDARIO -->
+                <div class="ty-step-card">
+                    <div class="ty-step-number">2</div>
+                    <div class="ty-step-content">
+                        <h3>Blocca le date in calendario</h3>
+                        <p>Aggiungi l'evento al calendario cos&igrave; non rischi di dimenticartene. <strong>10-11-12 Marzo alle 18:30.</strong></p>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=3+Sere+con+Elena+Giordani&dates=20260310T173000Z/20260310T193000Z&details=Webinar+gratuito+con+Elena+Giordani.%0A%0ALink+accesso:+{{custom_values.link_webinar}}%0ACodice:+{{custom_values.codice_accesso_webinar}}&location=Online&recur=RRULE:FREQ=DAILY;COUNT=3" target="_blank" class="ty-step-btn ty-btn-calendar">
+                            Aggiungi al Calendario <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- STEP 3: INSTAGRAM -->
+                <div class="ty-step-card">
+                    <div class="ty-step-number">3</div>
+                    <div class="ty-step-content">
+                        <h3>Seguici su Instagram</h3>
+                        <p>Vieni in Direct e scrivimi <strong>&ldquo;INARRESTABILE&rdquo;</strong> per ricevere contenuti esclusivi che non condivido altrove.</p>
+                        <a href="https://www.instagram.com/elenagiordani_lifecoach" target="_blank" class="ty-step-btn ty-btn-instagram">
+                            Vai su Instagram <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFERRAL -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="ty-referral-card">
+                <div class="ty-referral-emoji">&#128111;&#8205;&#9792;&#65039;</div>
+                <h3>Hai un'amica che <span>deve</span> sentire questo?</h3>
+                <p>Sai quella che dopo l'8 Marzo dice &ldquo;quest'anno mi rimetto in forma&rdquo;... e poi a maggio &egrave; punto e a capo?<br>Invitala. Fate questo percorso insieme.</p>
+
+                <div class="ty-referral-quote">
+                    <p>&ldquo;Le trasformazioni pi&ugrave; belle le ho viste quando le donne arrivano in coppia. Si sostengono, si motivano, non mollano.&rdquo;</p>
+                </div>
+
+                <div class="ty-referral-buttons">
+                    <button onclick="shareWithFriend()" class="ty-referral-btn ty-share">
+                        Condividi con un'amica <span>&rarr;</span>
+                    </button>
+                    <button onclick="copyLink()" class="ty-referral-btn ty-copy">
+                        Copia il link
+                    </button>
+                    <p class="ty-copy-feedback" id="copyFeedback">&#10003; Link copiato!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DONE -->
+    <section class="section section-black" style="border-top: 1px solid rgba(255,255,255,0.08);">
+        <div class="container">
+            <div class="ty-done">
+                <h3>Fatto tutto?</h3>
+                <p>Perfetto! Ora puoi chiudere questa pagina.</p>
+                <p>Ci vediamo al webinar.</p>
+                <p class="ty-signature">&mdash; Elena</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Percorsi</h4>
+                <ul>
+                    <li><a href="/#percorsi">Il Primo Passo</a></li>
+                    <li><a href="/#percorsi">X-Fit Academy</a></li>
+                    <li><a href="/#percorsi">Club Inarrestabili</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="/libri">Libri</a></li>
+                    <li><a href="/eventi">Eventi</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="/contatti">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="#">Cookie Policy</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="js/main.js?v=1767489274"></script>
+
+    <!-- React (for mobile header) -->
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
+
+    <script>
+        var referralLink = 'https://lp.elenagiordani.com/registrazione?utm_source=referral&utm_medium=thankyou&utm_campaign=webinar-marzo';
+        var shareText = 'Ho appena scoperto questo webinar gratuito con Elena Giordani sul perché molliamo sempre dopo pochi giorni. Mi sa che ti interessa 👇';
+
+        function shareWithFriend() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '3 Serate Gratuite con Elena Giordani',
+                    text: shareText,
+                    url: referralLink
+                }).catch(function() {
+                    fallbackToWhatsApp();
+                });
+            } else {
+                fallbackToWhatsApp();
+            }
+        }
+
+        function fallbackToWhatsApp() {
+            var message = encodeURIComponent(shareText + '\n\n' + referralLink);
+            window.open('https://wa.me/?text=' + message, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(referralLink).then(function() {
+                var feedback = document.getElementById('copyFeedback');
+                feedback.classList.add('show');
+                setTimeout(function() {
+                    feedback.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>
