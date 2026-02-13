@@ -38,7 +38,15 @@
     // ─── REDIRECT URL DA INCOLLARE IN GHL (Form → Settings → Thank You) ───
     // https://go.elenagiordani.com/webinar-marzo-grazie.html?data={{custom_values.data}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}&luogo={{custom_values.luogo_webinar}}
     (function() {
-        var p = new URLSearchParams(location.search);
+        // GHL a volte codifica = come &#x3D; → il # spezza l'URL.
+        // Ricostruiamo la query fixando #x3D; → %3D prima di parsare.
+        var raw = location.href;
+        var fixed = raw.replace(/#x3D;/g, '%3D');
+        var qIdx = fixed.indexOf('?');
+        var search = qIdx > -1 ? fixed.substring(qIdx) : '';
+        var hIdx = search.indexOf('#');
+        if (hIdx > -1) search = search.substring(0, hIdx);
+        var p = new URLSearchParams(search);
         if (p.get('data'))   THANKYOU.data = p.get('data');
         if (p.get('codice')) THANKYOU.codiceAccesso = p.get('codice');
         if (p.get('link'))   THANKYOU.linkWebinar = p.get('link');
