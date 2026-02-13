@@ -13,6 +13,36 @@
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
 
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║  CONFIGURAZIONE THANK YOU — MODIFICA SOLO QUI!              ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <script>
+    var THANKYOU = {
+        // --- DATE E ORARIO ---
+        data:         "10-11-12 Marzo",
+        orario:       "18:30",
+        countdownISO: "2026-03-10T18:30:00+01:00",   // per link Google Calendar
+
+        // --- ACCESSO WEBINAR ---
+        luogo:         "Zoom",                         // piattaforma
+        codiceAccesso: "INSERISCI-CODICE",             // codice accesso
+        linkWebinar:   "https://zoom.us/j/INSERISCI",  // link zoom/meet
+
+        // --- WHATSAPP (step 1) ---
+        whatsappNumero:    "393762543276",
+        whatsappMessaggio: "Ci sar\u00f2 al webinar del 10-11-12 Marzo!"
+    };
+    // URL params da GHL sovrascrivono il config (se presenti)
+    // Redirect GHL: webinar-marzo-grazie.html?data=...&codice=...&link=...&luogo=...
+    (function() {
+        var p = new URLSearchParams(location.search);
+        if (p.get('data'))   THANKYOU.data = p.get('data');
+        if (p.get('codice')) THANKYOU.codiceAccesso = p.get('codice');
+        if (p.get('link'))   THANKYOU.linkWebinar = p.get('link');
+        if (p.get('luogo'))  THANKYOU.luogo = p.get('luogo');
+    })();
+    </script>
+
     <style>
         /* ===== THANK YOU PAGE STYLES ===== */
 
@@ -555,33 +585,6 @@
 </head>
 <body>
 
-    <!-- React Mobile Header Mount Point -->
-    <div id="react-mobile-header-root"></div>
-
-    <!-- NAVIGATION -->
-    <nav class="nav" id="navbar">
-        <a href="/" class="nav-logo">ELENA GIORDANI</a>
-        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-menu" id="navMenu">
-            <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
-            <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
-            <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="/libri" onclick="closeMobileMenu()">Libri</a>
-                    <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="/shop" onclick="closeMobileMenu()">Shop</a>
-                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
     <!-- HERO SUCCESS -->
     <section class="ty-hero">
         <img src="img/elena-webp/IMG_9183.webp" alt="" class="ty-hero-bg" loading="eager">
@@ -606,23 +609,23 @@
                     <div class="ty-info-item">
                         <div class="ty-icon">&#128197;</div>
                         <div class="ty-label">Quando</div>
-                        <div class="ty-value">{{custom_values.data}}</div>
+                        <div class="ty-value" data-cfg="data">10-11-12 Marzo</div>
                     </div>
                     <div class="ty-info-item">
                         <div class="ty-icon">&#128344;</div>
                         <div class="ty-label">Orario</div>
-                        <div class="ty-value">Ore 18:30</div>
+                        <div class="ty-value" data-cfg="orario-display">Ore 18:30</div>
                     </div>
                     <div class="ty-info-item">
                         <div class="ty-icon">&#128205;</div>
                         <div class="ty-label">Dove</div>
-                        <div class="ty-value">{{custom_values.luogo_webinar}}</div>
+                        <div class="ty-value" data-cfg="luogo">Zoom</div>
                     </div>
                 </div>
 
                 <div class="ty-access-code">
                     <div class="ty-label">Il tuo codice di accesso</div>
-                    <div class="ty-code">{{custom_values.codice_accesso_webinar}}</div>
+                    <div class="ty-code" data-cfg="codice">INSERISCI-CODICE</div>
                 </div>
             </div>
         </div>
@@ -650,7 +653,7 @@
                     <div class="ty-step-content">
                         <h3>Conferma su WhatsApp</h3>
                         <p>Clicca il pulsante e scrivimi <strong>&ldquo;Ci sar&ograve;!&rdquo;</strong> per confermare la tua presenza e ricevere i promemoria.</p>
-                        <a href="https://wa.me/393762543276?text=Ci%20sar%C3%B2%20al%20webinar%20del%2010-11-12%20Marzo!" class="ty-step-btn ty-btn-whatsapp">
+                        <a href="#" id="tyWhatsapp" class="ty-step-btn ty-btn-whatsapp">
                             Conferma su WhatsApp <span>&rarr;</span>
                         </a>
                     </div>
@@ -661,8 +664,8 @@
                     <div class="ty-step-number">2</div>
                     <div class="ty-step-content">
                         <h3>Blocca le date in calendario</h3>
-                        <p>Aggiungi l'evento al calendario cos&igrave; non rischi di dimenticartene. <strong>10-11-12 Marzo alle 18:30.</strong></p>
-                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=3+Sere+con+Elena+Giordani&dates=20260310T173000Z/20260310T193000Z&details=Webinar+gratuito+con+Elena+Giordani.%0A%0ALink+accesso:+{{custom_values.link_webinar}}%0ACodice:+{{custom_values.codice_accesso_webinar}}&location=Online&recur=RRULE:FREQ=DAILY;COUNT=3" target="_blank" class="ty-step-btn ty-btn-calendar">
+                        <p>Aggiungi l'evento al calendario cos&igrave; non rischi di dimenticartene. <strong data-cfg="dates-text">10-11-12 Marzo alle 18:30.</strong></p>
+                        <a href="#" id="tyCalendar" target="_blank" class="ty-step-btn ty-btn-calendar">
                             Aggiungi al Calendario <span>&rarr;</span>
                         </a>
                     </div>
@@ -727,34 +730,11 @@
                 <div class="footer-logo">ELENA GIORDANI</div>
                 <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
             </div>
-            <div class="footer-col">
-                <h4>Percorsi</h4>
-                <ul>
-                    <li><a href="/#percorsi">Il Primo Passo</a></li>
-                    <li><a href="/#percorsi">X-Fit Academy</a></li>
-                    <li><a href="/#percorsi">Club Inarrestabili</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Risorse</h4>
-                <ul>
-                    <li><a href="/libri">Libri</a></li>
-                    <li><a href="/eventi">Eventi</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contatti</h4>
-                <ul>
-                    <li><a href="/contatti">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
-                </ul>
-            </div>
         </div>
         <div class="footer-bottom">
             <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
             <div class="footer-legal">
-                <a href="#">Cookie Policy</a>
-                <a href="#">Privacy Policy</a>
+                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
             </div>
         </div>
     </footer>
@@ -767,6 +747,34 @@
     <script defer src="js/react-mobile-header.js?v=1767489274"></script>
 
     <script>
+        // ===== POPOLA PAGINA DA CONFIG =====
+        (function() {
+            var C = THANKYOU;
+            var map = {
+                'data':            C.data,
+                'orario-display':  'Ore ' + C.orario,
+                'luogo':           C.luogo,
+                'codice':          C.codiceAccesso,
+                'dates-text':      C.data + ' alle ' + C.orario + '.'
+            };
+            document.querySelectorAll('[data-cfg]').forEach(function(el) {
+                var val = map[el.getAttribute('data-cfg')];
+                if (val) el.textContent = val;
+            });
+            // WhatsApp (step 1)
+            var wa = document.getElementById('tyWhatsapp');
+            if (wa) wa.href = 'https://wa.me/' + C.whatsappNumero + '?text=' + encodeURIComponent(C.whatsappMessaggio);
+            // Google Calendar (step 2)
+            var cal = document.getElementById('tyCalendar');
+            if (cal) {
+                var start = new Date(C.countdownISO);
+                var end = new Date(start.getTime() + 2 * 3600000);
+                function fmtGcal(d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
+                var details = 'Webinar gratuito con Elena Giordani.\n\nLink accesso: ' + C.linkWebinar + '\nCodice: ' + C.codiceAccesso;
+                cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=3+Sere+con+Elena+Giordani&dates=' + fmtGcal(start) + '/' + fmtGcal(end) + '&details=' + encodeURIComponent(details) + '&location=Online&recur=RRULE:FREQ=DAILY;COUNT=3';
+            }
+        })();
+
         var referralLink = 'https://lp.elenagiordani.com/registrazione?utm_source=referral&utm_medium=thankyou&utm_campaign=webinar-marzo';
         var shareText = 'Ho appena scoperto questo webinar gratuito con Elena Giordani sul perché molliamo sempre dopo pochi giorni. Mi sa che ti interessa 👇';
 
