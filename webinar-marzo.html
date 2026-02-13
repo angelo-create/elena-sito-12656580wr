@@ -49,14 +49,12 @@
         // --- TESTO MARQUEE SPECIALE ---
         marqueeSpeciale: "Dopo l'8 Marzo, fatti il regalo pi\u00f9 bello"
     };
-    // URL params da GHL sovrascrivono il config (se presenti)
-    // ─── URL GHL CON CUSTOM VALUES (per email, workflow, ecc.) ───
-    // https://go.elenagiordani.com/webinar-marzo.html?dateBrief={{custom_values.data}}&orario={{custom_values.orario}}&serata1={{custom_values.serata1}}&serata2={{custom_values.serata2}}&serata3={{custom_values.serata3}}&marqueeSpeciale={{custom_values.marquee_speciale}}
+    // URL params da GHL sovrascrivono il config (usa i custom values esistenti)
+    // ─── URL GHL (per email, workflow, ecc.) ───
+    // https://go.elenagiordani.com/webinar-marzo.html?data={{custom_values.data}}&luogo={{custom_values.luogo_webinar}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}
     (function() {
         var p = new URLSearchParams(location.search);
-        var keys = ['dateBrief','orario','serata1','serata2','serata3','formId','formUrl',
-                     'whatsappNumero','whatsappMessaggio','ogImage','marqueeSpeciale','countdownISO'];
-        keys.forEach(function(k) { if (p.get(k)) WEBINAR[k] = p.get(k); });
+        if (p.get('data')) WEBINAR.dateBrief = p.get('data');
     })();
     </script>
 
