@@ -18,6 +18,39 @@
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
 
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║  CONFIGURAZIONE WEBINAR — MODIFICA SOLO QUI!                ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <script>
+    var WEBINAR = {
+        // --- DATE ---
+        dateBrief:    "10-11-12 Marzo",           // formato breve (badge, CTA, marquee)
+        orario:       "18:30",                     // orario serate
+
+        // --- SINGOLE SERATE ---
+        serata1: "Luned\u00ec 10 Marzo",          // prima serata
+        serata2: "Marted\u00ec 11 Marzo",         // seconda serata
+        serata3: "Mercoled\u00ec 12 Marzo",       // terza serata
+
+        // --- COUNTDOWN (data prima serata, formato ISO) ---
+        countdownISO: "2026-03-10T18:30:00+01:00",
+
+        // --- FORM GoHighLevel ---
+        formId:  "2oq63J6fm05WSqwcVz61",
+        formUrl: "https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61",
+
+        // --- WHATSAPP (sticky CTA mobile) ---
+        whatsappNumero:    "393762543276",
+        whatsappMessaggio: "Ciao Elena! Voglio iscrivermi al webinar del 10-11-12 Marzo!",
+
+        // --- IMMAGINE SOCIAL (og:image) ---
+        ogImage: "https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg",
+
+        // --- TESTO MARQUEE SPECIALE ---
+        marqueeSpeciale: "Dopo l'8 Marzo, fatti il regalo pi\u00f9 bello"
+    };
+    </script>
+
     <style>
         /* ===== WEBINAR-SPECIFIC STYLES ===== */
 
@@ -252,7 +285,7 @@
         <div class="hero-gradient"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-badge">
+                <div class="hero-badge" data-cfg="badge">
                     Webinar Gratuito &bull; 10-11-12 Marzo &bull; Ore 18:30
                 </div>
                 <h1 class="hero-title">
@@ -292,15 +325,15 @@
     <!-- MARQUEE -->
     <div class="wb-marquee">
         <div class="wb-marquee-track">
-            <span class="wb-marquee-item">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
+            <span class="wb-marquee-item" data-cfg="marquee-special">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
             <span class="wb-marquee-item">3 Sere Gratuite</span>
-            <span class="wb-marquee-item">10-11-12 Marzo ore 18:30</span>
+            <span class="wb-marquee-item" data-cfg="marquee-dates">10-11-12 Marzo ore 18:30</span>
             <span class="wb-marquee-item">Online da casa tua</span>
             <span class="wb-marquee-item">2300+ donne trasformate</span>
             <span class="wb-marquee-item">Posti limitati</span>
-            <span class="wb-marquee-item">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
+            <span class="wb-marquee-item" data-cfg="marquee-special">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
             <span class="wb-marquee-item">3 Sere Gratuite</span>
-            <span class="wb-marquee-item">10-11-12 Marzo ore 18:30</span>
+            <span class="wb-marquee-item" data-cfg="marquee-dates">10-11-12 Marzo ore 18:30</span>
             <span class="wb-marquee-item">Online da casa tua</span>
             <span class="wb-marquee-item">2300+ donne trasformate</span>
             <span class="wb-marquee-item">Posti limitati</span>
@@ -381,7 +414,7 @@
             <div class="wb-timeline">
                 <div class="wb-timeline-day">
                     <div class="wb-timeline-card">
-                        <div class="wb-timeline-label">Luned&igrave; 10 Marzo &bull; Ore 18:30</div>
+                        <div class="wb-timeline-label" data-cfg="serata1-label">Luned&igrave; 10 Marzo &bull; Ore 18:30</div>
                         <h3 class="wb-timeline-title">Perch&eacute; Sei Bloccata</h3>
                         <p class="wb-timeline-subtitle">Le verit&agrave; che nessuno ti ha mai detto sul fallimento dei buoni propositi.</p>
                         <ul class="wb-timeline-list">
@@ -400,7 +433,7 @@
                     <div class="wb-timeline-number">02</div>
                     <div class="wb-timeline-dot"></div>
                     <div class="wb-timeline-card">
-                        <div class="wb-timeline-label">Marted&igrave; 11 Marzo &bull; Ore 18:30</div>
+                        <div class="wb-timeline-label" data-cfg="serata2-label">Marted&igrave; 11 Marzo &bull; Ore 18:30</div>
                         <h3 class="wb-timeline-title">Cosa Funziona Davvero</h3>
                         <p class="wb-timeline-subtitle">Smontiamo diete, paure e confusione. Mettiamo ordine. Finalmente.</p>
                         <ul class="wb-timeline-list">
@@ -415,7 +448,7 @@
                 </div>
                 <div class="wb-timeline-day">
                     <div class="wb-timeline-card">
-                        <div class="wb-timeline-label">Mercoled&igrave; 12 Marzo &bull; Ore 18:30</div>
+                        <div class="wb-timeline-label" data-cfg="serata3-label">Mercoled&igrave; 12 Marzo &bull; Ore 18:30</div>
                         <h3 class="wb-timeline-title">Il Tuo Piano d'Azione</h3>
                         <p class="wb-timeline-subtitle">La serata dedicata al cambiamento definitivo.</p>
                         <ul class="wb-timeline-list">
@@ -809,7 +842,7 @@
                         title="[LP-Form] Webinar"
                     ></iframe>
                 </div>
-                <script src="https://link.drewcompany.it/js/form_embed.js"></script>
+                <!-- form_embed.js caricato dinamicamente dallo script init -->
                 <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem;">Nessun costo &bull; Nessun impegno &bull; Nessuna vendita aggressiva</p>
             </div>
         </div>
@@ -865,7 +898,7 @@
                 S&igrave;, Voglio Esserci
                 <span>&rarr;</span>
             </a>
-            <p class="wb-final-trust">100% gratuito &bull; Online &bull; 10-11-12 Marzo ore 18:30</p>
+            <p class="wb-final-trust" data-cfg="trust-dates">100% gratuito &bull; Online &bull; 10-11-12 Marzo ore 18:30</p>
         </div>
     </section>
 
@@ -923,6 +956,43 @@
     <script defer src="js/react-mobile-header.js?v=1767489274"></script>
 
     <script>
+        // ===== POPOLA PAGINA DA CONFIGURAZIONE =====
+        (function() {
+            var W = WEBINAR;
+            var map = {
+                'badge':           'Webinar Gratuito \u2022 ' + W.dateBrief + ' \u2022 Ore ' + W.orario,
+                'marquee-dates':   W.dateBrief + ' ore ' + W.orario,
+                'marquee-special': W.marqueeSpeciale,
+                'serata1-label':   W.serata1 + ' \u2022 Ore ' + W.orario,
+                'serata2-label':   W.serata2 + ' \u2022 Ore ' + W.orario,
+                'serata3-label':   W.serata3 + ' \u2022 Ore ' + W.orario,
+                'trust-dates':     '100% gratuito \u2022 Online \u2022 ' + W.dateBrief + ' ore ' + W.orario
+            };
+            document.querySelectorAll('[data-cfg]').forEach(function(el) {
+                var val = map[el.getAttribute('data-cfg')];
+                if (val) el.textContent = val;
+            });
+            // Title & og:image
+            document.title = document.title.replace(/\d{1,2}-\d{1,2}-\d{1,2}\s+\w+/, W.dateBrief);
+            var ogImg = document.querySelector('meta[property="og:image"]');
+            if (ogImg) ogImg.setAttribute('content', W.ogImage);
+            // Form iframe
+            var iframe = document.querySelector('.wb-form-wrapper iframe');
+            if (iframe) {
+                iframe.src = W.formUrl;
+                iframe.id = 'inline-' + W.formId;
+                iframe.setAttribute('data-layout-iframe-id', 'inline-' + W.formId);
+                iframe.setAttribute('data-form-id', W.formId);
+            }
+            // Carica form embed script (dopo aver aggiornato l'iframe)
+            var s = document.createElement('script');
+            s.src = 'https://link.drewcompany.it/js/form_embed.js';
+            document.body.appendChild(s);
+            // WhatsApp sticky CTA
+            var waLink = document.querySelector('.wb-sticky-cta .btn-primary');
+            if (waLink) waLink.href = 'https://wa.me/' + W.whatsappNumero + '?text=' + encodeURIComponent(W.whatsappMessaggio);
+        })();
+
         // FAQ Accordion
         document.querySelectorAll('.wb-faq-question').forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -933,8 +1003,8 @@
             });
         });
 
-        // Countdown Timer - 10 Marzo 2026 18:30
-        var webinarStart = new Date('2026-03-10T18:30:00+01:00').getTime();
+        // Countdown Timer (usa data da WEBINAR config)
+        var webinarStart = new Date(WEBINAR.countdownISO).getTime();
         function updateCountdown() {
             var now = new Date().getTime();
             var distance = webinarStart - now;
