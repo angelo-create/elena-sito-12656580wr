@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sold Out - Nel Corpo Che Vuoi Live | Lista d'Attesa</title>
+    <meta name="description" content="L'evento Nel Corpo Che Vuoi Live e sold-out. Iscriviti alla lista d'attesa per non perdere il prossimo evento dal vivo con Elena Giordani.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sold Out - Nel Corpo Che Vuoi Live | Lista d'Attesa">
+    <meta property="og:description" content="L'evento di maggio e sold-out. Iscriviti alla lista d'attesa per non perdere il prossimo.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+
+    <style>
+        /* ===== LISTA ATTESA - HERO ===== */
+        .la-hero {
+            min-height: 80vh;
+            background: var(--black);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+        .la-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            z-index: 1;
+            opacity: 0.35;
+            filter: grayscale(0.2);
+        }
+        .la-hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 100%);
+            z-index: 2;
+        }
+        .la-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 8rem 2rem 5rem;
+        }
+        .la-hero-logo {
+            width: clamp(10rem, 22vw, 16rem);
+            height: auto;
+            margin-bottom: 2rem;
+        }
+
+        .la-sold-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(233,30,99,0.15);
+            border: 1px solid rgba(233,30,99,0.4);
+            color: var(--pink-primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+        .la-sold-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--pink-primary);
+            border-radius: 50%;
+            animation: la-pulse 2s infinite;
+        }
+        @keyframes la-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+        .la-hero-title {
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        .la-hero-title .accent {
+            color: var(--pink-primary);
+        }
+        .la-hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.6);
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+        }
+        .la-hero-subtitle strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* ===== SOCIAL PROOF STATS ===== */
+        .la-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 3rem 2rem;
+            background: var(--black);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .la-stat {
+            text-align: center;
+        }
+        .la-stat-number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.03em;
+        }
+        .la-stat-number span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--pink-primary);
+        }
+        .la-stat-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.25rem;
+        }
+
+        /* ===== PHOTOSTRIP (from evento-maggio) ===== */
+        .la-photostrip {
+            overflow: hidden;
+            padding: 3rem 0;
+            background: #000;
+            position: relative;
+        }
+        .la-photostrip::before,
+        .la-photostrip::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .la-photostrip::before { left: 0; background: linear-gradient(90deg, #000, transparent); }
+        .la-photostrip::after { right: 0; background: linear-gradient(-90deg, #000, transparent); }
+        .la-photostrip-track {
+            display: flex;
+            gap: 1.25rem;
+            animation: la-scroll-strip 30s linear infinite;
+            width: max-content;
+        }
+        .la-photostrip-track:hover { animation-play-state: paused; }
+        .la-photostrip-img {
+            width: 280px;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .la-photostrip-img:nth-child(odd) { transform: rotate(-2deg); margin-top: 1rem; }
+        .la-photostrip-img:nth-child(even) { transform: rotate(2deg); margin-bottom: 1rem; }
+        .la-photostrip-img img { width: 100%; height: 100%; object-fit: cover; }
+        @keyframes la-scroll-strip {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== COSA TI SEI PERSA ===== */
+        .la-what-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .la-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 2.5rem 0;
+        }
+        .la-checklist li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .la-checklist li:last-child { border-bottom: none; }
+        .la-checklist li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--pink-primary);
+            font-weight: 700;
+        }
+        .la-location-card {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .la-location-card img {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+        .la-location-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+        .la-location-address {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+        }
+
+        /* ===== VIDEO TESTIMONIALS (from evento-maggio) ===== */
+        .la-video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+        .la-video-card { border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; background: #1A1A1A; position: relative; display: block; aspect-ratio: 9/16; cursor: pointer; }
+        .la-video-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .la-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(233,30,99,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--white); transition: all 0.3s ease; }
+        .la-video-card:hover { border-color: rgba(233,30,99,0.5); transform: scale(1.03); }
+        .la-video-card:hover .la-video-play { background: var(--pink-primary); transform: translate(-50%, -50%) scale(1.1); }
+
+        /* Video Modal */
+        .la-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; align-items: center; justify-content: center; }
+        .la-modal.active { display: flex; }
+        .la-modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); cursor: pointer; }
+        .la-modal-content { position: relative; z-index: 2; width: 90%; max-width: 400px; }
+        .la-modal-close { position: absolute; top: -50px; right: 0; background: none; border: none; color: var(--white); font-size: 2.5rem; cursor: pointer; transition: color 0.3s ease; line-height: 1; }
+        .la-modal-close:hover { color: var(--pink-primary); }
+        .la-modal-wrapper { position: relative; width: 100%; aspect-ratio: 9/16; background: #000; border-radius: 12px; overflow: hidden; }
+        .la-modal-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* ===== FORM ===== */
+        .la-form-section {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        .la-form-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(233,30,99,0.2);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .la-form-title {
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.03em;
+        }
+        .la-form-subtitle {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+        .la-form-group {
+            margin-bottom: 1.25rem;
+        }
+        .la-form-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+        .la-form-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        .la-form-input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+        .la-form-input:focus {
+            outline: none;
+            border-color: var(--pink-primary);
+            background: rgba(255,255,255,0.08);
+        }
+        .la-form-btn {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: var(--pink-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.75rem;
+        }
+        .la-form-btn:hover {
+            background: var(--pink-dark);
+            transform: translateY(-3px);
+        }
+        .la-form-privacy {
+            text-align: center;
+            margin-top: 1.25rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.35);
+            font-weight: 300;
+        }
+        .la-form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .la-form-success.active {
+            display: block;
+        }
+        .la-form-success-icon {
+            width: 4rem;
+            height: 4rem;
+            background: rgba(233,30,99,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--pink-primary);
+            font-size: 1.75rem;
+        }
+        .la-form-success h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+        .la-form-success p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* ===== FAQ (from evento-maggio) ===== */
+        .la-faq-list { max-width: 800px; margin: 0 auto; }
+        .la-faq-item { background: rgba(255,255,255,0.04); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .la-faq-question { padding: 1.5rem 1.75rem; font-size: 1rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; background: none; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; gap: 1rem; }
+        .la-faq-question:hover { background: rgba(233,30,99,0.1); }
+        .la-faq-toggle { font-size: 1.5rem; color: var(--pink-primary); font-weight: 300; transition: transform 0.3s ease; flex-shrink: 0; }
+        .la-faq-item.open .la-faq-toggle { transform: rotate(45deg); }
+        .la-faq-answer { padding: 0 1.75rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; }
+        .la-faq-item.open .la-faq-answer { padding: 0 1.75rem 1.5rem; max-height: 500px; }
+        .la-faq-answer p { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.7; }
+
+        /* ===== FINAL CTA ===== */
+        .la-final-cta { background: var(--pink-primary); text-align: center; padding: 7rem 2rem; }
+        .la-final-cta-content { max-width: 650px; margin: 0 auto; }
+        .la-final-cta h2 { color: var(--white); margin-bottom: 1.75rem; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; }
+        .la-final-cta p { color: rgba(255,255,255,0.9); font-size: 1.15rem; line-height: 1.8; margin-bottom: 0.75rem; }
+        .la-final-cta .la-question { font-size: 1.85rem; font-weight: 700; font-style: italic; color: var(--white); margin: 2.5rem 0; }
+        .la-btn-white { display: inline-flex; align-items: center; gap: 1rem; background: var(--white); color: var(--pink-primary); padding: 1.25rem 2.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .la-btn-white:hover { background: #0A0A0A; color: var(--white); transform: translateY(-3px); }
+        .la-final-detail { margin-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+        .la-final-detail a { color: var(--white); text-decoration: underline; }
+        .la-final-detail a:hover { opacity: 0.8; }
+
+        /* ===== FINAL CTA FADE ===== */
+        .la-final-cta-fade {
+            height: 8rem;
+            background: linear-gradient(180deg, var(--black) 0%, var(--pink-primary) 100%);
+        }
+
+        /* ===== FADE-IN ===== */
+        .la-fade-in {
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .la-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== STICKY CTA (mobile) ===== */
+        .la-sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #0A0A0A; padding: 0.75rem 1.25rem; box-shadow: 0 -4px 30px rgba(0,0,0,0.5); z-index: 1000; border-top: 1px solid rgba(233,30,99,0.3); }
+        .la-sticky-cta .btn-primary { width: 100%; justify-content: center; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .la-hero-content { padding: 6rem 1.5rem 4rem; }
+            .la-stats { gap: 1.5rem; padding: 2.5rem 1.5rem; flex-wrap: wrap; }
+            .la-stat-number { font-size: 1.4rem; }
+            .la-photostrip-img { width: 220px; height: 160px; }
+            .la-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .la-video-play { width: 50px; height: 50px; font-size: 1.25rem; }
+            .la-location-card { flex-direction: column; text-align: center; }
+            .la-location-card img { width: 100%; height: 160px; }
+            .la-form-card { padding: 2.5rem 1.75rem; }
+            .la-final-cta { padding: 4rem 1.5rem 7rem; }
+            .la-final-cta-fade { height: 5rem; }
+            .la-sticky-cta { display: block; }
+            .la-faq-question { padding: 1.25rem; font-size: 0.9rem; }
+            .la-faq-answer { padding: 0 1.25rem; }
+            .la-faq-item.open .la-faq-answer { padding: 0 1.25rem 1.25rem; }
+            .la-fade-in { transform: translateY(1.25rem); }
+        }
+        @media (max-width: 576px) {
+            .la-photostrip-img { width: 180px; height: 130px; }
+            .la-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+            .la-video-play { width: 40px; height: 40px; font-size: 1rem; }
+            .la-form-card { padding: 2rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="la-hero">
+        <img
+            src="img/evento-live/DSC00939-Enhanced-NR.webp"
+            alt="Evento Nel Corpo Che Vuoi Live"
+            class="la-hero-bg" loading="eager"
+        >
+        <div class="la-hero-gradient"></div>
+        <div class="la-hero-content">
+            <img src="img/nel-corpo-che-vuoi/2.svg" alt="Nel Corpo Che Vuoi" class="la-hero-logo">
+            <div class="la-sold-badge">SOLD OUT</div>
+            <h1 class="la-hero-title">
+                140 posti.<br><span class="accent">Esauriti in pochi giorni.</span>
+            </h1>
+            <p class="la-hero-subtitle">
+                <strong>Nel Corpo Che Vuoi Live</strong> &mdash; 9-10 Maggio 2026, Shangri-La Roma.<br>
+                Se te lo sei perso, non perdere il prossimo.
+            </p>
+            <a href="#form" class="btn-primary">
+                Iscriviti alla Lista d'Attesa
+                <span>&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF STATS -->
+    <div class="la-stats">
+        <div class="la-stat">
+            <div class="la-stat-number">Sold-out</div>
+            <div class="la-stat-label">In pochi giorni</div>
+        </div>
+        <div class="la-stat">
+            <div class="la-stat-number">140</div>
+            <div class="la-stat-label">Inarrestabili</div>
+        </div>
+        <div class="la-stat">
+            <div class="la-stat-number">2<span>gg</span></div>
+            <div class="la-stat-label">Di immersione totale</div>
+        </div>
+    </div>
+
+    <!-- PHOTOSTRIP -->
+    <div class="la-photostrip">
+        <div class="la-photostrip-track">
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00297.webp" alt="Badge evento" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00385-Enhanced-NR.webp" alt="Selfie di gruppo" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00412-Enhanced-NR.webp" alt="Empower Journal" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00640-Enhanced-NR.webp" alt="Elena e partecipanti" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00674.webp" alt="Nel Corpo Che Vuoi" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00831-Enhanced-NR.webp" alt="Allenamento" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC05405.webp" alt="Gruppo all'aperto" loading="lazy"></div>
+            <!-- Duplicate for seamless loop -->
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00297.webp" alt="Badge evento" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00385-Enhanced-NR.webp" alt="Selfie di gruppo" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00412-Enhanced-NR.webp" alt="Empower Journal" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00640-Enhanced-NR.webp" alt="Elena e partecipanti" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00674.webp" alt="Nel Corpo Che Vuoi" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC00831-Enhanced-NR.webp" alt="Allenamento" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/evento-live/DSC05405.webp" alt="Gruppo all'aperto" loading="lazy"></div>
+        </div>
+    </div>
+
+    <!-- COSA TI SEI PERSA -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="la-what-section la-fade-in">
+                <div class="section-header center">
+                    <span class="section-number">L'EVENTO</span>
+                    <h2 class="section-title" style="color: var(--white);">Ecco cosa &egrave; <span class="highlight"><em>successo</em></span></h2>
+                    <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">2 giorni di immersione totale: coaching, allenamento e attivazioni dal vivo con Elena e 140 Inarrestabili.</p>
+                </div>
+                <ul class="la-checklist">
+                    <li>Full immersion di 2 giorni con Elena dal vivo</li>
+                    <li>Coaching, allenamento e attivazioni per corpo e mente</li>
+                    <li>Empower Journal sull'antifragilit&agrave; + gadget esclusivi</li>
+                    <li>139 donne inarrestabili al tuo fianco</li>
+                </ul>
+                <div class="la-location-card">
+                    <img src="img/shangri-la.jpg" alt="Shangri-La Convention Center" loading="lazy">
+                    <div>
+                        <div class="la-location-name">Shangri-La</div>
+                        <div class="la-location-address">Via Odescalchi 35 &mdash; 00147 Roma (EUR)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO TESTIMONIANZE -->
+    <section class="section section-black" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header center la-fade-in">
+                <span class="section-number">TESTIMONIANZE</span>
+                <h2 class="section-title" style="color: var(--white);">Chi c'era <span class="highlight"><em>racconta</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Ascolta direttamente da loro com'&egrave; stato</p>
+            </div>
+
+            <div class="la-video-grid la-fade-in">
+                <div class="la-video-card" data-video="10PVE74pgSVvC5r3BOleCvW-hUYRAlMRc">
+                    <img src="https://drive.google.com/thumbnail?id=10PVE74pgSVvC5r3BOleCvW-hUYRAlMRc&sz=w400" alt="Testimonianza" loading="lazy">
+                    <div class="la-video-play">&#9654;</div>
+                </div>
+                <div class="la-video-card" data-video="1DkBcGR7IkZ6v1DTxFxCE33MDs-7S00oN">
+                    <img src="https://drive.google.com/thumbnail?id=1DkBcGR7IkZ6v1DTxFxCE33MDs-7S00oN&sz=w400" alt="Testimonianza" loading="lazy">
+                    <div class="la-video-play">&#9654;</div>
+                </div>
+                <div class="la-video-card" data-video="1G3xDXOnkEIm8v7JGqRLtqFgF_adHeSHl">
+                    <img src="https://drive.google.com/thumbnail?id=1G3xDXOnkEIm8v7JGqRLtqFgF_adHeSHl&sz=w400" alt="Testimonianza" loading="lazy">
+                    <div class="la-video-play">&#9654;</div>
+                </div>
+                <div class="la-video-card" data-video="1IzZZhY3WCCdjLWc3pqgEnTZXQgDiWczH">
+                    <img src="https://drive.google.com/thumbnail?id=1IzZZhY3WCCdjLWc3pqgEnTZXQgDiWczH&sz=w400" alt="Testimonianza" loading="lazy">
+                    <div class="la-video-play">&#9654;</div>
+                </div>
+                <div class="la-video-card" data-video="1grzdutJPx4jUE90G65ZLjploFQ1Xyw4B">
+                    <img src="https://drive.google.com/thumbnail?id=1grzdutJPx4jUE90G65ZLjploFQ1Xyw4B&sz=w400" alt="Testimonianza" loading="lazy">
+                    <div class="la-video-play">&#9654;</div>
+                </div>
+                <div class="la-video-card" data-video="1oek4Zog-pfgz9a8O54Lz8G-9NeE6qE-r">
+                    <img src="https://drive.google.com/thumbnail?id=1oek4Zog-pfgz9a8O54Lz8G-9NeE6qE-r&sz=w400" alt="Testimonianza" loading="lazy">
+                    <div class="la-video-play">&#9654;</div>
+                </div>
+            </div>
+
+            <div class="la-modal" id="videoModal">
+                <div class="la-modal-overlay"></div>
+                <div class="la-modal-content">
+                    <button class="la-modal-close">&times;</button>
+                    <div class="la-modal-wrapper">
+                        <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM LISTA D'ATTESA -->
+    <section class="section section-black" id="form">
+        <div class="container">
+            <div class="la-form-section la-fade-in">
+                <div class="la-form-card">
+                    <div id="formContent">
+                        <div class="la-form-title">Non perdere il prossimo evento</div>
+                        <p class="la-form-subtitle">Lascia i tuoi dati per essere la prima a sapere quando apriremo le iscrizioni.</p>
+                        <form id="waitlistForm" action="" method="POST">
+                            <div class="la-form-group">
+                                <label class="la-form-label" for="nome">Nome</label>
+                                <input class="la-form-input" type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                            </div>
+                            <div class="la-form-group">
+                                <label class="la-form-label" for="email">Email</label>
+                                <input class="la-form-input" type="email" id="email" name="email" placeholder="La tua email" required>
+                            </div>
+                            <div class="la-form-group">
+                                <label class="la-form-label" for="telefono">Telefono</label>
+                                <input class="la-form-input" type="tel" id="telefono" name="telefono" placeholder="Il tuo numero" required>
+                            </div>
+                            <button type="submit" class="la-form-btn">Voglio Essere Avvisata</button>
+                        </form>
+                        <p class="la-form-privacy">I tuoi dati sono al sicuro. Non li condivideremo con nessuno.</p>
+                    </div>
+                    <div class="la-form-success" id="formSuccess">
+                        <div class="la-form-success-icon">&#10003;</div>
+                        <h3>Perfetto!</h3>
+                        <p>Ti avviseremo per prima quando apriremo le iscrizioni al prossimo evento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-black" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header center la-fade-in">
+                <span class="section-number">DOMANDE</span>
+                <h2 class="section-title" style="color: var(--white);">Info <span class="highlight"><em>utili</em></span></h2>
+            </div>
+            <div class="la-faq-list la-fade-in">
+                <div class="la-faq-item">
+                    <button class="la-faq-question">Quando sar&agrave; il prossimo evento?<span class="la-faq-toggle">+</span></button>
+                    <div class="la-faq-answer"><p>Non abbiamo ancora una data. Per questo la lista d'attesa &egrave; fondamentale: chi si iscrive sar&agrave; la prima a saperlo e ad avere accesso prioritario all'acquisto.</p></div>
+                </div>
+                <div class="la-faq-item">
+                    <button class="la-faq-question">L'iscrizione alla lista d'attesa &egrave; vincolante?<span class="la-faq-toggle">+</span></button>
+                    <div class="la-faq-answer"><p>No, &egrave; completamente senza impegno. Ti contatteremo solo per avvisarti dell'apertura delle iscrizioni al prossimo evento.</p></div>
+                </div>
+                <div class="la-faq-item">
+                    <button class="la-faq-question">Come sar&ograve; avvisata?<span class="la-faq-toggle">+</span></button>
+                    <div class="la-faq-answer"><p>Ti contatteremo via email e/o telefono non appena avremo una data. Chi &egrave; in lista d'attesa avr&agrave; la possibilit&agrave; di prenotare prima dell'apertura pubblica.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="la-final-cta-fade"></div>
+
+    <!-- FINAL CTA -->
+    <section class="la-final-cta">
+        <div class="la-final-cta-content">
+            <h2>La prossima volta, ci sarai tu?</h2>
+            <p>Sai gi&agrave; cosa significa far parte di questa community.</p>
+            <p>Ora immagina tutto questo <strong>dal vivo</strong>.</p>
+            <p class="la-question">Non restare fuori.</p>
+            <a href="#form" class="la-btn-white">
+                Iscriviti Ora
+                <span>&rarr;</span>
+            </a>
+            <p class="la-final-detail">
+                Vuoi tutti i dettagli sull'ultimo evento? <a href="evento-maggio.html">Leggi la pagina completa</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
+                <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.6;">
+                    X77 SSD a.r.l &mdash; P.IVA: IT17336811009
+                    <br>Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)
+                    <br>Email: info.xfitacademy@gmail.com
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="https://www.iubenda.com/privacy-policy/49397266" target="_blank">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" target="_blank">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA (mobile) -->
+    <div class="la-sticky-cta">
+        <a href="#form" class="btn-primary">
+            Lista d'Attesa <span>&rarr;</span>
+        </a>
+    </div>
+
+    <script defer src="js/main.js?v=1767489274"></script>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.la-faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = btn.closest('.la-faq-item');
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.la-faq-item').forEach(function(el) { el.classList.remove('open'); });
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Video Modal
+        var videoModal = document.getElementById('videoModal');
+        var videoFrame = document.getElementById('videoFrame');
+        var modalClose = document.querySelector('.la-modal-close');
+        var modalOverlay = document.querySelector('.la-modal-overlay');
+
+        document.querySelectorAll('.la-video-card[data-video]').forEach(function(card) {
+            card.addEventListener('click', function() {
+                var videoId = card.getAttribute('data-video');
+                videoFrame.src = 'https://drive.google.com/file/d/' + videoId + '/preview';
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            videoFrame.src = '';
+            document.body.style.overflow = '';
+        }
+        modalClose.addEventListener('click', closeVideoModal);
+        modalOverlay.addEventListener('click', closeVideoModal);
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeVideoModal(); });
+
+        // Form Submit Handler
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // TODO: collegare a GHL webhook, Zapier, o altro backend
+            document.getElementById('formContent').style.display = 'none';
+            document.getElementById('formSuccess').classList.add('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Sticky CTA on scroll (mobile)
+        window.addEventListener('scroll', function() {
+            var sticky = document.querySelector('.la-sticky-cta');
+            if (window.innerWidth <= 768 && window.scrollY > 500) {
+                sticky.style.display = 'block';
+            } else {
+                sticky.style.display = 'none';
+            }
+        });
+
+        // Fade-in on scroll
+        var fadeEls = document.querySelectorAll('.la-fade-in');
+        var fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        fadeEls.forEach(function(el) { fadeObserver.observe(el); });
+    </script>
+
+</body>
+</html>
