@@ -5877,6 +5877,11 @@ body {
         display: block;
     }
 
+    /* Hide original hero content on mobile to prevent FOUC */
+    .hero .hero-content {
+        display: none;
+    }
+
     .rmh-hero {
         display: flex;
         flex-direction: column;
@@ -8968,6 +8973,7 @@ body {
     grid-template-columns: 1fr;
   }
   .workouts-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
@@ -9004,10 +9010,10 @@ body {
     font-size: 0.65rem;
   }
   .media-logos-wrapper {
-    overflow-x: auto;
+    overflow-x: hidden;
   }
   .media-logos-track {
-    animation: none;
+    animation: scroll-logos 30s linear infinite;
     gap: 2.5rem;
     padding: 0 1.25rem;
   }
@@ -9091,6 +9097,7 @@ body {
     padding: 4rem 1rem;
   }
   .workouts-grid {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
@@ -11334,7 +11341,7 @@ body {
     }
 
     .hero-stat-label {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
 
     .hero-cta-group {
@@ -11407,6 +11414,10 @@ body {
     .book-cover {
         max-width: 160px;
         margin: 0 auto;
+    }
+
+    .footer {
+        padding: 4rem 1.5rem 2rem;
     }
 
     .footer-grid {
@@ -11662,6 +11673,11 @@ body {
 
     .letter-title {
         font-size: 1.6rem;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        align-items: center;
     }
 
     .btn-primary, .btn-outline {

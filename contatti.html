@@ -63,11 +63,11 @@
                 <div class="selection-intro-content">
                     <h2>Perché un <span class="highlight">form di selezione</span>?</h2>
                     <p>
-                        Non accettiamo tutte le candidature. Non perché siamo esclusivi, ma perche
+                        Non accettiamo tutte le candidature. Non perché siamo esclusivi, ma perché
                         vogliamo assicurarci che X-Fit Academy sia davvero il percorso giusto per te.
                     </p>
                     <p>
-                        Crediamo che per ottenere risultati serve impegno, costanza è la giusta mentalità.
+                        Crediamo che per ottenere risultati serve impegno, costanza e la giusta mentalità.
                         Il form ci aiuta a capire chi sei, da dove parti e cosa vuoi ottenere.
                     </p>
                 </div>
@@ -76,7 +76,7 @@
                         <div class="selection-step-number">1</div>
                         <div class="selection-step-content">
                             <h4>Compila il form</h4>
-                            <p>Rispondi alle domande con sincerita</p>
+                            <p>Rispondi alle domande con sincerità</p>
                         </div>
                     </div>
                     <div class="selection-step">
@@ -126,19 +126,19 @@
                 -->
 
                 <div class="form-embed-placeholder">
-                    <div class="form-embed-message">
+                    <div class="form-embed-message" id="formLoadingMessage">
                         <p><strong>Form di selezione in caricamento...</strong></p>
                         <p>Se il form non si carica, <a href="https://lp.elenagiordani.com/selezione?utm_source=website&utm_medium=organic&utm_campaign=candidatura" target="_blank">clicca qui per aprirlo in una nuova pagina</a>.</p>
                     </div>
 
-                    <!-- IFRAME EMBED - Decommentare quando il form e' disponibile -->
                     <iframe
                         src="https://lp.elenagiordani.com/selezione?utm_source=website&utm_medium=organic&utm_campaign=candidatura"
                         class="form-iframe"
                         width="100%"
                         height="900"
                         frameborder="0"
-                        loading="lazy">
+                        loading="lazy"
+                        onload="document.getElementById('formLoadingMessage').style.display='none'">
                     </iframe>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                     </div>
                     <div class="faq-mini-item">
                         <h4>Posso pagare a rate?</h4>
-                        <p>Si, offriamo diverse opzioni di pagamento rateale senza interessi.</p>
+                        <p>Sì, offriamo diverse opzioni di pagamento rateale senza interessi.</p>
                     </div>
                 </div>
                 <a href="/#faq" class="btn-outline">Vedi tutte le FAQ &rarr;</a>

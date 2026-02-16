@@ -2148,6 +2148,7 @@
     grid-template-columns: 1fr;
   }
   .workouts-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
@@ -2184,10 +2185,10 @@
     font-size: 0.65rem;
   }
   .media-logos-wrapper {
-    overflow-x: auto;
+    overflow-x: hidden;
   }
   .media-logos-track {
-    animation: none;
+    animation: scroll-logos 30s linear infinite;
     gap: 2.5rem;
     padding: 0 1.25rem;
   }
@@ -2244,6 +2245,7 @@
     padding: 4rem 1.5rem;
   }
   .workouts-grid {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
