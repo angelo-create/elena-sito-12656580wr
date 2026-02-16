@@ -5,15 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hai gi&agrave; mollato i buoni propositi? | Webinar Gratuito 10-11-12 Marzo</title>
     <meta name="description" content="Il 90% delle donne ha gi&agrave; abbandonato i propositi di gennaio. In 3 sere gratuite scopri perch&eacute; succede e come cambiare per sempre. 10-11-12 Marzo ore 18:30.">
+    <meta name="robots" content="noindex, nofollow">
     <meta property="og:title" content="Hai gi&agrave; mollato i buoni propositi? Scopri perch&eacute; (non &egrave; colpa tua)">
     <meta property="og:description" content="Il 90% molla entro marzo. In 3 sere gratuite scopri cosa fare diversamente. 2300+ donne lo hanno gi&agrave; fatto. 10-11-12 Marzo, ore 18:30.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║  CONFIGURAZIONE WEBINAR — MODIFICA SOLO QUI!                ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <script>
+    var WEBINAR = {
+        // --- DATE ---
+        dateBrief:    "10-11-12 Marzo",           // formato breve (badge, CTA, marquee)
+        orario:       "18:30",                     // orario serate
+
+        // --- SINGOLE SERATE ---
+        serata1: "Luned\u00ec 10 Marzo",          // prima serata
+        serata2: "Marted\u00ec 11 Marzo",         // seconda serata
+        serata3: "Mercoled\u00ec 12 Marzo",       // terza serata
+
+        // --- COUNTDOWN (data prima serata, formato ISO) ---
+        countdownISO: "2026-03-10T18:30:00+01:00",
+
+        // --- FORM GoHighLevel ---
+        formId:  "2oq63J6fm05WSqwcVz61",
+        formUrl: "https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61",
+
+        // --- WHATSAPP (sticky CTA mobile) ---
+        whatsappNumero:    "393762543276",
+        whatsappMessaggio: "Ciao Elena! Voglio iscrivermi al webinar del 10-11-12 Marzo!",
+
+        // --- IMMAGINE SOCIAL (og:image) ---
+        ogImage: "https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg",
+
+        // --- TESTO MARQUEE SPECIALE ---
+        marqueeSpeciale: "Dopo l'8 Marzo, fatti il regalo pi\u00f9 bello"
+    };
+    // URL params da GHL sovrascrivono il config (usa i custom values esistenti)
+    // ─── URL GHL (per email, workflow, ecc.) ───
+    // https://go.elenagiordani.com/webinar-marzo.html?data={{custom_values.data}}&luogo={{custom_values.luogo_webinar}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}
+    (function() {
+        var p = new URLSearchParams(location.search);
+        if (p.get('data')) WEBINAR.dateBrief = p.get('data');
+    })();
+    </script>
 
     <style>
         /* ===== WEBINAR-SPECIFIC STYLES ===== */
@@ -38,7 +81,7 @@
         .wb-countdown-text { font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.15em; }
 
         /* Bento Grid */
-        .wb-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .wb-bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
         .wb-bento-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.75rem 2.5rem; position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); }
         .wb-bento-card:hover { border-color: rgba(233,30,99,0.35); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(233,30,99,0.12), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
         .wb-bento-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(233,30,99,0.1), transparent 70%); pointer-events: none; transition: opacity 0.5s ease; }
@@ -108,6 +151,50 @@
         .wb-testimonial-name { font-size: 0.9rem; font-weight: 700; color: var(--white); }
         .wb-testimonial-result { font-size: 0.75rem; color: var(--pink-primary); margin-top: 0.2rem; }
 
+        /* Check-Up Live */
+        .wb-checkup-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
+        .wb-checkup-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; }
+        .wb-checkup-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
+        .wb-checkup-label { font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
+        .wb-checkup-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 1.25rem; }
+        .wb-checkup-list { list-style: none; padding: 0; margin: 0; }
+        .wb-checkup-list li { padding: 0.6rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+        .wb-checkup-list li::before { content: ''; position: absolute; left: 0; top: 0.85rem; width: 6px; height: 6px; background: var(--pink-primary); border-radius: 50%; }
+
+        /* For/Not For You */
+        .wb-fortyou-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .wb-fortyou-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; }
+        .wb-fortyou-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .wb-fortyou-card.wb-yes h4 { color: #4CAF50; }
+        .wb-fortyou-card.wb-no h4 { color: #f44336; }
+        .wb-fortyou-list { list-style: none; padding: 0; margin: 0; }
+        .wb-fortyou-list li { padding: 0.65rem 0; padding-left: 1.75rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .wb-fortyou-list li:last-child { border-bottom: none; }
+        .wb-yes .wb-fortyou-list li::before { content: '\2713'; position: absolute; left: 0; top: 0.65rem; color: #4CAF50; font-weight: 700; }
+        .wb-no .wb-fortyou-list li::before { content: '\2717'; position: absolute; left: 0; top: 0.65rem; color: #f44336; font-weight: 700; }
+
+        /* Bonus */
+        .wb-bonus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .wb-bonus-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(233,30,99,0.25); border-radius: 20px; padding: 2.5rem; text-align: center; position: relative; overflow: hidden; }
+        .wb-bonus-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent); pointer-events: none; }
+        .wb-bonus-badge { display: inline-block; background: var(--pink-primary); color: var(--white); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.25rem; }
+        .wb-bonus-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+        .wb-bonus-value { font-size: 0.85rem; color: var(--pink-primary); font-weight: 600; margin-bottom: 1rem; }
+        .wb-bonus-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+        .wb-bonus-total { text-align: center; margin-top: 2.5rem; padding: 1.5rem 2rem; background: rgba(233,30,99,0.08); border: 1px solid rgba(233,30,99,0.2); border-radius: 12px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .wb-bonus-total p { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; }
+        .wb-bonus-total strong { font-size: 1.75rem; font-weight: 800; color: var(--white); }
+
+        /* TrustPilot Reviews */
+        .wb-reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .wb-review { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; }
+        .wb-review-stars { color: #00B67A; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+        .wb-review-title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+        .wb-review-text { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.7; font-style: italic; margin-bottom: 1rem; }
+        .wb-review-author { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+        .wb-trustpilot-badge { text-align: center; margin-top: 2rem; }
+        .wb-trustpilot-badge span { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0,182,122,0.1); border: 1px solid rgba(0,182,122,0.25); padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: #00B67A; }
+
         /* FAQ */
         .wb-faq-list { max-width: 800px; margin: 0 auto; }
         .wb-faq-item { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
@@ -131,6 +218,12 @@
         .wb-btn-white:hover { background: #0A0A0A; color: var(--white); transform: translateY(-3px); }
         .wb-final-trust { margin-top: 1.75rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
 
+        /* Form embed */
+        .wb-form-wrapper { max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; }
+        @media (max-width: 768px) { .wb-form-wrapper { max-width: 100%; padding: 0; border: none; border-radius: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; } .wb-form-wrapper::before { display: none; } }
+        .wb-form-wrapper::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent); pointer-events: none; }
+        .wb-form-wrapper iframe { width: 100%; min-height: 492px; border: none; border-radius: 8px; }
+
         /* Sticky CTA */
         .wb-sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #0A0A0A; padding: 0.75rem 1.25rem; box-shadow: 0 -4px 30px rgba(0,0,0,0.5); z-index: 1000; border-top: 1px solid rgba(233,30,99,0.3); }
         .wb-sticky-cta .btn-primary { width: 100%; justify-content: center; }
@@ -141,7 +234,6 @@
         }
         @media (max-width: 768px) {
             .wb-bento { grid-template-columns: 1fr; }
-            .wb-bento-card.wb-bento-wide { grid-column: span 1; grid-template-columns: auto 1fr; }
             .wb-testimonials { grid-template-columns: 1fr; }
             .wb-final-cta { padding: 4rem 1.5rem 7rem; }
             .wb-sticky-cta { display: block; }
@@ -153,6 +245,10 @@
             .wb-timeline-dot { grid-column: 1 !important; margin-left: 10px; margin-right: 1.5rem; }
             .wb-timeline-card { grid-column: 2 !important; padding: 1.75rem; position: relative; z-index: 1; }
             .wb-timeline-number { display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: clamp(4rem, 15vw, 6rem); padding: 0; z-index: 0; text-align: right; }
+            .wb-checkup-grid { grid-template-columns: 1fr; }
+            .wb-fortyou-grid { grid-template-columns: 1fr; }
+            .wb-bonus-grid { grid-template-columns: 1fr; }
+            .wb-reviews-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 576px) {
             .wb-countdown { gap: 0.5rem; }
@@ -162,49 +258,13 @@
 </head>
 <body>
 
-    <!-- React Mobile Header Mount Point -->
-    <div id="react-mobile-header-root"></div>
-
-    <!-- NAVIGATION -->
-    <nav class="nav" id="navbar">
-        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
-        <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-menu" id="navMenu">
-            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
-            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
-            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
-                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
-                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
-                </div>
-            </div>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">&#9662;</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
-                    <a href="press.html" onclick="closeMobileMenu()">Press &amp; Media</a>
-                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
-                </div>
-            </div>
-            <a href="#iscriviti" class="nav-cta" onclick="closeMobileMenu()">Iscriviti Gratis</a>
-        </div>
-    </nav>
-
     <!-- HERO -->
     <section class="hero">
-        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="Elena Giordani" class="hero-bg-image">
+        <img src="img/elena-webp/IMG_9183.webp" alt="Elena Giordani" class="hero-bg-image" loading="eager">
         <div class="hero-gradient"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-badge">
+                <div class="hero-badge" data-cfg="badge">
                     Webinar Gratuito &bull; 10-11-12 Marzo &bull; Ore 18:30
                 </div>
                 <h1 class="hero-title">
@@ -244,15 +304,15 @@
     <!-- MARQUEE -->
     <div class="wb-marquee">
         <div class="wb-marquee-track">
-            <span class="wb-marquee-item">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
+            <span class="wb-marquee-item" data-cfg="marquee-special">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
             <span class="wb-marquee-item">3 Sere Gratuite</span>
-            <span class="wb-marquee-item">10-11-12 Marzo ore 18:30</span>
+            <span class="wb-marquee-item" data-cfg="marquee-dates">10-11-12 Marzo ore 18:30</span>
             <span class="wb-marquee-item">Online da casa tua</span>
             <span class="wb-marquee-item">2300+ donne trasformate</span>
             <span class="wb-marquee-item">Posti limitati</span>
-            <span class="wb-marquee-item">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
+            <span class="wb-marquee-item" data-cfg="marquee-special">Dopo l'8 Marzo, fatti il regalo pi&ugrave; bello</span>
             <span class="wb-marquee-item">3 Sere Gratuite</span>
-            <span class="wb-marquee-item">10-11-12 Marzo ore 18:30</span>
+            <span class="wb-marquee-item" data-cfg="marquee-dates">10-11-12 Marzo ore 18:30</span>
             <span class="wb-marquee-item">Online da casa tua</span>
             <span class="wb-marquee-item">2300+ donne trasformate</span>
             <span class="wb-marquee-item">Posti limitati</span>
@@ -262,7 +322,7 @@
     <!-- SUONA FAMILIARE? -->
     <section class="section section-black wb-bg-section">
         <div class="wb-bg-reveal wb-right" data-reveal>
-            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+            <img src="img/elena-webp/Elena81.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="wb-community">
@@ -279,19 +339,11 @@
         </div>
     </section>
 
-    <!-- EMOTION BREAK 1 -->
-    <section class="wb-emotion">
-        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="wb-emotion-bg" data-parallax>
-        <div class="wb-emotion-overlay"></div>
-        <div class="wb-emotion-text">
-            <p>Il cambiamento vero non inizia con una dieta. Inizia con <strong>il primo passo giusto.</strong></p>
-        </div>
-    </section>
 
     <!-- COSA TI BLOCCA (Bento Grid) -->
     <section class="section section-black wb-bg-section">
         <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+            <img src="img/elena-webp/IMG_9821.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="section-header center">
@@ -299,12 +351,10 @@
                 <h2 class="section-title" style="color: var(--white);">Perch&eacute; molli <span class="highlight"><em>ogni volta</em></span></h2>
             </div>
             <div class="wb-bento">
-                <div class="wb-bento-card wb-bento-wide">
+                <div class="wb-bento-card">
                     <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/></svg>
-                    <div>
-                        <h4>&ldquo;Da luned&igrave; ricomincio&rdquo;</h4>
-                        <p>L'hai detto anche a gennaio. E a febbraio. Ogni volta ricominci da zero &mdash; e ogni volta dura sempre meno. Il problema non &egrave; la volont&agrave;. &Egrave; l'approccio.</p>
-                    </div>
+                    <h4>&ldquo;Da luned&igrave; ricomincio&rdquo;</h4>
+                    <p>L'hai detto anche a gennaio. E a febbraio. Ogni volta ricominci da zero &mdash; e ogni volta dura sempre meno. Il problema non &egrave; la volont&agrave;. &Egrave; l'approccio.</p>
                     <div class="wb-bento-number">01</div>
                 </div>
                 <div class="wb-bento-card">
@@ -319,49 +369,41 @@
                     <p>Ogni programma mollato &egrave; una promessa mancata a te stessa.</p>
                     <div class="wb-bento-number">03</div>
                 </div>
-                <div class="wb-bento-card wb-bento-wide">
+                <div class="wb-bento-card">
                     <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    <div>
-                        <h4>Non hai mai iniziato davvero</h4>
-                        <p>Hai iniziato mille volte. Ma il primo passo vero &mdash; quello che fa la differenza &mdash; non l'hai ancora fatto. E nessuno ti ha mai spiegato qual &egrave;.</p>
-                    </div>
+                    <h4>Non hai mai iniziato davvero</h4>
+                    <p>Hai iniziato mille volte. Ma il primo passo vero &mdash; quello che fa la differenza &mdash; non l'hai ancora fatto. E nessuno ti ha mai spiegato qual &egrave;.</p>
                     <div class="wb-bento-number">04</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EMOTION BREAK 2 -->
-    <section class="wb-emotion">
-        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="wb-emotion-bg" data-parallax>
-        <div class="wb-emotion-overlay"></div>
-        <div class="wb-emotion-text">
-            <p>2300 donne hanno smesso di mollare. <strong>Cosa sanno loro che tu ancora no?</strong></p>
-        </div>
-    </section>
 
     <!-- PROGRAMMA 3 SERE (Timeline) -->
     <section class="section section-black wb-bg-section" id="programma" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
         <div class="wb-bg-reveal wb-right" data-reveal>
-            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+            <img src="img/evento-webp/EDO05142.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="section-header center">
-                <span class="section-number">3 SERE, 1 SVOLTA</span>
-                <h2 class="section-title" style="color: var(--white);">Cosa scoprirai <span class="highlight"><em>(che nessuno ti dice)</em></span></h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Non il solito webinar motivazionale. Tre serate concrete con strategie che 2300 donne hanno gi&agrave; usato per smettere di mollare.</p>
+                <span class="section-number">3 SERATE, 1 RIVOLUZIONE</span>
+                <h2 class="section-title" style="color: var(--white);">Cosa scoprirai in <span class="highlight"><em>3 serate</em></span></h2>
             </div>
             <div class="wb-timeline">
                 <div class="wb-timeline-day">
                     <div class="wb-timeline-card">
-                        <div class="wb-timeline-label">Marted&igrave; 10 Marzo &bull; Ore 18:30</div>
-                        <h3 class="wb-timeline-title">Perch&eacute; a marzo hai gi&agrave; mollato</h3>
-                        <p class="wb-timeline-subtitle">Il vero motivo non &egrave; la forza di volont&agrave;. &Egrave; qualcosa che nessun personal trainer ti ha mai spiegato.</p>
+                        <div class="wb-timeline-label" data-cfg="serata1-label">Luned&igrave; 10 Marzo &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Perch&eacute; Sei Bloccata</h3>
+                        <p class="wb-timeline-subtitle">Le verit&agrave; che nessuno ti ha mai detto sul fallimento dei buoni propositi.</p>
                         <ul class="wb-timeline-list">
-                            <li>L'errore invisibile che sabota ogni tuo tentativo</li>
-                            <li>Perch&eacute; la motivazione di gennaio &egrave; destinata a finire</li>
-                            <li>Il primo passo che cambia tutto (da fare subito)</li>
+                            <li>Le 6 cause invisibili che ti sabotano dopo i 40</li>
+                            <li>I meccanismi mentali che ti fanno mollare dopo pochi giorni</li>
+                            <li>Come veloce davvero il blocco femminile da superare</li>
+                            <li>L'errore pi&ugrave; comune che ti riporta sempre al punto di partenza</li>
+                            <li><strong>Check-Up Live</strong> sulle abitudini e sul mindset</li>
                         </ul>
+                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: saprai esattamente perch&eacute; non sei riuscita a ripartire.</p>
                     </div>
                     <div class="wb-timeline-dot"></div>
                     <div class="wb-timeline-number">01</div>
@@ -370,26 +412,33 @@
                     <div class="wb-timeline-number">02</div>
                     <div class="wb-timeline-dot"></div>
                     <div class="wb-timeline-card">
-                        <div class="wb-timeline-label">Mercoled&igrave; 11 Marzo &bull; Ore 18:30</div>
-                        <h3 class="wb-timeline-title">Il sistema delle donne che non mollano pi&ugrave;</h3>
-                        <p class="wb-timeline-subtitle">Non servono diete estreme o 2 ore in palestra. Serve un metodo che funziona con la tua vita reale.</p>
+                        <div class="wb-timeline-label" data-cfg="serata2-label">Marted&igrave; 11 Marzo &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Cosa Funziona Davvero</h3>
+                        <p class="wb-timeline-subtitle">Smontiamo diete, paure e confusione. Mettiamo ordine. Finalmente.</p>
                         <ul class="wb-timeline-list">
-                            <li>I 4 pilastri del Metodo E.A.S.Y. (e perch&eacute; funziona)</li>
-                            <li>Cosa hanno in comune le donne che ce l'hanno fatta</li>
-                            <li>Storie reali: da &ldquo;mollo sempre&rdquo; a &ldquo;non mi fermo pi&ugrave;&rdquo;</li>
+                            <li>Perch&eacute; allenarsi di pi&ugrave; spesso non serve (e cosa serve davvero)</li>
+                            <li>Come mangiare senza dieta, sensi di colpa o rinunce inutili</li>
+                            <li>Il ruolo del metabolismo femminile 40+</li>
+                            <li>Il mindset che trasforma tutto</li>
+                            <li><strong>Check-Up Live corporeo:</strong> postura, accumuli, metabolismo</li>
                         </ul>
+                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: capirai perch&eacute; tutto quello che hai fatto finora non ha funzionato.</p>
                     </div>
                 </div>
                 <div class="wb-timeline-day">
                     <div class="wb-timeline-card">
-                        <div class="wb-timeline-label">Gioved&igrave; 12 Marzo &bull; Ore 18:30</div>
-                        <h3 class="wb-timeline-title">Il primo passo (quello vero)</h3>
-                        <p class="wb-timeline-subtitle">Non un piano da 90 giorni. Un singolo passo concreto da fare domani mattina.</p>
+                        <div class="wb-timeline-label" data-cfg="serata3-label">Mercoled&igrave; 12 Marzo &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Il Tuo Piano d'Azione</h3>
+                        <p class="wb-timeline-subtitle">La serata dedicata al cambiamento definitivo.</p>
                         <ul class="wb-timeline-list">
-                            <li>Perch&eacute; un solo passo vale pi&ugrave; di mille programmi</li>
-                            <li>Come costruirlo intorno alla tua vita reale</li>
-                            <li>Sessione Q&amp;A live &mdash; chiedi tutto quello che vuoi</li>
+                            <li>Come evitare l'effetto &ldquo;parto e mollo dopo 10 giorni&rdquo;</li>
+                            <li>Come integrare benessere, lavoro e famiglia senza sentirti sopraffatta</li>
+                            <li>Le basi del Metodo V-FIT Academy interamente in diretta</li>
+                            <li>Perch&eacute; un percorso guidato &egrave; l'unico modo per risultati veri</li>
+                            <li><strong>Q&amp;A finale</strong> per le tue domande reali</li>
                         </ul>
+                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: dirai &ldquo;Ora ho capito perch&eacute; finora non ci sono riuscita.&rdquo;</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-top: 1.25rem; padding: 0.75rem 1rem; border: 1px solid var(--pink-primary); border-radius: 8px; text-align: center; position: relative; z-index: 1;">&#128274; Solo in questa serata: <strong>2 bonus straordinari</strong> del valore di 444&euro;.</p>
                     </div>
                     <div class="wb-timeline-dot"></div>
                     <div class="wb-timeline-number">03</div>
@@ -404,10 +453,78 @@
         </div>
     </section>
 
+    <!-- CHECK-UP LIVE -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">NON SOLO TEORIA</span>
+                <h2 class="section-title" style="color: var(--white);">Il <span class="highlight"><em>Check-Up Live</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">In ogni serata far&ograve; Check-Up Live su donne reali. Non teoria &mdash; pratica vera, su corpi veri.</p>
+            </div>
+            <div class="wb-checkup-grid">
+                <div class="wb-checkup-card">
+                    <div class="wb-checkup-label">Serata 1 &bull; Mindset</div>
+                    <div class="wb-checkup-title">Check-Up sulle abitudini e sul mindset</div>
+                    <ul class="wb-checkup-list">
+                        <li>Capire individuando gli errori invisibili</li>
+                        <li>Cos&igrave; dove sono le tue vere resistenze al cambiamento</li>
+                        <li>Come verificare se il tuo approccio attuale pu&ograve; funzionare</li>
+                    </ul>
+                </div>
+                <div class="wb-checkup-card">
+                    <div class="wb-checkup-label">Serata 2 &bull; Corpo</div>
+                    <div class="wb-checkup-title">Check-Up corporeo: postura, accumuli, metabolismo</div>
+                    <ul class="wb-checkup-list">
+                        <li>Da dove nasce il ristagno di liquidi e la ritenzione</li>
+                        <li>Cos&igrave; leggere i segnali del tuo corpo per capire cosa manca</li>
+                        <li>Come costruirti una strategia personalizzata</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FA PER TE SE... -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">&Egrave; PER TE?</span>
+                <h2 class="section-title" style="color: var(--white);">Questo percorso <span class="highlight"><em>fa per te se...</em></span></h2>
+            </div>
+            <div class="wb-fortyou-grid">
+                <div class="wb-fortyou-card wb-yes">
+                    <h4>&#10003; &Egrave; per te se:</h4>
+                    <ul class="wb-fortyou-list">
+                        <li>Sei una donna 40-65 che si sente bloccata</li>
+                        <li>Vuoi ripartire ma non sai da dove iniziare</li>
+                        <li>Sei stufa di buoni propositi che durano 10 giorni</li>
+                        <li>Hai bisogno di una guida reale, non di un'app o di un video</li>
+                        <li>Vuoi un metodo semplice, sostenibile e professionale</li>
+                    </ul>
+                </div>
+                <div class="wb-fortyou-card wb-no">
+                    <h4>&#10007; Non &egrave; per te se:</h4>
+                    <ul class="wb-fortyou-list">
+                        <li>Cerchi una dieta rapida</li>
+                        <li>Vuoi fare tutto da sola</li>
+                        <li>Cerchi allenamenti registrati fai-da-te</li>
+                        <li>Vuoi risultati senza impegno</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#iscriviti" class="btn-primary">
+                    S&igrave;, &Egrave; Per Me! Prenota Ora
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- CHI TI GUIDERA -->
     <section class="section section-black wb-bg-section">
         <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+            <img src="img/evento-webp/EDO05146.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="wb-community">
@@ -434,14 +551,6 @@
         </div>
     </section>
 
-    <!-- EMOTION BREAK 3 -->
-    <section class="wb-emotion">
-        <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" class="wb-emotion-bg" data-parallax>
-        <div class="wb-emotion-overlay"></div>
-        <div class="wb-emotion-text">
-            <p>Anche loro erano scettiche. Anche loro avevano <strong>provato di tutto.</strong></p>
-        </div>
-    </section>
 
     <!-- TESTIMONIALS -->
     <section class="section section-black">
@@ -450,40 +559,218 @@
                 <span class="section-number">ERANO AL PUNTO DI PARTENZA</span>
                 <h2 class="section-title" style="color: var(--white);">Non conoscevano Elena. <span class="highlight"><em>Poi hanno partecipato.</em></span></h2>
             </div>
-            <div class="wb-testimonials">
-                <div class="wb-testimonial">
-                    <div class="wb-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <blockquote>&ldquo;Non avevo idea di chi fosse Elena. Un'amica mi ha mandato il link. Dopo la prima sera ho capito perch&eacute; mollavo sempre. Sono 6 mesi che non mi fermo pi&ugrave;.&rdquo;</blockquote>
-                    <div class="wb-testimonial-author">
-                        <div class="wb-testimonial-avatar">S</div>
-                        <div>
-                            <div class="wb-testimonial-name">Silvia M.</div>
-                            <div class="wb-testimonial-result">-12kg in 5 mesi</div>
-                        </div>
-                    </div>
+            <div class="scroll-rows-wrapper scroll-rows-masonry">
+                <div class="scroll-row" id="waRowWebA"></div>
+                <div class="scroll-row" id="waRowWebB"></div>
+            </div>
+
+            <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
+                <button class="wa-lightbox-close">&times;</button>
+                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg" loading="lazy">
+            </div>
+
+            <script>
+                function openWaLightbox(el) {
+                    var src = el.querySelector('img').src;
+                    document.getElementById('waLightboxImg').src = src;
+                    document.getElementById('waLightbox').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeWaLightbox() {
+                    document.getElementById('waLightbox').classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeWaLightbox(); });
+
+                (function() {
+                    var allImgs = [];
+                    for (var i = 1; i <= 30; i++) {
+                        allImgs.push(i < 10 ? '0' + i : '' + i);
+                    }
+                    for (var j = allImgs.length - 1; j > 0; j--) {
+                        var k = Math.floor(Math.random() * (j + 1));
+                        var tmp = allImgs[j]; allImgs[j] = allImgs[k]; allImgs[k] = tmp;
+                    }
+                    var half = Math.ceil(allImgs.length / 2);
+                    var rows = [
+                        { el: document.getElementById('waRowWebA'), imgs: allImgs.slice(0, half), speed: 0.5, dir: 1 },
+                        { el: document.getElementById('waRowWebB'), imgs: allImgs.slice(half), speed: 0.4, dir: -1 }
+                    ];
+                    rows.forEach(function(row) {
+                        var html = '';
+                        row.imgs.forEach(function(n) {
+                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/whatsapp-webp/whatsapp-' + n + '.webp" alt="Testimonianza" loading="lazy"></div>';
+                        });
+                        html += html;
+                        row.el.innerHTML = html;
+                        var isDown = false, startX, scrollLeft;
+                        row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
+                        row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
+                        row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
+                        row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
+                        row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
+                        row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
+                        row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                    });
+                    rows.forEach(function(row) {
+                        if (row.dir === -1) {
+                            row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
+                        }
+                    });
+                    function autoScroll() {
+                        rows.forEach(function(row) {
+                            if (!row.paused) {
+                                row.el.scrollLeft += row.speed * row.dir;
+                                var halfScroll = row.el.scrollWidth / 2;
+                                if (row.dir === 1 && row.el.scrollLeft >= halfScroll) {
+                                    row.el.scrollLeft -= halfScroll;
+                                } else if (row.dir === -1 && row.el.scrollLeft <= 0) {
+                                    row.el.scrollLeft += halfScroll;
+                                }
+                            }
+                        });
+                        requestAnimationFrame(autoScroll);
+                    }
+                    autoScroll();
+                })();
+            </script>
+        </div>
+    </section>
+
+    <!-- COMMENTI LIVE DAL WEBINAR -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">DAL VIVO</span>
+                <h2 class="section-title" style="color: var(--white);">I commenti <span class="highlight"><em>durante il webinar</em></span></h2>
+            </div>
+            <div class="scroll-rows-wrapper scroll-rows-masonry">
+                <div class="scroll-row" id="commentiRow1"></div>
+                <div class="scroll-row" id="commentiRow2"></div>
+            </div>
+
+            <script>
+            (function() {
+                var imgs = [
+                    'IMG_7065','IMG_7066','IMG_7067','IMG_7068','IMG_7069','IMG_7070',
+                    'IMG_7071','IMG_7073','IMG_7074','IMG_7075','IMG_7077','IMG_7083',
+                    'IMG_7085','IMG_7086','IMG_7091','IMG_7092','IMG_7093','IMG_7094',
+                    '132AC079-5BB6-4188-AB60-AC4C1392E935'
+                ];
+                for (var j = imgs.length - 1; j > 0; j--) {
+                    var k = Math.floor(Math.random() * (j + 1));
+                    var tmp = imgs[j]; imgs[j] = imgs[k]; imgs[k] = tmp;
+                }
+                var half = Math.ceil(imgs.length / 2);
+                var rows = [
+                    { el: document.getElementById('commentiRow1'), imgs: imgs.slice(0, half), speed: 0.4, dir: 1 },
+                    { el: document.getElementById('commentiRow2'), imgs: imgs.slice(half), speed: 0.35, dir: -1 }
+                ];
+                rows.forEach(function(row) {
+                    var html = '';
+                    row.imgs.forEach(function(name) {
+                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/commenti-webp/' + name + '.webp" alt="Commento webinar" loading="lazy"></div>';
+                    });
+                    row.el.innerHTML = html;
+                    var isDown = false, startX, scrollLeft;
+                    row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
+                    row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
+                    row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
+                    row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
+                    row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
+                    row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
+                    row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                });
+                rows.forEach(function(row) {
+                    if (row.dir === -1) row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
+                });
+                function autoScroll() {
+                    rows.forEach(function(row) {
+                        if (!row.paused) {
+                            row.el.scrollLeft += row.speed * row.dir;
+                            var maxScroll = row.el.scrollWidth - row.el.clientWidth;
+                            if (row.dir === 1 && row.el.scrollLeft >= maxScroll) row.el.scrollLeft = 0;
+                            else if (row.dir === -1 && row.el.scrollLeft <= 0) row.el.scrollLeft = maxScroll;
+                        }
+                    });
+                    requestAnimationFrame(autoScroll);
+                }
+                autoScroll();
+            })();
+            </script>
+        </div>
+    </section>
+
+    <!-- RECENSIONI TRUSTPILOT -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">VERIFICATE E REALI</span>
+                <h2 class="section-title" style="color: var(--white);">Recensioni <span class="highlight"><em>verificate</em></span> su TrustPilot</h2>
+            </div>
+            <div class="wb-reviews-grid">
+                <div class="wb-review">
+                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="wb-review-title">Percorso di vita (consigliato)</div>
+                    <div class="wb-review-text">La XFit Academy di Elena Giordani non &egrave; un semplice allenamento fisico ma un completo allenamento mentale e di crescita personale. &Egrave; un percorso di vita che ti aiuta a ritrovare la migliore versione di te stessa, supportata da professionisti preparati e appassionati.</div>
+                    <div class="wb-review-author">Maria Teresa</div>
                 </div>
-                <div class="wb-testimonial">
-                    <div class="wb-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <blockquote>&ldquo;Mi sono iscritta pensando 'sar&agrave; il solito webinar'. Alla terza sera avevo le lacrime agli occhi. Ha cambiato il mio rapporto con il corpo e con me stessa.&rdquo;</blockquote>
-                    <div class="wb-testimonial-author">
-                        <div class="wb-testimonial-avatar">F</div>
-                        <div>
-                            <div class="wb-testimonial-name">Francesca R.</div>
-                            <div class="wb-testimonial-result">Trasformazione completa</div>
-                        </div>
-                    </div>
+                <div class="wb-review">
+                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="wb-review-title">Sono rientrata nel mio corpo</div>
+                    <div class="wb-review-text">Avevo gi&agrave; smesso di crederci. Dopo il webinar ho capito esattamente perch&eacute; ogni programma che avevo fatto prima non aveva funzionato. Il metodo di Elena &egrave; diverso da tutto quello che avevo provato.</div>
+                    <div class="wb-review-author">Cristiana</div>
                 </div>
-                <div class="wb-testimonial">
-                    <div class="wb-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <blockquote>&ldquo;Avevo mollato i propositi di gennaio a met&agrave; febbraio. Ho visto il webinar per caso, mi ci sono iscritta e per la prima volta ho un metodo che funziona con i miei tempi.&rdquo;</blockquote>
-                    <div class="wb-testimonial-author">
-                        <div class="wb-testimonial-avatar">G</div>
-                        <div>
-                            <div class="wb-testimonial-name">Giulia D.</div>
-                            <div class="wb-testimonial-result">-8kg in 3 mesi</div>
-                        </div>
-                    </div>
+                <div class="wb-review">
+                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="wb-review-title">Il programma... il posto giusto!</div>
+                    <div class="wb-review-text">Ho iniziato la V-Fit e la vita mi &egrave; cambiata totalmente. Non solo nell'aspetto fisico, ma nella mentalit&agrave; e nella consapevolezza. Finalmente ho trovato il programma e le persone giuste per i miei obiettivi.</div>
+                    <div class="wb-review-author">Simonetta</div>
                 </div>
+                <div class="wb-review">
+                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="wb-review-title">Non &egrave; mai troppo tardi per iniziare</div>
+                    <div class="wb-review-text">Avevo provato ogni dieta. Dopo il webinar mi sono iscritta e in 5 mesi ho perso 12 kg. Non ho mai mollato. Per la prima volta nella mia vita ho un metodo che funziona con i miei ritmi, la mia famiglia, il mio lavoro.</div>
+                    <div class="wb-review-author">Valentina</div>
+                </div>
+            </div>
+            <div class="wb-trustpilot-badge">
+                <span>&#9733; Trustpilot &bull; 4.9 / 5</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- I DUE BONUS STRAORDINARI -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">SOLO PER CHI ENTRA IN ACADEMY</span>
+                <h2 class="section-title" style="color: var(--white);">I Due <span class="highlight"><em>Bonus Straordinari</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Riservati a chi partecipa al webinar e decide di entrare in Academy.</p>
+            </div>
+            <div class="wb-bonus-grid">
+                <div class="wb-bonus-card">
+                    <div class="wb-bonus-badge">Bonus 1</div>
+                    <div class="wb-bonus-title">&ldquo;Il Primo Passo&rdquo; &mdash; Sfida 7 Giorni</div>
+                    <div class="wb-bonus-value">Valore: 197&euro;</div>
+                    <div class="wb-bonus-desc">Il nostro percorso di 7 giorni per iniziare subito con il piede giusto. Incluso GRATIS per chi entra in Academy dopo il webinar.</div>
+                </div>
+                <div class="wb-bonus-card">
+                    <div class="wb-bonus-badge">Bonus 2 &bull; Solo 20 posti</div>
+                    <div class="wb-bonus-title">Masterclass Live Esclusiva con Elena</div>
+                    <div class="wb-bonus-value">Valore: 247&euro;</div>
+                    <div class="wb-bonus-desc">Una masterclass LIVE su un argomento scelto dalle partecipanti. Riservata alle prime 20 che si iscrivono all'Academy.</div>
+                </div>
+            </div>
+            <div class="wb-bonus-total">
+                <p>Un regalo speciale per chi vuole davvero ripartire nel 2026 con metodo.</p>
+                <strong>Totale valore: 444&euro;</strong>
+            </div>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="#iscriviti" class="btn-primary">
+                    Voglio I Bonus! Iscrivimi!
+                    <span>&rarr;</span>
+                </a>
             </div>
         </div>
     </section>
@@ -516,10 +803,25 @@
                     </div>
                 </div>
                 <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem;">alla prima serata</p>
-                <a href="https://wa.me/393762543276?text=Ciao%20Elena!%20Voglio%20iscrivermi%20al%20webinar%20del%2010-11-12%20Marzo!" class="btn-primary" style="font-size: 0.85rem; padding: 1.5rem 3rem;">
-                    Voglio Il Mio Posto Gratuito
-                    <span>&rarr;</span>
-                </a>
+                <div class="wb-form-wrapper">
+                    <iframe
+                        src="https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61"
+                        id="inline-2oq63J6fm05WSqwcVz61"
+                        data-layout="{'id':'INLINE'}"
+                        data-trigger-type="alwaysShow"
+                        data-trigger-value=""
+                        data-activation-type="alwaysActivated"
+                        data-activation-value=""
+                        data-deactivation-type="neverDeactivate"
+                        data-deactivation-value=""
+                        data-form-name="[LP-Form] Webinar"
+                        data-height="492"
+                        data-layout-iframe-id="inline-2oq63J6fm05WSqwcVz61"
+                        data-form-id="2oq63J6fm05WSqwcVz61"
+                        title="[LP-Form] Webinar"
+                    ></iframe>
+                </div>
+                <!-- form_embed.js caricato dinamicamente dallo script init -->
                 <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem;">Nessun costo &bull; Nessun impegno &bull; Nessuna vendita aggressiva</p>
             </div>
         </div>
@@ -528,7 +830,7 @@
     <!-- FAQ -->
     <section class="section section-black wb-bg-section">
         <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="" loading="lazy">
+            <img src="img/elena-webp/IMG_9822.webp" alt="Elena Giordani" loading="lazy">
         </div>
         <div class="container">
             <div class="section-header center">
@@ -571,11 +873,11 @@
             <p>Non con l'ennesima dieta. Non con un programma da 90 giorni.</p>
             <p>Ma con un singolo passo &mdash; quello giusto. Quello che le 2300 donne prima di te hanno fatto per non mollare pi&ugrave;.</p>
             <p class="wb-question">Tu fai il primo passo?</p>
-            <a href="https://wa.me/393762543276?text=Ciao%20Elena!%20Voglio%20iscrivermi%20al%20webinar%20del%2010-11-12%20Marzo!" class="wb-btn-white">
+            <a href="#iscriviti" class="wb-btn-white">
                 S&igrave;, Voglio Esserci
                 <span>&rarr;</span>
             </a>
-            <p class="wb-final-trust">100% gratuito &bull; Online &bull; 10-11-12 Marzo ore 18:30</p>
+            <p class="wb-final-trust" data-cfg="trust-dates">100% gratuito &bull; Online &bull; 10-11-12 Marzo ore 18:30</p>
         </div>
     </section>
 
@@ -585,37 +887,18 @@
             <div class="footer-brand">
                 <div class="footer-logo">ELENA GIORDANI</div>
                 <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Percorsi</h4>
-                <ul>
-                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
-                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
-                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Risorse</h4>
-                <ul>
-                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
-                    <li><a href="libri.html">Libri</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="team.html">Il Team</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contatti</h4>
-                <ul>
-                    <li><a href="contatti.html">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
-                </ul>
+                <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.6;">
+                    X77 SSD a.r.l &mdash; P.IVA: IT17336811009
+                    <br>Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)
+                    <br>Email: info.xfitacademy@gmail.com
+                </p>
             </div>
         </div>
         <div class="footer-bottom">
             <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
             <div class="footer-legal">
-                <a href="#">Cookie Policy</a>
-                <a href="#">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/49397266" target="_blank">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" target="_blank">Cookie Policy</a>
             </div>
         </div>
     </footer>
@@ -627,14 +910,51 @@
         </a>
     </div>
 
-    <script src="js/main.js?v=1767489274"></script>
+    <script defer src="js/main.js?v=1767489274"></script>
 
     <!-- React (for mobile header) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="js/react-mobile-header.js?v=1767489274"></script>
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
 
     <script>
+        // ===== POPOLA PAGINA DA CONFIGURAZIONE =====
+        (function() {
+            var W = WEBINAR;
+            var map = {
+                'badge':           'Webinar Gratuito \u2022 ' + W.dateBrief + ' \u2022 Ore ' + W.orario,
+                'marquee-dates':   W.dateBrief + ' ore ' + W.orario,
+                'marquee-special': W.marqueeSpeciale,
+                'serata1-label':   W.serata1 + ' \u2022 Ore ' + W.orario,
+                'serata2-label':   W.serata2 + ' \u2022 Ore ' + W.orario,
+                'serata3-label':   W.serata3 + ' \u2022 Ore ' + W.orario,
+                'trust-dates':     '100% gratuito \u2022 Online \u2022 ' + W.dateBrief + ' ore ' + W.orario
+            };
+            document.querySelectorAll('[data-cfg]').forEach(function(el) {
+                var val = map[el.getAttribute('data-cfg')];
+                if (val) el.textContent = val;
+            });
+            // Title & og:image
+            document.title = document.title.replace(/\d{1,2}-\d{1,2}-\d{1,2}\s+\w+/, W.dateBrief);
+            var ogImg = document.querySelector('meta[property="og:image"]');
+            if (ogImg) ogImg.setAttribute('content', W.ogImage);
+            // Form iframe
+            var iframe = document.querySelector('.wb-form-wrapper iframe');
+            if (iframe) {
+                iframe.src = W.formUrl;
+                iframe.id = 'inline-' + W.formId;
+                iframe.setAttribute('data-layout-iframe-id', 'inline-' + W.formId);
+                iframe.setAttribute('data-form-id', W.formId);
+            }
+            // Carica form embed script (dopo aver aggiornato l'iframe)
+            var s = document.createElement('script');
+            s.src = 'https://link.drewcompany.it/js/form_embed.js';
+            document.body.appendChild(s);
+            // WhatsApp sticky CTA
+            var waLink = document.querySelector('.wb-sticky-cta .btn-primary');
+            if (waLink) waLink.href = 'https://wa.me/' + W.whatsappNumero + '?text=' + encodeURIComponent(W.whatsappMessaggio);
+        })();
+
         // FAQ Accordion
         document.querySelectorAll('.wb-faq-question').forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -645,8 +965,8 @@
             });
         });
 
-        // Countdown Timer - 10 Marzo 2026 18:30
-        var webinarStart = new Date('2026-03-10T18:30:00+01:00').getTime();
+        // Countdown Timer (usa data da WEBINAR config)
+        var webinarStart = new Date(WEBINAR.countdownISO).getTime();
         function updateCountdown() {
             var now = new Date().getTime();
             var distance = webinarStart - now;

@@ -53,7 +53,6 @@ function initMobileDropdowns() {
                     // Toggle current dropdown
                     dropdown.classList.toggle('open');
 
-                    console.log('Dropdown toggled:', dropdown.classList.contains('open'));
                 }
             }, { passive: false });
         });

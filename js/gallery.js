@@ -1,35 +1,16 @@
 /**
  * Elena Giordani - X-Fit Academy
  * Gallery & Lightbox JavaScript
- * Version: 7.2
+ * Version: 8.0 - Local images
  */
 
 // ===== TRANSFORMATIONS GALLERY =====
-const transformationIds = [
-    '1XjrfjHV-t_swoK6fE8EcHXw-FdUUpRKg',
-    '11U2umV07yCNEcw2-EoxxkRESn0HLX2X4',
-    '1f9u1Ic00nys8FtjNHg12quy6bbi0xArN',
-    '1JS-3IkIDi7qXSGtj7hXTGD5l0qPZJPTh',
-    '1ILtoToU4fX93Ktf0zJvLxaUHsKr5D7-m',
-    '12TBAcFoGawql1t5BNYMP2s-tsNcGFKYd',
-    '1vQXMmVlE1qL5C2BPqRFHX0mGSo5d7-lK',
-    '1wYRqTnHx8pJvLmC3BkQDo9eGSf2d6-mN',
-    '1xZStUoIy9qKwMnD4ClREp0fHTg3e7-nO',
-    '1yATuVpJz0rLxNoE5DmSFq1gIUh4f8-oP',
-    '1zBUvWqKA1sMyOpF6EnTGr2hJVi5g9-pQ',
-    '1ACVwXrLB2tNzPqG7FoUHs3iKWj6hA-qR'
-];
+const transformationImages = [];
+for (let i = 37; i <= 186; i++) {
+    transformationImages.push('img/prima-e-dopo-webp/' + i + '.webp');
+}
 
 let currentLightboxIndex = 0;
-
-// ===== HELPER FUNCTIONS =====
-function getDriveThumbUrl(id) {
-    return `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
-}
-
-function getDriveLargeUrl(id) {
-    return `https://drive.google.com/thumbnail?id=${id}&sz=w1200`;
-}
 
 // ===== GALLERY MODAL =====
 function openGalleryModal() {
@@ -38,13 +19,12 @@ function openGalleryModal() {
 
     if (!modal || !grid) return;
 
-    // Clear and populate grid
     grid.innerHTML = '';
-    transformationIds.forEach((id, index) => {
+    transformationImages.forEach((src, index) => {
         const thumb = document.createElement('div');
         thumb.className = 'gallery-thumb';
-        thumb.innerHTML = `<img src="${getDriveThumbUrl(id)}" alt="Trasformazione ${index + 1}" loading="lazy">`;
-        thumb.onclick = () => openLightbox(index);
+        thumb.innerHTML = '<img src="' + src + '" alt="Trasformazione ' + (index + 1) + '" loading="lazy">';
+        thumb.onclick = function() { openLightbox(index); };
         grid.appendChild(thumb);
     });
 
@@ -68,7 +48,7 @@ function openLightbox(index) {
 
     if (!lightbox || !img) return;
 
-    img.src = getDriveLargeUrl(transformationIds[index]);
+    img.src = transformationImages[index];
     lightbox.classList.add('active');
 }
 
@@ -80,18 +60,18 @@ function closeLightbox() {
 }
 
 function showPrevImage() {
-    currentLightboxIndex = (currentLightboxIndex - 1 + transformationIds.length) % transformationIds.length;
+    currentLightboxIndex = (currentLightboxIndex - 1 + transformationImages.length) % transformationImages.length;
     const img = document.getElementById('lightboxImage');
     if (img) {
-        img.src = getDriveLargeUrl(transformationIds[currentLightboxIndex]);
+        img.src = transformationImages[currentLightboxIndex];
     }
 }
 
 function showNextImage() {
-    currentLightboxIndex = (currentLightboxIndex + 1) % transformationIds.length;
+    currentLightboxIndex = (currentLightboxIndex + 1) % transformationImages.length;
     const img = document.getElementById('lightboxImage');
     if (img) {
-        img.src = getDriveLargeUrl(transformationIds[currentLightboxIndex]);
+        img.src = transformationImages[currentLightboxIndex];
     }
 }
 

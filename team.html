@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Team Medico | Elena Giordani - X-Fit Academy</title>
     <meta name="description" content="Conosci il team di specialisti di X-Fit Academy: oncologa, genetista, psicoterapeuta e fisioterapista. Supporto medico professionale per il tuo percorso.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
 </head>
@@ -16,36 +18,34 @@
 
     <!-- NAVIGATION -->
     <nav class="nav nav-light" id="navbar">
-        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <a href="/" class="nav-logo">ELENA GIORDANI</a>
         <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
                         <div class="nav-menu" id="navMenu">
-            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
-            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
-            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
             <div class="nav-dropdown">
                 <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">▾</span></span>
                 <div class="nav-dropdown-menu">
-                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
-                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
-                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/libri" onclick="closeMobileMenu()">Libri</a>
+                    <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="/shop" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
                 </div>
             </div>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">▾</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
-                    <a href="press.html" onclick="closeMobileMenu()">Press & Media</a>
-                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
-                </div>
-            </div>
-            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+            <a href="/contatti" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
         </div>
     </nav>
+
+    <!-- PAGE HERO WRAPPER -->
+    <div class="page-hero-wrapper">
+        <img src="img/elena-webp/IMG_9183.webp" alt="Elena Giordani" class="page-hero-bg" loading="eager">
+        <div class="page-hero-gradient"></div>
+
 
     <!-- PAGE HERO -->
     <section class="page-hero">
@@ -73,7 +73,7 @@
                         e ricevere supporto su tematiche specifiche.
                     </p>
                     <div class="team-page-highlight">
-                        <div class="team-page-highlight-icon">&#128337;</div>
+                        <div class="team-page-highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                         <div class="team-page-highlight-text">
                             <strong>Ogni martedi alle 13:00</strong>
                             <span>Sessione Q&A con gli specialisti</span>
@@ -83,6 +83,7 @@
             </div>
         </div>
     </section>
+    </div>
 
     <!-- TEAM MEMBERS -->
     <section class="section section-gray">
@@ -90,7 +91,7 @@
             <!-- Federica Cuppone - Oncologa -->
             <div class="specialist-profile">
                 <div class="specialist-profile-image">
-                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9330ab5c901d68408.jpeg" alt="Dott.ssa Federica Cuppone">
+                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9330ab5c901d68408.jpeg" alt="Dott.ssa Federica Cuppone" loading="lazy">
                 </div>
                 <div class="specialist-profile-content">
                     <span class="specialist-profile-role">Medico Oncologo</span>
@@ -123,7 +124,7 @@
             <!-- Alessandro Lisi - Genetista -->
             <div class="specialist-profile specialist-profile-reverse">
                 <div class="specialist-profile-image">
-                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a953e35024fa4fdf78.jpeg" alt="Dott. Alessandro Lisi">
+                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a953e35024fa4fdf78.jpeg" alt="Dott. Alessandro Lisi" loading="lazy">
                 </div>
                 <div class="specialist-profile-content">
                     <span class="specialist-profile-role">Genetista</span>
@@ -156,7 +157,7 @@
             <!-- Floriana Mariotti - Psicoterapeuta -->
             <div class="specialist-profile">
                 <div class="specialist-profile-image">
-                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9d0b2ee42bfb22fd5.jpeg" alt="Dott.ssa Floriana Mariotti">
+                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a9d0b2ee42bfb22fd5.jpeg" alt="Dott.ssa Floriana Mariotti" loading="lazy">
                 </div>
                 <div class="specialist-profile-content">
                     <span class="specialist-profile-role">Psicoterapeuta</span>
@@ -189,7 +190,7 @@
             <!-- Luca Cara - Fisioterapista -->
             <div class="specialist-profile specialist-profile-reverse">
                 <div class="specialist-profile-image">
-                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a95c5cabb07d0622bf.jpeg" alt="Dott. Luca Cara">
+                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/691ed5a95c5cabb07d0622bf.jpeg" alt="Dott. Luca Cara" loading="lazy">
                 </div>
                 <div class="specialist-profile-content">
                     <span class="specialist-profile-role">Fisioterapista</span>
@@ -226,7 +227,7 @@
         <div class="container">
             <div class="elena-leader">
                 <div class="elena-leader-image">
-                    <img src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68303789ce008cb2eb69a08b.jpeg" alt="Elena Giordani" loading="lazy">
+                    <img src="img/elena-webp/Elena81.webp" alt="Elena Giordani" loading="lazy">
                 </div>
                 <div class="elena-leader-content">
                     <span class="elena-leader-badge">La Fondatrice</span>
@@ -241,7 +242,7 @@
                         Con oltre 180.000 follower su Instagram è più di 2300 trasformazioni,
                         Elena ha creato molto più di un programma fitness: ha creato una famiglia.
                     </p>
-                    <a href="chi-sono.html" class="btn-outline">
+                    <a href="/chi-sono" class="btn-outline">
                         Scopri la sua storia &rarr;
                     </a>
                 </div>
@@ -260,7 +261,7 @@
             <p class="cta-text">
                 Compila il form di candidatura e scopri come entrare in X-Fit Academy.
             </p>
-            <a href="contatti.html" class="cta-btn">
+            <a href="/contatti" class="cta-btn">
                 Candidati ora
                 <span>&rarr;</span>
             </a>
@@ -280,25 +281,23 @@
             <div class="footer-col">
                 <h4>Percorsi</h4>
                 <ul>
-                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
-                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
-                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                    <li><a href="/#percorsi">Il Primo Passo</a></li>
+                    <li><a href="/#percorsi">X-Fit Academy</a></li>
+                    <li><a href="/#percorsi">Club Inarrestabili</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Risorse</h4>
                 <ul>
-                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
-                    <li><a href="libri.html">Libri</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="team.html">Il Team</a></li>
+                    <li><a href="/libri">Libri</a></li>
+                    <li><a href="/eventi">Eventi</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contatti</h4>
                 <ul>
-                    <li><a href="contatti.html">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="/contatti">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -311,12 +310,12 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=1767489274"></script>
+    <script defer src="js/main.js?v=1767489274"></script>
 
     <!-- React (for mobile header) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="js/react-mobile-header.js?v=1767489274"></script>
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
 
 </body>
 </html>

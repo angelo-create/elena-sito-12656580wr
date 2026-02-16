@@ -29,7 +29,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 
     <!-- Fonts & CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
 
     <!-- Iubenda Cookie Solution -->
@@ -58,7 +60,7 @@
     <div id="react-mobile-header-root"></div>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/39XXXXXXXXXX" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/393762543276?text=Ciao!%20Ti%20scrivo%20dal%20sito%20web" target="_blank" class="whatsapp-float">
         <svg viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
@@ -66,34 +68,26 @@
 
     <!-- NAVIGATION -->
     <nav class="nav" id="navbar">
-        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <a href="/" class="nav-logo">ELENA GIORDANI</a>
         <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
                 <div class="nav-menu" id="navMenu">
-            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
-            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
-            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
             <div class="nav-dropdown">
                 <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">▾</span></span>
                 <div class="nav-dropdown-menu">
-                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
-                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
-                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/libri" onclick="closeMobileMenu()">Libri</a>
+                    <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="/shop" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
                 </div>
             </div>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">▾</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
-                    <a href="press.html" onclick="closeMobileMenu()">Press & Media</a>
-                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
-                </div>
-            </div>
-            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+            <a href="/contatti" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
         </div>
     </nav>
 
@@ -409,7 +403,7 @@
             <p class="cta-text">
                 Inizia con "Il Primo Passo": 7 giorni per scoprire il metodo e capire se fa per te.
             </p>
-            <a href="contatti.html" class="cta-btn">
+            <a href="/contatti" class="cta-btn">
                 Candidati ora
                 <span>&rarr;</span>
             </a>
@@ -437,17 +431,15 @@
             <div class="footer-col">
                 <h4>Risorse</h4>
                 <ul>
-                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
-                    <li><a href="libri.html">Libri</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="team.html">Il Team</a></li>
+                    <li><a href="/libri">Libri</a></li>
+                    <li><a href="/eventi">Eventi</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contatti</h4>
                 <ul>
-                    <li><a href="contatti.html">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="/contatti">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -461,14 +453,14 @@
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="js/main.js?v=1767489274"></script>
-    <script src="js/gallery.js"></script>
+    <script defer src="js/main.js?v=1767489274"></script>
+    <script defer src="js/gallery.js"></script>
 
     <!-- React (for mobile components) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="js/react-mobile-header.js?v=1767489274"></script>
-    <script src="js/react-mobile-hero.js?v=1767489274"></script>
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
+    <script defer src="js/react-mobile-hero.js?v=1767489274"></script>
 
 </body>
 </html>

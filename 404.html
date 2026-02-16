@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina non trovata | Elena Giordani - X-Fit Academy</title>
     <meta name="robots" content="noindex, nofollow">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
 </head>
@@ -16,34 +18,26 @@
 
     <!-- NAVIGATION -->
     <nav class="nav nav-light" id="navbar">
-        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <a href="/" class="nav-logo">ELENA GIORDANI</a>
         <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
                         <div class="nav-menu" id="navMenu">
-            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
-            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
-            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
             <div class="nav-dropdown">
                 <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">▾</span></span>
                 <div class="nav-dropdown-menu">
-                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
-                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
-                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/libri" onclick="closeMobileMenu()">Libri</a>
+                    <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="/shop" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
                 </div>
             </div>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">▾</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
-                    <a href="press.html" onclick="closeMobileMenu()">Press & Media</a>
-                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
-                </div>
-            </div>
-            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+            <a href="/contatti" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
         </div>
     </nav>
 
@@ -57,21 +51,20 @@
                 Ma non preoccuparti, ti aiutiamo noi a ritrovare la strada!
             </p>
             <div class="error-actions">
-                <a href="index.html" class="btn-primary">
+                <a href="/" class="btn-primary">
                     Torna alla Home
                     <span>&rarr;</span>
                 </a>
-                <a href="contatti.html" class="btn-outline">
+                <a href="/contatti" class="btn-outline">
                     Contattaci
                 </a>
             </div>
             <div class="error-links">
                 <p>Oppure visita una di queste pagine:</p>
                 <ul>
-                    <li><a href="chi-sono.html">Chi Sono</a></li>
-                    <li><a href="metodo.html">Il Metodo E.A.S.Y.</a></li>
-                    <li><a href="risultati.html">Risultati</a></li>
-                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
+                    <li><a href="/chi-sono">Chi Sono</a></li>
+                    <li><a href="/metodo">Il Metodo E.A.S.Y.</a></li>
+                    <li><a href="/risultati">Risultati</a></li>
                 </ul>
             </div>
         </div>
@@ -90,25 +83,23 @@
             <div class="footer-col">
                 <h4>Percorsi</h4>
                 <ul>
-                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
-                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
-                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                    <li><a href="/#percorsi">Il Primo Passo</a></li>
+                    <li><a href="/#percorsi">X-Fit Academy</a></li>
+                    <li><a href="/#percorsi">Club Inarrestabili</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Risorse</h4>
                 <ul>
-                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
-                    <li><a href="libri.html">Libri</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="team.html">Il Team</a></li>
+                    <li><a href="/libri">Libri</a></li>
+                    <li><a href="/eventi">Eventi</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contatti</h4>
                 <ul>
-                    <li><a href="contatti.html">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="/contatti">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -121,7 +112,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=1767489274"></script>
+    <script defer src="js/main.js?v=1767489274"></script>
 
     <style>
         .error-page {
@@ -207,9 +198,9 @@
     </style>
 
     <!-- React (for mobile header) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="js/react-mobile-header.js?v=1767489274"></script>
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
 
 </body>
 </html>

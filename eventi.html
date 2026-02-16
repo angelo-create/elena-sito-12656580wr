@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventi | Elena Giordani - X-Fit Academy</title>
     <meta name="description" content="Scopri gli eventi dal vivo di X-Fit Academy. Weekend immersivi, ritiri e incontri per le Inarrestabili.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
 </head>
@@ -16,36 +18,34 @@
 
     <!-- NAVIGATION -->
     <nav class="nav nav-light" id="navbar">
-        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <a href="/" class="nav-logo">ELENA GIORDANI</a>
         <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
                         <div class="nav-menu" id="navMenu">
-            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
-            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
-            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
             <div class="nav-dropdown">
                 <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">▾</span></span>
                 <div class="nav-dropdown-menu">
-                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
-                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
-                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/libri" onclick="closeMobileMenu()">Libri</a>
+                    <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="/shop" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
                 </div>
             </div>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">▾</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
-                    <a href="press.html" onclick="closeMobileMenu()">Press & Media</a>
-                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
-                </div>
-            </div>
-            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+            <a href="/contatti" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
         </div>
     </nav>
+
+    <!-- PAGE HERO WRAPPER -->
+    <div class="page-hero-wrapper">
+        <img src="img/evento-webp/EDO05134.webp" alt="Elena Giordani" class="page-hero-bg" loading="eager">
+        <div class="page-hero-gradient"></div>
+
 
     <!-- PAGE HERO -->
     <section class="page-hero">
@@ -61,8 +61,8 @@
         <div class="container">
             <div class="main-event">
                 <div class="main-event-image">
-                    <img src="https://drive.google.com/thumbnail?id=1uXA1NsoEYRn_X4FuFkPX-xJnBoFOzPmI&sz=w1200" alt="Nel Corpo Che Vuoi Live" loading="lazy">
-                    <div class="main-event-badge">Evento Principale 2026</div>
+                    <img src="img/shangri-la.jpg" alt="Nel Corpo Che Vuoi Live - Shangri-La Roma" loading="lazy">
+                    <div class="main-event-badge">Iscrizioni riservate alle sole iscritte</div>
                 </div>
                 <div class="main-event-content">
                     <div class="main-event-date">
@@ -70,137 +70,48 @@
                         <div class="main-event-month">Maggio 2026</div>
                     </div>
                     <h2 class="main-event-title">Nel Corpo Che Vuoi Live</h2>
-                    <p class="main-event-location">&#128205; Shangri-La, Roma</p>
+                    <p class="main-event-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em" style="vertical-align:-0.15em"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Shangri-La, Roma</p>
                     <p class="main-event-desc">
                         2 giorni per riaccendere la donna che sei. Movimento, mindset e nutrizione dal vivo.
                         Solo 140 posti disponibili.
                     </p>
                     <div class="main-event-highlights">
                         <div class="main-event-highlight">
-                            <span class="highlight-icon">&#128170;</span>
+                            <span class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
                             <span>Allenamento live con Elena</span>
                         </div>
                         <div class="main-event-highlight">
-                            <span class="highlight-icon">&#129504;</span>
+                            <span class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/></svg></span>
                             <span>Workshop Mindset</span>
                         </div>
                         <div class="main-event-highlight">
-                            <span class="highlight-icon">&#129309;</span>
+                            <span class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
                             <span>Community dal vivo</span>
                         </div>
                         <div class="main-event-highlight">
-                            <span class="highlight-icon">&#127828;</span>
+                            <span class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></span>
                             <span>Workshop Nutrizione</span>
                         </div>
                     </div>
-                    <a href="evento-maggio.html" class="btn-primary">
-                        Prenota il tuo posto
-                        <span>&rarr;</span>
-                    </a>
+                    <span class="btn-primary" style="opacity: 0.4; pointer-events: none; cursor: not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em" style="vertical-align:-0.15em; margin-right:0.5rem;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Riservato alle iscritte Academy
+                    </span>
                 </div>
             </div>
         </div>
     </section>
+    </div>
 
-    <!-- OTHER EVENTS -->
-    <section class="section section-gray">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">PROSSIMI EVENTI</span>
-                <h2 class="section-title">Altri appuntamenti <span class="highlight">2026</span></h2>
-            </div>
-            <div class="events-list">
-                <div class="event-list-card">
-                    <div class="event-list-date">
-                        <div class="event-list-day">18-20</div>
-                        <div class="event-list-month">Ottobre</div>
-                    </div>
-                    <div class="event-list-info">
-                        <h3>Escape Weekend</h3>
-                        <p class="event-list-location">&#128205; Location esclusiva (TBA)</p>
-                        <p class="event-list-desc">
-                            Un weekend di fuga dalla routine per ricaricarti, allenarti e
-                            connetterti con le altre Inarrestabili in una location da sogno.
-                        </p>
-                    </div>
-                    <div class="event-list-action">
-                        <span class="event-list-status">Lista d'attesa</span>
-                        <a href="contatti.html" class="btn-outline-small">Iscriviti &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="event-list-card">
-                    <div class="event-list-date">
-                        <div class="event-list-day">TBA</div>
-                        <div class="event-list-month">2026</div>
-                    </div>
-                    <div class="event-list-info">
-                        <h3>Ritiro Mindset</h3>
-                        <p class="event-list-location">&#128205; Da definire</p>
-                        <p class="event-list-desc">
-                            Un ritiro intensivo focalizzato sul lavoro mentale è la crescita personale.
-                            Workshop con la Dott.ssa Mariotti e sessioni di gruppo.
-                        </p>
-                    </div>
-                    <div class="event-list-action">
-                        <span class="event-list-status coming-soon">Coming Soon</span>
-                    </div>
-                </div>
-
-                <div class="event-list-card">
-                    <div class="event-list-date">
-                        <div class="event-list-day">TBA</div>
-                        <div class="event-list-month">2026</div>
-                    </div>
-                    <div class="event-list-info">
-                        <h3>Academy Day - Milano</h3>
-                        <p class="event-list-location">&#128205; Milano</p>
-                        <p class="event-list-desc">
-                            Una giornata dedicata alle Inarrestabili del Nord Italia.
-                            Allenamento, networking e tanto divertimento insieme.
-                        </p>
-                    </div>
-                    <div class="event-list-action">
-                        <span class="event-list-status coming-soon">Coming Soon</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAST EVENTS -->
+    <!-- COMING SOON -->
     <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">EVENTI PASSATI</span>
-                <h2 class="section-title">Momenti <span class="highlight">indimenticabili</span></h2>
-            </div>
-            <div class="past-events-grid">
-                <div class="past-event-card">
-                    <div class="past-event-image"><img src="https://drive.google.com/thumbnail?id=1COekbdwW7TEpQskVpLe6VH2ro4wmIQd1&sz=w800" alt="Nel Corpo Che Vuoi Live 2025" loading="lazy"></div>
-                    <div class="past-event-content">
-                        <span class="past-event-date">Maggio 2025</span>
-                        <h4>Nel Corpo Che Vuoi Live 2025</h4>
-                        <p>Oltre 200 partecipanti a Bellaria Igea Marina</p>
-                    </div>
-                </div>
-                <div class="past-event-card">
-                    <div class="past-event-image"><img src="https://drive.google.com/thumbnail?id=1c66Ga2GsF5y25XUjTyvFz_oCgFTXp_GF&sz=w800" alt="Escape Weekend Toscana" loading="lazy"></div>
-                    <div class="past-event-content">
-                        <span class="past-event-date">Ottobre 2024</span>
-                        <h4>Escape Weekend Toscana</h4>
-                        <p>Weekend esclusivo in agriturismo</p>
-                    </div>
-                </div>
-                <div class="past-event-card">
-                    <div class="past-event-image"><img src="https://drive.google.com/thumbnail?id=1XZZTSCpUpPUlIg1seCbTQdaWO3eAVfEk&sz=w800" alt="Nel Corpo Che Vuoi Live 2024" loading="lazy"></div>
-                    <div class="past-event-content">
-                        <span class="past-event-date">Maggio 2024</span>
-                        <h4>Nel Corpo Che Vuoi Live 2024</h4>
-                        <p>La prima edizione dell'evento</p>
-                    </div>
-                </div>
-            </div>
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <span class="section-number" style="display: block; margin-bottom: 1rem;">STAY TUNED</span>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Qualcosa di grande sta <span class="highlight">arrivando</span></h2>
+            <p style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 560px; margin: 0 auto 2.5rem;">
+                Stiamo preparando nuovi eventi esclusivi per le Inarrestabili. Ritiri, weekend, esperienze dal vivo che cambieranno le regole del gioco. Non puoi perderteli.
+            </p>
+            <a href="/contatti" class="btn-outline" style="display: inline-block;">Voglio essere avvisata &rarr;</a>
         </div>
     </section>
 
@@ -215,7 +126,7 @@
             <p class="cta-text">
                 Iscriviti alla lista d'attesa per ricevere aggiornamenti sui prossimi eventi.
             </p>
-            <a href="contatti.html" class="cta-btn">
+            <a href="/contatti" class="cta-btn">
                 Contattaci
                 <span>&rarr;</span>
             </a>
@@ -235,25 +146,23 @@
             <div class="footer-col">
                 <h4>Percorsi</h4>
                 <ul>
-                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
-                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
-                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                    <li><a href="/#percorsi">Il Primo Passo</a></li>
+                    <li><a href="/#percorsi">X-Fit Academy</a></li>
+                    <li><a href="/#percorsi">Club Inarrestabili</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Risorse</h4>
                 <ul>
-                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
-                    <li><a href="libri.html">Libri</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="team.html">Il Team</a></li>
+                    <li><a href="/libri">Libri</a></li>
+                    <li><a href="/eventi">Eventi</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contatti</h4>
                 <ul>
-                    <li><a href="contatti.html">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="/contatti">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -266,12 +175,12 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=1767489274"></script>
+    <script defer src="js/main.js?v=1767489274"></script>
 
     <!-- React (for mobile header) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="js/react-mobile-header.js?v=1767489274"></script>
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
 
 </body>
 </html>

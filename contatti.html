@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candidatura | Elena Giordani - X-Fit Academy</title>
     <meta name="description" content="Compila il form di selezione per candidarti a X-Fit Academy. Inizia il tuo percorso di trasformazione con Elena Giordani.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
 </head>
@@ -16,39 +18,37 @@
 
     <!-- NAVIGATION -->
     <nav class="nav nav-light" id="navbar">
-        <a href="index.html" class="nav-logo">ELENA GIORDANI</a>
+        <a href="/" class="nav-logo">ELENA GIORDANI</a>
         <div class="nav-hamburger" id="navHamburger" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
                         <div class="nav-menu" id="navMenu">
-            <a href="chi-sono.html" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
-            <a href="metodo.html" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
-            <a href="risultati.html" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
+            <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
+            <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
             <div class="nav-dropdown">
                 <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">▾</span></span>
                 <div class="nav-dropdown-menu">
-                    <a href="libri.html" onclick="closeMobileMenu()">Libri</a>
-                    <a href="eventi.html" onclick="closeMobileMenu()">Eventi</a>
-                    <a href="risorse-gratuite.html" onclick="closeMobileMenu()">Risorse Gratuite</a>
-                    <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/libri" onclick="closeMobileMenu()">Libri</a>
+                    <a href="/eventi" onclick="closeMobileMenu()">Eventi</a>
+                    <a href="/shop" onclick="closeMobileMenu()">Shop</a>
+                    <a href="/press" onclick="closeMobileMenu()">Leggi i miei articoli</a>
                 </div>
             </div>
-            <div class="nav-dropdown">
-                <span class="nav-link nav-dropdown-toggle">Per Aziende <span class="dropdown-arrow">▾</span></span>
-                <div class="nav-dropdown-menu">
-                    <a href="partner.html" onclick="closeMobileMenu()">Diventa Partner</a>
-                    <a href="press.html" onclick="closeMobileMenu()">Press & Media</a>
-                    <a href="team.html" onclick="closeMobileMenu()">Team Medico</a>
-                </div>
-            </div>
-            <a href="contatti.html" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
+            <a href="/contatti" class="nav-cta" onclick="closeMobileMenu()">Candidati</a>
         </div>
     </nav>
 
+    <!-- PAGE HERO WRAPPER -->
+    <div class="page-hero-wrapper">
+        <img src="img/elena-webp/IMG_9183.webp" alt="Elena Giordani" class="page-hero-bg" loading="eager">
+        <div class="page-hero-gradient"></div>
+
+
     <!-- PAGE HERO -->
-    <section class="page-hero page-hero-pink">
+    <section class="page-hero">
         <div class="page-hero-content">
             <span class="page-hero-badge">Candidatura</span>
             <h1 class="page-hero-title">Inizia il tuo percorso</h1>
@@ -63,11 +63,11 @@
                 <div class="selection-intro-content">
                     <h2>Perché un <span class="highlight">form di selezione</span>?</h2>
                     <p>
-                        Non accettiamo tutte le candidature. Non perché siamo esclusivi, ma perche
+                        Non accettiamo tutte le candidature. Non perché siamo esclusivi, ma perché
                         vogliamo assicurarci che X-Fit Academy sia davvero il percorso giusto per te.
                     </p>
                     <p>
-                        Crediamo che per ottenere risultati serve impegno, costanza è la giusta mentalità.
+                        Crediamo che per ottenere risultati serve impegno, costanza e la giusta mentalità.
                         Il form ci aiuta a capire chi sei, da dove parti e cosa vuoi ottenere.
                     </p>
                 </div>
@@ -76,7 +76,7 @@
                         <div class="selection-step-number">1</div>
                         <div class="selection-step-content">
                             <h4>Compila il form</h4>
-                            <p>Rispondi alle domande con sincerita</p>
+                            <p>Rispondi alle domande con sincerità</p>
                         </div>
                     </div>
                     <div class="selection-step">
@@ -97,6 +97,7 @@
             </div>
         </div>
     </section>
+    </div>
 
     <!-- FORM SECTION -->
     <section class="section section-gray">
@@ -125,19 +126,19 @@
                 -->
 
                 <div class="form-embed-placeholder">
-                    <div class="form-embed-message">
+                    <div class="form-embed-message" id="formLoadingMessage">
                         <p><strong>Form di selezione in caricamento...</strong></p>
                         <p>Se il form non si carica, <a href="https://lp.elenagiordani.com/selezione?utm_source=website&utm_medium=organic&utm_campaign=candidatura" target="_blank">clicca qui per aprirlo in una nuova pagina</a>.</p>
                     </div>
 
-                    <!-- IFRAME EMBED - Decommentare quando il form e' disponibile -->
                     <iframe
                         src="https://lp.elenagiordani.com/selezione?utm_source=website&utm_medium=organic&utm_campaign=candidatura"
                         class="form-iframe"
                         width="100%"
                         height="900"
                         frameborder="0"
-                        loading="lazy">
+                        loading="lazy"
+                        onload="document.getElementById('formLoadingMessage').style.display='none'">
                     </iframe>
                 </div>
             </div>
@@ -150,7 +151,7 @@
             <div class="alternative-contact">
                 <h3>Preferisci contattarci direttamente?</h3>
                 <div class="contact-options">
-                    <a href="https://wa.me/39XXXXXXXXXX" target="_blank" class="contact-option">
+                    <a href="https://wa.me/393762543276?text=Ciao!%20Ti%20scrivo%20dalla%20pagina%20contatti" target="_blank" class="contact-option">
                         <span class="contact-option-icon">
                             <svg viewBox="0 0 24 24" width="32" height="32">
                                 <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -161,18 +162,18 @@
                             <span>Scrivici un messaggio</span>
                         </span>
                     </a>
-                    <a href="https://www.instagram.com/elenagiordani_/" target="_blank" class="contact-option">
-                        <span class="contact-option-icon">&#128248;</span>
+                    <a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank" class="contact-option">
+                        <span class="contact-option-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
                         <span class="contact-option-text">
                             <strong>Instagram</strong>
-                            <span>@elenagiordani_</span>
+                            <span>@elenagiordani_lifecoach</span>
                         </span>
                     </a>
-                    <a href="mailto:info@elenagiordani.com" class="contact-option">
-                        <span class="contact-option-icon">&#9993;</span>
+                    <a href="mailto:info.xfitacademy@gmail.com" class="contact-option">
+                        <span class="contact-option-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span>
                         <span class="contact-option-text">
                             <strong>Email</strong>
-                            <span>info@elenagiordani.com</span>
+                            <span>info.xfitacademy@gmail.com</span>
                         </span>
                     </a>
                 </div>
@@ -200,10 +201,10 @@
                     </div>
                     <div class="faq-mini-item">
                         <h4>Posso pagare a rate?</h4>
-                        <p>Si, offriamo diverse opzioni di pagamento rateale senza interessi.</p>
+                        <p>Sì, offriamo diverse opzioni di pagamento rateale senza interessi.</p>
                     </div>
                 </div>
-                <a href="index.html#faq" class="btn-outline">Vedi tutte le FAQ &rarr;</a>
+                <a href="/#faq" class="btn-outline">Vedi tutte le FAQ &rarr;</a>
             </div>
         </div>
     </section>
@@ -221,25 +222,23 @@
             <div class="footer-col">
                 <h4>Percorsi</h4>
                 <ul>
-                    <li><a href="index.html#percorsi">Il Primo Passo</a></li>
-                    <li><a href="index.html#percorsi">X-Fit Academy</a></li>
-                    <li><a href="index.html#percorsi">Club Inarrestabili</a></li>
+                    <li><a href="/#percorsi">Il Primo Passo</a></li>
+                    <li><a href="/#percorsi">X-Fit Academy</a></li>
+                    <li><a href="/#percorsi">Club Inarrestabili</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Risorse</h4>
                 <ul>
-                    <li><a href="risorse-gratuite.html">Risorse Gratuite</a></li>
-                    <li><a href="libri.html">Libri</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="team.html">Il Team</a></li>
+                    <li><a href="/libri">Libri</a></li>
+                    <li><a href="/eventi">Eventi</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contatti</h4>
                 <ul>
-                    <li><a href="contatti.html">Candidatura</a></li>
-                    <li><a href="https://www.instagram.com/elenagiordani_/" target="_blank">Instagram</a></li>
+                    <li><a href="/contatti">Candidatura</a></li>
+                    <li><a href="https://www.instagram.com/elenagiordani_lifecoach/" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -252,12 +251,12 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=1767489274"></script>
+    <script defer src="js/main.js?v=1767489274"></script>
 
     <!-- React (for mobile header) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="js/react-mobile-header.js?v=1767489274"></script>
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
 
 </body>
 </html>

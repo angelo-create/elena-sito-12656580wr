@@ -18,6 +18,82 @@
   color: var(--pink-primary);
 }
 
+/* Glass card shared pseudo-elements */
+.stat-box::before,
+.comparison-bad::before,
+.comparison-good::before,
+.phase-card::before,
+.workout-card::before,
+.method-section .pillar-card::before,
+.why-it-works::before,
+.annual-column::before,
+.team-card::before,
+.pricing-point::before,
+.philosophy-quote::before,
+.method-hero::before,
+.method-quote::before,
+.team-quote::before,
+.pricing-why-box::before,
+.pricing-truth-box::before,
+.all-loaded-message::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(233, 30, 99, 0.08), transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.stat-box:hover::before,
+.comparison-bad:hover::before,
+.comparison-good:hover::before,
+.phase-card:hover::before,
+.workout-card:hover::before,
+.method-section .pillar-card:hover::before,
+.why-it-works:hover::before,
+.annual-column:hover::before,
+.team-card:hover::before,
+.pricing-point:hover::before,
+.philosophy-quote:hover::before,
+.method-hero:hover::before,
+.method-quote:hover::before,
+.team-quote:hover::before,
+.pricing-why-box:hover::before,
+.pricing-truth-box:hover::before,
+.all-loaded-message:hover::before {
+  opacity: 1.5;
+}
+
+.stat-box::after,
+.comparison-bad::after,
+.comparison-good::after,
+.phase-card::after,
+.workout-card::after,
+.method-section .pillar-card::after,
+.why-it-works::after,
+.annual-column::after,
+.team-card::after,
+.pricing-point::after,
+.philosophy-quote::after,
+.method-hero::after,
+.method-quote::after,
+.team-quote::after,
+.pricing-why-box::after,
+.pricing-truth-box::after,
+.all-loaded-message::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  pointer-events: none;
+}
+
 .section-title-academy {
   font-size: clamp(2.25rem, 4.5vw, 3.5rem);
   font-weight: 700;
@@ -255,15 +331,21 @@
 .stat-box {
   text-align: center;
   padding: 2rem 1.5rem;
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .stat-box:hover {
-  transform: translateY(-5px);
-  border-color: rgba(233, 30, 99, 0.3);
+  transform: translateY(-6px);
+  border-color: rgba(233, 30, 99, 0.35);
+  box-shadow: 0 20px 60px rgba(233, 30, 99, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .stat-number {
@@ -307,9 +389,9 @@
 }
 
 .comparison-card {
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 2.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .comparison-card:hover {
@@ -317,8 +399,13 @@
 }
 
 .comparison-bad {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
 .comparison-bad:hover {
@@ -326,9 +413,13 @@
 }
 
 .comparison-good {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.07);
   border: 2px solid rgba(233, 30, 99, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: relative;
+  overflow: hidden;
 }
 
 .comparison-good:hover {
@@ -340,7 +431,7 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 2rem;
-  position: relative;
+  background: transparent;
 }
 
 .comparison-icon {
@@ -414,11 +505,15 @@
 .philosophy-quote {
   max-width: 900px;
   margin: 0 auto;
-  background: #1A1A1A;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 3rem;
   position: relative;
+  overflow: hidden;
   border: 2px solid rgba(233, 30, 99, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .quote-icon-big {
@@ -490,11 +585,16 @@
 }
 
 .phase-card {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
   padding: 2.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
 }
 
@@ -680,18 +780,28 @@
 }
 
 .workouts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
 
+.workouts-grid .workout-card {
+  flex: 0 1 calc(33.333% - 1rem);
+}
+
 .workout-card {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 4px solid var(--pink-primary);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -943,9 +1053,14 @@
 .all-loaded-message {
   text-align: center;
   padding: 3rem 2.5rem;
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
   margin-top: 2.5rem;
   max-width: 700px;
   margin-left: auto;
@@ -1024,13 +1139,17 @@
 }
 
 .method-hero {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 4rem 3rem;
   margin-bottom: 5rem;
   position: relative;
+  overflow: hidden;
   z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .method-hero::before {
@@ -1097,11 +1216,16 @@
 }
 
 .method-section .pillar-card {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 2.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
 }
 
 .method-section .pillar-card:hover {
@@ -1112,7 +1236,7 @@
 .pillar-icon-wrap {
   width: 3.75rem;
   height: 3.75rem;
-  background: rgba(233, 30, 99, 0.15);
+  background: var(--pink-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1123,7 +1247,7 @@
 .method-section .pillar-letter {
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--pink-primary);
+  color: var(--white);
 }
 
 .pillar-title {
@@ -1172,9 +1296,14 @@
 }
 
 .why-it-works {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
   padding: 4rem 3rem;
   margin-bottom: 5rem;
   position: relative;
@@ -1231,13 +1360,17 @@
 .method-quote {
   max-width: 900px;
   margin: 0 auto;
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 3rem;
   text-align: center;
   position: relative;
+  overflow: hidden;
   z-index: 1;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .quote-icon-method {
@@ -1342,11 +1475,16 @@
 }
 
 .annual-column {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.04);
   padding: 2.5rem;
-  border-radius: 8px;
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .annual-column:hover {
@@ -1486,11 +1624,14 @@
 }
 
 .team-card {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
   overflow: hidden;
 }
@@ -1605,11 +1746,15 @@
 .team-quote {
   max-width: 900px;
   margin: 0 auto;
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 3rem;
   position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .quote-icon-team {
@@ -1676,12 +1821,17 @@
 }
 
 .pricing-why-box {
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 2.5rem;
   text-align: center;
   margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .pricing-icon-wrap {
@@ -1727,13 +1877,18 @@
 }
 
 .pricing-point {
-  background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 4px solid var(--pink-primary);
-  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .pricing-point:hover {
@@ -1772,9 +1927,14 @@
 }
 
 .pricing-truth-box {
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.04);
   border: 2px solid rgba(233, 30, 99, 0.4);
-  border-radius: 8px;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
   padding: 3rem;
   display: flex;
   align-items: flex-start;
@@ -1988,6 +2148,7 @@
     grid-template-columns: 1fr;
   }
   .workouts-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
@@ -2024,10 +2185,10 @@
     font-size: 0.65rem;
   }
   .media-logos-wrapper {
-    overflow-x: auto;
+    overflow-x: hidden;
   }
   .media-logos-track {
-    animation: none;
+    animation: scroll-logos 30s linear infinite;
     gap: 2.5rem;
     padding: 0 1.25rem;
   }
@@ -2054,10 +2215,10 @@
     padding: 4rem 1.5rem;
   }
   .comparison-card {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   .philosophy-quote {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
   }
 
   /* --- Phases --- */
@@ -2084,14 +2245,15 @@
     padding: 4rem 1.5rem;
   }
   .workouts-grid {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
   .workout-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
   }
   .workouts-cta-box {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem;
   }
 
   /* --- Transformations --- */
@@ -2120,7 +2282,7 @@
     padding: 4rem 1.5rem;
   }
   .method-hero {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem;
   }
   .easy-letters {
     gap: 0.75rem;
@@ -2135,17 +2297,17 @@
     gap: 1.5rem;
   }
   .method-section .pillar-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
   }
   .why-it-works {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem;
   }
   .why-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   .method-quote {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem;
   }
 
   /* --- Annual --- */
@@ -2172,14 +2334,14 @@
     gap: 1.5rem;
   }
   .team-card {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   .team-photo {
     height: 16rem;
     margin: 0 0 1.25rem 0;
   }
   .team-quote {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
   }
 
   /* --- Pricing --- */
@@ -2188,11 +2350,20 @@
   }
   .pricing-truth-box {
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    padding: 2rem;
     text-align: center;
   }
   .pricing-grid-points {
     grid-template-columns: 1fr;
+  }
+  .pricing-point {
+    padding: 2rem;
+  }
+  .pricing-why-box {
+    padding: 2rem;
+  }
+  .stat-box {
+    padding: 2rem;
   }
 
   /* --- CTA Final --- */
@@ -2228,13 +2399,13 @@
     padding: 1.5rem 1.25rem;
   }
   .stat-box {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem;
   }
   .comparison-card {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
   .philosophy-quote {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
   }
   .phase-card {
     padding: 1.5rem;
@@ -2248,7 +2419,7 @@
     padding: 3rem 1.25rem;
   }
   .workout-card {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
   }
   .section-transformations {
     padding: 3rem 1rem;
@@ -2279,19 +2450,31 @@
     padding: 2rem 1.5rem;
   }
   .team-card {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
   .team-photo {
     height: 15rem;
   }
   .team-quote {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
   }
   .pricing-why-box {
-    padding: 2rem 1.25rem;
+    padding: 1.5rem;
   }
   .pricing-truth-box {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
+  }
+  .pricing-point {
+    padding: 1.5rem;
+  }
+  .method-section .pillar-card {
+    padding: 1.5rem;
+  }
+  .why-it-works {
+    padding: 1.5rem;
+  }
+  .method-quote {
+    padding: 1.5rem;
   }
   .cta-final {
     padding: 3rem 1rem;
