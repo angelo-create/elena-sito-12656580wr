@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
-    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+
 
     <style>
         /* ===== EVENTO-SPECIFIC STYLES ===== */
@@ -512,11 +512,27 @@
             .ev-masonry-item { margin-bottom: 0.5rem; }
         }
     </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'Evento Maggio 2026', content_category: 'event'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
-
-    <!-- React Mobile Header Mount Point -->
-    <div id="react-mobile-header-root"></div>
 
     <!-- HERO -->
     <section class="hero">
@@ -529,6 +545,7 @@
         <div class="hero-gradient" style="background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.2) 70%, transparent 100%), linear-gradient(180deg, transparent 70%, #000 100%);"></div>
         <div class="hero-content">
             <div class="hero-text">
+                <img src="img/nel-corpo-che-vuoi/logo-nelcorpochevuoi.png" alt="Nel Corpo Che Vuoi" style="width: clamp(10rem, 22vw, 16rem); height: auto; margin-bottom: 2rem;">
                 <div class="hero-badge">
                     9-10 Maggio 2026 &bull; Shangri-La, Roma
                 </div>
@@ -736,7 +753,7 @@
                             <div class="ev-countdown-text">Sec</div>
                         </div>
                     </div>
-                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin: 0;">al prossimo aumento di prezzo</p>
+                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin: 0;">Offerta valida fino al 27 marzo, poi il prezzo aumenta</p>
                 </div>
                 <div class="ev-pricing-right">
                     <div class="ev-pricing-card">
@@ -1218,10 +1235,7 @@
 
     <script defer src="js/main.js?v=1767489274"></script>
 
-    <!-- React (for mobile header) -->
-    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
+
 
     <script>
         // FAQ Accordion
@@ -1234,8 +1248,8 @@
             });
         });
 
-        // Countdown Timer - 1 Maggio 2026
-        var earlyBirdEnd = new Date('2026-05-01T23:59:59').getTime();
+        // Countdown Timer - 27 Marzo 2026
+        var earlyBirdEnd = new Date('2026-03-27T23:59:59').getTime();
         function updateCountdown() {
             var now = new Date().getTime();
             var distance = earlyBirdEnd - now;
