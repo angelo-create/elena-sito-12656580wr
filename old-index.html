@@ -34,26 +34,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=1767489274">
 
-    <!-- Iubenda Cookie Solution -->
-    <!--
-    NOTA: Sostituire con il tuo codice Iubenda.
-    Per ottenere il codice:
-    1. Vai su https://www.iubenda.com
-    2. Crea/accedi al tuo account
-    3. Genera Cookie Policy e Privacy Policy
-    4. Copia il codice di integrazione qui sotto
-    -->
-    <script type="text/javascript">
-    var _iub = _iub || [];
-    _iub.csConfiguration = {
-        // Inserire qui la configurazione Iubenda
-        // "siteId": TUO_SITE_ID,
-        // "cookiePolicyId": TUO_POLICY_ID,
-        "lang": "it"
-    };
-    </script>
-    <!-- <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script> -->
-
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -71,6 +51,15 @@
     src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+    <!-- Iubenda Cookie Solution -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
 </head>
 <body>
 
@@ -464,9 +453,9 @@
         <div class="footer-bottom">
             <span>&copy; 2025 Elena Giordani. Tutti i diritti riservati.</span>
             <div class="footer-legal">
-                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Cookie Policy</a>
-                <a href="javascript:void(0)" onclick="window._iub && window._iub.cs.api.openPreferences()">Privacy Policy</a>
-            </div>
+                <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+                <a href="/terms-and-conditions">Termini e Condizioni</a>            </div>
         </div>
     </footer>
 
@@ -480,5 +469,7 @@
     <script defer src="js/react-mobile-header.js?v=1767489274"></script>
     <script defer src="js/react-mobile-hero.js?v=1767489274"></script>
 
+    <!-- Iubenda embed loader -->
+    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 </body>
 </html>
