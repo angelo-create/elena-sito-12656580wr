@@ -233,6 +233,19 @@
             .wb-bg-reveal { width: 35%; }
         }
         @media (max-width: 768px) {
+            /* Hero: show original hero content (overrides react-mobile-hero.css hide) */
+            .hero .hero-content {
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 5rem 1.25rem 2rem !important;
+                gap: 1rem;
+            }
+            .hero .hero-text { display: contents; }
+            .hero .hero-cta-group { justify-content: center; margin-top: 0; gap: 0.75rem; }
+            .hero .hero-stats { justify-content: center; gap: 1.5rem; width: 100%; }
+
             .wb-bento { grid-template-columns: 1fr; }
             .wb-testimonials { grid-template-columns: 1fr; }
             .wb-final-cta { padding: 4rem 1.5rem 7rem; }
