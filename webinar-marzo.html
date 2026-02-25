@@ -253,9 +253,9 @@
             .wb-emotion { height: 35vh; min-height: 250px; }
             .wb-bg-reveal { display: none; }
             .wb-countdown { justify-content: center; }
-            .wb-timeline::before { left: 20px; }
-            .wb-timeline-day { grid-template-columns: auto 1fr; position: relative; }
-            .wb-timeline-dot { grid-column: 1 !important; margin-left: 10px; margin-right: 1.5rem; }
+            .wb-timeline::before { display: none; }
+            .wb-timeline-day { grid-template-columns: 1fr; position: relative; }
+            .wb-timeline-dot { display: none; }
             .wb-timeline-card { grid-column: 2 !important; padding: 1.75rem; position: relative; z-index: 1; }
             .wb-timeline-number { display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: clamp(4rem, 15vw, 6rem); padding: 0; z-index: 0; text-align: right; }
             .wb-checkup-grid { grid-template-columns: 1fr; }
@@ -946,7 +946,7 @@
 
     <!-- STICKY CTA (mobile) -->
     <div class="wb-sticky-cta">
-        <a href="https://wa.me/393762543276?text=Ciao%20Elena!%20Voglio%20iscrivermi%20al%20webinar%20del%2017-18-19%20Marzo!" class="btn-primary">
+        <a href="#iscriviti" class="btn-primary">
             Iscriviti Gratis <span>&rarr;</span>
         </a>
     </div>
@@ -991,9 +991,7 @@
             var s = document.createElement('script');
             s.src = 'https://link.drewcompany.it/js/form_embed.js';
             document.body.appendChild(s);
-            // WhatsApp sticky CTA
-            var waLink = document.querySelector('.wb-sticky-cta .btn-primary');
-            if (waLink) waLink.href = 'https://wa.me/' + W.whatsappNumero + '?text=' + encodeURIComponent(W.whatsappMessaggio);
+            // Sticky CTA punta al form di iscrizione (non più WhatsApp)
         })();
 
         // FAQ Accordion
