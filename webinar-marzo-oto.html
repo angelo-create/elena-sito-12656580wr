@@ -41,13 +41,13 @@
 
     function buildThankYouUrl() {
         var base = 'webinar-marzo-grazie.html';
-        var params = [];
+        var params = ['oto=done'];
         var P = window.OTO_PARAMS;
         if (P.data)   params.push('data='   + encodeURIComponent(P.data));
         if (P.codice) params.push('codice=' + encodeURIComponent(P.codice));
         if (P.link)   params.push('link='   + encodeURIComponent(P.link));
         if (P.luogo)  params.push('luogo='  + encodeURIComponent(P.luogo));
-        return base + (params.length ? '?' + params.join('&') : '');
+        return base + '?' + params.join('&');
     }
     </script>
 

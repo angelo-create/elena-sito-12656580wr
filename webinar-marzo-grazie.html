@@ -51,6 +51,14 @@
         if (p.get('codice')) THANKYOU.codiceAccesso = p.get('codice');
         if (p.get('link'))   THANKYOU.linkWebinar = p.get('link');
         if (p.get('luogo'))  THANKYOU.luogo = p.get('luogo');
+
+        // ─── OTO REDIRECT ───
+        // Se l'utente arriva da GHL senza aver visto la OTO, mandalo lì prima.
+        // Passa oltre se ha già completato la OTO (oto=done) o ha pagato (paid=true).
+        if (!p.get('oto') && !p.get('paid')) {
+            var otoUrl = 'webinar-marzo-oto.html' + (search || '');
+            window.location.replace(otoUrl);
+        }
     })();
     </script>
 
