@@ -74,7 +74,7 @@
 
         /* Hero overrides — OTO uses main CSS .hero but with centered layout */
         .oto-hero.hero {
-            min-height: 85vh;
+            min-height: auto;
             justify-content: center;
         }
 
@@ -100,12 +100,46 @@
             text-align: center;
             grid-template-columns: 1fr;
             max-width: 750px;
-            padding-top: 10rem;
+            padding-top: 7rem;
+            padding-bottom: 4rem;
         }
 
         .oto-hero .hero-title {
-            font-size: clamp(2.5rem, 5.5vw, 4rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            margin-bottom: 1.25rem;
+        }
+
+        /* Hero embedded checkout */
+        .oto-hero-checkout {
+            width: 100%;
+            max-width: 480px;
+            margin-top: 2.5rem;
+            background: rgba(0,0,0,0.55);
+            border: 1px solid rgba(233,30,99,0.25);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            text-align: center;
+        }
+
+        .oto-hero-checkout-header {
+            margin-bottom: 1.25rem;
+        }
+
+        .oto-hero-checkout-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .oto-hero-checkout-price {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
         }
 
         .oto-hero .hero-subtitle {
@@ -987,12 +1021,20 @@
 
         @media (max-width: 768px) {
             .oto-hero .hero-content {
-                padding: 8rem 1.5rem 3rem;
+                padding: 6rem 1.25rem 2.5rem;
             }
 
             .oto-hero .hero-title {
-                font-size: clamp(2rem, 6vw, 2.75rem);
+                font-size: clamp(1.75rem, 5.5vw, 2.5rem);
             }
+
+            .oto-hero-checkout {
+                padding: 1.5rem 1.25rem;
+                margin-top: 1.75rem;
+                border-radius: 16px;
+            }
+
+            .oto-hero-checkout-title { font-size: 0.9rem; }
 
             .oto-hero .hero-bg-image {
                 opacity: 0.5;
@@ -1143,34 +1185,22 @@
                 </h1>
                 <p class="hero-subtitle">Ti sei appena iscritta al webinar. Perfetto. Ma c&rsquo;&egrave; qualcosa che puoi fare <strong>adesso</strong> &mdash; qualcosa che ti far&agrave; arrivare a quelle 3 sere gi&agrave; <em>diversa</em>.</p>
             </div>
-        </div>
-    </section>
 
-
-    <!-- ═══════════════════════════════════════════════════════════
-         OFFER CARD + CHECKOUT — Subito dopo hero per max CR
-         ═══════════════════════════════════════════════════════════ -->
-    <section class="section section-black oto-bg-section">
-        <div class="oto-bg-reveal oto-left" data-reveal>
-            <img src="img/elena-webp/IMG_9821.webp" alt="" loading="lazy">
-        </div>
-        <div class="container">
-            <div class="oto-offer-card oto-fade-in" id="otoCheckoutInline">
-                <span class="oto-badge">Solo Per Te Che Ti Sei Appena Iscritta</span>
-                <h2>&ldquo;Il Primo Passo&rdquo; &mdash; <em>Sfida dei 7 Giorni</em></h2>
-
-                <div class="oto-price-block">
-                    <span class="oto-price-old">197&euro;</span>
-                    <span class="oto-price-new">27&euro;</span>
-                    <span class="oto-price-note">Normalmente 37&euro; &mdash; questo prezzo esiste solo adesso, per te che ti sei appena iscritta</span>
+            <!-- CHECKOUT INLINE — dentro la hero -->
+            <div class="oto-hero-checkout" id="otoCheckoutInline">
+                <div class="oto-hero-checkout-header">
+                    <div class="oto-hero-checkout-title">&ldquo;Il Primo Passo&rdquo; &mdash; Sfida 7 Giorni</div>
+                    <div class="oto-hero-checkout-price">
+                        <span class="oto-price-old" style="font-size: 1rem;">197&euro;</span>
+                        <span class="oto-price-new" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">27&euro;</span>
+                    </div>
                 </div>
 
-                <!-- Compact benefit list -->
-                <div class="oto-checkout-benefits">
-                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> 7 allenamenti video guidati da Elena</div>
-                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Piano alimentare detox completo</div>
-                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Podcast motivazionale giornaliero</div>
-                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Accesso immediato &mdash; inizi oggi</div>
+                <div class="oto-checkout-benefits" style="margin-bottom: 1.5rem;">
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> 7 allenamenti video guidati</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Piano alimentare detox</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Coaching quotidiano</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Accesso immediato</div>
                 </div>
 
                 <!-- STEP 1: Contact Info -->
@@ -1203,7 +1233,7 @@
                 </div>
 
                 <!-- Trust signals -->
-                <div class="oto-checkout-trust">
+                <div class="oto-checkout-trust" style="border-top-color: rgba(255,255,255,0.08);">
                     <div class="oto-checkout-secure">
                         <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                         Pagamento sicuro &middot; Crittografia SSL
@@ -1211,7 +1241,7 @@
                     <div class="oto-checkout-social-proof">Oltre 3.000 donne hanno gi&agrave; iniziato</div>
                 </div>
 
-                <a href="#" class="oto-skip" data-oto-skip>No grazie, preferisco aspettare &rarr;</a>
+                <a href="#" class="oto-skip" data-oto-skip style="color: rgba(255,255,255,0.4);">No grazie, preferisco aspettare &rarr;</a>
             </div>
         </div>
     </section>
