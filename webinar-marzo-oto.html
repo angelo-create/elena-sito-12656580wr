@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Se la pagina è caricata dentro l'iframe del form GHL, esce e apre a schermo intero -->
+    <!-- Iframe escape: se caricata in un iframe, esce a schermo intero -->
     <script>if(window.self!==window.top){try{window.top.location.href=window.location.href}catch(e){}}</script>
     <title>Offerta Esclusiva - Sfida dei 7 Giorni | Elena Giordani</title>
     <meta name="robots" content="noindex, nofollow">
@@ -15,12 +15,7 @@
     <link rel="stylesheet" href="css/main.css?v=1767489274">
     <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
 
-    <!-- ╔══════════════════════════════════════════════════════════════╗
-         ║  URL PARAMS — Riceve da GHL e passa alla thank you page     ║
-         ╚══════════════════════════════════════════════════════════════╝ -->
-    <!-- ─── REDIRECT URL DA INCOLLARE IN GHL (Form → Settings → Thank You) ───
-    https://go.elenagiordani.com/webinar-marzo-oto.html?data={{custom_values.data}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}&luogo={{custom_values.luogo_webinar}}
-    -->
+    <!-- URL PARAMS — Riceve dati webinar e passa alla thank you page -->
     <script>
     (function() {
         var raw = location.href;
