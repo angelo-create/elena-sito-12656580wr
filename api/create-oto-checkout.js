@@ -24,15 +24,16 @@ module.exports = async function handler(req, res) {
       },
     });
 
-    const publishableKey = process.env.STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PK || process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+    const publishableKey = process.env.STRIPE_PUBLISHABLE_KEY;
 
     if (!publishableKey) {
-      console.error('STRIPE_PUBLISHABLE_KEY env var is missing. Available env keys:', Object.keys(process.env).filter(k => k.includes('STRIPE')).join(', '));
+      console.error('STRIPE_PUBLISHABLE_KEY is not set');
+      return res.status(500).json({ error: 'Configurazione pagamento incompleta.' });
     }
 
     res.status(200).json({
       clientSecret: paymentIntent.client_secret,
-      publishableKey: publishableKey || null,
+      publishableKey: publishableKey,
     });
   } catch (err) {
     console.error('Stripe OTO error:', err.message);
