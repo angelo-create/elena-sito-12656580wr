@@ -1223,13 +1223,17 @@
 
                 <!-- STEP 2: Stripe Payment Element -->
                 <div class="oto-checkout-panel" id="checkoutStep2">
+                    <div class="oto-contact-recap" id="otoContactRecap" style="display:none; margin-bottom: 1rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: left;">
+                        <span id="otoRecapText"></span>
+                        <button id="otoChangeContact" style="float: right; background: none; border: none; color: var(--pink-primary); font-size: 0.75rem; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">Modifica</button>
+                    </div>
                     <div id="oto-payment-element"><!-- Stripe mounts here --></div>
 
                     <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoPayBtn">Completa il Pagamento &mdash; 27&euro; &rarr;</a>
 
                     <div class="oto-payment-error" id="otoPaymentError"></div>
 
-                    <button class="oto-checkout-back" id="otoBackStep1">&larr; Modifica i tuoi dati</button>
+                    <button class="oto-checkout-back" id="otoBackStep1" style="display:none;">&larr; Modifica i tuoi dati</button>
                 </div>
 
                 <!-- Trust signals -->
@@ -1710,30 +1714,66 @@
         var paymentElement = null;
         var clientSecret = null;
 
+        // ===== STICKY CONTACT: pre-fill from URL params or localStorage =====
+        var CONTACT_KEY = 'oto_contact';
+        var nomeInput = document.getElementById('oto-nome');
+        var emailInput = document.getElementById('oto-email');
+
+        // URL params have priority over localStorage
+        var urlParams = new URLSearchParams(window.location.search);
+        var urlNome = urlParams.get('nome') || urlParams.get('name') || '';
+        var urlEmail = urlParams.get('email') || '';
+
+        // Load saved contact from localStorage
+        var saved = {};
+        try { saved = JSON.parse(localStorage.getItem(CONTACT_KEY)) || {}; } catch(e) {}
+
+        // Pre-fill: URL params > localStorage
+        if (urlNome || saved.nome) nomeInput.value = urlNome || saved.nome;
+        if (urlEmail || saved.email) emailInput.value = urlEmail || saved.email;
+
+        // Save contact on input change (real-time sticky)
+        function saveContact() {
+            var data = { nome: nomeInput.value.trim(), email: emailInput.value.trim() };
+            try { localStorage.setItem(CONTACT_KEY, JSON.stringify(data)); } catch(e) {}
+        }
+        nomeInput.addEventListener('input', saveContact);
+        emailInput.addEventListener('input', saveContact);
+
         // Fire InitiateCheckout pixel on page load (checkout is always visible)
         if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout', {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'});
         }
 
+        // Contact recap refs
+        var contactRecap = document.getElementById('otoContactRecap');
+        var recapText = document.getElementById('otoRecapText');
+        var changeContactBtn = document.getElementById('otoChangeContact');
+
+        // Determine if we have contact data (URL > localStorage)
+        var contactNome = urlNome || saved.nome || '';
+        var contactEmail = urlEmail || saved.email || '';
+        var hasContact = contactNome.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail);
+
         function scrollToCheckout() {
             checkoutEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // Focus first field
-            setTimeout(function() {
-                var firstInput = document.getElementById('oto-nome');
-                if (firstInput) firstInput.focus();
-            }, 600);
         }
 
         function showStep1() {
             step1.classList.add('active');
             step2.classList.remove('active');
+            contactRecap.style.display = 'none';
+            setTimeout(function() {
+                nomeInput.focus();
+            }, 300);
         }
 
         function showStep2() {
             step1.classList.remove('active');
             step2.classList.add('active');
-            // Scroll to payment element
-            checkoutEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Show contact recap
+            recapText.textContent = contactNome + ' \u2014 ' + contactEmail;
+            contactRecap.style.display = 'block';
         }
 
         function validateFields() {
@@ -1757,19 +1797,8 @@
             return valid;
         }
 
-        // Step 1 → Step 2: create PaymentIntent + mount Stripe Element
-        function handleGoStep2() {
-            if (!validateFields()) return;
-
-            var nome = document.getElementById('oto-nome').value.trim();
-            var email = document.getElementById('oto-email').value.trim();
-
-            // Loading
-            goStep2Btn.innerHTML = 'CARICAMENTO...';
-            goStep2Btn.style.pointerEvents = 'none';
-            goStep2Btn.style.opacity = '0.6';
-            step1Error.style.display = 'none';
-
+        // Core: create PaymentIntent + mount Stripe Element
+        function initStripePayment(nome, email, onError) {
             fetch('/api/create-oto-checkout', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1793,6 +1822,8 @@
                 }
 
                 clientSecret = result.data.clientSecret;
+                contactNome = nome;
+                contactEmail = email;
 
                 // Initialize Stripe
                 if (!stripeInstance) {
@@ -1843,16 +1874,29 @@
                 paymentElement.mount(mountEl);
 
                 showStep2();
-
-                // Reset Step 1 button
-                goStep2Btn.innerHTML = 'S\u00ec, Voglio Iniziare Subito &rarr;';
-                goStep2Btn.style.pointerEvents = '';
-                goStep2Btn.style.opacity = '';
             })
             .catch(function(err) {
+                if (onError) onError(err);
+            });
+        }
+
+        // Step 1 → Step 2 (manual form submit)
+        function handleGoStep2() {
+            if (!validateFields()) return;
+
+            var nome = nomeInput.value.trim();
+            var email = emailInput.value.trim();
+            saveContact();
+
+            goStep2Btn.innerHTML = 'CARICAMENTO...';
+            goStep2Btn.style.pointerEvents = 'none';
+            goStep2Btn.style.opacity = '0.6';
+            step1Error.style.display = 'none';
+
+            initStripePayment(nome, email, function(err) {
                 step1Error.textContent = err.message;
                 step1Error.style.display = 'block';
-                goStep2Btn.innerHTML = 'S\u00ec, Voglio Iniziare Subito &rarr;';
+                goStep2Btn.innerHTML = 'S\u00ec, Voglio Iniziare Subito \u2192';
                 goStep2Btn.style.pointerEvents = '';
                 goStep2Btn.style.opacity = '';
             });
@@ -1875,14 +1919,13 @@
                     paymentError.textContent = result.error.message;
                     paymentError.classList.add('visible');
                 }
-                // Reset button
                 payBtn.innerHTML = payBtnOriginalHTML;
                 payBtn.style.pointerEvents = '';
                 payBtn.style.opacity = '';
             });
         }
 
-        // Buy buttons → scroll to inline checkout
+        // Buy buttons → scroll to checkout
         document.querySelectorAll('[data-oto-buy]').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1890,14 +1933,17 @@
             });
         });
 
-        // Step 1 → Step 2
+        // Step 1 CTA
         goStep2Btn.addEventListener('click', function(e) {
             e.preventDefault();
             handleGoStep2();
         });
 
-        // Step 2 → Step 1
+        // Back to Step 1 (from recap "Modifica" or old back button)
         document.getElementById('otoBackStep1').addEventListener('click', function() {
+            showStep1();
+        });
+        changeContactBtn.addEventListener('click', function() {
             showStep1();
         });
 
@@ -1913,6 +1959,20 @@
                 this.closest('.oto-checkout-field').classList.remove('error');
             });
         });
+
+        // ===== AUTO-SKIP: if contact data exists, go straight to payment =====
+        if (hasContact) {
+            // Save to localStorage (in case it came from URL)
+            nomeInput.value = contactNome;
+            emailInput.value = contactEmail;
+            saveContact();
+            // Auto-init Stripe payment (skip Step 1)
+            initStripePayment(contactNome, contactEmail, function(err) {
+                // On error, fall back to Step 1 form
+                console.error('Auto-init failed:', err.message);
+                showStep1();
+            });
+        }
     })();
 
     // ===== FAQ ACCORDION =====
