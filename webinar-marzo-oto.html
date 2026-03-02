@@ -840,125 +840,47 @@
             transform: translateY(0);
         }
 
-        /* ===== INLINE CHECKOUT ===== */
+        /* ===== CRO: Checkout benefits ===== */
 
-        .oto-checkout-inline {
-            max-width: 520px;
-            margin: 3rem auto 0;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(233,30,99,0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        /* Step indicators */
-        .oto-checkout-steps {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0;
+        .oto-checkout-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1rem;
             margin-bottom: 2rem;
+            text-align: left;
         }
 
-        .oto-checkout-step {
+        .oto-checkout-benefit {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .oto-checkout-step-num {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: rgba(255,255,255,0.4);
-            transition: all 0.4s ease;
-        }
-
-        .oto-checkout-step.active .oto-checkout-step-num {
-            background: var(--pink-primary);
-            border-color: var(--pink-primary);
-            color: var(--white);
-        }
-
-        .oto-checkout-step.done .oto-checkout-step-num {
-            background: rgba(233,30,99,0.15);
-            border-color: var(--pink-primary);
+        .oto-checkout-benefit .oto-check {
             color: var(--pink-primary);
-        }
-
-        .oto-checkout-step-text {
             font-size: 0.7rem;
-            font-weight: 600;
-            color: rgba(255,255,255,0.35);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.4s ease;
+            flex-shrink: 0;
         }
 
-        .oto-checkout-step.active .oto-checkout-step-text,
-        .oto-checkout-step.done .oto-checkout-step-text { color: rgba(255,255,255,0.7); }
+        /* CRO: Trust signals */
+        .oto-checkout-trust {
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+        }
 
-        .oto-checkout-step-line {
-            width: 40px;
-            height: 1px;
-            background: rgba(255,255,255,0.12);
-            margin: 0 0.75rem;
+        .oto-checkout-social-proof {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.5rem;
         }
 
         /* Step panels */
         .oto-checkout-panel { display: none; }
         .oto-checkout-panel.active { display: block; }
-
-        /* Product recap */
-        .oto-checkout-product {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 1.25rem;
-            margin-bottom: 1.75rem;
-        }
-
-        .oto-checkout-product img {
-            width: 60px;
-            height: 60px;
-            border-radius: 10px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .oto-checkout-product-info { flex: 1; }
-
-        .oto-checkout-product-info h4 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 0.2rem;
-        }
-
-        .oto-checkout-product-info p {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.5);
-            margin: 0;
-        }
-
-        .oto-checkout-product-price {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--pink-primary);
-            flex-shrink: 0;
-        }
 
         .oto-checkout-field {
             margin-bottom: 1rem;
@@ -1000,12 +922,6 @@
 
         .oto-checkout-field.error input { border-color: #ff4444; }
         .oto-checkout-field.error .oto-field-error { display: block; }
-
-        .oto-checkout-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
 
         .oto-checkout-btn {
             width: 100%;
@@ -1153,11 +1069,8 @@
             /* Fade-in: reduce animation distance */
             .oto-fade-in { transform: translateY(1.25rem); }
 
-            /* Checkout inline: mobile */
-            .oto-checkout-inline { padding: 1.75rem 1.25rem; border-radius: 16px; margin-top: 2rem; }
-            .oto-checkout-row { grid-template-columns: 1fr; }
-            .oto-checkout-product img { width: 48px; height: 48px; }
-            .oto-checkout-product-price { font-size: 1.25rem; }
+            /* Checkout: mobile */
+            .oto-checkout-benefits { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 480px) {
@@ -1281,95 +1194,63 @@
                 <p>Chiudi gli occhi un secondo. Immagina di arrivare alla sera del webinar e di sentirti gi&agrave; diversa. Non perch&eacute; hai letto qualcosa o ci hai pensato &mdash; ma perch&eacute; ti sei <em>mossa</em>. Perch&eacute; il tuo corpo ha gi&agrave; iniziato a risponderti.</p>
                 <p>Questo &egrave; <strong>&ldquo;Il Primo Passo&rdquo;</strong>. 7 giorni. Nessuna decisione da prendere. Solo alzarti, aprire, seguire. Oltre <strong>3000 donne</strong> lo hanno fatto prima di te &mdash; e nessuna &egrave; tornata indietro.</p>
             </div>
-            <div class="oto-offer-card oto-fade-in">
+            <div class="oto-offer-card oto-fade-in" id="otoCheckoutInline">
                 <span class="oto-badge">Solo Per Te Che Ti Sei Appena Iscritta</span>
                 <h2>&ldquo;Il Primo Passo&rdquo; &mdash; <em>Sfida dei 7 Giorni</em></h2>
-                <p class="oto-offer-desc">Per 7 giorni non dovrai pensare a nulla. Solo aprire, seguire, fare. E ogni sera andrai a dormire con quella sensazione che non provavi da tempo: <em>oggi ho fatto qualcosa per me.</em></p>
+
                 <div class="oto-price-block">
                     <span class="oto-price-old">197&euro;</span>
                     <span class="oto-price-new">27&euro;</span>
                     <span class="oto-price-note">Normalmente 37&euro; &mdash; questo prezzo esiste solo adesso, per te che ti sei appena iscritta</span>
                 </div>
-                <a href="#" class="oto-skip" data-oto-skip>No grazie, preferisco aspettare &rarr;</a>
-            </div>
 
-            <!-- INLINE 2-STEP CHECKOUT -->
-            <div class="oto-checkout-inline oto-fade-in" id="otoCheckoutInline">
-                <!-- Step indicator -->
-                <div class="oto-checkout-steps">
-                    <div class="oto-checkout-step active" id="stepIndicator1">
-                        <span class="oto-checkout-step-num">1</span>
-                        <span class="oto-checkout-step-text">I tuoi dati</span>
-                    </div>
-                    <div class="oto-checkout-step-line"></div>
-                    <div class="oto-checkout-step" id="stepIndicator2">
-                        <span class="oto-checkout-step-num">2</span>
-                        <span class="oto-checkout-step-text">Pagamento</span>
-                    </div>
+                <!-- Compact benefit list -->
+                <div class="oto-checkout-benefits">
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> 7 allenamenti video guidati da Elena</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Piano alimentare detox completo</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Podcast motivazionale giornaliero</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Accesso immediato &mdash; inizi oggi</div>
                 </div>
 
                 <!-- STEP 1: Contact Info -->
                 <div class="oto-checkout-panel active" id="checkoutStep1">
-                    <div class="oto-checkout-product">
-                        <img src="img/elena-webp/IMG_9825.webp" alt="Sfida 7 Giorni">
-                        <div class="oto-checkout-product-info">
-                            <h4>&ldquo;Il Primo Passo&rdquo; &mdash; Sfida 7 Giorni</h4>
-                            <p>Allenamenti + piano alimentare + coaching quotidiano</p>
-                        </div>
-                        <span class="oto-checkout-product-price">27&euro;</span>
-                    </div>
-
-                    <div class="oto-checkout-row">
-                        <div class="oto-checkout-field">
-                            <label for="oto-nome">Nome</label>
-                            <input type="text" id="oto-nome" placeholder="Il tuo nome" autocomplete="given-name">
-                            <div class="oto-field-error">Inserisci il tuo nome</div>
-                        </div>
-                        <div class="oto-checkout-field">
-                            <label for="oto-cognome">Cognome</label>
-                            <input type="text" id="oto-cognome" placeholder="Il tuo cognome" autocomplete="family-name">
-                            <div class="oto-field-error">Inserisci il tuo cognome</div>
-                        </div>
+                    <div class="oto-checkout-field">
+                        <label for="oto-nome">Nome</label>
+                        <input type="text" id="oto-nome" placeholder="Il tuo nome" autocomplete="given-name">
+                        <div class="oto-field-error">Inserisci il tuo nome</div>
                     </div>
                     <div class="oto-checkout-field">
                         <label for="oto-email">Email</label>
                         <input type="email" id="oto-email" placeholder="La tua email" autocomplete="email">
                         <div class="oto-field-error">Inserisci un'email valida</div>
                     </div>
-                    <div class="oto-checkout-field">
-                        <label for="oto-telefono">Telefono <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">(opzionale)</span></label>
-                        <input type="tel" id="oto-telefono" placeholder="+39 333 1234567" autocomplete="tel">
-                    </div>
 
-                    <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoGoStep2">Continua &rarr;</a>
+                    <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoGoStep2">S&igrave;, Voglio Iniziare Subito &rarr;</a>
 
                     <div class="oto-checkout-error" id="otoStep1Error" style="display:none; color:#ff4444; text-align:center; font-size:0.85rem; margin-top:0.75rem;"></div>
                 </div>
 
                 <!-- STEP 2: Stripe Payment Element -->
                 <div class="oto-checkout-panel" id="checkoutStep2">
-                    <div class="oto-checkout-product">
-                        <img src="img/elena-webp/IMG_9825.webp" alt="Sfida 7 Giorni">
-                        <div class="oto-checkout-product-info">
-                            <h4>&ldquo;Il Primo Passo&rdquo; &mdash; Sfida 7 Giorni</h4>
-                            <p>Allenamenti + piano alimentare + coaching quotidiano</p>
-                        </div>
-                        <span class="oto-checkout-product-price">27&euro;</span>
-                    </div>
-
                     <div id="oto-payment-element"><!-- Stripe mounts here --></div>
 
-                    <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoPayBtn">Paga 27&euro; &rarr;</a>
+                    <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoPayBtn">Completa il Pagamento &mdash; 27&euro; &rarr;</a>
 
                     <div class="oto-payment-error" id="otoPaymentError"></div>
 
+                    <button class="oto-checkout-back" id="otoBackStep1">&larr; Modifica i tuoi dati</button>
+                </div>
+
+                <!-- Trust signals -->
+                <div class="oto-checkout-trust">
                     <div class="oto-checkout-secure">
                         <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        Pagamento sicuro via Stripe &middot; Crittografia SSL
+                        Pagamento sicuro &middot; Crittografia SSL
                     </div>
-
-                    <button class="oto-checkout-back" id="otoBackStep1">&larr; Torna ai tuoi dati</button>
+                    <div class="oto-checkout-social-proof">Oltre 3.000 donne hanno gi&agrave; iniziato</div>
                 </div>
+
+                <a href="#" class="oto-skip" data-oto-skip>No grazie, preferisco aspettare &rarr;</a>
             </div>
         </div>
     </section>
@@ -1791,8 +1672,6 @@
         var checkoutEl = document.getElementById('otoCheckoutInline');
         var step1 = document.getElementById('checkoutStep1');
         var step2 = document.getElementById('checkoutStep2');
-        var ind1 = document.getElementById('stepIndicator1');
-        var ind2 = document.getElementById('stepIndicator2');
         var goStep2Btn = document.getElementById('otoGoStep2');
         var payBtn = document.getElementById('otoPayBtn');
         var step1Error = document.getElementById('otoStep1Error');
@@ -1822,17 +1701,11 @@
         function showStep1() {
             step1.classList.add('active');
             step2.classList.remove('active');
-            ind1.classList.add('active');
-            ind1.classList.remove('done');
-            ind2.classList.remove('active');
         }
 
         function showStep2() {
             step1.classList.remove('active');
             step2.classList.add('active');
-            ind1.classList.remove('active');
-            ind1.classList.add('done');
-            ind2.classList.add('active');
             // Scroll to payment element
             checkoutEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
@@ -1841,7 +1714,6 @@
             var valid = true;
             var fields = [
                 { id: 'oto-nome', test: function(v) { return v.length > 0; } },
-                { id: 'oto-cognome', test: function(v) { return v.length > 0; } },
                 { id: 'oto-email', test: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } }
             ];
 
@@ -1864,7 +1736,6 @@
             if (!validateFields()) return;
 
             var nome = document.getElementById('oto-nome').value.trim();
-            var cognome = document.getElementById('oto-cognome').value.trim();
             var email = document.getElementById('oto-email').value.trim();
 
             // Loading
@@ -1878,7 +1749,7 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     customerEmail: email,
-                    customerName: nome + ' ' + cognome
+                    customerName: nome
                 })
             })
             .then(function(response) {
@@ -1948,14 +1819,14 @@
                 showStep2();
 
                 // Reset Step 1 button
-                goStep2Btn.innerHTML = 'Continua &rarr;';
+                goStep2Btn.innerHTML = 'S\u00ec, Voglio Iniziare Subito &rarr;';
                 goStep2Btn.style.pointerEvents = '';
                 goStep2Btn.style.opacity = '';
             })
             .catch(function(err) {
                 step1Error.textContent = err.message;
                 step1Error.style.display = 'block';
-                goStep2Btn.innerHTML = 'Continua &rarr;';
+                goStep2Btn.innerHTML = 'S\u00ec, Voglio Iniziare Subito &rarr;';
                 goStep2Btn.style.pointerEvents = '';
                 goStep2Btn.style.opacity = '';
             });
