@@ -895,6 +895,71 @@
 
         .oto-checkout-close:hover { color: var(--white); }
 
+        /* Step indicators */
+        .oto-checkout-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2rem;
+        }
+
+        .oto-checkout-step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .oto-checkout-step-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.4);
+            transition: all 0.4s ease;
+        }
+
+        .oto-checkout-step.active .oto-checkout-step-num {
+            background: var(--pink-primary);
+            border-color: var(--pink-primary);
+            color: var(--white);
+        }
+
+        .oto-checkout-step.done .oto-checkout-step-num {
+            background: rgba(233,30,99,0.15);
+            border-color: var(--pink-primary);
+            color: var(--pink-primary);
+        }
+
+        .oto-checkout-step-text {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.4s ease;
+        }
+
+        .oto-checkout-step.active .oto-checkout-step-text,
+        .oto-checkout-step.done .oto-checkout-step-text { color: rgba(255,255,255,0.7); }
+
+        .oto-checkout-step-line {
+            width: 40px;
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+            margin: 0 0.75rem;
+        }
+
+        /* Step panels */
+        .oto-checkout-panel { display: none; }
+        .oto-checkout-panel.active { display: block; }
+
         /* Product recap */
         .oto-checkout-product {
             display: flex;
@@ -1007,6 +1072,38 @@
             stroke-linecap: round;
             stroke-linejoin: round;
         }
+
+        /* Step 2: Payment Element */
+        #oto-payment-element {
+            margin-bottom: 1.25rem;
+        }
+
+        .oto-checkout-back {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            padding: 0;
+            margin-top: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: color 0.3s;
+        }
+
+        .oto-checkout-back:hover { color: rgba(255,255,255,0.7); }
+
+        .oto-payment-error {
+            color: #ff4444;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 0.75rem;
+            display: none;
+        }
+
+        .oto-payment-error.visible { display: block; }
 
         /* ===== RESPONSIVE ===== */
 
@@ -1574,53 +1671,87 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════
-         CHECKOUT MODAL — Stripe Redirect
+         CHECKOUT MODAL — 2-Step Custom (Stripe Elements)
          ═══════════════════════════════════════════════════════════ -->
     <div class="oto-checkout-modal" id="otoCheckout">
         <div class="oto-checkout-overlay" id="otoCheckoutClose"></div>
         <div class="oto-checkout-container">
             <button class="oto-checkout-close" id="otoCheckoutCloseBtn">&times;</button>
 
-            <div class="oto-checkout-product">
-                <img src="img/elena-webp/IMG_9825.webp" alt="Sfida 7 Giorni">
-                <div class="oto-checkout-product-info">
-                    <h4>&ldquo;Il Primo Passo&rdquo; &mdash; Sfida 7 Giorni</h4>
-                    <p>Allenamenti + piano alimentare + coaching quotidiano</p>
+            <!-- Step indicator -->
+            <div class="oto-checkout-steps">
+                <div class="oto-checkout-step active" id="stepIndicator1">
+                    <span class="oto-checkout-step-num">1</span>
+                    <span class="oto-checkout-step-text">I tuoi dati</span>
                 </div>
-                <span class="oto-checkout-product-price">27&euro;</span>
+                <div class="oto-checkout-step-line"></div>
+                <div class="oto-checkout-step" id="stepIndicator2">
+                    <span class="oto-checkout-step-num">2</span>
+                    <span class="oto-checkout-step-text">Pagamento</span>
+                </div>
             </div>
 
-            <div class="oto-checkout-row">
+            <!-- STEP 1: Contact Info -->
+            <div class="oto-checkout-panel active" id="checkoutStep1">
+                <div class="oto-checkout-product">
+                    <img src="img/elena-webp/IMG_9825.webp" alt="Sfida 7 Giorni">
+                    <div class="oto-checkout-product-info">
+                        <h4>&ldquo;Il Primo Passo&rdquo; &mdash; Sfida 7 Giorni</h4>
+                        <p>Allenamenti + piano alimentare + coaching quotidiano</p>
+                    </div>
+                    <span class="oto-checkout-product-price">27&euro;</span>
+                </div>
+
+                <div class="oto-checkout-row">
+                    <div class="oto-checkout-field">
+                        <label for="oto-nome">Nome</label>
+                        <input type="text" id="oto-nome" placeholder="Il tuo nome" autocomplete="given-name">
+                        <div class="oto-field-error">Inserisci il tuo nome</div>
+                    </div>
+                    <div class="oto-checkout-field">
+                        <label for="oto-cognome">Cognome</label>
+                        <input type="text" id="oto-cognome" placeholder="Il tuo cognome" autocomplete="family-name">
+                        <div class="oto-field-error">Inserisci il tuo cognome</div>
+                    </div>
+                </div>
                 <div class="oto-checkout-field">
-                    <label for="oto-nome">Nome</label>
-                    <input type="text" id="oto-nome" placeholder="Il tuo nome" autocomplete="given-name">
-                    <div class="oto-field-error">Inserisci il tuo nome</div>
+                    <label for="oto-email">Email</label>
+                    <input type="email" id="oto-email" placeholder="La tua email" autocomplete="email">
+                    <div class="oto-field-error">Inserisci un'email valida</div>
                 </div>
                 <div class="oto-checkout-field">
-                    <label for="oto-cognome">Cognome</label>
-                    <input type="text" id="oto-cognome" placeholder="Il tuo cognome" autocomplete="family-name">
-                    <div class="oto-field-error">Inserisci il tuo cognome</div>
+                    <label for="oto-telefono">Telefono <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">(opzionale)</span></label>
+                    <input type="tel" id="oto-telefono" placeholder="+39 333 1234567" autocomplete="tel">
                 </div>
-            </div>
-            <div class="oto-checkout-field">
-                <label for="oto-email">Email</label>
-                <input type="email" id="oto-email" placeholder="La tua email" autocomplete="email">
-                <div class="oto-field-error">Inserisci un'email valida</div>
-            </div>
-            <div class="oto-checkout-field">
-                <label for="oto-telefono">Telefono <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">(opzionale)</span></label>
-                <input type="tel" id="oto-telefono" placeholder="+39 333 1234567" autocomplete="tel">
+
+                <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoGoStep2">Continua &rarr;</a>
+
+                <div class="oto-checkout-error" id="otoStep1Error" style="display:none; color:#ff4444; text-align:center; font-size:0.85rem; margin-top:0.75rem;"></div>
             </div>
 
-            <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoPayBtn">Vai al Pagamento &rarr;</a>
+            <!-- STEP 2: Stripe Payment Element -->
+            <div class="oto-checkout-panel" id="checkoutStep2">
+                <div class="oto-checkout-product">
+                    <img src="img/elena-webp/IMG_9825.webp" alt="Sfida 7 Giorni">
+                    <div class="oto-checkout-product-info">
+                        <h4>&ldquo;Il Primo Passo&rdquo; &mdash; Sfida 7 Giorni</h4>
+                        <p>Allenamenti + piano alimentare + coaching quotidiano</p>
+                    </div>
+                    <span class="oto-checkout-product-price">27&euro;</span>
+                </div>
 
-            <div class="oto-checkout-error" id="otoCheckoutError" style="display:none; color:#ff4444; text-align:center; font-size:0.85rem; margin-top:0.75rem;">
-                Si &egrave; verificato un errore. Riprova.
-            </div>
+                <div id="oto-payment-element"><!-- Stripe mounts here --></div>
 
-            <div class="oto-checkout-secure">
-                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Pagamento sicuro via Stripe &middot; Crittografia SSL
+                <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoPayBtn">Paga 27&euro; &rarr;</a>
+
+                <div class="oto-payment-error" id="otoPaymentError"></div>
+
+                <div class="oto-checkout-secure">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Pagamento sicuro via Stripe &middot; Crittografia SSL
+                </div>
+
+                <button class="oto-checkout-back" id="otoBackStep1">&larr; Torna ai tuoi dati</button>
             </div>
         </div>
     </div>
@@ -1653,6 +1784,7 @@
         </div>
     </footer>
 
+    <script src="https://js.stripe.com/v3/"></script>
     <script defer src="js/main.js?v=1767489274"></script>
 
     <!-- React (for mobile header) -->
@@ -1695,7 +1827,7 @@
         setInterval(updateTimer, 1000);
     })();
 
-    // ===== CTA ROUTING + STRIPE CHECKOUT =====
+    // ===== CTA ROUTING + STRIPE ELEMENTS CHECKOUT =====
     (function() {
         var thankYouUrl = buildThankYouUrl();
 
@@ -1704,10 +1836,23 @@
             link.href = thankYouUrl;
         });
 
+        // DOM refs
         var modal = document.getElementById('otoCheckout');
+        var step1 = document.getElementById('checkoutStep1');
+        var step2 = document.getElementById('checkoutStep2');
+        var ind1 = document.getElementById('stepIndicator1');
+        var ind2 = document.getElementById('stepIndicator2');
+        var goStep2Btn = document.getElementById('otoGoStep2');
         var payBtn = document.getElementById('otoPayBtn');
-        var errorEl = document.getElementById('otoCheckoutError');
+        var step1Error = document.getElementById('otoStep1Error');
+        var paymentError = document.getElementById('otoPaymentError');
         var payBtnOriginalHTML = payBtn.innerHTML;
+
+        // Stripe state
+        var stripeInstance = null;
+        var stripeElements = null;
+        var paymentElement = null;
+        var clientSecret = null;
 
         function openCheckout() {
             modal.classList.add('active');
@@ -1720,6 +1865,22 @@
         function closeCheckout() {
             modal.classList.remove('active');
             document.body.style.overflow = '';
+        }
+
+        function showStep1() {
+            step1.classList.add('active');
+            step2.classList.remove('active');
+            ind1.classList.add('active');
+            ind1.classList.remove('done');
+            ind2.classList.remove('active');
+        }
+
+        function showStep2() {
+            step1.classList.remove('active');
+            step2.classList.add('active');
+            ind1.classList.remove('active');
+            ind1.classList.add('done');
+            ind2.classList.add('active');
         }
 
         function validateFields() {
@@ -1744,32 +1905,32 @@
             return valid;
         }
 
-        function handlePayment() {
+        // Step 1 → Step 2: create PaymentIntent + mount Stripe Element
+        function handleGoStep2() {
             if (!validateFields()) return;
 
             var nome = document.getElementById('oto-nome').value.trim();
             var cognome = document.getElementById('oto-cognome').value.trim();
             var email = document.getElementById('oto-email').value.trim();
 
-            // Loading state
-            payBtn.innerHTML = 'CARICAMENTO...';
-            payBtn.style.pointerEvents = 'none';
-            payBtn.style.opacity = '0.6';
-            errorEl.style.display = 'none';
+            // Loading
+            goStep2Btn.innerHTML = 'CARICAMENTO...';
+            goStep2Btn.style.pointerEvents = 'none';
+            goStep2Btn.style.opacity = '0.6';
+            step1Error.style.display = 'none';
 
             fetch('/api/create-oto-checkout', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     customerEmail: email,
-                    customerName: nome + ' ' + cognome,
-                    successParams: window.OTO_PARAMS || {}
+                    customerName: nome + ' ' + cognome
                 })
             })
             .then(function(response) {
-                var contentType = response.headers.get('content-type') || '';
-                if (!contentType.includes('application/json')) {
-                    throw new Error('Servizio di pagamento non disponibile. Riprova più tardi.');
+                var ct = response.headers.get('content-type') || '';
+                if (!ct.includes('application/json')) {
+                    throw new Error('Servizio di pagamento non disponibile.');
                 }
                 return response.json().then(function(data) {
                     return { ok: response.ok, data: data };
@@ -1779,13 +1940,91 @@
                 if (!result.ok) {
                     throw new Error(result.data.error || 'Errore nel pagamento');
                 }
-                if (result.data.url) {
-                    window.location.href = result.data.url;
+
+                clientSecret = result.data.clientSecret;
+
+                // Initialize Stripe
+                if (!stripeInstance) {
+                    stripeInstance = Stripe(result.data.publishableKey);
                 }
+
+                // Create Elements with dark theme
+                stripeElements = stripeInstance.elements({
+                    clientSecret: clientSecret,
+                    appearance: {
+                        theme: 'night',
+                        variables: {
+                            colorPrimary: '#E91E63',
+                            colorBackground: 'rgba(255,255,255,0.06)',
+                            colorText: '#ffffff',
+                            colorTextSecondary: 'rgba(255,255,255,0.5)',
+                            colorDanger: '#ff4444',
+                            fontFamily: 'Poppins, sans-serif',
+                            borderRadius: '8px',
+                            spacingUnit: '4px'
+                        },
+                        rules: {
+                            '.Input': {
+                                border: '1px solid rgba(255,255,255,0.12)',
+                                backgroundColor: 'rgba(255,255,255,0.06)',
+                                padding: '0.85rem 1rem'
+                            },
+                            '.Input:focus': {
+                                borderColor: '#E91E63',
+                                boxShadow: 'none'
+                            },
+                            '.Label': {
+                                fontSize: '0.7rem',
+                                fontWeight: '600',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.1em',
+                                color: 'rgba(255,255,255,0.5)'
+                            }
+                        }
+                    },
+                    locale: 'it'
+                });
+
+                // Mount Payment Element
+                var mountEl = document.getElementById('oto-payment-element');
+                mountEl.innerHTML = '';
+                paymentElement = stripeElements.create('payment');
+                paymentElement.mount(mountEl);
+
+                showStep2();
+
+                // Reset Step 1 button
+                goStep2Btn.innerHTML = 'Continua &rarr;';
+                goStep2Btn.style.pointerEvents = '';
+                goStep2Btn.style.opacity = '';
             })
             .catch(function(err) {
-                errorEl.textContent = err.message || 'Si è verificato un errore. Riprova.';
-                errorEl.style.display = 'block';
+                step1Error.textContent = err.message;
+                step1Error.style.display = 'block';
+                goStep2Btn.innerHTML = 'Continua &rarr;';
+                goStep2Btn.style.pointerEvents = '';
+                goStep2Btn.style.opacity = '';
+            });
+        }
+
+        // Step 2: Confirm payment
+        function handlePayment() {
+            payBtn.innerHTML = 'ELABORAZIONE...';
+            payBtn.style.pointerEvents = 'none';
+            payBtn.style.opacity = '0.6';
+            paymentError.classList.remove('visible');
+
+            stripeInstance.confirmPayment({
+                elements: stripeElements,
+                confirmParams: {
+                    return_url: window.location.origin + '/' + thankYouUrl.replace('oto=done', 'paid=true')
+                }
+            }).then(function(result) {
+                if (result.error) {
+                    paymentError.textContent = result.error.message;
+                    paymentError.classList.add('visible');
+                }
+                // Reset button
                 payBtn.innerHTML = payBtnOriginalHTML;
                 payBtn.style.pointerEvents = '';
                 payBtn.style.opacity = '';
@@ -1803,6 +2042,17 @@
         // Close buttons
         document.getElementById('otoCheckoutClose').addEventListener('click', closeCheckout);
         document.getElementById('otoCheckoutCloseBtn').addEventListener('click', closeCheckout);
+
+        // Step 1 → Step 2
+        goStep2Btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleGoStep2();
+        });
+
+        // Step 2 → Step 1
+        document.getElementById('otoBackStep1').addEventListener('click', function() {
+            showStep1();
+        });
 
         // Pay button
         payBtn.addEventListener('click', function(e) {

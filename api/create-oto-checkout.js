@@ -10,43 +10,24 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { customerEmail, customerName, successParams } = req.body || {};
+    const { customerEmail, customerName } = req.body || {};
 
-    const priceId = process.env.STRIPE_PRICE_ID_OTO;
-
-    if (!priceId) {
-      return res.status(500).json({ error: 'Configurazione pagamento OTO non disponibile.' });
-    }
-
-    // Build success/cancel URLs preserving webinar params
-    const params = successParams || {};
-    const queryString = Object.keys(params)
-      .filter(function(k) { return params[k]; })
-      .map(function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]); })
-      .join('&');
-
-    const baseSuccess = process.env.SITE_URL + '/webinar-marzo-grazie';
-    const baseCancel = process.env.SITE_URL + '/webinar-marzo-oto';
-
-    const successUrl = baseSuccess + (queryString ? '?' + queryString + '&' : '?') + 'paid=true';
-    const cancelUrl = baseCancel + (queryString ? '?' + queryString : '');
-
-    const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      line_items: [{
-        price: priceId,
-        quantity: 1,
-      }],
-      customer_email: customerEmail || undefined,
-      success_url: successUrl,
-      cancel_url: cancelUrl,
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: 2700, // €27.00
+      currency: 'eur',
+      automatic_payment_methods: { enabled: true },
+      receipt_email: customerEmail || undefined,
       metadata: {
         product: 'sfida-7-giorni',
         customer_name: customerName || '',
+        customer_email: customerEmail || '',
       },
     });
 
-    res.status(200).json({ url: session.url });
+    res.status(200).json({
+      clientSecret: paymentIntent.client_secret,
+      publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    });
   } catch (err) {
     console.error('Stripe OTO error:', err.message);
     res.status(500).json({ error: 'Errore nella creazione del pagamento.' });
