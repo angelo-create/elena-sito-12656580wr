@@ -1,4 +1,12 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const { buffer } = require('micro');
+
+// Disable Vercel's automatic body parsing — Stripe needs raw body for signature verification
+module.exports.config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 // Forward purchase data to GHL via Inbound Webhook
 async function notifyGHL(data) {
@@ -29,8 +37,10 @@ module.exports = async function handler(req, res) {
   let event;
 
   try {
+    // Read raw body buffer — required for Stripe signature verification
+    const rawBody = await buffer(req);
     event = stripe.webhooks.constructEvent(
-      req.body,
+      rawBody,
       sig,
       process.env.STRIPE_WEBHOOK_SECRET
     );

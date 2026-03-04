@@ -2,6 +2,7 @@
   "private": true,
   "name": "elena-giordani-site",
   "dependencies": {
+    "micro": "^10.0.1",
     "stripe": "^17.0.0"
   }
 }
