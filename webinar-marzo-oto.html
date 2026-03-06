@@ -1152,7 +1152,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '446130387840122');
     fbq('track', 'PageView');
-    fbq('track', 'ViewContent', {content_name: 'OTO Sfida 7 Giorni', value: 27, currency: 'EUR'});
+    fbq('track', 'Lead', {content_name: 'Webinar Marzo 2026'});
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
@@ -1745,10 +1745,7 @@
         nomeInput.addEventListener('input', saveContact);
         emailInput.addEventListener('input', saveContact);
 
-        // Fire InitiateCheckout pixel on page load (checkout is always visible)
-        if (typeof fbq === 'function') {
-            fbq('track', 'InitiateCheckout', {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'});
-        }
+        // Pixel: Lead già tracciato nel head (registrazione webinar)
 
         // Contact recap refs
         var contactRecap = document.getElementById('otoContactRecap');
