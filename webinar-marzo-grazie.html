@@ -623,9 +623,26 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '446130387840122');
     fbq('track', 'PageView');
-    // Purchase pixel solo se hanno comprato (paid=true nell'URL)
+    // Purchase con event_id per deduplicazione pixel ↔ CAPI
     if (new URLSearchParams(window.location.search).get('paid') === 'true') {
-        fbq('track', 'Purchase', {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'});
+        (function() {
+            var eid = 'purchase_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            fbq('track', 'Purchase', {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'}, {eventID: eid});
+            var ck = document.cookie.split(';').reduce(function(a, c) {
+                var p = c.trim().split('='); a[p[0]] = p.slice(1).join('='); return a;
+            }, {});
+            fetch('/api/meta-capi', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    event_name: 'Purchase',
+                    event_id: eid,
+                    event_source_url: window.location.href,
+                    user_data: {fbc: ck._fbc || '', fbp: ck._fbp || ''},
+                    custom_data: {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'}
+                })
+            }).catch(function() {});
+        })();
     }
     </script>
     <noscript><img height="1" width="1" style="display:none"

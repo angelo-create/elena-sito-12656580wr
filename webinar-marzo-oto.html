@@ -1161,6 +1161,26 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '446130387840122');
     fbq('track', 'PageView');
+    // Lead con event_id per deduplicazione pixel ↔ CAPI
+    (function() {
+        var eid = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        fbq('track', 'Lead', {content_name: 'Webinar Marzo 2026'}, {eventID: eid});
+        // Leggi cookie Facebook per matching
+        var ck = document.cookie.split(';').reduce(function(a, c) {
+            var p = c.trim().split('='); a[p[0]] = p.slice(1).join('='); return a;
+        }, {});
+        fetch('/api/meta-capi', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                event_name: 'Lead',
+                event_id: eid,
+                event_source_url: window.location.href,
+                user_data: {fbc: ck._fbc || '', fbp: ck._fbp || ''},
+                custom_data: {content_name: 'Webinar Marzo 2026'}
+            })
+        }).catch(function() {});
+    })();
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
