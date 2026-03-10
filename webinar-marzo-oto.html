@@ -1162,7 +1162,10 @@
     fbq('init', '446130387840122');
     fbq('track', 'PageView');
     // Lead con event_id per deduplicazione pixel ↔ CAPI
+    // sessionStorage guard: spara 1 sola volta per sessione
     (function() {
+        if (sessionStorage.getItem('lead_webinar_marzo')) return;
+        sessionStorage.setItem('lead_webinar_marzo', '1');
         var eid = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         fbq('track', 'Lead', {content_name: 'Webinar Marzo 2026'}, {eventID: eid});
         // Leggi cookie Facebook per matching

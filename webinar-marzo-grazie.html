@@ -55,7 +55,9 @@
         // ─── OTO REDIRECT ───
         // Se l'utente arriva da GHL senza aver visto la OTO, mandalo lì prima.
         // Passa oltre se ha già completato la OTO (oto=done) o ha pagato (paid=true).
-        if (!p.get('oto') && !p.get('paid')) {
+        // IMPORTANTE: solo nel top window! Nell'iframe il redirect causa doppio
+        // caricamento della OTO e duplicazione eventi pixel.
+        if (window.self === window.top && !p.get('oto') && !p.get('paid')) {
             var otoUrl = 'webinar-marzo-oto.html' + (search || '');
             window.location.replace(otoUrl);
         }
