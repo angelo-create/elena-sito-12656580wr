@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrello | X-Fit Academy</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+
+    <style>
+        /* Cart page specific styles */
+        .cart-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cart-header-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .cart-header-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            background: rgba(233, 30, 99, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+        }
+
+        .cart-page {
+            min-height: 100vh;
+            background: var(--black);
+            padding-top: 0;
+        }
+        .cart-container {
+            max-width: 70rem;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+        .cart-title {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .cart-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Product Card */
+        .cart-product {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        .cart-product-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            margin-bottom: 1rem;
+        }
+        .cart-product-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+        .cart-product-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .cart-product-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        .cart-product-features li {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cart-product-features li svg {
+            flex-shrink: 0;
+            width: 1rem;
+            height: 1rem;
+        }
+        .cart-product-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.03em;
+        }
+        .cart-product-price-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-top: 0.25rem;
+        }
+
+        /* Divider */
+        .cart-divider {
+            border: none;
+            border-top: 1px solid var(--border-subtle);
+            margin: 2rem 0;
+        }
+
+        /* Payment Options */
+        .cart-payment-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1.25rem;
+        }
+        .cart-payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .cart-payment-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-subtle);
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .cart-payment-option:hover,
+        .cart-payment-option.active {
+            border-color: var(--pink-primary);
+        }
+        .cart-payment-option.active {
+            background: rgba(233, 30, 99, 0.05);
+        }
+        .cart-payment-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .cart-radio {
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            border: 2px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: border-color 0.2s;
+        }
+        .cart-payment-option.active .cart-radio {
+            border-color: var(--pink-primary);
+        }
+        .cart-radio-dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 50%;
+            background: var(--pink-primary);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .cart-payment-option.active .cart-radio-dot {
+            opacity: 1;
+        }
+        .cart-payment-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+        .cart-payment-sublabel {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-top: 0.15rem;
+        }
+        .cart-payment-amount {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            text-align: right;
+        }
+        .cart-payment-amount-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Order Summary */
+        .cart-summary {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1rem;
+            padding: 2rem;
+            position: sticky;
+            top: 2rem;
+        }
+        .cart-summary-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+        }
+        .cart-summary-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        .cart-summary-value {
+            font-size: 0.85rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+        .cart-summary-total {
+            border-top: 1px solid var(--border-subtle);
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+        .cart-summary-total .cart-summary-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+        .cart-summary-total .cart-summary-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--pink-primary);
+        }
+        .cart-summary-installment {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-top: 0.25rem;
+        }
+
+        .cart-checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--pink-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0.6rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: background 0.2s;
+        }
+        .cart-checkout-btn:hover {
+            background: var(--pink-dark);
+        }
+
+        .cart-trust-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .cart-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        .cart-trust-item svg {
+            width: 0.9rem;
+            height: 0.9rem;
+            stroke: var(--text-muted);
+        }
+
+        /* Footer minimal */
+        .cart-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+            .cart-product-features {
+                grid-template-columns: 1fr;
+            }
+            .cart-container {
+                padding: 2rem 1.25rem 3rem;
+            }
+            .cart-summary {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-page">
+
+        <!-- Header minimale -->
+        <div class="cart-header">
+            <a href="/" class="cart-header-logo">ELENA GIORDANI</a>
+            <span class="cart-header-badge">Checkout Sicuro</span>
+        </div>
+
+        <div class="cart-container">
+            <h1 class="cart-title">Il tuo carrello</h1>
+            <p class="cart-subtitle">Rivedi il tuo ordine e scegli come pagare.</p>
+
+            <div class="cart-layout">
+
+                <!-- Colonna sinistra: Prodotto + Pagamento -->
+                <div>
+                    <!-- Prodotto -->
+                    <div class="cart-product">
+                        <span class="cart-product-badge">Percorso Personalizzato</span>
+                        <h2 class="cart-product-name">X-Fit Academy</h2>
+                        <p class="cart-product-desc">
+                            Il primo percorso in Italia dedicato esclusivamente alle donne.
+                            Allenamento LIVE, alimentazione personalizzata e supporto emotivo con il Metodo E.A.S.Y.
+                        </p>
+                        <ul class="cart-product-features">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Allenamento 100% Live
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Piano alimentare su misura
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Supporto emotivo dedicato
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Metodo E.A.S.Y. completo
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Community esclusiva
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Accesso da casa, ovunque
+                            </li>
+                        </ul>
+                        <div class="cart-product-price">&euro;1.497</div>
+                        <div class="cart-product-price-note">Prezzo del percorso personalizzato</div>
+                    </div>
+
+                    <hr class="cart-divider">
+
+                    <!-- Opzioni di pagamento -->
+                    <h3 class="cart-payment-title">Scegli come pagare</h3>
+                    <div class="cart-payment-options">
+                        <div class="cart-payment-option active" onclick="selectPayment(this, 'unico')">
+                            <div class="cart-payment-left">
+                                <div class="cart-radio"><div class="cart-radio-dot"></div></div>
+                                <div>
+                                    <div class="cart-payment-label">Pagamento unico</div>
+                                    <div class="cart-payment-sublabel">Un solo pagamento, accesso immediato</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="cart-payment-amount">&euro;1.497</div>
+                            </div>
+                        </div>
+
+                        <div class="cart-payment-option" onclick="selectPayment(this, '6rate')">
+                            <div class="cart-payment-left">
+                                <div class="cart-radio"><div class="cart-radio-dot"></div></div>
+                                <div>
+                                    <div class="cart-payment-label">6 rate mensili</div>
+                                    <div class="cart-payment-sublabel">Senza interessi</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="cart-payment-amount">&euro;249,50<span class="cart-payment-amount-sub">/mese</span></div>
+                            </div>
+                        </div>
+
+                        <div class="cart-payment-option" onclick="selectPayment(this, '12rate')">
+                            <div class="cart-payment-left">
+                                <div class="cart-radio"><div class="cart-radio-dot"></div></div>
+                                <div>
+                                    <div class="cart-payment-label">12 rate mensili</div>
+                                    <div class="cart-payment-sublabel">Senza interessi</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="cart-payment-amount">&euro;124,75<span class="cart-payment-amount-sub">/mese</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonna destra: Riepilogo -->
+                <div class="cart-summary">
+                    <h3 class="cart-summary-title">Riepilogo ordine</h3>
+
+                    <div class="cart-summary-row">
+                        <span class="cart-summary-label">X-Fit Academy</span>
+                        <span class="cart-summary-value">&euro;1.497,00</span>
+                    </div>
+                    <div class="cart-summary-row">
+                        <span class="cart-summary-label">Metodo di pagamento</span>
+                        <span class="cart-summary-value" id="summaryMethod">Unico</span>
+                    </div>
+
+                    <div class="cart-summary-row cart-summary-total">
+                        <span class="cart-summary-label">Totale</span>
+                        <span class="cart-summary-value" id="summaryTotal">&euro;1.497,00</span>
+                    </div>
+                    <div class="cart-summary-installment" id="summaryInstallment"></div>
+
+                    <button class="cart-checkout-btn" onclick="return false;">
+                        Procedi al Pagamento &rarr;
+                    </button>
+
+                    <div class="cart-trust-icons">
+                        <div class="cart-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            Pagamento sicuro
+                        </div>
+                        <div class="cart-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Dati protetti SSL
+                        </div>
+                        <div class="cart-trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Garanzia inclusa
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer minimale -->
+        <div class="cart-footer">
+            &copy; 2026 Elena Giordani &mdash; X-Fit Academy. Tutti i diritti riservati.
+        </div>
+    </div>
+
+    <script>
+    function selectPayment(el, type) {
+        document.querySelectorAll('.cart-payment-option').forEach(function(opt) {
+            opt.classList.remove('active');
+        });
+        el.classList.add('active');
+
+        var methodEl = document.getElementById('summaryMethod');
+        var totalEl = document.getElementById('summaryTotal');
+        var installEl = document.getElementById('summaryInstallment');
+
+        if (type === 'unico') {
+            methodEl.textContent = 'Unico';
+            totalEl.textContent = '\u20AC1.497,00';
+            installEl.textContent = '';
+        } else if (type === '6rate') {
+            methodEl.textContent = '6 rate';
+            totalEl.textContent = '\u20AC1.497,00';
+            installEl.textContent = '6 rate da \u20AC249,50/mese';
+        } else if (type === '12rate') {
+            methodEl.textContent = '12 rate';
+            totalEl.textContent = '\u20AC1.497,00';
+            installEl.textContent = '12 rate da \u20AC124,75/mese';
+        }
+    }
+    </script>
+</body>
+</html>
