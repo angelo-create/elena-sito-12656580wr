@@ -807,7 +807,7 @@
             var cal = document.getElementById('tyCalendar');
             if (cal) {
                 var start = new Date(C.countdownISO);
-                var end = new Date(start.getTime() + 2 * 3600000);
+                var end = new Date(start.getTime() + 1 * 3600000);
                 function fmtGcal(d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
                 var details = 'Webinar gratuito Coach Fitness Femminile con Elena Giordani.\n\nLink accesso: ' + C.linkWebinar + '\nCodice: ' + C.codiceAccesso;
                 cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar+Coach+Fitness+Femminile&dates=' + fmtGcal(start) + '/' + fmtGcal(end) + '&details=' + encodeURIComponent(details) + '&location=Online';
