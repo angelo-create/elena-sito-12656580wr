@@ -940,31 +940,31 @@
     .wc-hero-bg::after {
         background: linear-gradient(
             to bottom,
-            rgba(0,0,0,0.8) 0%,
-            rgba(0,0,0,0.7) 50%,
-            rgba(0,0,0,0.85) 100%
+            rgba(0,0,0,0.85) 0%,
+            rgba(0,0,0,0.75) 50%,
+            rgba(0,0,0,0.9) 100%
         );
     }
 
     .wc-hero {
-        padding: 5rem 2rem;
+        padding: 5rem 2rem 3rem;
     }
 
     .wc-hero-grid {
         display: flex;
         flex-direction: column;
-        gap: 3rem;
+        gap: 2rem;
     }
 
-    /* Form first on mobile */
-    #iscriviti {
-        order: 1;
-    }
-
+    /* Content first on mobile — show value before asking for action */
     .wc-hero-content {
-        order: 2;
+        order: 1;
         max-width: 100%;
         text-align: center;
+    }
+
+    #iscriviti {
+        order: 2;
     }
 
     /* Short subtitle on mobile */
@@ -974,14 +974,26 @@
 
     .wc-hero-subtitle-short {
         display: block;
+        text-align: center;
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
     }
 
     .wc-pre-headline {
         justify-content: center;
+        font-size: 0.65rem;
+        margin-bottom: 1rem;
+    }
+
+    .wc-hero-title {
+        font-size: clamp(1.75rem, 5.5vw, 2.5rem);
+        margin-bottom: 1rem;
     }
 
     .wc-hero-meta {
         text-align: center;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
     }
 
     .wc-hero-meta-row {
@@ -991,11 +1003,21 @@
     .wc-scarcity {
         display: block;
         text-align: center;
+        margin-bottom: 0;
     }
 
     .wc-form-card {
         max-width: 28rem;
         margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .wc-form-badge {
+        margin-bottom: 1rem;
+    }
+
+    .wc-form-subtitle {
+        margin-bottom: 1.25rem;
     }
 
     .wc-bio-grid {
@@ -1019,8 +1041,78 @@
 
 @media (max-width: 768px) {
     .wc-hero {
-        padding: 4rem 1.5rem;
+        padding: 6rem 1.25rem 2.5rem;
         min-height: auto;
+    }
+
+    .wc-hero-grid {
+        gap: 1.5rem;
+    }
+
+    .wc-hero-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+    }
+
+    .wc-pre-headline {
+        font-size: 0.6rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .wc-hero-subtitle-short {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    /* Compact meta on mobile */
+    .wc-hero-meta {
+        padding: 0.6rem 0.75rem;
+        gap: 0.5rem;
+        border-radius: 8px;
+    }
+
+    .wc-hero-meta-row {
+        gap: 0.75rem;
+    }
+
+    .wc-hero-meta-tag {
+        font-size: 0.7rem;
+    }
+
+    .wc-hero-meta-stat {
+        font-size: 0.65rem;
+    }
+
+    .wc-hero-meta-dot {
+        font-size: 0.5rem;
+    }
+
+    /* Hide stats row on small mobile to keep it tight */
+    .wc-hero-meta-row:nth-child(2) {
+        display: none;
+    }
+
+    .wc-scarcity {
+        font-size: 0.65rem;
+    }
+
+    .wc-form-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .wc-form-title {
+        font-size: 1.15rem;
+    }
+
+    .wc-form-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .wc-ghl-form-wrapper {
+        margin: 0 -0.25rem;
     }
 
     .wc-pain-grid {
@@ -1079,7 +1171,19 @@
 }
 
 @media (max-width: 480px) {
+    .wc-hero {
+        padding: 5.5rem 1rem 2rem;
+    }
+
     .wc-form-card {
-        padding: 2rem 1.5rem;
+        padding: 1.25rem 0.75rem;
+    }
+
+    .wc-hero-title {
+        font-size: 1.4rem;
+    }
+
+    .wc-hero-subtitle-short {
+        font-size: 0.85rem;
     }
 }
