@@ -285,6 +285,14 @@
     box-shadow: 0 20px 40px rgba(233,30,99,0.4);
 }
 
+.wc-form-lead {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
 .wc-ghl-form-wrapper {
     min-height: 408px;
     margin: 0 -0.5rem;
