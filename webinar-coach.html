@@ -99,7 +99,7 @@
                 <div class="wc-event-info">
                     <div class="wc-event-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                        <span>Marzo 2026</span>
+                        <span>14 Aprile 2026 &mdash; ore 18:30</span>
                     </div>
                     <div class="wc-event-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
@@ -117,23 +117,25 @@
                     <div class="wc-form-badge">Webinar Gratuito</div>
                     <h2 class="wc-form-title">Riserva il tuo posto</h2>
                     <p class="wc-form-subtitle">Compila il form per ricevere il link di accesso</p>
-                    <form id="webinarForm" action="#" method="POST">
-                        <div class="wc-form-group">
-                            <label class="wc-form-label" for="wc-nome">Nome *</label>
-                            <input class="wc-form-input" type="text" id="wc-nome" name="nome" placeholder="Il tuo nome" required>
-                        </div>
-                        <div class="wc-form-group">
-                            <label class="wc-form-label" for="wc-email">Email *</label>
-                            <input class="wc-form-input" type="email" id="wc-email" name="email" placeholder="La tua email" required>
-                        </div>
-                        <div class="wc-form-group">
-                            <label class="wc-form-label" for="wc-telefono">Telefono <span style="font-weight:400;color:rgba(255,255,255,0.35)">(opzionale)</span></label>
-                            <input class="wc-form-input" type="tel" id="wc-telefono" name="telefono" placeholder="Il tuo numero">
-                        </div>
-                        <button type="submit" class="wc-form-submit">
-                            Riserva il Tuo Posto Gratuito &rarr;
-                        </button>
-                    </form>
+                    <div class="wc-ghl-form-wrapper">
+                        <iframe
+                            src="https://link.drewcompany.it/widget/form/EWIMgxLKszNy5PTnIjAw"
+                            style="width:100%;height:100%;border:none;border-radius:3px"
+                            id="inline-EWIMgxLKszNy5PTnIjAw"
+                            data-layout="{'id':'INLINE'}"
+                            data-trigger-type="alwaysShow"
+                            data-trigger-value=""
+                            data-activation-type="alwaysActivated"
+                            data-activation-value=""
+                            data-deactivation-type="neverDeactivate"
+                            data-deactivation-value=""
+                            data-form-name="[LP-Form] Webinar COACH"
+                            data-height="408"
+                            data-layout-iframe-id="inline-EWIMgxLKszNy5PTnIjAw"
+                            data-form-id="EWIMgxLKszNy5PTnIjAw"
+                            title="[LP-Form] Webinar COACH"
+                        ></iframe>
+                    </div>
                     <p class="wc-form-privacy">Gratuito &bull; Online &bull; Posti limitati<br>I tuoi dati sono al sicuro. Zero spam.</p>
                     <p style="color: rgba(255,255,255,0.45); font-size: 0.75rem; font-weight: 300; margin-top: 0.75rem; letter-spacing: 0.02em;">2.400 donne seguite &bull; 8 paesi &bull; 180.000 community &bull; Certificazione OPES-CONI</p>
                 </div>
@@ -558,18 +560,7 @@
         window.addEventListener('scroll', checkReveals, { passive: true });
         checkReveals();
 
-        // Form submission
-        document.getElementById('webinarForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var nome = document.getElementById('wc-nome').value;
-            var email = document.getElementById('wc-email').value;
-            var telefono = document.getElementById('wc-telefono').value;
-
-            // WhatsApp fallback
-            var msg = 'Ciao Elena! Voglio iscrivermi al webinar Coach Fitness Femminile.%0A%0ANome: ' + encodeURIComponent(nome) + '%0AEmail: ' + encodeURIComponent(email);
-            if (telefono) msg += '%0ATelefono: ' + encodeURIComponent(telefono);
-            window.open('https://wa.me/393773892181?text=' + msg, '_blank');
-        });
+        // GHL form submit handled by iframe — thank you page is the fallback
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(function(link) {
@@ -582,6 +573,9 @@
             });
         });
     </script>
+
+    <!-- GHL Form Embed -->
+    <script src="https://link.drewcompany.it/js/form_embed.js"></script>
 
     <!-- Iubenda embed loader -->
     <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>

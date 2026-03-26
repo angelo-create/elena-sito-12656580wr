@@ -264,6 +264,18 @@
     box-shadow: 0 20px 40px rgba(233,30,99,0.4);
 }
 
+.wc-ghl-form-wrapper {
+    min-height: 408px;
+    margin: 0 -0.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.wc-ghl-form-wrapper iframe {
+    min-height: 408px;
+    background: transparent;
+}
+
 .wc-form-privacy {
     font-size: 0.7rem;
     color: rgba(255,255,255,0.35);
