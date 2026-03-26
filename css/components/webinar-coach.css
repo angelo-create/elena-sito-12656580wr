@@ -875,33 +875,23 @@
 }
 
 .wc-press-logo {
-    opacity: 0.5;
+    opacity: 0.7;
     transition: opacity 0.3s ease;
     display: flex;
     align-items: center;
 }
 
 .wc-press-logo:hover {
-    opacity: 0.85;
-}
-
-.wc-press-logo img {
-    height: 1.75rem;
-    width: auto;
-    display: block;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-}
-
-.wc-press-logo:hover img {
-    filter: grayscale(0%);
+    opacity: 1;
 }
 
 .wc-press-logo span {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--black);
     white-space: nowrap;
+    letter-spacing: -0.01em;
+    font-style: italic;
 }
 
 /* Sticky CTA */
