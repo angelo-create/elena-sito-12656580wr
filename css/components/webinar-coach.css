@@ -914,14 +914,17 @@
     opacity: 1;
 }
 
-.wc-press-logo .wc-press-text {
-    color: rgba(0,0,0,0.55);
-    white-space: nowrap;
-    transition: color 0.3s ease;
+.wc-press-logo img {
+    height: 1.8rem;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-.wc-press-logo:hover .wc-press-text {
-    color: rgba(0,0,0,0.85);
+.wc-press-logo:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
 }
 
 /* Sticky CTA */
