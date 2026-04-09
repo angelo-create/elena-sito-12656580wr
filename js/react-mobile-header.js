@@ -45,7 +45,6 @@
                 dropdown: [
                     { href: '/libri', label: 'Libri' },
                     { href: '/eventi', label: 'Eventi' },
-                    { href: '/shop', label: 'Shop' },
                     { href: '/press', label: 'Leggi i miei articoli' }
                 ]
             }
