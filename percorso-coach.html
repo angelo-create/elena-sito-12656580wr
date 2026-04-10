@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coach Fitness Femminile - Metodo XFit Academy | Elena Giordani</title>
+    <title>Coach Metodo XFit Academy - Corso di Formazione 1&deg; Livello | Elena Giordani</title>
     <meta name="description" content="Diventa Coach del Fitness Femminile con il Metodo XFit Academy. 60 ore di formazione, Diploma OPES riconosciuto CONI. Corso blended: online live + in presenza a Roma.">
     <meta name="keywords" content="coach fitness femminile, formazione personal trainer, fitness over 40, Elena Giordani, XFit Academy, certificazione CONI, OPES, diploma">
     <meta name="robots" content="noindex, nofollow">
@@ -46,155 +46,730 @@
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <style>
+        /* Full-screen hero override */
+        .pc-hero-fullscreen {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .pc-hero-fullscreen .pc-hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+            z-index: 1;
+        }
+        .pc-hero-fullscreen .pc-hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(0,0,0,0.4) 0%,
+                rgba(0,0,0,0.6) 40%,
+                rgba(0,0,0,0.85) 100%
+            );
+            z-index: 2;
+        }
+        .pc-hero-fullscreen .pc-hero-inner {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            max-width: 52rem;
+            margin: 0 auto;
+        }
+        .pc-hero-fullscreen .pc-hero-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            background: rgba(233,30,99,0.12);
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+        }
+        .pc-hero-fullscreen h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+        }
+        .pc-hero-fullscreen h1 .highlight em {
+            color: var(--pink-primary);
+            font-style: italic;
+            font-weight: 600;
+        }
+        .pc-hero-fullscreen .pc-hero-sub {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            max-width: 36rem;
+            margin: 0 auto 2.5rem;
+        }
+        .pc-hero-fullscreen .pc-hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .pc-hero-stat-item {
+            text-align: center;
+        }
+        .pc-hero-stat-item .pc-stat-num {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+        .pc-hero-stat-item .pc-stat-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.25rem;
+        }
+        .pc-hero-opes {
+            margin-top: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .pc-hero-opes img {
+            height: 3.5rem;
+            border-radius: 0.35rem;
+        }
+        .pc-hero-opes span {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.45);
+            text-align: left;
+            line-height: 1.5;
+        }
+        /* Area cards - vertical with watermark number */
+        .pc-area-card {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 1.25rem 1.5rem;
+            text-align: center;
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pc-area-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        }
+        .pc-area-num {
+            position: absolute;
+            top: -0.5rem;
+            right: 0.5rem;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(233,30,99,0.06);
+            line-height: 1;
+            pointer-events: none;
+        }
+        .pc-area-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 1rem;
+            background: rgba(233,30,99,0.07);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pc-area-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 0.35rem;
+            line-height: 1.3;
+        }
+        .pc-area-desc {
+            font-size: 0.72rem;
+            color: var(--gray-light);
+            line-height: 1.5;
+            margin: 0;
+        }
+        .pc-area-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 900px) {
+            .pc-area-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        /* Alternating card colors (even cards) */
+        .pc-area-grid .pc-area-card:nth-child(even) {
+            background: rgba(233,30,99,0.03);
+            border-color: rgba(233,30,99,0.08);
+        }
+        /* Card counter badge */
+        .pc-area-counter {
+            display: none;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--pink-primary);
+            text-transform: uppercase;
+            margin-top: 0.75rem;
+        }
+        /* Carousel dots */
+        .pc-carousel-dots {
+            display: none;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .pc-carousel-dots span {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+        }
+        .pc-carousel-dots span.active {
+            background: var(--pink-primary);
+            width: 1.5rem;
+            border-radius: 0.25rem;
+        }
+        /* Carousel arrows */
+        .pc-carousel-wrapper {
+            position: relative;
+        }
+        .pc-carousel-arrows {
+            display: none;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+        .pc-carousel-arrow {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.12);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .pc-carousel-arrow:active {
+            background: var(--pink-primary);
+            border-color: var(--pink-primary);
+        }
+        .pc-carousel-arrow:active svg {
+            stroke: var(--white);
+        }
+        @media (max-width: 640px) {
+            .pc-area-grid {
+                display: flex !important;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 0.75rem;
+                padding-bottom: 1rem;
+                margin: 0 -1.5rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            .pc-area-grid::-webkit-scrollbar { display: none; }
+            .pc-area-grid .pc-area-card {
+                min-width: 70vw;
+                scroll-snap-align: center;
+                flex-shrink: 0;
+            }
+            .pc-area-grid::after {
+                content: '';
+                min-width: 0.75rem;
+                flex-shrink: 0;
+            }
+            .pc-scroll-hint { display: block !important; }
+            .pc-area-counter { display: block; }
+            .pc-carousel-dots { display: flex; }
+            .pc-carousel-arrows { display: flex; }
+        }
+
+        /* Decorative section photos */
+        .pc-section-photo {
+            position: relative;
+            overflow: hidden;
+        }
+        .pc-section-photo .pc-deco-img {
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .pc-section-photo .pc-deco-img.pc-deco-right {
+            right: 0;
+            opacity: 0.28;
+            mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 85%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 85%);
+        }
+        .pc-section-photo .pc-deco-img.pc-deco-left {
+            left: 0;
+            opacity: 0.28;
+            mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 85%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 85%);
+        }
+        /* Dark sections: brighter deco */
+        .pc-section-photo--dark .pc-deco-img {
+            opacity: 0.3;
+        }
+        .pc-section-photo .container,
+        .pc-section-photo > div:not(.pc-deco-img) {
+            position: relative;
+            z-index: 1;
+        }
+        @media (max-width: 640px) {
+            .pc-overview-grid { grid-template-columns: 1fr !important; }
+            .pc-weekend-grid { grid-template-columns: 1fr !important; }
+            .pc-deco-img {
+                width: 50% !important;
+                opacity: 0.35 !important;
+            }
+            .pc-hero-fullscreen .pc-hero-inner { padding: 6rem 1.5rem 3rem; }
+            .pc-hero-fullscreen .pc-hero-stats { gap: 1.5rem; }
+            .pc-hero-stat-item .pc-stat-num { font-size: 1.35rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- PAGE HERO WRAPPER -->
-    <div class="page-hero-wrapper">
-        <img src="img/elena-webp/Elena81.webp" alt="Elena Giordani" class="page-hero-bg" loading="eager">
-        <div class="page-hero-gradient"></div>
-
-
     <!-- ============================================ -->
-    <!-- HERO -->
+    <!-- HERO FULL-SCREEN -->
     <!-- ============================================ -->
-    <section class="page-hero">
-        <div class="page-hero-content">
-            <span class="page-hero-badge">Formazione Professionale</span>
-            <h1 class="page-hero-title">Diventa Coach del<br><span class="highlight"><em>Fitness Femminile</em></span></h1>
-            <p class="page-hero-subtitle">
-                Il primo corso in Italia per diventare specialista nell&rsquo;allenamento femminile over 40.<br>
-                60 ore di formazione &middot; Diploma OPES riconosciuto CONI &middot; Metodo XFit Academy.
+    <section class="pc-hero-fullscreen">
+        <img src="img/evento-webp/EDO05355.webp" alt="Elena Giordani - Coach Fitness Femminile" class="pc-hero-bg" loading="eager">
+        <div class="pc-hero-overlay"></div>
+        <div class="pc-hero-inner">
+            <span class="pc-hero-badge">Corso di Formazione 1&deg; Livello</span>
+            <h1>Coach Metodo<br><span class="highlight"><em>XFit Academy</em></span></h1>
+            <p class="pc-hero-sub">
+                Il primo corso in Italia per diventare coach professionista nel fitness e benessere femminile over 40.
             </p>
-            <a href="#acquista" class="btn-primary" style="margin-top: 2rem;">
+            <a href="#acquista" class="btn-primary">
                 Iscriviti Ora <span>&rarr;</span>
             </a>
-        </div>
-    </section>
 
-    <!-- ============================================ -->
-    <!-- IL CORSO IN NUMERI -->
-    <!-- ============================================ -->
-    <section class="section">
-        <div class="container">
-            <div class="shop-stats">
-                <div class="shop-stat">
-                    <div class="shop-stat-number">60</div>
-                    <div class="shop-stat-label">Ore certificate</div>
+            <div class="pc-hero-stats">
+                <div class="pc-hero-stat-item">
+                    <div class="pc-stat-num">60</div>
+                    <div class="pc-stat-label">Ore certificate</div>
                 </div>
-                <div class="shop-stat">
-                    <div class="shop-stat-number">4</div>
-                    <div class="shop-stat-label">Mesi di formazione</div>
+                <div class="pc-hero-stat-item">
+                    <div class="pc-stat-num">4</div>
+                    <div class="pc-stat-label">Mesi</div>
                 </div>
-                <div class="shop-stat">
-                    <div class="shop-stat-number">OPES</div>
-                    <div class="shop-stat-label">Diploma riconosciuto CONI</div>
+                <div class="pc-hero-stat-item">
+                    <div class="pc-stat-num">20</div>
+                    <div class="pc-stat-label">Posti max</div>
                 </div>
-                <div class="shop-stat">
-                    <div class="shop-stat-number">2</div>
-                    <div class="shop-stat-label">Weekend in presenza</div>
+                <div class="pc-hero-stat-item">
+                    <div class="pc-stat-num">OPES</div>
+                    <div class="pc-stat-label">Diploma CONI</div>
                 </div>
+            </div>
+
+            <div class="pc-hero-opes">
+                <img src="images/logo-opes-roma.jpg" alt="OPES Roma - Riconosciuto CONI">
+                <span>Ente di Promozione Sportiva<br>riconosciuto dal CONI e dal CIP</span>
             </div>
         </div>
     </section>
-    </div>
 
     <!-- ============================================ -->
-    <!-- COSA IMPARERAI - 5 MODULI -->
+    <!-- FINALITÀ E MACRO-AREE -->
     <!-- ============================================ -->
-    <section class="section" style="background: var(--black);">
-        <div class="container">
+    <section class="section pc-section-photo" style="background: var(--white);">
+        <img src="img/evento-webp/EDO05134.webp" alt="" class="pc-deco-img pc-deco-right" loading="lazy">
+        <div class="container" style="max-width: 60rem;">
             <div class="section-header center">
-                <span class="section-number">IL PROGRAMMA</span>
-                <h2 class="section-title">5 moduli per diventare <span class="highlight"><em>specialista</em></span></h2>
-                <p style="color: rgba(255,255,255,0.6); font-weight: 300; max-width: 35rem; margin: 1rem auto 0;">
-                    Un percorso completo: dalla fisiologia alla pratica, dal coaching alla certificazione.
+                <span class="section-number">A CHI SI RIVOLGE</span>
+                <h2 class="section-title" style="color: var(--black);">Diventa coach professionista nel <span class="highlight"><em>fitness femminile</em></span></h2>
+                <p style="color: var(--gray-light); font-weight: 300; max-width: 42rem; margin: 1rem auto 0; line-height: 1.8;">
+                    Il corso &egrave; rivolto a chi desidera operare con professionalit&agrave;, consapevolezza e metodo nei contesti sportivi, associativi e nei percorsi di trasformazione rivolti alla popolazione femminile adulta.
                 </p>
             </div>
-            <div class="shop-modules-grid">
 
-                <!-- Modulo 1 -->
-                <div class="shop-module-card">
-                    <div class="shop-module-number">Modulo 01</div>
-                    <div class="shop-module-date">14 Marzo &middot; Zoom (6h)</div>
-                    <h4 class="shop-module-title">Identit&agrave; della Coach e Metodo XFit Academy</h4>
-                    <p class="shop-module-desc">Ruolo professionale della coach, dinamiche emotive e comportamentali delle donne, confini del supporto e responsabilit&agrave;.</p>
-                    <span class="shop-module-tag">Online Live</span>
+            <!-- Focus specifici -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 3rem; max-width: 48rem; margin-left: auto; margin-right: auto;" class="pc-overview-grid">
+                <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.06);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="1.1rem" height="1.1rem" style="min-width: 1.1rem; margin-top: 0.15rem;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p style="font-size: 0.85rem; color: var(--gray-medium); line-height: 1.6; margin: 0;">Allenamento adattato alla donna over 40, con attenzione a cambiamenti ormonali, muscolari e metabolici</p>
                 </div>
-
-                <!-- Modulo 2 -->
-                <div class="shop-module-card">
-                    <div class="shop-module-number">Modulo 02</div>
-                    <div class="shop-module-date">28 Marzo &middot; Zoom (6h)</div>
-                    <h4 class="shop-module-title">Metabolismo e Allenamento Femminile over 40</h4>
-                    <p class="shop-module-desc">Fasi della vita della donna, processi metabolici, sarcopenia, infiammazione sistemica e adattamenti dell&rsquo;allenamento.</p>
-                    <span class="shop-module-tag">Online Live</span>
+                <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.06);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="1.1rem" height="1.1rem" style="min-width: 1.1rem; margin-top: 0.15rem;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p style="font-size: 0.85rem; color: var(--gray-medium); line-height: 1.6; margin: 0;">Prevenzione e contrasto della sarcopenia e della fragilit&agrave; femminile</p>
                 </div>
-
-                <!-- Modulo 3 -->
-                <div class="shop-module-card">
-                    <div class="shop-module-number">Modulo 03</div>
-                    <div class="shop-module-date">11&ndash;12 Aprile &middot; Roma (16h)</div>
-                    <h4 class="shop-module-title">Biomeccanica, Tecnica e Simulazioni Pratiche</h4>
-                    <p class="shop-module-desc">Biomeccanica applicata al corpo femminile, tecnica degli esercizi, cue correttivi, allenamento funzionale e prevenzione infortuni.</p>
-                    <span class="shop-module-tag">In Presenza</span>
+                <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.06);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="1.1rem" height="1.1rem" style="min-width: 1.1rem; margin-top: 0.15rem;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p style="font-size: 0.85rem; color: var(--gray-medium); line-height: 1.6; margin: 0;">Gestione pratica dell&rsquo;infiammazione sistemica di basso grado attraverso il movimento</p>
                 </div>
-
-                <!-- Modulo 4 -->
-                <div class="shop-module-card">
-                    <div class="shop-module-number">Modulo 04</div>
-                    <div class="shop-module-date">2 Maggio &middot; Zoom (6h)</div>
-                    <h4 class="shop-module-title">Strategia, Coaching e Leadership</h4>
-                    <p class="shop-module-desc">Leadership della coach, gestione del gruppo, comunicazione e motivazione, linee guida educative su reset metabolico.</p>
-                    <span class="shop-module-tag">Online Live</span>
+                <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.06);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="1.1rem" height="1.1rem" style="min-width: 1.1rem; margin-top: 0.15rem;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p style="font-size: 0.85rem; color: var(--gray-medium); line-height: 1.6; margin: 0;">Didattica degli esercizi, biomeccanica funzionale e programmazione mirata</p>
                 </div>
-
-                <!-- Modulo 5 -->
-                <div class="shop-module-card">
-                    <div class="shop-module-number">Modulo 05</div>
-                    <div class="shop-module-date">30&ndash;31 Maggio &middot; Roma (16h)</div>
-                    <h4 class="shop-module-title">Esame Finale e Certificazione</h4>
-                    <p class="shop-module-desc">Role play, micro-lezioni, coaching reale, feedback strutturato. Esame pratico, presentazione project work e consegna del diploma.</p>
-                    <span class="shop-module-tag">In Presenza</span>
+                <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem 1.5rem; grid-column: 1 / -1; justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="1.1rem" height="1.1rem" style="min-width: 1.1rem; margin-top: 0.15rem;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p style="font-size: 0.85rem; color: var(--gray-medium); line-height: 1.6; margin: 0;">Leadership, comunicazione e supporto motivazionale nel coaching femminile</p>
                 </div>
-
-                <!-- Project Work -->
-                <div class="shop-module-card">
-                    <div class="shop-module-number">Tra le sessioni</div>
-                    <div class="shop-module-date">15,5 ore di lavoro autonomo</div>
-                    <h4 class="shop-module-title">Project Work Applicativi</h4>
-                    <p class="shop-module-desc">Analisi di casi reali, progettazione di percorsi di allenamento, preparazione alla gestione della classe e studio dei materiali.</p>
-                    <span class="shop-module-tag">Autonomo</span>
-                </div>
-
             </div>
+
+            <!-- 8 Macro-aree -->
+            <div class="section-header center">
+                <span class="section-number">LE 8 AREE FORMATIVE</span>
+                <h2 class="section-title" style="color: var(--black);">Cosa imparerai in <span class="highlight"><em>60 ore</em></span></h2>
+                <p class="pc-scroll-hint" style="display: none; font-size: 0.7rem; color: var(--gray-light); margin-top: 0.75rem;">Scorri per vedere tutte le aree &rarr;</p>
+            </div>
+
+            <div class="pc-carousel-wrapper">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;" class="pc-area-grid" id="areaCarousel">
+                <!-- 01 -->
+                <div class="pc-area-card">
+                    <span class="pc-area-num">01</span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Ruolo e identit&agrave; della Coach</h4>
+                    <p class="pc-area-desc">Chi sei, dove ti posizioni, come operi</p>
+                    <span class="pc-area-counter">1 / 8</span>
+                </div>
+                <!-- 02 -->
+                <div class="pc-area-card">
+                    <span class="pc-area-num">02</span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Metodo XFit Academy</h4>
+                    <p class="pc-area-desc">Esercizio personalizzato &middot; Strategia &middot; Educazione &middot; Mindset</p>
+                    <span class="pc-area-counter">2 / 8</span>
+                </div>
+                <!-- 03 -->
+                <div class="pc-area-card">
+                    <span class="pc-area-num">03</span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Fisiologia femminile over 40</h4>
+                    <p class="pc-area-desc">Ormoni, metabolismo, sarcopenia</p>
+                    <span class="pc-area-counter">3 / 8</span>
+                </div>
+                <!-- 04 -->
+                <div class="pc-area-card">
+                    <span class="pc-area-num">04</span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M6.5 6.5h11"/><path d="M6.5 17.5h11"/><path d="M2 12h4.5m11 0H22"/><path d="M6.5 6.5v11"/><path d="M17.5 6.5v11"/><rect x="4" y="10" width="2.5" height="4" rx="0.5"/><rect x="17.5" y="10" width="2.5" height="4" rx="0.5"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Allenamento metabolico e funzionale</h4>
+                    <p class="pc-area-desc">Forza, resistenza, mobilit&agrave; &middot; Anti-sarcopenico</p>
+                    <span class="pc-area-counter">4 / 8</span>
+                </div>
+                <!-- 05 -->
+                <div class="pc-area-card">
+                    <span class="pc-area-num">05</span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><circle cx="12" cy="5" r="3"/><path d="M12 8v4"/><path d="M8 16l4-4 4 4"/><path d="M8 16v4"/><path d="M16 16v4"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Biomeccanica e cue correttivi</h4>
+                    <p class="pc-area-desc">Con fisioterapista &middot; Prevenzione infortuni</p>
+                    <span class="pc-area-counter">5 / 8</span>
+                </div>
+                <!-- 06 -->
+                <div class="pc-area-card">
+                    <span class="pc-area-num">06</span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M12 2a5 5 0 0 1 5 5c0 3-2 5.5-5 8.5C9 12.5 7 10 7 7a5 5 0 0 1 5-5z"/><path d="M12 22v-6.5"/><path d="M9 18h6"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Linee guida nutrizionali</h4>
+                    <p class="pc-area-desc">Anti-infiammatorie &middot; No prescrizioni cliniche</p>
+                    <span class="pc-area-counter">6 / 8</span>
+                </div>
+                <!-- 07 -->
+                <div class="pc-area-card">
+                    <span class="pc-area-num">07</span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Leadership e gestione gruppo</h4>
+                    <p class="pc-area-desc">Comunicazione, motivazione, supporto</p>
+                    <span class="pc-area-counter">7 / 8</span>
+                </div>
+                <!-- 08 -->
+                <div class="pc-area-card">
+                    <span class="pc-area-num">08</span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Simulazioni, coaching ed esame</h4>
+                    <p class="pc-area-desc">Role play, micro-lezioni, prova finale</p>
+                    <span class="pc-area-counter">8 / 8</span>
+                </div>
+            </div>
+            <!-- Carousel dots + arrows -->
+            <div class="pc-carousel-dots" id="carouselDots">
+                <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="pc-carousel-arrows">
+                <div class="pc-carousel-arrow" id="carouselPrev">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--gray-medium)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="1rem" height="1rem"><polyline points="15 18 9 12 15 6"/></svg>
+                </div>
+                <div class="pc-carousel-arrow" id="carouselNext">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--gray-medium)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="1rem" height="1rem"><polyline points="9 18 15 12 9 6"/></svg>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PANORAMICA RAPIDA -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--white);">
+        <div class="container" style="max-width: 60rem;">
+            <div class="section-header center">
+                <span class="section-number">COME FUNZIONA</span>
+                <h2 class="section-title" style="color: var(--black);">4 mesi, 60 ore, <span class="highlight"><em>un metodo chiaro</em></span></h2>
+                <p style="color: var(--gray-light); font-weight: 300; max-width: 40rem; margin: 1rem auto 0;">
+                    Il corso alterna sessioni online su Zoom a weekend pratici in presenza a Roma. Tra una sessione e l&rsquo;altra lavori su casi reali con il supporto del team.
+                </p>
+            </div>
+
+            <!-- Timeline overview -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;" class="pc-overview-grid">
+                <div class="pc-area-card">
+                    <span class="pc-area-num" style="color: rgba(233,30,99,0.08);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="3rem" height="3rem"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    </span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    </div>
+                    <h4 class="pc-area-title" style="font-size: 1.75rem; font-weight: 800; color: var(--pink-primary);">3</h4>
+                    <p class="pc-area-desc" style="font-size: 0.78rem;"><strong style="color: var(--black);">Sessioni Zoom</strong><br>18 ore online live</p>
+                </div>
+                <div class="pc-area-card">
+                    <span class="pc-area-num" style="color: rgba(233,30,99,0.08);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="3rem" height="3rem"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h4 class="pc-area-title" style="font-size: 1.75rem; font-weight: 800; color: var(--pink-primary);">2</h4>
+                    <p class="pc-area-desc" style="font-size: 0.78rem;"><strong style="color: var(--black);">Weekend Roma</strong><br>32 ore in presenza</p>
+                </div>
+                <div class="pc-area-card">
+                    <span class="pc-area-num" style="color: rgba(233,30,99,0.08);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="3rem" height="3rem"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </span>
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h4 class="pc-area-title" style="font-size: 1.75rem; font-weight: 800; color: var(--pink-primary);">+</h4>
+                    <p class="pc-area-desc" style="font-size: 0.78rem;"><strong style="color: var(--black);">Project Work</strong><br>10 ore tra le sessioni</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TIMELINE DETTAGLIATA -->
+    <!-- ============================================ -->
+    <section class="section pc-section-photo pc-section-photo--dark" style="background: var(--black);">
+        <img src="img/evento-webp/EDO05335.webp" alt="" class="pc-deco-img pc-deco-left" style="width: 50%;" loading="lazy">
+        <div class="container" style="max-width: 52rem;">
+            <div class="section-header center">
+                <span class="section-number">IL PROGRAMMA COMPLETO</span>
+                <h2 class="section-title">Ogni sessione nel <span class="highlight"><em>dettaglio</em></span></h2>
+            </div>
+
+            <!-- Modulo 1 -->
+            <div style="border-left: 2px solid var(--pink-primary); padding-left: 2rem; margin-bottom: 3rem; position: relative;">
+                <div style="position: absolute; left: -0.5rem; top: 0; width: 1rem; height: 1rem; background: var(--pink-primary); border-radius: 50%;"></div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                    <span style="background: rgba(233,30,99,0.15); color: var(--pink-primary); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 2rem;">Online Live</span>
+                    <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Sabato 14 Marzo 2026 &middot; Zoom &middot; 9:30 &ndash; 16:30 &middot; 6 ore</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem;">Kick-off: Identit&agrave; della Coach e Metodo XFit Academy</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Identit&agrave; della Coach Fitness Femminile</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Ruolo professionale</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Visione e struttura del Metodo XFit Academy</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Consegna materiali didattici</li>
+                </ul>
+            </div>
+
+            <!-- Modulo 2 -->
+            <div style="border-left: 2px solid var(--pink-primary); padding-left: 2rem; margin-bottom: 3rem; position: relative;">
+                <div style="position: absolute; left: -0.5rem; top: 0; width: 1rem; height: 1rem; background: var(--pink-primary); border-radius: 50%;"></div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                    <span style="background: rgba(233,30,99,0.15); color: var(--pink-primary); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 2rem;">Online Live</span>
+                    <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Sabato 28 Marzo 2026 &middot; Zoom &middot; 9:30 &ndash; 16:30 &middot; 6 ore</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem;">Metabolismo e Allenamento Femminile</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Allenamento femminile over 40</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Processi metabolici</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Sarcopenia</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Infiammazione sistemica</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Adattamenti dell&rsquo;allenamento</li>
+                </ul>
+            </div>
+
+            <!-- Modulo 3 - Weekend Presenza -->
+            <div style="border-left: 2px solid var(--white); padding-left: 2rem; margin-bottom: 3rem; position: relative;">
+                <div style="position: absolute; left: -0.5rem; top: 0; width: 1rem; height: 1rem; background: var(--white); border-radius: 50%;"></div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                    <span style="background: rgba(255,255,255,0.15); color: var(--white); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 2rem;">In Presenza &middot; Roma</span>
+                    <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">11&ndash;12 Aprile 2026 &middot; Box R1 &middot; 16 ore</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem;">Biomeccanica, Tecnica e Pratica</h3>
+                <div class="pc-weekend-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div>
+                        <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">Sabato 11 Aprile</p>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Biomeccanica</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Tecnica esercizi fondamentali</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Cue correttivi</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Adattamenti per donna over 40</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">Domenica 12 Aprile</p>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Allenamento funzionale e metabolico</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Metodologia XFit Academy applicata</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Prevenzione infortuni</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Simulazioni pratiche</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo 4 -->
+            <div style="border-left: 2px solid var(--pink-primary); padding-left: 2rem; margin-bottom: 3rem; position: relative;">
+                <div style="position: absolute; left: -0.5rem; top: 0; width: 1rem; height: 1rem; background: var(--pink-primary); border-radius: 50%;"></div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                    <span style="background: rgba(233,30,99,0.15); color: var(--pink-primary); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 2rem;">Online Live</span>
+                    <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Sabato 2 Maggio 2026 &middot; Zoom &middot; 9:30 &ndash; 16:30 &middot; 6 ore</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem;">Strategia, Coaching e Leadership</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Leadership della coach</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Gestione del gruppo</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Comunicazione e motivazione</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Linee guida educative su reset metabolico</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Preparazione project work</li>
+                </ul>
+            </div>
+
+            <!-- Modulo 5 - Weekend Finale -->
+            <div style="border-left: 2px solid var(--white); padding-left: 2rem; margin-bottom: 3rem; position: relative;">
+                <div style="position: absolute; left: -0.5rem; top: 0; width: 1rem; height: 1rem; background: var(--white); border-radius: 50%;"></div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                    <span style="background: rgba(255,255,255,0.15); color: var(--white); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 2rem;">In Presenza &middot; Roma</span>
+                    <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">30&ndash;31 Maggio 2026 &middot; Box R1 &middot; 16 ore</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem;">Esame Finale e Certificazione</h3>
+                <div class="pc-weekend-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div>
+                        <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">Sabato 30 Maggio</p>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Role play</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Micro-lezioni delle corsiste</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Coaching reale</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Feedback strutturato</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">Domenica 31 Maggio</p>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Esame pratico finale</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Presentazione project work</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Valutazioni</li>
+                            <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Chiusura corso e certificazione</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Work -->
+            <div style="border-left: 2px dashed rgba(255,255,255,0.2); padding-left: 2rem; position: relative;">
+                <div style="position: absolute; left: -0.5rem; top: 0; width: 1rem; height: 1rem; background: var(--gray-medium); border: 2px solid rgba(255,255,255,0.3); border-radius: 50%;"></div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                    <span style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 2rem;">Tra le sessioni</span>
+                    <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Lavoro autonomo &middot; 10 ore</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem;">Project Work Applicativi</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Analisi di casi reali</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Progettazione di percorsi di allenamento</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Preparazione alla gestione della classe</li>
+                    <li style="font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&bull;</span>Studio dei materiali</li>
+                </ul>
+                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); font-style: italic; margin-top: 0.75rem;">I lavori vengono consegnati e verificati dal team.</p>
+            </div>
+
+            <!-- Sede -->
+            <div style="margin-top: 3rem; padding: 1.5rem; border: 1px solid var(--border-subtle); border-radius: 0.5rem; text-align: center;">
+                <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin: 0;">
+                    Sede in presenza: <strong style="color: var(--white);">Box R1</strong> &mdash; Via Deserto di Gobi 44, Roma
+                </p>
+            </div>
+
         </div>
     </section>
 
     <!-- ============================================ -->
     <!-- PER CHI È -->
     <!-- ============================================ -->
-    <section class="section" style="background: var(--white);">
+    <section class="section pc-section-photo" style="background: var(--white);">
+        <img src="img/evento-webp/EDO05351.webp" alt="" class="pc-deco-img pc-deco-right" loading="lazy">
         <div class="container">
             <div class="section-header center">
                 <span class="section-number">PER CHI &Egrave;</span>
                 <h2 class="section-title" style="color: var(--black);">Il corso &egrave; per te se sei <span class="highlight"><em>una di queste</em></span></h2>
             </div>
-            <div class="shop-target-grid">
-                <div class="shop-target-card">
-                    <div class="shop-target-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-                    <h4>Personal Trainer</h4>
-                    <p>Lavori gi&agrave; nel fitness ma vuoi specializzarti nel femminile over 40 con un metodo testato e una certificazione OPES riconosciuta CONI.</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;" class="pc-overview-grid">
+                <div class="pc-area-card">
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M6.5 6.5h11"/><path d="M6.5 17.5h11"/><path d="M2 12h4.5m11 0H22"/><path d="M6.5 6.5v11"/><path d="M17.5 6.5v11"/><rect x="4" y="10" width="2.5" height="4" rx="0.5"/><rect x="17.5" y="10" width="2.5" height="4" rx="0.5"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Personal Trainer</h4>
+                    <p class="pc-area-desc">Lavori gi&agrave; nel fitness ma vuoi specializzarti nel femminile over 40 con un metodo testato e una certificazione OPES riconosciuta CONI.</p>
                 </div>
-                <div class="shop-target-card">
-                    <div class="shop-target-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-                    <h4>Aspirante Coach</h4>
-                    <p>Vuoi entrare nel settore con un vantaggio competitivo reale. Non una scuola generica: una specializzazione che manca sul mercato.</p>
+                <div class="pc-area-card">
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Aspirante Coach</h4>
+                    <p class="pc-area-desc">Vuoi entrare nel settore con un vantaggio competitivo reale. Non una scuola generica: una specializzazione che manca sul mercato.</p>
                 </div>
-                <div class="shop-target-card">
-                    <div class="shop-target-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-                    <h4>Professionista del Benessere</h4>
-                    <p>Nutrizionista, fisioterapista o coach che vuole aggiungere competenze pratiche sull&rsquo;allenamento femminile e ampliare la propria offerta.</p>
+                <div class="pc-area-card">
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Professionista del Benessere</h4>
+                    <p class="pc-area-desc">Nutrizionista, fisioterapista o coach che vuole aggiungere competenze pratiche sull&rsquo;allenamento femminile e ampliare la propria offerta.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2.5rem;">
@@ -240,7 +815,8 @@
     <!-- ============================================ -->
     <!-- CERTIFICAZIONE OPES -->
     <!-- ============================================ -->
-    <section class="section" style="background: var(--white);">
+    <section class="section pc-section-photo" style="background: var(--white);">
+        <img src="img/evento-webp/EDO05292.webp" alt="" class="pc-deco-img pc-deco-left" loading="lazy">
         <div class="container" style="max-width: 60rem;">
             <div class="section-header center">
                 <span class="section-number">CERTIFICAZIONE</span>
@@ -248,27 +824,33 @@
             </div>
 
             <div style="text-align: center; margin-bottom: 3rem;">
-                <img src="images/logo-opes-roma.jpg" alt="OPES Roma" loading="lazy" style="height: 5rem; margin-bottom: 1.5rem;">
+                <img src="images/logo-opes-roma.jpg" alt="OPES Roma" loading="lazy" style="height: 10rem; margin-bottom: 2rem; border-radius: 0.75rem;">
                 <h3 style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: var(--black); max-width: 35rem; margin: 0 auto;">
                     Diploma Professionale in <em>&ldquo;Fitness Femminile &mdash; Metodo XFit Academy&rdquo;</em>
                 </h3>
             </div>
 
-            <div class="shop-target-grid">
-                <div class="shop-target-card">
-                    <div class="shop-target-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-                    <h4>Riconoscimento CONI</h4>
-                    <p>Diploma rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021. OPES &egrave; Ente di Promozione Sportiva riconosciuto dal CONI e dal CIP.</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;" class="pc-overview-grid">
+                <div class="pc-area-card">
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Riconoscimento CONI</h4>
+                    <p class="pc-area-desc">Diploma rilasciato da OPES ai fini dell&rsquo;Art. 25 del D.Lgs 36/2021. OPES &egrave; Ente di Promozione Sportiva riconosciuto dal CONI e dal CIP.</p>
                 </div>
-                <div class="shop-target-card">
-                    <div class="shop-target-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div>
-                    <h4>Elenchi Tecnici OPES</h4>
-                    <p>Il diploma &egrave; nominale e include l&rsquo;inserimento negli elenchi tecnici ufficiali. Potrai lavorare in palestre, centri sportivi, associazioni e in proprio.</p>
+                <div class="pc-area-card">
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Elenchi Tecnici OPES</h4>
+                    <p class="pc-area-desc">Il diploma &egrave; nominale e include l&rsquo;inserimento negli elenchi tecnici ufficiali. Potrai lavorare in palestre, centri sportivi, associazioni e in proprio.</p>
                 </div>
-                <div class="shop-target-card">
-                    <div class="shop-target-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                    <h4>Entra nel Team Academy</h4>
-                    <p>Le migliori certificate potranno entrare nel team di XFit Academy come coach ufficiali del programma di Elena Giordani. Non &egrave; solo un diploma: &egrave; un&rsquo;opportunit&agrave;.</p>
+                <div class="pc-area-card">
+                    <div class="pc-area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1.5rem" height="1.5rem"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4 class="pc-area-title">Entra nel Team Academy</h4>
+                    <p class="pc-area-desc">Le migliori certificate potranno entrare nel team di XFit Academy come coach ufficiali del programma di Elena Giordani. Non &egrave; solo un diploma: &egrave; un&rsquo;opportunit&agrave;.</p>
                 </div>
             </div>
         </div>
@@ -523,6 +1105,37 @@
     <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script defer src="js/react-mobile-header.js?v=1767489274"></script>
+
+    <!-- Carousel dots + arrows -->
+    <script>
+    (function() {
+        var grid = document.getElementById('areaCarousel');
+        var dots = document.querySelectorAll('#carouselDots span');
+        var prev = document.getElementById('carouselPrev');
+        var next = document.getElementById('carouselNext');
+        if (!grid || !dots.length) return;
+
+        function getCardWidth() {
+            var card = grid.querySelector('.pc-area-card');
+            return card ? card.offsetWidth + 12 : 300;
+        }
+
+        grid.addEventListener('scroll', function() {
+            var idx = Math.round(grid.scrollLeft / getCardWidth());
+            idx = Math.max(0, Math.min(idx, dots.length - 1));
+            dots.forEach(function(d, i) {
+                d.classList.toggle('active', i === idx);
+            });
+        });
+
+        if (prev) prev.addEventListener('click', function() {
+            grid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+        });
+        if (next) next.addEventListener('click', function() {
+            grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+        });
+    })();
+    </script>
 
     <!-- Iubenda embed loader -->
     <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
