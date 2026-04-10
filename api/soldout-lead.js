@@ -8,16 +8,16 @@ module.exports = async function handler(req, res) {
         return res.status(500).json({ error: 'Webhook not configured' });
     }
 
-    var { name, email } = req.body || {};
-    if (!name || !email) {
-        return res.status(400).json({ error: 'Nome e email sono obbligatori' });
+    var { name, email, phone } = req.body || {};
+    if (!name || !email || !phone) {
+        return res.status(400).json({ error: 'Nome, email e telefono sono obbligatori' });
     }
 
     try {
         var response = await fetch(webhookUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: name, email: email })
+            body: JSON.stringify({ name: name, email: email, phone: phone })
         });
 
         if (!response.ok) {

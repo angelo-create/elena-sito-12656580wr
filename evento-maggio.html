@@ -1249,17 +1249,20 @@
             <button onclick="document.getElementById('soldout-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;line-height:1;">&times;</button>
             <div id="soldout-form-wrap">
                 <h2 style="color:#fff;font-size:1.75rem;font-weight:700;margin:0 0 0.75rem;">Siamo Sold Out!</h2>
-                <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin:0 0 2rem;">Lascia nome e email per essere avvisata quando apriremo il prossimo evento.</p>
+                <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin:0 0 2rem;">Lascia i tuoi dati per essere avvisata quando apriremo il prossimo evento.</p>
                 <form id="soldout-form" style="display:flex;flex-direction:column;gap:1rem;">
                     <input type="text" name="name" placeholder="Il tuo nome" required style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.15);color:#fff;padding:0.85rem 1rem;font-size:0.9rem;width:100%;box-sizing:border-box;">
                     <input type="email" name="email" placeholder="La tua email" required style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.15);color:#fff;padding:0.85rem 1rem;font-size:0.9rem;width:100%;box-sizing:border-box;">
+                    <input type="tel" name="phone" placeholder="Il tuo numero di telefono" required style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.15);color:#fff;padding:0.85rem 1rem;font-size:0.9rem;width:100%;box-sizing:border-box;">
                     <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem;">Avvisami</button>
                 </form>
                 <p id="soldout-error" style="display:none;color:#e91e63;font-size:0.85rem;margin-top:1rem;"></p>
             </div>
             <div id="soldout-success" style="display:none;">
-                <h2 style="color:#fff;font-size:1.75rem;font-weight:700;margin:0 0 0.75rem;">Grazie!</h2>
-                <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin:0;">Ti avviseremo non appena apriremo le iscrizioni al prossimo evento.</p>
+                <h2 style="color:#fff;font-size:1.75rem;font-weight:700;margin:0 0 0.75rem;">Ci sei dentro!</h2>
+                <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin:0 0 1rem;">Questa volta i posti sono volati, ma il bello deve ancora venire.</p>
+                <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin:0 0 1rem;">Sarai la prima a sapere quando apriremo le porte del prossimo evento. Tieniti pronta.</p>
+                <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.6;margin:0;font-style:italic;">A presto,<br>Elena</p>
             </div>
         </div>
     </div>
@@ -1274,14 +1277,15 @@
             var errEl = document.getElementById('soldout-error');
             var name = form.name.value.trim();
             var email = form.email.value.trim();
-            if (!name || !email) return;
+            var phone = form.phone.value.trim();
+            if (!name || !email || !phone) return;
             btn.disabled = true;
             btn.textContent = 'Invio in corso...';
             errEl.style.display = 'none';
             fetch('/api/soldout-lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: name, email: email })
+                body: JSON.stringify({ name: name, email: email, phone: phone })
             })
             .then(function(res) {
                 if (!res.ok) throw new Error('Errore');
