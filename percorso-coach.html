@@ -306,6 +306,37 @@
             .pc-carousel-arrows { display: flex; }
         }
 
+        /* Form styles */
+        .pc-form-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--black);
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+        .pc-form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--white);
+        }
+        .pc-form-input:focus {
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 0 3px rgba(233,30,99,0.08);
+        }
+        .pc-form-step {
+            animation: fadeIn 0.35s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Decorative section photos */
         .pc-section-photo {
             position: relative;
@@ -368,7 +399,7 @@
             <p class="pc-hero-sub">
                 Il primo corso in Italia per diventare coach professionista nel fitness e benessere femminile over 40.
             </p>
-            <a href="#candidatura" class="btn-primary">
+            <a href="#candidatura-form" class="btn-primary">
                 Candidati Ora <span>&rarr;</span>
             </a>
 
@@ -913,6 +944,30 @@
                 </div>
             </div>
 
+            <!-- Early Bird Timer -->
+            <div id="ebTimerWrapper" style="text-align: center; margin-bottom: 2.5rem;">
+                <p style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink-primary); margin-bottom: 1rem;">Offerta Early Bird &mdash; scade tra</p>
+                <div style="display: inline-flex; gap: 1rem;">
+                    <div style="text-align: center;">
+                        <div id="eb-days" style="font-size: 2rem; font-weight: 800; color: var(--white); min-width: 3.5rem; padding: 0.75rem; background: rgba(233,30,99,0.1); border: 1px solid rgba(233,30,99,0.2); border-radius: 0.5rem;">--</div>
+                        <p style="font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">Giorni</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div id="eb-hours" style="font-size: 2rem; font-weight: 800; color: var(--white); min-width: 3.5rem; padding: 0.75rem; background: rgba(233,30,99,0.1); border: 1px solid rgba(233,30,99,0.2); border-radius: 0.5rem;">--</div>
+                        <p style="font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">Ore</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div id="eb-minutes" style="font-size: 2rem; font-weight: 800; color: var(--white); min-width: 3.5rem; padding: 0.75rem; background: rgba(233,30,99,0.1); border: 1px solid rgba(233,30,99,0.2); border-radius: 0.5rem;">--</div>
+                        <p style="font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">Minuti</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div id="eb-seconds" style="font-size: 2rem; font-weight: 800; color: var(--white); min-width: 3.5rem; padding: 0.75rem; background: rgba(233,30,99,0.1); border: 1px solid rgba(233,30,99,0.2); border-radius: 0.5rem;">--</div>
+                        <p style="font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">Secondi</p>
+                    </div>
+                </div>
+            </div>
+            <p id="ebExpired" style="display: none; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; padding: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem;">L&rsquo;offerta Early Bird &egrave; terminata. Il prezzo attuale &egrave; quello ufficiale.</p>
+
             <!-- Pricing Cards -->
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 52rem; margin: 0 auto;" class="pc-overview-grid">
 
@@ -939,7 +994,7 @@
                         <li style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#10003;</span>Accesso a tutti i 5 moduli</li>
                         <li style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#10003;</span>Diploma OPES riconosciuto CONI</li>
                     </ul>
-                    <a href="#candidatura" class="btn-primary" style="width: 100%; display: block; text-align: center;">
+                    <a href="#candidatura-form" class="btn-primary" style="width: 100%; display: block; text-align: center;">
                         CANDIDATI ORA <span>&rarr;</span>
                     </a>
                     <p style="font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-top: 1rem;">Offerta non prorogabile</p>
@@ -967,13 +1022,222 @@
                         <li style="font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: rgba(255,255,255,0.3);">&#10003;</span>Accesso a tutti i 5 moduli</li>
                         <li style="font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: rgba(255,255,255,0.3);">&#10003;</span>Diploma OPES riconosciuto CONI</li>
                     </ul>
-                    <a href="#candidatura" class="btn-primary" style="width: 100%; display: block; text-align: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6);">
+                    <a href="#candidatura-form" class="btn-primary" style="width: 100%; display: block; text-align: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6);">
                         CANDIDATI <span>&rarr;</span>
                     </a>
                     <p style="font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 1rem;">Posti limitati &middot; Accesso su candidatura</p>
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FORM CANDIDATURA - MULTI STEP -->
+    <!-- ============================================ -->
+    <section class="section" style="background: var(--white); padding-top: 5rem; padding-bottom: 5rem;" id="candidatura-form">
+        <div class="container" style="max-width: 42rem;">
+            <div class="section-header center">
+                <span class="section-number">CANDIDATURA</span>
+                <h2 class="section-title" style="color: var(--black);">Compila il modulo di <span class="highlight"><em>candidatura</em></span></h2>
+                <p style="color: var(--gray-light); font-weight: 300; max-width: 36rem; margin: 1rem auto 0;">
+                    I posti sono limitati. Compila il form per candidarti: ti ricontatteremo per una breve chiamata conoscitiva.
+                </p>
+            </div>
+
+            <!-- Progress bar -->
+            <div style="margin-bottom: 2.5rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                    <span class="pc-step-label" data-step="0" style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink-primary);">Chi sei</span>
+                    <span class="pc-step-label" data-step="1" style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(0,0,0,0.2);">Background</span>
+                    <span class="pc-step-label" data-step="2" style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(0,0,0,0.2);">Motivazione</span>
+                    <span class="pc-step-label" data-step="3" style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(0,0,0,0.2);">Chiusura</span>
+                </div>
+                <div style="height: 4px; background: rgba(0,0,0,0.06); border-radius: 2px; overflow: hidden;">
+                    <div id="progressBar" style="height: 100%; width: 25%; background: var(--pink-primary); border-radius: 2px; transition: width 0.4s ease;"></div>
+                </div>
+                <p style="text-align: right; font-size: 0.7rem; color: var(--gray-light); margin-top: 0.5rem;"><span id="stepCounter">1</span> / 4</p>
+            </div>
+
+            <form id="candidaturaForm">
+
+                <!-- STEP 1: Chi sei -->
+                <div class="pc-form-step" data-step="0">
+                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem;">Chi sei</h3>
+                    <p style="font-size: 0.8rem; color: var(--gray-light); margin-bottom: 1.5rem;">Iniziamo con i tuoi dati di contatto.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;" class="pc-overview-grid">
+                        <div>
+                            <label class="pc-form-label">Nome e cognome *</label>
+                            <input type="text" name="full_name" required class="pc-form-input">
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Email *</label>
+                            <input type="email" name="email" required class="pc-form-input">
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Telefono *</label>
+                            <input type="tel" name="phone" required class="pc-form-input">
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Et&agrave; *</label>
+                            <input type="number" name="age" required min="18" max="99" class="pc-form-input">
+                        </div>
+                        <div style="grid-column: 1 / -1;">
+                            <label class="pc-form-label">Citt&agrave; in cui vivi *</label>
+                            <input type="text" name="city" required class="pc-form-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Background -->
+                <div class="pc-form-step" data-step="1" style="display: none;">
+                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem;">Il tuo background</h3>
+                    <p style="font-size: 0.8rem; color: var(--gray-light); margin-bottom: 1.5rem;">Aiutaci a capire da dove parti.</p>
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <label class="pc-form-label">Da quanto tempo conosci Elena e/o segui XFit Academy? *</label>
+                            <select name="know_elena" required class="pc-form-input">
+                                <option value="">Seleziona...</option>
+                                <option value="Meno di 6 mesi">Meno di 6 mesi</option>
+                                <option value="6 mesi - 1 anno">6 mesi &ndash; 1 anno</option>
+                                <option value="Più di 1 anno">Pi&ugrave; di 1 anno</option>
+                                <option value="Ho scoperto Elena di recente">Ho scoperto Elena di recente</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Hai gi&agrave; lavorato o lavori nel settore fitness, benessere o salute? *</label>
+                            <select name="work_fitness" required class="pc-form-input">
+                                <option value="">Seleziona...</option>
+                                <option value="Sì, lavoro già nel settore">S&igrave;, lavoro gi&agrave; nel settore</option>
+                                <option value="Esperienze passate">Ho esperienze passate ma non lavoro attivamente</option>
+                                <option value="No, completamente nuova">No, sono completamente nuova al settore</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Se s&igrave;, descrivi brevemente il tuo lavoro <span style="color: var(--gray-light); font-weight: 400;">(facoltativo)</span></label>
+                            <textarea name="work_description" rows="2" class="pc-form-input" style="resize: vertical;"></textarea>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Hai gi&agrave; certificazioni o titoli nel settore fitness/sportivo? *</label>
+                            <select name="certifications" required class="pc-form-input" id="certSelect">
+                                <option value="">Seleziona...</option>
+                                <option value="Sì">S&igrave;</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div id="certifications-detail" style="display: none;">
+                            <label class="pc-form-label">Quali certificazioni?</label>
+                            <input type="text" name="certifications_detail" class="pc-form-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Motivazione -->
+                <div class="pc-form-step" data-step="2" style="display: none;">
+                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem;">La tua motivazione</h3>
+                    <p style="font-size: 0.8rem; color: var(--gray-light); margin-bottom: 1.5rem;">Raccontaci perch&eacute; vuoi fare questo percorso.</p>
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <label class="pc-form-label">Cosa ti ha spinto a candidarti a questo corso? *</label>
+                            <textarea name="motivation" rows="3" required class="pc-form-input" style="resize: vertical;"></textarea>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Perch&eacute; vuoi specializzarti nell&rsquo;allenamento femminile? *</label>
+                            <textarea name="why_female_fitness" rows="3" required class="pc-form-input" style="resize: vertical;"></textarea>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Come descriveresti il tuo rapporto con il fitness femminile oggi? *</label>
+                            <select name="relationship_fitness" required class="pc-form-input">
+                                <option value="">Seleziona...</option>
+                                <option value="Passione ma non lavoro">&Egrave; la mia passione ma non ancora il mio lavoro</option>
+                                <option value="Già il mio lavoro">&Egrave; gi&agrave; il mio lavoro e voglio crescere</option>
+                                <option value="Cambio direzione">Voglio cambiare direzione e iniziare in questo settore</option>
+                                <option value="Altro">Altro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Cosa vorresti fare dopo la certificazione? *</label>
+                            <select name="after_certification" required class="pc-form-input">
+                                <option value="">Seleziona...</option>
+                                <option value="Iniziare come coach">Iniziare a lavorare come coach fitness femminile</option>
+                                <option value="Ampliare offerta">Ampliare la mia offerta professionale attuale</option>
+                                <option value="Team XFit">Entrare a far parte di un team come XFit Academy</option>
+                                <option value="Capire meglio">Non ho ancora le idee chiare, voglio capire meglio</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Quanto &egrave; importante per te il Diploma OPES/CONI? *</label>
+                            <select name="diploma_importance" required class="pc-form-input">
+                                <option value="">Seleziona...</option>
+                                <option value="Molto importante">Molto importante, &egrave; uno dei motivi principali</option>
+                                <option value="Importante">Importante, ma non la motivazione principale</option>
+                                <option value="Non priorità">Non era la priorit&agrave;, ma lo apprezzo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Ti interessa entrare nel team XFit Academy? *</label>
+                            <select name="team_interest" required class="pc-form-input">
+                                <option value="">Seleziona...</option>
+                                <option value="Sì, mi ha convinta">S&igrave;, &egrave; uno degli aspetti che mi ha convinta</option>
+                                <option value="Interessa ma non priorità">Mi interessa ma non &egrave; la priorit&agrave;</option>
+                                <option value="Non considero">Non &egrave; qualcosa che sto considerando al momento</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Chiusura -->
+                <div class="pc-form-step" data-step="3" style="display: none;">
+                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem;">Un&rsquo;ultima cosa</h3>
+                    <p style="font-size: 0.8rem; color: var(--gray-light); margin-bottom: 1.5rem;">Siamo quasi alla fine.</p>
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <label class="pc-form-label">Quale modalit&agrave; di pagamento stai valutando? *</label>
+                            <select name="payment_preference" required class="pc-form-input">
+                                <option value="">Seleziona...</option>
+                                <option value="Rata unica Early Bird 1970">Rata unica (Early Bird: 1.970&euro;)</option>
+                                <option value="24 rate Appago 95/mese">Rateizzazione 24 mesi tramite Appago (~95&euro;/mese)</option>
+                                <option value="Valutare in chiamata">Ho deciso di iscrivermi ma voglio valutare nella chiamata</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="pc-form-label">Raccontami qualcosa di te che mi aiuti a conoscerti meglio e a capire se sei in linea con il percorso e i valori di XFit Academy. *</label>
+                            <textarea name="about_you" rows="4" required class="pc-form-input" style="resize: vertical;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                    <button type="button" id="prevBtn" style="display: none; padding: 0.75rem 1.5rem; border: 1px solid rgba(0,0,0,0.12); border-radius: 0.5rem; background: transparent; font-family: inherit; font-size: 0.8rem; font-weight: 600; color: var(--gray-light); cursor: pointer; transition: all 0.2s;">&larr; Indietro</button>
+                    <div style="flex: 1;"></div>
+                    <button type="button" id="nextBtn" class="btn-primary" style="padding: 0.75rem 2rem;">
+                        Continua <span>&rarr;</span>
+                    </button>
+                    <button type="submit" id="submitBtn" class="btn-primary" style="display: none; padding: 0.75rem 2rem;">
+                        INVIA CANDIDATURA <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Validation message -->
+                <p id="formError" style="display: none; text-align: center; font-size: 0.78rem; color: var(--error-red); margin-top: 0.75rem;">Compila tutti i campi obbligatori prima di continuare.</p>
+
+                <!-- Success message -->
+                <div id="candidaturaSuccess" style="display: none; text-align: center; padding: 3rem 2rem; background: rgba(76,175,80,0.05); border: 1px solid rgba(76,175,80,0.2); border-radius: 0.75rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--success-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="3rem" height="3rem" style="margin-bottom: 1.25rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem;">Candidatura inviata!</h3>
+                    <p style="font-size: 0.95rem; color: var(--gray-light); line-height: 1.7; margin-bottom: 2rem;">Grazie per esserti candidata. Abbiamo ricevuto la tua richiesta.</p>
+                    <div style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 0.75rem; padding: 2rem; max-width: 24rem; margin: 0 auto;">
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.5rem;">Ultimo passaggio:</p>
+                        <p style="font-size: 0.82rem; color: var(--gray-light); line-height: 1.6; margin-bottom: 1.25rem;">Scrivici su WhatsApp per confermare la tua candidatura e velocizzare il processo.</p>
+                        <a href="https://wa.me/393773892181?text=Ho%20appena%20compilato%20la%20candidatura%20per%20il%20corso%20Coach%20Fitness%20Femminile!" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.75rem; background: #25D366; color: var(--white); font-family: inherit; font-size: 0.85rem; font-weight: 700; border-radius: 0.5rem; text-decoration: none; transition: background 0.2s;">
+                            <svg viewBox="0 0 24 24" fill="white" width="1.1rem" height="1.1rem"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.857L0 24l6.335-1.652A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.528-5.445-1.49l-.39-.232-3.755.98.998-3.648-.254-.404A9.72 9.72 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                            Scrivi su WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </form>
         </div>
     </section>
 
@@ -1073,7 +1337,7 @@
             <p style="color: rgba(255,255,255,0.6); font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7; font-size: clamp(1.25rem, 2.5vw, 1.5rem);">
                 <span class="highlight"><em>Non &egrave; solo una certificazione.<br>&Egrave; un&rsquo;opportunit&agrave; di carriera.</em></span>
             </p>
-            <a href="#candidatura" class="btn-primary">
+            <a href="#candidatura-form" class="btn-primary">
                 Candidati Ora <span>&rarr;</span>
             </a>
         </div>
@@ -1128,6 +1392,155 @@
     <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script defer src="js/react-mobile-header.js?v=1767489274"></script>
+
+    <!-- Early Bird Countdown Timer -->
+    <script>
+    (function() {
+        var deadline = new Date('2026-04-19T23:59:59+02:00').getTime();
+        var timerWrapper = document.getElementById('ebTimerWrapper');
+        var expiredMsg = document.getElementById('ebExpired');
+        var ebCard = document.querySelector('[data-eb-card]');
+        var daysEl = document.getElementById('eb-days');
+        var hoursEl = document.getElementById('eb-hours');
+        var minutesEl = document.getElementById('eb-minutes');
+        var secondsEl = document.getElementById('eb-seconds');
+
+        function pad(n) { return n < 10 ? '0' + n : n; }
+
+        function updateTimer() {
+            var now = new Date().getTime();
+            var diff = deadline - now;
+            if (diff <= 0) {
+                timerWrapper.style.display = 'none';
+                expiredMsg.style.display = 'block';
+                return;
+            }
+            var d = Math.floor(diff / 86400000);
+            var h = Math.floor((diff % 86400000) / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+            daysEl.textContent = pad(d);
+            hoursEl.textContent = pad(h);
+            minutesEl.textContent = pad(m);
+            secondsEl.textContent = pad(s);
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    })();
+    </script>
+
+    <!-- Candidatura form logic - Multi Step -->
+    <script>
+    (function() {
+        var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/whfxv9CQCrjAmBTZJwMw/webhook-trigger/sGCsMU8riTOCvGQ0yCn3';
+        var currentStep = 0;
+        var totalSteps = 4;
+        var steps = document.querySelectorAll('.pc-form-step');
+        var labels = document.querySelectorAll('.pc-step-label');
+        var progressBar = document.getElementById('progressBar');
+        var stepCounter = document.getElementById('stepCounter');
+        var prevBtn = document.getElementById('prevBtn');
+        var nextBtn = document.getElementById('nextBtn');
+        var submitBtn = document.getElementById('submitBtn');
+        var formError = document.getElementById('formError');
+        var form = document.getElementById('candidaturaForm');
+        var successMsg = document.getElementById('candidaturaSuccess');
+
+        // Toggle certifications detail
+        var certSelect = document.getElementById('certSelect');
+        var certDetail = document.getElementById('certifications-detail');
+        if (certSelect) {
+            certSelect.addEventListener('change', function() {
+                certDetail.style.display = this.value === 'Sì' ? 'block' : 'none';
+            });
+        }
+
+        function showStep(n) {
+            steps.forEach(function(s, i) {
+                s.style.display = i === n ? 'block' : 'none';
+                if (i === n) { s.style.animation = 'none'; s.offsetHeight; s.style.animation = 'fadeIn 0.35s ease'; }
+            });
+            labels.forEach(function(l, i) {
+                l.style.color = i <= n ? 'var(--pink-primary)' : 'rgba(0,0,0,0.2)';
+            });
+            progressBar.style.width = ((n + 1) / totalSteps * 100) + '%';
+            stepCounter.textContent = n + 1;
+            prevBtn.style.display = n === 0 ? 'none' : 'block';
+            nextBtn.style.display = n === totalSteps - 1 ? 'none' : 'block';
+            submitBtn.style.display = n === totalSteps - 1 ? 'block' : 'none';
+            formError.style.display = 'none';
+        }
+
+        function validateStep(n) {
+            var step = steps[n];
+            var required = step.querySelectorAll('[required]');
+            for (var i = 0; i < required.length; i++) {
+                if (!required[i].value.trim()) {
+                    required[i].focus();
+                    required[i].style.borderColor = 'var(--error-red)';
+                    setTimeout(function() { required[i].style.borderColor = 'rgba(0,0,0,0.12)'; }, 2000);
+                    formError.style.display = 'block';
+                    return false;
+                }
+                // Email validation
+                if (required[i].type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(required[i].value)) {
+                    required[i].focus();
+                    required[i].style.borderColor = 'var(--error-red)';
+                    formError.textContent = 'Inserisci un indirizzo email valido.';
+                    formError.style.display = 'block';
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        nextBtn.addEventListener('click', function() {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                showStep(currentStep);
+                document.getElementById('candidatura-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+
+        prevBtn.addEventListener('click', function() {
+            currentStep--;
+            showStep(currentStep);
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!validateStep(currentStep)) return;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'INVIO IN CORSO...';
+
+            var formData = new FormData(form);
+            var data = {};
+            formData.forEach(function(value, key) { data[key] = value; });
+
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(function() {
+                form.style.display = 'none';
+                successMsg.style.display = 'block';
+                document.getElementById('candidatura-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', { content_name: 'Candidatura Coach' });
+                }
+            })
+            .catch(function() {
+                form.style.display = 'none';
+                successMsg.style.display = 'block';
+            });
+        });
+
+        showStep(0);
+    })();
+    </script>
 
     <!-- Carousel dots + arrows -->
     <script>
