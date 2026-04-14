@@ -12,44 +12,96 @@ module.exports = async function handler(req, res) {
   if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
 
   try {
-    const { selectedSlot, name, email, phone } = req.body || {};
+    // Parse body - Vercel should auto-parse JSON but let's be safe
+    let body = req.body;
+    if (typeof body === 'string') {
+      try { body = JSON.parse(body); } catch(e) {}
+    }
+
+    console.log('[calendar-book] Body received:', JSON.stringify(body));
+
+    const { selectedSlot, name, email, phone } = body || {};
 
     if (!selectedSlot || !name || !email) {
-      return res.status(400).json({ error: 'selectedSlot, name and email are required' });
+      console.error('[calendar-book] Missing fields:', { selectedSlot: !!selectedSlot, name: !!name, email: !!email });
+      return res.status(400).json({ error: 'selectedSlot, name and email are required', received: { selectedSlot, name, email } });
     }
 
-    const url = 'https://services.leadconnectorhq.com/calendars/events/appointments';
+    // First, create or find contact
+    const contactUrl = 'https://services.leadconnectorhq.com/contacts/';
+    const headers = {
+      'Authorization': `Bearer ${apiKey}`,
+      'Version': '2021-04-15',
+      'Content-Type': 'application/json'
+    };
 
-    const locationId = 'whfxv9CQCrjAmBTZJwMw';
-
-    const response = await fetch(url, {
+    // Create contact
+    console.log('[calendar-book] Creating contact...');
+    const contactRes = await fetch(contactUrl, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Version': '2021-04-15',
-        'Content-Type': 'application/json',
-        'Location': locationId
-      },
+      headers,
       body: JSON.stringify({
-        calendarId: calendarId,
-        selectedSlot: selectedSlot,
-        selectedTimezone: 'Europe/Rome',
-        contact: {
-          name: name,
-          email: email,
-          phone: phone || ''
-        }
+        name: name,
+        email: email,
+        phone: phone || '',
+        locationId: 'whfxv9CQCrjAmBTZJwMw'
       })
     });
+    const contactData = await contactRes.json();
+    console.log('[calendar-book] Contact response:', contactRes.status, JSON.stringify(contactData));
 
-    if (!response.ok) {
-      const errText = await response.text();
-      return res.status(response.status).json({ error: 'GHL API error', details: errText });
+    const contactId = contactData.contact ? contactData.contact.id : (contactData.id || null);
+
+    if (!contactId) {
+      // If contact already exists, search for it
+      console.log('[calendar-book] No contact ID, searching...');
+      const searchRes = await fetch(contactUrl + 'search/duplicate', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ email: email, locationId: 'whfxv9CQCrjAmBTZJwMw' })
+      });
+      const searchData = await searchRes.json();
+      console.log('[calendar-book] Search response:', searchRes.status, JSON.stringify(searchData));
+      var finalContactId = searchData.contact ? searchData.contact.id : null;
+    } else {
+      var finalContactId = contactId;
     }
 
-    const data = await response.json();
-    return res.status(200).json(data);
+    if (!finalContactId) {
+      return res.status(500).json({ error: 'Could not create or find contact', contactData });
+    }
+
+    // Create appointment
+    const appointmentUrl = 'https://services.leadconnectorhq.com/calendars/events/appointments';
+    const appointmentBody = {
+      calendarId: calendarId,
+      locationId: 'whfxv9CQCrjAmBTZJwMw',
+      contactId: finalContactId,
+      startTime: selectedSlot,
+      endTime: new Date(new Date(selectedSlot).getTime() + 45 * 60000).toISOString(),
+      title: 'Chiamata Conoscitiva - Coach Fitness Femminile',
+      appointmentStatus: 'confirmed',
+      selectedTimezone: 'Europe/Rome'
+    };
+
+    console.log('[calendar-book] Creating appointment:', JSON.stringify(appointmentBody));
+
+    const appointmentRes = await fetch(appointmentUrl, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(appointmentBody)
+    });
+
+    const appointmentText = await appointmentRes.text();
+    console.log('[calendar-book] Appointment response:', appointmentRes.status, appointmentText);
+
+    if (!appointmentRes.ok) {
+      return res.status(appointmentRes.status).json({ error: 'GHL appointment error', details: appointmentText });
+    }
+
+    return res.status(200).json(JSON.parse(appointmentText));
   } catch (err) {
+    console.error('[calendar-book] Error:', err.message);
     return res.status(500).json({ error: 'Server error', message: err.message });
   }
 };
