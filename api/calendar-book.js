@@ -20,12 +20,15 @@ module.exports = async function handler(req, res) {
 
     const url = 'https://services.leadconnectorhq.com/calendars/events/appointments';
 
+    const locationId = 'whfxv9CQCrjAmBTZJwMw';
+
     const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Version': '2021-04-15',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Location': locationId
       },
       body: JSON.stringify({
         calendarId: calendarId,

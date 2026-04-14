@@ -23,11 +23,14 @@ module.exports = async function handler(req, res) {
     console.log('[calendar-slots] Fetching:', url);
     console.log('[calendar-slots] API key present:', !!apiKey, 'length:', apiKey ? apiKey.length : 0);
 
+    const locationId = 'whfxv9CQCrjAmBTZJwMw';
+
     const response = await fetch(url, {
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Version': '2021-04-15',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Location': locationId
       }
     });
 
