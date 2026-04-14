@@ -17,7 +17,11 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'startDate and endDate required (YYYY-MM-DD)' });
     }
 
-    const url = `https://services.leadconnectorhq.com/calendars/${calendarId}/free-slots?startDate=${startDate}&endDate=${endDate}`;
+    const timezone = 'Europe/Rome';
+    const url = `https://services.leadconnectorhq.com/calendars/${calendarId}/free-slots?startDate=${startDate}&endDate=${endDate}&timezone=${encodeURIComponent(timezone)}`;
+
+    console.log('[calendar-slots] Fetching:', url);
+    console.log('[calendar-slots] API key present:', !!apiKey, 'length:', apiKey ? apiKey.length : 0);
 
     const response = await fetch(url, {
       headers: {
@@ -29,7 +33,8 @@ module.exports = async function handler(req, res) {
 
     if (!response.ok) {
       const errText = await response.text();
-      return res.status(response.status).json({ error: 'GHL API error', details: errText });
+      console.error('[calendar-slots] GHL error:', response.status, errText);
+      return res.status(response.status).json({ error: 'GHL API error', status: response.status, details: errText });
     }
 
     const data = await response.json();
