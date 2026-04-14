@@ -21,18 +21,31 @@ module.exports = async function handler(req, res) {
     const url = `https://services.leadconnectorhq.com/calendars/${calendarId}/free-slots?startDate=${startDate}&endDate=${endDate}&timezone=${encodeURIComponent(timezone)}`;
 
     console.log('[calendar-slots] Fetching:', url);
-    console.log('[calendar-slots] API key present:', !!apiKey, 'length:', apiKey ? apiKey.length : 0);
+    console.log('[calendar-slots] API key prefix:', apiKey ? apiKey.substring(0, 6) : 'none');
 
-    const locationId = 'whfxv9CQCrjAmBTZJwMw';
+    // Try multiple auth approaches
+    const headers = {
+      'Authorization': `Bearer ${apiKey}`,
+      'Version': '2021-04-15',
+      'Accept': 'application/json'
+    };
 
-    const response = await fetch(url, {
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Version': '2021-04-15',
-        'Content-Type': 'application/json',
-        'Location': locationId
-      }
-    });
+    console.log('[calendar-slots] Attempt 1: Bearer + Version 2021-04-15');
+    let response = await fetch(url, { headers });
+
+    // If 401, try with Version 2021-07-28
+    if (response.status === 401) {
+      console.log('[calendar-slots] 401, trying Version 2021-07-28');
+      headers['Version'] = '2021-07-28';
+      response = await fetch(url, { headers });
+    }
+
+    // If still 401, try without Bearer prefix
+    if (response.status === 401) {
+      console.log('[calendar-slots] Still 401, trying without Bearer prefix');
+      headers['Authorization'] = apiKey;
+      response = await fetch(url, { headers });
+    }
 
     if (!response.ok) {
       const errText = await response.text();
