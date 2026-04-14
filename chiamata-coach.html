@@ -683,7 +683,7 @@
     (function() {
         var API_SLOTS = '/api/calendar-slots';
         var API_BOOK = '/api/calendar-book';
-        var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/whfxv9CQCrjAmBTZJwMw/webhook-trigger/sGCsMU8riTOCvGQ0yCn3';
+        var API_CANDIDATURA = '/api/candidatura';
         var THANK_YOU_URL = '/chiamata-coach-grazie';
 
         var MONTHS_IT = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
@@ -783,8 +783,8 @@
         }
 
         function submitCandidatura() {
-            // Send to webhook (fire and forget)
-            fetch(WEBHOOK_URL, {
+            // Send to API to upsert contact with custom fields
+            fetch(API_CANDIDATURA, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(candidaturaData)
