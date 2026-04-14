@@ -301,6 +301,31 @@
         .cc-form-field input:focus {
             border-color: var(--pink-primary);
         }
+        .cc-form-field select,
+        .cc-form-field textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 0.85rem;
+            color: var(--white);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .cc-form-field select:focus,
+        .cc-form-field textarea:focus {
+            border-color: var(--pink-primary);
+        }
+        .cc-form-field select option {
+            background: var(--bg-card);
+            color: var(--white);
+        }
+        .cc-form-field textarea {
+            resize: vertical;
+        }
+        .cc-form-field textarea::placeholder,
         .cc-form-field input::placeholder {
             color: rgba(255,255,255,0.25);
         }
@@ -399,6 +424,7 @@
         @media (max-width: 640px) {
             .cc-slots-grid { grid-template-columns: repeat(2, 1fr); }
             .cc-cal-panel, .cc-slots-panel, .cc-form-panel { padding: 1.25rem; }
+            .cc-form-2col { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
@@ -419,9 +445,161 @@
 
             <!-- Step tabs -->
             <div class="cc-steps-bar">
-                <div class="cc-step-tab active" id="tab1">1. Giorno</div>
-                <div class="cc-step-tab" id="tab2">2. Orario</div>
-                <div class="cc-step-tab" id="tab3">3. I tuoi dati</div>
+                <div class="cc-step-tab active" id="tab0">1. Candidatura</div>
+                <div class="cc-step-tab" id="tab1">2. Giorno</div>
+                <div class="cc-step-tab" id="tab2">3. Orario</div>
+                <div class="cc-step-tab" id="tab3">4. Conferma</div>
+            </div>
+
+            <!-- Step 0: Candidatura form (multi-sub-step) -->
+            <div class="cc-form-panel" id="panelCandidatura" style="display: block;">
+                <!-- Sub-progress -->
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;" id="cSubDots">
+                    <div style="flex: 1; height: 3px; background: var(--pink-primary); border-radius: 2px; transition: background 0.3s;"></div>
+                    <div style="flex: 1; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; transition: background 0.3s;"></div>
+                    <div style="flex: 1; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; transition: background 0.3s;"></div>
+                    <div style="flex: 1; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; transition: background 0.3s;"></div>
+                </div>
+
+                <!-- Sub-step 1: Chi sei -->
+                <div class="cc-sub-step" data-sub="0">
+                    <h3>Chi sei</h3>
+                    <p>Iniziamo con i tuoi dati di contatto.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;" class="cc-form-2col">
+                        <div class="cc-form-field">
+                            <label>Nome e cognome *</label>
+                            <input type="text" id="cName" placeholder="Il tuo nome completo" required>
+                        </div>
+                        <div class="cc-form-field">
+                            <label>Email *</label>
+                            <input type="email" id="cEmail" placeholder="la-tua@email.com" required>
+                        </div>
+                        <div class="cc-form-field">
+                            <label>Telefono *</label>
+                            <input type="tel" id="cPhone" placeholder="+39 ..." required>
+                        </div>
+                        <div class="cc-form-field">
+                            <label>Et&agrave; *</label>
+                            <input type="number" id="cAge" min="18" max="99" placeholder="Es. 35" required>
+                        </div>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Citt&agrave; in cui vivi *</label>
+                        <input type="text" id="cCity" placeholder="Es. Roma" required>
+                    </div>
+                </div>
+
+                <!-- Sub-step 2: Background -->
+                <div class="cc-sub-step" data-sub="1" style="display: none;">
+                    <h3>Il tuo background</h3>
+                    <p>Aiutaci a capire da dove parti.</p>
+                    <div class="cc-form-field">
+                        <label>Da quanto tempo conosci Elena e/o segui XFit Academy? *</label>
+                        <select id="cKnowElena" required>
+                            <option value="">Seleziona...</option>
+                            <option value="Meno di 6 mesi">Meno di 6 mesi</option>
+                            <option value="6 mesi - 1 anno">6 mesi &ndash; 1 anno</option>
+                            <option value="Più di 1 anno">Pi&ugrave; di 1 anno</option>
+                            <option value="Ho scoperto Elena di recente">Ho scoperto Elena di recente</option>
+                        </select>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Lavori gi&agrave; nel settore fitness, benessere o salute? *</label>
+                        <select id="cWorkFitness" required>
+                            <option value="">Seleziona...</option>
+                            <option value="Sì, lavoro già nel settore">S&igrave;, lavoro gi&agrave; nel settore</option>
+                            <option value="Esperienze passate">Ho esperienze passate ma non lavoro attivamente</option>
+                            <option value="No, completamente nuova">No, sono completamente nuova al settore</option>
+                        </select>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Se s&igrave;, descrivi brevemente il tuo lavoro <span style="font-weight: 400; color: rgba(255,255,255,0.3);">(facoltativo)</span></label>
+                        <textarea id="cWorkDesc" rows="2" placeholder="Descrivi brevemente..."></textarea>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Hai gi&agrave; certificazioni nel settore fitness/sportivo? *</label>
+                        <select id="cCertifications" required>
+                            <option value="">Seleziona...</option>
+                            <option value="Sì">S&igrave;</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="cc-form-field" id="cCertDetail" style="display: none;">
+                        <label>Quali certificazioni?</label>
+                        <input type="text" id="cCertText" placeholder="Es. Personal Trainer CONI...">
+                    </div>
+                </div>
+
+                <!-- Sub-step 3: Motivazione -->
+                <div class="cc-sub-step" data-sub="2" style="display: none;">
+                    <h3>La tua motivazione</h3>
+                    <p>Raccontaci perch&eacute; vuoi fare questo percorso.</p>
+                    <div class="cc-form-field">
+                        <label>Cosa ti ha spinto a candidarti? *</label>
+                        <textarea id="cMotivation" rows="3" placeholder="Raccontaci la tua motivazione..." required></textarea>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Perch&eacute; vuoi specializzarti nell&rsquo;allenamento femminile? *</label>
+                        <textarea id="cWhyFemale" rows="3" placeholder="Cosa ti attrae di questa specializzazione..." required></textarea>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Come descriveresti il tuo rapporto con il fitness femminile? *</label>
+                        <select id="cRelationship" required>
+                            <option value="">Seleziona...</option>
+                            <option value="Passione ma non lavoro">&Egrave; la mia passione ma non ancora il mio lavoro</option>
+                            <option value="Già il mio lavoro">&Egrave; gi&agrave; il mio lavoro e voglio crescere</option>
+                            <option value="Cambio direzione">Voglio cambiare direzione e iniziare in questo settore</option>
+                            <option value="Altro">Altro</option>
+                        </select>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Cosa vorresti fare dopo la certificazione? *</label>
+                        <select id="cAfterCert" required>
+                            <option value="">Seleziona...</option>
+                            <option value="Iniziare come coach">Iniziare a lavorare come coach fitness femminile</option>
+                            <option value="Ampliare offerta">Ampliare la mia offerta professionale attuale</option>
+                            <option value="Team XFit">Entrare a far parte di un team come XFit Academy</option>
+                            <option value="Capire meglio">Non ho ancora le idee chiare, voglio capire meglio</option>
+                        </select>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Quanto &egrave; importante il Diploma OPES/CONI? *</label>
+                        <select id="cDiploma" required>
+                            <option value="">Seleziona...</option>
+                            <option value="Molto importante">Molto importante, &egrave; uno dei motivi principali</option>
+                            <option value="Importante">Importante, ma non la motivazione principale</option>
+                            <option value="Non priorità">Non era la priorit&agrave;, ma lo apprezzo</option>
+                        </select>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Ti interessa entrare nel team XFit Academy? *</label>
+                        <select id="cTeam" required>
+                            <option value="">Seleziona...</option>
+                            <option value="Sì, mi ha convinta">S&igrave;, &egrave; uno degli aspetti che mi ha convinta</option>
+                            <option value="Interessa ma non priorità">Mi interessa ma non &egrave; la priorit&agrave;</option>
+                            <option value="Non considero">Non &egrave; qualcosa che sto considerando al momento</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Sub-step 4: Chiusura -->
+                <div class="cc-sub-step" data-sub="3" style="display: none;">
+                    <h3>Un&rsquo;ultima cosa</h3>
+                    <p>Siamo quasi alla fine.</p>
+                    <div class="cc-form-field">
+                        <label>Quale modalit&agrave; di pagamento stai valutando? *</label>
+                        <select id="cPayment" required>
+                            <option value="">Seleziona...</option>
+                            <option value="Rata unica Early Bird 1970">Pagamento unico (Early Bird: 1.970&euro;)</option>
+                            <option value="Rateizzazione fino a 24 mesi Early Bird 2470">Rateizzazione fino a 24 mesi (Early Bird: 2.470&euro;)</option>
+                            <option value="Valutare in chiamata">Ho deciso di iscrivermi ma voglio valutare nella chiamata</option>
+                        </select>
+                    </div>
+                    <div class="cc-form-field">
+                        <label>Raccontami qualcosa di te che mi aiuti a conoscerti meglio e a capire se sei in linea con il percorso e i valori di XFit Academy. *</label>
+                        <textarea id="cAboutYou" rows="4" placeholder="Raccontaci di te..." required></textarea>
+                    </div>
+                </div>
             </div>
 
             <!-- Step 1: Calendar -->
@@ -505,6 +683,7 @@
     (function() {
         var API_SLOTS = '/api/calendar-slots';
         var API_BOOK = '/api/calendar-book';
+        var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/whfxv9CQCrjAmBTZJwMw/webhook-trigger/sGCsMU8riTOCvGQ0yCn3';
         var THANK_YOU_URL = '/chiamata-coach-grazie';
 
         var MONTHS_IT = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
@@ -515,7 +694,13 @@
         var availableSlots = {};
         var selectedDate = null;
         var selectedSlot = null;
+        var candidaturaData = {};
+        var currentSubStep = 0;
+        var totalSubSteps = 4;
+        var subSteps = document.querySelectorAll('.cc-sub-step');
+        var subDots = document.querySelectorAll('#cSubDots > div');
 
+        var panelCandidatura = document.getElementById('panelCandidatura');
         var calDays = document.getElementById('calDays');
         var monthLabel = document.getElementById('monthLabel');
         var calLoading = document.getElementById('calLoading');
@@ -526,7 +711,7 @@
         var panelForm = document.getElementById('panelForm');
         var btnNext = document.getElementById('btnNext');
         var btnBack = document.getElementById('btnBack');
-        var tabs = [document.getElementById('tab1'), document.getElementById('tab2'), document.getElementById('tab3')];
+        var tabs = [document.getElementById('tab0'), document.getElementById('tab1'), document.getElementById('tab2'), document.getElementById('tab3')];
         var ccError = document.getElementById('ccError');
 
         function pad(n) { return n < 10 ? '0' + n : n; }
@@ -535,17 +720,78 @@
 
         function showStep(n) {
             currentStep = n;
-            panelCal.style.display = n === 0 ? 'block' : 'none';
-            panelSlots.style.display = n === 1 ? 'block' : 'none';
-            panelForm.style.display = n === 2 ? 'block' : 'none';
+            panelCandidatura.style.display = n === 0 ? 'block' : 'none';
+            panelCal.style.display = n === 1 ? 'block' : 'none';
+            panelSlots.style.display = n === 2 ? 'block' : 'none';
+            panelForm.style.display = n === 3 ? 'block' : 'none';
             ccError.style.display = 'none';
             tabs.forEach(function(t, i) {
                 t.className = 'cc-step-tab' + (i === n ? ' active' : (i < n ? ' done' : ''));
             });
             btnBack.style.visibility = n === 0 ? 'hidden' : 'visible';
-            if (n === 0) { btnNext.textContent = 'Scegli un giorno'; btnNext.disabled = !selectedDate; }
-            if (n === 1) { btnNext.textContent = 'Scegli un orario'; btnNext.disabled = !selectedSlot; }
-            if (n === 2) { btnNext.textContent = 'Conferma prenotazione'; btnNext.disabled = false; }
+            if (n === 0) { btnNext.textContent = 'Continua \u2192'; btnNext.disabled = false; }
+            if (n === 1) { btnNext.textContent = 'Scegli un giorno'; btnNext.disabled = !selectedDate; }
+            if (n === 2) { btnNext.textContent = 'Scegli un orario'; btnNext.disabled = !selectedSlot; }
+            if (n === 3) { btnNext.textContent = 'Conferma prenotazione'; btnNext.disabled = false; }
+        }
+
+        function showSubStep(n) {
+            currentSubStep = n;
+            subSteps.forEach(function(s, i) { s.style.display = i === n ? 'block' : 'none'; });
+            subDots.forEach(function(d, i) { d.style.background = i <= n ? 'var(--pink-primary)' : 'rgba(255,255,255,0.1)'; });
+            btnBack.style.visibility = (currentStep === 0 && n === 0) ? 'hidden' : 'visible';
+        }
+
+        function validateSubStep(n) {
+            var subStep = subSteps[n];
+            var required = subStep.querySelectorAll('[required]');
+            for (var i = 0; i < required.length; i++) {
+                if (!required[i].value.trim()) {
+                    required[i].style.borderColor = 'var(--error-red)';
+                    required[i].focus();
+                    setTimeout(function(el) { el.style.borderColor = ''; }.bind(null, required[i]), 2000);
+                    ccError.textContent = 'Compila tutti i campi obbligatori.';
+                    ccError.style.display = 'block';
+                    return false;
+                }
+            }
+            ccError.style.display = 'none';
+            return true;
+        }
+
+        function collectCandidaturaData() {
+            candidaturaData = {
+                full_name: document.getElementById('cName').value,
+                email: document.getElementById('cEmail').value,
+                phone: document.getElementById('cPhone').value,
+                age: document.getElementById('cAge').value,
+                city: document.getElementById('cCity').value,
+                know_elena: document.getElementById('cKnowElena').value,
+                work_fitness: document.getElementById('cWorkFitness').value,
+                work_description: document.getElementById('cWorkDesc').value,
+                certifications: document.getElementById('cCertifications').value,
+                certifications_detail: document.getElementById('cCertText').value,
+                motivation: document.getElementById('cMotivation').value,
+                why_female_fitness: document.getElementById('cWhyFemale').value,
+                relationship_fitness: document.getElementById('cRelationship').value,
+                after_certification: document.getElementById('cAfterCert').value,
+                diploma_importance: document.getElementById('cDiploma').value,
+                team_interest: document.getElementById('cTeam').value,
+                payment_preference: document.getElementById('cPayment').value,
+                about_you: document.getElementById('cAboutYou').value
+            };
+        }
+
+        function submitCandidatura() {
+            // Send to webhook (fire and forget)
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(candidaturaData)
+            }).catch(function() {});
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', { content_name: 'Candidatura Coach' });
+            }
         }
 
         function fetchSlots(year, month) {
@@ -695,27 +941,56 @@
             });
         }
 
+        // Certifications toggle
+        var cCertSelect = document.getElementById('cCertifications');
+        var cCertDetail = document.getElementById('cCertDetail');
+        if (cCertSelect) {
+            cCertSelect.addEventListener('change', function() {
+                cCertDetail.style.display = this.value === 'S\u00ec' ? 'block' : 'none';
+            });
+        }
+
         // Navigation
         btnNext.addEventListener('click', function() {
-            if (currentStep === 0 && selectedDate) {
-                showStep(1);
+            if (currentStep === 0) {
+                // Sub-step navigation within candidatura
+                if (!validateSubStep(currentSubStep)) return;
+                if (currentSubStep < totalSubSteps - 1) {
+                    currentSubStep++;
+                    showSubStep(currentSubStep);
+                } else {
+                    // Last sub-step: submit candidatura and go to calendar
+                    collectCandidaturaData();
+                    submitCandidatura();
+                    document.getElementById('bookName').value = candidaturaData.full_name || '';
+                    document.getElementById('bookEmail').value = candidaturaData.email || '';
+                    document.getElementById('bookPhone').value = candidaturaData.phone || '';
+                    showStep(1);
+                    fetchSlots(currentYear, currentMonth);
+                }
+            } else if (currentStep === 1 && selectedDate) {
+                showStep(2);
                 renderSlots();
-            } else if (currentStep === 1 && selectedSlot) {
+            } else if (currentStep === 2 && selectedSlot) {
                 var parts = selectedDate.split('-');
                 var dateObj = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
                 var slotDate = new Date(selectedSlot);
                 document.getElementById('bookingSummary').textContent =
                     DAYS_IT[dateObj.getDay()] + ' ' + parseInt(parts[2]) + ' ' + MONTHS_IT[parseInt(parts[1]) - 1] +
                     ' alle ' + pad(slotDate.getHours()) + ':' + pad(slotDate.getMinutes());
-                showStep(2);
-            } else if (currentStep === 2) {
+                showStep(3);
+            } else if (currentStep === 3) {
                 submitBooking();
             }
         });
 
         btnBack.addEventListener('click', function() {
-            if (currentStep === 1) { showStep(0); }
+            if (currentStep === 0 && currentSubStep > 0) {
+                currentSubStep--;
+                showSubStep(currentSubStep);
+            } else if (currentStep === 1) { showStep(0); showSubStep(totalSubSteps - 1); }
             else if (currentStep === 2) { showStep(1); }
+            else if (currentStep === 3) { showStep(2); }
         });
 
         document.getElementById('prevMonth').addEventListener('click', function() {
@@ -734,8 +1009,22 @@
         var now = new Date();
         currentMonth = now.getMonth();
         currentYear = now.getFullYear();
-        showStep(0);
-        fetchSlots(currentYear, currentMonth);
+
+        // Check if coming from landing with skip=1
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('skip') === '1') {
+            var pName = urlParams.get('name') || '';
+            var pEmail = urlParams.get('email') || '';
+            var pPhone = urlParams.get('phone') || '';
+            document.getElementById('bookName').value = pName;
+            document.getElementById('bookEmail').value = pEmail;
+            document.getElementById('bookPhone').value = pPhone;
+            showStep(1);
+            fetchSlots(currentYear, currentMonth);
+        } else {
+            showStep(0);
+            showSubStep(0);
+        }
     })();
     </script>
 

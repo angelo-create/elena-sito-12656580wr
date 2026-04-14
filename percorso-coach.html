@@ -1266,19 +1266,11 @@
                 <!-- Validation message -->
                 <p id="formError" style="display: none; text-align: center; font-size: 0.78rem; color: var(--error-red); margin-top: 0.75rem;">Compila tutti i campi obbligatori prima di continuare.</p>
 
-                <!-- Success message -->
-                <div id="candidaturaSuccess" style="display: none; text-align: center; padding: 3rem 2rem; background: rgba(76,175,80,0.05); border: 1px solid rgba(76,175,80,0.2); border-radius: 0.75rem;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--success-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="3rem" height="3rem" style="margin-bottom: 1.25rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem;">Candidatura inviata!</h3>
-                    <p style="font-size: 0.95rem; color: var(--gray-light); line-height: 1.7; margin-bottom: 2rem;">Grazie per esserti candidata. Abbiamo ricevuto la tua richiesta.</p>
-                    <div style="background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 0.75rem; padding: 2rem; max-width: 24rem; margin: 0 auto;">
-                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.5rem;">Ultimo passaggio:</p>
-                        <p style="font-size: 0.82rem; color: var(--gray-light); line-height: 1.6; margin-bottom: 1.25rem;">Scrivici su WhatsApp per confermare la tua candidatura e velocizzare il processo.</p>
-                        <a href="https://wa.me/393773892181?text=Ho%20appena%20compilato%20la%20candidatura%20per%20il%20corso%20Coach%20Fitness%20Femminile!" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.75rem; background: #25D366; color: var(--white); font-family: inherit; font-size: 0.85rem; font-weight: 700; border-radius: 0.5rem; text-decoration: none; transition: background 0.2s;">
-                            <svg viewBox="0 0 24 24" fill="white" width="1.1rem" height="1.1rem"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.521 5.857L0 24l6.335-1.652A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.528-5.445-1.49l-.39-.232-3.755.98.998-3.648-.254-.404A9.72 9.72 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
-                            Scrivi su WhatsApp
-                        </a>
-                    </div>
+                <!-- Success: redirect to calendar -->
+                <div id="candidaturaSuccess" style="display: none; text-align: center; padding: 3rem 2rem;">
+                    <div class="cc-spinner" style="width: 2rem; height: 2rem; border: 2px solid rgba(0,0,0,0.1); border-top-color: var(--pink-primary); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem;"></div>
+                    <p style="font-size: 0.9rem; color: var(--gray-light);">Candidatura inviata! Ti stiamo reindirizzando al calendario...</p>
+                    <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
                 </div>
 
             </form>
@@ -1575,10 +1567,21 @@
                 if (typeof fbq !== 'undefined') {
                     fbq('track', 'Lead', { content_name: 'Candidatura Coach' });
                 }
+                // Redirect to calendar with pre-filled data
+                var formData = new FormData(form);
+                var name = formData.get('full_name') || '';
+                var email = formData.get('email') || '';
+                var phone = formData.get('phone') || '';
+                setTimeout(function() {
+                    window.location.href = '/chiamata-coach?skip=1&name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&phone=' + encodeURIComponent(phone);
+                }, 1500);
             })
             .catch(function() {
                 form.style.display = 'none';
                 successMsg.style.display = 'block';
+                setTimeout(function() {
+                    window.location.href = '/chiamata-coach?skip=1';
+                }, 1500);
             });
         });
 
