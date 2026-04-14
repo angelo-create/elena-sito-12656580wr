@@ -32,10 +32,13 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'startDate and endDate required (YYYY-MM-DD)' });
     }
 
-    // Try with widget ID first, then try listing calendars to find the real ID
     const calendarId = '7FMLgGMP7b3DmEQeq684';
     const timezone = 'Europe/Rome';
-    const url = `https://services.leadconnectorhq.com/calendars/${calendarId}/free-slots?startDate=${startDate}&endDate=${endDate}&timezone=${encodeURIComponent(timezone)}`;
+
+    // Convert YYYY-MM-DD to epoch milliseconds as required by GHL API
+    const startMs = new Date(startDate + 'T00:00:00').getTime();
+    const endMs = new Date(endDate + 'T23:59:59').getTime();
+    const url = `https://services.leadconnectorhq.com/calendars/${calendarId}/free-slots?startDate=${startMs}&endDate=${endMs}&timezone=${encodeURIComponent(timezone)}`;
 
     console.log('[calendar-slots] Fetching:', url);
 
