@@ -807,11 +807,11 @@
                 .then(function(data) {
                     calLoading.style.display = 'none';
                     availableSlots = {};
-                    if (data && (data.slots || data)) {
-                        var slots = data.slots || data;
-                        Object.keys(slots).forEach(function(dateStr) {
-                            if (slots[dateStr] && slots[dateStr].length > 0) {
-                                availableSlots[dateStr] = slots[dateStr];
+                    if (data) {
+                        Object.keys(data).forEach(function(dateStr) {
+                            // Skip non-date keys like traceId
+                            if (dateStr.match(/^\d{4}-\d{2}-\d{2}$/) && data[dateStr] && data[dateStr].slots && data[dateStr].slots.length > 0) {
+                                availableSlots[dateStr] = data[dateStr].slots;
                             }
                         });
                     }
