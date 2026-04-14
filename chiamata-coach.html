@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenota la tua Chiamata | Coach Fitness Femminile | Elena Giordani</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1942914613266249');
+    fbq('track', 'PageView');
+    fbq('track', 'Schedule', {content_name: 'Chiamata Coach'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1942914613266249&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Iubenda Cookie Solution -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <style>
+        body { background: var(--black); }
+        .cc-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem;
+        }
+        .cc-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 36rem;
+        }
+        .cc-logo {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 2.5rem;
+        }
+        .cc-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            background: rgba(233,30,99,0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            margin-bottom: 1.25rem;
+        }
+        .cc-title {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+        .cc-title .highlight em {
+            color: var(--pink-primary);
+            font-style: italic;
+            font-weight: 600;
+        }
+        .cc-subtitle {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        /* Calendar widget */
+        .cc-widget {
+            width: 100%;
+            max-width: 48rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        /* Step indicator */
+        .cc-steps-bar {
+            display: flex;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .cc-step-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            position: relative;
+        }
+        .cc-step-tab.active {
+            color: var(--pink-primary);
+        }
+        .cc-step-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--pink-primary);
+        }
+        .cc-step-tab.done {
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Calendar grid */
+        .cc-cal-panel {
+            padding: 2rem;
+        }
+        .cc-cal-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        .cc-cal-nav h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: capitalize;
+        }
+        .cc-cal-nav button {
+            background: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: 50%;
+            width: 2.25rem;
+            height: 2.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--white);
+            transition: all 0.2s;
+        }
+        .cc-cal-nav button:hover {
+            border-color: var(--pink-primary);
+            color: var(--pink-primary);
+        }
+        .cc-cal-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .cc-cal-weekdays span {
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            padding: 0.5rem 0;
+        }
+        .cc-cal-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.25rem;
+        }
+        .cc-cal-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.25);
+            border-radius: 0.5rem;
+            cursor: default;
+            transition: all 0.2s;
+        }
+        .cc-cal-day.available {
+            color: var(--white);
+            cursor: pointer;
+            background: rgba(255,255,255,0.04);
+        }
+        .cc-cal-day.available:hover {
+            background: rgba(233,30,99,0.15);
+            color: var(--pink-primary);
+        }
+        .cc-cal-day.selected {
+            background: var(--pink-primary);
+            color: var(--white);
+            font-weight: 700;
+        }
+        .cc-cal-day.today {
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Time slots */
+        .cc-slots-panel {
+            padding: 2rem;
+            display: none;
+        }
+        .cc-slots-date {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.25rem;
+            text-transform: capitalize;
+        }
+        .cc-slots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+        .cc-slot {
+            padding: 0.7rem;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cc-slot:hover {
+            border-color: var(--pink-primary);
+            color: var(--pink-primary);
+            background: rgba(233,30,99,0.08);
+        }
+        .cc-slot.selected {
+            background: var(--pink-primary);
+            border-color: var(--pink-primary);
+            color: var(--white);
+        }
+
+        /* Contact form */
+        .cc-form-panel {
+            padding: 2rem;
+            display: none;
+        }
+        .cc-form-panel h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .cc-form-panel p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1.5rem;
+        }
+        .cc-form-field {
+            margin-bottom: 1rem;
+        }
+        .cc-form-field label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.35rem;
+        }
+        .cc-form-field input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 0.85rem;
+            color: var(--white);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .cc-form-field input:focus {
+            border-color: var(--pink-primary);
+        }
+        .cc-form-field input::placeholder {
+            color: rgba(255,255,255,0.25);
+        }
+
+        /* Navigation */
+        .cc-nav-bar {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cc-btn-back {
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            background: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cc-btn-back:hover {
+            color: var(--white);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .cc-btn-next {
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--white);
+            background: var(--pink-primary);
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.65rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cc-btn-next:hover {
+            background: var(--pink-dark);
+        }
+        .cc-btn-next:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* Loading */
+        .cc-loading {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+        .cc-spinner {
+            width: 2rem;
+            height: 2rem;
+            border: 2px solid var(--border-subtle);
+            border-top-color: var(--pink-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Error */
+        .cc-error {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        .cc-footer {
+            text-align: center;
+            margin-top: 2rem;
+            max-width: 36rem;
+        }
+        .cc-trust {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .cc-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        @media (max-width: 640px) {
+            .cc-slots-grid { grid-template-columns: repeat(2, 1fr); }
+            .cc-cal-panel, .cc-slots-panel, .cc-form-panel { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cc-page">
+
+        <!-- Header -->
+        <div class="cc-header">
+            <a href="/" class="cc-logo">Elena Giordani</a>
+            <span class="cc-badge">Coach Fitness Femminile &mdash; Metodo XFit Academy</span>
+            <h1 class="cc-title">Prenota la tua <span class="highlight"><em>chiamata conoscitiva</em></span></h1>
+            <p class="cc-subtitle">Scegli il giorno e l&rsquo;orario che preferisci. La chiamata dura circa 15 minuti e serve a conoscerci meglio.</p>
+        </div>
+
+        <!-- Calendar Widget -->
+        <div class="cc-widget">
+
+            <!-- Step tabs -->
+            <div class="cc-steps-bar">
+                <div class="cc-step-tab active" id="tab1">1. Giorno</div>
+                <div class="cc-step-tab" id="tab2">2. Orario</div>
+                <div class="cc-step-tab" id="tab3">3. I tuoi dati</div>
+            </div>
+
+            <!-- Step 1: Calendar -->
+            <div class="cc-cal-panel" id="panelCal">
+                <div class="cc-cal-nav">
+                    <button id="prevMonth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="1rem" height="1rem"><polyline points="15 18 9 12 15 6"/></svg></button>
+                    <h3 id="monthLabel"></h3>
+                    <button id="nextMonth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="1rem" height="1rem"><polyline points="9 18 15 12 9 6"/></svg></button>
+                </div>
+                <div class="cc-cal-weekdays">
+                    <span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span>
+                </div>
+                <div class="cc-cal-days" id="calDays"></div>
+                <div class="cc-loading" id="calLoading" style="display: none;">
+                    <div class="cc-spinner"></div>
+                    Caricamento disponibilit&agrave;...
+                </div>
+            </div>
+
+            <!-- Step 2: Time slots -->
+            <div class="cc-slots-panel" id="panelSlots">
+                <div class="cc-slots-date" id="selectedDateLabel"></div>
+                <div class="cc-slots-grid" id="slotsGrid"></div>
+                <div class="cc-loading" id="slotsLoading" style="display: none;">
+                    <div class="cc-spinner"></div>
+                    Caricamento orari...
+                </div>
+            </div>
+
+            <!-- Step 3: Contact form -->
+            <div class="cc-form-panel" id="panelForm">
+                <h3>I tuoi dati</h3>
+                <p id="bookingSummary"></p>
+                <div class="cc-form-field">
+                    <label>Nome e cognome *</label>
+                    <input type="text" id="bookName" placeholder="Il tuo nome completo" required>
+                </div>
+                <div class="cc-form-field">
+                    <label>Email *</label>
+                    <input type="email" id="bookEmail" placeholder="la-tua@email.com" required>
+                </div>
+                <div class="cc-form-field">
+                    <label>Telefono</label>
+                    <input type="tel" id="bookPhone" placeholder="+39 ...">
+                </div>
+            </div>
+
+            <!-- Error message -->
+            <div class="cc-error" id="ccError" style="display: none;"></div>
+
+            <!-- Navigation bar -->
+            <div class="cc-nav-bar">
+                <button class="cc-btn-back" id="btnBack" style="visibility: hidden;">&larr; Indietro</button>
+                <button class="cc-btn-next" id="btnNext" disabled>Scegli un giorno</button>
+            </div>
+
+        </div>
+
+        <!-- Footer trust -->
+        <div class="cc-footer">
+            <div class="cc-trust">
+                <div class="cc-trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1rem" height="1rem"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Circa 15 minuti
+                </div>
+                <div class="cc-trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1rem" height="1rem"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Nessun impegno
+                </div>
+                <div class="cc-trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="1rem" height="1rem"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Gratuita e riservata
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.35);">&copy; 2026 Elena Giordani. Tutti i diritti riservati.</p>
+        </div>
+
+    </div>
+
+    <script>
+    (function() {
+        var API_SLOTS = '/api/calendar-slots';
+        var API_BOOK = '/api/calendar-book';
+        var THANK_YOU_URL = '/chiamata-coach-grazie';
+
+        var MONTHS_IT = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+        var DAYS_IT = ['Domenica','Luned\u00ec','Marted\u00ec','Mercoled\u00ec','Gioved\u00ec','Venerd\u00ec','Sabato'];
+
+        var currentStep = 0;
+        var currentMonth, currentYear;
+        var availableSlots = {};
+        var selectedDate = null;
+        var selectedSlot = null;
+
+        var calDays = document.getElementById('calDays');
+        var monthLabel = document.getElementById('monthLabel');
+        var calLoading = document.getElementById('calLoading');
+        var slotsGrid = document.getElementById('slotsGrid');
+        var slotsLoading = document.getElementById('slotsLoading');
+        var panelCal = document.getElementById('panelCal');
+        var panelSlots = document.getElementById('panelSlots');
+        var panelForm = document.getElementById('panelForm');
+        var btnNext = document.getElementById('btnNext');
+        var btnBack = document.getElementById('btnBack');
+        var tabs = [document.getElementById('tab1'), document.getElementById('tab2'), document.getElementById('tab3')];
+        var ccError = document.getElementById('ccError');
+
+        function pad(n) { return n < 10 ? '0' + n : n; }
+
+        function formatDate(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
+
+        function showStep(n) {
+            currentStep = n;
+            panelCal.style.display = n === 0 ? 'block' : 'none';
+            panelSlots.style.display = n === 1 ? 'block' : 'none';
+            panelForm.style.display = n === 2 ? 'block' : 'none';
+            ccError.style.display = 'none';
+            tabs.forEach(function(t, i) {
+                t.className = 'cc-step-tab' + (i === n ? ' active' : (i < n ? ' done' : ''));
+            });
+            btnBack.style.visibility = n === 0 ? 'hidden' : 'visible';
+            if (n === 0) { btnNext.textContent = 'Scegli un giorno'; btnNext.disabled = !selectedDate; }
+            if (n === 1) { btnNext.textContent = 'Scegli un orario'; btnNext.disabled = !selectedSlot; }
+            if (n === 2) { btnNext.textContent = 'Conferma prenotazione'; btnNext.disabled = false; }
+        }
+
+        function fetchSlots(year, month) {
+            var startDate = formatDate(year, month, 1);
+            var lastDay = new Date(year, month + 1, 0).getDate();
+            var endDate = formatDate(year, month, lastDay);
+
+            calLoading.style.display = 'block';
+            calDays.innerHTML = '';
+
+            fetch(API_SLOTS + '?startDate=' + startDate + '&endDate=' + endDate)
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    calLoading.style.display = 'none';
+                    availableSlots = {};
+                    if (data && (data.slots || data)) {
+                        var slots = data.slots || data;
+                        Object.keys(slots).forEach(function(dateStr) {
+                            if (slots[dateStr] && slots[dateStr].length > 0) {
+                                availableSlots[dateStr] = slots[dateStr];
+                            }
+                        });
+                    }
+                    renderCalendar();
+                })
+                .catch(function(err) {
+                    calLoading.style.display = 'none';
+                    ccError.textContent = 'Errore nel caricamento. Riprova tra qualche istante.';
+                    ccError.style.display = 'block';
+                });
+        }
+
+        function renderCalendar() {
+            calDays.innerHTML = '';
+            monthLabel.textContent = MONTHS_IT[currentMonth] + ' ' + currentYear;
+            var firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            var offset = firstDay === 0 ? 6 : firstDay - 1;
+            var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            var today = new Date();
+
+            for (var i = 0; i < offset; i++) {
+                var empty = document.createElement('div');
+                empty.className = 'cc-cal-day';
+                calDays.appendChild(empty);
+            }
+
+            for (var d = 1; d <= daysInMonth; d++) {
+                var dateStr = formatDate(currentYear, currentMonth, d);
+                var el = document.createElement('div');
+                el.className = 'cc-cal-day';
+                el.textContent = d;
+
+                if (today.getFullYear() === currentYear && today.getMonth() === currentMonth && today.getDate() === d) {
+                    el.classList.add('today');
+                }
+
+                if (availableSlots[dateStr]) {
+                    el.classList.add('available');
+                    el.dataset.date = dateStr;
+                    el.addEventListener('click', function() {
+                        var prev = calDays.querySelector('.selected');
+                        if (prev) prev.classList.remove('selected');
+                        this.classList.add('selected');
+                        selectedDate = this.dataset.date;
+                        selectedSlot = null;
+                        btnNext.disabled = false;
+                        btnNext.textContent = 'Avanti \u2192';
+                    });
+                }
+
+                if (selectedDate === dateStr) {
+                    el.classList.add('selected');
+                }
+
+                calDays.appendChild(el);
+            }
+        }
+
+        function renderSlots() {
+            slotsGrid.innerHTML = '';
+            if (!selectedDate || !availableSlots[selectedDate]) return;
+
+            var parts = selectedDate.split('-');
+            var dateObj = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+            document.getElementById('selectedDateLabel').textContent =
+                DAYS_IT[dateObj.getDay()] + ' ' + parseInt(parts[2]) + ' ' + MONTHS_IT[parseInt(parts[1]) - 1] + ' ' + parts[0];
+
+            availableSlots[selectedDate].forEach(function(slot) {
+                var el = document.createElement('div');
+                el.className = 'cc-slot';
+                var slotDate = new Date(slot);
+                el.textContent = pad(slotDate.getHours()) + ':' + pad(slotDate.getMinutes());
+                el.dataset.slot = slot;
+                el.addEventListener('click', function() {
+                    var prev = slotsGrid.querySelector('.selected');
+                    if (prev) prev.classList.remove('selected');
+                    this.classList.add('selected');
+                    selectedSlot = this.dataset.slot;
+                    btnNext.disabled = false;
+                    btnNext.textContent = 'Avanti \u2192';
+                });
+                if (selectedSlot === slot) el.classList.add('selected');
+                slotsGrid.appendChild(el);
+            });
+        }
+
+        function submitBooking() {
+            var name = document.getElementById('bookName').value.trim();
+            var email = document.getElementById('bookEmail').value.trim();
+            var phone = document.getElementById('bookPhone').value.trim();
+
+            if (!name || !email) {
+                ccError.textContent = 'Inserisci nome e email per confermare.';
+                ccError.style.display = 'block';
+                return;
+            }
+
+            btnNext.disabled = true;
+            btnNext.textContent = 'Prenotazione in corso...';
+            ccError.style.display = 'none';
+
+            fetch(API_BOOK, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    selectedSlot: selectedSlot,
+                    name: name,
+                    email: email,
+                    phone: phone
+                })
+            })
+            .then(function(r) {
+                if (!r.ok) throw new Error('Booking failed');
+                return r.json();
+            })
+            .then(function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Schedule', { content_name: 'Chiamata Coach Confermata' });
+                }
+                window.location.href = THANK_YOU_URL;
+            })
+            .catch(function(err) {
+                btnNext.disabled = false;
+                btnNext.textContent = 'Conferma prenotazione';
+                ccError.textContent = 'Si \u00e8 verificato un errore. Riprova o contattaci su WhatsApp.';
+                ccError.style.display = 'block';
+            });
+        }
+
+        // Navigation
+        btnNext.addEventListener('click', function() {
+            if (currentStep === 0 && selectedDate) {
+                showStep(1);
+                renderSlots();
+            } else if (currentStep === 1 && selectedSlot) {
+                var parts = selectedDate.split('-');
+                var dateObj = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+                var slotDate = new Date(selectedSlot);
+                document.getElementById('bookingSummary').textContent =
+                    DAYS_IT[dateObj.getDay()] + ' ' + parseInt(parts[2]) + ' ' + MONTHS_IT[parseInt(parts[1]) - 1] +
+                    ' alle ' + pad(slotDate.getHours()) + ':' + pad(slotDate.getMinutes());
+                showStep(2);
+            } else if (currentStep === 2) {
+                submitBooking();
+            }
+        });
+
+        btnBack.addEventListener('click', function() {
+            if (currentStep === 1) { showStep(0); }
+            else if (currentStep === 2) { showStep(1); }
+        });
+
+        document.getElementById('prevMonth').addEventListener('click', function() {
+            currentMonth--;
+            if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+            fetchSlots(currentYear, currentMonth);
+        });
+
+        document.getElementById('nextMonth').addEventListener('click', function() {
+            currentMonth++;
+            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+            fetchSlots(currentYear, currentMonth);
+        });
+
+        // Init
+        var now = new Date();
+        currentMonth = now.getMonth();
+        currentYear = now.getFullYear();
+        showStep(0);
+        fetchSlots(currentYear, currentMonth);
+    })();
+    </script>
+
+    <!-- Iubenda embed loader -->
+    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</body>
+</html>
