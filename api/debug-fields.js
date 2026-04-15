@@ -56,11 +56,26 @@ module.exports = async function handler(req, res) {
     for (const [formKey, ghlId] of Object.entries(fieldMap)) {
       if (ghlFieldIds.has(ghlId)) {
         const ghlField = ghlFields.find(f => f.id === ghlId);
-        report.valid.push({ formKey, ghlId, ghlName: ghlField.name, ghlType: ghlField.dataType });
+        const entry = { formKey, ghlId, ghlName: ghlField.name, ghlType: ghlField.dataType };
+        if (ghlField.options && ghlField.options.length > 0) {
+          entry.ghlOptions = ghlField.options;
+        }
+        if (ghlField.picklistOptions && ghlField.picklistOptions.length > 0) {
+          entry.ghlPicklistOptions = ghlField.picklistOptions;
+        }
+        // Include any other option-related fields
+        if (ghlField.allowedValues) entry.allowedValues = ghlField.allowedValues;
+        report.valid.push(entry);
       } else {
         report.invalid.push({ formKey, ghlId, reason: 'ID not found in GHL' });
       }
     }
+
+    // Also include full raw data for SINGLE_OPTIONS fields so we can see all properties
+    const rawSingleOptions = ghlFields
+      .filter(f => Object.values(fieldMap).includes(f.id) && f.dataType === 'SINGLE_OPTIONS')
+      .map(f => ({ id: f.id, name: f.name, ...f }));
+    report.rawSingleOptions = rawSingleOptions;
 
     return res.status(200).json(report);
   } catch (err) {
