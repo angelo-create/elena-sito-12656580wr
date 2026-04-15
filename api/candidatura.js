@@ -111,7 +111,7 @@ module.exports = async function handler(req, res) {
     const customFields = [];
     for (const [formKey, ghlId] of Object.entries(fieldMap)) {
       if (body[formKey] !== undefined && body[formKey] !== '') {
-        customFields.push({ id: ghlId, field_value: String(body[formKey]) });
+        customFields.push({ id: ghlId, value: String(body[formKey]) });
       }
     }
 
@@ -140,6 +140,19 @@ module.exports = async function handler(req, res) {
 
     const upsertData = JSON.parse(upsertText);
     const contactId = upsertData.contact ? upsertData.contact.id : null;
+
+    // Diagnostic: compare fields sent vs saved
+    if (upsertData.contact && upsertData.contact.customFields) {
+      const savedFields = upsertData.contact.customFields;
+      const savedIds = savedFields.map(f => f.id);
+      const sentIds = customFields.map(f => f.id);
+      const missing = sentIds.filter(id => !savedIds.includes(id));
+      const reverseMap = Object.fromEntries(Object.entries(fieldMap).map(([k, v]) => [v, k]));
+      console.log(`[candidatura] Fields sent: ${sentIds.length} | saved: ${savedIds.length} | missing: ${missing.length}`);
+      if (missing.length > 0) {
+        missing.forEach(id => console.warn(`[candidatura] Missing field: ${reverseMap[id] || 'unknown'} (${id})`));
+      }
+    }
 
     // Send backup email with all responses (fire-and-forget)
     sendBackupEmail(body).catch(err => console.error('[candidatura] Backup email error:', err.message));
