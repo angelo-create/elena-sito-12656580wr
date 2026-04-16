@@ -1853,17 +1853,23 @@
 
 .newsletter-form {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-bottom: 1rem;
 }
 
 .newsletter-input {
-    flex: 1;
+    flex: 1 1 180px;
     padding: 1rem 1.5rem;
     border: 2px solid transparent;
     border-radius: 12px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    min-width: 0;
+}
+
+.newsletter-form input[type="email"] {
+    flex: 1 1 220px;
 }
 
 .newsletter-input:focus {

@@ -20,11 +20,23 @@ module.exports = async function handler(req, res) {
 
     const email = String(body.email).trim().toLowerCase();
     const source = body.source ? String(body.source).slice(0, 120) : 'website';
+    const firstName = body.first_name ? String(body.first_name).trim().slice(0, 80) : '';
+    const lastName = body.last_name ? String(body.last_name).trim().slice(0, 80) : '';
 
     // Basic email sanity
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return res.status(400).json({ error: 'invalid email' });
     }
+
+    const payload = {
+      email,
+      locationId,
+      tags: ['newsletter', `newsletter-${source}`],
+      source
+    };
+    if (firstName) payload.firstName = firstName;
+    if (lastName) payload.lastName = lastName;
+    if (firstName || lastName) payload.name = [firstName, lastName].filter(Boolean).join(' ');
 
     const upsertRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
       method: 'POST',
@@ -33,12 +45,7 @@ module.exports = async function handler(req, res) {
         'Version': '2021-07-28',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        email,
-        locationId,
-        tags: ['newsletter', `newsletter-${source}`],
-        source
-      })
+      body: JSON.stringify(payload)
     });
 
     const text = await upsertRes.text();
