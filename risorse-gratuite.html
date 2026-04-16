@@ -55,6 +55,7 @@
             <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
             <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
             <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="/percorso-coach" class="nav-link" onclick="closeMobileMenu()">Diventa Coach</a>
             <div class="nav-dropdown">
                 <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">▾</span></span>
                 <div class="nav-dropdown-menu">
@@ -243,13 +244,47 @@
                         e accesso anticipato a nuovi contenuti.
                     </p>
                 </div>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="La tua email" class="newsletter-input" required>
+                <form class="newsletter-form" data-source="risorse">
+                    <input type="email" name="email" placeholder="La tua email" class="newsletter-input" required>
                     <button type="submit" class="newsletter-btn">Iscriviti</button>
                 </form>
                 <p class="newsletter-disclaimer">
                     Niente spam, solo contenuti di valore. Puoi cancellarti quando vuoi.
                 </p>
+                <p class="newsletter-success" style="display:none; color:#10b981; font-weight:600; margin-top:1rem;">Iscrizione riuscita! Controlla la tua casella di posta.</p>
+                <p class="newsletter-error" style="display:none; color:#e00; font-weight:600; margin-top:1rem;">Si è verificato un errore. Riprova tra qualche istante.</p>
+                <script>
+                (function() {
+                    var form = document.currentScript.parentElement.querySelector('.newsletter-form');
+                    if (!form) return;
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        var input = form.querySelector('input[type="email"]');
+                        var btn = form.querySelector('button[type="submit"]');
+                        var successEl = form.parentElement.querySelector('.newsletter-success');
+                        var errorEl = form.parentElement.querySelector('.newsletter-error');
+                        if (!input || !input.value) return;
+                        if (btn) { btn.disabled = true; btn.textContent = 'Invio...'; }
+                        if (successEl) successEl.style.display = 'none';
+                        if (errorEl) errorEl.style.display = 'none';
+                        fetch('/api/newsletter', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: input.value.trim(), source: 'risorse' })
+                        })
+                        .then(function(r) { if (!r.ok) throw new Error('failed'); return r.json(); })
+                        .then(function() {
+                            if (successEl) successEl.style.display = 'block';
+                            input.value = '';
+                            if (btn) { btn.disabled = false; btn.textContent = 'Iscriviti'; }
+                        })
+                        .catch(function() {
+                            if (errorEl) errorEl.style.display = 'block';
+                            if (btn) { btn.disabled = false; btn.textContent = 'Iscriviti'; }
+                        });
+                    });
+                })();
+                </script>
             </div>
         </div>
     </section>
@@ -285,8 +320,9 @@
             <div class="footer-col">
                 <h4>Percorsi</h4>
                 <ul>
-                    <li><a href="/#percorsi">Il Primo Passo</a></li>
-                    <li><a href="/#percorsi">X-Fit Academy</a></li>
+                    <li><a href="/metodo">X-Fit Academy</a></li>
+                    <li><a href="/percorso-coach">Diventa Coach</a></li>
+                    <li><a href="/libri">Il Primo Passo</a></li>
                     <li><a href="/#percorsi">Club Inarrestabili</a></li>
                 </ul>
             </div>

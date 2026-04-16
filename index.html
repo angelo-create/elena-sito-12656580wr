@@ -69,6 +69,7 @@
             <a href="/chi-sono" class="nav-link" onclick="closeMobileMenu()">Chi Sono</a>
             <a href="/metodo" class="nav-link" onclick="closeMobileMenu()">Metodo</a>
             <a href="/risultati" class="nav-link" onclick="closeMobileMenu()">Risultati</a>
+            <a href="/percorso-coach" class="nav-link" onclick="closeMobileMenu()">Diventa Coach</a>
             <div class="nav-dropdown">
                 <span class="nav-link nav-dropdown-toggle">Risorse <span class="dropdown-arrow">&#9662;</span></span>
                 <div class="nav-dropdown-menu">
@@ -775,6 +776,25 @@
         </div>
     </section>
 
+    <!-- NEWSLETTER -->
+    <section class="section newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-content">
+                    <h2>Iscriviti alla Newsletter</h2>
+                    <p>Ricevi tips settimanali, contenuti esclusivi e accesso anticipato ai nuovi percorsi di Elena.</p>
+                </div>
+                <form class="newsletter-form" id="homepageNewsletterForm" data-source="home">
+                    <input type="email" name="email" placeholder="La tua email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Iscriviti</button>
+                </form>
+                <p class="newsletter-disclaimer">Niente spam, solo contenuti di valore. Puoi cancellarti quando vuoi.</p>
+                <p class="newsletter-success" id="homepageNewsletterSuccess" style="display:none; color:#10b981; font-weight:600; margin-top:1rem;">Iscrizione riuscita! Controlla la tua casella di posta.</p>
+                <p class="newsletter-error" id="homepageNewsletterError" style="display:none; color:#e00; font-weight:600; margin-top:1rem;">Si è verificato un errore. Riprova tra qualche istante.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-grid">
@@ -785,9 +805,10 @@
             <div class="footer-col">
                 <h4>Percorsi</h4>
                 <ul>
-                    <li><a href="#percorsi">Il Primo Passo</a></li>
-                    <li><a href="#percorsi">X-Fit Academy</a></li>
-                    <li><a href="#percorsi">Club Inarrestabili</a></li>
+                    <li><a href="/metodo">X-Fit Academy</a></li>
+                    <li><a href="/percorso-coach">Diventa Coach</a></li>
+                    <li><a href="/libri">Il Primo Passo</a></li>
+                    <li><a href="/#percorsi">Club Inarrestabili</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -795,6 +816,7 @@
                 <ul>
                     <li><a href="/libri">Libri</a></li>
                     <li><a href="/eventi">Eventi</a></li>
+                    <li><a href="/#newsletter">Newsletter</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -813,6 +835,44 @@
                 <a href="/terms-and-conditions">Termini e Condizioni</a>            </div>
         </div>
     </footer>
+
+    <!-- Newsletter form handler -->
+    <script>
+    (function() {
+        var forms = document.querySelectorAll('.newsletter-form');
+        forms.forEach(function(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var input = form.querySelector('input[type="email"]');
+                var btn = form.querySelector('button[type="submit"]');
+                var successEl = form.parentElement.querySelector('.newsletter-success');
+                var errorEl = form.parentElement.querySelector('.newsletter-error');
+                var source = form.getAttribute('data-source') || 'website';
+                if (!input || !input.value) return;
+
+                if (btn) { btn.disabled = true; btn.textContent = 'Invio...'; }
+                if (successEl) successEl.style.display = 'none';
+                if (errorEl) errorEl.style.display = 'none';
+
+                fetch('/api/newsletter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: input.value.trim(), source: source })
+                })
+                .then(function(r) { if (!r.ok) throw new Error('failed'); return r.json(); })
+                .then(function() {
+                    if (successEl) successEl.style.display = 'block';
+                    input.value = '';
+                    if (btn) { btn.disabled = false; btn.textContent = 'Iscriviti'; }
+                })
+                .catch(function() {
+                    if (errorEl) errorEl.style.display = 'block';
+                    if (btn) { btn.disabled = false; btn.textContent = 'Iscriviti'; }
+                });
+            });
+        });
+    })();
+    </script>
 
     <!-- Parallax & Bg-Reveal Scripts -->
     <script>

@@ -40,6 +40,7 @@
             { href: '/chi-sono', label: 'Chi Sono' },
             { href: '/metodo', label: 'Metodo' },
             { href: '/risultati', label: 'Risultati' },
+            { href: '/percorso-coach', label: 'Diventa Coach' },
             {
                 label: 'Risorse',
                 dropdown: [
