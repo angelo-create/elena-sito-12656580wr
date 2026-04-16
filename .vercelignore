@@ -1,0 +1,8 @@
+# File archiviati: restano nel repo per storia, non vanno in produzione
+archive/
+
+# Script di build: girano in locale, non servono al runtime
+scripts/
+
+# Contesto interno Conductor
+.context/
