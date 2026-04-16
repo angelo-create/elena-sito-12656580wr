@@ -975,23 +975,25 @@
     <!-- ============================================ -->
     <section class="section" style="background: var(--black); padding-bottom: 7rem;" id="candidatura">
         <div class="container">
-            <div class="section-header center">
-                <span class="section-number">INVESTIMENTO</span>
-                <h2 class="section-title">Scegli come <span class="highlight"><em>iscriverti</em></span></h2>
-            </div>
 
-            <!-- Valore del corso -->
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <div style="display: inline-block; padding: 1.5rem 3rem; border: 2px solid rgba(255,255,255,0.1); border-radius: 0.75rem; background: rgba(255,255,255,0.03);">
-                    <p style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin: 0 0 0.5rem;">Valore del corso</p>
-                    <p style="font-size: 2.5rem; font-weight: 800; color: var(--white); margin: 0; line-height: 1; text-decoration: line-through; text-decoration-color: var(--pink-primary); text-decoration-thickness: 3px;">&euro;3.500</p>
-                    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin: 0.75rem 0 0;">Posti limitati &mdash; accesso su candidatura</p>
+            <!-- Header: Titolo + Valore corso inline -->
+            <div class="pc-pricing-header" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 280px;">
+                    <span class="section-number" style="display: block; margin-bottom: 0.75rem;">INVESTIMENTO</span>
+                    <h2 class="section-title" style="margin-bottom: 0.75rem;">Un investimento <span class="highlight"><em>professionale.</em></span></h2>
+                    <p style="font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 38rem;">
+                        Non &egrave; una spesa. &Egrave; la differenza tra chi rimane ferma e chi costruisce qualcosa di solido.
+                    </p>
+                </div>
+                <div style="flex-shrink: 0; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 0.85rem; padding: 1rem 1.5rem; text-align: center; min-width: 170px;">
+                    <p style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 0.35rem;">Valore del corso</p>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--white); margin: 0; line-height: 1; text-decoration: line-through; text-decoration-color: var(--pink-primary); text-decoration-thickness: 3px;">3.500&euro;</p>
                 </div>
             </div>
 
             <!-- Early Bird Timer -->
             <div id="ebTimerWrapper" style="text-align: center; margin-bottom: 2.5rem;">
-                <p style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink-primary); margin-bottom: 1rem;">Offerta Early Bird &mdash; scade tra</p>
+                <p style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink-primary); margin-bottom: 1rem;">Offerta Webinar &mdash; scade tra</p>
                 <div style="display: inline-flex; gap: 1rem;">
                     <div style="text-align: center;">
                         <div id="eb-days" style="font-size: 2rem; font-weight: 800; color: var(--white); min-width: 3.5rem; padding: 0.75rem; background: rgba(233,30,99,0.1); border: 1px solid rgba(233,30,99,0.2); border-radius: 0.5rem;">--</div>
@@ -1014,63 +1016,42 @@
             <p id="ebExpired" style="display: none; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; padding: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem;">L&rsquo;offerta Early Bird &egrave; terminata. Il prezzo attuale &egrave; quello ufficiale.</p>
 
             <!-- Pricing Cards -->
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 52rem; margin: 0 auto;" class="pc-overview-grid">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 60rem; margin: 0 auto;" class="pc-overview-grid">
 
-                <!-- Card 1: Early Bird -->
-                <div style="background: var(--bg-card); border: 2px solid var(--pink-primary); border-radius: 0.75rem; padding: 2.5rem 2rem; text-align: center; position: relative; transform: scale(1.03); box-shadow: 0 0 40px rgba(233,30,99,0.15);">
-                    <div style="position: absolute; top: -0.85rem; left: 50%; transform: translateX(-50%); background: var(--pink-primary); color: var(--white); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1.25rem; border-radius: 2rem;">Early Bird</div>
-                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; margin-top: 0.5rem;">Offerta Lancio</h3>
-                    <p style="font-size: 0.75rem; color: var(--pink-primary); font-weight: 600; margin-bottom: 1.5rem;">Riservato alle partecipanti del webinar &middot; Fino al 19 aprile</p>
-                    <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem;">
-                        <div style="text-align: center; flex: 1;">
-                            <p style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">Pagamento unico</p>
-                            <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); text-decoration: line-through; margin-bottom: 0.25rem;">&euro;2.270</p>
-                            <div style="font-size: 2.25rem; font-weight: 800; color: var(--white); line-height: 1;">&euro;1.970</div>
-                        </div>
-                        <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
-                        <div style="text-align: center; flex: 1;">
-                            <p style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">Rateizzazione fino a 24 mesi</p>
-                            <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); text-decoration: line-through; margin-bottom: 0.25rem;">&euro;2.770</p>
-                            <div style="font-size: 2.25rem; font-weight: 800; color: var(--white); line-height: 1;">&euro;2.470</div>
-                        </div>
+                <!-- Card 1: OFFERTA WEBINAR (pink) -->
+                <div style="background: var(--pink-primary); border-radius: 1.25rem; padding: 2.5rem 2.25rem; position: relative; box-shadow: 0 20px 60px rgba(233,30,99,0.25);">
+                    <p style="font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); margin: 0 0 0.5rem;">Offerta Webinar</p>
+                    <p style="font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,0.85); margin: 0 0 2rem;">Valido fino a domenica 19 aprile &mdash; non prorogabile</p>
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="font-size: clamp(2.5rem, 5.5vw, 4rem); font-weight: 800; color: var(--white); margin: 0; line-height: 1;">1.970&euro;</p>
+                        <p style="font-size: 0.85rem; font-weight: 700; color: var(--white); margin: 0.35rem 0 0;">Pagamento unico</p>
                     </div>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem; text-align: left;">
-                        <li style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#10003;</span>Risparmio massimo di &euro;1.530</li>
-                        <li style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#10003;</span>Kit formativo incluso</li>
-                        <li style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#10003;</span>Accesso a tutti i 5 moduli</li>
-                        <li style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#10003;</span>Diploma OPES riconosciuto CONI</li>
-                    </ul>
-                    <a href="#candidatura-form" class="btn-primary" style="width: 100%; display: block; text-align: center;">
+                    <div style="height: 1px; background: rgba(255,255,255,0.35); margin: 1.5rem 0;"></div>
+                    <div>
+                        <p style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--white); margin: 0; line-height: 1;">2.270&euro;</p>
+                        <p style="font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.85); margin: 0.35rem 0 0;">Rateizzazione 24 mesi &mdash; circa 95&euro;/mese</p>
+                    </div>
+                    <a href="#candidatura-form" class="btn-primary" style="width: 100%; display: block; text-align: center; background: var(--white); color: var(--pink-primary); margin-top: 2rem;">
                         CANDIDATI ORA <span>&rarr;</span>
                     </a>
-                    <p style="font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-top: 1rem;">Offerta non prorogabile</p>
                 </div>
 
-                <!-- Card 2: Prezzo Ufficiale -->
-                <div style="background: var(--bg-card); border: 1px solid rgba(255,255,255,0.08); border-radius: 0.75rem; padding: 2.5rem 2rem; text-align: center; opacity: 0.7;">
-                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem;">Prezzo Ufficiale</h3>
-                    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem;">Da luned&igrave; 20 aprile</p>
-                    <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem;">
-                        <div style="text-align: center; flex: 1;">
-                            <p style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.5rem;">Pagamento unico</p>
-                            <div style="font-size: 2.25rem; font-weight: 800; color: rgba(255,255,255,0.6); line-height: 1;">&euro;2.470</div>
-                        </div>
-                        <div style="width: 1px; background: rgba(255,255,255,0.06);"></div>
-                        <div style="text-align: center; flex: 1;">
-                            <p style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.5rem;">Rateizzazione fino a 24 mesi</p>
-                            <div style="font-size: 2.25rem; font-weight: 800; color: rgba(255,255,255,0.6); line-height: 1;">&euro;2.770</div>
-                        </div>
+                <!-- Card 2: PREZZO SUCCESSIVO (dark) -->
+                <div style="background: var(--bg-card); border: 1px solid rgba(255,255,255,0.08); border-radius: 1.25rem; padding: 2.5rem 2.25rem;">
+                    <p style="font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pink-primary); margin: 0 0 0.5rem;">Prezzo Successivo</p>
+                    <p style="font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,0.5); margin: 0 0 2rem;">Da luned&igrave; 20 aprile</p>
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="font-size: clamp(2.5rem, 5.5vw, 4rem); font-weight: 800; color: var(--white); margin: 0; line-height: 1;">2.470&euro;</p>
+                        <p style="font-size: 0.85rem; font-weight: 700; color: var(--white); margin: 0.35rem 0 0;">Pagamento unico</p>
                     </div>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem; text-align: left;">
-                        <li style="font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: rgba(255,255,255,0.3);">&#10003;</span>Rateizzazione tramite AppPago</li>
-                        <li style="font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: rgba(255,255,255,0.3);">&#10003;</span>Kit formativo incluso</li>
-                        <li style="font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: rgba(255,255,255,0.3);">&#10003;</span>Accesso a tutti i 5 moduli</li>
-                        <li style="font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 2; padding-left: 1.25rem; position: relative;"><span style="position: absolute; left: 0; color: rgba(255,255,255,0.3);">&#10003;</span>Diploma OPES riconosciuto CONI</li>
-                    </ul>
-                    <a href="#candidatura-form" class="btn-primary" style="width: 100%; display: block; text-align: center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6);">
+                    <div style="height: 1px; background: rgba(233,30,99,0.35); margin: 1.5rem 0;"></div>
+                    <div>
+                        <p style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--white); margin: 0; line-height: 1;">2.770&euro;</p>
+                        <p style="font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.55); margin: 0.35rem 0 0;">Rateizzazione 24 mesi &mdash; circa 115&euro;/mese</p>
+                    </div>
+                    <a href="#candidatura-form" class="btn-primary" style="width: 100%; display: block; text-align: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.75); margin-top: 2rem;">
                         CANDIDATI <span>&rarr;</span>
                     </a>
-                    <p style="font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 1rem;">Posti limitati &middot; Accesso su candidatura</p>
                 </div>
 
             </div>
@@ -1240,8 +1221,8 @@
                             <label class="pc-form-label">Quale modalit&agrave; di pagamento stai valutando? *</label>
                             <select name="payment_preference" required class="pc-form-input">
                                 <option value="">Seleziona...</option>
-                                <option value="Pagamento unico (Early Bird: 1.970 euro)">Pagamento unico (Early Bird: 1.970&euro;)</option>
-                                <option value="Rateizzazione fino a 24 mesi (Early Bird: 2.470 euro)">Rateizzazione fino a 24 mesi (Early Bird: 2.470&euro;)</option>
+                                <option value="Pagamento unico (Early Bird: 1.970 euro)">Pagamento unico (Offerta Webinar: 1.970&euro;)</option>
+                                <option value="Rateizzazione fino a 24 mesi (Early Bird: 2.470 euro)">Rateizzazione fino a 24 mesi (Offerta Webinar: 2.270&euro;)</option>
                                 <option value="Ho deciso di iscrivermi ma voglio valutare in chiamata">Ho deciso di iscrivermi ma voglio valutare in chiamata</option>
                             </select>
                         </div>
