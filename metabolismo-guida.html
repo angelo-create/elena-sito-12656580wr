@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Come riattivare il metabolismo dopo i 40 &mdash; Guida gratuita | Elena Giordani</title>
+    <meta name="description" content="Scarica gratis la guida di Elena Giordani: le strategie per riattivare il metabolismo dopo i 40 anni e sentirti di nuovo energica e in forma.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Come riattivare il metabolismo dopo i 40 &mdash; Guida gratuita">
+    <meta property="og:description" content="La guida gratuita di Elena Giordani per riattivare il metabolismo dopo i 40.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+
+    <style>
+        html, body { overflow-x: hidden; }
+
+        /* ===== HERO ===== */
+        .mg-hero {
+            min-height: 70vh;
+            background: var(--black);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+        .mg-hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top, rgba(233,30,99,0.15) 0%, rgba(0,0,0,0) 60%), linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.95) 100%);
+            z-index: 2;
+        }
+        .mg-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 820px;
+            padding: 7rem 2rem 4rem;
+        }
+        .mg-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(233,30,99,0.15);
+            border: 1px solid rgba(233,30,99,0.4);
+            color: var(--pink-primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        .mg-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--pink-primary);
+            border-radius: 50%;
+            animation: mg-pulse 2s infinite;
+        }
+        @keyframes mg-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+        .mg-hero-title {
+            font-size: clamp(2.25rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        .mg-hero-title .accent { color: var(--pink-primary); }
+        .mg-hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.7);
+            max-width: 620px;
+            margin: 0 auto 2rem;
+        }
+        .mg-hero-subtitle strong { color: var(--white); font-weight: 600; }
+
+        /* ===== BENEFITS ===== */
+        .mg-benefits-section {
+            background: var(--black);
+            padding: 0 2rem 3rem;
+        }
+        .mg-benefits {
+            max-width: 760px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .mg-benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+        }
+        .mg-benefit-icon {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: rgba(233,30,99,0.15);
+            color: var(--pink-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .mg-benefit-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.85);
+            font-weight: 400;
+        }
+
+        /* ===== FORM ===== */
+        .mg-form-section {
+            background: var(--black);
+            padding: 2rem 2rem 6rem;
+        }
+        .mg-form-wrap {
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .mg-form-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(233,30,99,0.25);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .mg-form-title {
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.03em;
+            text-align: center;
+        }
+        .mg-form-subtitle {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .mg-form-group {
+            margin-bottom: 1.15rem;
+        }
+        .mg-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        .mg-form-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+        .mg-form-input {
+            width: 100%;
+            padding: 1rem 1.15rem;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: border-color 0.25s ease, background 0.25s ease;
+            box-sizing: border-box;
+        }
+        .mg-form-input::placeholder { color: rgba(255,255,255,0.3); }
+        .mg-form-input:focus {
+            outline: none;
+            border-color: var(--pink-primary);
+            background: rgba(255,255,255,0.08);
+        }
+        .mg-form-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin: 0.5rem 0 1.25rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        .mg-form-consent input[type="checkbox"] {
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+            accent-color: var(--pink-primary);
+            width: 1rem;
+            height: 1rem;
+        }
+        .mg-form-consent a { color: var(--pink-primary); text-decoration: underline; }
+        .mg-form-btn {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: var(--pink-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+        .mg-form-btn:hover:not(:disabled) {
+            background: var(--pink-dark);
+            transform: translateY(-3px);
+        }
+        .mg-form-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .mg-form-error {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.85rem 1rem;
+            background: rgba(233,30,99,0.1);
+            border: 1px solid rgba(233,30,99,0.35);
+            border-radius: 8px;
+            color: #ffb3c6;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .mg-form-error.visible { display: block; }
+        .mg-form-privacy {
+            text-align: center;
+            margin-top: 1.25rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.35);
+            font-weight: 300;
+        }
+
+        /* ===== SUCCESS STATE ===== */
+        .mg-success {
+            display: none;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        .mg-success.active { display: block; }
+        .mg-success-icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            background: rgba(233,30,99,0.15);
+            border: 2px solid var(--pink-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--pink-primary);
+            font-size: 2rem;
+        }
+        .mg-success h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .mg-success p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            line-height: 1.7;
+            margin: 0 auto 1.5rem;
+            max-width: 440px;
+        }
+        .mg-success .mg-upsell {
+            background: linear-gradient(135deg, rgba(233,30,99,0.12), rgba(233,30,99,0.04));
+            border: 1px solid rgba(233,30,99,0.4);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+        .mg-upsell-kicker {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            margin-bottom: 0.75rem;
+        }
+        .mg-upsell-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0 0 0.75rem;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+        .mg-upsell-copy {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 0 0 1.5rem;
+        }
+        .mg-upsell-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--pink-primary);
+            color: var(--white);
+            padding: 1.1rem 2.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+        .mg-upsell-btn:hover {
+            background: var(--pink-dark);
+            transform: translateY(-3px);
+        }
+        .mg-success-secondary {
+            display: inline-block;
+            margin-top: 1.25rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 2px;
+        }
+        .mg-success-secondary:hover { color: var(--white); border-color: var(--pink-primary); }
+
+        /* ===== FADE-IN ===== */
+        .mg-fade-in {
+            opacity: 0;
+            transform: translateY(1.5rem);
+            transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .mg-fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .mg-hero-content { padding: 5.5rem 1.5rem 3rem; }
+            .mg-benefits { grid-template-columns: 1fr; gap: 0.65rem; }
+            .mg-form-card { padding: 2.25rem 1.5rem; }
+            .mg-form-row { grid-template-columns: 1fr; gap: 0; }
+            .mg-form-section { padding: 1.5rem 1rem 4rem; }
+            .mg-fade-in { transform: translateY(1rem); }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'Metabolismo Guida', content_category: 'lead-magnet'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Iubenda Cookie Solution -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="mg-hero">
+        <div class="mg-hero-gradient"></div>
+        <div class="mg-hero-content">
+            <div class="mg-badge">GUIDA GRATUITA</div>
+            <h1 class="mg-hero-title">
+                Come riattivare il <span class="accent">metabolismo</span><br>dopo i 40
+            </h1>
+            <p class="mg-hero-subtitle">
+                <strong>Scarica gratis la guida di Elena Giordani</strong> e scopri le strategie concrete per riattivare il tuo metabolismo, ritrovare energia e sentirti di nuovo in forma &mdash; anche dopo i 40.
+            </p>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="mg-benefits-section">
+        <div class="mg-benefits mg-fade-in">
+            <div class="mg-benefit">
+                <div class="mg-benefit-icon">&#10003;</div>
+                <div class="mg-benefit-text">Perch&eacute; dopo i 40 il metabolismo rallenta (e cosa fare davvero)</div>
+            </div>
+            <div class="mg-benefit">
+                <div class="mg-benefit-icon">&#10003;</div>
+                <div class="mg-benefit-text">Gli errori alimentari pi&ugrave; comuni da evitare subito</div>
+            </div>
+            <div class="mg-benefit">
+                <div class="mg-benefit-icon">&#10003;</div>
+                <div class="mg-benefit-text">Le strategie di allenamento pi&ugrave; efficaci per te</div>
+            </div>
+            <div class="mg-benefit">
+                <div class="mg-benefit-icon">&#10003;</div>
+                <div class="mg-benefit-text">Come ritrovare energia, focus e fiducia nel tuo corpo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="mg-form-section" id="form">
+        <div class="mg-form-wrap mg-fade-in">
+            <div class="mg-form-card">
+                <div id="formContent">
+                    <div class="mg-form-title">Ricevi la guida gratis</div>
+                    <p class="mg-form-subtitle">Inserisci i tuoi dati: ti mandiamo subito il link per scaricarla.</p>
+                    <form id="metabolismoForm" novalidate>
+                        <div class="mg-form-row">
+                            <div class="mg-form-group">
+                                <label class="mg-form-label" for="nome">Nome</label>
+                                <input class="mg-form-input" type="text" id="nome" name="nome" placeholder="Il tuo nome" autocomplete="given-name" required>
+                            </div>
+                            <div class="mg-form-group">
+                                <label class="mg-form-label" for="cognome">Cognome</label>
+                                <input class="mg-form-input" type="text" id="cognome" name="cognome" placeholder="Il tuo cognome" autocomplete="family-name" required>
+                            </div>
+                        </div>
+                        <div class="mg-form-group">
+                            <label class="mg-form-label" for="email">Email</label>
+                            <input class="mg-form-input" type="email" id="email" name="email" placeholder="La tua email" autocomplete="email" required>
+                        </div>
+                        <div class="mg-form-group">
+                            <label class="mg-form-label" for="telefono">Telefono (WhatsApp)</label>
+                            <input class="mg-form-input" type="tel" id="telefono" name="telefono" placeholder="Es. 3331234567" autocomplete="tel" required>
+                        </div>
+                        <label class="mg-form-consent">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <span>Accetto di ricevere la guida e le comunicazioni via email e WhatsApp secondo la <a href="https://www.iubenda.com/privacy-policy/49397266" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                        </label>
+                        <button type="submit" class="mg-form-btn" id="submitBtn">Ricevi la guida gratis</button>
+                        <div class="mg-form-error" id="formError"></div>
+                    </form>
+                    <p class="mg-form-privacy">I tuoi dati sono al sicuro. Niente spam, promesso.</p>
+                </div>
+
+                <div class="mg-success" id="formSuccess">
+                    <div class="mg-success-icon">&#10003;</div>
+                    <h3>Perfetto! La tua guida sta arrivando</h3>
+                    <p>Controlla <strong>WhatsApp</strong> e la tua <strong>email</strong> nei prossimi minuti: ti mandiamo il link per scaricare <em>&laquo;Come riattivare il metabolismo dopo i 40&raquo;</em>.</p>
+
+                    <div class="mg-upsell">
+                        <div class="mg-upsell-kicker">&#128293; Mentre aspetti</div>
+                        <div class="mg-upsell-title">Prova la Sfida 7 Giorni di Elena</div>
+                        <p class="mg-upsell-copy">7 giorni per ripartire davvero: allenamento, alimentazione e mindset. Pensata per le donne che vogliono risultati veri.</p>
+                        <a href="https://lp.elenagiordani.com/sfida-sette-giorni" class="mg-upsell-btn" id="upsellBtn">
+                            Scopri la Sfida 7 Giorni
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+
+                    <a href="https://www.elenagiordani.com" class="mg-success-secondary">Torna al sito</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        (function() {
+            var fadeEls = document.querySelectorAll('.mg-fade-in');
+            if (!('IntersectionObserver' in window)) {
+                fadeEls.forEach(function(el) { el.classList.add('visible'); });
+                return;
+            }
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            fadeEls.forEach(function(el) { observer.observe(el); });
+        })();
+
+        // Capture attribution (UTM + click IDs + referrer + landing URL)
+        function getAttribution() {
+            var params = new URLSearchParams(window.location.search);
+            var attr = {};
+            ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','msclkid'].forEach(function(key) {
+                var v = params.get(key);
+                if (v) attr[key] = v;
+            });
+            if (document.referrer) attr.referrer = document.referrer;
+            attr.landing_url = window.location.href;
+            return attr;
+        }
+
+        // Form submit
+        var form = document.getElementById('metabolismoForm');
+        var submitBtn = document.getElementById('submitBtn');
+        var errorBox = document.getElementById('formError');
+        var formContent = document.getElementById('formContent');
+        var formSuccess = document.getElementById('formSuccess');
+
+        function showError(msg) {
+            errorBox.textContent = msg;
+            errorBox.classList.add('visible');
+        }
+        function clearError() {
+            errorBox.textContent = '';
+            errorBox.classList.remove('visible');
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            clearError();
+
+            var nome = document.getElementById('nome').value.trim();
+            var cognome = document.getElementById('cognome').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var telefono = document.getElementById('telefono').value.trim();
+            var consent = document.getElementById('consent').checked;
+
+            if (!nome || !cognome || !email || !telefono) {
+                showError('Compila tutti i campi per ricevere la guida.');
+                return;
+            }
+            if (!consent) {
+                showError('Accetta la privacy policy per continuare.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showError('Inserisci un indirizzo email valido.');
+                return;
+            }
+            if (telefono.replace(/\D/g, '').length < 8) {
+                showError('Inserisci un numero di telefono valido.');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            var originalLabel = submitBtn.textContent;
+            submitBtn.textContent = 'Invio in corso...';
+
+            var payload = Object.assign({
+                nome: nome,
+                cognome: cognome,
+                email: email,
+                telefono: telefono
+            }, getAttribution());
+
+            try {
+                var res = await fetch('/api/metabolismo-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) {
+                    var data = {};
+                    try { data = await res.json(); } catch (_) {}
+                    throw new Error(data.error || 'Errore invio. Riprova.');
+                }
+
+                // Track conversion
+                if (typeof fbq === 'function') {
+                    try { fbq('track', 'Lead', {content_name: 'Metabolismo Guida'}); } catch (_) {}
+                }
+
+                // Toggle to success state
+                formContent.style.display = 'none';
+                formSuccess.classList.add('active');
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } catch (err) {
+                showError(err.message || 'Errore imprevisto. Riprova tra poco.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalLabel;
+            }
+        });
+
+        // Track upsell clicks
+        var upsellBtn = document.getElementById('upsellBtn');
+        if (upsellBtn) {
+            upsellBtn.addEventListener('click', function() {
+                if (typeof fbq === 'function') {
+                    try { fbq('track', 'InitiateCheckout', {content_name: 'Sfida 7 Giorni'}); } catch (_) {}
+                }
+            });
+        }
+    </script>
+
+    <!-- Iubenda embed loader -->
+    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</body>
+</html>
