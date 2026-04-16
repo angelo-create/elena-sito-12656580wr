@@ -1,7 +1,10 @@
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  const secret = process.env.DEBUG_SECRET || 'xfit2024';
+  const secret = process.env.DEBUG_SECRET;
+  if (!secret) {
+    return res.status(404).json({ error: 'Not found' });
+  }
   if (req.query.key !== secret) {
     return res.status(403).json({ error: 'Forbidden' });
   }
