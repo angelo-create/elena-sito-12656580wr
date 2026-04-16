@@ -38,6 +38,23 @@ module.exports = async function handler(req, res) {
     if (lastName) payload.lastName = lastName;
     if (firstName || lastName) payload.name = [firstName, lastName].filter(Boolean).join(' ');
 
+    // Attribution: UTM + click IDs + referrer + landing URL
+    const attr = {};
+    const clip = (v, max = 500) => v ? String(v).slice(0, max) : undefined;
+    if (body.utm_source)   attr.utmSource   = clip(body.utm_source);
+    if (body.utm_medium)   attr.medium      = clip(body.utm_medium);
+    if (body.utm_campaign) attr.campaign    = clip(body.utm_campaign);
+    if (body.utm_content)  attr.utmContent  = clip(body.utm_content);
+    if (body.utm_term)     attr.utmKeyword  = clip(body.utm_term);
+    if (body.referrer)     attr.referrer    = clip(body.referrer, 1000);
+    if (body.landing_url)  attr.url         = clip(body.landing_url, 1000);
+    if (body.fbclid)       attr.fbclid      = clip(body.fbclid);
+    if (body.gclid)        attr.gclid       = clip(body.gclid);
+    if (body.msclkid)      attr.msclikid    = clip(body.msclkid);
+    if (Object.keys(attr).length > 0) {
+      payload.attributionSource = attr;
+    }
+
     const upsertRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
       method: 'POST',
       headers: {

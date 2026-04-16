@@ -257,6 +257,19 @@
                 <p class="newsletter-error" style="display:none; color:#e00; font-weight:600; margin-top:1rem;">Si è verificato un errore. Riprova tra qualche istante.</p>
                 <script>
                 (function() {
+                    // UTM / attribution capture
+                    var ATTR_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','msclkid'];
+                    try {
+                        var params = new URLSearchParams(window.location.search);
+                        var stored = JSON.parse(sessionStorage.getItem('attribution') || '{}');
+                        var updated = false;
+                        ATTR_KEYS.forEach(function(k) { var v = params.get(k); if (v && !stored[k]) { stored[k] = v; updated = true; } });
+                        if (!stored.landing_url) { stored.landing_url = window.location.href; updated = true; }
+                        if (!stored.referrer && document.referrer) { stored.referrer = document.referrer; updated = true; }
+                        if (updated) sessionStorage.setItem('attribution', JSON.stringify(stored));
+                    } catch (e) {}
+                    function getAttribution() { try { return JSON.parse(sessionStorage.getItem('attribution') || '{}'); } catch (e) { return {}; } }
+
                     var form = document.currentScript.parentElement.querySelector('.newsletter-form');
                     if (!form) return;
                     form.addEventListener('submit', function(e) {
@@ -274,6 +287,8 @@
                         var payload = { email: emailInput.value.trim(), source: 'risorse' };
                         if (firstNameInput && firstNameInput.value) payload.first_name = firstNameInput.value.trim();
                         if (lastNameInput && lastNameInput.value) payload.last_name = lastNameInput.value.trim();
+                        var attr = getAttribution();
+                        Object.keys(attr).forEach(function(k) { payload[k] = attr[k]; });
                         fetch('/api/newsletter', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },

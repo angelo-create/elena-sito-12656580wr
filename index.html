@@ -838,9 +838,29 @@
         </div>
     </footer>
 
-    <!-- Newsletter form handler -->
+    <!-- Newsletter form handler + UTM capture -->
     <script>
     (function() {
+        // ---- UTM / attribution capture (first-touch, persisted in sessionStorage) ----
+        var ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid', 'msclkid'];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var stored = JSON.parse(sessionStorage.getItem('attribution') || '{}');
+            var updated = false;
+            ATTR_KEYS.forEach(function(key) {
+                var val = params.get(key);
+                if (val && !stored[key]) { stored[key] = val; updated = true; }
+            });
+            if (!stored.landing_url) { stored.landing_url = window.location.href; updated = true; }
+            if (!stored.referrer && document.referrer) { stored.referrer = document.referrer; updated = true; }
+            if (updated) sessionStorage.setItem('attribution', JSON.stringify(stored));
+        } catch (e) {}
+
+        function getAttribution() {
+            try { return JSON.parse(sessionStorage.getItem('attribution') || '{}'); } catch (e) { return {}; }
+        }
+
+        // ---- Newsletter forms ----
         var forms = document.querySelectorAll('.newsletter-form');
         forms.forEach(function(form) {
             form.addEventListener('submit', function(e) {
@@ -864,6 +884,10 @@
                 };
                 if (firstNameInput && firstNameInput.value) payload.first_name = firstNameInput.value.trim();
                 if (lastNameInput && lastNameInput.value) payload.last_name = lastNameInput.value.trim();
+
+                // Merge persisted attribution
+                var attr = getAttribution();
+                Object.keys(attr).forEach(function(key) { payload[key] = attr[key]; });
 
                 fetch('/api/newsletter', {
                     method: 'POST',
