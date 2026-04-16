@@ -1,6 +1,10 @@
 {
   "private": true,
   "name": "elena-giordani-site",
+  "scripts": {
+    "build:css": "node scripts/build-css.js",
+    "build:css:check": "node scripts/build-css.js --check"
+  },
   "dependencies": {
     "micro": "^10.0.1",
     "stripe": "^17.0.0"
