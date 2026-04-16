@@ -42,7 +42,7 @@ module.exports = async function handler(req, res) {
       name: `${firstName} ${lastName}`.trim(),
       phone: phoneDigits,
       locationId,
-      tags: ['metabolismo-guida', 'ig-metabolismo-replica'],
+      tags: ['trigger-metabolismo-dm', 'metabolismo-guida'],
       source
     };
 
@@ -83,25 +83,6 @@ module.exports = async function handler(req, res) {
       const data = JSON.parse(text);
       contactId = data.contact ? data.contact.id : null;
     } catch (e) {}
-
-    // Add a note with the keyword "metabolismo" to reuse the existing Instagram workflow
-    // (the GHL workflow may listen for this keyword in notes/conversations)
-    if (contactId) {
-      try {
-        await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Version': '2021-07-28',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ body: 'metabolismo' })
-        });
-      } catch (noteErr) {
-        // Non-fatal: the tag-based trigger will still fire
-        console.warn('[metabolismo-lead] note creation failed:', noteErr.message);
-      }
-    }
 
     console.log('[metabolismo-lead] Lead captured:', email, '| contactId:', contactId);
     return res.status(200).json({ success: true, contactId });
