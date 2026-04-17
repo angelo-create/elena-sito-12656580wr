@@ -956,6 +956,80 @@
     <script defer src="js/react-mobile-header.js"></script>
     <script defer src="js/react-mobile-hero.js"></script>
 
+    <!-- ===== NEWSLETTER SCROLL POPUP ===== -->
+    <div class="nl-popup-overlay" id="nlPopupOverlay">
+        <div class="nl-popup-card">
+            <button class="nl-popup-close" id="nlPopupClose" aria-label="Chiudi">&times;</button>
+            <div class="nl-popup-icon">💌</div>
+            <h3>Non perderti i prossimi contenuti</h3>
+            <p>Iscriviti alla newsletter di Elena: tips settimanali, contenuti esclusivi e accesso anticipato ai nuovi percorsi.</p>
+            <form class="newsletter-form nl-popup-form" id="nlPopupForm" data-source="popup-scroll">
+                <input type="text" name="first_name" placeholder="Il tuo nome" class="nl-popup-input" required>
+                <input type="email" name="email" placeholder="La tua email" class="nl-popup-input" required>
+                <button type="submit" class="nl-popup-btn">Iscriviti Ora</button>
+            </form>
+            <p class="nl-popup-disclaimer">Zero spam. Puoi cancellarti in qualsiasi momento.</p>
+            <p class="newsletter-success" id="nlPopupSuccess" style="display:none; color:#10b981; font-weight:600; margin-top:1rem;">Iscrizione riuscita! Controlla la tua casella di posta 🎉</p>
+            <p class="newsletter-error" id="nlPopupError" style="display:none; color:#e00; font-weight:600; margin-top:1rem;">Si è verificato un errore. Riprova tra qualche istante.</p>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var overlay = document.getElementById('nlPopupOverlay');
+        var closeBtn = document.getElementById('nlPopupClose');
+        var form = document.getElementById('nlPopupForm');
+        var shown = false;
+
+        function shouldShow() {
+            if (sessionStorage.getItem('nlPopupDismissed')) return false;
+            if (localStorage.getItem('nlSubscribed')) return false;
+            return true;
+        }
+
+        function showPopup() {
+            if (shown || !shouldShow()) return;
+            shown = true;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hidePopup() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            sessionStorage.setItem('nlPopupDismissed', '1');
+        }
+
+        // Trigger at 60% scroll
+        window.addEventListener('scroll', function() {
+            if (shown) return;
+            var scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            if (scrollPercent > 0.6) showPopup();
+        });
+
+        // Close handlers
+        closeBtn.addEventListener('click', hidePopup);
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) hidePopup();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) hidePopup();
+        });
+
+        // On successful submit, mark as subscribed and close
+        form.addEventListener('submit', function() {
+            var checkSuccess = setInterval(function() {
+                var successEl = document.getElementById('nlPopupSuccess');
+                if (successEl && successEl.style.display === 'block') {
+                    clearInterval(checkSuccess);
+                    localStorage.setItem('nlSubscribed', '1');
+                    setTimeout(hidePopup, 2500);
+                }
+            }, 300);
+        });
+    })();
+    </script>
+
     <!-- Iubenda embed loader -->
     <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 </body>

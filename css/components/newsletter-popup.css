@@ -1,0 +1,149 @@
+/* ===== NEWSLETTER SCROLL POPUP ===== */
+.nl-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.nl-popup-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nl-popup-card {
+    background: #1A1A1A;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    max-width: 480px;
+    width: 100%;
+    padding: 3rem 2.5rem;
+    position: relative;
+    transform: translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    text-align: center;
+}
+
+.nl-popup-overlay.active .nl-popup-card {
+    transform: translateY(0);
+}
+
+.nl-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.nl-popup-close:hover {
+    background: var(--pink-primary);
+}
+
+.nl-popup-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.nl-popup-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.nl-popup-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.nl-popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.nl-popup-input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.nl-popup-input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.nl-popup-input:focus {
+    border-color: var(--pink-primary);
+}
+
+.nl-popup-btn {
+    width: 100%;
+    padding: 0.9rem;
+    background: var(--pink-primary);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 0.25rem;
+}
+
+.nl-popup-btn:hover {
+    background: var(--pink-dark);
+    transform: translateY(-1px);
+}
+
+.nl-popup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.nl-popup-disclaimer {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .nl-popup-card {
+        padding: 2rem 1.5rem;
+        border-radius: 12px;
+    }
+
+    .nl-popup-card h3 {
+        font-size: 1.25rem;
+    }
+}

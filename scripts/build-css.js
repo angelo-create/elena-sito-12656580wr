@@ -44,6 +44,7 @@ const MANIFEST = [
   'components/landing.css',
   'components/shop.css',
   'components/webinar-coach.css',
+  'components/newsletter-popup.css',
 ];
 
 function build() {
