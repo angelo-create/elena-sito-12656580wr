@@ -840,7 +840,7 @@
 
     <!-- Newsletter form handler + UTM capture -->
     <script>
-    (function() {
+    document.addEventListener('DOMContentLoaded', function() {
         // ---- UTM / attribution capture (first-touch, persisted in sessionStorage) ----
         var ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid', 'msclkid'];
         try {
@@ -908,7 +908,7 @@
                 });
             });
         });
-    })();
+    });
     </script>
 
     <!-- Parallax & Bg-Reveal Scripts -->

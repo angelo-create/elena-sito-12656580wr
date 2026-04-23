@@ -28,10 +28,14 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'invalid email' });
     }
 
+    const tags = ['newsletter', `newsletter-${source}`];
+
+    // Upsert WITHOUT tags — GHL upsert overwrites existing tags, which would
+    // wipe tags on returning contacts (e.g. existing students/customers).
+    // Tags are added additively via /contacts/:id/tags after the upsert.
     const payload = {
       email,
       locationId,
-      tags: ['newsletter', `newsletter-${source}`],
       source
     };
     if (firstName) payload.firstName = firstName;
@@ -77,8 +81,32 @@ module.exports = async function handler(req, res) {
       contactId = data.contact ? data.contact.id : null;
     } catch (e) {}
 
-    console.log('[newsletter] Subscribed:', email, '| source:', source, '| contactId:', contactId);
-    return res.status(200).json({ success: true, contactId });
+    // Add tags additively (preserves any tags the contact already has)
+    let tagsAdded = false;
+    if (contactId) {
+      try {
+        const tagsRes = await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/tags`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Version': '2021-07-28',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ tags })
+        });
+        if (tagsRes.ok) {
+          tagsAdded = true;
+        } else {
+          const tagsErr = await tagsRes.text();
+          console.error('[newsletter] GHL add-tags failed:', tagsRes.status, tagsErr);
+        }
+      } catch (tagsErr) {
+        console.error('[newsletter] GHL add-tags error:', tagsErr.message);
+      }
+    }
+
+    console.log('[newsletter] Subscribed:', email, '| source:', source, '| contactId:', contactId, '| tagsAdded:', tagsAdded);
+    return res.status(200).json({ success: true, contactId, tagsAdded });
   } catch (err) {
     console.error('[newsletter] Error:', err.message);
     return res.status(500).json({ error: 'Server error', message: err.message });
