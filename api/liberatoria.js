@@ -88,7 +88,46 @@ async function uploadToGhlMedia({ pdfBuffer, fileName, locationId, pitToken, par
   }
 }
 
-async function pushContact(payload, webhookUrl) {
+// Upsert contatto GHL via API diretta. Match per email -> mai duplicati.
+// In caso di match aggiorna il contatto esistente preservando i tag già presenti
+// (i nuovi vengono aggiunti additivamente).
+async function upsertContactViaApi({ data, locationId, pitToken, customFields, tags, timestamp }) {
+  const url = `${GHL_API_BASE}/contacts/upsert`;
+  const body = {
+    locationId,
+    email: data.email,
+    firstName: data.nome,
+    lastName: data.cognome,
+    name: `${data.nome} ${data.cognome}`,
+    phone: data.telefono,
+    address1: data.indirizzo,
+    city: data.citta,
+    postalCode: data.cap,
+    state: data.provincia,
+    country: 'IT',
+    dateOfBirth: data.dataNascita,
+    source: 'liberatoria-firma-digitale',
+    tags,
+    customFields
+  };
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${pitToken}`,
+      Version: GHL_API_VERSION,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(`GHL upsert failed: ${res.status} ${text.slice(0, 400)}`);
+  }
+  try { return JSON.parse(text); } catch { return null; }
+}
+
+// Webhook fallback (legacy) — chiamato solo se non ho PIT/Location.
+async function pushContactWebhook(payload, webhookUrl) {
   const res = await fetch(webhookUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -212,12 +251,44 @@ module.exports = async function handler(req, res) {
       console.warn('[liberatoria] GHL_PIT_TOKEN/GHL_LOCATION_ID assenti — skip upload media');
     }
 
-    if (WEBHOOK_URL) {
+    const customFieldsArr = [
+      { key: 'codice_fiscale',              field_value: body.codiceFiscale },
+      { key: 'liberatoria_pdf_url',         field_value: pdfUrl },
+      { key: 'liberatoria_pdf_file_id',     field_value: pdfFileId },
+      { key: 'liberatoria_pdf_filename',    field_value: fileName },
+      { key: 'liberatoria_signed_at',       field_value: timestamp },
+      { key: 'liberatoria_ip',              field_value: ip },
+      { key: 'liberatoria_user_agent',      field_value: userAgent },
+      { key: 'liberatoria_text_version',    field_value: TEXT_VERSION },
+      { key: 'liberatoria_pdf_hash_sha256', field_value: hash },
+      { key: 'consenso_liberatoria',        field_value: body.consensoLiberatoria ? 'true' : 'false' },
+      { key: 'consenso_dati',               field_value: body.consensoDati ? 'true' : 'false' },
+      { key: 'consenso_marketing',          field_value: body.consensoNewsletter ? 'true' : 'false' },
+      { key: 'consenso_immagini_video',     field_value: body.consensoImmagini ? 'true' : 'false' }
+    ];
+
+    if (PIT && LOCATION_ID) {
+      try {
+        const upsertRes = await upsertContactViaApi({
+          data: body,
+          locationId: LOCATION_ID,
+          pitToken: PIT,
+          customFields: customFieldsArr,
+          tags: [eventTag],
+          timestamp
+        });
+        const contactId = upsertRes && upsertRes.contact ? upsertRes.contact.id : (upsertRes ? upsertRes.id : '');
+        console.log('[liberatoria] Contact upserted (no duplicate):', body.email, '|', contactId);
+      } catch (err) {
+        console.error('[liberatoria] GHL contact upsert failed:', err.message);
+        return res.status(502).json({ error: 'Errore di salvataggio. Riprova tra qualche minuto.' });
+      }
+    } else if (WEBHOOK_URL) {
+      // Fallback legacy: webhook GHL (sviluppatore deve garantire upsert nel workflow)
       const contactPayload = {
         email: body.email,
         first_name: body.nome,
         last_name: body.cognome,
-        full_name: `${body.nome} ${body.cognome}`,
         phone: body.telefono,
         address1: body.indirizzo,
         city: body.citta,
@@ -227,33 +298,17 @@ module.exports = async function handler(req, res) {
         date_of_birth: body.dataNascita,
         tags: [eventTag],
         source: 'liberatoria-firma-digitale',
-        custom_fields: {
-          codice_fiscale: body.codiceFiscale,
-          liberatoria_pdf_url: pdfUrl,
-          liberatoria_pdf_file_id: pdfFileId,
-          liberatoria_pdf_filename: fileName,
-          liberatoria_signed_at: timestamp,
-          liberatoria_ip: ip,
-          liberatoria_user_agent: userAgent,
-          liberatoria_text_version: TEXT_VERSION,
-          liberatoria_pdf_hash_sha256: hash,
-          consenso_liberatoria: body.consensoLiberatoria,
-          consenso_dati: body.consensoDati,
-          consenso_marketing: body.consensoNewsletter,
-          consenso_immagini_video: body.consensoImmagini,
-          consenso_marketing_at: body.consensoNewsletter ? timestamp : '',
-          consenso_immagini_at: body.consensoImmagini ? timestamp : ''
-        }
+        custom_fields: customFieldsArr.reduce((acc, cf) => { acc[cf.key] = cf.field_value; return acc; }, {})
       };
       try {
-        await pushContact(contactPayload, WEBHOOK_URL);
-        console.log('[liberatoria] Contact upserted:', body.email);
+        await pushContactWebhook(contactPayload, WEBHOOK_URL);
+        console.log('[liberatoria] Contact pushed via webhook:', body.email);
       } catch (err) {
         console.error('[liberatoria] Contact webhook failed:', err.message);
         return res.status(502).json({ error: 'Errore di salvataggio. Riprova tra qualche minuto.' });
       }
     } else {
-      console.warn('[liberatoria] GHL_LIBERATORIA_WEBHOOK_URL assente — skip upsert contatto');
+      console.warn('[liberatoria] GHL_PIT_TOKEN/GHL_LOCATION_ID assenti — skip upsert contatto');
     }
 
     return res.status(200).json({
