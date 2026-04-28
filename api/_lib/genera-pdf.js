@@ -5,6 +5,8 @@ const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
 const {
   TEXT_VERSION,
   TITOLO,
+  EVENTO,
+  DETTAGLI_EVENTO,
   INFORMATIVA,
   LIBERATORIA,
   CLAUSOLA_FIRMA_DIGITALE,
@@ -70,18 +72,73 @@ function ensureSpace(ctx, needed) {
 function drawTitle(ctx, text) {
   ensureSpace(ctx, 30);
   const size = 13;
-  const lines = wrapText(text, CONTENT_WIDTH, ctx.helvBold, size);
-  for (const line of lines) {
-    ctx.page.drawText(line, {
-      x: MARGIN.left,
-      y: ctx.y - size,
-      size,
+  // Rispetta i \n nel titolo (es. titolo su 2 righe)
+  const paragraphs = sanitize(text).split(/\n+/);
+  for (const para of paragraphs) {
+    const lines = wrapText(para, CONTENT_WIDTH, ctx.helvBold, size);
+    for (const line of lines) {
+      if (line === '') { ctx.y -= 4; continue; }
+      ctx.page.drawText(line, {
+        x: MARGIN.left,
+        y: ctx.y - size,
+        size,
+        font: ctx.helvBold,
+        color: DARK
+      });
+      ctx.y -= size + 4;
+    }
+  }
+  ctx.y -= 4;
+}
+
+function drawEventoBox(ctx, evento) {
+  ensureSpace(ctx, 80);
+  const boxX = MARGIN.left;
+  const boxY = ctx.y - 76;
+  const boxW = CONTENT_WIDTH;
+  const boxH = 76;
+  ctx.page.drawRectangle({
+    x: boxX,
+    y: boxY,
+    width: boxW,
+    height: boxH,
+    borderColor: PINK,
+    borderWidth: 0.8,
+    color: rgb(0.997, 0.953, 0.965) // pink-soft
+  });
+  let cursorY = boxY + boxH - 14;
+  ctx.page.drawText('DETTAGLI EVENTO', {
+    x: boxX + 14,
+    y: cursorY,
+    size: 8,
+    font: ctx.helvBold,
+    color: PINK
+  });
+  cursorY -= 14;
+  const rows = [
+    ['Evento', evento.nome],
+    ['Date', evento.date],
+    ['Luogo', evento.luogo],
+    ['Organizzatore', evento.organizzatore]
+  ];
+  for (const [label, value] of rows) {
+    ctx.page.drawText(sanitize(label) + ':', {
+      x: boxX + 14,
+      y: cursorY,
+      size: 8.5,
+      font: ctx.helv,
+      color: GRAY
+    });
+    ctx.page.drawText(sanitize(value), {
+      x: boxX + 90,
+      y: cursorY,
+      size: 8.5,
       font: ctx.helvBold,
       color: DARK
     });
-    ctx.y -= size + 4;
+    cursorY -= 12;
   }
-  ctx.y -= 4;
+  ctx.y = boxY - 12;
 }
 
 function drawSectionTitle(ctx, text) {
@@ -444,7 +501,11 @@ async function generaPDF(data) {
   // Pagina 1+: testo informativa + liberatoria + clausola firma elettronica
   newPage(ctx);
   drawTitle(ctx, TITOLO);
+  drawSpace(ctx, 6);
+  drawEventoBox(ctx, EVENTO);
   drawSpace(ctx, 4);
+  drawParagraph(ctx, DETTAGLI_EVENTO, { size: 9, lineHeight: 12 });
+  drawSpace(ctx, 6);
   drawParagraph(ctx, INFORMATIVA, { size: 9, lineHeight: 12 });
 
   drawSpace(ctx, 12);

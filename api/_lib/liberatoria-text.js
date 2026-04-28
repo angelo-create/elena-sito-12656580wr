@@ -2,9 +2,18 @@
 // Bump TEXT_VERSION quando il contenuto cambia. Le firme restano legate
 // alla versione storica del testo che hanno effettivamente firmato.
 
-const TEXT_VERSION = 'v1.0';
+const TEXT_VERSION = 'v1.1';
 
-const TITOLO = 'INFORMATIVA E LIBERATORIA TRAINING CONDOTTO DA ELENA GIORDANI';
+const TITOLO = 'INFORMATIVA E LIBERATORIA — NEL CORPO CHE VUOI LIVE\n9-10 Maggio 2026 — Shangri-La, Roma';
+
+const EVENTO = {
+  nome: 'Nel Corpo Che Vuoi Live',
+  date: '9-10 Maggio 2026',
+  luogo: 'Shangri-La, Viale Algeria 141, 00144 Roma (RM)',
+  organizzatore: 'Elena Giordani — X-Fit Academy'
+};
+
+const DETTAGLI_EVENTO = `Il presente documento ha effetto per la partecipazione all'evento "${EVENTO.nome}" condotto da ${EVENTO.organizzatore}, che si svolge il ${EVENTO.date} presso ${EVENTO.luogo}.`;
 
 const INFORMATIVA = `Durante lo svolgimento delle attività di training condotte da Elena Giordani, con l'assistenza del suo staff e di altri professionisti ed esperti in materia di salute e benessere, verranno trattati argomenti relativi alla sperimentazione del proprio benessere e Elena Giordani condurrà ogni singola persona e tutto il gruppo di partecipanti a sperimentare diverse tecniche, tra cui la pratica del Metodo Easy, un approccio innovativo, personalizzato e non invasivo che offre importanti benefici per la salute fisica, mentale ed emozionale. Si avverte che il Metodo Easy, così come tutte le tecniche che verranno insegnate, non sostituiscono in alcun modo adeguati trattamenti medici in relazione ad alcuna malattia fisica, della mente, o a problemi psicologici gravi. Piuttosto saranno da considerare come pratiche preventive e di supporto in caso di stati patologici in trattamento. Le sessioni previste durante il percorso di training completo potranno includere esercizi per tutto il corpo: attività cardiovascolari, movimenti funzionali, esercizi di tonificazione e mobilità, allenamenti per la postura e tecniche di respirazione consapevole. Tali attività comportano uno sforzo fisico globale, che coinvolge l'intera struttura muscolare e articolare, da eseguire in base al livello di ciascuna partecipante. Per questo motivo, la partecipazione è sconsigliata — salvo diversa indicazione del medico curante — a chi soffre di: gravi problemi cardiaci con dolore al petto, patologie respiratorie persistenti (come asma severa o bronchite cronica), ipertensione non controllata, incontinenza urinaria importante, epilessia, emorroidi ulcerose in stato avanzato, ulcere sanguinanti, problemi muscolo-scheletrici acuti o cronici, sintomi attivi di febbre, tosse, raffreddore o malessere generale, disturbi psichiatrici gravi o interventi chirurgici maggiori avvenuti nei tre mesi precedenti. Questo elenco è puramente indicativo. In caso di dubbio e in ogni caso nell'ipotesi in cui accediate alla pratica delle predette attività da una situazione di sedentarietà, preghiamo di consultare il proprio medico di fiducia. Se si segue una terapia, anche nel caso in cui doveste riscontrare un sorprendente miglioramento delle condizioni di salute in seguito alla pratica del Metodo Easy o di una delle tecniche imparate, suggeriamo di consultare sempre prima il medico curante prima di ridurre o interrompere l'assunzione dei farmaci abituali. Usate sempre il buon senso. Se, durante le sessioni pratiche doveste avvertire un disturbo improvviso, interrompete immediatamente ogni esercizio o chiedete assistenza allo staff e al vostro istruttore.`;
 
@@ -70,6 +79,8 @@ const CONSENSI = {
 module.exports = {
   TEXT_VERSION,
   TITOLO,
+  EVENTO,
+  DETTAGLI_EVENTO,
   INFORMATIVA,
   LIBERATORIA,
   CLAUSOLA_FIRMA_DIGITALE,
