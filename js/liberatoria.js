@@ -152,13 +152,12 @@
   }
 
   // ----- Consents (step 3)
+  // Il <label> toglia gia' l'input nested di default — basta osservare il change.
   function bindConsents() {
     $$('.lib-consent').forEach(block => {
       const input = block.querySelector('input[type="checkbox"]');
-      block.addEventListener('click', (e) => {
-        if (e.target.tagName !== 'INPUT') {
-          input.checked = !input.checked;
-        }
+      if (!input) return;
+      input.addEventListener('change', () => {
         block.classList.toggle('checked', input.checked);
         state.data[input.dataset.key] = input.checked;
         updatePrimaryStateConsents();
