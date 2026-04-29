@@ -64,6 +64,36 @@
     })();
     </script>
 
+    <!-- UTM PERSONALIZATION — calcola variante prima del rendering -->
+    <script>
+    (function() {
+        var p = new URLSearchParams(location.search);
+        var src = (p.get('utm_source') || '').toLowerCase();
+        var med = (p.get('utm_medium') || '').toLowerCase();
+        var cmp = (p.get('utm_campaign') || '').toLowerCase();
+        var variant = 'default';
+
+        // Priorità: paid+retargeting > paid > organic per source
+        if (med === 'retargeting' || cmp.indexOf('retarget') > -1) variant = 'retarget';
+        else if (med === 'paid' && (src === 'fb' || src === 'facebook')) variant = 'fb-ads';
+        else if (med === 'paid' && (src === 'ig' || src === 'instagram')) variant = 'ig-ads';
+        else if (med === 'paid') variant = 'meta-ads'; // generic fallback per Meta
+        else if ((src === 'ig' || src === 'instagram') && (med === 'organic' || med === 'social' || med === 'bio' || med === 'story' || med === 'dm' || med === '')) variant = 'ig-organic';
+        else if (src === 'whatsapp') variant = 'whatsapp';
+        else if (src === 'newsletter' || med === 'email') variant = 'newsletter';
+        else if (src === 'referral') variant = 'referral';
+
+        // Persist su sessionStorage per evitare drift al refresh
+        try {
+            if (variant !== 'default') sessionStorage.setItem('utm_variant', variant);
+            else if (sessionStorage.getItem('utm_variant')) variant = sessionStorage.getItem('utm_variant');
+        } catch(e) {}
+
+        document.documentElement.setAttribute('data-utm-variant', variant);
+        window.UTM_VARIANT = variant;
+    })();
+    </script>
+
     <style>
         /* ===== WEBINAR-SPECIFIC STYLES ===== */
 
@@ -542,6 +572,23 @@
         @media (max-width: 380px) {
             .wb-press-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* UTM personalizzato — kicker sopra hero badge */
+        .hero-kicker {
+            display: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--warm-gold);
+            margin: 0 0 1rem 0;
+            text-shadow: 0 0 30px rgba(255, 182, 39, 0.3);
+            line-height: 1.4;
+            max-width: 600px;
+        }
+        .hero-kicker.active { display: block; }
+        @media (max-width: 768px) {
+            .hero-kicker { font-size: 0.75rem; text-align: center; }
+        }
     </style>
 
     <!-- Iubenda Cookie Solution (PRIMA del pixel per blocco corretto) -->
@@ -580,6 +627,7 @@
         <div class="hero-gradient"></div>
         <div class="hero-content">
             <div class="hero-text">
+                <p class="hero-kicker" id="utmKicker"></p>
                 <div class="hero-badge" data-cfg="badge">
                     Estate Inarrestabile &bull; 19-20-21 Maggio &bull; Ore 18:30
                 </div>
@@ -587,7 +635,7 @@
                     <span>Lo Strano Motivo Per Cui Ogni Estate</span>
                     <span class="accent">Perdi Il Controllo</span>
                 </h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" id="utmSubtitle">
                     Ogni anno la stessa storia: a maggio sei pronta, a giugno cominci a mollare, a settembre torni peggio di come eri partita. Non &egrave; la tua forza di volont&agrave;. C'&egrave; <strong>un motivo preciso</strong> che nessun coach ti ha mai spiegato. In 3 sere gratuite scopri qual &egrave; &mdash; e come 2300 donne sono diventate <strong>Inarrestabili</strong> anche d'estate.
                 </p>
                 <div class="hero-stats">
@@ -1381,6 +1429,55 @@
         }
         window.addEventListener('scroll', checkReveals, { passive: true });
         checkReveals();
+
+        // UTM-driven copy personalization — applica kicker + subtitle override
+        (function() {
+            var variants = {
+                'ig-organic': {
+                    kicker: 'Per le mie su Instagram che me lo chiedono da settimane',
+                    subtitle: 'Hai visto le storie. Ora arriva la versione completa: <strong>3 sere live</strong> con me, niente replay. Scopri perch\u00e9 ogni estate molli &mdash; e come uscirne. Ti tengo il posto.'
+                },
+                'whatsapp': {
+                    kicker: 'Hai cliccato dal mio WhatsApp \u2014 sei tra le prime',
+                    subtitle: '3 sere live con me, 19-20-21 Maggio alle 18:30. Niente replay. Lo strano motivo per cui ogni estate molli &mdash; e come 2300 donne sono diventate <strong>Inarrestabili</strong>.'
+                },
+                'newsletter': {
+                    kicker: 'Solo per chi \u00e8 nella mia newsletter',
+                    subtitle: 'Te l\'avevo promesso. 3 sere live a maggio, niente replay. Scopri lo strano motivo per cui ogni estate perdi tutto quello che hai costruito \u2014 e come 2300 donne hanno smesso di subirlo.'
+                },
+                'referral': {
+                    kicker: 'Te l\'ha mandato un\'amica? Brava lei.',
+                    subtitle: '3 sere live insieme. Con lei. Con altre 2300 donne come te, che hanno deciso di non mollare mai pi\u00f9 a giugno. <strong>Diventate Inarrestabili insieme.</strong>'
+                },
+                'ig-ads': {
+                    kicker: 'Webinar Gratuito \u2022 2300+ donne lo hanno gi\u00e0 fatto',
+                    subtitle: null
+                },
+                'fb-ads': {
+                    kicker: 'Webinar Gratuito \u2022 2300+ donne lo hanno gi\u00e0 fatto',
+                    subtitle: null
+                },
+                'meta-ads': {
+                    kicker: 'Webinar Gratuito \u2022 2300+ donne lo hanno gi\u00e0 fatto',
+                    subtitle: null
+                },
+                'retarget': {
+                    kicker: 'Ci stavi gi\u00e0 pensando? Bene, eccoti.',
+                    subtitle: 'Sai gi\u00e0 di cosa parlo. <strong>3 sere live</strong>, 19-20-21 Maggio alle 18:30. Niente replay. Quest\'estate non \u00e8 come le altre &mdash; se decidi tu che non lo sia.'
+                }
+            };
+            var v = variants[window.UTM_VARIANT];
+            if (!v) return;
+            var k = document.getElementById('utmKicker');
+            if (k && v.kicker) {
+                k.textContent = v.kicker;
+                k.classList.add('active');
+            }
+            if (v.subtitle) {
+                var s = document.getElementById('utmSubtitle');
+                if (s) s.innerHTML = v.subtitle;
+            }
+        })();
 
         // Animated number counters (count up on scroll-into-view)
         (function() {
