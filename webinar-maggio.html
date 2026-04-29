@@ -831,6 +831,104 @@
     }
     .ei-faq-item.open .ei-faq-answer { max-height: 320px; padding-top: 0.75rem; }
 
+    /* ════════ SCROLL ROWS — WhatsApp + commenti webinar ════════ */
+    .ei-scroll-section {
+        margin: 3rem 0 2rem;
+    }
+    .ei-scroll-eyebrow {
+        text-align: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+    }
+    .ei-scroll-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0 calc(-1 * 1.25rem);
+        overflow: hidden;
+    }
+    @media (min-width: 768px) { .ei-scroll-rows { margin: 0 calc(-1 * 2rem); } }
+    .ei-scroll-row {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-behavior: auto;
+        cursor: grab;
+        padding: 0.5rem 1.25rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .ei-scroll-row::-webkit-scrollbar { display: none; }
+    .ei-scroll-row.grabbing { cursor: grabbing; }
+    .ei-scroll-item {
+        flex: 0 0 auto;
+        width: 220px;
+        height: 360px;
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--bg-soft);
+        box-shadow: 0 4px 16px rgba(180,140,90,0.12), 0 1px 3px rgba(0,0,0,0.04);
+        border: 1px solid var(--border-soft);
+        cursor: zoom-in;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    @media (max-width: 480px) {
+        .ei-scroll-item { width: 180px; height: 300px; }
+    }
+    .ei-scroll-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(180,140,90,0.2), 0 4px 8px rgba(0,0,0,0.06);
+    }
+    .ei-scroll-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+    }
+
+    /* Lightbox */
+    .ei-lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: rgba(26,15,0,0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        cursor: zoom-out;
+    }
+    .ei-lightbox.active { display: flex; }
+    .ei-lightbox img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 12px;
+        box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+    .ei-lightbox-close {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.15);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.25);
+        font-size: 1.4rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     /* ════════ FOOTER minimal ════════ */
     .ei-footer {
         background: var(--bg-soft);
@@ -1089,7 +1187,23 @@
                 </div>
             </div>
 
-            <div class="ei-social-stats">
+            <!-- Slider WhatsApp + commenti webinar precedenti -->
+            <div class="ei-scroll-section">
+                <div class="ei-scroll-eyebrow">Le mie ragazze in chat</div>
+                <div class="ei-scroll-rows">
+                    <div class="ei-scroll-row" id="eiRowWa"></div>
+                    <div class="ei-scroll-row" id="eiRowWaB"></div>
+                </div>
+            </div>
+
+            <div class="ei-scroll-section" style="margin-top: 2.5rem;">
+                <div class="ei-scroll-eyebrow">I commenti durante i miei webinar</div>
+                <div class="ei-scroll-rows">
+                    <div class="ei-scroll-row" id="eiRowComm"></div>
+                </div>
+            </div>
+
+            <div class="ei-social-stats" style="margin-top: 3rem;">
                 <div>
                     <div class="ei-social-stat-num" data-counter="2300">0+</div>
                     <div class="ei-social-stat-label">Donne nella mia comunit&agrave;</div>
@@ -1106,6 +1220,12 @@
         </div>
     </div>
 </section>
+
+<!-- Lightbox per zoom screenshots -->
+<div class="ei-lightbox" id="eiLightbox" role="dialog" aria-modal="true">
+    <button class="ei-lightbox-close" id="eiLightboxClose" aria-label="Chiudi">&times;</button>
+    <img src="" alt="" id="eiLightboxImg">
+</div>
 
 <!-- ═══════════════════ CHI È ELENA ═══════════════════ -->
 <section class="ei-section ei-author">
@@ -1402,6 +1522,122 @@ document.querySelectorAll('.ei-faq-question').forEach(function(btn) {
         });
     }, { threshold: 0.15 });
     document.querySelectorAll('.ei-fade').forEach(function(el) { io.observe(el); });
+})();
+
+// ── Lightbox per zoom screenshot
+(function() {
+    var box = document.getElementById('eiLightbox');
+    var img = document.getElementById('eiLightboxImg');
+    var close = document.getElementById('eiLightboxClose');
+    if (!box || !img) return;
+    function open(src) {
+        img.src = src;
+        box.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function dismiss() {
+        box.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    box.addEventListener('click', dismiss);
+    close.addEventListener('click', function(e) { e.stopPropagation(); dismiss(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') dismiss(); });
+    window.eiLightboxOpen = open;
+})();
+
+// ── Scroll-rows: WhatsApp + commenti webinar (auto-scroll + drag + click zoom)
+(function() {
+    function shuffle(arr) {
+        for (var i = arr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+        }
+        return arr;
+    }
+    function buildRow(rowEl, srcs, dir, speed) {
+        if (!rowEl) return null;
+        var html = '';
+        // Doppio set per scroll continuo
+        srcs.forEach(function(s) {
+            html += '<div class="ei-scroll-item" data-src="' + s + '"><img src="' + s + '" alt="Testimonianza" loading="lazy"></div>';
+        });
+        srcs.forEach(function(s) {
+            html += '<div class="ei-scroll-item" data-src="' + s + '"><img src="' + s + '" alt="Testimonianza" loading="lazy"></div>';
+        });
+        rowEl.innerHTML = html;
+        // Click → lightbox (ma solo se non si è draggato)
+        rowEl.querySelectorAll('.ei-scroll-item').forEach(function(it) {
+            var dragged = false;
+            it.addEventListener('mousedown', function() { dragged = false; });
+            it.addEventListener('mousemove', function(e) { if (e.buttons) dragged = true; });
+            it.addEventListener('click', function() {
+                if (dragged) return;
+                if (window.eiLightboxOpen) window.eiLightboxOpen(it.dataset.src);
+            });
+        });
+        var state = { el: rowEl, dir: dir, speed: speed, paused: false };
+        if (dir === -1) state.el.scrollLeft = state.el.scrollWidth - state.el.clientWidth;
+        // Drag manuale
+        var down = false, startX = 0, startScroll = 0;
+        rowEl.addEventListener('mousedown', function(e) {
+            down = true;
+            startX = e.pageX - rowEl.offsetLeft;
+            startScroll = rowEl.scrollLeft;
+            rowEl.classList.add('grabbing');
+            state.paused = true;
+        });
+        rowEl.addEventListener('mouseleave', function() { down = false; rowEl.classList.remove('grabbing'); state.paused = false; });
+        rowEl.addEventListener('mouseup', function() { down = false; rowEl.classList.remove('grabbing'); setTimeout(function() { state.paused = false; }, 1500); });
+        rowEl.addEventListener('mousemove', function(e) {
+            if (!down) return;
+            e.preventDefault();
+            rowEl.scrollLeft = startScroll - (e.pageX - rowEl.offsetLeft - startX);
+        });
+        rowEl.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; startScroll = rowEl.scrollLeft; state.paused = true; }, { passive: true });
+        rowEl.addEventListener('touchmove', function(e) { rowEl.scrollLeft = startScroll - (e.touches[0].pageX - startX); }, { passive: true });
+        rowEl.addEventListener('touchend', function() { setTimeout(function() { state.paused = false; }, 1500); });
+        return state;
+    }
+
+    // WhatsApp: 30 immagini whatsapp-01.webp ... whatsapp-30.webp
+    var waImgs = [];
+    for (var i = 1; i <= 30; i++) {
+        waImgs.push('img/whatsapp-webp/whatsapp-' + (i < 10 ? '0' + i : i) + '.webp');
+    }
+    waImgs = shuffle(waImgs.slice());
+    var half = Math.ceil(waImgs.length / 2);
+
+    // Commenti webinar
+    var commImgs = [
+        'img/commenti-webp/IMG_7065.webp', 'img/commenti-webp/IMG_7066.webp',
+        'img/commenti-webp/IMG_7067.webp', 'img/commenti-webp/IMG_7068.webp',
+        'img/commenti-webp/IMG_7069.webp', 'img/commenti-webp/IMG_7070.webp',
+        'img/commenti-webp/IMG_7071.webp', 'img/commenti-webp/IMG_7073.webp',
+        'img/commenti-webp/IMG_7074.webp', 'img/commenti-webp/IMG_7075.webp',
+        'img/commenti-webp/IMG_7077.webp', 'img/commenti-webp/IMG_7083.webp',
+        'img/commenti-webp/IMG_7085.webp', 'img/commenti-webp/IMG_7086.webp',
+        'img/commenti-webp/IMG_7091.webp', 'img/commenti-webp/IMG_7092.webp',
+        'img/commenti-webp/IMG_7093.webp', 'img/commenti-webp/IMG_7094.webp'
+    ];
+    commImgs = shuffle(commImgs.slice());
+
+    var rows = [
+        buildRow(document.getElementById('eiRowWa'),   waImgs.slice(0, half), 1,  0.5),
+        buildRow(document.getElementById('eiRowWaB'),  waImgs.slice(half),    -1, 0.4),
+        buildRow(document.getElementById('eiRowComm'), commImgs,              1,  0.4)
+    ].filter(Boolean);
+
+    function tick() {
+        rows.forEach(function(r) {
+            if (r.paused) return;
+            r.el.scrollLeft += r.speed * r.dir;
+            var halfScroll = r.el.scrollWidth / 2;
+            if (r.dir === 1 && r.el.scrollLeft >= halfScroll) r.el.scrollLeft -= halfScroll;
+            else if (r.dir === -1 && r.el.scrollLeft <= 0) r.el.scrollLeft += halfScroll;
+        });
+        requestAnimationFrame(tick);
+    }
+    if (rows.length) requestAnimationFrame(tick);
 })();
 </script>
 
