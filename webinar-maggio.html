@@ -448,6 +448,100 @@
             .wb-final-cta .wb-question { font-size: 1.5rem; }
             .wb-bento-card { padding: 2rem 1.5rem; }
         }
+
+        /* PRESS / Featured in — sezione light per spezzare il dark */
+        .wb-press {
+            background: linear-gradient(180deg, #FFF7EE 0%, #FCE9D6 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .wb-press::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255,182,39,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .wb-press::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255,140,90,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .wb-press .container { position: relative; z-index: 1; }
+        .wb-press-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--pink-primary);
+            margin-bottom: 1.25rem;
+        }
+        .wb-press-title {
+            font-size: clamp(1.5rem, 3.2vw, 2rem);
+            font-weight: 700;
+            color: #1A0F00;
+            margin-bottom: 2.75rem;
+            line-height: 1.3;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .wb-press-title em {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--warm-coral) 50%, var(--pink-primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .wb-press-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            justify-items: center;
+        }
+        .wb-press-grid img {
+            height: 38px;
+            width: auto;
+            max-width: 140px;
+            opacity: 0.55;
+            filter: grayscale(1);
+            transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+        }
+        .wb-press-grid img:hover {
+            opacity: 1;
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+        @media (max-width: 1024px) {
+            .wb-press-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2.5rem 1.5rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .wb-press { padding: 3.5rem 1.25rem; }
+            .wb-press-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem 1rem;
+            }
+            .wb-press-grid img { height: 28px; max-width: 100px; }
+        }
+        @media (max-width: 380px) {
+            .wb-press-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 
     <!-- Iubenda Cookie Solution (PRIMA del pixel per blocco corretto) -->
@@ -602,6 +696,23 @@
         </div>
     </section>
 
+
+    <!-- PRESS · Featured in (sezione light, spezza il dark) -->
+    <section class="wb-press">
+        <div class="container">
+            <p class="wb-press-eyebrow">Featured in</p>
+            <h2 class="wb-press-title">Elena &egrave; gi&agrave; stata sentita da chi conta. <em>Ora puoi sentirla anche tu.</em></h2>
+            <div class="wb-press-grid">
+                <img src="img/press-logos/sole24ore.svg" alt="Il Sole 24 Ore" loading="lazy">
+                <img src="img/press-logos/repubblica.svg" alt="La Repubblica" loading="lazy">
+                <img src="img/press-logos/corriere.svg" alt="Corriere della Sera" loading="lazy">
+                <img src="img/press-logos/elle.svg" alt="Elle" loading="lazy">
+                <img src="img/press-logos/cosmopolitan.svg" alt="Cosmopolitan" loading="lazy">
+                <img src="img/press-logos/dilei.svg" alt="DiLei" loading="lazy">
+                <img src="img/press-logos/radioradio.svg" alt="Radio Radio" loading="lazy">
+            </div>
+        </div>
+    </section>
 
     <!-- PROGRAMMA 3 SERE (Timeline) -->
     <section class="section section-black wb-bg-section" id="programma" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
