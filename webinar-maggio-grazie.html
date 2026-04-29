@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Se la pagina è caricata dentro l'iframe del form GHL, esce e apre a schermo intero -->
     <script>if(window.self!==window.top){try{window.top.location.href=window.location.href}catch(e){}}</script>
-    <title>Sei Dentro! - 3 Sere con Elena Giordani &bull; 19-20-21 Maggio</title>
+    <title>Sei Dentro! &mdash; Estate Inarrestabile &bull; 19-20-21 Maggio | Elena Giordani</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
@@ -32,7 +32,7 @@
 
         // --- WHATSAPP (step 1) ---
         whatsappNumero:    "393773892181",
-        whatsappMessaggio: "Ci sar\u00f2 al webinar del 19-20-21 Maggio!"
+        whatsappMessaggio: "Ci sar\u00f2 a Estate Inarrestabile (19-20-21 Maggio)!"
     };
     // URL params da GHL sovrascrivono il config (se presenti)
     // ─── REDIRECT URL DA INCOLLARE IN GHL (Form → Settings → Thank You) ───
@@ -672,7 +672,7 @@
         <div class="container">
             <div class="ty-info-card">
                 <h2>Il Webinar</h2>
-                <p class="ty-info-title">3 Sere con Elena Giordani</p>
+                <p class="ty-info-title">Estate Inarrestabile &mdash; 3 sere con Elena</p>
 
                 <div class="ty-info-grid">
                     <div class="ty-info-item">
@@ -760,8 +760,8 @@
         <div class="container">
             <div class="ty-referral-card">
                 <div class="ty-referral-emoji">&#128111;&#8205;&#9792;&#65039;</div>
-                <h3>Hai un'amica che <span>deve</span> sentire questo?</h3>
-                <p>Sai quella che ogni anno a maggio dice &ldquo;quest'estate non mollo&rdquo;... e a settembre &egrave; al punto di partenza?<br>Invitala. Fate questa estate insieme.</p>
+                <h3>Hai un'amica che <span>deve</span> diventare Inarrestabile?</h3>
+                <p>Sai quella che ogni anno a maggio dice &ldquo;quest'estate non mollo&rdquo;... e a settembre &egrave; al punto di partenza?<br>Invitala. Diventate Inarrestabili insieme.</p>
 
                 <div class="ty-referral-quote">
                     <p>&ldquo;Le trasformazioni pi&ugrave; belle le ho viste quando le donne arrivano in coppia. Si sostengono, si motivano, e a settembre ci sono ancora.&rdquo;</p>
@@ -846,17 +846,17 @@
                 var end = new Date(start.getTime() + 2 * 3600000);
                 function fmtGcal(d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
                 var details = 'Webinar gratuito con Elena Giordani.\n\nLink accesso: ' + C.linkWebinar + '\nCodice: ' + C.codiceAccesso;
-                cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=3+Sere+con+Elena+Giordani&dates=' + fmtGcal(start) + '/' + fmtGcal(end) + '&details=' + encodeURIComponent(details) + '&location=Online&recur=RRULE:FREQ=DAILY;COUNT=3';
+                cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Estate+Inarrestabile+%E2%80%94+Elena+Giordani&dates=' + fmtGcal(start) + '/' + fmtGcal(end) + '&details=' + encodeURIComponent(details) + '&location=Online&recur=RRULE:FREQ=DAILY;COUNT=3';
             }
         })();
 
-        var referralLink = 'https://lp.elenagiordani.com/registrazione?utm_source=referral&utm_medium=thankyou&utm_campaign=webinar-maggio';
-        var shareText = 'Ho appena scoperto questo webinar gratuito con Elena Giordani sul perché ogni estate perdiamo i risultati che abbiamo costruito. Mi sa che ti interessa 👇';
+        var referralLink = 'https://elenagiordani.com/webinar-maggio?utm_source=referral&utm_medium=thankyou&utm_campaign=estate-inarrestabile';
+        var shareText = 'Ho appena scoperto Estate Inarrestabile, il webinar gratuito di Elena Giordani sul perché ogni estate perdiamo i risultati. 3 sere live, niente replay. Te lo passo 👇';
 
         function shareWithFriend() {
             if (navigator.share) {
                 navigator.share({
-                    title: '3 Serate Gratuite con Elena Giordani',
+                    title: 'Estate Inarrestabile — 3 sere gratuite con Elena Giordani',
                     text: shareText,
                     url: referralLink
                 }).catch(function() {

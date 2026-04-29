@@ -1164,10 +1164,10 @@
     // Lead con event_id per deduplicazione pixel ↔ CAPI
     // sessionStorage guard: spara 1 sola volta per sessione
     (function() {
-        if (sessionStorage.getItem('lead_webinar_maggio')) return;
-        sessionStorage.setItem('lead_webinar_maggio', '1');
+        if (sessionStorage.getItem('lead_estate_inarrestabile')) return;
+        sessionStorage.setItem('lead_estate_inarrestabile', '1');
         var eid = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        fbq('track', 'Lead', {content_name: 'Webinar Maggio 2026'}, {eventID: eid});
+        fbq('track', 'Lead', {content_name: 'Estate Inarrestabile 2026'}, {eventID: eid});
         // Leggi cookie Facebook per matching
         var ck = document.cookie.split(';').reduce(function(a, c) {
             var p = c.trim().split('='); a[p[0]] = p.slice(1).join('='); return a;
@@ -1180,7 +1180,7 @@
                 event_id: eid,
                 event_source_url: window.location.href,
                 user_data: {fbc: ck._fbc || '', fbp: ck._fbp || ''},
-                custom_data: {content_name: 'Webinar Maggio 2026'}
+                custom_data: {content_name: 'Estate Inarrestabile 2026'}
             })
         }).catch(function() {});
     })();
