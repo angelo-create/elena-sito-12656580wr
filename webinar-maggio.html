@@ -595,6 +595,295 @@
         @media (max-width: 768px) {
             .hero-kicker { font-size: 0.75rem; text-align: center; }
         }
+
+        /* ═══════════════════════════════════════════════════════════
+           ESTATE INARRESTABILE · LIGHT THEME PIVOT
+           Cream/peach base. Dark mantenuto solo su Programma 3 sere
+           e Final CTA come isole drammatiche per contrasto.
+           ═══════════════════════════════════════════════════════════ */
+
+        :root {
+            --eim-bg-cream: #FFF7EE;
+            --eim-bg-soft:  #FFFAF3;
+            --eim-bg-white: #FFFFFF;
+            --eim-bg-warm:  #FCE9D6;
+            --eim-text-primary:   #1A0F00;
+            --eim-text-secondary: #5C4536;
+            --eim-text-muted:     #8B7363;
+            --eim-border-soft: #F5E6D6;
+            --eim-border:      #E8D6C0;
+        }
+
+        body {
+            background: var(--eim-bg-cream);
+            color: var(--eim-text-primary);
+        }
+
+        /* SECTIONS: tutte le .section-black diventano cream, ECCETTO #programma */
+        .section.section-black:not(#programma) {
+            background: var(--eim-bg-cream) !important;
+        }
+        .section.section-black:not(#programma) .section-title,
+        .section.section-black:not(#programma) .wb-community h2 {
+            color: var(--eim-text-primary) !important;
+        }
+        .section.section-black:not(#programma) .section-subtitle,
+        .section.section-black:not(#programma) .wb-community p,
+        .section.section-black:not(#programma) > .container p {
+            color: var(--eim-text-secondary) !important;
+        }
+        .section.section-black:not(#programma) .wb-community .wb-emphasis {
+            color: var(--eim-text-primary) !important;
+        }
+        .section-number {
+            color: var(--pink-primary) !important;
+        }
+
+        /* HERO: dark → cream con gradient warm e foto in multiply */
+        .hero {
+            background: linear-gradient(180deg, var(--eim-bg-cream) 0%, var(--eim-bg-warm) 60%, var(--eim-bg-warm) 100%) !important;
+        }
+        .hero-bg-image {
+            opacity: 0.35 !important;
+            mix-blend-mode: multiply;
+            filter: saturate(0.85) contrast(1.05);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg,
+                rgba(255,247,238,0.4) 0%,
+                rgba(252,233,214,0.5) 60%,
+                var(--eim-bg-warm) 100%) !important;
+        }
+        .hero::after {
+            background:
+                radial-gradient(ellipse at 80% 15%, rgba(255,182,39,0.35) 0%, transparent 50%),
+                radial-gradient(ellipse at 10% 85%, rgba(255,140,90,0.22) 0%, transparent 55%) !important;
+        }
+        .hero-title { color: var(--eim-text-primary) !important; }
+        .hero-title .accent {
+            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--warm-coral) 50%, var(--pink-primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle { color: var(--eim-text-secondary) !important; }
+        .hero-subtitle strong { color: var(--eim-text-primary) !important; }
+        .hero-stat-label { color: var(--eim-text-muted) !important; }
+        .hero-kicker {
+            color: #B57A00 !important;
+            text-shadow: none !important;
+        }
+
+        /* HERO BADGE: deep gradient su cream */
+        .hero-badge {
+            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--pink-primary) 100%);
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(233,30,99,0.2);
+        }
+
+        /* MARQUEE: già pink, ok ma lo lasciamo identico */
+
+        /* BG REVEAL IMAGES: sopra cream usano multiply per integrarsi */
+        .wb-bg-reveal img {
+            mix-blend-mode: multiply;
+            opacity: 0 !important;
+            filter: saturate(0.7) contrast(1.05);
+        }
+        .wb-bg-reveal.visible img { opacity: 0.28 !important; }
+        .wb-bg-reveal::after {
+            background:
+                linear-gradient(135deg, rgba(233,30,99,0.04), transparent),
+                linear-gradient(180deg, rgba(255,247,238,0.4) 0%, transparent 30%, transparent 70%, rgba(255,247,238,0.4) 100%) !important;
+        }
+
+        /* BENTO CARDS: white card con shadow soft, hover pink */
+        .wb-bento-card {
+            background: var(--eim-bg-white) !important;
+            border: 1px solid var(--eim-border-soft) !important;
+            box-shadow: 0 4px 16px rgba(180,140,90,0.08), 0 1px 3px rgba(0,0,0,0.04) !important;
+        }
+        .wb-bento-card::before { background: radial-gradient(circle, rgba(233,30,99,0.06), transparent 70%) !important; }
+        .wb-bento-card::after { background: linear-gradient(90deg, transparent, rgba(233,30,99,0.15), transparent) !important; }
+        .wb-bento-card h4 { color: var(--eim-text-primary) !important; }
+        .wb-bento-card p { color: var(--eim-text-secondary) !important; }
+        .wb-bento-card:hover {
+            border-color: rgba(233,30,99,0.4) !important;
+            box-shadow: 0 16px 40px rgba(233,30,99,0.12), 0 4px 12px rgba(180,140,90,0.1) !important;
+        }
+        .wb-bento-icon { color: var(--pink-primary) !important; filter: none !important; }
+        .wb-bento-number { color: rgba(26,15,0,0.04) !important; }
+
+        /* CHECK-UP cards */
+        .wb-checkup-card {
+            background: var(--eim-bg-white) !important;
+            border: 1px solid var(--eim-border-soft) !important;
+            box-shadow: 0 4px 16px rgba(180,140,90,0.08) !important;
+        }
+        .wb-checkup-card::before { background: linear-gradient(90deg, transparent, rgba(233,30,99,0.15), transparent) !important; }
+        .wb-checkup-title { color: var(--eim-text-primary) !important; }
+        .wb-checkup-list li { color: var(--eim-text-secondary) !important; }
+        .wb-checkup-label { color: var(--pink-primary) !important; }
+
+        /* FA PER TE SE / NON FA PER TE */
+        .wb-fortyou-card {
+            background: var(--eim-bg-white) !important;
+            border: 1px solid var(--eim-border-soft) !important;
+            box-shadow: 0 4px 16px rgba(180,140,90,0.08) !important;
+        }
+        .wb-fortyou-list li {
+            color: var(--eim-text-secondary) !important;
+            border-color: var(--eim-border-soft) !important;
+        }
+
+        /* TESTIMONIALS / WhatsApp scroll: lo sfondo è cream, le card vengono dal js */
+        .wb-testimonial {
+            background: var(--eim-bg-white) !important;
+            border: 1px solid var(--eim-border-soft) !important;
+            box-shadow: 0 4px 16px rgba(180,140,90,0.08) !important;
+        }
+        .wb-testimonial::after { color: rgba(233,30,99,0.12) !important; }
+        .wb-testimonial blockquote { color: var(--eim-text-secondary) !important; }
+        .wb-testimonial-name { color: var(--eim-text-primary) !important; }
+
+        /* TrustPilot REVIEWS */
+        .wb-review {
+            background: var(--eim-bg-white) !important;
+            border: 1px solid var(--eim-border-soft) !important;
+            box-shadow: 0 4px 16px rgba(180,140,90,0.08) !important;
+        }
+        .wb-review-title { color: var(--eim-text-primary) !important; }
+        .wb-review-text { color: var(--eim-text-secondary) !important; }
+        .wb-review-author { color: var(--eim-text-muted) !important; }
+        .wb-trustpilot-badge span {
+            background: rgba(0,182,122,0.08) !important;
+            border-color: rgba(0,182,122,0.3) !important;
+            color: #00875A !important;
+        }
+
+        /* BONUS cards */
+        .wb-bonus-card {
+            background: var(--eim-bg-white) !important;
+            border: 1px solid rgba(233,30,99,0.3) !important;
+            box-shadow: 0 8px 24px rgba(233,30,99,0.08), 0 1px 3px rgba(0,0,0,0.04) !important;
+        }
+        .wb-bonus-title { color: var(--eim-text-primary) !important; }
+        .wb-bonus-desc { color: var(--eim-text-secondary) !important; }
+        .wb-bonus-total {
+            background: rgba(255,182,39,0.12) !important;
+            border-color: rgba(255,182,39,0.35) !important;
+        }
+        .wb-bonus-total p { color: var(--eim-text-secondary) !important; }
+        .wb-bonus-total strong { color: var(--eim-text-primary) !important; }
+
+        /* ISCRIZIONE FORM countdown */
+        .wb-countdown-number {
+            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--pink-primary) 100%) !important;
+            border: none !important;
+            color: #fff !important;
+            box-shadow: 0 8px 24px rgba(233,30,99,0.18), inset 0 1px 0 rgba(255,255,255,0.2) !important;
+            -webkit-text-fill-color: #fff !important;
+        }
+        .wb-countdown-number::before { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent) !important; }
+        .wb-countdown-text { color: var(--eim-text-muted) !important; }
+
+        .wb-form-wrapper {
+            background: var(--eim-bg-white) !important;
+            border: 1px solid var(--eim-border) !important;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06), 0 2px 6px rgba(180,140,90,0.08) !important;
+        }
+        .wb-form-wrapper::before { background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent) !important; }
+
+        /* FAQ */
+        .wb-faq-item {
+            background: var(--eim-bg-white) !important;
+            border: 1px solid var(--eim-border-soft) !important;
+            box-shadow: 0 2px 8px rgba(180,140,90,0.06) !important;
+        }
+        .wb-faq-item:hover {
+            border-color: rgba(233,30,99,0.25) !important;
+            box-shadow: 0 6px 20px rgba(233,30,99,0.06) !important;
+        }
+        .wb-faq-item.open {
+            border-color: rgba(233,30,99,0.35) !important;
+            box-shadow: 0 8px 24px rgba(233,30,99,0.1) !important;
+        }
+        .wb-faq-question { color: var(--eim-text-primary) !important; }
+        .wb-faq-question:hover { background: rgba(233,30,99,0.04) !important; }
+        .wb-faq-answer p { color: var(--eim-text-secondary) !important; }
+
+        /* "Highlight em" gradient text — assicura visibilità su cream */
+        .highlight em {
+            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--warm-coral) 50%, var(--pink-primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+
+        /* PROGRAMMA (timeline 3 sere) — RESTA DARK come "menu drammatico" */
+        #programma {
+            background: linear-gradient(180deg, #1A0F00 0%, #0A0500 100%) !important;
+            position: relative;
+        }
+        #programma::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6rem;
+            background: linear-gradient(180deg, var(--eim-bg-cream) 0%, transparent 100%);
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        #programma .section-title { color: #fff !important; }
+        #programma .section-number { color: var(--warm-gold) !important; }
+        /* Timeline cards restano dark internamente, già stilizzate */
+
+        /* FINAL CTA: già pink-coral gradient, ok */
+
+        /* FOOTER: light */
+        .footer {
+            background: var(--eim-bg-soft) !important;
+            color: var(--eim-text-secondary) !important;
+            border-top: 1px solid var(--eim-border-soft);
+        }
+        .footer-logo { color: var(--eim-text-primary) !important; }
+        .footer p { color: var(--eim-text-secondary) !important; }
+        .footer-bottom { border-top: 1px solid var(--eim-border-soft) !important; }
+        .footer-legal a { color: var(--eim-text-muted) !important; }
+
+        /* STICKY CTA mobile: white */
+        .wb-sticky-cta {
+            background: var(--eim-bg-white) !important;
+            border-top: 1px solid var(--eim-border) !important;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08) !important;
+        }
+
+        /* Bottoni outline su cream — bordo scuro */
+        .btn-outline {
+            color: var(--eim-text-primary) !important;
+            border-color: var(--eim-text-primary) !important;
+        }
+        .btn-outline:hover {
+            background: var(--eim-text-primary) !important;
+            color: #fff !important;
+        }
+
+        /* CTA primary su cream — extra shadow per pop */
+        .btn-primary {
+            box-shadow: 0 8px 24px rgba(233,30,99,0.3) !important;
+        }
+
+        /* Section-header subtitle scope su sezioni light */
+        .section.section-black:not(#programma) .section-header .section-subtitle {
+            color: var(--eim-text-secondary) !important;
+        }
+
+        /* Press section già light, ok */
+
+        /* Scroll-rows / WhatsApp masonry: sfondo lo lasciamo trasparente */
     </style>
 
     <!-- Iubenda Cookie Solution (PRIMA del pixel per blocco corretto) -->
