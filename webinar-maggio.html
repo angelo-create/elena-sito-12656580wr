@@ -386,7 +386,7 @@
             font-size: 0.85rem;
         }
 
-        /* Mobile readability boost */
+        /* Mobile readability boost + single-CTA discipline */
         @media (max-width: 768px) {
             .wb-community p { font-size: 1.1rem; }
             .wb-bento-card p { font-size: 0.95rem; }
@@ -394,6 +394,59 @@
             .wb-faq-question { font-size: 1rem; padding: 1.4rem 1.5rem; }
             .wb-faq-answer p { font-size: 1rem; }
             .hero-subtitle { font-size: 1.05rem; }
+
+            /* HERO: una sola CTA su mobile (nascondi la secondaria) */
+            .hero .hero-cta-group .btn-outline { display: none !important; }
+            .hero .hero-cta-group .btn-primary {
+                width: 100%;
+                justify-content: center;
+                padding: 1.3rem 1.5rem;
+                font-size: 0.85rem;
+            }
+            .hero .hero-cta-group { width: 100%; }
+
+            /* CTA piene larghezza in tutte le sezioni mobile, padding generoso */
+            .section .btn-primary,
+            .section .btn-outline {
+                width: 100%;
+                max-width: 360px;
+                justify-content: center;
+                padding: 1.3rem 1.5rem;
+            }
+
+            /* Stat numbers più grandi su mobile, label più leggibile */
+            .hero-stat-number { font-size: 2.4rem; }
+            .hero-stat-label { font-size: 0.72rem; }
+
+            /* Hero badge: più compatto ma leggibile */
+            .hero-badge {
+                font-size: 0.72rem;
+                padding: 0.55rem 1.1rem;
+                line-height: 1.3;
+            }
+
+            /* Hero subtitle: meno claustrofobico */
+            .hero-subtitle {
+                line-height: 1.65;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Spacing più generoso tra sezioni mobile */
+            .section { padding: 4rem 1.25rem; }
+            .section-header.center { margin-bottom: 2rem; }
+
+            /* Bonus card: meno padding interno per non andare in overflow */
+            .wb-bonus-card { padding: 2rem 1.5rem; }
+            .wb-bonus-title { font-size: 1.15rem; }
+
+            /* Sticky CTA: assicura padding inferiore per il bottone */
+            body { padding-bottom: 5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stat-number { font-size: 2rem; }
+            .wb-final-cta .wb-question { font-size: 1.5rem; }
+            .wb-bento-card { padding: 2rem 1.5rem; }
         }
     </style>
 
@@ -1158,14 +1211,32 @@
         setInterval(updateCountdown, 1000);
 
         // Sticky CTA on scroll (mobile)
-        window.addEventListener('scroll', function() {
+        // Regola: una sola CTA visibile alla volta.
+        // Mostra sticky solo se: mobile + scrollY > 500 + nessun'altra CTA primaria
+        // già in viewport (sezione iscriviti, final CTA pink).
+        (function() {
             var sticky = document.querySelector('.wb-sticky-cta');
-            if (window.innerWidth <= 768 && window.scrollY > 500) {
-                sticky.style.display = 'block';
-            } else {
-                sticky.style.display = 'none';
+            var formSection = document.getElementById('iscriviti');
+            var finalCta = document.querySelector('.wb-final-cta');
+            function isInViewport(el) {
+                if (!el) return false;
+                var r = el.getBoundingClientRect();
+                return r.top < window.innerHeight && r.bottom > 0;
             }
-        });
+            function update() {
+                if (!sticky) return;
+                if (window.innerWidth > 768) { sticky.style.display = 'none'; return; }
+                if (window.scrollY <= 400) { sticky.style.display = 'none'; return; }
+                if (isInViewport(formSection) || isInViewport(finalCta)) {
+                    sticky.style.display = 'none';
+                } else {
+                    sticky.style.display = 'block';
+                }
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
 
         // Parallax scroll for emotion backgrounds
         var parallaxImages = document.querySelectorAll('[data-parallax]');
