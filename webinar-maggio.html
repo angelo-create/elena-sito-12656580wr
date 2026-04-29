@@ -866,8 +866,8 @@
     .ei-scroll-row.grabbing { cursor: grabbing; }
     .ei-scroll-item {
         flex: 0 0 auto;
-        width: 220px;
-        height: 360px;
+        height: 380px;
+        width: auto;
         border-radius: 14px;
         overflow: hidden;
         background: var(--bg-soft);
@@ -877,17 +877,16 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     @media (max-width: 480px) {
-        .ei-scroll-item { width: 180px; height: 300px; }
+        .ei-scroll-item { height: 300px; }
     }
     .ei-scroll-item:hover {
         transform: translateY(-3px);
         box-shadow: 0 12px 32px rgba(180,140,90,0.2), 0 4px 8px rgba(0,0,0,0.06);
     }
     .ei-scroll-item img {
-        width: 100%;
+        width: auto;
         height: 100%;
-        object-fit: cover;
-        object-position: top;
+        max-width: none;
         display: block;
     }
 
@@ -1171,20 +1170,9 @@
 <section class="ei-section ei-social">
     <div class="ei-container">
         <div class="ei-social-inner ei-fade">
-            <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
                 <span class="ei-eyebrow">Le mie Inarrestabili</span>
-                <h2 class="ei-h2">&laquo;La prima estate in cui non ho ricominciato da capo.&raquo;</h2>
-            </div>
-
-            <div class="ei-testimonial">
-                <blockquote>Le ho provate tutte, di diete. Dopo il webinar di Elena ho passato la prima estate in vita mia senza dirmi &ldquo;vabb&egrave;, riprendo a settembre&rdquo;. E a settembre, per la prima volta, stavo meglio di come ero a giugno. Tutto un altro sentire.</blockquote>
-                <div class="ei-testimonial-author">
-                    <div class="ei-testimonial-avatar">V</div>
-                    <div>
-                        <div class="ei-testimonial-name">Valentina, 47 anni</div>
-                        <div class="ei-testimonial-meta">Padova &middot; In Academy da 14 mesi</div>
-                    </div>
-                </div>
+                <h2 class="ei-h2">Quello che mi scrivono &mdash; nelle chat e nei webinar.</h2>
             </div>
 
             <!-- Slider WhatsApp + commenti webinar precedenti -->
