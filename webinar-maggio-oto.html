@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iframe escape: se caricata in un iframe, esce a schermo intero -->
+    <script>if(window.self!==window.top){try{window.top.location.href=window.location.href}catch(e){}}</script>
+    <title>Offerta Esclusiva - Kit Pre-Estate | Elena Giordani</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+
+    <!-- URL PARAMS — Riceve dati webinar e passa alla thank you page -->
+    <script>
+    (function() {
+        var raw = location.href;
+        var fixed = raw.replace(/#x3D;/g, '%3D');
+        var qIdx = fixed.indexOf('?');
+        var search = qIdx > -1 ? fixed.substring(qIdx) : '';
+        var hIdx = search.indexOf('#');
+        if (hIdx > -1) search = search.substring(0, hIdx);
+        var p = new URLSearchParams(search);
+
+        window.OTO_PARAMS = {
+            data:   p.get('data')   || '',
+            codice: p.get('codice') || '',
+            link:   p.get('link')   || '',
+            luogo:  p.get('luogo')  || ''
+        };
+    })();
+
+    function buildThankYouUrl() {
+        var base = 'webinar-maggio-grazie.html';
+        var params = ['oto=done'];
+        var P = window.OTO_PARAMS;
+        if (P.data)   params.push('data='   + encodeURIComponent(P.data));
+        if (P.codice) params.push('codice=' + encodeURIComponent(P.codice));
+        if (P.link)   params.push('link='   + encodeURIComponent(P.link));
+        if (P.luogo)  params.push('luogo='  + encodeURIComponent(P.luogo));
+        return base + '?' + params.join('&');
+    }
+    </script>
+
+    <style>
+        /* ===== OTO PAGE — EVENTO-MAGGIO DESIGN LANGUAGE ===== */
+
+        /* Urgency Bar (fixed top) */
+        .oto-urgency-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: var(--pink-primary);
+            color: var(--white);
+            text-align: center;
+            padding: 0.65rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .oto-urgency-bar .oto-timer-inline {
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            margin-left: 0.25rem;
+        }
+
+        /* Hero overrides — OTO uses main CSS .hero but with centered layout */
+        .oto-hero.hero {
+            min-height: auto;
+            justify-content: center;
+        }
+
+        .oto-hero .hero-bg-image {
+            width: 100%;
+            right: auto;
+            left: 0;
+            opacity: 0.4;
+            -webkit-mask-image: none;
+            mask-image: none;
+            filter: grayscale(0.15);
+        }
+
+        .oto-hero .hero-gradient {
+            background:
+                linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.3) 65%, #000 100%);
+        }
+
+        .oto-hero .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            grid-template-columns: 1fr;
+            max-width: 750px;
+            padding-top: 7rem;
+            padding-bottom: 4rem;
+        }
+
+        .oto-hero .hero-text { order: 1; }
+        .oto-hero .oto-hero-checkout { order: 2; }
+
+        .oto-hero .hero-title {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            margin-bottom: 1.25rem;
+        }
+
+        /* Hero embedded checkout */
+        .oto-hero-checkout {
+            width: 100%;
+            max-width: 480px;
+            margin-top: 2.5rem;
+            background: rgba(0,0,0,0.55);
+            border: 1px solid rgba(233,30,99,0.25);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            text-align: center;
+        }
+
+        .oto-hero-checkout-header {
+            margin-bottom: 1.25rem;
+        }
+
+        .oto-hero-checkout-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .oto-hero-checkout-price {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .oto-hero .hero-subtitle {
+            max-width: 600px;
+        }
+
+        .oto-hero .hero-subtitle strong {
+            color: var(--white);
+        }
+
+        .oto-hero .hero-badge {
+            animation: none;
+        }
+
+        .oto-hero .hero-badge::before {
+            animation: none;
+            background: var(--pink-primary);
+        }
+
+        /* Section background images — cinematic side reveal (from evento-maggio) */
+        .oto-bg-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .oto-bg-reveal {
+            position: absolute;
+            top: 0;
+            width: 45%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .oto-bg-reveal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0;
+            filter: grayscale(0.2);
+            transition: opacity 1.5s ease;
+        }
+
+        .oto-bg-reveal.visible img { opacity: 0.4; }
+
+        .oto-bg-reveal.oto-right {
+            right: 0;
+            -webkit-mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+            mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+        }
+
+        .oto-bg-reveal.oto-left {
+            left: 0;
+            -webkit-mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+            mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+        }
+
+        .oto-bg-reveal::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, #000 0%, transparent 25%, transparent 75%, #000 100%),
+                linear-gradient(135deg, rgba(233,30,99,0.08), transparent);
+            pointer-events: none;
+        }
+
+        .oto-bg-section .container { position: relative; z-index: 1; }
+
+        /* Community / copy text — matches ev-community pattern */
+        .oto-community { max-width: 800px; margin: 0 auto; text-align: center; }
+        .oto-community p { font-size: 1.15rem; line-height: 1.9; margin-bottom: 1rem; color: rgba(255,255,255,0.8); }
+        .oto-community strong { color: var(--white); font-weight: 600; }
+        .oto-community .oto-emphasis { font-size: 1.6rem; font-weight: 700; color: var(--white); margin: 2.5rem 0; }
+        .oto-community .oto-emphasis em { color: var(--pink-primary); }
+
+        /* Section header color fix for dark sections */
+        .section-black .section-title { color: var(--white); }
+        .section-black .section-subtitle { color: rgba(255,255,255,0.6); }
+
+        /* Offer Card */
+        .oto-offer-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(233,30,99,0.25);
+            border-radius: 24px;
+            padding: 3.5rem 3rem;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .oto-offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent);
+            pointer-events: none;
+        }
+
+        .oto-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--pink-primary);
+            padding: 0.5rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .oto-offer-card h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .oto-offer-card h2 em { font-style: normal; color: var(--pink-primary); }
+
+        .oto-offer-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .oto-price-block { margin-bottom: 2rem; }
+
+        .oto-price-old {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.35);
+            text-decoration: line-through;
+            margin-right: 0.75rem;
+        }
+
+        .oto-price-new {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--pink-primary);
+            letter-spacing: -0.03em;
+        }
+
+        .oto-price-note {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.5rem;
+        }
+
+        /* Buttons — use btn-primary from main CSS + OTO-specific buy button */
+        .oto-btn-buy {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--pink-primary);
+            color: var(--white);
+            padding: 1.25rem 2.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .oto-btn-buy:hover {
+            background: var(--pink-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(233,30,99,0.4);
+        }
+
+        .oto-skip {
+            display: block;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.35);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .oto-skip:hover { color: rgba(255,255,255,0.6); }
+
+        /* Value Stack */
+        .oto-value-stack {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .oto-value-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .oto-value-item:last-child { border-bottom: none; }
+
+        .oto-value-name {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.75);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .oto-value-name .oto-check { color: var(--pink-primary); font-size: 0.85rem; }
+
+        .oto-value-price {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .oto-value-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-top: 2px solid rgba(233,30,99,0.3);
+            margin-top: 0.5rem;
+        }
+
+        .oto-value-total .oto-value-name { font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.5); }
+        .oto-value-total .oto-value-price { font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.5); text-decoration: line-through; }
+
+        .oto-value-you-pay { text-align: center; margin-top: 1.5rem; }
+        .oto-value-you-pay span { font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.15em; }
+
+        /* Features Grid */
+        .oto-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .oto-feature-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .oto-feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(233,30,99,0.25);
+        }
+
+        .oto-feature-card::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(233,30,99,0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .oto-feature-icon {
+            width: 2.75rem;
+            height: 2.75rem;
+            background: rgba(233,30,99,0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .oto-feature-icon svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            stroke: var(--pink-primary);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .oto-feature-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .oto-feature-card p {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Testimonials */
+        .oto-testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .oto-testimonial {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .oto-testimonial::after {
+            content: '\201C';
+            position: absolute;
+            top: 0.75rem;
+            right: 1.25rem;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: rgba(233,30,99,0.08);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .oto-testimonial-stars {
+            color: #FFD700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 4px rgba(255,215,0,0.3));
+        }
+
+        .oto-testimonial blockquote {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .oto-testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .oto-testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(233,30,99,0.3);
+            flex-shrink: 0;
+        }
+
+        .oto-testimonial-name { font-size: 0.85rem; font-weight: 700; color: var(--white); }
+        .oto-testimonial-result { font-size: 0.7rem; color: var(--pink-primary); margin-top: 0.15rem; }
+
+        /* Elena quote — large italic pink (evento-maggio style) */
+        .oto-elena-quote {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .oto-elena-quote blockquote {
+            font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--pink-primary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .oto-elena-quote cite {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-style: normal;
+        }
+
+        .oto-elena-quote img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(233,30,99,0.3);
+            box-shadow: 0 4px 16px rgba(233,30,99,0.15);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Stats */
+        .oto-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .oto-stat-number {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--pink-primary);
+            line-height: 1;
+        }
+
+        .oto-stat-number span { font-size: 0.7em; }
+
+        .oto-stat-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 0.4rem;
+        }
+
+        /* Results grid */
+        .oto-results-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .oto-result-tag {
+            background: rgba(233,30,99,0.08);
+            border: 1px solid rgba(233,30,99,0.2);
+            border-radius: 100px;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .oto-result-tag .oto-check { color: var(--pink-primary); font-size: 0.75rem; }
+
+        /* "Cosa non è" list */
+        .oto-not-list {
+            max-width: 600px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+
+        .oto-not-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.65);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .oto-not-list li:last-child { border-bottom: none; }
+        .oto-not-icon { flex-shrink: 0; font-size: 0.85rem; line-height: 1.6; }
+
+        /* FAQ */
+        .oto-faq-list { max-width: 700px; margin: 0 auto; }
+
+        .oto-faq-item {
+            background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .oto-faq-question {
+            padding: 1.5rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .oto-faq-question:hover { background: rgba(233,30,99,0.1); }
+
+        .oto-faq-toggle {
+            font-size: 1.5rem;
+            color: var(--pink-primary);
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .oto-faq-item.open .oto-faq-toggle { transform: rotate(45deg); }
+
+        .oto-faq-answer {
+            padding: 0 1.75rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .oto-faq-item.open .oto-faq-answer { padding: 0 1.75rem 1.5rem; max-height: 500px; }
+        .oto-faq-answer p { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.7; }
+
+        /* Countdown Large */
+        .oto-countdown-wrap { text-align: center; }
+
+        .oto-countdown-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1.25rem;
+        }
+
+        .oto-countdown-boxes { display: inline-flex; gap: 0.75rem; align-items: center; }
+
+        .oto-countdown-box {
+            background: rgba(233,30,99,0.08);
+            border: 1px solid rgba(233,30,99,0.2);
+            border-radius: 12px;
+            width: 4.5rem;
+            height: 4.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .oto-countdown-num {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--pink-primary);
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .oto-countdown-unit {
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        .oto-countdown-sep { font-size: 1.5rem; font-weight: 700; color: rgba(255,255,255,0.2); }
+
+        /* Video glass container */
+        .oto-video-glass {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .oto-video-glass video { border-radius: 16px; }
+
+        /* Gradient fade into Final CTA */
+        .oto-final-cta-fade {
+            height: 8rem;
+            background: linear-gradient(180deg, var(--black) 0%, var(--pink-primary) 100%);
+        }
+
+        /* Final CTA — pink background (evento-maggio style) */
+        .oto-final-cta {
+            background: var(--pink-primary);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .oto-final-cta-content { max-width: 650px; margin: 0 auto; }
+
+        .oto-final-cta h3 {
+            color: var(--white);
+            margin-bottom: 1.25rem;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .oto-final-cta h3 em {
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .oto-final-cta p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .oto-final-cta .oto-final-price { margin-bottom: 2rem; }
+        .oto-final-cta .oto-price-old { color: rgba(255,255,255,0.5); }
+        .oto-final-cta .oto-price-new { color: var(--white); }
+
+        .oto-btn-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            color: var(--pink-primary);
+            padding: 1.25rem 2.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .oto-btn-white:hover {
+            background: #0A0A0A;
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .oto-final-cta .oto-skip { color: rgba(255,255,255,0.5); }
+        .oto-final-cta .oto-skip:hover { color: var(--white); }
+
+        .oto-final-trust {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .oto-final-cta .oto-elena-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            margin-bottom: 2rem;
+        }
+
+        /* Sticky CTA (mobile) */
+        .oto-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0A0A0A;
+            padding: 0.75rem 1.25rem;
+            box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
+            z-index: 1000;
+            border-top: 1px solid rgba(233,30,99,0.3);
+            text-align: center;
+        }
+
+        .oto-sticky-cta .oto-btn-buy { width: 100%; text-align: center; justify-content: center; }
+
+        /* Fade-in on scroll (from evento-maggio) */
+        .oto-fade-in {
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .oto-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== CRO: Checkout benefits ===== */
+
+        .oto-checkout-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .oto-checkout-benefit {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .oto-checkout-benefit .oto-check {
+            color: var(--pink-primary);
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        /* CRO: Trust signals */
+        .oto-checkout-trust {
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+        }
+
+        .oto-checkout-social-proof {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.5rem;
+        }
+
+        /* Step panels */
+        .oto-checkout-panel { display: none; }
+        .oto-checkout-panel.active { display: block; }
+
+        .oto-checkout-field {
+            margin-bottom: 1rem;
+        }
+
+        .oto-checkout-field label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .oto-checkout-field input {
+            width: 100%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--white);
+            transition: border-color 0.3s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .oto-checkout-field input::placeholder { color: rgba(255,255,255,0.25); }
+        .oto-checkout-field input:focus { border-color: var(--pink-primary); }
+
+        .oto-checkout-field .oto-field-error {
+            font-size: 0.7rem;
+            color: #ff4444;
+            margin-top: 0.35rem;
+            display: none;
+        }
+
+        .oto-checkout-field.error input { border-color: #ff4444; }
+        .oto-checkout-field.error .oto-field-error { display: block; }
+
+        .oto-checkout-btn {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .oto-checkout-secure {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .oto-checkout-secure svg {
+            width: 0.8rem;
+            height: 0.8rem;
+            vertical-align: -0.1rem;
+            margin-right: 0.25rem;
+            stroke: rgba(255,255,255,0.3);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Step 2: Payment Element */
+        #oto-payment-element {
+            margin-bottom: 1.25rem;
+        }
+
+        .oto-checkout-back {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            padding: 0;
+            margin-top: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: color 0.3s;
+        }
+
+        .oto-checkout-back:hover { color: rgba(255,255,255,0.7); }
+
+        .oto-payment-error {
+            color: #ff4444;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 0.75rem;
+            display: none;
+        }
+
+        .oto-payment-error.visible { display: block; }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media (max-width: 1200px) {
+            .oto-bg-reveal { width: 35%; }
+        }
+
+        @media (max-width: 768px) {
+            .oto-hero .hero-content {
+                padding: 6rem 1.25rem 2.5rem;
+            }
+
+            .oto-hero .hero-title {
+                font-size: clamp(1.75rem, 5.5vw, 2.5rem);
+            }
+
+            .oto-hero-checkout {
+                padding: 1.5rem 1.25rem;
+                margin-top: 1.75rem;
+                border-radius: 16px;
+            }
+
+            .oto-hero-checkout-title { font-size: 0.9rem; }
+
+            .oto-hero .hero-bg-image {
+                opacity: 0.5;
+                filter: none;
+            }
+
+            .oto-hero .hero-gradient {
+                background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.9) 100%);
+            }
+
+            .oto-offer-card {
+                padding: 2.5rem 1.5rem;
+                margin: 0 1rem;
+                border-radius: 20px;
+            }
+
+            .oto-badge { font-size: 0.6rem; padding: 0.4rem 1rem; }
+
+            .oto-features-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .oto-feature-card { padding: 1.5rem 1.25rem; }
+
+            .oto-testimonials { grid-template-columns: 1fr; }
+
+            .oto-countdown-box { width: 3.75rem; height: 3.75rem; }
+            .oto-countdown-num { font-size: 1.4rem; }
+
+            .oto-btn-buy { padding: 1.1rem 2rem; font-size: 0.75rem; }
+
+            .oto-stats { gap: 1.5rem; }
+
+            .oto-community .oto-emphasis { font-size: 1.3rem; }
+
+            .oto-sticky-cta { display: block; }
+
+            .oto-results-grid { gap: 0.75rem; }
+            .oto-result-tag { font-size: 0.75rem; padding: 0.5rem 1rem; }
+
+            .oto-not-list li { font-size: 0.9rem; }
+
+            .oto-final-cta { padding: 4rem 1.5rem 7rem; }
+            .oto-final-cta-fade { height: 5rem; }
+
+            /* Section bg images: full-width on mobile */
+            .oto-bg-reveal {
+                display: block !important;
+                width: 100% !important;
+                left: 0 !important;
+                right: 0 !important;
+                -webkit-mask-image: none !important;
+                mask-image: none !important;
+            }
+            .oto-bg-reveal img {
+                opacity: 0.5 !important;
+                filter: none !important;
+                transition: none !important;
+            }
+            .oto-bg-reveal::after {
+                background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.15) 20%, rgba(0,0,0,0.15) 70%, rgba(0,0,0,0.85) 100%) !important;
+            }
+
+            /* Hero: show original hero content */
+            .oto-hero .hero-content {
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .oto-hero .hero-text { order: 1 !important; }
+            .oto-hero .oto-hero-checkout { order: 2 !important; }
+
+            /* FAQ: tighter mobile spacing */
+            .oto-faq-question { padding: 1.25rem; font-size: 0.9rem; }
+            .oto-faq-answer { padding: 0 1.25rem; }
+            .oto-faq-item.open .oto-faq-answer { padding: 0 1.25rem 1.25rem; }
+
+            /* Fade-in: reduce animation distance */
+            .oto-fade-in { transform: translateY(1.25rem); }
+
+            /* Checkout: mobile */
+            .oto-checkout-benefits { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .oto-hero .hero-content { padding: 7rem 1rem 3rem; }
+
+            .oto-offer-card { padding: 2rem 1.25rem; margin: 0 0.5rem; }
+
+            .oto-urgency-bar { font-size: 0.65rem; padding: 0.5rem 0.75rem; }
+
+            .oto-countdown-boxes { gap: 0.5rem; }
+            .oto-countdown-box { width: 3.25rem; height: 3.25rem; }
+            .oto-countdown-num { font-size: 1.2rem; }
+            .oto-countdown-unit { font-size: 0.5rem; }
+
+            .oto-features-grid { grid-template-columns: 1fr; }
+
+            .oto-final-cta { padding: 3rem 1rem 7rem; }
+
+            .oto-stats { flex-direction: column; gap: 1.25rem; align-items: center; }
+        }
+    </style>
+
+    <!-- Iubenda Cookie Solution (PRIMA del pixel per blocco corretto) -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('track', 'PageView');
+    // Lead con event_id per deduplicazione pixel ↔ CAPI
+    // sessionStorage guard: spara 1 sola volta per sessione
+    (function() {
+        if (sessionStorage.getItem('lead_webinar_maggio')) return;
+        sessionStorage.setItem('lead_webinar_maggio', '1');
+        var eid = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        fbq('track', 'Lead', {content_name: 'Webinar Maggio 2026'}, {eventID: eid});
+        // Leggi cookie Facebook per matching
+        var ck = document.cookie.split(';').reduce(function(a, c) {
+            var p = c.trim().split('='); a[p[0]] = p.slice(1).join('='); return a;
+        }, {});
+        fetch('/api/meta-capi', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                event_name: 'Lead',
+                event_id: eid,
+                event_source_url: window.location.href,
+                user_data: {fbc: ck._fbc || '', fbp: ck._fbp || ''},
+                custom_data: {content_name: 'Webinar Maggio 2026'}
+            })
+        }).catch(function() {});
+    })();
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+    <!-- URGENCY BAR -->
+    <div class="oto-urgency-bar">
+        Offerta riservata &middot; Scade tra <span class="oto-timer-inline"><span data-oto-mins>15</span>:<span data-oto-secs>00</span></span>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO — Full-bleed cinematic (evento-maggio style)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="hero oto-hero">
+        <img src="img/elena-webp/IMG_9183.webp" alt="" class="hero-bg-image" loading="eager">
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-text" style="text-align: center;">
+                <div class="hero-badge">Offerta Riservata &bull; Solo Ora</div>
+                <h1 class="hero-title">
+                    <span>Aspetta. Prima di chiudere,</span>
+                    <span class="accent">leggi 30 secondi.</span>
+                </h1>
+                <p class="hero-subtitle">Ti sei iscritta al webinar. Bene. Ma c'&egrave; una cosa che puoi fare <strong>adesso</strong> per arrivare alle 3 sere gi&agrave; <em>diversa</em> &mdash; e non ricominciare per la decima volta da zero.</p>
+            </div>
+
+            <!-- CHECKOUT INLINE — dentro la hero -->
+            <div class="oto-hero-checkout" id="otoCheckoutInline">
+                <div class="oto-hero-checkout-header">
+                    <div class="oto-hero-checkout-title">Kit Pre-Estate &mdash; Workbook Pre-Webinar</div>
+                    <div class="oto-hero-checkout-price">
+                        <span class="oto-price-old" style="font-size: 1rem;">197&euro;</span>
+                        <span class="oto-price-new" style="font-size: clamp(1.75rem, 3.5vw, 2.25rem);">27&euro;</span>
+                    </div>
+                </div>
+
+                <div class="oto-checkout-benefits" style="margin-bottom: 1.5rem;">
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Workbook giorno-per-giorno</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> 3 audio guidati Elena</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Tracker abitudini</div>
+                    <div class="oto-checkout-benefit"><span class="oto-check">&#10003;</span> Accesso immediato</div>
+                </div>
+
+                <!-- STEP 1: Contact Info -->
+                <div class="oto-checkout-panel active" id="checkoutStep1">
+                    <div class="oto-checkout-field">
+                        <label for="oto-nome">Nome</label>
+                        <input type="text" id="oto-nome" placeholder="Il tuo nome" autocomplete="given-name">
+                        <div class="oto-field-error">Inserisci il tuo nome</div>
+                    </div>
+                    <div class="oto-checkout-field">
+                        <label for="oto-email">Email</label>
+                        <input type="email" id="oto-email" placeholder="La tua email" autocomplete="email">
+                        <div class="oto-field-error">Inserisci un'email valida</div>
+                    </div>
+
+                    <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoGoStep2">S&igrave;, Voglio Iniziare Subito &rarr;</a>
+
+                    <div class="oto-checkout-error" id="otoStep1Error" style="display:none; color:#ff4444; text-align:center; font-size:0.85rem; margin-top:0.75rem;"></div>
+                </div>
+
+                <!-- STEP 2: Stripe Payment Element -->
+                <div class="oto-checkout-panel" id="checkoutStep2">
+                    <div class="oto-contact-recap" id="otoContactRecap" style="display:none; margin-bottom: 1rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-align: left;">
+                        <span id="otoRecapText"></span>
+                        <button id="otoChangeContact" style="float: right; background: none; border: none; color: var(--pink-primary); font-size: 0.75rem; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">Modifica</button>
+                    </div>
+                    <div id="oto-payment-element"><!-- Stripe mounts here --></div>
+
+                    <a href="#" class="oto-btn-buy oto-checkout-btn" id="otoPayBtn">Completa il Pagamento &mdash; 27&euro; &rarr;</a>
+
+                    <div class="oto-payment-error" id="otoPaymentError"></div>
+
+                    <button class="oto-checkout-back" id="otoBackStep1" style="display:none;">&larr; Modifica i tuoi dati</button>
+                </div>
+
+                <!-- Trust signals -->
+                <div class="oto-checkout-trust" style="border-top-color: rgba(255,255,255,0.08);">
+                    <div class="oto-checkout-secure">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Pagamento sicuro &middot; Crittografia SSL
+                    </div>
+                    <div class="oto-checkout-social-proof">Pi&ugrave; di 2.300 donne ne hanno gi&agrave; usato una versione</div>
+                </div>
+
+                <a href="#" class="oto-skip" data-oto-skip style="color: rgba(255,255,255,0.4);">No grazie, preferisco aspettare &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         IL PROBLEMA — Emotional Copy + Elena bg-reveal
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section section-black oto-bg-section">
+        <div class="oto-bg-reveal oto-right" data-reveal>
+            <img src="img/elena-webp/IMG_9184.webp" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="oto-community oto-fade-in">
+                <p>Ti dico la verit&agrave;: chi si iscrive a un webinar e poi arriva &ldquo;a vedere come va&rdquo;, di solito esce con tante belle intenzioni e zero azione.</p>
+                <p>Chi invece arriva al webinar gi&agrave; <em>in movimento</em> &mdash; con 20 giorni di pratica, di abitudini misurate, di piccole vittorie quotidiane &mdash; arriva diversa. Capisce di pi&ugrave;. Decide pi&ugrave; in fretta. Spezza il loop.</p>
+                <p>Per questo ho costruito il <strong>Kit Pre-Estate</strong>: una preparazione di 20 giorni, dal giorno della tua iscrizione fino al 19 maggio. Una pagina al giorno, un audio quando serve, un tracker che ti tiene onesta.</p>
+                <p>Non &egrave; una sfida. Non &egrave; una dieta. <strong>&Egrave; il modo per non arrivare al webinar &ldquo;come tutte le altre volte&rdquo;.</strong></p>
+                <p class="oto-emphasis">Hai gi&agrave; scelto di esserci. Adesso scegli di arrivarci <em>diversa.</em></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         VIDEO PREVIEW
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section section-black" style="padding-top: 0; padding-bottom: 3rem;">
+        <div class="container" style="max-width: 700px;">
+            <div class="oto-video-glass oto-fade-in" style="padding: 0;">
+                <video controls playsinline preload="metadata" poster="" style="width: 100%; display: block; border-radius: 16px;">
+                    <source src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68f9475cc3bfa481489d26b7.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.4); font-weight: 400;">Guarda con i tuoi occhi cosa cambia in 20 giorni</p>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         COSA RICEVI — Features + Elena bg-reveal + Value Stack
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section section-black oto-bg-section" style="padding-top: 0;">
+        <div class="oto-bg-reveal oto-right" data-reveal>
+            <img src="img/elena-webp/IMG_9825.webp" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center oto-fade-in">
+                <span class="section-number">Cosa Succede In 20 Giorni</span>
+                <h2 class="section-title">Niente teoria. Niente schemi complicati.<br><span class="highlight"><em>Solo una pagina al giorno.</em></span></h2>
+                <p class="section-subtitle">Ogni mattina apri il workbook. Trovi gi&agrave; tutto pronto: la riflessione, l'esercizio, il check-in. Cinque minuti, fatto.</p>
+            </div>
+            <div class="oto-features-grid oto-fade-in">
+                <div class="oto-feature-card">
+                    <div class="oto-feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h4>Workbook Giorno-Per-Giorno</h4>
+                    <p>Una pagina ogni mattina, dal giorno dell'acquisto fino al 19 maggio. Domanda, esercizio, check-in. 5 minuti, niente di pi&ugrave;.</p>
+                </div>
+                <div class="oto-feature-card">
+                    <div class="oto-feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3v4z"/><path d="M3 19a2 2 0 0 0 2 2h1v-6H3v4z"/></svg>
+                    </div>
+                    <h4>3 Audio Guidati Di Elena</h4>
+                    <p>Tre audio strategici (giorno 1, 10, 20) per riprogrammare il modo in cui pensi all'estate, alle ferie, al &ldquo;riprendo a settembre&rdquo;.</p>
+                </div>
+                <div class="oto-feature-card">
+                    <div class="oto-feature-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h4>Tracker Abitudini</h4>
+                    <p>Un foglio semplice per misurare le 5 abitudini chiave. Funziona perch&eacute; non pu&ograve; mentire: vedi nero su bianco se stai costruendo qualcosa o no.</p>
+                </div>
+                <div class="oto-feature-card">
+                    <div class="oto-feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h4>5 Minuti Al Giorno</h4>
+                    <p>Non un altro programma che ti chiede 90 minuti di palestra a 38 gradi. Cinque minuti la mattina. Punto.</p>
+                </div>
+                <div class="oto-feature-card">
+                    <div class="oto-feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h4>Pensato Per L'Estate</h4>
+                    <p>Non un protocollo invernale &ldquo;riadattato&rdquo;. Costruito sul calore, sui viaggi, sugli aperitivi, sulle settimane fuori casa.</p>
+                </div>
+                <div class="oto-feature-card">
+                    <div class="oto-feature-icon">
+                        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <h4>Inizi Domattina</h4>
+                    <p>Accesso immediato. Apri, leggi, fai. Tra 5 minuti puoi gi&agrave; avere in mano la pagina del giorno 1.</p>
+                </div>
+            </div>
+
+            <!-- Elena quote — large italic (evento-maggio style) -->
+            <div class="oto-elena-quote oto-fade-in" style="margin-top: 4rem;">
+                <img src="img/elena-webp/IMG_9184.webp" alt="Elena Giordani" loading="lazy">
+                <blockquote>&ldquo;Non ti chiedo di fidarti di me. Ti chiedo di fidarti di te stessa per 20 giorni. Quando ci troviamo al webinar, sarai un'altra.&rdquo;</blockquote>
+                <cite>&mdash; Elena Giordani</cite>
+            </div>
+
+            <!-- Value Stack -->
+            <div style="margin-top: 4rem;" class="oto-fade-in">
+                <div class="section-header center">
+                    <span class="section-number">Il Valore Reale</span>
+                    <h2 class="section-title" style="font-size: clamp(1.5rem, 3.5vw, 2.25rem);">Ecco cosa ricevi <span class="highlight"><em>oggi</em></span></h2>
+                </div>
+                <div class="oto-value-stack">
+                    <div class="oto-value-item">
+                        <span class="oto-value-name"><span class="oto-check">&#10003;</span> Workbook Pre-Estate (20 pagine guidate)</span>
+                        <span class="oto-value-price">67&euro;</span>
+                    </div>
+                    <div class="oto-value-item">
+                        <span class="oto-value-name"><span class="oto-check">&#10003;</span> 3 audio guidati di Elena</span>
+                        <span class="oto-value-price">47&euro;</span>
+                    </div>
+                    <div class="oto-value-item">
+                        <span class="oto-value-name"><span class="oto-check">&#10003;</span> Tracker abitudini stampabile</span>
+                        <span class="oto-value-price">27&euro;</span>
+                    </div>
+                    <div class="oto-value-item">
+                        <span class="oto-value-name"><span class="oto-check">&#10003;</span> Mini-guida &ldquo;Le 5 trappole estate&rdquo;</span>
+                        <span class="oto-value-price">37&euro;</span>
+                    </div>
+                    <div class="oto-value-item">
+                        <span class="oto-value-name"><span class="oto-check">&#10003;</span> Accesso immediato + tutto su App</span>
+                        <span class="oto-value-price">19&euro;</span>
+                    </div>
+                    <div class="oto-value-total">
+                        <span class="oto-value-name">Valore totale</span>
+                        <span class="oto-value-price">197&euro;</span>
+                    </div>
+                    <div class="oto-value-you-pay">
+                        <span>Oggi paghi solo</span>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="oto-price-new" style="font-size: 2.75rem;">27&euro;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;" class="oto-fade-in">
+                <a href="#" class="oto-btn-buy" data-oto-buy>S&igrave;, Voglio Iniziare Subito &rarr;</a>
+                <a href="#" class="oto-skip" data-oto-skip>No grazie, preferisco aspettare &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHI L'HA GIA FATTA — Testimonials + Stats
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center oto-fade-in">
+                <span class="section-number">Le Loro Parole</span>
+                <h2 class="section-title">Anche loro avevano paura di <span class="highlight"><em>ricominciare.</em></span></h2>
+                <p class="section-subtitle">Erano stanche di promesse. Avevano smesso di crederci. Poi hanno provato &mdash; e hanno scoperto che il primo cambiamento avviene quando smetti di rimandare.</p>
+            </div>
+            <div class="oto-testimonials oto-fade-in">
+                <div class="oto-testimonial">
+                    <div class="oto-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>Ho iniziato senza aspettarmi nulla. Dopo 20 giorni avevo gi&agrave; pi&ugrave; energia, meno gonfiore e soprattutto la voglia di continuare. Non mi era mai successo &ldquo;prima&rdquo; di un webinar.</blockquote>
+                    <div class="oto-testimonial-author">
+                        <div class="oto-testimonial-avatar">V</div>
+                        <div>
+                            <div class="oto-testimonial-name">Valentina</div>
+                            <div class="oto-testimonial-result">34 anni &middot; Ha continuato con l'Academy</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oto-testimonial">
+                    <div class="oto-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>Avevo gi&agrave; smesso di crederci. Il workbook mi ha fatto capire che il problema non ero io ma il modo in cui avevo sempre affrontato l'estate. Cinque minuti al giorno valgono pi&ugrave; di anni di tentativi.</blockquote>
+                    <div class="oto-testimonial-author">
+                        <div class="oto-testimonial-avatar">C</div>
+                        <div>
+                            <div class="oto-testimonial-name">Cristiana</div>
+                            <div class="oto-testimonial-result">48 anni &middot; Prima estate senza mollare</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oto-testimonial">
+                    <div class="oto-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>Pensavo fosse il solito programma. Invece ogni mattina sapevo esattamente cosa fare. Nessun senso di colpa, nessuna confusione. Sono arrivata al webinar gi&agrave; con la testa diversa.</blockquote>
+                    <div class="oto-testimonial-author">
+                        <div class="oto-testimonial-avatar">S</div>
+                        <div>
+                            <div class="oto-testimonial-name">Simonetta</div>
+                            <div class="oto-testimonial-result">52 anni &middot; Ha ripreso ad allenarsi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div style="margin-top: 3.5rem;" class="oto-fade-in">
+                <div class="oto-stats">
+                    <div style="text-align: center;">
+                        <div class="oto-stat-number">2300<span>+</span></div>
+                        <div class="oto-stat-label">Donne Trasformate</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="oto-stat-number">97<span>%</span></div>
+                        <div class="oto-stat-label">Lo Consiglia</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="oto-stat-number">4.9</div>
+                        <div class="oto-stat-label">Su TrustPilot</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         RISULTATI REALI — Dopo 20 giorni + Elena bg-reveal
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section section-black oto-bg-section" style="padding-top: 0;">
+        <div class="oto-bg-reveal oto-left" data-reveal>
+            <img src="img/elena-webp/IMG_9823.webp" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center oto-fade-in">
+                <span class="section-number">Giorno 19 Maggio</span>
+                <h2 class="section-title">Ti colleghi al webinar e qualcosa &egrave; <span class="highlight"><em>gi&agrave; cambiato.</em></span></h2>
+                <p class="section-subtitle">Non &egrave; magia. &Egrave; il risultato di 20 giorni in cui ti sei scelta tutti i giorni. Questo &egrave; quello che sentirai gi&agrave; alla prima sera:</p>
+            </div>
+            <div class="oto-results-grid oto-fade-in">
+                <span class="oto-result-tag"><span class="oto-check">&#10003;</span> Pi&ugrave; chiarezza su quello che vuoi</span>
+                <span class="oto-result-tag"><span class="oto-check">&#10003;</span> Energia che non sentivi da mesi</span>
+                <span class="oto-result-tag"><span class="oto-check">&#10003;</span> Sonno pi&ugrave; profondo</span>
+                <span class="oto-result-tag"><span class="oto-check">&#10003;</span> Testa pi&ugrave; lucida</span>
+                <span class="oto-result-tag"><span class="oto-check">&#10003;</span> Routine che reggono</span>
+                <span class="oto-result-tag"><span class="oto-check">&#10003;</span> La sensazione di &ldquo;ce la sto facendo&rdquo;</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PERCHE ORA — Urgency Copy + Countdown + Elena bg-reveal
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section section-black oto-bg-section">
+        <div class="oto-bg-reveal oto-right" data-reveal>
+            <img src="img/elena-webp/IMG_9820.webp" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="oto-community oto-fade-in" style="margin-bottom: 3rem;">
+                <h2 class="section-title" style="color: var(--white); margin-bottom: 1.5rem;">Tra 5 minuti chiuderai questa pagina.<br><span class="highlight"><em>Cosa sar&agrave; cambiato?</em></span></h2>
+                <p>Puoi tornare alla tua giornata. Aspettare il 19 maggio. Dire a te stessa che &ldquo;quando arriva il webinar inizio davvero&rdquo;.</p>
+                <p>Oppure puoi fare una cosa diversa. Una cosa che non hai mai fatto: <strong>iniziare nell'esatto momento in cui senti la spinta.</strong></p>
+                <p>Il Kit Pre-Estate sul sito costa <strong>37&euro;</strong>. In questa pagina, solo per te che ti sei appena iscritta, lo trovi a <strong>27&euro;</strong>. Non &egrave; uno sconto &mdash; &egrave; il nostro modo di dirti: <em>sappiamo che sei pronta.</em></p>
+                <p><strong>Quando chiudi questa pagina, questo prezzo non torna.</strong></p>
+            </div>
+
+            <div class="oto-countdown-wrap oto-fade-in">
+                <p class="oto-countdown-label">Questa offerta scade tra</p>
+                <div class="oto-countdown-boxes">
+                    <div class="oto-countdown-box">
+                        <span class="oto-countdown-num" data-oto-mins>15</span>
+                        <span class="oto-countdown-unit">Min</span>
+                    </div>
+                    <span class="oto-countdown-sep">:</span>
+                    <div class="oto-countdown-box">
+                        <span class="oto-countdown-num" data-oto-secs>00</span>
+                        <span class="oto-countdown-unit">Sec</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;" class="oto-fade-in">
+                <a href="#" class="oto-btn-buy" data-oto-buy>S&igrave;, Voglio Arrivare Pronta al Webinar &rarr;</a>
+                <a href="#" class="oto-skip" data-oto-skip>No grazie, preferisco aspettare &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         COSA NON È — Obiezioni preventive
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section section-black" style="padding-top: 0;">
+        <div class="container">
+            <div class="oto-fade-in" style="max-width: 700px; margin: 0 auto;">
+                <div class="section-header center">
+                    <span class="section-number">Una Cosa Importante</span>
+                    <h2 class="section-title" style="font-size: clamp(1.5rem, 3.5vw, 2.25rem);">So cosa stai pensando.<br><span class="highlight"><em>&ldquo;Sar&agrave; come tutte le altre volte?&rdquo;</em></span></h2>
+                </div>
+                <ul class="oto-not-list">
+                    <li><span class="oto-not-icon">&#10005;</span> Non ti prometto &ldquo;-5 kg per il bikini&rdquo; &mdash; non &egrave; quello il punto</li>
+                    <li><span class="oto-not-icon">&#10005;</span> Non &egrave; un programma che ti punisce se mangi un gelato</li>
+                    <li><span class="oto-not-icon">&#10005;</span> Non &egrave; l'ennesimo PDF che scarichi e dimentichi</li>
+                    <li><span class="oto-not-icon" style="color: var(--pink-primary);">&#10003;</span> <strong style="color: var(--white);">&Egrave; il modo pi&ugrave; veloce per arrivare al webinar gi&agrave; in movimento.</strong> Niente parole vuote: gi&agrave; con risultati misurabili, gi&agrave; con la prova che <em>tu puoi farcela.</em></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FAQ — Objection Handling
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center oto-fade-in">
+                <span class="section-number">Prima Di Decidere</span>
+                <h2 class="section-title" style="font-size: clamp(1.5rem, 3.5vw, 2.25rem);">&Egrave; normale avere <span class="highlight"><em>domande.</em></span></h2>
+                <p class="section-subtitle">Ecco le risposte alle domande pi&ugrave; comuni di chi era al tuo stesso punto.</p>
+            </div>
+            <div class="oto-faq-list oto-fade-in">
+                <div class="oto-faq-item">
+                    <button class="oto-faq-question">Non posso aspettare il webinar per decidere?<span class="oto-faq-toggle">+</span></button>
+                    <div class="oto-faq-answer"><p>Certo, il webinar &egrave; tuo in ogni caso. Ma il Kit Pre-Estate a 27&euro; &egrave; disponibile solo adesso, in questa pagina. Sul sito lo trovi a 37&euro;. Se vuoi iniziare subito e arrivare al webinar gi&agrave; in azione, questo &egrave; il momento.</p></div>
+                </div>
+                <div class="oto-faq-item">
+                    <button class="oto-faq-question">Quanto tempo devo dedicare ogni giorno?<span class="oto-faq-toggle">+</span></button>
+                    <div class="oto-faq-answer"><p>5 minuti al mattino per la pagina del workbook. Pi&ugrave; gli audio quando ti dico io (sono 3 in totale, in 20 giorni). Niente palestra, niente diete &mdash; &egrave; un lavoro di consapevolezza, non un protocollo fitness.</p></div>
+                </div>
+                <div class="oto-faq-item">
+                    <button class="oto-faq-question">&Egrave; adatto a me anche se sono una principiante?<span class="oto-faq-toggle">+</span></button>
+                    <div class="oto-faq-answer"><p>Assolutamente s&igrave;. Anzi, se &egrave; la tua prima volta &egrave; ancora pi&ugrave; importante. Il Kit non chiede nessun livello di partenza &mdash; chiede solo 5 minuti al giorno e onest&agrave; con te stessa.</p></div>
+                </div>
+                <div class="oto-faq-item">
+                    <button class="oto-faq-question">Mi servono attrezzi o app particolari?<span class="oto-faq-toggle">+</span></button>
+                    <div class="oto-faq-answer"><p>No. Ti basta poter aprire il PDF del workbook (telefono o computer) e ascoltare 3 audio. Tutto qui.</p></div>
+                </div>
+                <div class="oto-faq-item">
+                    <button class="oto-faq-question">E se salto un giorno?<span class="oto-faq-toggle">+</span></button>
+                    <div class="oto-faq-answer"><p>Riprendi il giorno dopo. Non &egrave; una punizione &mdash; &egrave; un allenamento alla resilienza. Il punto del workbook &egrave; proprio insegnarti che si pu&ograve; saltare un giorno e ripartire, senza buttare via tutto.</p></div>
+                </div>
+                <div class="oto-faq-item">
+                    <button class="oto-faq-question">Quando ricevo l'accesso?<span class="oto-faq-toggle">+</span></button>
+                    <div class="oto-faq-answer"><p>Immediatamente dopo l'acquisto. Ti arriva una email con il workbook PDF + i 3 audio. Puoi iniziare gi&agrave; stasera con la pagina del giorno 1.</p></div>
+                </div>
+                <div class="oto-faq-item">
+                    <button class="oto-faq-question">Cosa succede dopo il 19 maggio?<span class="oto-faq-toggle">+</span></button>
+                    <div class="oto-faq-answer"><p>Il workbook &egrave; tuo per sempre. E al webinar arriverai con un vantaggio enorme rispetto a chi non l'ha fatto: 20 giorni di consapevolezza in pi&ugrave;, 20 giorni di abitudini misurate.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Gradient fade into Final CTA -->
+    <div class="oto-final-cta-fade"></div>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FINAL CTA — Pink background (evento-maggio style)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="oto-final-cta">
+        <div class="oto-final-cta-content">
+            <img src="img/elena-webp/Elena81.webp" alt="Elena Giordani" class="oto-elena-avatar" loading="lazy">
+            <h3>Questa &egrave; l'ultima cosa che ti chiedo.<br><em>Fidati di te stessa per 20 giorni.</em></h3>
+            <p>Hai gi&agrave; fatto la scelta pi&ugrave; difficile: iscriverti. Adesso fai quella pi&ugrave; semplice: inizia adesso, non il 19 maggio. Quando ci troviamo al webinar, sarai gi&agrave; un'altra.</p>
+            <div class="oto-final-price">
+                <span class="oto-price-old">197&euro;</span>
+                <span class="oto-price-new" style="font-size: clamp(2rem, 4vw, 2.75rem);">27&euro;</span>
+            </div>
+            <a href="#" class="oto-btn-white" data-oto-buy>S&igrave;, Voglio Iniziare Adesso <span>&rarr;</span></a>
+            <a href="#" class="oto-skip" data-oto-skip>No grazie, preferisco aspettare &rarr;</a>
+            <p class="oto-final-trust">Pagamento sicuro &middot; Inizi subito &middot; Nessun abbonamento</p>
+        </div>
+    </section>
+
+
+    <!-- STICKY CTA (mobile) -->
+    <div class="oto-sticky-cta">
+        <a href="#" class="oto-btn-buy" data-oto-buy>Inizia il Kit Pre-Estate &mdash; 27&euro; &rarr;</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
+                <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.6;">
+                    X77 SSD a.r.l &mdash; P.IVA: IT17336811009
+                    <br>Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)
+                    <br>Email: info.xfitacademy@gmail.com
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+                <a href="/terms-and-conditions">Termini e Condizioni</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script defer src="js/main.js?v=1767489274"></script>
+
+    <!-- React (for mobile header) -->
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
+
+    <script>
+    // ===== COUNTDOWN TIMER (15 minuti, sessionStorage) =====
+    (function() {
+        var STORAGE_KEY = 'oto_countdown_end_maggio_v1';
+        var DURATION = 15 * 60 * 1000;
+
+        var endTime = sessionStorage.getItem(STORAGE_KEY);
+        if (!endTime || parseInt(endTime, 10) <= Date.now()) {
+            endTime = Date.now() + DURATION;
+            sessionStorage.setItem(STORAGE_KEY, endTime);
+        }
+        endTime = parseInt(endTime, 10);
+
+        function updateTimer() {
+            var remaining = endTime - Date.now();
+            if (remaining <= 0) {
+                window.location.href = buildThankYouUrl();
+                return;
+            }
+            var mins = Math.floor(remaining / 60000);
+            var secs = Math.floor((remaining % 60000) / 1000);
+            var mStr = mins.toString().padStart(2, '0');
+            var sStr = secs.toString().padStart(2, '0');
+            document.querySelectorAll('[data-oto-mins]').forEach(function(el) {
+                el.textContent = mStr;
+            });
+            document.querySelectorAll('[data-oto-secs]').forEach(function(el) {
+                el.textContent = sStr;
+            });
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    })();
+
+    // ===== CTA ROUTING + STRIPE ELEMENTS CHECKOUT =====
+    (function() {
+        var thankYouUrl = buildThankYouUrl();
+
+        // Skip links → thank you page con params
+        document.querySelectorAll('[data-oto-skip]').forEach(function(link) {
+            link.href = thankYouUrl;
+        });
+
+        // DOM refs
+        var checkoutEl = document.getElementById('otoCheckoutInline');
+        var step1 = document.getElementById('checkoutStep1');
+        var step2 = document.getElementById('checkoutStep2');
+        var goStep2Btn = document.getElementById('otoGoStep2');
+        var payBtn = document.getElementById('otoPayBtn');
+        var step1Error = document.getElementById('otoStep1Error');
+        var paymentError = document.getElementById('otoPaymentError');
+        var payBtnOriginalHTML = payBtn.innerHTML;
+
+        // Stripe state
+        var stripeInstance = null;
+        var stripeElements = null;
+        var paymentElement = null;
+        var clientSecret = null;
+
+        // ===== STICKY CONTACT: pre-fill from URL params or localStorage =====
+        var CONTACT_KEY = 'oto_contact';
+        var nomeInput = document.getElementById('oto-nome');
+        var emailInput = document.getElementById('oto-email');
+
+        // URL params have priority over localStorage
+        var urlParams = new URLSearchParams(window.location.search);
+        var urlNome = urlParams.get('nome') || urlParams.get('name') || '';
+        var urlEmail = urlParams.get('email') || '';
+
+        // Load saved contact from localStorage
+        var saved = {};
+        try { saved = JSON.parse(localStorage.getItem(CONTACT_KEY)) || {}; } catch(e) {}
+
+        // Pre-fill: URL params > localStorage
+        if (urlNome || saved.nome) nomeInput.value = urlNome || saved.nome;
+        if (urlEmail || saved.email) emailInput.value = urlEmail || saved.email;
+
+        // Save contact on input change (real-time sticky)
+        function saveContact() {
+            var data = { nome: nomeInput.value.trim(), email: emailInput.value.trim() };
+            try { localStorage.setItem(CONTACT_KEY, JSON.stringify(data)); } catch(e) {}
+        }
+        nomeInput.addEventListener('input', saveContact);
+        emailInput.addEventListener('input', saveContact);
+
+        // Pixel: Lead già tracciato nel head (registrazione webinar)
+
+        // Contact recap refs
+        var contactRecap = document.getElementById('otoContactRecap');
+        var recapText = document.getElementById('otoRecapText');
+        var changeContactBtn = document.getElementById('otoChangeContact');
+
+        // Determine if we have contact data (URL > localStorage)
+        var contactNome = urlNome || saved.nome || '';
+        var contactEmail = urlEmail || saved.email || '';
+        var hasContact = contactNome.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail);
+
+        function scrollToCheckout() {
+            checkoutEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function showStep1() {
+            step1.classList.add('active');
+            step2.classList.remove('active');
+            contactRecap.style.display = 'none';
+            setTimeout(function() {
+                nomeInput.focus();
+            }, 300);
+        }
+
+        function showStep2() {
+            step1.classList.remove('active');
+            step2.classList.add('active');
+            // Show contact recap
+            recapText.textContent = contactNome + ' \u2014 ' + contactEmail;
+            contactRecap.style.display = 'block';
+        }
+
+        function validateFields() {
+            var valid = true;
+            var fields = [
+                { id: 'oto-nome', test: function(v) { return v.length > 0; } },
+                { id: 'oto-email', test: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } }
+            ];
+
+            fields.forEach(function(f) {
+                var el = document.getElementById(f.id);
+                var wrapper = el.closest('.oto-checkout-field');
+                if (!f.test(el.value.trim())) {
+                    wrapper.classList.add('error');
+                    valid = false;
+                } else {
+                    wrapper.classList.remove('error');
+                }
+            });
+
+            return valid;
+        }
+
+        // Core: create PaymentIntent + mount Stripe Element
+        // NOTA: l'endpoint /api/create-oto-checkout va aggiornato per generare un PaymentIntent
+        // legato al product Stripe "Kit Pre-Estate" (stesso prezzo 27€). Verifica con il team.
+        function initStripePayment(nome, email, onError) {
+            fetch('/api/create-oto-checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    customerEmail: email,
+                    customerName: nome
+                })
+            })
+            .then(function(response) {
+                var ct = response.headers.get('content-type') || '';
+                if (!ct.includes('application/json')) {
+                    throw new Error('Servizio di pagamento non disponibile.');
+                }
+                return response.json().then(function(data) {
+                    return { ok: response.ok, data: data };
+                });
+            })
+            .then(function(result) {
+                if (!result.ok) {
+                    throw new Error(result.data.error || 'Errore nel pagamento');
+                }
+
+                clientSecret = result.data.clientSecret;
+                contactNome = nome;
+                contactEmail = email;
+
+                // Initialize Stripe
+                if (!stripeInstance) {
+                    stripeInstance = Stripe(result.data.publishableKey);
+                }
+
+                // Create Elements with dark theme
+                stripeElements = stripeInstance.elements({
+                    clientSecret: clientSecret,
+                    appearance: {
+                        theme: 'night',
+                        variables: {
+                            colorPrimary: '#E91E63',
+                            colorBackground: 'rgba(255,255,255,0.06)',
+                            colorText: '#ffffff',
+                            colorTextSecondary: 'rgba(255,255,255,0.5)',
+                            colorDanger: '#ff4444',
+                            fontFamily: 'Poppins, sans-serif',
+                            borderRadius: '8px',
+                            spacingUnit: '4px'
+                        },
+                        rules: {
+                            '.Input': {
+                                border: '1px solid rgba(255,255,255,0.12)',
+                                backgroundColor: 'rgba(255,255,255,0.06)',
+                                padding: '0.85rem 1rem'
+                            },
+                            '.Input:focus': {
+                                borderColor: '#E91E63',
+                                boxShadow: 'none'
+                            },
+                            '.Label': {
+                                fontSize: '0.7rem',
+                                fontWeight: '600',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.1em',
+                                color: 'rgba(255,255,255,0.5)'
+                            }
+                        }
+                    },
+                    locale: 'it'
+                });
+
+                // Mount Payment Element
+                var mountEl = document.getElementById('oto-payment-element');
+                mountEl.innerHTML = '';
+                paymentElement = stripeElements.create('payment');
+                paymentElement.mount(mountEl);
+
+                showStep2();
+            })
+            .catch(function(err) {
+                if (onError) onError(err);
+            });
+        }
+
+        // Step 1 → Step 2 (manual form submit)
+        function handleGoStep2() {
+            if (!validateFields()) return;
+
+            var nome = nomeInput.value.trim();
+            var email = emailInput.value.trim();
+            saveContact();
+
+            goStep2Btn.innerHTML = 'CARICAMENTO...';
+            goStep2Btn.style.pointerEvents = 'none';
+            goStep2Btn.style.opacity = '0.6';
+            step1Error.style.display = 'none';
+
+            initStripePayment(nome, email, function(err) {
+                step1Error.textContent = err.message;
+                step1Error.style.display = 'block';
+                goStep2Btn.innerHTML = 'S\u00ec, Voglio Iniziare Subito \u2192';
+                goStep2Btn.style.pointerEvents = '';
+                goStep2Btn.style.opacity = '';
+            });
+        }
+
+        // Step 2: Confirm payment
+        function handlePayment() {
+            payBtn.innerHTML = 'ELABORAZIONE...';
+            payBtn.style.pointerEvents = 'none';
+            payBtn.style.opacity = '0.6';
+            paymentError.classList.remove('visible');
+
+            stripeInstance.confirmPayment({
+                elements: stripeElements,
+                confirmParams: {
+                    return_url: window.location.origin + '/' + thankYouUrl.replace('oto=done', 'paid=true')
+                }
+            }).then(function(result) {
+                if (result.error) {
+                    paymentError.textContent = result.error.message;
+                    paymentError.classList.add('visible');
+                }
+                payBtn.innerHTML = payBtnOriginalHTML;
+                payBtn.style.pointerEvents = '';
+                payBtn.style.opacity = '';
+            });
+        }
+
+        // Buy buttons → scroll to checkout
+        document.querySelectorAll('[data-oto-buy]').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                scrollToCheckout();
+            });
+        });
+
+        // Step 1 CTA
+        goStep2Btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleGoStep2();
+        });
+
+        // Back to Step 1 (from recap "Modifica" or old back button)
+        document.getElementById('otoBackStep1').addEventListener('click', function() {
+            showStep1();
+        });
+        changeContactBtn.addEventListener('click', function() {
+            showStep1();
+        });
+
+        // Pay button
+        payBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            handlePayment();
+        });
+
+        // Clear field errors on input
+        document.querySelectorAll('.oto-checkout-field input').forEach(function(input) {
+            input.addEventListener('input', function() {
+                this.closest('.oto-checkout-field').classList.remove('error');
+            });
+        });
+
+        // ===== AUTO-SKIP: if contact data exists, go straight to payment =====
+        if (hasContact) {
+            // Save to localStorage (in case it came from URL)
+            nomeInput.value = contactNome;
+            emailInput.value = contactEmail;
+            saveContact();
+            // Auto-init Stripe payment (skip Step 1)
+            initStripePayment(contactNome, contactEmail, function(err) {
+                // On error, fall back to Step 1 form
+                console.error('Auto-init failed:', err.message);
+                showStep1();
+            });
+        }
+    })();
+
+    // ===== FAQ ACCORDION =====
+    document.querySelectorAll('.oto-faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.parentElement;
+            var isOpen = item.classList.contains('open');
+            // Chiudi tutti
+            document.querySelectorAll('.oto-faq-item.open').forEach(function(el) {
+                el.classList.remove('open');
+            });
+            // Apri/chiudi il cliccato
+            if (!isOpen) item.classList.add('open');
+        });
+    });
+
+    // ===== FADE-IN ON SCROLL (from evento-maggio) =====
+    (function() {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.oto-fade-in').forEach(function(el) {
+            observer.observe(el);
+        });
+    })();
+
+    // ===== BACKGROUND REVEAL ON SCROLL (from evento-maggio) =====
+    (function() {
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-reveal]').forEach(function(el) {
+            revealObserver.observe(el);
+        });
+    })();
+    </script>
+
+    <!-- Iubenda embed loader -->
+    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</body>
+</html>

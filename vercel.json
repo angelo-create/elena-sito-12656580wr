@@ -25,6 +25,12 @@
       "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
       "destination": "https://go.elenagiordani.com/evento-maggio",
       "permanent": true
+    },
+    {
+      "source": "/webinar-maggio",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/webinar-maggio",
+      "permanent": true
     }
   ],
   "headers": [

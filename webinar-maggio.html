@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo Strano Motivo Per Cui Ogni Estate Perdi Il Controllo | Webinar Gratuito 19-20-21 Maggio</title>
+    <meta name="description" content="Ogni anno arrivi a settembre peggio di giugno. C'&egrave; un motivo, e nessuno te l'ha mai spiegato. In 3 sere gratuite scopri quale &egrave; e come 2300 donne hanno smesso di subirlo. 19-20-21 Maggio, ore 18:30.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Lo Strano Motivo Per Cui Ogni Estate Perdi Tutto Quello Che Hai Costruito Da Gennaio">
+    <meta property="og:description" content="3 sere gratuite con Elena Giordani. 19-20-21 Maggio, ore 18:30. 2300 donne hanno smesso di subirlo. Quest'anno tocca a te.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://elenagiordani.com/img/elena-webp/IMG_9183.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║  CONFIGURAZIONE WEBINAR — MODIFICA SOLO QUI!                ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <script>
+    var WEBINAR = {
+        // --- DATE ---
+        dateBrief:    "19-20-21 Maggio",           // formato breve (badge, CTA, marquee)
+        orario:       "18:30",                     // orario serate
+
+        // --- SINGOLE SERATE ---
+        serata1: "Luned\u00ec 19 Maggio",          // prima serata
+        serata2: "Marted\u00ec 20 Maggio",         // seconda serata
+        serata3: "Mercoled\u00ec 21 Maggio",       // terza serata
+
+        // --- COUNTDOWN (data prima serata, formato ISO — CEST = +02:00) ---
+        countdownISO: "2026-05-19T18:30:00+02:00",
+
+        // --- FORM GoHighLevel — TODO: sostituire con il nuovo Form ID quando creato ---
+        formId:  "REPLACE_ME_FORM_ID",
+        formUrl: "https://link.drewcompany.it/widget/form/REPLACE_ME_FORM_ID",
+
+        // --- WHATSAPP (sticky CTA mobile) ---
+        whatsappNumero:    "393773892181",
+        whatsappMessaggio: "Ciao Elena! Voglio iscrivermi al webinar del 19-20-21 Maggio!",
+
+        // --- IMMAGINE SOCIAL (og:image) — asset locale, già nel repo ---
+        ogImage: "https://elenagiordani.com/img/elena-webp/IMG_9183.webp",
+
+        // --- TESTO MARQUEE SPECIALE ---
+        marqueeSpeciale: "Quest'estate non sarai pi\u00f9 quella di sempre"
+    };
+    // URL params da GHL sovrascrivono il config (usa i custom values esistenti)
+    // ─── URL GHL (per email, workflow, ecc.) ───
+    // https://go.elenagiordani.com/webinar-maggio.html?data={{custom_values.data}}&luogo={{custom_values.luogo_webinar}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}
+    (function() {
+        var p = new URLSearchParams(location.search);
+        if (p.get('data')) WEBINAR.dateBrief = p.get('data');
+    })();
+    </script>
+
+    <style>
+        /* ===== WEBINAR-SPECIFIC STYLES ===== */
+
+        /* Marquee */
+        .wb-marquee { background: var(--pink-primary); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
+        .wb-marquee-track { display: inline-flex; animation: wb-scroll 30s linear infinite; }
+        .wb-marquee-item { display: inline-flex; align-items: center; gap: 2rem; padding: 0 2rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+        .wb-marquee-item::after { content: '\2726'; font-size: 0.5rem; }
+        @keyframes wb-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Community text */
+        .wb-community { max-width: 800px; margin: 0 auto; text-align: center; }
+        .wb-community p { font-size: 1.15rem; line-height: 1.9; margin-bottom: 1rem; color: rgba(255,255,255,0.8); }
+        .wb-community .wb-emphasis { font-size: 1.5rem; font-weight: 700; color: var(--white); margin: 2.5rem 0; }
+
+        /* Countdown */
+        .wb-countdown { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .wb-countdown-item { text-align: center; }
+        .wb-countdown-number { background: rgba(233,30,99,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(233,30,99,0.2); color: var(--pink-primary); font-size: 1.5rem; font-weight: 700; width: 70px; height: 70px; border-radius: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(233,30,99,0.1), inset 0 1px 0 rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+        .wb-countdown-number::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.3), transparent); }
+        .wb-countdown-text { font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.15em; }
+
+        /* Bento Grid */
+        .wb-bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .wb-bento-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.75rem 2.5rem; position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); }
+        .wb-bento-card:hover { border-color: rgba(233,30,99,0.35); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(233,30,99,0.12), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
+        .wb-bento-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(233,30,99,0.1), transparent 70%); pointer-events: none; transition: opacity 0.5s ease; }
+        .wb-bento-card:hover::before { opacity: 1.5; }
+        .wb-bento-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
+        .wb-bento-card.wb-bento-wide { grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding: 3rem 2.75rem; }
+        .wb-bento-icon { width: 3.75rem; height: 3.75rem; margin-bottom: 1.5rem; display: block; color: var(--pink-primary); flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(233,30,99,0.3)); }
+        .wb-bento-wide .wb-bento-icon { width: 5rem; height: 5rem; margin-bottom: 0; }
+        .wb-bento-card h4 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3; }
+        .wb-bento-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.7; }
+        .wb-bento-number { position: absolute; bottom: -0.5rem; right: 1.25rem; font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; user-select: none; }
+
+        /* Timeline */
+        .wb-timeline { position: relative; max-width: 900px; margin: 4rem auto 0; }
+        .wb-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, transparent, var(--pink-primary), var(--pink-primary), transparent); transform: translateX(-50%); }
+        .wb-timeline-day { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: start; margin-bottom: 4rem; position: relative; }
+        .wb-timeline-day:last-child { margin-bottom: 0; }
+        .wb-timeline-dot { width: 20px; height: 20px; background: var(--pink-primary); border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 30px rgba(233,30,99,0.5), 0 0 60px rgba(233,30,99,0.2); justify-self: center; margin-top: 2rem; }
+        .wb-timeline-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+        .wb-timeline-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); pointer-events: none; }
+        .wb-timeline-card::after { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(233,30,99,0.06), transparent 60%); pointer-events: none; }
+        .wb-timeline-card:hover { border-color: rgba(233,30,99,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(233,30,99,0.1), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
+        .wb-timeline-day:nth-child(odd) .wb-timeline-card { grid-column: 1; }
+        .wb-timeline-day:nth-child(odd) .wb-timeline-dot { grid-column: 2; }
+        .wb-timeline-day:nth-child(odd) .wb-timeline-number { grid-column: 3; }
+        .wb-timeline-day:nth-child(even) .wb-timeline-number { grid-column: 1; text-align: right; }
+        .wb-timeline-day:nth-child(even) .wb-timeline-dot { grid-column: 2; }
+        .wb-timeline-day:nth-child(even) .wb-timeline-card { grid-column: 3; }
+        .wb-timeline-number { font-size: clamp(6rem, 12vw, 10rem); font-weight: 900; color: rgba(233,30,99,0.08); line-height: 0.85; padding: 0 1.5rem; user-select: none; }
+        .wb-timeline-label { font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+        .wb-timeline-title { font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; position: relative; z-index: 1; }
+        .wb-timeline-subtitle { font-size: 1rem; color: rgba(255,255,255,0.6); font-style: italic; margin-bottom: 1.5rem; line-height: 1.6; position: relative; z-index: 1; }
+        .wb-timeline-list { list-style: none; padding: 0; margin: 0; position: relative; z-index: 1; }
+        .wb-timeline-list li { padding: 0.85rem 0; padding-left: 1.75rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .wb-timeline-list li:last-child { border-bottom: none; }
+        .wb-timeline-list li::before { content: ''; position: absolute; left: 0; top: 1.15rem; width: 8px; height: 8px; background: var(--pink-primary); border-radius: 50%; box-shadow: 0 0 10px rgba(233,30,99,0.4); }
+        .wb-timeline-list li:hover { color: var(--white); padding-left: 2rem; }
+
+        /* Emotion Breaks */
+        .wb-emotion { position: relative; height: 45vh; min-height: 320px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .wb-emotion-bg { position: absolute; top: -20%; left: 0; width: 100%; height: 140%; object-fit: cover; object-position: center 30%; will-change: transform; }
+        .wb-emotion-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%); z-index: 1; }
+        .wb-emotion-text { position: relative; z-index: 2; text-align: center; max-width: 700px; padding: 0 2rem; }
+        .wb-emotion-text p { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 300; color: var(--white); line-height: 1.4; font-style: italic; text-shadow: 0 2px 20px rgba(0,0,0,0.5); margin: 0; }
+        .wb-emotion-text p strong { font-weight: 700; color: var(--pink-light); }
+
+        /* Background reveals */
+        .wb-bg-section { position: relative; overflow: hidden; }
+        .wb-bg-reveal { position: absolute; top: 0; width: 45%; height: 100%; pointer-events: none; z-index: 0; }
+        .wb-bg-reveal img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; filter: grayscale(0.2); transition: opacity 1.5s ease; }
+        .wb-bg-reveal.visible img { opacity: 0.4; }
+        .wb-bg-reveal.wb-right { right: 0; -webkit-mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); }
+        .wb-bg-reveal.wb-left { left: 0; -webkit-mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); }
+        .wb-bg-reveal::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(233,30,99,0.08), transparent); pointer-events: none; }
+        .wb-bg-section .container { position: relative; z-index: 1; }
+
+        /* Testimonial cards */
+        .wb-testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .wb-testimonial { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+        .wb-testimonial::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
+        .wb-testimonial::after { content: '\201C'; position: absolute; top: 1rem; right: 1.5rem; font-size: 4rem; font-weight: 700; color: rgba(233,30,99,0.08); line-height: 1; pointer-events: none; }
+        .wb-testimonial:hover { border-color: rgba(233,30,99,0.25); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(233,30,99,0.08), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
+        .wb-testimonial-stars { color: #FFD700; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1.25rem; filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+        .wb-testimonial blockquote { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+        .wb-testimonial-author { display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+        .wb-testimonial-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--white); box-shadow: 0 4px 12px rgba(233,30,99,0.3); }
+        .wb-testimonial-name { font-size: 0.9rem; font-weight: 700; color: var(--white); }
+        .wb-testimonial-result { font-size: 0.75rem; color: var(--pink-primary); margin-top: 0.2rem; }
+
+        /* Check-Up Live */
+        .wb-checkup-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
+        .wb-checkup-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; }
+        .wb-checkup-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
+        .wb-checkup-label { font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
+        .wb-checkup-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 1.25rem; }
+        .wb-checkup-list { list-style: none; padding: 0; margin: 0; }
+        .wb-checkup-list li { padding: 0.6rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+        .wb-checkup-list li::before { content: ''; position: absolute; left: 0; top: 0.85rem; width: 6px; height: 6px; background: var(--pink-primary); border-radius: 50%; }
+
+        /* For/Not For You */
+        .wb-fortyou-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .wb-fortyou-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; }
+        .wb-fortyou-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .wb-fortyou-card.wb-yes h4 { color: #4CAF50; }
+        .wb-fortyou-card.wb-no h4 { color: #f44336; }
+        .wb-fortyou-list { list-style: none; padding: 0; margin: 0; }
+        .wb-fortyou-list li { padding: 0.65rem 0; padding-left: 1.75rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .wb-fortyou-list li:last-child { border-bottom: none; }
+        .wb-yes .wb-fortyou-list li::before { content: '\2713'; position: absolute; left: 0; top: 0.65rem; color: #4CAF50; font-weight: 700; }
+        .wb-no .wb-fortyou-list li::before { content: '\2717'; position: absolute; left: 0; top: 0.65rem; color: #f44336; font-weight: 700; }
+
+        /* Bonus */
+        .wb-bonus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .wb-bonus-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(233,30,99,0.25); border-radius: 20px; padding: 2.5rem; text-align: center; position: relative; overflow: hidden; }
+        .wb-bonus-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent); pointer-events: none; }
+        .wb-bonus-badge { display: inline-block; background: var(--pink-primary); color: var(--white); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.25rem; }
+        .wb-bonus-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+        .wb-bonus-value { font-size: 0.85rem; color: var(--pink-primary); font-weight: 600; margin-bottom: 1rem; }
+        .wb-bonus-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+        .wb-bonus-total { text-align: center; margin-top: 2.5rem; padding: 1.5rem 2rem; background: rgba(233,30,99,0.08); border: 1px solid rgba(233,30,99,0.2); border-radius: 12px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .wb-bonus-total p { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; }
+        .wb-bonus-total strong { font-size: 1.75rem; font-weight: 800; color: var(--white); }
+
+        /* TrustPilot Reviews */
+        .wb-reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .wb-review { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; }
+        .wb-review-stars { color: #00B67A; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+        .wb-review-title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+        .wb-review-text { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.7; font-style: italic; margin-bottom: 1rem; }
+        .wb-review-author { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+        .wb-trustpilot-badge { text-align: center; margin-top: 2rem; }
+        .wb-trustpilot-badge span { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0,182,122,0.1); border: 1px solid rgba(0,182,122,0.25); padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: #00B67A; }
+
+        /* FAQ */
+        .wb-faq-list { max-width: 800px; margin: 0 auto; }
+        .wb-faq-item { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .wb-faq-item:hover { border-color: rgba(255,255,255,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08); }
+        .wb-faq-item.open { border-color: rgba(233,30,99,0.25); box-shadow: 0 12px 40px rgba(233,30,99,0.08), 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08); }
+        .wb-faq-question { padding: 1.5rem 1.75rem; font-size: 1rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; background: none; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; gap: 1rem; }
+        .wb-faq-question:hover { background: rgba(233,30,99,0.06); }
+        .wb-faq-toggle { font-size: 1.5rem; color: var(--pink-primary); font-weight: 300; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(233,30,99,0.3)); }
+        .wb-faq-item.open .wb-faq-toggle { transform: rotate(45deg); }
+        .wb-faq-answer { padding: 0 1.75rem; max-height: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        .wb-faq-item.open .wb-faq-answer { padding: 0 1.75rem 1.5rem; max-height: 500px; }
+        .wb-faq-answer p { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.7; }
+
+        /* Final CTA */
+        .wb-final-cta { background: var(--pink-primary); text-align: center; padding: 7rem 2rem; }
+        .wb-final-cta-content { max-width: 650px; margin: 0 auto; }
+        .wb-final-cta h2 { color: var(--white); margin-bottom: 1.75rem; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; }
+        .wb-final-cta p { color: rgba(255,255,255,0.9); font-size: 1.15rem; line-height: 1.8; margin-bottom: 0.75rem; }
+        .wb-final-cta .wb-question { font-size: 1.85rem; font-weight: 700; font-style: italic; color: var(--white); margin: 2.5rem 0; }
+        .wb-btn-white { display: inline-flex; align-items: center; gap: 1rem; background: var(--white); color: var(--pink-primary); padding: 1.25rem 2.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); font-family: 'Poppins', sans-serif; }
+        .wb-btn-white:hover { background: #0A0A0A; color: var(--white); transform: translateY(-3px); }
+        .wb-final-trust { margin-top: 1.75rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+        /* Form embed */
+        .wb-form-wrapper { max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; }
+        @media (max-width: 768px) { .wb-form-wrapper { max-width: 100%; padding: 0; border: none; border-radius: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; } .wb-form-wrapper::before { display: none; } }
+        .wb-form-wrapper::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent); pointer-events: none; }
+        .wb-form-wrapper iframe { width: 100%; min-height: 492px; border: none; border-radius: 8px; }
+
+        /* Sticky CTA */
+        .wb-sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #0A0A0A; padding: 0.75rem 1.25rem; box-shadow: 0 -4px 30px rgba(0,0,0,0.5); z-index: 1000; border-top: 1px solid rgba(233,30,99,0.3); }
+        .wb-sticky-cta .btn-primary { width: 100%; justify-content: center; }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .wb-bg-reveal { width: 35%; }
+        }
+        @media (max-width: 768px) {
+            /* Hero: show original hero content (overrides react-mobile-hero.css hide) */
+            .hero .hero-content {
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 5rem 1.25rem 2rem !important;
+                gap: 1rem;
+            }
+            .hero .hero-text { display: contents; }
+            .hero .hero-cta-group { justify-content: center; margin-top: 0; gap: 0.75rem; }
+            .hero .hero-stats { justify-content: center; gap: 1.5rem; width: 100%; }
+
+            .wb-bento { grid-template-columns: 1fr; }
+            .wb-testimonials { grid-template-columns: 1fr; }
+            .wb-final-cta { padding: 4rem 1.5rem 7rem; }
+            .wb-sticky-cta { display: block; }
+            .wb-emotion { height: 35vh; min-height: 250px; }
+            .wb-bg-reveal { display: none; }
+            .wb-countdown { justify-content: center; }
+            .wb-timeline::before { display: none; }
+            .wb-timeline-day { grid-template-columns: 1fr; position: relative; }
+            .wb-timeline-dot { display: none; }
+            .wb-timeline-card { grid-column: 2 !important; padding: 1.75rem; position: relative; z-index: 1; }
+            .wb-timeline-number { display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: clamp(4rem, 15vw, 6rem); padding: 0; z-index: 0; text-align: right; }
+            .wb-checkup-grid { grid-template-columns: 1fr; }
+            .wb-fortyou-grid { grid-template-columns: 1fr; }
+            .wb-bonus-grid { grid-template-columns: 1fr; }
+            .wb-reviews-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 576px) {
+            .wb-countdown { gap: 0.5rem; }
+            .wb-countdown-number { width: 55px; height: 55px; font-size: 1.25rem; }
+        }
+    </style>
+
+    <!-- Iubenda Cookie Solution (PRIMA del pixel per blocco corretto) -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'Webinar Maggio 2026', content_category: 'webinar'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="img/elena-webp/IMG_9183.webp" alt="Elena Giordani" class="hero-bg-image" loading="eager">
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge" data-cfg="badge">
+                    Webinar Gratuito &bull; 19-20-21 Maggio &bull; Ore 18:30
+                </div>
+                <h1 class="hero-title">
+                    <span>Lo Strano Motivo Per Cui Ogni Estate</span>
+                    <span class="accent">Perdi Il Controllo</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Ogni anno la stessa storia: a maggio sei pronta, a giugno cominci a mollare, a settembre torni peggio di come eri partita. Non &egrave; la tua forza di volont&agrave;. C'&egrave; <strong>un motivo preciso</strong> che nessun coach ti ha mai spiegato. In 3 sere gratuite scopri qual &egrave; &mdash; e come 2300 donne hanno smesso di subirlo.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">2300<span>+</span></div>
+                        <div class="hero-stat-label">Hanno Spezzato Il Loop</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">3</div>
+                        <div class="hero-stat-label">Sere Gratuite</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">100<span>%</span></div>
+                        <div class="hero-stat-label">Online &amp; Live</div>
+                    </div>
+                </div>
+                <div class="hero-cta-group">
+                    <a href="#iscriviti" class="btn-primary">
+                        Voglio Scoprire Il Motivo
+                        <span>&rarr;</span>
+                    </a>
+                    <a href="#programma" class="btn-outline">
+                        Vedi Il Programma
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="wb-marquee">
+        <div class="wb-marquee-track">
+            <span class="wb-marquee-item" data-cfg="marquee-special">Quest'estate non sarai pi&ugrave; quella di sempre</span>
+            <span class="wb-marquee-item">3 Sere Gratuite</span>
+            <span class="wb-marquee-item" data-cfg="marquee-dates">19-20-21 Maggio ore 18:30</span>
+            <span class="wb-marquee-item">Online da casa tua</span>
+            <span class="wb-marquee-item">2300+ donne hanno spezzato il loop</span>
+            <span class="wb-marquee-item">Niente replay</span>
+            <span class="wb-marquee-item" data-cfg="marquee-special">Quest'estate non sarai pi&ugrave; quella di sempre</span>
+            <span class="wb-marquee-item">3 Sere Gratuite</span>
+            <span class="wb-marquee-item" data-cfg="marquee-dates">19-20-21 Maggio ore 18:30</span>
+            <span class="wb-marquee-item">Online da casa tua</span>
+            <span class="wb-marquee-item">2300+ donne hanno spezzato il loop</span>
+            <span class="wb-marquee-item">Niente replay</span>
+        </div>
+    </div>
+
+    <!-- TI RICONOSCI? -->
+    <section class="section section-black wb-bg-section">
+        <div class="wb-bg-reveal wb-right" data-reveal>
+            <img src="img/elena-webp/Elena81.webp" alt="Elena Giordani" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="wb-community">
+                <h2 class="section-title" style="color: var(--white);">&Egrave; un mercoled&igrave; di giugno. <span class="highlight"><em>Ti pesi.</em></span></h2>
+                <p>+2 chili rispetto a maggio. Eppure ti eri detta che stavolta sarebbe stato diverso. Avevi un piano. L'inverno l'hai passato a impegnarti.</p>
+                <p>Poi sono arrivati il primo aperitivo all'aperto. La cena fuori. Il viaggio del weekend. Le ferie. E in tre settimane &mdash; tre &mdash; hai cancellato 5 mesi di lavoro.</p>
+                <p>Ti dici che a settembre ricominci. Ma sai gi&agrave; come va a finire: a settembre torni peggio di giugno. E a gennaio ricominci da capo. <strong>Per la quarta volta. La quinta. La decima.</strong></p>
+                <p class="wb-emphasis">Il punto non sei tu.<br><span class="highlight"><em>&Egrave; che nessuno ti ha mai detto perch&eacute; succede.</em></span></p>
+                <a href="#iscriviti" class="btn-outline">
+                    Voglio capirlo
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- IL LOOP CHE CONOSCI BENE (Bento Grid) -->
+    <section class="section section-black wb-bg-section">
+        <div class="wb-bg-reveal wb-left" data-reveal>
+            <img src="img/elena-webp/IMG_9821.webp" alt="Elena Giordani" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">IL LOOP CHE CONOSCI BENE</span>
+                <h2 class="section-title" style="color: var(--white);">Perch&eacute; ogni estate <span class="highlight"><em>finisce uguale</em></span></h2>
+            </div>
+            <div class="wb-bento">
+                <div class="wb-bento-card">
+                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <h4>Le prime due settimane di giugno</h4>
+                    <p>Ti basta un aperitivo, un pranzo fuori, una cena di compleanno. Poi due. Poi tre. La routine che hai costruito da gennaio si sgretola in 14 giorni. Non &egrave; che &ldquo;hai mollato&rdquo;. &Egrave; che il metodo che usavi non era pensato per resistere all'estate.</p>
+                    <div class="wb-bento-number">01</div>
+                </div>
+                <div class="wb-bento-card">
+                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l9-3 9 3v12l-9 3-9-3z"/><path d="M3 6l9 3 9-3"/><path d="M12 9v12"/></svg>
+                    <h4>Le ferie cancellano tutto</h4>
+                    <p>Due settimane di mare. Hotel, ristoranti, gelati, niente palestra. Torni a casa con 3 chili in pi&ugrave; e una sensazione che conosci bene: &ldquo;vabb&egrave;, ormai &egrave; andata, ricomincio a settembre&rdquo;. E intanto il momentum &egrave; finito.</p>
+                    <div class="wb-bento-number">02</div>
+                </div>
+                <div class="wb-bento-card">
+                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                    <h4>Caldo, cortisolo, ritenzione</h4>
+                    <p>Il tuo corpo a 35&deg; non funziona come a 12&deg;. Cambia il sonno, cambiano gli ormoni, cambia la fame. E tu continui a usare lo stesso schema dell'inverno. Non si rompe perch&eacute; sei debole. Si rompe perch&eacute; non &egrave; tarato sull'estate.</p>
+                    <div class="wb-bento-number">03</div>
+                </div>
+                <div class="wb-bento-card">
+                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                    <h4>Settembre &egrave; il vero giudice</h4>
+                    <p>Non importa quanto eri pronta a maggio. La verit&agrave; del lavoro che hai fatto la vedi a settembre. E la maggior parte delle donne, a settembre, riapre l'armadio e dice &ldquo;ricomincio da zero&rdquo;. Per la quinta volta in cinque anni.</p>
+                    <div class="wb-bento-number">04</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PROGRAMMA 3 SERE (Timeline) -->
+    <section class="section section-black wb-bg-section" id="programma" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
+        <div class="wb-bg-reveal wb-right" data-reveal>
+            <img src="img/evento-webp/EDO05142.webp" alt="Elena Giordani" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">3 SERATE, 1 RIVOLUZIONE</span>
+                <h2 class="section-title" style="color: var(--white);">Cosa scoprirai in <span class="highlight"><em>3 serate</em></span></h2>
+            </div>
+            <div class="wb-timeline">
+                <div class="wb-timeline-day">
+                    <div class="wb-timeline-card">
+                        <div class="wb-timeline-label" data-cfg="serata1-label">Luned&igrave; 19 Maggio &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Lo Strano Motivo</h3>
+                        <p class="wb-timeline-subtitle">Diagnosi. Perch&eacute; ogni estate il controllo crolla &mdash; e non &egrave; colpa tua.</p>
+                        <ul class="wb-timeline-list">
+                            <li>Le 4 cause invisibili che fanno saltare le routine femminili da giugno in poi</li>
+                            <li>Cosa cambia nel corpo di una donna over 35 quando le temperature salgono</li>
+                            <li>Il ruolo di cortisolo, ritenzione e ormoni in estate (e perch&eacute; nessun trainer ne parla)</li>
+                            <li>L'errore di metodo che ti riporta a settembre peggio di giugno, ogni volta</li>
+                            <li><strong>Check-Up Live</strong> sulle abitudini estive e sul mindset</li>
+                        </ul>
+                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: capirai esattamente cosa rompe i tuoi risultati ogni estate.</p>
+                    </div>
+                    <div class="wb-timeline-dot"></div>
+                    <div class="wb-timeline-number">01</div>
+                </div>
+                <div class="wb-timeline-day">
+                    <div class="wb-timeline-number">02</div>
+                    <div class="wb-timeline-dot"></div>
+                    <div class="wb-timeline-card">
+                        <div class="wb-timeline-label" data-cfg="serata2-label">Marted&igrave; 20 Maggio &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Costanza In Libert&agrave;</h3>
+                        <p class="wb-timeline-subtitle">Metodo. Come si vive un'estate da donna in controllo &mdash; senza rinunciare a niente.</p>
+                        <ul class="wb-timeline-list">
+                            <li>Come gestire viaggi, vacanze e settimane fuori casa senza azzerare i progressi</li>
+                            <li>La regola dei 3 pasti che disinnesca aperitivi, cene fuori e pranzi al ristorante</li>
+                            <li>Il Metodo E.A.S.Y. applicato all'estate (allenamento, alimentazione, supporto, identit&agrave;)</li>
+                            <li>Perch&eacute; &ldquo;rinunciare al gelato&rdquo; &egrave; la strategia perdente per definizione</li>
+                            <li><strong>Check-Up Live corporeo:</strong> ritenzione, sonno, fame, cortisolo estivo</li>
+                        </ul>
+                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: avrai gli strumenti per attraversare l'estate senza autosabotarti.</p>
+                    </div>
+                </div>
+                <div class="wb-timeline-day">
+                    <div class="wb-timeline-card">
+                        <div class="wb-timeline-label" data-cfg="serata3-label">Mercoled&igrave; 21 Maggio &bull; Ore 18:30</div>
+                        <h3 class="wb-timeline-title">Il Tuo Piano Estate</h3>
+                        <p class="wb-timeline-subtitle">Piano. Da maggio a settembre, settimana per settimana.</p>
+                        <ul class="wb-timeline-list">
+                            <li>La roadmap dei 4 mesi: cosa fare a maggio, giugno, luglio, agosto e settembre</li>
+                            <li>Come tarare allenamento e alimentazione su clima, ferie e impegni reali</li>
+                            <li>I 3 numeri da tenere d'occhio per non &ldquo;svegliarsi a settembre&rdquo;</li>
+                            <li>Cosa serve davvero per arrivare a settembre meglio di come sei arrivata a giugno</li>
+                            <li><strong>Q&amp;A finale</strong> in diretta con Elena</li>
+                        </ul>
+                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: uscirai con un piano scritto, non con una motivazione che dura due giorni.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-top: 1.25rem; padding: 0.75rem 1rem; border: 1px solid var(--pink-primary); border-radius: 8px; text-align: center; position: relative; z-index: 1;">&#128274; Solo per chi presenzia tutte e 3 le sere: <strong>Sfida community Estate Inarrestabile</strong> &mdash; gruppo WhatsApp dedicato 30 giorni.</p>
+                    </div>
+                    <div class="wb-timeline-dot"></div>
+                    <div class="wb-timeline-number">03</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#iscriviti" class="btn-primary">
+                    Voglio Esserci
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHECK-UP LIVE -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">NON SOLO TEORIA</span>
+                <h2 class="section-title" style="color: var(--white);">Il <span class="highlight"><em>Check-Up Live</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">In ogni serata far&ograve; Check-Up Live su donne reali. Non teoria &mdash; pratica vera, su corpi veri, in tempo reale.</p>
+            </div>
+            <div class="wb-checkup-grid">
+                <div class="wb-checkup-card">
+                    <div class="wb-checkup-label">Serata 1 &bull; Mindset Estivo</div>
+                    <div class="wb-checkup-title">Check-Up sul tuo schema mentale &ldquo;d'estate&rdquo;</div>
+                    <ul class="wb-checkup-list">
+                        <li>Individuiamo le frasi tossiche che ti ripeti da giugno (&ldquo;vabb&egrave; ormai...&rdquo;, &ldquo;ricomincio luned&igrave;&rdquo;, &ldquo;dopo le ferie...&rdquo;)</li>
+                        <li>Mappiamo i trigger sociali che ti fanno mollare in 3 giorni (aperitivi, cene, viaggi)</li>
+                        <li>Verifichiamo se il tuo &ldquo;piano estivo&rdquo; attuale ha senso o no</li>
+                    </ul>
+                </div>
+                <div class="wb-checkup-card">
+                    <div class="wb-checkup-label">Serata 2 &bull; Corpo In Estate</div>
+                    <div class="wb-checkup-title">Check-Up corporeo: caldo, ritenzione, ormoni, sonno</div>
+                    <ul class="wb-checkup-list">
+                        <li>Da dove arriva quella sensazione di &ldquo;gonfia&rdquo; che peggiora ad ogni gita al mare</li>
+                        <li>Come leggere i segnali del corpo a 30&deg; (e perch&eacute; sono diversi da quelli invernali)</li>
+                        <li>Come costruirti uno schema sostenibile per i prossimi 4 mesi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FA PER TE SE... -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">&Egrave; PER TE?</span>
+                <h2 class="section-title" style="color: var(--white);">Questo webinar <span class="highlight"><em>fa per te se...</em></span></h2>
+            </div>
+            <div class="wb-fortyou-grid">
+                <div class="wb-fortyou-card wb-yes">
+                    <h4>&#10003; &Egrave; per te se:</h4>
+                    <ul class="wb-fortyou-list">
+                        <li>Sei una donna 35-65 stanca di vedere ogni estate cancellare quello che costruisci d'inverno</li>
+                        <li>Vuoi arrivare a settembre meglio di come arriverai a giugno</li>
+                        <li>Sei stufa del loop &ldquo;gennaio-impegno / giugno-mollo / settembre-zero&rdquo;</li>
+                        <li>Sai che non &egrave; questione di volont&agrave; ma di metodo</li>
+                        <li>Vuoi vivere l'estate senza sensi di colpa &mdash; e senza rinunciare a niente</li>
+                    </ul>
+                </div>
+                <div class="wb-fortyou-card wb-no">
+                    <h4>&#10007; Non &egrave; per te se:</h4>
+                    <ul class="wb-fortyou-list">
+                        <li>Cerchi una dieta lampo per la prova costume</li>
+                        <li>Vuoi perdere 5 chili in 30 giorni</li>
+                        <li>Cerchi una soluzione fai-da-te senza guida</li>
+                        <li>Pensi che &ldquo;mollare a giugno&rdquo; sia inevitabile</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#iscriviti" class="btn-primary">
+                    S&igrave;, &Egrave; Per Me! Prenota Ora
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHI TI GUIDERA -->
+    <section class="section section-black wb-bg-section">
+        <div class="wb-bg-reveal wb-left" data-reveal>
+            <img src="img/evento-webp/EDO05146.webp" alt="Elena Giordani" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="wb-community">
+                <span class="section-number">CHI TI GUIDER&Agrave;</span>
+                <h2 class="section-title" style="color: var(--white); margin-bottom: 2rem;">Probabilmente non mi conosci. <span class="highlight"><em>Ecco perch&eacute; dovresti.</em></span></h2>
+                <p>Mi chiamo Elena Giordani. Negli ultimi 6 anni ho visto ripetersi la stessa scena, sempre uguale: donne che a maggio mi scrivono &ldquo;ce la faccio quest'anno&rdquo;, e a settembre tornano &ldquo;Elena, sono di nuovo al punto di partenza&rdquo;.</p>
+                <p>Non &egrave; mai stata la loro forza di volont&agrave;. Era il metodo. <strong>Nessuno costruisce un sistema che tiene anche d'estate.</strong> Tutti ti danno regole invernali e poi spariscono a giugno.</p>
+                <p>Cos&igrave; ho costruito il <strong>Metodo E.A.S.Y.</strong>: 4 pilastri (Esercizio, Alimentazione, Supporto, You) tarati anche sui mesi caldi, sulle ferie, sui viaggi. Lo hanno usato 2300 donne in 8 paesi. Non prometto miracoli. Prometto un metodo che funziona quando la vita reale ti chiama a tavola.</p>
+                <div class="hero-stats" style="justify-content: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">2300<span>+</span></div>
+                        <div class="hero-stat-label">Hanno Spezzato Il Loop</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">97<span>%</span></div>
+                        <div class="hero-stat-label">Soddisfazione</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">8</div>
+                        <div class="hero-stat-label">Paesi Nel Mondo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">ERANO AL PUNTO DI PARTENZA</span>
+                <h2 class="section-title" style="color: var(--white);">Non conoscevano Elena. <span class="highlight"><em>Poi hanno partecipato.</em></span></h2>
+            </div>
+            <div class="scroll-rows-wrapper scroll-rows-masonry">
+                <div class="scroll-row" id="waRowWebA"></div>
+                <div class="scroll-row" id="waRowWebB"></div>
+            </div>
+
+            <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
+                <button class="wa-lightbox-close">&times;</button>
+                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg" loading="lazy">
+            </div>
+
+            <script>
+                function openWaLightbox(el) {
+                    var src = el.querySelector('img').src;
+                    document.getElementById('waLightboxImg').src = src;
+                    document.getElementById('waLightbox').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeWaLightbox() {
+                    document.getElementById('waLightbox').classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeWaLightbox(); });
+
+                (function() {
+                    var allImgs = [];
+                    for (var i = 1; i <= 30; i++) {
+                        allImgs.push(i < 10 ? '0' + i : '' + i);
+                    }
+                    for (var j = allImgs.length - 1; j > 0; j--) {
+                        var k = Math.floor(Math.random() * (j + 1));
+                        var tmp = allImgs[j]; allImgs[j] = allImgs[k]; allImgs[k] = tmp;
+                    }
+                    var half = Math.ceil(allImgs.length / 2);
+                    var rows = [
+                        { el: document.getElementById('waRowWebA'), imgs: allImgs.slice(0, half), speed: 0.5, dir: 1 },
+                        { el: document.getElementById('waRowWebB'), imgs: allImgs.slice(half), speed: 0.4, dir: -1 }
+                    ];
+                    rows.forEach(function(row) {
+                        var html = '';
+                        row.imgs.forEach(function(n) {
+                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/whatsapp-webp/whatsapp-' + n + '.webp" alt="Testimonianza" loading="lazy"></div>';
+                        });
+                        html += html;
+                        row.el.innerHTML = html;
+                        var isDown = false, startX, scrollLeft;
+                        row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
+                        row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
+                        row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
+                        row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
+                        row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
+                        row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
+                        row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                    });
+                    rows.forEach(function(row) {
+                        if (row.dir === -1) {
+                            row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
+                        }
+                    });
+                    function autoScroll() {
+                        rows.forEach(function(row) {
+                            if (!row.paused) {
+                                row.el.scrollLeft += row.speed * row.dir;
+                                var halfScroll = row.el.scrollWidth / 2;
+                                if (row.dir === 1 && row.el.scrollLeft >= halfScroll) {
+                                    row.el.scrollLeft -= halfScroll;
+                                } else if (row.dir === -1 && row.el.scrollLeft <= 0) {
+                                    row.el.scrollLeft += halfScroll;
+                                }
+                            }
+                        });
+                        requestAnimationFrame(autoScroll);
+                    }
+                    autoScroll();
+                })();
+            </script>
+        </div>
+    </section>
+
+    <!-- COMMENTI LIVE DAL WEBINAR -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">DAL VIVO</span>
+                <h2 class="section-title" style="color: var(--white);">I commenti <span class="highlight"><em>durante il webinar</em></span></h2>
+            </div>
+            <div class="scroll-rows-wrapper scroll-rows-masonry">
+                <div class="scroll-row" id="commentiRow1"></div>
+                <div class="scroll-row" id="commentiRow2"></div>
+            </div>
+
+            <script>
+            (function() {
+                var imgs = [
+                    'IMG_7065','IMG_7066','IMG_7067','IMG_7068','IMG_7069','IMG_7070',
+                    'IMG_7071','IMG_7073','IMG_7074','IMG_7075','IMG_7077','IMG_7083',
+                    'IMG_7085','IMG_7086','IMG_7091','IMG_7092','IMG_7093','IMG_7094',
+                    '132AC079-5BB6-4188-AB60-AC4C1392E935'
+                ];
+                for (var j = imgs.length - 1; j > 0; j--) {
+                    var k = Math.floor(Math.random() * (j + 1));
+                    var tmp = imgs[j]; imgs[j] = imgs[k]; imgs[k] = tmp;
+                }
+                var half = Math.ceil(imgs.length / 2);
+                var rows = [
+                    { el: document.getElementById('commentiRow1'), imgs: imgs.slice(0, half), speed: 0.4, dir: 1 },
+                    { el: document.getElementById('commentiRow2'), imgs: imgs.slice(half), speed: 0.35, dir: -1 }
+                ];
+                rows.forEach(function(row) {
+                    var html = '';
+                    row.imgs.forEach(function(name) {
+                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/commenti-webp/' + name + '.webp" alt="Commento webinar" loading="lazy"></div>';
+                    });
+                    row.el.innerHTML = html;
+                    var isDown = false, startX, scrollLeft;
+                    row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
+                    row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
+                    row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
+                    row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
+                    row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
+                    row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
+                    row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                });
+                rows.forEach(function(row) {
+                    if (row.dir === -1) row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
+                });
+                function autoScroll() {
+                    rows.forEach(function(row) {
+                        if (!row.paused) {
+                            row.el.scrollLeft += row.speed * row.dir;
+                            var maxScroll = row.el.scrollWidth - row.el.clientWidth;
+                            if (row.dir === 1 && row.el.scrollLeft >= maxScroll) row.el.scrollLeft = 0;
+                            else if (row.dir === -1 && row.el.scrollLeft <= 0) row.el.scrollLeft = maxScroll;
+                        }
+                    });
+                    requestAnimationFrame(autoScroll);
+                }
+                autoScroll();
+            })();
+            </script>
+        </div>
+    </section>
+
+    <!-- RECENSIONI TRUSTPILOT -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">VERIFICATE E REALI</span>
+                <h2 class="section-title" style="color: var(--white);">Recensioni <span class="highlight"><em>verificate</em></span> su TrustPilot</h2>
+            </div>
+            <div class="wb-reviews-grid">
+                <div class="wb-review">
+                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="wb-review-title">Percorso di vita (consigliato)</div>
+                    <div class="wb-review-text">La XFit Academy di Elena Giordani non &egrave; un semplice allenamento fisico ma un completo allenamento mentale e di crescita personale. &Egrave; un percorso di vita che ti aiuta a ritrovare la migliore versione di te stessa, supportata da professionisti preparati e appassionati.</div>
+                    <div class="wb-review-author">Maria Teresa</div>
+                </div>
+                <div class="wb-review">
+                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="wb-review-title">Sono rientrata nel mio corpo</div>
+                    <div class="wb-review-text">Avevo gi&agrave; smesso di crederci. Dopo il webinar ho capito esattamente perch&eacute; ogni programma che avevo fatto prima non aveva funzionato. Il metodo di Elena &egrave; diverso da tutto quello che avevo provato.</div>
+                    <div class="wb-review-author">Cristiana</div>
+                </div>
+                <div class="wb-review">
+                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="wb-review-title">Il programma... il posto giusto!</div>
+                    <div class="wb-review-text">Ho iniziato la X-Fit e la vita mi &egrave; cambiata totalmente. Non solo nell'aspetto fisico, ma nella mentalit&agrave; e nella consapevolezza. Finalmente ho trovato il programma e le persone giuste per i miei obiettivi.</div>
+                    <div class="wb-review-author">Simonetta</div>
+                </div>
+                <div class="wb-review">
+                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <div class="wb-review-title">La prima estate in cui non ho mollato</div>
+                    <div class="wb-review-text">Avevo provato ogni dieta. Dopo il webinar mi sono iscritta e ho passato la prima estate in cui non ho mai detto &ldquo;vabb&egrave;, ricomincio a settembre&rdquo;. A settembre, per la prima volta, ero meglio di giugno. Cambia tutto.</div>
+                    <div class="wb-review-author">Valentina</div>
+                </div>
+            </div>
+            <div class="wb-trustpilot-badge">
+                <span>&#9733; Trustpilot &bull; 4.9 / 5</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- I DUE BONUS STRAORDINARI -->
+    <section class="section section-black">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">RISERVATI A CHI PARTECIPA</span>
+                <h2 class="section-title" style="color: var(--white);">I Due <span class="highlight"><em>Bonus Straordinari</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Riservati a chi presenzia tutte e 3 le serate &mdash; non al replay.</p>
+            </div>
+            <div class="wb-bonus-grid">
+                <div class="wb-bonus-card">
+                    <div class="wb-bonus-badge">Bonus 1 &bull; Per chi presenzia</div>
+                    <div class="wb-bonus-title">Sfida community &ldquo;Estate Inarrestabile&rdquo;</div>
+                    <div class="wb-bonus-value">Valore: 197&euro;</div>
+                    <div class="wb-bonus-desc">Accesso a un gruppo WhatsApp dedicato per 30 giorni dopo il webinar. Check-in giornaliero, presenza di Elena e del team coach. Da sola &egrave; pi&ugrave; difficile. Insieme siete inarrestabili.</div>
+                </div>
+                <div class="wb-bonus-card">
+                    <div class="wb-bonus-badge">Bonus 2 &bull; Solo 20 posti</div>
+                    <div class="wb-bonus-title">Masterclass Live &ldquo;Il Piano dei 90 Giorni&rdquo;</div>
+                    <div class="wb-bonus-value">Valore: 247&euro;</div>
+                    <div class="wb-bonus-desc">Una masterclass LIVE con Elena per costruire il tuo piano personalizzato giugno-luglio-agosto. Riservata alle prime 20 che decidono di entrare in X-Fit Academy.</div>
+                </div>
+            </div>
+            <div class="wb-bonus-total">
+                <p>Un regalo per chi vuole davvero spezzare il loop quest'estate.</p>
+                <strong>Totale valore: 444&euro;</strong>
+            </div>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="#iscriviti" class="btn-primary">
+                    Voglio I Bonus! Iscrivimi!
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ISCRIZIONE CON COUNTDOWN -->
+    <section class="section section-black" id="iscriviti" style="background: #000;">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">POSTI LIMITATI &bull; NIENTE REPLAY</span>
+                <h2 class="section-title" style="color: var(--white);">Quest'estate pu&ograve; finire diversamente. <span class="highlight"><em>Decide chi inizia adesso.</em></span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">3 sere gratuite. Niente replay. Lascia la tua email, ti mando il link Zoom e il PDF &ldquo;Le 5 trappole dell'estate che ti rubano i risultati&rdquo;.</p>
+            </div>
+            <div style="text-align: center;">
+                <div class="wb-countdown" id="countdown" style="justify-content: center; margin-bottom: 2rem;">
+                    <div class="wb-countdown-item">
+                        <div class="wb-countdown-number" id="cd-days">00</div>
+                        <div class="wb-countdown-text">Giorni</div>
+                    </div>
+                    <div class="wb-countdown-item">
+                        <div class="wb-countdown-number" id="cd-hours">00</div>
+                        <div class="wb-countdown-text">Ore</div>
+                    </div>
+                    <div class="wb-countdown-item">
+                        <div class="wb-countdown-number" id="cd-mins">00</div>
+                        <div class="wb-countdown-text">Min</div>
+                    </div>
+                    <div class="wb-countdown-item">
+                        <div class="wb-countdown-number" id="cd-secs">00</div>
+                        <div class="wb-countdown-text">Sec</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem;">alla prima serata</p>
+                <div class="wb-form-wrapper">
+                    <iframe
+                        src="https://link.drewcompany.it/widget/form/REPLACE_ME_FORM_ID"
+                        id="inline-REPLACE_ME_FORM_ID"
+                        data-layout="{'id':'INLINE'}"
+                        data-trigger-type="alwaysShow"
+                        data-trigger-value=""
+                        data-activation-type="alwaysActivated"
+                        data-activation-value=""
+                        data-deactivation-type="neverDeactivate"
+                        data-deactivation-value=""
+                        data-form-name="[LP-Form] Webinar Maggio"
+                        data-height="492"
+                        data-layout-iframe-id="inline-REPLACE_ME_FORM_ID"
+                        data-form-id="REPLACE_ME_FORM_ID"
+                        title="[LP-Form] Webinar Maggio"
+                    ></iframe>
+                </div>
+                <!-- form_embed.js caricato dinamicamente dallo script init -->
+                <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 1.5rem;">Nessun costo &bull; Nessun impegno &bull; Nessuna vendita aggressiva</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-black wb-bg-section">
+        <div class="wb-bg-reveal wb-left" data-reveal>
+            <img src="img/elena-webp/IMG_9822.webp" alt="Elena Giordani" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-number">DOMANDE</span>
+                <h2 class="section-title" style="color: var(--white);">Hai qualche <span class="highlight"><em>dubbio?</em></span></h2>
+            </div>
+            <div class="wb-faq-list">
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Non conosco Elena Giordani. Perch&eacute; dovrei fidarmi?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>&Egrave; normale &mdash; la maggior parte delle partecipanti non la conosceva prima del webinar. I numeri parlano da soli: oltre 2300 donne trasformate in 8 paesi, 97% di tasso di soddisfazione. E il webinar &egrave; gratuito, quindi non rischi nulla. Ascolta la prima sera e decidi tu se continuare.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">&Egrave; davvero gratuito? Qual &egrave; la fregatura?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>Nessuna fregatura. &Egrave; 100% gratuito, nessun costo nascosto. Elena condivide queste serate perch&eacute; ogni anno vede ripetersi lo stesso schema &mdash; e crede che ogni donna meriti di capire perch&eacute; succede prima di decidere se investire in un percorso. Se poi vorrai approfondire, avrai tutte le informazioni. Ma nessun obbligo.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Ho gi&agrave; provato di tutto e ogni estate finisce uguale. Perch&eacute; questo dovrebbe essere diverso?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>Proprio di questo parla la prima sera: perch&eacute; tutto quello che hai provato non ha resistito all'estate. Spoiler: non &egrave; colpa della tua forza di volont&agrave;. Il Metodo E.A.S.Y. parte da un approccio costruito anche per i mesi caldi, le ferie, i viaggi &mdash; ed &egrave; per questo che il 97% delle donne lo consiglia.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Devo partecipare a tutte e 3 le sere?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>Ogni sera si costruisce su quella precedente, e i 2 bonus straordinari sono riservati a chi le presenzia tutte. Niente replay. Se ne perdi una, puoi comunque partecipare alle altre &mdash; ma il valore vero &egrave; vederle dal vivo.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Come partecipo? Serve scaricare qualcosa?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>No, basta un telefono, tablet o computer con connessione internet. Dopo l'iscrizione riceverai tutte le istruzioni via email e WhatsApp con il link di accesso. Semplicissimo.</p></div>
+                </div>
+                <div class="wb-faq-item">
+                    <button class="wb-faq-question">Posso portare un'amica?<span class="wb-faq-toggle">+</span></button>
+                    <div class="wb-faq-answer"><p>Assolutamente s&igrave;. Anzi, le trasformazioni pi&ugrave; belle le vediamo quando le donne entrano in estate insieme. Condividi questa pagina con chi pensi ne abbia bisogno.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="wb-final-cta">
+        <div class="wb-final-cta-content">
+            <h2>Quest'estate pu&ograve; essere diversa.</h2>
+            <p>Non con un'altra dieta da prova costume. Non con &ldquo;riprendo a settembre&rdquo;.</p>
+            <p>Ma con il <strong>motivo</strong> che hai sempre cercato &mdash; quello che 2300 donne prima di te hanno capito, smettendo di subire ogni giugno il solito sgretolamento.</p>
+            <p class="wb-question">Tu vuoi capirlo?</p>
+            <a href="#iscriviti" class="wb-btn-white">
+                S&igrave;, Voglio Esserci
+                <span>&rarr;</span>
+            </a>
+            <p class="wb-final-trust" data-cfg="trust-dates">100% gratuito &bull; Online &bull; 19-20-21 Maggio ore 18:30</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">ELENA GIORDANI</div>
+                <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
+                <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.6;">
+                    X77 SSD a.r.l &mdash; P.IVA: IT17336811009
+                    <br>Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)
+                    <br>Email: info.xfitacademy@gmail.com
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+                <a href="/terms-and-conditions">Termini e Condizioni</a>            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA (mobile) -->
+    <div class="wb-sticky-cta">
+        <a href="#iscriviti" class="btn-primary">
+            Iscriviti Gratis <span>&rarr;</span>
+        </a>
+    </div>
+
+    <script defer src="js/main.js?v=1767489274"></script>
+
+    <!-- React (for mobile header) -->
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
+
+    <script>
+        // ===== POPOLA PAGINA DA CONFIGURAZIONE =====
+        (function() {
+            var W = WEBINAR;
+            var map = {
+                'badge':           'Webinar Gratuito \u2022 ' + W.dateBrief + ' \u2022 Ore ' + W.orario,
+                'marquee-dates':   W.dateBrief + ' ore ' + W.orario,
+                'marquee-special': W.marqueeSpeciale,
+                'serata1-label':   W.serata1 + ' \u2022 Ore ' + W.orario,
+                'serata2-label':   W.serata2 + ' \u2022 Ore ' + W.orario,
+                'serata3-label':   W.serata3 + ' \u2022 Ore ' + W.orario,
+                'trust-dates':     '100% gratuito \u2022 Online \u2022 ' + W.dateBrief + ' ore ' + W.orario
+            };
+            document.querySelectorAll('[data-cfg]').forEach(function(el) {
+                var val = map[el.getAttribute('data-cfg')];
+                if (val) el.textContent = val;
+            });
+            // Title & og:image
+            document.title = document.title.replace(/\d{1,2}-\d{1,2}-\d{1,2}\s+\w+/, W.dateBrief);
+            var ogImg = document.querySelector('meta[property="og:image"]');
+            if (ogImg) ogImg.setAttribute('content', W.ogImage);
+            // Form iframe
+            var iframe = document.querySelector('.wb-form-wrapper iframe');
+            if (iframe) {
+                iframe.src = W.formUrl;
+                iframe.id = 'inline-' + W.formId;
+                iframe.setAttribute('data-layout-iframe-id', 'inline-' + W.formId);
+                iframe.setAttribute('data-form-id', W.formId);
+            }
+            // Carica form embed script (dopo aver aggiornato l'iframe)
+            var s = document.createElement('script');
+            s.src = 'https://link.drewcompany.it/js/form_embed.js';
+            document.body.appendChild(s);
+
+        })();
+
+        // FAQ Accordion
+        document.querySelectorAll('.wb-faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = btn.closest('.wb-faq-item');
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.wb-faq-item').forEach(function(el) { el.classList.remove('open'); });
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Countdown Timer (usa data da WEBINAR config)
+        var webinarStart = new Date(WEBINAR.countdownISO).getTime();
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var distance = webinarStart - now;
+            if (distance < 0) {
+                document.getElementById('cd-days').textContent = '0';
+                document.getElementById('cd-hours').textContent = '0';
+                document.getElementById('cd-mins').textContent = '0';
+                document.getElementById('cd-secs').textContent = '0';
+                return;
+            }
+            var d = Math.floor(distance / (1000*60*60*24));
+            var h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+            var m = Math.floor((distance % (1000*60*60)) / (1000*60));
+            var s = Math.floor((distance % (1000*60)) / 1000);
+            document.getElementById('cd-days').textContent = d.toString().padStart(2, '0');
+            document.getElementById('cd-hours').textContent = h.toString().padStart(2, '0');
+            document.getElementById('cd-mins').textContent = m.toString().padStart(2, '0');
+            document.getElementById('cd-secs').textContent = s.toString().padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Sticky CTA on scroll (mobile)
+        window.addEventListener('scroll', function() {
+            var sticky = document.querySelector('.wb-sticky-cta');
+            if (window.innerWidth <= 768 && window.scrollY > 500) {
+                sticky.style.display = 'block';
+            } else {
+                sticky.style.display = 'none';
+            }
+        });
+
+        // Parallax scroll for emotion backgrounds
+        var parallaxImages = document.querySelectorAll('[data-parallax]');
+        function updateParallax() {
+            var scrollY = window.scrollY;
+            parallaxImages.forEach(function(img) {
+                var section = img.closest('.wb-emotion');
+                var rect = section.getBoundingClientRect();
+                var sectionHeight = section.offsetHeight;
+                var viewportHeight = window.innerHeight;
+                if (rect.bottom > 0 && rect.top < viewportHeight) {
+                    var progress = (viewportHeight - rect.top) / (viewportHeight + sectionHeight);
+                    var translateY = (progress - 0.5) * 80;
+                    img.style.transform = 'translate3d(0,' + translateY + 'px,0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        updateParallax();
+
+        // Background reveals on scroll
+        var bgReveals = document.querySelectorAll('[data-reveal]');
+        function checkReveals() {
+            bgReveals.forEach(function(el) {
+                var rect = el.parentElement.getBoundingClientRect();
+                var viewH = window.innerHeight;
+                if (rect.top < viewH * 0.85 && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveals, { passive: true });
+        checkReveals();
+    </script>
+
+    <!-- Iubenda embed loader -->
+    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</body>
+</html>
