@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il luned&igrave; delle Inarrestabili &mdash; Newsletter di Elena Giordani</title>
+    <meta name="description" content="Una mail ogni luned&igrave; mattina per ricominciare la settimana con la testa giusta. Niente diete, niente miracoli. Iscriviti gratis.">
+    <meta name="author" content="Elena Giordani">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#E91E63">
+    <link rel="canonical" href="https://go.elenagiordani.com/lunedi-inarrestabili">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Elena Giordani">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:url" content="https://go.elenagiordani.com/lunedi-inarrestabili">
+    <meta property="og:title" content="Il luned&igrave; delle Inarrestabili &mdash; Newsletter di Elena Giordani">
+    <meta property="og:description" content="Una mail ogni luned&igrave; mattina per ricominciare la settimana con la testa giusta. Niente diete, niente miracoli.">
+    <meta property="og:image" content="https://www.elenagiordani.com/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Elena Giordani &mdash; Il luned&igrave; delle Inarrestabili">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://go.elenagiordani.com/lunedi-inarrestabili">
+    <meta name="twitter:title" content="Il luned&igrave; delle Inarrestabili &mdash; Newsletter di Elena Giordani">
+    <meta name="twitter:description" content="Una mail ogni luned&igrave; mattina per ricominciare la settimana con la testa giusta.">
+    <meta name="twitter:image" content="https://www.elenagiordani.com/assets/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=1767489274">
+
+    <style>
+        html, body { overflow-x: hidden; }
+
+        /* ===== HERO ===== */
+        .li-hero {
+            min-height: 60vh;
+            background: var(--black);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+        .li-hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            opacity: 0.35;
+            z-index: 1;
+        }
+        .li-hero-gradient {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top, rgba(233,30,99,0.18) 0%, rgba(0,0,0,0) 60%), linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.95) 100%);
+            z-index: 2;
+        }
+        .li-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 720px;
+            padding: 6rem 1.5rem 3rem;
+        }
+        .li-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(233,30,99,0.15);
+            border: 1px solid rgba(233,30,99,0.4);
+            color: var(--pink-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.75rem;
+        }
+        .li-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--pink-primary);
+            border-radius: 50%;
+            animation: li-pulse 2s infinite;
+        }
+        @keyframes li-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+        .li-hero-title {
+            font-size: clamp(2.1rem, 6vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            color: var(--white);
+            margin: 0 0 1.25rem;
+        }
+        .li-hero-title em {
+            color: var(--pink-primary);
+            font-style: italic;
+            font-weight: 800;
+        }
+        .li-hero-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.78);
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .li-hero-subtitle strong { color: var(--white); font-weight: 600; }
+
+        /* ===== BENEFITS ===== */
+        .li-benefits-section {
+            background: var(--black);
+            padding: 1rem 1.5rem 2rem;
+        }
+        .li-benefits {
+            max-width: 540px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .li-benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 0.95rem 1.15rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+        }
+        .li-benefit-icon {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: rgba(233,30,99,0.15);
+            color: var(--pink-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 0.05rem;
+        }
+        .li-benefit-text {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.85);
+            font-weight: 400;
+        }
+        .li-benefit-text strong { color: var(--white); font-weight: 600; }
+
+        /* ===== FORM ===== */
+        .li-form-section {
+            background: var(--black);
+            padding: 2rem 1.5rem 5rem;
+        }
+        .li-form-wrap {
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .li-form-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(233,30,99,0.25);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .li-form-title {
+            font-size: clamp(1.5rem, 4vw, 1.9rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.03em;
+            text-align: center;
+        }
+        .li-form-subtitle {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.55;
+            margin-bottom: 1.75rem;
+            text-align: center;
+        }
+        .li-form-group { margin-bottom: 1rem; }
+        .li-form-label {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.45rem;
+        }
+        .li-form-input {
+            width: 100%;
+            padding: 0.95rem 1.1rem;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: border-color 0.25s ease, background 0.25s ease;
+            box-sizing: border-box;
+        }
+        .li-form-input::placeholder { color: rgba(255,255,255,0.3); }
+        .li-form-input:focus {
+            outline: none;
+            border-color: var(--pink-primary);
+            background: rgba(255,255,255,0.08);
+        }
+        .li-form-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin: 0.5rem 0 1.25rem;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        .li-form-consent input[type="checkbox"] {
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+            accent-color: var(--pink-primary);
+            width: 1rem;
+            height: 1rem;
+        }
+        .li-form-consent a { color: var(--pink-primary); text-decoration: underline; }
+        .li-form-btn {
+            width: 100%;
+            padding: 1.15rem 2rem;
+            background: var(--pink-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+        .li-form-btn:hover:not(:disabled) {
+            background: var(--pink-dark);
+            transform: translateY(-3px);
+        }
+        .li-form-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .li-form-error {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.85rem 1rem;
+            background: rgba(233,30,99,0.1);
+            border: 1px solid rgba(233,30,99,0.35);
+            border-radius: 8px;
+            color: #ffb3c6;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .li-form-error.visible { display: block; }
+        .li-form-privacy {
+            text-align: center;
+            margin-top: 1.15rem;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.35);
+            font-weight: 300;
+        }
+
+        /* ===== SUCCESS STATE ===== */
+        .li-success {
+            display: none;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .li-success.active { display: block; }
+        .li-success-icon {
+            width: 4.25rem;
+            height: 4.25rem;
+            background: rgba(233,30,99,0.15);
+            border: 2px solid var(--pink-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            color: var(--pink-primary);
+            font-size: 2rem;
+        }
+        .li-success h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0 0 0.85rem;
+            letter-spacing: -0.02em;
+        }
+        .li-success p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            line-height: 1.7;
+            margin: 0 auto 1rem;
+            max-width: 380px;
+        }
+        .li-success p strong { color: var(--white); font-weight: 600; }
+        .li-success-signature {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+            margin-top: 1.25rem !important;
+        }
+
+        /* ===== FADE-IN ===== */
+        .li-fade-in {
+            opacity: 0;
+            transform: translateY(1.25rem);
+            transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .li-fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .li-hero-content { padding: 4.5rem 1.25rem 2.5rem; }
+            .li-form-card { padding: 2rem 1.5rem; }
+            .li-form-section { padding: 1.5rem 1rem 4rem; }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'Lunedi delle Inarrestabili', content_category: 'newsletter'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Iubenda Cookie Solution -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="li-hero">
+        <img class="li-hero-bg" src="img/evento-webp/EDO05146.webp" alt="Elena Giordani" loading="eager">
+        <div class="li-hero-gradient"></div>
+        <div class="li-hero-content">
+            <div class="li-badge">Newsletter &middot; Ogni luned&igrave;</div>
+            <h1 class="li-hero-title">
+                Il luned&igrave; delle <em>Inarrestabili</em>
+            </h1>
+            <p class="li-hero-subtitle">
+                Una mail ogni luned&igrave; mattina per ricominciare la settimana con la testa giusta. <strong>Niente diete. Niente miracoli.</strong> Solo verit&agrave; su corpo, cibo e mente.
+            </p>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="li-benefits-section">
+        <div class="li-benefits li-fade-in">
+            <div class="li-benefit">
+                <div class="li-benefit-icon">&#10003;</div>
+                <div class="li-benefit-text"><strong>Una riflessione vera</strong> su cosa sta succedendo al tuo corpo (non motivazione da cartolina).</div>
+            </div>
+            <div class="li-benefit">
+                <div class="li-benefit-icon">&#10003;</div>
+                <div class="li-benefit-text"><strong>Un esercizio o una ricetta</strong> da provare durante la settimana.</div>
+            </div>
+            <div class="li-benefit">
+                <div class="li-benefit-icon">&#10003;</div>
+                <div class="li-benefit-text"><strong>Storie delle Inarrestabili</strong>: cosa funziona davvero, raccontato da chi ci sta passando.</div>
+            </div>
+            <div class="li-benefit">
+                <div class="li-benefit-icon">&#10003;</div>
+                <div class="li-benefit-text"><strong>Accesso anticipato</strong> a eventi, percorsi e novit&agrave; prima di tutti.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="li-form-section" id="form">
+        <div class="li-form-wrap li-fade-in">
+            <div class="li-form-card">
+                <div id="formContent">
+                    <div class="li-form-title">Iscriviti gratis</div>
+                    <p class="li-form-subtitle">Lascia nome e email. Il primo luned&igrave; utile sei nel club.</p>
+                    <form id="newsletterForm" novalidate>
+                        <div class="li-form-group">
+                            <label class="li-form-label" for="nome">Nome</label>
+                            <input class="li-form-input" type="text" id="nome" name="nome" placeholder="Il tuo nome" autocomplete="given-name" required>
+                        </div>
+                        <div class="li-form-group">
+                            <label class="li-form-label" for="email">Email</label>
+                            <input class="li-form-input" type="email" id="email" name="email" placeholder="La tua email" autocomplete="email" required>
+                        </div>
+                        <label class="li-form-consent">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <span>Accetto di ricevere la newsletter via email secondo la <a href="https://www.iubenda.com/privacy-policy/49397266" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                        </label>
+                        <button type="submit" class="li-form-btn" id="submitBtn">Voglio entrare</button>
+                        <div class="li-form-error" id="formError"></div>
+                    </form>
+                    <p class="li-form-privacy">Zero spam. Puoi cancellarti quando vuoi.</p>
+                </div>
+
+                <div class="li-success" id="formSuccess">
+                    <div class="li-success-icon">&#10003;</div>
+                    <h3>Benvenuta tra le Inarrestabili</h3>
+                    <p>Luned&igrave; mattina trovi la prima mail nella tua casella. Se non arriva, controlla anche <strong>spam</strong> e <strong>promozioni</strong>.</p>
+                    <p class="li-success-signature">A presto, Elena</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
+            <div class="footer-legal">
+                <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        (function() {
+            var fadeEls = document.querySelectorAll('.li-fade-in');
+            if (!('IntersectionObserver' in window)) {
+                fadeEls.forEach(function(el) { el.classList.add('visible'); });
+                return;
+            }
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            fadeEls.forEach(function(el) { observer.observe(el); });
+        })();
+
+        // Capture attribution (UTM + click IDs + referrer + landing URL)
+        function getAttribution() {
+            var params = new URLSearchParams(window.location.search);
+            var attr = {};
+            ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','msclkid'].forEach(function(key) {
+                var v = params.get(key);
+                if (v) attr[key] = v;
+            });
+            if (document.referrer) attr.referrer = document.referrer;
+            attr.landing_url = window.location.href;
+            return attr;
+        }
+
+        // Form submit
+        var form = document.getElementById('newsletterForm');
+        var submitBtn = document.getElementById('submitBtn');
+        var errorBox = document.getElementById('formError');
+        var formContent = document.getElementById('formContent');
+        var formSuccess = document.getElementById('formSuccess');
+
+        function showError(msg) {
+            errorBox.textContent = msg;
+            errorBox.classList.add('visible');
+        }
+        function clearError() {
+            errorBox.textContent = '';
+            errorBox.classList.remove('visible');
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            clearError();
+
+            var nome = document.getElementById('nome').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var consent = document.getElementById('consent').checked;
+
+            if (!nome || !email) {
+                showError('Compila nome ed email per iscriverti.');
+                return;
+            }
+            if (!consent) {
+                showError('Accetta la privacy policy per continuare.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showError('Inserisci un indirizzo email valido.');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            var originalLabel = submitBtn.textContent;
+            submitBtn.textContent = 'Invio in corso...';
+
+            var payload = Object.assign({
+                first_name: nome,
+                email: email,
+                source: 'lunedi-inarrestabili-stories'
+            }, getAttribution());
+
+            try {
+                var res = await fetch('/api/newsletter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) {
+                    var data = {};
+                    try { data = await res.json(); } catch (_) {}
+                    throw new Error(data.error || 'Errore invio. Riprova.');
+                }
+
+                if (typeof fbq === 'function') {
+                    try { fbq('track', 'Lead', {content_name: 'Lunedi delle Inarrestabili'}); } catch (_) {}
+                }
+
+                formContent.style.display = 'none';
+                formSuccess.classList.add('active');
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } catch (err) {
+                showError(err.message || 'Errore imprevisto. Riprova tra poco.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalLabel;
+            }
+        });
+    </script>
+
+    <!-- Iubenda embed loader -->
+    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</body>
+</html>
