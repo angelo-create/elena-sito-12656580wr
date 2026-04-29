@@ -139,6 +139,21 @@ async function pushContactWebhook(payload, webhookUrl) {
   }
 }
 
+// Inbound Webhook GHL per il trigger dell'email post-firma. Sostituisce il
+// trigger "Tag Added" che non è affidabile via API upsert (non emette se il
+// contatto già aveva il tag). Non bloccante: errori loggati ma non propagati.
+async function triggerEmailWebhook(payload, webhookUrl) {
+  const res = await fetch(webhookUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Email trigger webhook failed: ${res.status} ${text.slice(0, 300)}`);
+  }
+}
+
 function safeFilenamePart(s) {
   return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
 }
@@ -227,6 +242,7 @@ module.exports = async function handler(req, res) {
     const LOCATION_ID = process.env.GHL_LOCATION_ID;
     const FOLDER_ID = process.env.GHL_LIBERATORIE_FOLDER_ID;
     const WEBHOOK_URL = process.env.GHL_LIBERATORIA_WEBHOOK_URL;
+    const EMAIL_TRIGGER_WEBHOOK_URL = process.env.GHL_LIBERATORIA_EMAIL_WEBHOOK_URL;
 
     let pdfUrl = '';
     let pdfFileId = '';
@@ -267,6 +283,7 @@ module.exports = async function handler(req, res) {
       { key: 'consenso_immagini_video',     field_value: body.consensoImmagini ? 'true' : 'false' }
     ];
 
+    let contactId = '';
     if (PIT && LOCATION_ID) {
       try {
         const upsertRes = await upsertContactViaApi({
@@ -277,7 +294,7 @@ module.exports = async function handler(req, res) {
           tags: [eventTag],
           timestamp
         });
-        const contactId = upsertRes && upsertRes.contact ? upsertRes.contact.id : (upsertRes ? upsertRes.id : '');
+        contactId = upsertRes && upsertRes.contact ? upsertRes.contact.id : (upsertRes ? upsertRes.id : '');
         console.log('[liberatoria] Contact upserted (no duplicate):', body.email, '|', contactId);
       } catch (err) {
         console.error('[liberatoria] GHL contact upsert failed:', err.message);
@@ -309,6 +326,25 @@ module.exports = async function handler(req, res) {
       }
     } else {
       console.warn('[liberatoria] GHL_PIT_TOKEN/GHL_LOCATION_ID assenti — skip upsert contatto');
+    }
+
+    if (EMAIL_TRIGGER_WEBHOOK_URL) {
+      try {
+        await triggerEmailWebhook({
+          contact_id: contactId,
+          email: body.email,
+          first_name: body.nome,
+          last_name: body.cognome,
+          phone: body.telefono,
+          pdf_url: pdfUrl,
+          pdf_filename: fileName,
+          signed_at: timestamp,
+          event_tag: eventTag
+        }, EMAIL_TRIGGER_WEBHOOK_URL);
+        console.log('[liberatoria] Email trigger webhook fired:', body.email);
+      } catch (err) {
+        console.error('[liberatoria] Email trigger webhook failed (non-blocking):', err.message);
+      }
     }
 
     return res.status(200).json({
