@@ -15,48 +15,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css?v=1767489274">
-    <link rel="stylesheet" href="css/components/react-mobile-header.css?v=1767489274">
 
     <!-- ╔══════════════════════════════════════════════════════════════╗
          ║  CONFIGURAZIONE WEBINAR — MODIFICA SOLO QUI!                ║
          ╚══════════════════════════════════════════════════════════════╝ -->
     <script>
     var WEBINAR = {
-        // --- BRAND ---
-        nome:         "Estate Inarrestabile",      // nome del webinar (badge, titoli)
-
-        // --- DATE ---
-        dateBrief:    "19-20-21 Maggio",           // formato breve (badge, CTA, marquee)
-        orario:       "18:30",                     // orario serate
-
-        // --- SINGOLE SERATE ---
-        serata1: "Luned\u00ec 19 Maggio",          // prima serata
-        serata2: "Marted\u00ec 20 Maggio",         // seconda serata
-        serata3: "Mercoled\u00ec 21 Maggio",       // terza serata
-
-        // --- COUNTDOWN (data prima serata, formato ISO — CEST = +02:00) ---
+        nome:         "Estate Inarrestabile",
+        dateBrief:    "19-20-21 Maggio",
+        orario:       "18:30",
+        serata1:      "Luned\u00ec 19 Maggio",
+        serata2:      "Marted\u00ec 20 Maggio",
+        serata3:      "Mercoled\u00ec 21 Maggio",
         countdownISO: "2026-05-19T18:30:00+02:00",
-
-        // --- FORM GoHighLevel ---
-        // Fallback temporaneo: usa il form di marzo finché non viene creato
-        // il form dedicato "Estate Inarrestabile" su DrewCompany.
-        // TODO: sostituire 2oq63J6fm05WSqwcVz61 con il nuovo Form ID.
-        formId:  "2oq63J6fm05WSqwcVz61",
-        formUrl: "https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61",
-
-        // --- WHATSAPP (sticky CTA mobile) ---
+        // Fallback su form marzo. TODO: sostituire con nuovo form Estate Inarrestabile
+        formId:       "2oq63J6fm05WSqwcVz61",
+        formUrl:      "https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61",
         whatsappNumero:    "393773892181",
-        whatsappMessaggio: "Ciao Elena! Voglio iscrivermi a Estate Inarrestabile (19-20-21 Maggio)!",
-
-        // --- IMMAGINE SOCIAL (og:image) — asset locale, già nel repo ---
-        ogImage: "https://elenagiordani.com/img/elena-webp/IMG_9183.webp",
-
-        // --- TESTO MARQUEE SPECIALE ---
-        marqueeSpeciale: "Le Inarrestabili non si fermano a giugno"
+        whatsappMessaggio: "Ciao Elena! Voglio iscrivermi a Estate Inarrestabile (19-20-21 Maggio)!"
     };
-    // URL params da GHL sovrascrivono il config (usa i custom values esistenti)
-    // ─── URL GHL (per email, workflow, ecc.) ───
+    // GHL custom values URL params:
     // https://go.elenagiordani.com/webinar-maggio.html?data={{custom_values.data}}&luogo={{custom_values.luogo_webinar}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}
     (function() {
         var p = new URLSearchParams(location.search);
@@ -64,7 +42,7 @@
     })();
     </script>
 
-    <!-- UTM PERSONALIZATION — calcola variante prima del rendering -->
+    <!-- UTM PERSONALIZATION -->
     <script>
     (function() {
         var p = new URLSearchParams(location.search);
@@ -72,28 +50,20 @@
         var med = (p.get('utm_medium') || '').toLowerCase();
         var cmp = (p.get('utm_campaign') || '').toLowerCase();
         var variant = 'default';
-
-        // Priorità: retarget sub-varianti > paid > organic per source
-        // RETARGET TRIBE: chi ti segue già (followers IG/FB, engaged ripetuti)
         if (cmp.indexOf('retarget-tribe') > -1 || cmp.indexOf('retarget-follower') > -1) variant = 'retarget-tribe';
-        // RETARGET TOUCH: chi ha visto un post/video ma non ti segue
         else if (cmp.indexOf('retarget-touch') > -1 || cmp.indexOf('retarget-engaged') > -1 || cmp.indexOf('retarget-viewer') > -1) variant = 'retarget-touch';
-        // RETARGET generic (sito visitato, fallback)
         else if (med === 'retargeting' || cmp.indexOf('retarget') > -1) variant = 'retarget';
         else if (med === 'paid' && (src === 'fb' || src === 'facebook')) variant = 'fb-ads';
         else if (med === 'paid' && (src === 'ig' || src === 'instagram')) variant = 'ig-ads';
-        else if (med === 'paid') variant = 'meta-ads'; // generic fallback per Meta
+        else if (med === 'paid') variant = 'meta-ads';
         else if ((src === 'ig' || src === 'instagram') && (med === 'organic' || med === 'social' || med === 'bio' || med === 'story' || med === 'dm' || med === '')) variant = 'ig-organic';
         else if (src === 'whatsapp') variant = 'whatsapp';
         else if (src === 'newsletter' || med === 'email') variant = 'newsletter';
         else if (src === 'referral') variant = 'referral';
-
-        // Persist su sessionStorage per evitare drift al refresh
         try {
             if (variant !== 'default') sessionStorage.setItem('utm_variant', variant);
             else if (sessionStorage.getItem('utm_variant')) variant = sessionStorage.getItem('utm_variant');
         } catch(e) {}
-
         document.documentElement.setAttribute('data-utm-variant', variant);
         window.UTM_VARIANT = variant;
         window.UTM_SOURCE = src;
@@ -101,871 +71,824 @@
     </script>
 
     <style>
-        /* ===== WEBINAR-SPECIFIC STYLES ===== */
+    /* ═══════════════════════════════════════════════════════════
+       ESTATE INARRESTABILE — Landing pulita, mobile-first,
+       hero conversion-driven. Cream base + 2 isole drammatiche
+       (Programma dark + CTA finale pink).
+       ═══════════════════════════════════════════════════════════ */
+
+    /* Design tokens */
+    :root {
+        --bg:        #FFFAF3;
+        --bg-soft:   #FFFFFF;
+        --bg-warm:   #FFF1E0;
+        --bg-dark:   #1A0F00;
+        --text:      #1A0F00;
+        --text-soft: #4D3829;
+        --text-muted:#8B7363;
+        --border:    #F0DFC9;
+        --border-soft:#F8EBD8;
+        --pink:      #E91E63;
+        --pink-deep: #C2185B;
+        --coral:     #FF8C5A;
+        --gold:      #FFB627;
+        --green:     #00875A;
+        --shadow-sm: 0 1px 2px rgba(26,15,0,0.04), 0 1px 3px rgba(26,15,0,0.04);
+        --shadow-md: 0 4px 12px rgba(26,15,0,0.06), 0 2px 4px rgba(26,15,0,0.04);
+        --shadow-lg: 0 12px 32px rgba(26,15,0,0.08), 0 4px 8px rgba(26,15,0,0.04);
+        --shadow-pink:0 12px 32px rgba(233,30,99,0.18);
+        --grad-warm: linear-gradient(135deg, var(--gold) 0%, var(--coral) 50%, var(--pink) 100%);
+        --grad-cta:  linear-gradient(135deg, var(--pink) 0%, var(--coral) 100%);
+    }
+
+    /* Reset minimo */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+        margin: 0;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--pink); text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); }
+    p { margin: 0; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    /* Container */
+    .ei-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+    @media (min-width: 768px) { .ei-container { padding: 0 2rem; } }
+
+    /* Sections rhythm */
+    .ei-section { padding: 4rem 0; }
+    @media (min-width: 768px) { .ei-section { padding: 6rem 0; } }
+
+    /* Eyebrow */
+    .ei-eyebrow {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 1rem;
+    }
+
+    /* Headlines scale */
+    .ei-h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+    .ei-h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.15; }
+    .ei-h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.3; }
+    .ei-h1 .accent {
+        background: var(--grad-warm);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Buttons */
+    .ei-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1.1rem 1.75rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        border-radius: 12px;
+        border: none;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+        line-height: 1;
+    }
+    .ei-btn-primary {
+        background: var(--grad-cta);
+        color: #fff;
+        box-shadow: var(--shadow-pink);
+    }
+    .ei-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(233,30,99,0.28);
+    }
+    .ei-btn-large { padding: 1.3rem 2rem; font-size: 1rem; }
+    .ei-btn-block { width: 100%; }
+
+    /* Header sticky */
+    .ei-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(255,250,243,0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid transparent;
+        padding: 0.75rem 0;
+        transition: border-color 0.3s, background 0.3s;
+    }
+    .ei-header.scrolled {
+        background: rgba(255,250,243,0.95);
+        border-bottom-color: var(--border);
+    }
+    .ei-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .ei-logo {
+        font-weight: 800;
+        font-size: 0.95rem;
+        letter-spacing: 0.05em;
+        color: var(--text);
+        text-transform: uppercase;
+    }
+    .ei-header-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.6rem 1.1rem;
+        background: var(--grad-cta);
+        color: #fff;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(233,30,99,0.2);
+    }
+
+    /* ════════ HERO — il vero motore di conversione ════════ */
+    .ei-hero {
+        padding: 6rem 0 3rem;
+        background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    .ei-hero::before {
+        content: '';
+        position: absolute;
+        top: -10%;
+        right: -15%;
+        width: 60%;
+        height: 60%;
+        background: radial-gradient(circle, rgba(255,182,39,0.25) 0%, transparent 65%);
+        pointer-events: none;
+    }
+    .ei-hero::after {
+        content: '';
+        position: absolute;
+        bottom: -10%;
+        left: -10%;
+        width: 50%;
+        height: 50%;
+        background: radial-gradient(circle, rgba(255,140,90,0.18) 0%, transparent 65%);
+        pointer-events: none;
+    }
+    .ei-hero-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        align-items: center;
+    }
+    @media (min-width: 1024px) {
+        .ei-hero { padding: 7rem 0 5rem; }
+        .ei-hero-inner { grid-template-columns: 1.05fr 1fr; gap: 4rem; }
+    }
+
+    /* Hero photo column */
+    .ei-hero-photo {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        aspect-ratio: 4/5;
+        max-width: 480px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-lg);
+        order: 2;
+    }
+    @media (min-width: 1024px) {
+        .ei-hero-photo { order: 1; aspect-ratio: 4/5; max-width: none; margin: 0; }
+    }
+    .ei-hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+    }
+    .ei-hero-photo::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 60%, rgba(26,15,0,0.55) 100%);
+    }
+    .ei-photo-caption {
+        position: absolute;
+        bottom: 1.25rem;
+        left: 1.25rem;
+        right: 1.25rem;
+        z-index: 2;
+        color: #fff;
+    }
+    .ei-photo-caption .name { font-weight: 700; font-size: 1rem; }
+    .ei-photo-caption .role { font-size: 0.8rem; opacity: 0.85; margin-top: 0.15rem; }
+
+    /* Hero copy column */
+    .ei-hero-copy { order: 1; }
+    @media (min-width: 1024px) { .ei-hero-copy { order: 2; } }
+
+    .ei-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1rem;
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 1rem;
+        box-shadow: var(--shadow-sm);
+    }
+    .ei-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--pink);
+        box-shadow: 0 0 0 4px rgba(233,30,99,0.15);
+        animation: ei-pulse 2s infinite;
+    }
+    @keyframes ei-pulse {
+        0%, 100% { box-shadow: 0 0 0 4px rgba(233,30,99,0.15); }
+        50%      { box-shadow: 0 0 0 8px rgba(233,30,99,0.05); }
+    }
+
+    .ei-utm-kicker {
+        display: none;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--pink-deep);
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.01em;
+    }
+    .ei-utm-kicker.active { display: block; }
+
+    .ei-hero-title {
+        margin-bottom: 1rem;
+    }
+
+    .ei-hero-lead {
+        font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+        color: var(--text-soft);
+        line-height: 1.55;
+        margin-bottom: 1.5rem;
+    }
+    .ei-hero-lead strong { color: var(--text); font-weight: 700; }
+
+    /* Hero form card */
+    .ei-form-card {
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-lg);
+        margin-bottom: 1.25rem;
+    }
+    @media (min-width: 768px) { .ei-form-card { padding: 1.75rem; } }
+    .ei-form-card-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.25rem;
+    }
+    .ei-form-card-subtitle {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+    }
+    .ei-form-card iframe {
+        width: 100%;
+        min-height: 460px;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+    }
+    @media (max-width: 480px) { .ei-form-card iframe { min-height: 500px; } }
+
+    /* Trust strip under form */
+    .ei-trust-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.25rem;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        font-weight: 500;
+        margin-top: 0.5rem;
+    }
+    .ei-trust-strip span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+    .ei-trust-strip svg {
+        width: 0.95rem;
+        height: 0.95rem;
+        stroke: var(--green);
+        fill: none;
+        stroke-width: 2.5;
+        flex-shrink: 0;
+    }
+
+    /* ════════ PRESS STRIP ════════ */
+    .ei-press {
+        padding: 2.5rem 0;
+        background: var(--bg);
+        border-top: 1px solid var(--border-soft);
+        border-bottom: 1px solid var(--border-soft);
+    }
+    .ei-press-label {
+        text-align: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+    }
+    .ei-press-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem 1.25rem;
+        align-items: center;
+        justify-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    @media (min-width: 768px) { .ei-press-grid { grid-template-columns: repeat(7, 1fr); gap: 2rem; } }
+    .ei-press-grid img {
+        height: 26px;
+        max-height: 32px;
+        width: auto;
+        max-width: 110px;
+        opacity: 0.5;
+        filter: grayscale(1);
+        transition: opacity 0.3s, filter 0.3s;
+    }
+    .ei-press-grid img:hover { opacity: 1; filter: grayscale(0); }
+    @media (min-width: 768px) { .ei-press-grid img { height: 32px; } }
+
+    /* ════════ LOOP — narrazione single column ════════ */
+    .ei-loop {
+        background: var(--bg);
+    }
+    .ei-loop-inner {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .ei-loop p {
+        font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+        line-height: 1.75;
+        color: var(--text-soft);
+        margin-bottom: 1.25rem;
+    }
+    .ei-loop p strong { color: var(--text); font-weight: 700; }
+    .ei-loop-stat {
+        margin: 2.5rem auto;
+        padding: 2rem 1.5rem;
+        background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft));
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        max-width: 480px;
+    }
+    .ei-loop-stat-number {
+        font-size: clamp(3rem, 9vw, 5rem);
+        font-weight: 800;
+        background: var(--grad-warm);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+        letter-spacing: -0.04em;
+    }
+    .ei-loop-stat-label {
+        font-size: 0.95rem;
+        color: var(--text-soft);
+        margin-top: 0.75rem;
+        font-weight: 500;
+    }
+
+    /* ════════ PROGRAMMA — DARK ISLAND ════════ */
+    .ei-program {
+        background: linear-gradient(180deg, #1A0F00 0%, #0A0500 100%);
+        color: #fff;
+        position: relative;
+    }
+    .ei-program::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0;
+        right: 0;
+        height: 3rem;
+        background: linear-gradient(180deg, var(--bg) 0%, transparent 100%);
+        opacity: 0.04;
+        pointer-events: none;
+    }
+    .ei-program .ei-eyebrow { color: var(--gold); }
+    .ei-program h2, .ei-program h3 { color: #fff; }
+    .ei-program-intro {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        color: rgba(255,255,255,0.75);
+        font-size: 1.05rem;
+        line-height: 1.65;
+    }
+    .ei-program-list {
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    .ei-program-row {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1.25rem;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        align-items: start;
+    }
+    .ei-program-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    @media (min-width: 768px) { .ei-program-row { grid-template-columns: 6rem 1fr; gap: 2.5rem; padding: 2.5rem 0; } }
+    .ei-program-num {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        line-height: 0.9;
+        background: var(--grad-warm);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.04em;
+    }
+    .ei-program-date {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+    }
+    .ei-program-title {
+        font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+        margin-bottom: 0.5rem;
+    }
+    .ei-program-summary {
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.7);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+    .ei-program-bullets li {
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+    }
+    .ei-program-bullets li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.55rem;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+    }
+
+    /* ════════ PROVA SOCIALE consolidata ════════ */
+    .ei-social {
+        background: var(--bg-soft);
+    }
+    .ei-social-inner {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .ei-testimonial {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 2rem 1.5rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+    }
+    @media (min-width: 768px) { .ei-testimonial { padding: 3rem 3rem; } }
+    .ei-testimonial::before {
+        content: '\201C';
+        position: absolute;
+        top: -1.5rem;
+        left: 1.5rem;
+        font-size: 6rem;
+        color: var(--gold);
+        line-height: 1;
+        opacity: 0.6;
+        font-family: Georgia, serif;
+    }
+    .ei-testimonial blockquote {
+        font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+        line-height: 1.6;
+        color: var(--text);
+        margin: 0 0 1.5rem 0;
+        font-style: italic;
+        font-weight: 500;
+    }
+    .ei-testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+    }
+    .ei-testimonial-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--grad-warm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        color: #fff;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+    .ei-testimonial-name { font-weight: 700; font-size: 0.95rem; color: var(--text); }
+    .ei-testimonial-meta { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.1rem; }
+
+    .ei-social-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-soft);
+    }
+    @media (max-width: 480px) {
+        .ei-social-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+    .ei-social-stat-num {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 800;
+        background: var(--grad-warm);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+        letter-spacing: -0.02em;
+    }
+    .ei-social-stat-label {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        margin-top: 0.5rem;
+        font-weight: 500;
+    }
+
+    /* ════════ CHI È ELENA ════════ */
+    .ei-author {
+        background: var(--bg);
+    }
+    .ei-author-inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    @media (min-width: 768px) { .ei-author-inner { grid-template-columns: 1fr 1.4fr; gap: 3rem; } }
+    .ei-author-photo {
+        border-radius: 20px;
+        overflow: hidden;
+        aspect-ratio: 1/1;
+        max-width: 320px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-md);
+    }
+    @media (min-width: 768px) { .ei-author-photo { max-width: none; aspect-ratio: 4/5; } }
+    .ei-author-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .ei-author-bio p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--text-soft);
+        margin-bottom: 1rem;
+    }
+    .ei-author-bio p strong { color: var(--text); font-weight: 700; }
+    .ei-author-facts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+    }
+    .ei-author-fact-num {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--pink);
+        line-height: 1;
+    }
+    .ei-author-fact-label {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 0.3rem;
+        line-height: 1.3;
+    }
+
+    /* ════════ CTA FINALE — pink dark island ════════ */
+    .ei-cta-final {
+        background: var(--grad-cta);
+        color: #fff;
+        text-align: center;
+    }
+    .ei-cta-final .ei-eyebrow { color: rgba(255,255,255,0.85); }
+    .ei-cta-final h2 { color: #fff; margin-bottom: 1rem; }
+    .ei-cta-final-lead {
+        max-width: 580px;
+        margin: 0 auto 2rem;
+        font-size: 1.1rem;
+        line-height: 1.65;
+        color: rgba(255,255,255,0.95);
+    }
+    .ei-countdown {
+        display: inline-flex;
+        gap: 0.75rem;
+        margin: 0 auto 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .ei-countdown-box {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        min-width: 4rem;
+        text-align: center;
+    }
+    .ei-countdown-num {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #fff;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+    }
+    .ei-countdown-label {
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.75);
+        margin-top: 0.25rem;
+    }
+    .ei-cta-btn-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 1.25rem 2rem;
+        background: #fff;
+        color: var(--pink);
+        font-weight: 800;
+        font-size: 1rem;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        transition: transform 0.2s;
+    }
+    .ei-cta-btn-white:hover { transform: translateY(-2px); }
+    .ei-cta-final-trust {
+        margin-top: 1.25rem;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.85);
+    }
+
+    /* ════════ FAQ minimal ════════ */
+    .ei-faq {
+        background: var(--bg);
+    }
+    .ei-faq-inner { max-width: 720px; margin: 0 auto; }
+    .ei-faq-item {
+        border-bottom: 1px solid var(--border);
+        padding: 1.25rem 0;
+    }
+    .ei-faq-item:first-child { border-top: 1px solid var(--border); }
+    .ei-faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 0.5rem 0;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text);
+        text-align: left;
+        cursor: pointer;
+    }
+    .ei-faq-toggle {
+        flex-shrink: 0;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        background: var(--bg-warm);
+        color: var(--pink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: 700;
+        transition: transform 0.3s;
+    }
+    .ei-faq-item.open .ei-faq-toggle { transform: rotate(45deg); background: var(--pink); color: #fff; }
+    .ei-faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        font-size: 0.95rem;
+        color: var(--text-soft);
+        line-height: 1.65;
+    }
+    .ei-faq-item.open .ei-faq-answer { max-height: 320px; padding-top: 0.75rem; }
+
+    /* ════════ FOOTER minimal ════════ */
+    .ei-footer {
+        background: var(--bg-soft);
+        border-top: 1px solid var(--border);
+        padding: 2.5rem 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    .ei-footer-logo {
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        font-size: 0.95rem;
+        color: var(--text);
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+    }
+    .ei-footer p { margin-bottom: 0.5rem; line-height: 1.6; }
+    .ei-footer-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    .ei-footer-links a { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
+    .ei-footer-links a:hover { color: var(--pink); }
+
+    /* ════════ STICKY MOBILE CTA ════════ */
+    .ei-sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+        background: rgba(255,250,243,0.96);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid var(--border);
+        display: none;
+        box-shadow: 0 -4px 20px rgba(26,15,0,0.06);
+    }
+    .ei-sticky-cta.visible { display: block; }
+    .ei-sticky-cta .ei-btn { width: 100%; }
+    @media (min-width: 1024px) { .ei-sticky-cta { display: none !important; } }
+
+    /* ════════ FADE IN ════════ */
+    .ei-fade { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.7s, transform 0.7s; }
+    .ei-fade.visible { opacity: 1; transform: translateY(0); }
+
+    /* Body padding for sticky CTA */
+    body.has-sticky { padding-bottom: 5.5rem; }
+    @media (min-width: 1024px) { body.has-sticky { padding-bottom: 0; } }
 
-        /* Marquee */
-        .wb-marquee { background: var(--pink-primary); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
-        .wb-marquee-track { display: inline-flex; animation: wb-scroll 30s linear infinite; }
-        .wb-marquee-item { display: inline-flex; align-items: center; gap: 2rem; padding: 0 2rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
-        .wb-marquee-item::after { content: '\2726'; font-size: 0.5rem; }
-        @keyframes wb-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* Community text */
-        .wb-community { max-width: 800px; margin: 0 auto; text-align: center; }
-        .wb-community p { font-size: 1.15rem; line-height: 1.9; margin-bottom: 1rem; color: rgba(255,255,255,0.8); }
-        .wb-community .wb-emphasis { font-size: 1.5rem; font-weight: 700; color: var(--white); margin: 2.5rem 0; }
-
-        /* Countdown */
-        .wb-countdown { display: flex; gap: 1rem; margin-bottom: 2rem; }
-        .wb-countdown-item { text-align: center; }
-        .wb-countdown-number { background: rgba(233,30,99,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(233,30,99,0.2); color: var(--pink-primary); font-size: 1.5rem; font-weight: 700; width: 70px; height: 70px; border-radius: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(233,30,99,0.1), inset 0 1px 0 rgba(255,255,255,0.05); position: relative; overflow: hidden; }
-        .wb-countdown-number::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.3), transparent); }
-        .wb-countdown-text { font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.15em; }
-
-        /* Bento Grid */
-        .wb-bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
-        .wb-bento-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 2.75rem 2.5rem; position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); }
-        .wb-bento-card:hover { border-color: rgba(233,30,99,0.35); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(233,30,99,0.12), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
-        .wb-bento-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(233,30,99,0.1), transparent 70%); pointer-events: none; transition: opacity 0.5s ease; }
-        .wb-bento-card:hover::before { opacity: 1.5; }
-        .wb-bento-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
-        .wb-bento-card.wb-bento-wide { grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding: 3rem 2.75rem; }
-        .wb-bento-icon { width: 3.75rem; height: 3.75rem; margin-bottom: 1.5rem; display: block; color: var(--pink-primary); flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(233,30,99,0.3)); }
-        .wb-bento-wide .wb-bento-icon { width: 5rem; height: 5rem; margin-bottom: 0; }
-        .wb-bento-card h4 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3; }
-        .wb-bento-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.7; }
-        .wb-bento-number { position: absolute; bottom: -0.5rem; right: 1.25rem; font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; user-select: none; }
-
-        /* Timeline */
-        .wb-timeline { position: relative; max-width: 900px; margin: 4rem auto 0; }
-        .wb-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, transparent, var(--pink-primary), var(--pink-primary), transparent); transform: translateX(-50%); }
-        .wb-timeline-day { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: start; margin-bottom: 4rem; position: relative; }
-        .wb-timeline-day:last-child { margin-bottom: 0; }
-        .wb-timeline-dot { width: 20px; height: 20px; background: var(--pink-primary); border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 30px rgba(233,30,99,0.5), 0 0 60px rgba(233,30,99,0.2); justify-self: center; margin-top: 2rem; }
-        .wb-timeline-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
-        .wb-timeline-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); pointer-events: none; }
-        .wb-timeline-card::after { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(233,30,99,0.06), transparent 60%); pointer-events: none; }
-        .wb-timeline-card:hover { border-color: rgba(233,30,99,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(233,30,99,0.1), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
-        .wb-timeline-day:nth-child(odd) .wb-timeline-card { grid-column: 1; }
-        .wb-timeline-day:nth-child(odd) .wb-timeline-dot { grid-column: 2; }
-        .wb-timeline-day:nth-child(odd) .wb-timeline-number { grid-column: 3; }
-        .wb-timeline-day:nth-child(even) .wb-timeline-number { grid-column: 1; text-align: right; }
-        .wb-timeline-day:nth-child(even) .wb-timeline-dot { grid-column: 2; }
-        .wb-timeline-day:nth-child(even) .wb-timeline-card { grid-column: 3; }
-        .wb-timeline-number { font-size: clamp(6rem, 12vw, 10rem); font-weight: 900; color: rgba(233,30,99,0.08); line-height: 0.85; padding: 0 1.5rem; user-select: none; }
-        .wb-timeline-label { font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.75rem; position: relative; z-index: 1; }
-        .wb-timeline-title { font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; position: relative; z-index: 1; }
-        .wb-timeline-subtitle { font-size: 1rem; color: rgba(255,255,255,0.6); font-style: italic; margin-bottom: 1.5rem; line-height: 1.6; position: relative; z-index: 1; }
-        .wb-timeline-list { list-style: none; padding: 0; margin: 0; position: relative; z-index: 1; }
-        .wb-timeline-list li { padding: 0.85rem 0; padding-left: 1.75rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
-        .wb-timeline-list li:last-child { border-bottom: none; }
-        .wb-timeline-list li::before { content: ''; position: absolute; left: 0; top: 1.15rem; width: 8px; height: 8px; background: var(--pink-primary); border-radius: 50%; box-shadow: 0 0 10px rgba(233,30,99,0.4); }
-        .wb-timeline-list li:hover { color: var(--white); padding-left: 2rem; }
-
-        /* Emotion Breaks */
-        .wb-emotion { position: relative; height: 45vh; min-height: 320px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .wb-emotion-bg { position: absolute; top: -20%; left: 0; width: 100%; height: 140%; object-fit: cover; object-position: center 30%; will-change: transform; }
-        .wb-emotion-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%); z-index: 1; }
-        .wb-emotion-text { position: relative; z-index: 2; text-align: center; max-width: 700px; padding: 0 2rem; }
-        .wb-emotion-text p { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 300; color: var(--white); line-height: 1.4; font-style: italic; text-shadow: 0 2px 20px rgba(0,0,0,0.5); margin: 0; }
-        .wb-emotion-text p strong { font-weight: 700; color: var(--pink-light); }
-
-        /* Background reveals */
-        .wb-bg-section { position: relative; overflow: hidden; }
-        .wb-bg-reveal { position: absolute; top: 0; width: 45%; height: 100%; pointer-events: none; z-index: 0; }
-        .wb-bg-reveal img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; filter: grayscale(0.2); transition: opacity 1.5s ease; }
-        .wb-bg-reveal.visible img { opacity: 0.4; }
-        .wb-bg-reveal.wb-right { right: 0; -webkit-mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); mask-image: linear-gradient(to left, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); }
-        .wb-bg-reveal.wb-left { left: 0; -webkit-mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); mask-image: linear-gradient(to right, black 0%, rgba(0,0,0,0.6) 60%, transparent 100%); }
-        .wb-bg-reveal::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(233,30,99,0.08), transparent); pointer-events: none; }
-        .wb-bg-section .container { position: relative; z-index: 1; }
-
-        /* Testimonial cards */
-        .wb-testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-        .wb-testimonial { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
-        .wb-testimonial::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
-        .wb-testimonial::after { content: '\201C'; position: absolute; top: 1rem; right: 1.5rem; font-size: 4rem; font-weight: 700; color: rgba(233,30,99,0.08); line-height: 1; pointer-events: none; }
-        .wb-testimonial:hover { border-color: rgba(233,30,99,0.25); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(233,30,99,0.08), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1); }
-        .wb-testimonial-stars { color: #FFD700; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1.25rem; filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-        .wb-testimonial blockquote { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; }
-        .wb-testimonial-author { display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1; }
-        .wb-testimonial-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--white); box-shadow: 0 4px 12px rgba(233,30,99,0.3); }
-        .wb-testimonial-name { font-size: 0.9rem; font-weight: 700; color: var(--white); }
-        .wb-testimonial-result { font-size: 0.75rem; color: var(--pink-primary); margin-top: 0.2rem; }
-
-        /* Check-Up Live */
-        .wb-checkup-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
-        .wb-checkup-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; }
-        .wb-checkup-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); pointer-events: none; }
-        .wb-checkup-label { font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
-        .wb-checkup-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 1.25rem; }
-        .wb-checkup-list { list-style: none; padding: 0; margin: 0; }
-        .wb-checkup-list li { padding: 0.6rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
-        .wb-checkup-list li::before { content: ''; position: absolute; left: 0; top: 0.85rem; width: 6px; height: 6px; background: var(--pink-primary); border-radius: 50%; }
-
-        /* For/Not For You */
-        .wb-fortyou-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
-        .wb-fortyou-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; }
-        .wb-fortyou-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
-        .wb-fortyou-card.wb-yes h4 { color: #4CAF50; }
-        .wb-fortyou-card.wb-no h4 { color: #f44336; }
-        .wb-fortyou-list { list-style: none; padding: 0; margin: 0; }
-        .wb-fortyou-list li { padding: 0.65rem 0; padding-left: 1.75rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .wb-fortyou-list li:last-child { border-bottom: none; }
-        .wb-yes .wb-fortyou-list li::before { content: '\2713'; position: absolute; left: 0; top: 0.65rem; color: #4CAF50; font-weight: 700; }
-        .wb-no .wb-fortyou-list li::before { content: '\2717'; position: absolute; left: 0; top: 0.65rem; color: #f44336; font-weight: 700; }
-
-        /* Bonus */
-        .wb-bonus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
-        .wb-bonus-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(233,30,99,0.25); border-radius: 20px; padding: 2.5rem; text-align: center; position: relative; overflow: hidden; }
-        .wb-bonus-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent); pointer-events: none; }
-        .wb-bonus-badge { display: inline-block; background: var(--pink-primary); color: var(--white); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.25rem; }
-        .wb-bonus-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-        .wb-bonus-value { font-size: 0.85rem; color: var(--pink-primary); font-weight: 600; margin-bottom: 1rem; }
-        .wb-bonus-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
-        .wb-bonus-total { text-align: center; margin-top: 2.5rem; padding: 1.5rem 2rem; background: rgba(233,30,99,0.08); border: 1px solid rgba(233,30,99,0.2); border-radius: 12px; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .wb-bonus-total p { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; }
-        .wb-bonus-total strong { font-size: 1.75rem; font-weight: 800; color: var(--white); }
-
-        /* TrustPilot Reviews */
-        .wb-reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
-        .wb-review { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; }
-        .wb-review-stars { color: #00B67A; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
-        .wb-review-title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
-        .wb-review-text { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.7; font-style: italic; margin-bottom: 1rem; }
-        .wb-review-author { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.5); }
-        .wb-trustpilot-badge { text-align: center; margin-top: 2rem; }
-        .wb-trustpilot-badge span { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0,182,122,0.1); border: 1px solid rgba(0,182,122,0.25); padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: #00B67A; }
-
-        /* FAQ */
-        .wb-faq-list { max-width: 800px; margin: 0 auto; }
-        .wb-faq-item { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
-        .wb-faq-item:hover { border-color: rgba(255,255,255,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08); }
-        .wb-faq-item.open { border-color: rgba(233,30,99,0.25); box-shadow: 0 12px 40px rgba(233,30,99,0.08), 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08); }
-        .wb-faq-question { padding: 1.5rem 1.75rem; font-size: 1rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; background: none; border: none; width: 100%; text-align: left; font-family: 'Poppins', sans-serif; gap: 1rem; }
-        .wb-faq-question:hover { background: rgba(233,30,99,0.06); }
-        .wb-faq-toggle { font-size: 1.5rem; color: var(--pink-primary); font-weight: 300; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(233,30,99,0.3)); }
-        .wb-faq-item.open .wb-faq-toggle { transform: rotate(45deg); }
-        .wb-faq-answer { padding: 0 1.75rem; max-height: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
-        .wb-faq-item.open .wb-faq-answer { padding: 0 1.75rem 1.5rem; max-height: 500px; }
-        .wb-faq-answer p { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.7; }
-
-        /* Final CTA */
-        .wb-final-cta { background: var(--pink-primary); text-align: center; padding: 7rem 2rem; }
-        .wb-final-cta-content { max-width: 650px; margin: 0 auto; }
-        .wb-final-cta h2 { color: var(--white); margin-bottom: 1.75rem; font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; line-height: 1.1; }
-        .wb-final-cta p { color: rgba(255,255,255,0.9); font-size: 1.15rem; line-height: 1.8; margin-bottom: 0.75rem; }
-        .wb-final-cta .wb-question { font-size: 1.85rem; font-weight: 700; font-style: italic; color: var(--white); margin: 2.5rem 0; }
-        .wb-btn-white { display: inline-flex; align-items: center; gap: 1rem; background: var(--white); color: var(--pink-primary); padding: 1.25rem 2.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); font-family: 'Poppins', sans-serif; }
-        .wb-btn-white:hover { background: #0A0A0A; color: var(--white); transform: translateY(-3px); }
-        .wb-final-trust { margin-top: 1.75rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
-
-        /* Form embed */
-        .wb-form-wrapper { max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; }
-        @media (max-width: 768px) { .wb-form-wrapper { max-width: 100%; padding: 0; border: none; border-radius: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; } .wb-form-wrapper::before { display: none; } }
-        .wb-form-wrapper::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent); pointer-events: none; }
-        .wb-form-wrapper iframe { width: 100%; min-height: 492px; border: none; border-radius: 8px; }
-
-        /* Sticky CTA */
-        .wb-sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #0A0A0A; padding: 0.75rem 1.25rem; box-shadow: 0 -4px 30px rgba(0,0,0,0.5); z-index: 1000; border-top: 1px solid rgba(233,30,99,0.3); }
-        .wb-sticky-cta .btn-primary { width: 100%; justify-content: center; }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .wb-bg-reveal { width: 35%; }
-        }
-        @media (max-width: 768px) {
-            /* Hero: show original hero content (overrides react-mobile-hero.css hide) */
-            .hero .hero-content {
-                display: flex !important;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 5rem 1.25rem 2rem !important;
-                gap: 1rem;
-            }
-            .hero .hero-text { display: contents; }
-            .hero .hero-cta-group { justify-content: center; margin-top: 0; gap: 0.75rem; }
-            .hero .hero-stats { justify-content: center; gap: 1.5rem; width: 100%; }
-
-            .wb-bento { grid-template-columns: 1fr; }
-            .wb-testimonials { grid-template-columns: 1fr; }
-            .wb-final-cta { padding: 4rem 1.5rem 7rem; }
-            .wb-sticky-cta { display: block; }
-            .wb-emotion { height: 35vh; min-height: 250px; }
-            .wb-bg-reveal { display: none; }
-            .wb-countdown { justify-content: center; }
-            .wb-timeline::before { display: none; }
-            .wb-timeline-day { grid-template-columns: 1fr; position: relative; }
-            .wb-timeline-dot { display: none; }
-            .wb-timeline-card { grid-column: 2 !important; padding: 1.75rem; position: relative; z-index: 1; }
-            .wb-timeline-number { display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: clamp(4rem, 15vw, 6rem); padding: 0; z-index: 0; text-align: right; }
-            .wb-checkup-grid { grid-template-columns: 1fr; }
-            .wb-fortyou-grid { grid-template-columns: 1fr; }
-            .wb-bonus-grid { grid-template-columns: 1fr; }
-            .wb-reviews-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 576px) {
-            .wb-countdown { gap: 0.5rem; }
-            .wb-countdown-number { width: 55px; height: 55px; font-size: 1.25rem; }
-        }
-
-        /* ═══════════════════════════════════════════════════════════
-           ESTATE INARRESTABILE · DESIGN REFRESH
-           Boomer-friendly readability + warm summer palette
-           ═══════════════════════════════════════════════════════════ */
-
-        /* Warm summer accent variables */
-        :root {
-            --warm-gold: #FFB627;
-            --warm-coral: #FF8C5A;
-            --warm-peach: #FFD4A8;
-        }
-
-        /* A) BOOMER-FRIENDLY TYPOGRAPHY — larger body, higher contrast */
-        .wb-community p { font-size: 1.2rem; line-height: 1.85; color: rgba(255,255,255,0.88); }
-        .wb-bento-card h4 { font-size: 1.3rem; }
-        .wb-bento-card p { font-size: 1rem; color: rgba(255,255,255,0.78); line-height: 1.7; font-weight: 400; }
-        .wb-timeline-title { font-size: 1.55rem; }
-        .wb-timeline-subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.78); font-style: normal; }
-        .wb-timeline-list li { font-size: 1rem; color: rgba(255,255,255,0.88); padding: 1rem 0; padding-left: 1.85rem; font-weight: 400; }
-        .wb-timeline-label { font-size: 0.75rem; }
-        .wb-checkup-title { font-size: 1.25rem; }
-        .wb-checkup-list li { font-size: 1rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
-        .wb-checkup-label { font-size: 0.75rem; }
-        .wb-fortyou-card h4 { font-size: 1.1rem; }
-        .wb-fortyou-list li { font-size: 1rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
-        .wb-bonus-title { font-size: 1.3rem; }
-        .wb-bonus-desc { font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.75; }
-        .wb-bonus-value { font-size: 0.95rem; }
-        .wb-bonus-badge { font-size: 0.72rem; }
-        .wb-review-title { font-size: 1.05rem; }
-        .wb-review-text { font-size: 0.95rem; color: rgba(255,255,255,0.78); line-height: 1.75; font-style: normal; }
-        .wb-review-author { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
-        .wb-faq-question { font-size: 1.1rem; padding: 1.65rem 1.85rem; }
-        .wb-faq-answer p { font-size: 1.05rem; color: rgba(255,255,255,0.85); line-height: 1.75; }
-        .wb-final-cta p { font-size: 1.2rem; line-height: 1.85; color: rgba(255,255,255,0.95); }
-        .wb-final-cta .wb-question { font-size: 2rem; }
-        .hero-subtitle { font-size: 1.2rem; line-height: 1.7; }
-        .hero-badge { font-size: 0.85rem; padding: 0.65rem 1.5rem; }
-        .section-number { font-size: 0.78rem; font-weight: 700; }
-        .section-subtitle { font-size: 1.1rem; line-height: 1.75; color: rgba(255,255,255,0.78) !important; }
-
-        /* B) WARM SUMMER PALETTE — warm gradient overlay on hero, gold accents */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(ellipse at 75% 20%, rgba(255,182,39,0.18) 0%, transparent 55%),
-                radial-gradient(ellipse at 15% 80%, rgba(255,140,90,0.12) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
-        }
-        .hero-content { position: relative; z-index: 2; }
-
-        /* Hero badge with warm gold accent */
-        .hero-badge {
-            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--pink-primary) 100%);
-            color: #1A0F00;
-            font-weight: 700;
-            box-shadow: 0 8px 32px rgba(255,182,39,0.25);
-        }
-
-        /* Highlight em — warm gold instead of pink for variation */
-        .wb-emphasis em,
-        .hero-title .accent {
-            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--warm-coral) 50%, var(--pink-light) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Final CTA — warmer pink-coral gradient */
-        .wb-final-cta {
-            background: linear-gradient(135deg, var(--pink-primary) 0%, var(--warm-coral) 100%);
-        }
-
-        /* Sun glow on bento cards (subtle warmth on hover) */
-        .wb-bento-card::before {
-            background: radial-gradient(circle, rgba(255,182,39,0.12), transparent 70%);
-        }
-
-        /* Section-number warm accent (alternates with pink across sections) */
-        .section section-number,
-        section:nth-child(odd) .section-number {
-            color: var(--warm-coral);
-        }
-
-        /* Stat numbers — warm gradient */
-        .hero-stat-number {
-            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--pink-primary) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-        .hero-stat-label { color: rgba(255,255,255,0.72); font-size: 0.8rem; }
-
-        /* CTA buttons — bigger, more contrasted for 40+ readability */
-        .btn-primary,
-        .btn-outline {
-            padding: 1.4rem 2.75rem;
-            font-size: 0.85rem;
-            letter-spacing: 0.12em;
-        }
-        .wb-btn-white {
-            padding: 1.4rem 2.75rem;
-            font-size: 0.85rem;
-        }
-
-        /* Mobile readability boost + single-CTA discipline */
-        @media (max-width: 768px) {
-            .wb-community p { font-size: 1.1rem; }
-            .wb-bento-card p { font-size: 0.95rem; }
-            .wb-timeline-list li { font-size: 0.95rem; }
-            .wb-faq-question { font-size: 1rem; padding: 1.4rem 1.5rem; }
-            .wb-faq-answer p { font-size: 1rem; }
-            .hero-subtitle { font-size: 1.05rem; }
-
-            /* HERO: una sola CTA su mobile (nascondi la secondaria) */
-            .hero .hero-cta-group .btn-outline { display: none !important; }
-            .hero .hero-cta-group .btn-primary {
-                width: 100%;
-                justify-content: center;
-                padding: 1.3rem 1.5rem;
-                font-size: 0.85rem;
-            }
-            .hero .hero-cta-group { width: 100%; }
-
-            /* CTA piene larghezza in tutte le sezioni mobile, padding generoso */
-            .section .btn-primary,
-            .section .btn-outline {
-                width: 100%;
-                max-width: 360px;
-                justify-content: center;
-                padding: 1.3rem 1.5rem;
-            }
-
-            /* Stat numbers più grandi su mobile, label più leggibile */
-            .hero-stat-number { font-size: 2.4rem; }
-            .hero-stat-label { font-size: 0.72rem; }
-
-            /* Hero badge: più compatto ma leggibile */
-            .hero-badge {
-                font-size: 0.72rem;
-                padding: 0.55rem 1.1rem;
-                line-height: 1.3;
-            }
-
-            /* Hero subtitle: meno claustrofobico */
-            .hero-subtitle {
-                line-height: 1.65;
-                margin-bottom: 1.5rem;
-            }
-
-            /* Spacing più generoso tra sezioni mobile */
-            .section { padding: 4rem 1.25rem; }
-            .section-header.center { margin-bottom: 2rem; }
-
-            /* Bonus card: meno padding interno per non andare in overflow */
-            .wb-bonus-card { padding: 2rem 1.5rem; }
-            .wb-bonus-title { font-size: 1.15rem; }
-
-            /* Sticky CTA: assicura padding inferiore per il bottone */
-            body { padding-bottom: 5rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-stat-number { font-size: 2rem; }
-            .wb-final-cta .wb-question { font-size: 1.5rem; }
-            .wb-bento-card { padding: 2rem 1.5rem; }
-        }
-
-        /* PRESS / Featured in — sezione light per spezzare il dark */
-        .wb-press {
-            background: linear-gradient(180deg, #FFF7EE 0%, #FCE9D6 100%);
-            padding: 5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .wb-press::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(255,182,39,0.18) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .wb-press::after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(255,140,90,0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .wb-press .container { position: relative; z-index: 1; }
-        .wb-press-eyebrow {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--pink-primary);
-            margin-bottom: 1.25rem;
-        }
-        .wb-press-title {
-            font-size: clamp(1.5rem, 3.2vw, 2rem);
-            font-weight: 700;
-            color: #1A0F00;
-            margin-bottom: 2.75rem;
-            line-height: 1.3;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .wb-press-title em {
-            font-style: italic;
-            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--warm-coral) 50%, var(--pink-primary) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .wb-press-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 2rem;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-            justify-items: center;
-        }
-        .wb-press-grid img {
-            height: 38px;
-            width: auto;
-            max-width: 140px;
-            opacity: 0.55;
-            filter: grayscale(1);
-            transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
-        }
-        .wb-press-grid img:hover {
-            opacity: 1;
-            filter: grayscale(0);
-            transform: scale(1.05);
-        }
-        @media (max-width: 1024px) {
-            .wb-press-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 2.5rem 1.5rem;
-            }
-        }
-        @media (max-width: 640px) {
-            .wb-press { padding: 3.5rem 1.25rem; }
-            .wb-press-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem 1rem;
-            }
-            .wb-press-grid img { height: 28px; max-width: 100px; }
-        }
-        @media (max-width: 380px) {
-            .wb-press-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* UTM personalizzato — kicker sopra hero badge */
-        .hero-kicker {
-            display: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--warm-gold);
-            margin: 0 0 1rem 0;
-            text-shadow: 0 0 30px rgba(255, 182, 39, 0.3);
-            line-height: 1.4;
-            max-width: 600px;
-        }
-        .hero-kicker.active { display: block; }
-        @media (max-width: 768px) {
-            .hero-kicker { font-size: 0.75rem; text-align: center; }
-        }
-
-        /* ═══════════════════════════════════════════════════════════
-           ESTATE INARRESTABILE · LIGHT THEME PIVOT
-           Cream/peach base. Dark mantenuto solo su Programma 3 sere
-           e Final CTA come isole drammatiche per contrasto.
-           ═══════════════════════════════════════════════════════════ */
-
-        :root {
-            --eim-bg-cream: #FFF7EE;
-            --eim-bg-soft:  #FFFAF3;
-            --eim-bg-white: #FFFFFF;
-            --eim-bg-warm:  #FCE9D6;
-            --eim-text-primary:   #1A0F00;
-            --eim-text-secondary: #5C4536;
-            --eim-text-muted:     #8B7363;
-            --eim-border-soft: #F5E6D6;
-            --eim-border:      #E8D6C0;
-        }
-
-        body {
-            background: var(--eim-bg-cream);
-            color: var(--eim-text-primary);
-        }
-
-        /* SECTIONS: tutte le .section-black diventano cream, ECCETTO #programma */
-        .section.section-black:not(#programma) {
-            background: var(--eim-bg-cream) !important;
-        }
-        .section.section-black:not(#programma) .section-title,
-        .section.section-black:not(#programma) .wb-community h2 {
-            color: var(--eim-text-primary) !important;
-        }
-        .section.section-black:not(#programma) .section-subtitle,
-        .section.section-black:not(#programma) .wb-community p,
-        .section.section-black:not(#programma) > .container p {
-            color: var(--eim-text-secondary) !important;
-        }
-        .section.section-black:not(#programma) .wb-community .wb-emphasis {
-            color: var(--eim-text-primary) !important;
-        }
-        .section-number {
-            color: var(--pink-primary) !important;
-        }
-
-        /* HERO: dark → cream con gradient warm e foto in multiply */
-        .hero {
-            background: linear-gradient(180deg, var(--eim-bg-cream) 0%, var(--eim-bg-warm) 60%, var(--eim-bg-warm) 100%) !important;
-        }
-        .hero-bg-image {
-            opacity: 0.35 !important;
-            mix-blend-mode: multiply;
-            filter: saturate(0.85) contrast(1.05);
-        }
-        .hero-gradient {
-            background: linear-gradient(180deg,
-                rgba(255,247,238,0.4) 0%,
-                rgba(252,233,214,0.5) 60%,
-                var(--eim-bg-warm) 100%) !important;
-        }
-        .hero::after {
-            background:
-                radial-gradient(ellipse at 80% 15%, rgba(255,182,39,0.35) 0%, transparent 50%),
-                radial-gradient(ellipse at 10% 85%, rgba(255,140,90,0.22) 0%, transparent 55%) !important;
-        }
-        .hero-title { color: var(--eim-text-primary) !important; }
-        .hero-title .accent {
-            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--warm-coral) 50%, var(--pink-primary) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-subtitle { color: var(--eim-text-secondary) !important; }
-        .hero-subtitle strong { color: var(--eim-text-primary) !important; }
-        .hero-stat-label { color: var(--eim-text-muted) !important; }
-        .hero-kicker {
-            color: #B57A00 !important;
-            text-shadow: none !important;
-        }
-
-        /* HERO BADGE: deep gradient su cream */
-        .hero-badge {
-            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--pink-primary) 100%);
-            color: #fff;
-            font-weight: 700;
-            box-shadow: 0 8px 24px rgba(233,30,99,0.2);
-        }
-
-        /* MARQUEE: già pink, ok ma lo lasciamo identico */
-
-        /* BG REVEAL IMAGES: su cream meglio opacity bassa + lievi sfumature warm */
-        .wb-bg-reveal img {
-            mix-blend-mode: normal;
-            opacity: 0 !important;
-            filter: saturate(0.85) contrast(0.95) brightness(1.05);
-        }
-        .wb-bg-reveal.visible img { opacity: 0.18 !important; }
-        .wb-bg-reveal::after {
-            background:
-                linear-gradient(135deg, rgba(233,30,99,0.05), transparent),
-                linear-gradient(180deg, rgba(255,247,238,0.65) 0%, rgba(255,247,238,0.25) 30%, rgba(255,247,238,0.25) 70%, rgba(255,247,238,0.7) 100%) !important;
-        }
-
-        /* BENTO CARDS: white card con shadow soft, hover pink */
-        .wb-bento-card {
-            background: var(--eim-bg-white) !important;
-            border: 1px solid var(--eim-border-soft) !important;
-            box-shadow: 0 4px 16px rgba(180,140,90,0.08), 0 1px 3px rgba(0,0,0,0.04) !important;
-        }
-        .wb-bento-card::before { background: radial-gradient(circle, rgba(233,30,99,0.06), transparent 70%) !important; }
-        .wb-bento-card::after { background: linear-gradient(90deg, transparent, rgba(233,30,99,0.15), transparent) !important; }
-        .wb-bento-card h4 { color: var(--eim-text-primary) !important; }
-        .wb-bento-card p { color: var(--eim-text-secondary) !important; }
-        .wb-bento-card:hover {
-            border-color: rgba(233,30,99,0.4) !important;
-            box-shadow: 0 16px 40px rgba(233,30,99,0.12), 0 4px 12px rgba(180,140,90,0.1) !important;
-        }
-        .wb-bento-icon { color: var(--pink-primary) !important; filter: none !important; }
-        .wb-bento-number { color: rgba(26,15,0,0.04) !important; }
-
-        /* CHECK-UP cards */
-        .wb-checkup-card {
-            background: var(--eim-bg-white) !important;
-            border: 1px solid var(--eim-border-soft) !important;
-            box-shadow: 0 4px 16px rgba(180,140,90,0.08) !important;
-        }
-        .wb-checkup-card::before { background: linear-gradient(90deg, transparent, rgba(233,30,99,0.15), transparent) !important; }
-        .wb-checkup-title { color: var(--eim-text-primary) !important; }
-        .wb-checkup-list li { color: var(--eim-text-secondary) !important; }
-        .wb-checkup-label { color: var(--pink-primary) !important; }
-
-        /* FA PER TE SE / NON FA PER TE */
-        .wb-fortyou-card {
-            background: var(--eim-bg-white) !important;
-            border: 1px solid var(--eim-border-soft) !important;
-            box-shadow: 0 4px 16px rgba(180,140,90,0.08) !important;
-        }
-        .wb-fortyou-list li {
-            color: var(--eim-text-secondary) !important;
-            border-color: var(--eim-border-soft) !important;
-        }
-
-        /* TESTIMONIALS / WhatsApp scroll: lo sfondo è cream, le card vengono dal js */
-        .wb-testimonial {
-            background: var(--eim-bg-white) !important;
-            border: 1px solid var(--eim-border-soft) !important;
-            box-shadow: 0 4px 16px rgba(180,140,90,0.08) !important;
-        }
-        .wb-testimonial::after { color: rgba(233,30,99,0.12) !important; }
-        .wb-testimonial blockquote { color: var(--eim-text-secondary) !important; }
-        .wb-testimonial-name { color: var(--eim-text-primary) !important; }
-
-        /* TrustPilot REVIEWS */
-        .wb-review {
-            background: var(--eim-bg-white) !important;
-            border: 1px solid var(--eim-border-soft) !important;
-            box-shadow: 0 4px 16px rgba(180,140,90,0.08) !important;
-        }
-        .wb-review-title { color: var(--eim-text-primary) !important; }
-        .wb-review-text { color: var(--eim-text-secondary) !important; }
-        .wb-review-author { color: var(--eim-text-muted) !important; }
-        .wb-trustpilot-badge span {
-            background: rgba(0,182,122,0.08) !important;
-            border-color: rgba(0,182,122,0.3) !important;
-            color: #00875A !important;
-        }
-
-        /* BONUS cards */
-        .wb-bonus-card {
-            background: var(--eim-bg-white) !important;
-            border: 1px solid rgba(233,30,99,0.3) !important;
-            box-shadow: 0 8px 24px rgba(233,30,99,0.08), 0 1px 3px rgba(0,0,0,0.04) !important;
-        }
-        .wb-bonus-title { color: var(--eim-text-primary) !important; }
-        .wb-bonus-desc { color: var(--eim-text-secondary) !important; }
-        .wb-bonus-total {
-            background: rgba(255,182,39,0.12) !important;
-            border-color: rgba(255,182,39,0.35) !important;
-        }
-        .wb-bonus-total p { color: var(--eim-text-secondary) !important; }
-        .wb-bonus-total strong { color: var(--eim-text-primary) !important; }
-
-        /* ISCRIZIONE FORM countdown */
-        .wb-countdown-number {
-            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--pink-primary) 100%) !important;
-            border: none !important;
-            color: #fff !important;
-            box-shadow: 0 8px 24px rgba(233,30,99,0.18), inset 0 1px 0 rgba(255,255,255,0.2) !important;
-            -webkit-text-fill-color: #fff !important;
-        }
-        .wb-countdown-number::before { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent) !important; }
-        .wb-countdown-text { color: var(--eim-text-muted) !important; }
-
-        .wb-form-wrapper {
-            background: var(--eim-bg-white) !important;
-            border: 1px solid var(--eim-border) !important;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.06), 0 2px 6px rgba(180,140,90,0.08) !important;
-        }
-        .wb-form-wrapper::before { background: linear-gradient(90deg, transparent, rgba(233,30,99,0.4), transparent) !important; }
-
-        /* FAQ */
-        .wb-faq-item {
-            background: var(--eim-bg-white) !important;
-            border: 1px solid var(--eim-border-soft) !important;
-            box-shadow: 0 2px 8px rgba(180,140,90,0.06) !important;
-        }
-        .wb-faq-item:hover {
-            border-color: rgba(233,30,99,0.25) !important;
-            box-shadow: 0 6px 20px rgba(233,30,99,0.06) !important;
-        }
-        .wb-faq-item.open {
-            border-color: rgba(233,30,99,0.35) !important;
-            box-shadow: 0 8px 24px rgba(233,30,99,0.1) !important;
-        }
-        .wb-faq-question { color: var(--eim-text-primary) !important; }
-        .wb-faq-question:hover { background: rgba(233,30,99,0.04) !important; }
-        .wb-faq-answer p { color: var(--eim-text-secondary) !important; }
-
-        /* "Highlight em" gradient text — assicura visibilità su cream */
-        .highlight em {
-            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--warm-coral) 50%, var(--pink-primary) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-style: italic;
-        }
-
-        /* PROGRAMMA (timeline 3 sere) — RESTA DARK come "menu drammatico" */
-        #programma {
-            background: linear-gradient(180deg, #1A0F00 0%, #0A0500 100%) !important;
-            position: relative;
-        }
-        #programma::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6rem;
-            background: linear-gradient(180deg, var(--eim-bg-cream) 0%, transparent 100%);
-            opacity: 0.05;
-            pointer-events: none;
-        }
-        #programma .section-title { color: #fff !important; }
-        #programma .section-number { color: var(--warm-gold) !important; }
-        /* Timeline cards restano dark internamente, già stilizzate */
-
-        /* FINAL CTA: già pink-coral gradient, ok */
-
-        /* FOOTER: light */
-        .footer {
-            background: var(--eim-bg-soft) !important;
-            color: var(--eim-text-secondary) !important;
-            border-top: 1px solid var(--eim-border-soft);
-        }
-        .footer-logo { color: var(--eim-text-primary) !important; }
-        .footer p { color: var(--eim-text-secondary) !important; }
-        .footer-bottom { border-top: 1px solid var(--eim-border-soft) !important; }
-        .footer-legal a { color: var(--eim-text-muted) !important; }
-
-        /* STICKY CTA mobile: white */
-        .wb-sticky-cta {
-            background: var(--eim-bg-white) !important;
-            border-top: 1px solid var(--eim-border) !important;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.08) !important;
-        }
-
-        /* Bottoni outline su cream — bordo scuro */
-        .btn-outline {
-            color: var(--eim-text-primary) !important;
-            border-color: var(--eim-text-primary) !important;
-        }
-        .btn-outline:hover {
-            background: var(--eim-text-primary) !important;
-            color: #fff !important;
-        }
-
-        /* CTA primary su cream — extra shadow per pop */
-        .btn-primary {
-            box-shadow: 0 8px 24px rgba(233,30,99,0.3) !important;
-        }
-
-        /* Section-header subtitle scope su sezioni light */
-        .section.section-black:not(#programma) .section-header .section-subtitle {
-            color: var(--eim-text-secondary) !important;
-        }
-
-        /* Press section già light, ok */
-
-        /* Scroll-rows / WhatsApp masonry: cards bianche con bordo soft su cream */
-        .scroll-item {
-            border-radius: 14px !important;
-            overflow: hidden !important;
-            background: var(--eim-bg-white) !important;
-            box-shadow: 0 4px 16px rgba(180,140,90,0.1), 0 1px 3px rgba(0,0,0,0.04) !important;
-            border: 1px solid var(--eim-border-soft) !important;
-        }
-        .scroll-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(180,140,90,0.18), 0 4px 8px rgba(0,0,0,0.06) !important;
-        }
-        .scroll-item img { display: block !important; }
-
-        /* HERO 3-BULLET BENEFITS — sotto il subtitle */
-        .hero-bullets {
-            list-style: none;
-            margin: 0 0 2rem 0;
-            padding: 0;
-            max-width: 600px;
-        }
-        .hero-bullets li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.65rem;
-            padding: 0.4rem 0;
-            font-size: 1.02rem;
-            font-weight: 500;
-            color: var(--eim-text-primary);
-            line-height: 1.5;
-        }
-        .hero-bullets li::before {
-            content: '\2713';
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 1.6rem;
-            height: 1.6rem;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--warm-gold), var(--pink-primary));
-            color: #fff;
-            font-size: 0.85rem;
-            font-weight: 800;
-            flex-shrink: 0;
-            margin-top: 0.05rem;
-            box-shadow: 0 4px 12px rgba(233,30,99,0.2);
-        }
-        @media (max-width: 768px) {
-            .hero-bullets { margin: 0 auto 1.5rem; text-align: left; }
-            .hero-bullets li { font-size: 0.95rem; }
-        }
-
-        /* TRUST STRIP — sotto il form, una riga di rassicurazioni */
-        .wb-trust-strip {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem 1.5rem;
-            margin: 1.5rem auto 0;
-            max-width: 580px;
-            font-size: 0.85rem;
-            color: var(--eim-text-muted);
-            font-weight: 500;
-        }
-        .wb-trust-strip span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-        .wb-trust-strip svg {
-            width: 0.9rem;
-            height: 0.9rem;
-            stroke: var(--pink-primary);
-            fill: none;
-            stroke-width: 2;
-        }
-        @media (max-width: 768px) {
-            .wb-trust-strip { gap: 0.35rem 1rem; font-size: 0.8rem; }
-        }
     </style>
 
-    <!-- Iubenda Cookie Solution (PRIMA del pixel per blocco corretto) -->
+    <!-- Iubenda Cookie Solution -->
     <script type="text/javascript">
     var _iub = _iub || [];
     _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
@@ -974,967 +897,514 @@
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
-    <!-- Meta Pixel Code -->
+
+    <!-- Meta Pixel -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '446130387840122');
     fbq('track', 'PageView');
     fbq('track', 'ViewContent', {content_name: 'Estate Inarrestabile 2026', content_category: 'webinar'});
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
-    <!-- HERO -->
-    <section class="hero">
-        <img src="img/elena-webp/IMG_9183.webp" alt="Elena Giordani" class="hero-bg-image" loading="eager">
-        <div class="hero-gradient"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <p class="hero-kicker" id="utmKicker"></p>
-                <div class="hero-badge" data-cfg="badge">
-                    Estate Inarrestabile &bull; 19-20-21 Maggio &bull; Ore 18:30
-                </div>
-                <h1 class="hero-title">
-                    <span>Lo Strano Motivo Per Cui Ogni Estate</span>
-                    <span class="accent">Perdi Il Controllo</span>
-                </h1>
-                <p class="hero-subtitle" id="utmSubtitle">
-                    Ogni anno la stessa storia: a maggio hai costanza, a giugno la perdi, a settembre torni peggio di come eri partita. Non &egrave; la tua forza di volont&agrave;. <strong>La costanza non crolla per debolezza</strong> &mdash; c'&egrave; un motivo preciso che nessun coach ti ha mai spiegato.
-                </p>
-                <ul class="hero-bullets">
-                    <li>Capisci <strong>perch&eacute;</strong> ogni anno la costanza salta proprio a giugno</li>
-                    <li>Costruisci il tuo <strong>piano da maggio a settembre</strong>, settimana per settimana</li>
-                    <li>Niente diete lampo, niente prova-costume &mdash; solo il metodo che regge</li>
-                </ul>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">2300<span>+</span></div>
-                        <div class="hero-stat-label">Hanno Spezzato Il Loop</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">3</div>
-                        <div class="hero-stat-label">Sere Gratuite</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">100<span>%</span></div>
-                        <div class="hero-stat-label">Online &amp; Live</div>
-                    </div>
-                </div>
-                <div class="hero-cta-group">
-                    <a href="#iscriviti" class="btn-primary">
-                        Voglio Scoprire Il Motivo
-                        <span>&rarr;</span>
-                    </a>
-                    <a href="#programma" class="btn-outline">
-                        Vedi Il Programma
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MARQUEE -->
-    <div class="wb-marquee">
-        <div class="wb-marquee-track">
-            <span class="wb-marquee-item" data-cfg="marquee-special">Le Inarrestabili non si fermano a giugno</span>
-            <span class="wb-marquee-item">Estate Inarrestabile</span>
-            <span class="wb-marquee-item" data-cfg="marquee-dates">19-20-21 Maggio ore 18:30</span>
-            <span class="wb-marquee-item">3 Sere Gratuite Live</span>
-            <span class="wb-marquee-item">2300+ donne sono Inarrestabili anche d'estate</span>
-            <span class="wb-marquee-item">Niente replay</span>
-            <span class="wb-marquee-item" data-cfg="marquee-special">Le Inarrestabili non si fermano a giugno</span>
-            <span class="wb-marquee-item">Estate Inarrestabile</span>
-            <span class="wb-marquee-item" data-cfg="marquee-dates">19-20-21 Maggio ore 18:30</span>
-            <span class="wb-marquee-item">3 Sere Gratuite Live</span>
-            <span class="wb-marquee-item">2300+ donne sono Inarrestabili anche d'estate</span>
-            <span class="wb-marquee-item">Niente replay</span>
-        </div>
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="ei-header" id="eiHeader">
+    <div class="ei-container ei-header-inner">
+        <div class="ei-logo">Elena Giordani</div>
+        <a href="#iscriviti" class="ei-header-cta">Iscriviti gratis &rarr;</a>
     </div>
+</header>
 
-    <!-- TI RICONOSCI? -->
-    <section class="section section-black wb-bg-section">
-        <div class="wb-bg-reveal wb-right" data-reveal>
-            <img src="img/elena-webp/Elena81.webp" alt="Elena Giordani" loading="lazy">
-        </div>
-        <div class="container">
-            <div class="wb-community">
-                <h2 class="section-title" style="color: var(--white);">&Egrave; un mercoled&igrave; di giugno. <span class="highlight"><em>Ti pesi.</em></span></h2>
-                <p>+2 chili rispetto a maggio. Eppure ti eri detta che stavolta sarebbe stato diverso. Avevi un piano. L'inverno l'hai passato a impegnarti.</p>
-                <p>Poi sono arrivati il primo aperitivo all'aperto. La cena fuori. Il viaggio del weekend. Le ferie. E in tre settimane &mdash; tre &mdash; hai cancellato 5 mesi di lavoro.</p>
-                <p>Ti dici che a settembre ricominci. Ma sai gi&agrave; come va a finire: a settembre torni peggio di giugno. E a gennaio ricominci da capo. <strong>Per la quarta volta. La quinta. La decima.</strong></p>
-                <p class="wb-emphasis">La costanza non &egrave; un tuo problema.<br><span class="highlight"><em>&Egrave; che nessuno ti ha mai detto perch&eacute; salta sempre a giugno.</em></span></p>
-                <p style="font-size: 0.95rem; color: rgba(255,255,255,0.55); margin-top: -1rem;">Estate Inarrestabile parte da qui &mdash; dal capire perch&eacute; la costanza crolla, prima di tentare un'altra volta.</p>
-                <a href="#iscriviti" class="btn-outline">
-                    Voglio capirlo
-                    <span>&rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="ei-hero" id="iscriviti">
+    <div class="ei-container">
+        <div class="ei-hero-inner">
 
-
-    <!-- IL LOOP CHE CONOSCI BENE (Bento Grid) -->
-    <section class="section section-black wb-bg-section">
-        <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="img/elena-webp/IMG_9821.webp" alt="Elena Giordani" loading="lazy">
-        </div>
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">IL LOOP CHE CONOSCI BENE</span>
-                <h2 class="section-title" style="color: var(--white);">Perch&eacute; ogni estate <span class="highlight"><em>finisce uguale</em></span></h2>
-            </div>
-            <div class="wb-bento">
-                <div class="wb-bento-card">
-                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    <h4>La costanza crolla in 14 giorni</h4>
-                    <p>Ti basta un aperitivo, un pranzo fuori, una cena di compleanno. Poi due. Poi tre. La costanza che hai costruito da gennaio si sgretola in due settimane. Non &egrave; che &ldquo;hai mollato&rdquo;. &Egrave; che il metodo che usavi non era pensato per tenere la costanza anche d'estate.</p>
-                    <div class="wb-bento-number">01</div>
-                </div>
-                <div class="wb-bento-card">
-                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l9-3 9 3v12l-9 3-9-3z"/><path d="M3 6l9 3 9-3"/><path d="M12 9v12"/></svg>
-                    <h4>Le ferie cancellano tutto</h4>
-                    <p>Due settimane di mare. Hotel, ristoranti, gelati, niente palestra. Torni a casa con 3 chili in pi&ugrave; e una sensazione che conosci bene: &ldquo;vabb&egrave;, ormai &egrave; andata, ricomincio a settembre&rdquo;. E intanto il momentum &egrave; finito.</p>
-                    <div class="wb-bento-number">02</div>
-                </div>
-                <div class="wb-bento-card">
-                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                    <h4>Caldo, cortisolo, ritenzione</h4>
-                    <p>Il tuo corpo a 35&deg; non funziona come a 12&deg;. Cambia il sonno, cambiano gli ormoni, cambia la fame. E tu continui a usare lo stesso schema dell'inverno. Non si rompe perch&eacute; sei debole. Si rompe perch&eacute; non &egrave; tarato sull'estate.</p>
-                    <div class="wb-bento-number">03</div>
-                </div>
-                <div class="wb-bento-card">
-                    <svg class="wb-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
-                    <h4>Settembre giudica la tua costanza</h4>
-                    <p>Non importa quanto eri pronta a maggio. La verit&agrave; sulla tua costanza la vedi a settembre. E la maggior parte delle donne, a settembre, riapre l'armadio e dice &ldquo;ricomincio da zero&rdquo;. Per la quinta volta in cinque anni.</p>
-                    <div class="wb-bento-number">04</div>
+            <!-- Photo column -->
+            <div class="ei-hero-photo">
+                <img src="img/elena-webp/IMG_9183.webp" alt="Elena Giordani" loading="eager">
+                <div class="ei-photo-caption">
+                    <div class="name">Elena Giordani</div>
+                    <div class="role">Life Health Coach &middot; Founder X-Fit Academy</div>
                 </div>
             </div>
-        </div>
-    </section>
 
-
-    <!-- PRESS · Featured in (sezione light, spezza il dark) -->
-    <section class="wb-press">
-        <div class="container">
-            <p class="wb-press-eyebrow">Featured in</p>
-            <h2 class="wb-press-title">Elena &egrave; gi&agrave; stata sentita da chi conta. <em>Ora puoi sentirla anche tu.</em></h2>
-            <div class="wb-press-grid">
-                <img src="img/press-logos/sole24ore.svg" alt="Il Sole 24 Ore" loading="lazy">
-                <img src="img/press-logos/repubblica.svg" alt="La Repubblica" loading="lazy">
-                <img src="img/press-logos/corriere.svg" alt="Corriere della Sera" loading="lazy">
-                <img src="img/press-logos/elle.svg" alt="Elle" loading="lazy">
-                <img src="img/press-logos/cosmopolitan.svg" alt="Cosmopolitan" loading="lazy">
-                <img src="img/press-logos/dilei.svg" alt="DiLei" loading="lazy">
-                <img src="img/press-logos/radioradio.svg" alt="Radio Radio" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- PROGRAMMA 3 SERE (Timeline) -->
-    <section class="section section-black wb-bg-section" id="programma" style="background: linear-gradient(180deg, #000 0%, #0A0A0A 100%);">
-        <div class="wb-bg-reveal wb-right" data-reveal>
-            <img src="img/evento-webp/EDO05142.webp" alt="Elena Giordani" loading="lazy">
-        </div>
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">3 SERATE, 1 RIVOLUZIONE</span>
-                <h2 class="section-title" style="color: var(--white);">Cosa scoprirai in <span class="highlight"><em>3 serate</em></span></h2>
-            </div>
-            <div class="wb-timeline">
-                <div class="wb-timeline-day">
-                    <div class="wb-timeline-card">
-                        <div class="wb-timeline-label" data-cfg="serata1-label">Luned&igrave; 19 Maggio &bull; Ore 18:30</div>
-                        <h3 class="wb-timeline-title">Lo Strano Motivo</h3>
-                        <p class="wb-timeline-subtitle">Diagnosi. Perch&eacute; la tua costanza salta proprio a giugno &mdash; e non &egrave; colpa tua.</p>
-                        <ul class="wb-timeline-list">
-                            <li>Le 4 cause invisibili che fanno saltare la costanza delle donne da giugno in poi</li>
-                            <li>Cosa cambia nel corpo di una donna over 35 quando le temperature salgono</li>
-                            <li>Il ruolo di cortisolo, ritenzione e ormoni in estate (e perch&eacute; nessun trainer ne parla)</li>
-                            <li>L'errore di metodo che ti riporta a settembre peggio di giugno, ogni volta</li>
-                            <li><strong>Check-Up Live</strong> sulle tue abitudini estive e sul mindset di costanza</li>
-                        </ul>
-                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: capirai esattamente cosa rompe la tua costanza ogni estate.</p>
-                    </div>
-                    <div class="wb-timeline-dot"></div>
-                    <div class="wb-timeline-number">01</div>
+            <!-- Copy + Form column -->
+            <div class="ei-hero-copy">
+                <div class="ei-badge">
+                    <span class="ei-badge-dot"></span>
+                    <span>Webinar Gratuito &middot; 19-20-21 Maggio &middot; 18:30</span>
                 </div>
-                <div class="wb-timeline-day">
-                    <div class="wb-timeline-number">02</div>
-                    <div class="wb-timeline-dot"></div>
-                    <div class="wb-timeline-card">
-                        <div class="wb-timeline-label" data-cfg="serata2-label">Marted&igrave; 20 Maggio &bull; Ore 18:30</div>
-                        <h3 class="wb-timeline-title">Costanza In Libert&agrave;</h3>
-                        <p class="wb-timeline-subtitle">Metodo. Come tieni la costanza anche in estate &mdash; senza rinunciare a niente.</p>
-                        <ul class="wb-timeline-list">
-                            <li>Come gestire viaggi, vacanze e settimane fuori casa senza azzerare i progressi</li>
-                            <li>La regola dei 3 pasti che disinnesca aperitivi, cene fuori e pranzi al ristorante</li>
-                            <li>Il Metodo E.A.S.Y. applicato all'estate (allenamento, alimentazione, supporto, identit&agrave;)</li>
-                            <li>Perch&eacute; &ldquo;rinunciare al gelato&rdquo; &egrave; la strategia perdente per definizione</li>
-                            <li><strong>Check-Up Live corporeo:</strong> ritenzione, sonno, fame, cortisolo estivo</li>
-                        </ul>
-                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: avrai gli strumenti per attraversare l'estate senza autosabotarti.</p>
-                    </div>
-                </div>
-                <div class="wb-timeline-day">
-                    <div class="wb-timeline-card">
-                        <div class="wb-timeline-label" data-cfg="serata3-label">Mercoled&igrave; 21 Maggio &bull; Ore 18:30</div>
-                        <h3 class="wb-timeline-title">Il Tuo Piano Estate</h3>
-                        <p class="wb-timeline-subtitle">Piano. Da maggio a settembre, settimana per settimana.</p>
-                        <ul class="wb-timeline-list">
-                            <li>La roadmap dei 4 mesi: cosa fare a maggio, giugno, luglio, agosto e settembre</li>
-                            <li>Come tarare allenamento e alimentazione su clima, ferie e impegni reali</li>
-                            <li>I 3 numeri da tenere d'occhio per non &ldquo;svegliarsi a settembre&rdquo;</li>
-                            <li>Cosa serve davvero per arrivare a settembre meglio di come sei arrivata a giugno</li>
-                            <li><strong>Q&amp;A finale</strong> in diretta con Elena</li>
-                        </ul>
-                        <p style="font-size: 0.85rem; color: var(--pink-primary); margin-top: 1.25rem; font-style: italic; position: relative; z-index: 1;">&#9654; Alla fine: uscirai con un piano scritto, non con una motivazione che dura due giorni.</p>
-                        <p style="font-size: 0.8rem; color: var(--white); margin-top: 1.25rem; padding: 0.75rem 1rem; border: 1px solid var(--pink-primary); border-radius: 8px; text-align: center; position: relative; z-index: 1;">&#128274; Solo per chi presenzia tutte e 3 le sere: <strong>Sfida community Estate Inarrestabile</strong> &mdash; gruppo WhatsApp dedicato 30 giorni.</p>
-                    </div>
-                    <div class="wb-timeline-dot"></div>
-                    <div class="wb-timeline-number">03</div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#iscriviti" class="btn-primary">
-                    Voglio Esserci
-                    <span>&rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- CHECK-UP LIVE -->
-    <section class="section section-black">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">NON SOLO TEORIA</span>
-                <h2 class="section-title" style="color: var(--white);">Il <span class="highlight"><em>Check-Up Live</em></span></h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">In ogni serata far&ograve; Check-Up Live su donne reali. Non teoria &mdash; pratica vera, su corpi veri, in tempo reale.</p>
-            </div>
-            <div class="wb-checkup-grid">
-                <div class="wb-checkup-card">
-                    <div class="wb-checkup-label">Serata 1 &bull; Mindset Estivo</div>
-                    <div class="wb-checkup-title">Check-Up sul tuo schema mentale &ldquo;d'estate&rdquo;</div>
-                    <ul class="wb-checkup-list">
-                        <li>Individuiamo le frasi tossiche che ti ripeti da giugno (&ldquo;vabb&egrave; ormai...&rdquo;, &ldquo;ricomincio luned&igrave;&rdquo;, &ldquo;dopo le ferie...&rdquo;)</li>
-                        <li>Mappiamo i trigger sociali che ti fanno mollare in 3 giorni (aperitivi, cene, viaggi)</li>
-                        <li>Verifichiamo se il tuo &ldquo;piano estivo&rdquo; attuale ha senso o no</li>
-                    </ul>
-                </div>
-                <div class="wb-checkup-card">
-                    <div class="wb-checkup-label">Serata 2 &bull; Corpo In Estate</div>
-                    <div class="wb-checkup-title">Check-Up corporeo: caldo, ritenzione, ormoni, sonno</div>
-                    <ul class="wb-checkup-list">
-                        <li>Da dove arriva quella sensazione di &ldquo;gonfia&rdquo; che peggiora ad ogni gita al mare</li>
-                        <li>Come leggere i segnali del corpo a 30&deg; (e perch&eacute; sono diversi da quelli invernali)</li>
-                        <li>Come costruirti uno schema sostenibile per i prossimi 4 mesi</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                <p class="ei-utm-kicker" id="utmKicker"></p>
 
-    <!-- FA PER TE SE... -->
-    <section class="section section-black">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">&Egrave; PER TE?</span>
-                <h2 class="section-title" style="color: var(--white);">Questo webinar <span class="highlight"><em>fa per te se...</em></span></h2>
-            </div>
-            <div class="wb-fortyou-grid">
-                <div class="wb-fortyou-card wb-yes">
-                    <h4>&#10003; &Egrave; per te se:</h4>
-                    <ul class="wb-fortyou-list">
-                        <li>Sei una donna 35-65 stanca di vedere ogni estate cancellare quello che costruisci d'inverno</li>
-                        <li>Vuoi arrivare a settembre meglio di come arriverai a giugno</li>
-                        <li>Sei stufa del loop &ldquo;gennaio-impegno / giugno-mollo / settembre-zero&rdquo;</li>
-                        <li>Sai che non &egrave; questione di volont&agrave; ma di metodo</li>
-                        <li>Vuoi vivere l'estate senza sensi di colpa &mdash; e senza rinunciare a niente</li>
-                    </ul>
-                </div>
-                <div class="wb-fortyou-card wb-no">
-                    <h4>&#10007; Non &egrave; per te se:</h4>
-                    <ul class="wb-fortyou-list">
-                        <li>Cerchi una dieta lampo per la prova costume</li>
-                        <li>Vuoi perdere 5 chili in 30 giorni</li>
-                        <li>Cerchi una soluzione fai-da-te senza guida</li>
-                        <li>Pensi che &ldquo;mollare a giugno&rdquo; sia inevitabile</li>
-                    </ul>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#iscriviti" class="btn-primary">
-                    S&igrave;, &Egrave; Per Me! Prenota Ora
-                    <span>&rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
+                <h1 class="ei-h1 ei-hero-title" id="utmHeadline">
+                    Lo strano motivo per cui ogni estate <span class="accent">perdi la costanza</span>.
+                </h1>
 
-    <!-- CHI TI GUIDERA -->
-    <section class="section section-black wb-bg-section">
-        <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="img/evento-webp/EDO05146.webp" alt="Elena Giordani" loading="lazy">
-        </div>
-        <div class="container">
-            <div class="wb-community">
-                <span class="section-number">CHI TI GUIDER&Agrave;</span>
-                <h2 class="section-title" style="color: var(--white); margin-bottom: 2rem;">Probabilmente non mi conosci. <span class="highlight"><em>Ecco perch&eacute; dovresti.</em></span></h2>
-                <p>Mi chiamo Elena Giordani. Negli ultimi 6 anni ho visto ripetersi la stessa scena, sempre uguale: donne che a maggio mi scrivono &ldquo;ce la faccio quest'anno&rdquo;, e a settembre tornano &ldquo;Elena, sono di nuovo al punto di partenza&rdquo;.</p>
-                <p>Non &egrave; mai stata la loro forza di volont&agrave;. Era il metodo. <strong>Nessuno costruisce un sistema che tiene anche d'estate.</strong> Tutti ti danno regole invernali e poi spariscono a giugno.</p>
-                <p>Cos&igrave; ho costruito il <strong>Metodo E.A.S.Y.</strong>: 4 pilastri (Esercizio, Alimentazione, Supporto, You) tarati anche sui mesi caldi, sulle ferie, sui viaggi. Lo hanno usato 2300 donne in 8 paesi. Non prometto miracoli. Prometto un metodo che funziona quando la vita reale ti chiama a tavola.</p>
-                <div class="hero-stats" style="justify-content: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">2300<span>+</span></div>
-                        <div class="hero-stat-label">Hanno Spezzato Il Loop</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">97<span>%</span></div>
-                        <div class="hero-stat-label">Soddisfazione</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">8</div>
-                        <div class="hero-stat-label">Paesi Nel Mondo</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <p class="ei-hero-lead" id="utmSubtitle">
+                    A maggio sei pronta. A giugno la perdi. A settembre torni peggio di come eri partita. <strong>La costanza non crolla per debolezza</strong> — c'è un motivo preciso che nessun coach ti ha mai spiegato.
+                </p>
 
-
-    <!-- TESTIMONIALS -->
-    <section class="section section-black">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">ERANO AL PUNTO DI PARTENZA</span>
-                <h2 class="section-title" style="color: var(--white);">Non conoscevano Elena. <span class="highlight"><em>Poi hanno partecipato.</em></span></h2>
-            </div>
-            <div class="scroll-rows-wrapper scroll-rows-masonry">
-                <div class="scroll-row" id="waRowWebA"></div>
-                <div class="scroll-row" id="waRowWebB"></div>
-            </div>
-
-            <div class="wa-lightbox" id="waLightbox" onclick="closeWaLightbox()">
-                <button class="wa-lightbox-close">&times;</button>
-                <img src="" alt="Testimonianza WhatsApp" id="waLightboxImg" loading="lazy">
-            </div>
-
-            <script>
-                function openWaLightbox(el) {
-                    var src = el.querySelector('img').src;
-                    document.getElementById('waLightboxImg').src = src;
-                    document.getElementById('waLightbox').classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-                function closeWaLightbox() {
-                    document.getElementById('waLightbox').classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeWaLightbox(); });
-
-                (function() {
-                    var allImgs = [];
-                    for (var i = 1; i <= 30; i++) {
-                        allImgs.push(i < 10 ? '0' + i : '' + i);
-                    }
-                    for (var j = allImgs.length - 1; j > 0; j--) {
-                        var k = Math.floor(Math.random() * (j + 1));
-                        var tmp = allImgs[j]; allImgs[j] = allImgs[k]; allImgs[k] = tmp;
-                    }
-                    var half = Math.ceil(allImgs.length / 2);
-                    var rows = [
-                        { el: document.getElementById('waRowWebA'), imgs: allImgs.slice(0, half), speed: 0.5, dir: 1 },
-                        { el: document.getElementById('waRowWebB'), imgs: allImgs.slice(half), speed: 0.4, dir: -1 }
-                    ];
-                    rows.forEach(function(row) {
-                        var html = '';
-                        row.imgs.forEach(function(n) {
-                            html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/whatsapp-webp/whatsapp-' + n + '.webp" alt="Testimonianza" loading="lazy"></div>';
-                        });
-                        html += html;
-                        row.el.innerHTML = html;
-                        var isDown = false, startX, scrollLeft;
-                        row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
-                        row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
-                        row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
-                        row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
-                        row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
-                        row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
-                        row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
-                    });
-                    rows.forEach(function(row) {
-                        if (row.dir === -1) {
-                            row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
-                        }
-                    });
-                    function autoScroll() {
-                        rows.forEach(function(row) {
-                            if (!row.paused) {
-                                row.el.scrollLeft += row.speed * row.dir;
-                                var halfScroll = row.el.scrollWidth / 2;
-                                if (row.dir === 1 && row.el.scrollLeft >= halfScroll) {
-                                    row.el.scrollLeft -= halfScroll;
-                                } else if (row.dir === -1 && row.el.scrollLeft <= 0) {
-                                    row.el.scrollLeft += halfScroll;
-                                }
-                            }
-                        });
-                        requestAnimationFrame(autoScroll);
-                    }
-                    autoScroll();
-                })();
-            </script>
-        </div>
-    </section>
-
-    <!-- COMMENTI LIVE DAL WEBINAR -->
-    <section class="section section-black">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">DAL VIVO</span>
-                <h2 class="section-title" style="color: var(--white);">I commenti <span class="highlight"><em>durante il webinar</em></span></h2>
-            </div>
-            <div class="scroll-rows-wrapper scroll-rows-masonry">
-                <div class="scroll-row" id="commentiRow1"></div>
-                <div class="scroll-row" id="commentiRow2"></div>
-            </div>
-
-            <script>
-            (function() {
-                var imgs = [
-                    'IMG_7065','IMG_7066','IMG_7067','IMG_7068','IMG_7069','IMG_7070',
-                    'IMG_7071','IMG_7073','IMG_7074','IMG_7075','IMG_7077','IMG_7083',
-                    'IMG_7085','IMG_7086','IMG_7091','IMG_7092','IMG_7093','IMG_7094',
-                    '132AC079-5BB6-4188-AB60-AC4C1392E935'
-                ];
-                for (var j = imgs.length - 1; j > 0; j--) {
-                    var k = Math.floor(Math.random() * (j + 1));
-                    var tmp = imgs[j]; imgs[j] = imgs[k]; imgs[k] = tmp;
-                }
-                var half = Math.ceil(imgs.length / 2);
-                var rows = [
-                    { el: document.getElementById('commentiRow1'), imgs: imgs.slice(0, half), speed: 0.4, dir: 1 },
-                    { el: document.getElementById('commentiRow2'), imgs: imgs.slice(half), speed: 0.35, dir: -1 }
-                ];
-                rows.forEach(function(row) {
-                    var html = '';
-                    row.imgs.forEach(function(name) {
-                        html += '<div class="scroll-item" onclick="openWaLightbox(this)"><img src="img/commenti-webp/' + name + '.webp" alt="Commento webinar" loading="lazy"></div>';
-                    });
-                    row.el.innerHTML = html;
-                    var isDown = false, startX, scrollLeft;
-                    row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
-                    row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
-                    row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
-                    row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
-                    row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
-                    row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
-                    row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
-                });
-                rows.forEach(function(row) {
-                    if (row.dir === -1) row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
-                });
-                function autoScroll() {
-                    rows.forEach(function(row) {
-                        if (!row.paused) {
-                            row.el.scrollLeft += row.speed * row.dir;
-                            var maxScroll = row.el.scrollWidth - row.el.clientWidth;
-                            if (row.dir === 1 && row.el.scrollLeft >= maxScroll) row.el.scrollLeft = 0;
-                            else if (row.dir === -1 && row.el.scrollLeft <= 0) row.el.scrollLeft = maxScroll;
-                        }
-                    });
-                    requestAnimationFrame(autoScroll);
-                }
-                autoScroll();
-            })();
-            </script>
-        </div>
-    </section>
-
-    <!-- RECENSIONI TRUSTPILOT -->
-    <section class="section section-black">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">VERIFICATE E REALI</span>
-                <h2 class="section-title" style="color: var(--white);">Recensioni <span class="highlight"><em>verificate</em></span> su TrustPilot</h2>
-            </div>
-            <div class="wb-reviews-grid">
-                <div class="wb-review">
-                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="wb-review-title">Percorso di vita (consigliato)</div>
-                    <div class="wb-review-text">La XFit Academy di Elena Giordani non &egrave; un semplice allenamento fisico ma un completo allenamento mentale e di crescita personale. &Egrave; un percorso di vita che ti aiuta a ritrovare la migliore versione di te stessa, supportata da professionisti preparati e appassionati.</div>
-                    <div class="wb-review-author">Maria Teresa</div>
-                </div>
-                <div class="wb-review">
-                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="wb-review-title">Sono rientrata nel mio corpo</div>
-                    <div class="wb-review-text">Avevo gi&agrave; smesso di crederci. Dopo il webinar ho capito esattamente perch&eacute; ogni programma che avevo fatto prima non aveva funzionato. Il metodo di Elena &egrave; diverso da tutto quello che avevo provato.</div>
-                    <div class="wb-review-author">Cristiana</div>
-                </div>
-                <div class="wb-review">
-                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="wb-review-title">Il programma... il posto giusto!</div>
-                    <div class="wb-review-text">Ho iniziato la X-Fit e la vita mi &egrave; cambiata totalmente. Non solo nell'aspetto fisico, ma nella mentalit&agrave; e nella consapevolezza. Finalmente ho trovato il programma e le persone giuste per i miei obiettivi.</div>
-                    <div class="wb-review-author">Simonetta</div>
-                </div>
-                <div class="wb-review">
-                    <div class="wb-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="wb-review-title">La prima estate in cui non ho mollato</div>
-                    <div class="wb-review-text">Avevo provato ogni dieta. Dopo il webinar mi sono iscritta e ho passato la prima estate in cui non ho mai detto &ldquo;vabb&egrave;, ricomincio a settembre&rdquo;. A settembre, per la prima volta, ero meglio di giugno. Cambia tutto.</div>
-                    <div class="wb-review-author">Valentina</div>
-                </div>
-            </div>
-            <div class="wb-trustpilot-badge">
-                <span>&#9733; Trustpilot &bull; 4.9 / 5</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- I DUE BONUS STRAORDINARI -->
-    <section class="section section-black">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">RISERVATI A CHI PARTECIPA</span>
-                <h2 class="section-title" style="color: var(--white);">I Due <span class="highlight"><em>Bonus Straordinari</em></span></h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Riservati a chi presenzia tutte e 3 le serate &mdash; non al replay.</p>
-            </div>
-            <div class="wb-bonus-grid">
-                <div class="wb-bonus-card">
-                    <div class="wb-bonus-badge">Bonus 1 &bull; Per chi presenzia</div>
-                    <div class="wb-bonus-title">Sfida community &ldquo;Estate Inarrestabile&rdquo;</div>
-                    <div class="wb-bonus-value">Valore: 197&euro;</div>
-                    <div class="wb-bonus-desc">Accesso a un gruppo WhatsApp dedicato per 30 giorni dopo il webinar. Check-in giornaliero, presenza di Elena e del team coach. Da sola &egrave; pi&ugrave; difficile. Insieme siete inarrestabili.</div>
-                </div>
-                <div class="wb-bonus-card">
-                    <div class="wb-bonus-badge">Bonus 2 &bull; Solo 20 posti</div>
-                    <div class="wb-bonus-title">Masterclass Live &ldquo;Il Piano dei 90 Giorni&rdquo;</div>
-                    <div class="wb-bonus-value">Valore: 247&euro;</div>
-                    <div class="wb-bonus-desc">Una masterclass LIVE con Elena per costruire il tuo piano personalizzato giugno-luglio-agosto. Riservata alle prime 20 che decidono di entrare in X-Fit Academy.</div>
-                </div>
-            </div>
-            <div class="wb-bonus-total">
-                <p>Un regalo per chi vuole davvero spezzare il loop quest'estate.</p>
-                <strong>Totale valore: 444&euro;</strong>
-            </div>
-            <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="#iscriviti" class="btn-primary">
-                    Voglio I Bonus! Iscrivimi!
-                    <span>&rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ISCRIZIONE CON COUNTDOWN -->
-    <section class="section section-black" id="iscriviti" style="background: #000;">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">POSTI LIMITATI &bull; NIENTE REPLAY</span>
-                <h2 class="section-title" style="color: var(--white);">Quest'estate, finalmente <span class="highlight"><em>costante.</em></span></h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">3 sere live (19-20-21 Maggio, 18:30). Niente replay. Lascia la tua email: ti mando il link Zoom e il PDF &ldquo;Le 5 trappole dell'estate che ti rubano la costanza&rdquo;.</p>
-            </div>
-            <div style="text-align: center;">
-                <div class="wb-countdown" id="countdown" style="justify-content: center; margin-bottom: 2rem;">
-                    <div class="wb-countdown-item">
-                        <div class="wb-countdown-number" id="cd-days">00</div>
-                        <div class="wb-countdown-text">Giorni</div>
-                    </div>
-                    <div class="wb-countdown-item">
-                        <div class="wb-countdown-number" id="cd-hours">00</div>
-                        <div class="wb-countdown-text">Ore</div>
-                    </div>
-                    <div class="wb-countdown-item">
-                        <div class="wb-countdown-number" id="cd-mins">00</div>
-                        <div class="wb-countdown-text">Min</div>
-                    </div>
-                    <div class="wb-countdown-item">
-                        <div class="wb-countdown-number" id="cd-secs">00</div>
-                        <div class="wb-countdown-text">Sec</div>
-                    </div>
-                </div>
-                <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem;">alla prima serata</p>
-                <div class="wb-form-wrapper">
+                <!-- Form integrato direttamente nell'hero -->
+                <div class="ei-form-card">
+                    <div class="ei-form-card-title">Tieniti il posto. Gratis.</div>
+                    <div class="ei-form-card-subtitle">3 sere live, niente replay. Lascia email per ricevere il link Zoom.</div>
                     <iframe
                         src="https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61"
                         id="inline-2oq63J6fm05WSqwcVz61"
                         data-layout="{'id':'INLINE'}"
                         data-trigger-type="alwaysShow"
-                        data-trigger-value=""
-                        data-activation-type="alwaysActivated"
-                        data-activation-value=""
-                        data-deactivation-type="neverDeactivate"
-                        data-deactivation-value=""
                         data-form-name="[LP-Form] Estate Inarrestabile"
-                        data-height="492"
+                        data-height="460"
                         data-layout-iframe-id="inline-2oq63J6fm05WSqwcVz61"
                         data-form-id="2oq63J6fm05WSqwcVz61"
                         title="[LP-Form] Estate Inarrestabile"
                     ></iframe>
                 </div>
-                <!-- form_embed.js caricato dinamicamente dallo script init -->
-                <div class="wb-trust-strip">
-                    <span>
-                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        100% sicuro
-                    </span>
-                    <span>
-                        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0z"/><polyline points="9 12 11 14 15 10"/></svg>
-                        Niente spam
-                    </span>
-                    <span>
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                        Cancellabile in 1 clic
-                    </span>
-                    <span>
-                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        1.200+ donne iscritte ai webinar di Elena nel 2025
-                    </span>
+
+                <div class="ei-trust-strip">
+                    <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>100% sicuro</span>
+                    <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Niente spam</span>
+                    <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>1.200+ donne nel 2025</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- FAQ -->
-    <section class="section section-black wb-bg-section">
-        <div class="wb-bg-reveal wb-left" data-reveal>
-            <img src="img/elena-webp/IMG_9822.webp" alt="Elena Giordani" loading="lazy">
         </div>
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-number">DOMANDE</span>
-                <h2 class="section-title" style="color: var(--white);">Hai qualche <span class="highlight"><em>dubbio?</em></span></h2>
-            </div>
-            <div class="wb-faq-list">
-                <div class="wb-faq-item">
-                    <button class="wb-faq-question">Non conosco Elena Giordani. Perch&eacute; dovrei fidarmi?<span class="wb-faq-toggle">+</span></button>
-                    <div class="wb-faq-answer"><p>&Egrave; normale &mdash; la maggior parte delle partecipanti non la conosceva prima del webinar. I numeri parlano da soli: oltre 2300 donne trasformate in 8 paesi, 97% di tasso di soddisfazione. E il webinar &egrave; gratuito, quindi non rischi nulla. Ascolta la prima sera e decidi tu se continuare.</p></div>
-                </div>
-                <div class="wb-faq-item">
-                    <button class="wb-faq-question">&Egrave; davvero gratuito? Qual &egrave; la fregatura?<span class="wb-faq-toggle">+</span></button>
-                    <div class="wb-faq-answer"><p>Nessuna fregatura. &Egrave; 100% gratuito, nessun costo nascosto. Elena condivide queste serate perch&eacute; ogni anno vede ripetersi lo stesso schema &mdash; e crede che ogni donna meriti di capire perch&eacute; succede prima di decidere se investire in un percorso. Se poi vorrai approfondire, avrai tutte le informazioni. Ma nessun obbligo.</p></div>
-                </div>
-                <div class="wb-faq-item">
-                    <button class="wb-faq-question">Ho gi&agrave; provato di tutto e ogni estate finisce uguale. Perch&eacute; questo dovrebbe essere diverso?<span class="wb-faq-toggle">+</span></button>
-                    <div class="wb-faq-answer"><p>Proprio di questo parla la prima sera: perch&eacute; tutto quello che hai provato non ha resistito all'estate. Spoiler: non &egrave; colpa della tua forza di volont&agrave;. Il Metodo E.A.S.Y. parte da un approccio costruito anche per i mesi caldi, le ferie, i viaggi &mdash; ed &egrave; per questo che il 97% delle donne lo consiglia.</p></div>
-                </div>
-                <div class="wb-faq-item">
-                    <button class="wb-faq-question">Devo partecipare a tutte e 3 le sere?<span class="wb-faq-toggle">+</span></button>
-                    <div class="wb-faq-answer"><p>Ogni sera si costruisce su quella precedente, e i 2 bonus straordinari sono riservati a chi le presenzia tutte. Niente replay. Se ne perdi una, puoi comunque partecipare alle altre &mdash; ma il valore vero &egrave; vederle dal vivo.</p></div>
-                </div>
-                <div class="wb-faq-item">
-                    <button class="wb-faq-question">Come partecipo? Serve scaricare qualcosa?<span class="wb-faq-toggle">+</span></button>
-                    <div class="wb-faq-answer"><p>No, basta un telefono, tablet o computer con connessione internet. Dopo l'iscrizione riceverai tutte le istruzioni via email e WhatsApp con il link di accesso. Semplicissimo.</p></div>
-                </div>
-                <div class="wb-faq-item">
-                    <button class="wb-faq-question">Posso portare un'amica?<span class="wb-faq-toggle">+</span></button>
-                    <div class="wb-faq-answer"><p>Assolutamente s&igrave;. Anzi, le trasformazioni pi&ugrave; belle le vediamo quando le donne entrano in estate insieme. Condividi questa pagina con chi pensi ne abbia bisogno.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="wb-final-cta">
-        <div class="wb-final-cta-content">
-            <h2>Quest'estate, finalmente costante.</h2>
-            <p>Non con un'altra dieta da prova costume. Non con &ldquo;riprendo a settembre&rdquo;.</p>
-            <p>Ma con il <strong>motivo</strong> che hai sempre cercato &mdash; quello che 2300 donne prima di te hanno capito, ritrovando la loro costanza anche d'estate. Le chiamiamo <strong>Inarrestabili</strong>. Quest'anno tocca a te.</p>
-            <p class="wb-question">Sei pronta a essere una di loro?</p>
-            <a href="#iscriviti" class="wb-btn-white">
-                S&igrave;, Voglio Esserci
-                <span>&rarr;</span>
-            </a>
-            <p class="wb-final-trust" data-cfg="trust-dates">100% gratuito &bull; Online &bull; 19-20-21 Maggio ore 18:30</p>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="footer-logo">ELENA GIORDANI</div>
-                <p>Il primo percorso in Italia dedicato alle donne che unisce corpo, alimentazione e mente. 100% live.</p>
-                <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.6;">
-                    X77 SSD a.r.l &mdash; P.IVA: IT17336811009
-                    <br>Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)
-                    <br>Email: info.xfitacademy@gmail.com
-                </p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>&copy; 2026 Elena Giordani. Tutti i diritti riservati.</span>
-            <div class="footer-legal">
-                <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
-                <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
-                <a href="/terms-and-conditions">Termini e Condizioni</a>            </div>
-        </div>
-    </footer>
-
-    <!-- STICKY CTA (mobile) -->
-    <div class="wb-sticky-cta">
-        <a href="#iscriviti" class="btn-primary">
-            Iscriviti Gratis <span>&rarr;</span>
-        </a>
     </div>
+</section>
 
-    <script defer src="js/main.js?v=1767489274"></script>
+<!-- ═══════════════════ PRESS STRIP ═══════════════════ -->
+<section class="ei-press">
+    <div class="ei-container">
+        <div class="ei-press-label">Featured in</div>
+        <div class="ei-press-grid">
+            <img src="img/press-logos/sole24ore.svg" alt="Il Sole 24 Ore" loading="lazy">
+            <img src="img/press-logos/repubblica.svg" alt="La Repubblica" loading="lazy">
+            <img src="img/press-logos/corriere.svg" alt="Corriere della Sera" loading="lazy">
+            <img src="img/press-logos/elle.svg" alt="Elle" loading="lazy">
+            <img src="img/press-logos/cosmopolitan.svg" alt="Cosmopolitan" loading="lazy">
+            <img src="img/press-logos/dilei.svg" alt="DiLei" loading="lazy">
+            <img src="img/press-logos/radioradio.svg" alt="Radio Radio" loading="lazy">
+        </div>
+    </div>
+</section>
 
-    <!-- React (for mobile header) -->
-    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script defer src="js/react-mobile-header.js?v=1767489274"></script>
+<!-- ═══════════════════ IL LOOP ═══════════════════ -->
+<section class="ei-section ei-loop">
+    <div class="ei-container">
+        <div class="ei-loop-inner ei-fade">
+            <span class="ei-eyebrow">Riconosci la scena?</span>
+            <h2 class="ei-h2">È un mercoledì di giugno. Ti pesi. <span style="color: var(--pink);">+2 chili.</span></h2>
 
-    <script>
-        // ===== POPOLA PAGINA DA CONFIGURAZIONE =====
-        (function() {
-            var W = WEBINAR;
-            var map = {
-                'badge':           W.nome + ' \u2022 ' + W.dateBrief + ' \u2022 Ore ' + W.orario,
-                'marquee-dates':   W.dateBrief + ' ore ' + W.orario,
-                'marquee-special': W.marqueeSpeciale,
-                'serata1-label':   W.serata1 + ' \u2022 Ore ' + W.orario,
-                'serata2-label':   W.serata2 + ' \u2022 Ore ' + W.orario,
-                'serata3-label':   W.serata3 + ' \u2022 Ore ' + W.orario,
-                'trust-dates':     '100% gratuito \u2022 Online \u2022 ' + W.dateBrief + ' ore ' + W.orario
-            };
-            document.querySelectorAll('[data-cfg]').forEach(function(el) {
-                var val = map[el.getAttribute('data-cfg')];
-                if (val) el.textContent = val;
-            });
-            // Title & og:image
-            document.title = document.title.replace(/\d{1,2}-\d{1,2}-\d{1,2}\s+\w+/, W.dateBrief);
-            var ogImg = document.querySelector('meta[property="og:image"]');
-            if (ogImg) ogImg.setAttribute('content', W.ogImage);
-            // Form iframe
-            var iframe = document.querySelector('.wb-form-wrapper iframe');
-            if (iframe) {
-                iframe.src = W.formUrl;
-                iframe.id = 'inline-' + W.formId;
-                iframe.setAttribute('data-layout-iframe-id', 'inline-' + W.formId);
-                iframe.setAttribute('data-form-id', W.formId);
-            }
-            // Carica form embed script (dopo aver aggiornato l'iframe)
-            var s = document.createElement('script');
-            s.src = 'https://link.drewcompany.it/js/form_embed.js';
-            document.body.appendChild(s);
+            <div class="ei-loop-stat">
+                <div class="ei-loop-stat-number" data-counter="87">0%</div>
+                <div class="ei-loop-stat-label">delle donne perde la costanza entro le prime 2 settimane di giugno. Il 100% di loro pensa sia colpa propria.</div>
+            </div>
 
-        })();
+            <p>Eppure ti eri detta che stavolta sarebbe stato diverso. L'inverno l'hai passato a impegnarti. Poi sono arrivati i primi aperitivi, le cene fuori, il viaggio del weekend. E in tre settimane hai cancellato cinque mesi di lavoro.</p>
+            <p>Ti dici che a settembre ricominci. Ma sai già come va a finire: a settembre torni peggio di giugno. A gennaio ricominci da capo. <strong>Per la quarta volta. La quinta. La decima.</strong></p>
+            <p style="font-size: 1.2rem; font-weight: 600; color: var(--text); margin-top: 2rem;">La costanza non è un tuo problema. È che nessuno ti ha mai detto perché salta sempre a giugno.</p>
+        </div>
+    </div>
+</section>
 
-        // FAQ Accordion
-        document.querySelectorAll('.wb-faq-question').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var item = btn.closest('.wb-faq-item');
-                var isOpen = item.classList.contains('open');
-                document.querySelectorAll('.wb-faq-item').forEach(function(el) { el.classList.remove('open'); });
-                if (!isOpen) item.classList.add('open');
-            });
+<!-- ═══════════════════ PROGRAMMA — DARK ISLAND ═══════════════════ -->
+<section class="ei-section ei-program" id="programma">
+    <div class="ei-container">
+        <div style="text-align: center;">
+            <span class="ei-eyebrow">3 Sere, 1 Rivoluzione</span>
+            <h2 class="ei-h2">Cosa scoprirai in 3 serate</h2>
+            <p class="ei-program-intro">Diagnosi, metodo, piano. Tre sere live con me, niente replay, niente promesse vuote. Solo quello che ha funzionato per 2300 donne come te.</p>
+        </div>
+
+        <div class="ei-program-list">
+
+            <div class="ei-program-row ei-fade">
+                <div class="ei-program-num">01</div>
+                <div>
+                    <div class="ei-program-date" data-cfg="serata1-date">Lun 19 Maggio &middot; 18:30</div>
+                    <h3 class="ei-program-title">Lo Strano Motivo</h3>
+                    <p class="ei-program-summary">Perché la tua costanza salta proprio a giugno — e non è colpa tua.</p>
+                    <ul class="ei-program-bullets">
+                        <li>Le 4 cause invisibili che fanno saltare la costanza dal mese di giugno</li>
+                        <li>Cosa cambia nel corpo di una donna over 35 quando le temperature salgono</li>
+                        <li>L'errore di metodo che ti riporta a settembre peggio di giugno</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ei-program-row ei-fade">
+                <div class="ei-program-num">02</div>
+                <div>
+                    <div class="ei-program-date" data-cfg="serata2-date">Mar 20 Maggio &middot; 18:30</div>
+                    <h3 class="ei-program-title">Costanza In Libertà</h3>
+                    <p class="ei-program-summary">Come tieni la costanza anche in estate — senza rinunciare a niente.</p>
+                    <ul class="ei-program-bullets">
+                        <li>Come gestire viaggi, vacanze e settimane fuori senza azzerare i progressi</li>
+                        <li>La regola dei 3 pasti che disinnesca aperitivi, cene e ristoranti</li>
+                        <li>Il Metodo E.A.S.Y. applicato all'estate, settimana per settimana</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ei-program-row ei-fade">
+                <div class="ei-program-num">03</div>
+                <div>
+                    <div class="ei-program-date" data-cfg="serata3-date">Mer 21 Maggio &middot; 18:30</div>
+                    <h3 class="ei-program-title">Il Tuo Piano Estate</h3>
+                    <p class="ei-program-summary">Da maggio a settembre, settimana per settimana. Esci con un piano scritto.</p>
+                    <ul class="ei-program-bullets">
+                        <li>La roadmap dei 4 mesi: cosa fare a maggio, giugno, luglio, agosto e settembre</li>
+                        <li>I 3 numeri da tenere d'occhio per non "svegliarti a settembre"</li>
+                        <li>Q&amp;A finale dal vivo + accesso community 30 giorni in regalo</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ PROVA SOCIALE ═══════════════════ -->
+<section class="ei-section ei-social">
+    <div class="ei-container">
+        <div class="ei-social-inner ei-fade">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <span class="ei-eyebrow">Loro l'hanno fatto</span>
+                <h2 class="ei-h2">La prima estate senza ricominciare.</h2>
+            </div>
+
+            <div class="ei-testimonial">
+                <blockquote>Avevo provato ogni dieta. Dopo il webinar di Elena ho passato la prima estate in cui non ho mai detto "vabbè, ricomincio a settembre". A settembre, per la prima volta, ero meglio di giugno. Cambia tutto.</blockquote>
+                <div class="ei-testimonial-author">
+                    <div class="ei-testimonial-avatar">V</div>
+                    <div>
+                        <div class="ei-testimonial-name">Valentina, 47 anni</div>
+                        <div class="ei-testimonial-meta">Padova &middot; X-Fit Academy da 14 mesi</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ei-social-stats">
+                <div>
+                    <div class="ei-social-stat-num" data-counter="2300">0+</div>
+                    <div class="ei-social-stat-label">Donne nella community</div>
+                </div>
+                <div>
+                    <div class="ei-social-stat-num" data-counter="97">0%</div>
+                    <div class="ei-social-stat-label">Tasso soddisfazione</div>
+                </div>
+                <div>
+                    <div class="ei-social-stat-num">4.9<span style="font-size: 0.5em;">/5</span></div>
+                    <div class="ei-social-stat-label">Trustpilot verificato</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ CHI È ELENA ═══════════════════ -->
+<section class="ei-section ei-author">
+    <div class="ei-container">
+        <div class="ei-author-inner ei-fade">
+            <div class="ei-author-photo">
+                <img src="img/elena-webp/IMG_9184.webp" alt="Elena Giordani" loading="lazy">
+            </div>
+            <div class="ei-author-bio">
+                <span class="ei-eyebrow">Chi ti guida</span>
+                <h2 class="ei-h2" style="margin-bottom: 1.25rem;">Probabilmente non mi conosci. Ecco perché dovresti.</h2>
+                <p>Mi chiamo Elena. Negli ultimi sei anni ho visto ripetersi la stessa scena: donne che a maggio mi scrivono <em>"ce la faccio quest'anno"</em>, e a settembre tornano <em>"sono di nuovo al punto di partenza"</em>.</p>
+                <p>Non era la loro forza di volontà. Era il metodo. <strong>Nessuno costruisce un sistema che tiene anche d'estate.</strong> Tutti danno regole invernali e poi spariscono a giugno. Per questo ho creato il Metodo E.A.S.Y., tarato sui mesi caldi, sulle ferie, sui viaggi.</p>
+                <div class="ei-author-facts">
+                    <div>
+                        <div class="ei-author-fact-num">20</div>
+                        <div class="ei-author-fact-label">Anni di esperienza</div>
+                    </div>
+                    <div>
+                        <div class="ei-author-fact-num">2.300</div>
+                        <div class="ei-author-fact-label">Donne trasformate</div>
+                    </div>
+                    <div>
+                        <div class="ei-author-fact-num">OPES</div>
+                        <div class="ei-author-fact-label">Riconoscimento CONI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ CTA FINALE — PINK ISLAND ═══════════════════ -->
+<section class="ei-section ei-cta-final">
+    <div class="ei-container">
+        <span class="ei-eyebrow">Posti limitati &middot; Niente replay</span>
+        <h2 class="ei-h2">Quest'estate, finalmente costante.</h2>
+        <p class="ei-cta-final-lead">Tre sere live con me. Una community che non si ferma a giugno. Un piano che ti porta a settembre meglio di come arriverai a giugno. <strong>Gratis.</strong></p>
+
+        <div class="ei-countdown" id="eiCountdown">
+            <div class="ei-countdown-box"><div class="ei-countdown-num" id="cdDays">00</div><div class="ei-countdown-label">Giorni</div></div>
+            <div class="ei-countdown-box"><div class="ei-countdown-num" id="cdHours">00</div><div class="ei-countdown-label">Ore</div></div>
+            <div class="ei-countdown-box"><div class="ei-countdown-num" id="cdMins">00</div><div class="ei-countdown-label">Min</div></div>
+            <div class="ei-countdown-box"><div class="ei-countdown-num" id="cdSecs">00</div><div class="ei-countdown-label">Sec</div></div>
+        </div>
+
+        <div>
+            <a href="#iscriviti" class="ei-cta-btn-white">Sì, voglio esserci &rarr;</a>
+        </div>
+        <p class="ei-cta-final-trust">100% gratuito &middot; Online &middot; 19-20-21 Maggio ore 18:30</p>
+    </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section class="ei-section ei-faq">
+    <div class="ei-container">
+        <div class="ei-faq-inner ei-fade">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <span class="ei-eyebrow">Domande</span>
+                <h2 class="ei-h2">Hai qualche dubbio?</h2>
+            </div>
+
+            <div class="ei-faq-item">
+                <button class="ei-faq-question">Non conosco Elena. Perché dovrei fidarmi?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>È normale — la maggior parte delle partecipanti non la conosceva prima del webinar. 2300 donne trasformate in 8 paesi, 97% di tasso di soddisfazione. Il webinar è gratuito, non rischi nulla. Ascolti la prima sera e decidi tu.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question">È davvero gratuito? Qual è la fregatura?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>Nessuna fregatura. 100% gratuito, nessun costo nascosto. Se poi vorrai approfondire il metodo, avrai tutte le informazioni. Ma nessun obbligo.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question">Ho già provato di tutto. Perché stavolta dovrebbe essere diverso?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>Proprio di questo parla la prima sera: perché tutto quello che hai provato non ha resistito all'estate. Spoiler: non è colpa della tua forza di volontà. Il Metodo E.A.S.Y. parte da un approccio costruito anche per i mesi caldi.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question">Devo partecipare a tutte e 3 le sere?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>Ogni sera si costruisce su quella precedente, e l'accesso community 30gg è riservato a chi le presenzia tutte. Niente replay. Se ne perdi una puoi comunque partecipare alle altre.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question">Come partecipo?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>Ti basta un telefono, tablet o computer con internet. Dopo l'iscrizione ricevi link Zoom e codice via email + WhatsApp.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="ei-footer">
+    <div class="ei-container">
+        <div class="ei-footer-logo">Elena Giordani</div>
+        <p>Il primo percorso italiano dedicato alle donne, 100% live. Corpo, alimentazione, mente.</p>
+        <p style="opacity: 0.7; font-size: 0.78rem;">X77 SSD a.r.l &middot; P.IVA IT17336811009 &middot; Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)</p>
+        <div class="ei-footer-links">
+            <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy</a>
+            <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie</a>
+            <a href="/terms-and-conditions">Termini</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6;">&copy; 2026 Elena Giordani. Tutti i diritti riservati.</p>
+    </div>
+</footer>
+
+<!-- ═══════════════════ STICKY MOBILE CTA ═══════════════════ -->
+<div class="ei-sticky-cta" id="eiStickyCta">
+    <a href="#iscriviti" class="ei-btn ei-btn-primary ei-btn-large ei-btn-block">Iscriviti gratis &rarr;</a>
+</div>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script>
+// ── Form GHL embed: aggiorna iframe + carica form_embed.js
+(function() {
+    var W = WEBINAR;
+    var iframe = document.querySelector('.ei-form-card iframe');
+    if (iframe) {
+        iframe.src = W.formUrl;
+        iframe.id = 'inline-' + W.formId;
+        iframe.setAttribute('data-layout-iframe-id', 'inline-' + W.formId);
+        iframe.setAttribute('data-form-id', W.formId);
+    }
+    var s = document.createElement('script');
+    s.src = 'https://link.drewcompany.it/js/form_embed.js';
+    document.body.appendChild(s);
+})();
+
+// ── Date config-driven (programma)
+(function() {
+    var W = WEBINAR;
+    var map = {
+        'serata1-date': W.serata1.replace(/^Luned\u00ec /, 'Lun ').replace(/^Marted\u00ec /, 'Mar ').replace(/^Mercoled\u00ec /, 'Mer ') + ' \u00b7 ' + W.orario,
+        'serata2-date': W.serata2.replace(/^Luned\u00ec /, 'Lun ').replace(/^Marted\u00ec /, 'Mar ').replace(/^Mercoled\u00ec /, 'Mer ') + ' \u00b7 ' + W.orario,
+        'serata3-date': W.serata3.replace(/^Luned\u00ec /, 'Lun ').replace(/^Marted\u00ec /, 'Mar ').replace(/^Mercoled\u00ec /, 'Mer ') + ' \u00b7 ' + W.orario
+    };
+    document.querySelectorAll('[data-cfg]').forEach(function(el) {
+        var v = map[el.getAttribute('data-cfg')];
+        if (v) el.textContent = v;
+    });
+})();
+
+// ── UTM personalizzata (kicker + headline + subtitle override)
+(function() {
+    var variants = {
+        'ig-organic': {
+            kicker: 'Per le mie su Instagram che me lo chiedono da settimane',
+            subtitle: 'Hai visto le storie. Ora la versione completa: <strong>3 sere live</strong>, niente replay. Lo strano motivo per cui ogni estate molli e come 2300 donne sono diventate <strong>Inarrestabili</strong>.'
+        },
+        'whatsapp': {
+            kicker: 'Hai cliccato dal mio WhatsApp \u2014 sei tra le prime',
+            subtitle: '3 sere live con me, 19-20-21 Maggio. Niente replay. Lo strano motivo per cui ogni estate molli e come 2300 donne hanno ritrovato la loro costanza.'
+        },
+        'newsletter': {
+            kicker: 'Solo per chi \u00e8 nella mia newsletter',
+            subtitle: 'Te l\'avevo promesso. 3 sere live a maggio, niente replay. Lo strano motivo per cui la costanza crolla ogni estate \u2014 e come 2300 donne l\'hanno ritrovata.'
+        },
+        'referral': {
+            kicker: 'Te l\'ha mandato un\'amica? Brava lei.',
+            subtitle: '3 sere live insieme. Con lei. Con altre 2300 donne come te, che hanno deciso di non mollare mai pi\u00f9 a giugno.'
+        },
+        'ig-ads': { kicker: 'Webinar Gratuito \u00b7 2300+ donne lo hanno gi\u00e0 fatto', subtitle: null },
+        'fb-ads': { kicker: 'Webinar Gratuito \u00b7 2300+ donne lo hanno gi\u00e0 fatto', subtitle: null },
+        'meta-ads': { kicker: 'Webinar Gratuito \u00b7 2300+ donne lo hanno gi\u00e0 fatto', subtitle: null },
+        'retarget': {
+            kicker: 'Ci stavi gi\u00e0 pensando? Bene, eccoti.',
+            subtitle: 'Sai gi\u00e0 di cosa parlo. <strong>3 sere live</strong>, 19-20-21 Maggio. Quest\'estate non \u00e8 come le altre \u2014 se decidi tu che non lo sia.'
+        },
+        'retarget-tribe': {
+            kicker: (function() {
+                var s = window.UTM_SOURCE || '';
+                if (s === 'ig' || s === 'instagram') return 'Mi segui su Instagram \u2014 quello che leggi qui sotto \u00e8 per te.';
+                if (s === 'fb' || s === 'facebook') return 'Mi segui su Facebook \u2014 quello che leggi qui sotto \u00e8 per te.';
+                return 'Mi segui sui social \u2014 quello che leggi qui sotto \u00e8 per te.';
+            })(),
+            subtitle: 'Mi vedi nelle storie, leggi i post, conosci la community. Adesso \u00e8 il momento di entrarci dentro per davvero. <strong>3 sere live con me</strong>, 19-20-21 Maggio.'
+        },
+        'retarget-touch': {
+            kicker: 'Mi hai gi\u00e0 incrociata. Forse non a caso.',
+            subtitle: 'Hai visto qualcosa di mio scrollando. Ti racconto in 3 sere live tutto quello che c\'\u00e8 dietro. <strong>Gratis, niente replay.</strong>'
+        }
+    };
+    var v = variants[window.UTM_VARIANT];
+    if (!v) return;
+    var k = document.getElementById('utmKicker');
+    if (k && v.kicker) { k.textContent = v.kicker; k.classList.add('active'); }
+    if (v.subtitle) {
+        var s = document.getElementById('utmSubtitle');
+        if (s) s.innerHTML = v.subtitle;
+    }
+})();
+
+// ── FAQ accordion
+document.querySelectorAll('.ei-faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var item = btn.closest('.ei-faq-item');
+        var open = item.classList.contains('open');
+        document.querySelectorAll('.ei-faq-item').forEach(function(el) { el.classList.remove('open'); });
+        if (!open) item.classList.add('open');
+    });
+});
+
+// ── Countdown
+(function() {
+    var target = new Date(WEBINAR.countdownISO).getTime();
+    function tick() {
+        var now = Date.now();
+        var diff = Math.max(0, target - now);
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        var pad = function(n) { return n.toString().padStart(2, '0'); };
+        var dEl = document.getElementById('cdDays');   if (dEl) dEl.textContent = pad(d);
+        var hEl = document.getElementById('cdHours');  if (hEl) hEl.textContent = pad(h);
+        var mEl = document.getElementById('cdMins');   if (mEl) mEl.textContent = pad(m);
+        var sEl = document.getElementById('cdSecs');   if (sEl) sEl.textContent = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+})();
+
+// ── Sticky CTA: visibile dopo 600px di scroll, nascosta nell'hero e nella final CTA
+(function() {
+    document.body.classList.add('has-sticky');
+    var sticky = document.getElementById('eiStickyCta');
+    var heroForm = document.querySelector('.ei-form-card');
+    var finalCta = document.querySelector('.ei-cta-final');
+    function inViewport(el) {
+        if (!el) return false;
+        var r = el.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom > 0;
+    }
+    function update() {
+        if (window.innerWidth >= 1024) { sticky.classList.remove('visible'); return; }
+        if (window.scrollY < 500) { sticky.classList.remove('visible'); return; }
+        if (inViewport(heroForm) || inViewport(finalCta)) {
+            sticky.classList.remove('visible');
+        } else {
+            sticky.classList.add('visible');
+        }
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+})();
+
+// ── Header scroll state
+(function() {
+    var header = document.getElementById('eiHeader');
+    function onScroll() {
+        if (window.scrollY > 12) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+
+// ── Animated counters (data-counter="N" formato "0+", "0%", "0")
+(function() {
+    var els = document.querySelectorAll('[data-counter]');
+    function animate(el) {
+        if (el.dataset.animated) return;
+        el.dataset.animated = '1';
+        var target = parseInt(el.dataset.counter, 10);
+        if (isNaN(target)) return;
+        var suffix = el.textContent.replace(/^[0-9]+/, '').trim() || '';
+        var duration = 1500;
+        var start = performance.now();
+        function step(now) {
+            var t = Math.min((now - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - t, 3);
+            var current = Math.floor(target * eased);
+            el.textContent = current + suffix;
+            if (t < 1) requestAnimationFrame(step);
+            else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
+    }
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(es) {
+            es.forEach(function(e) { if (e.isIntersecting) animate(e.target); });
+        }, { threshold: 0.4 });
+        els.forEach(function(el) { io.observe(el); });
+    } else {
+        els.forEach(animate);
+    }
+})();
+
+// ── Fade in on scroll
+(function() {
+    if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.ei-fade').forEach(function(el) { el.classList.add('visible'); });
+        return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
         });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.ei-fade').forEach(function(el) { io.observe(el); });
+})();
+</script>
 
-        // Countdown Timer (usa data da WEBINAR config)
-        var webinarStart = new Date(WEBINAR.countdownISO).getTime();
-        function updateCountdown() {
-            var now = new Date().getTime();
-            var distance = webinarStart - now;
-            if (distance < 0) {
-                document.getElementById('cd-days').textContent = '0';
-                document.getElementById('cd-hours').textContent = '0';
-                document.getElementById('cd-mins').textContent = '0';
-                document.getElementById('cd-secs').textContent = '0';
-                return;
-            }
-            var d = Math.floor(distance / (1000*60*60*24));
-            var h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-            var m = Math.floor((distance % (1000*60*60)) / (1000*60));
-            var s = Math.floor((distance % (1000*60)) / 1000);
-            document.getElementById('cd-days').textContent = d.toString().padStart(2, '0');
-            document.getElementById('cd-hours').textContent = h.toString().padStart(2, '0');
-            document.getElementById('cd-mins').textContent = m.toString().padStart(2, '0');
-            document.getElementById('cd-secs').textContent = s.toString().padStart(2, '0');
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        // Sticky CTA on scroll (mobile)
-        // Regola: una sola CTA visibile alla volta.
-        // Mostra sticky solo se: mobile + scrollY > 500 + nessun'altra CTA primaria
-        // già in viewport (sezione iscriviti, final CTA pink).
-        (function() {
-            var sticky = document.querySelector('.wb-sticky-cta');
-            var formSection = document.getElementById('iscriviti');
-            var finalCta = document.querySelector('.wb-final-cta');
-            function isInViewport(el) {
-                if (!el) return false;
-                var r = el.getBoundingClientRect();
-                return r.top < window.innerHeight && r.bottom > 0;
-            }
-            function update() {
-                if (!sticky) return;
-                if (window.innerWidth > 768) { sticky.style.display = 'none'; return; }
-                if (window.scrollY <= 400) { sticky.style.display = 'none'; return; }
-                if (isInViewport(formSection) || isInViewport(finalCta)) {
-                    sticky.style.display = 'none';
-                } else {
-                    sticky.style.display = 'block';
-                }
-            }
-            window.addEventListener('scroll', update, { passive: true });
-            window.addEventListener('resize', update);
-            update();
-        })();
-
-        // Parallax scroll for emotion backgrounds
-        var parallaxImages = document.querySelectorAll('[data-parallax]');
-        function updateParallax() {
-            var scrollY = window.scrollY;
-            parallaxImages.forEach(function(img) {
-                var section = img.closest('.wb-emotion');
-                var rect = section.getBoundingClientRect();
-                var sectionHeight = section.offsetHeight;
-                var viewportHeight = window.innerHeight;
-                if (rect.bottom > 0 && rect.top < viewportHeight) {
-                    var progress = (viewportHeight - rect.top) / (viewportHeight + sectionHeight);
-                    var translateY = (progress - 0.5) * 80;
-                    img.style.transform = 'translate3d(0,' + translateY + 'px,0)';
-                }
-            });
-        }
-        window.addEventListener('scroll', updateParallax, { passive: true });
-        updateParallax();
-
-        // Background reveals on scroll
-        var bgReveals = document.querySelectorAll('[data-reveal]');
-        function checkReveals() {
-            bgReveals.forEach(function(el) {
-                var rect = el.parentElement.getBoundingClientRect();
-                var viewH = window.innerHeight;
-                if (rect.top < viewH * 0.85 && rect.bottom > 0) {
-                    el.classList.add('visible');
-                }
-            });
-        }
-        window.addEventListener('scroll', checkReveals, { passive: true });
-        checkReveals();
-
-        // UTM-driven copy personalization — applica kicker + subtitle override
-        (function() {
-            var variants = {
-                'ig-organic': {
-                    kicker: 'Per le mie su Instagram che me lo chiedono da settimane',
-                    subtitle: 'Hai visto le storie. Ora arriva la versione completa: <strong>3 sere live</strong> con me, niente replay. Scopri perch\u00e9 ogni estate molli &mdash; e come uscirne. Ti tengo il posto.'
-                },
-                'whatsapp': {
-                    kicker: 'Hai cliccato dal mio WhatsApp \u2014 sei tra le prime',
-                    subtitle: '3 sere live con me, 19-20-21 Maggio alle 18:30. Niente replay. Lo strano motivo per cui ogni estate molli &mdash; e come 2300 donne sono diventate <strong>Inarrestabili</strong>.'
-                },
-                'newsletter': {
-                    kicker: 'Solo per chi \u00e8 nella mia newsletter',
-                    subtitle: 'Te l\'avevo promesso. 3 sere live a maggio, niente replay. Scopri lo strano motivo per cui ogni estate perdi tutto quello che hai costruito \u2014 e come 2300 donne hanno smesso di subirlo.'
-                },
-                'referral': {
-                    kicker: 'Te l\'ha mandato un\'amica? Brava lei.',
-                    subtitle: '3 sere live insieme. Con lei. Con altre 2300 donne come te, che hanno deciso di non mollare mai pi\u00f9 a giugno. <strong>Diventate Inarrestabili insieme.</strong>'
-                },
-                'ig-ads': {
-                    kicker: 'Webinar Gratuito \u2022 2300+ donne lo hanno gi\u00e0 fatto',
-                    subtitle: null
-                },
-                'fb-ads': {
-                    kicker: 'Webinar Gratuito \u2022 2300+ donne lo hanno gi\u00e0 fatto',
-                    subtitle: null
-                },
-                'meta-ads': {
-                    kicker: 'Webinar Gratuito \u2022 2300+ donne lo hanno gi\u00e0 fatto',
-                    subtitle: null
-                },
-                'retarget': {
-                    kicker: 'Ci stavi gi\u00e0 pensando? Bene, eccoti.',
-                    subtitle: 'Sai gi\u00e0 di cosa parlo. <strong>3 sere live</strong>, 19-20-21 Maggio alle 18:30. Niente replay. Quest\'estate non \u00e8 come le altre &mdash; se decidi tu che non lo sia.'
-                },
-                'retarget-tribe': {
-                    kicker: (function() {
-                        var s = window.UTM_SOURCE || '';
-                        if (s === 'ig' || s === 'instagram') return 'Mi segui su Instagram \u2014 quello che leggi qui sotto \u00e8 per te.';
-                        if (s === 'fb' || s === 'facebook') return 'Mi segui su Facebook \u2014 quello che leggi qui sotto \u00e8 per te.';
-                        return 'Mi segui sui social \u2014 quello che leggi qui sotto \u00e8 per te.';
-                    })(),
-                    subtitle: 'Mi vedi nelle storie, leggi i post, conosci la community. Adesso \u00e8 il momento di entrarci dentro per davvero. <strong>3 sere live con me</strong>, 19-20-21 Maggio. Niente replay. Le Inarrestabili non si fermano a giugno.'
-                },
-                'retarget-touch': {
-                    kicker: 'Mi hai gi\u00e0 incrociata. Forse non a caso.',
-                    subtitle: 'Hai visto qualcosa di mio scrollando. Ti racconto in 3 sere live tutto quello che c\'\u00e8 dietro &mdash; perch\u00e9 ogni estate molli e come 2300 donne hanno smesso. <strong>Gratis, niente replay.</strong>'
-                }
-            };
-            var v = variants[window.UTM_VARIANT];
-            if (!v) return;
-            var k = document.getElementById('utmKicker');
-            if (k && v.kicker) {
-                k.textContent = v.kicker;
-                k.classList.add('active');
-            }
-            if (v.subtitle) {
-                var s = document.getElementById('utmSubtitle');
-                if (s) s.innerHTML = v.subtitle;
-            }
-        })();
-
-        // Animated number counters (count up on scroll-into-view)
-        (function() {
-            var statEls = document.querySelectorAll('.hero-stat-number');
-            // Salva il valore target e svuota il numero (mantieni gli span tipo + o %)
-            statEls.forEach(function(el) {
-                var firstNode = el.childNodes[0];
-                if (firstNode && firstNode.nodeType === 3) { // text node
-                    var target = parseInt(firstNode.textContent.trim(), 10);
-                    if (!isNaN(target)) {
-                        el.dataset.target = target;
-                        firstNode.textContent = '0';
-                    }
-                }
-            });
-            function animateCount(el) {
-                var target = parseInt(el.dataset.target, 10);
-                if (!target || el.dataset.animated) return;
-                el.dataset.animated = '1';
-                var duration = 1600;
-                var start = performance.now();
-                var firstNode = el.childNodes[0];
-                function tick(now) {
-                    var t = Math.min((now - start) / duration, 1);
-                    // easeOutCubic
-                    var eased = 1 - Math.pow(1 - t, 3);
-                    var current = Math.floor(target * eased);
-                    if (firstNode) firstNode.textContent = current.toString();
-                    if (t < 1) requestAnimationFrame(tick);
-                    else if (firstNode) firstNode.textContent = target.toString();
-                }
-                requestAnimationFrame(tick);
-            }
-            if ('IntersectionObserver' in window) {
-                var io = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(e) {
-                        if (e.isIntersecting) animateCount(e.target);
-                    });
-                }, { threshold: 0.4 });
-                statEls.forEach(function(el) { if (el.dataset.target) io.observe(el); });
-            } else {
-                // Fallback: animate immediately
-                statEls.forEach(animateCount);
-            }
-        })();
-    </script>
-
-    <!-- Iubenda embed loader -->
-    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+<!-- Iubenda embed loader -->
+<script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 </body>
 </html>
