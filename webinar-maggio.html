@@ -96,6 +96,7 @@
 
         document.documentElement.setAttribute('data-utm-variant', variant);
         window.UTM_VARIANT = variant;
+        window.UTM_SOURCE = src;
     })();
     </script>
 
@@ -1471,7 +1472,12 @@
                     subtitle: 'Sai gi\u00e0 di cosa parlo. <strong>3 sere live</strong>, 19-20-21 Maggio alle 18:30. Niente replay. Quest\'estate non \u00e8 come le altre &mdash; se decidi tu che non lo sia.'
                 },
                 'retarget-tribe': {
-                    kicker: 'Mi segui gi\u00e0 \u2014 sei una delle mie.',
+                    kicker: (function() {
+                        var s = window.UTM_SOURCE || '';
+                        if (s === 'ig' || s === 'instagram') return 'Mi segui su Instagram \u2014 quello che leggi qui sotto \u00e8 per te.';
+                        if (s === 'fb' || s === 'facebook') return 'Mi segui su Facebook \u2014 quello che leggi qui sotto \u00e8 per te.';
+                        return 'Mi segui sui social \u2014 quello che leggi qui sotto \u00e8 per te.';
+                    })(),
                     subtitle: 'Mi vedi nelle storie, leggi i post, conosci la community. Adesso \u00e8 il momento di entrarci dentro per davvero. <strong>3 sere live con me</strong>, 19-20-21 Maggio. Niente replay. Le Inarrestabili non si fermano a giugno.'
                 },
                 'retarget-touch': {
