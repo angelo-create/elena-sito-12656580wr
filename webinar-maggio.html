@@ -73,8 +73,13 @@
         var cmp = (p.get('utm_campaign') || '').toLowerCase();
         var variant = 'default';
 
-        // Priorità: paid+retargeting > paid > organic per source
-        if (med === 'retargeting' || cmp.indexOf('retarget') > -1) variant = 'retarget';
+        // Priorità: retarget sub-varianti > paid > organic per source
+        // RETARGET TRIBE: chi ti segue già (followers IG/FB, engaged ripetuti)
+        if (cmp.indexOf('retarget-tribe') > -1 || cmp.indexOf('retarget-follower') > -1) variant = 'retarget-tribe';
+        // RETARGET TOUCH: chi ha visto un post/video ma non ti segue
+        else if (cmp.indexOf('retarget-touch') > -1 || cmp.indexOf('retarget-engaged') > -1 || cmp.indexOf('retarget-viewer') > -1) variant = 'retarget-touch';
+        // RETARGET generic (sito visitato, fallback)
+        else if (med === 'retargeting' || cmp.indexOf('retarget') > -1) variant = 'retarget';
         else if (med === 'paid' && (src === 'fb' || src === 'facebook')) variant = 'fb-ads';
         else if (med === 'paid' && (src === 'ig' || src === 'instagram')) variant = 'ig-ads';
         else if (med === 'paid') variant = 'meta-ads'; // generic fallback per Meta
@@ -1464,6 +1469,14 @@
                 'retarget': {
                     kicker: 'Ci stavi gi\u00e0 pensando? Bene, eccoti.',
                     subtitle: 'Sai gi\u00e0 di cosa parlo. <strong>3 sere live</strong>, 19-20-21 Maggio alle 18:30. Niente replay. Quest\'estate non \u00e8 come le altre &mdash; se decidi tu che non lo sia.'
+                },
+                'retarget-tribe': {
+                    kicker: 'Mi segui gi\u00e0 \u2014 sei una delle mie.',
+                    subtitle: 'Mi vedi nelle storie, leggi i post, conosci la community. Adesso \u00e8 il momento di entrarci dentro per davvero. <strong>3 sere live con me</strong>, 19-20-21 Maggio. Niente replay. Le Inarrestabili non si fermano a giugno.'
+                },
+                'retarget-touch': {
+                    kicker: 'Mi hai gi\u00e0 incrociata. Forse non a caso.',
+                    subtitle: 'Hai visto qualcosa di mio scrollando. Ti racconto in 3 sere live tutto quello che c\'\u00e8 dietro &mdash; perch\u00e9 ogni estate molli e come 2300 donne hanno smesso. <strong>Gratis, niente replay.</strong>'
                 }
             };
             var v = variants[window.UTM_VARIANT];
