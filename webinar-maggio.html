@@ -273,6 +273,128 @@
             .wb-countdown { gap: 0.5rem; }
             .wb-countdown-number { width: 55px; height: 55px; font-size: 1.25rem; }
         }
+
+        /* ═══════════════════════════════════════════════════════════
+           ESTATE INARRESTABILE · DESIGN REFRESH
+           Boomer-friendly readability + warm summer palette
+           ═══════════════════════════════════════════════════════════ */
+
+        /* Warm summer accent variables */
+        :root {
+            --warm-gold: #FFB627;
+            --warm-coral: #FF8C5A;
+            --warm-peach: #FFD4A8;
+        }
+
+        /* A) BOOMER-FRIENDLY TYPOGRAPHY — larger body, higher contrast */
+        .wb-community p { font-size: 1.2rem; line-height: 1.85; color: rgba(255,255,255,0.88); }
+        .wb-bento-card h4 { font-size: 1.3rem; }
+        .wb-bento-card p { font-size: 1rem; color: rgba(255,255,255,0.78); line-height: 1.7; font-weight: 400; }
+        .wb-timeline-title { font-size: 1.55rem; }
+        .wb-timeline-subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.78); font-style: normal; }
+        .wb-timeline-list li { font-size: 1rem; color: rgba(255,255,255,0.88); padding: 1rem 0; padding-left: 1.85rem; font-weight: 400; }
+        .wb-timeline-label { font-size: 0.75rem; }
+        .wb-checkup-title { font-size: 1.25rem; }
+        .wb-checkup-list li { font-size: 1rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
+        .wb-checkup-label { font-size: 0.75rem; }
+        .wb-fortyou-card h4 { font-size: 1.1rem; }
+        .wb-fortyou-list li { font-size: 1rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
+        .wb-bonus-title { font-size: 1.3rem; }
+        .wb-bonus-desc { font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.75; }
+        .wb-bonus-value { font-size: 0.95rem; }
+        .wb-bonus-badge { font-size: 0.72rem; }
+        .wb-review-title { font-size: 1.05rem; }
+        .wb-review-text { font-size: 0.95rem; color: rgba(255,255,255,0.78); line-height: 1.75; font-style: normal; }
+        .wb-review-author { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
+        .wb-faq-question { font-size: 1.1rem; padding: 1.65rem 1.85rem; }
+        .wb-faq-answer p { font-size: 1.05rem; color: rgba(255,255,255,0.85); line-height: 1.75; }
+        .wb-final-cta p { font-size: 1.2rem; line-height: 1.85; color: rgba(255,255,255,0.95); }
+        .wb-final-cta .wb-question { font-size: 2rem; }
+        .hero-subtitle { font-size: 1.2rem; line-height: 1.7; }
+        .hero-badge { font-size: 0.85rem; padding: 0.65rem 1.5rem; }
+        .section-number { font-size: 0.78rem; font-weight: 700; }
+        .section-subtitle { font-size: 1.1rem; line-height: 1.75; color: rgba(255,255,255,0.78) !important; }
+
+        /* B) WARM SUMMER PALETTE — warm gradient overlay on hero, gold accents */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 75% 20%, rgba(255,182,39,0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 15% 80%, rgba(255,140,90,0.12) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; }
+
+        /* Hero badge with warm gold accent */
+        .hero-badge {
+            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--pink-primary) 100%);
+            color: #1A0F00;
+            font-weight: 700;
+            box-shadow: 0 8px 32px rgba(255,182,39,0.25);
+        }
+
+        /* Highlight em — warm gold instead of pink for variation */
+        .wb-emphasis em,
+        .hero-title .accent {
+            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--warm-coral) 50%, var(--pink-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Final CTA — warmer pink-coral gradient */
+        .wb-final-cta {
+            background: linear-gradient(135deg, var(--pink-primary) 0%, var(--warm-coral) 100%);
+        }
+
+        /* Sun glow on bento cards (subtle warmth on hover) */
+        .wb-bento-card::before {
+            background: radial-gradient(circle, rgba(255,182,39,0.12), transparent 70%);
+        }
+
+        /* Section-number warm accent (alternates with pink across sections) */
+        .section section-number,
+        section:nth-child(odd) .section-number {
+            color: var(--warm-coral);
+        }
+
+        /* Stat numbers — warm gradient */
+        .hero-stat-number {
+            background: linear-gradient(135deg, var(--warm-gold) 0%, var(--pink-primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        .hero-stat-label { color: rgba(255,255,255,0.72); font-size: 0.8rem; }
+
+        /* CTA buttons — bigger, more contrasted for 40+ readability */
+        .btn-primary,
+        .btn-outline {
+            padding: 1.4rem 2.75rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+        }
+        .wb-btn-white {
+            padding: 1.4rem 2.75rem;
+            font-size: 0.85rem;
+        }
+
+        /* Mobile readability boost */
+        @media (max-width: 768px) {
+            .wb-community p { font-size: 1.1rem; }
+            .wb-bento-card p { font-size: 0.95rem; }
+            .wb-timeline-list li { font-size: 0.95rem; }
+            .wb-faq-question { font-size: 1rem; padding: 1.4rem 1.5rem; }
+            .wb-faq-answer p { font-size: 1rem; }
+            .hero-subtitle { font-size: 1.05rem; }
+        }
     </style>
 
     <!-- Iubenda Cookie Solution (PRIMA del pixel per blocco corretto) -->
@@ -1077,6 +1199,51 @@
         }
         window.addEventListener('scroll', checkReveals, { passive: true });
         checkReveals();
+
+        // Animated number counters (count up on scroll-into-view)
+        (function() {
+            var statEls = document.querySelectorAll('.hero-stat-number');
+            // Salva il valore target e svuota il numero (mantieni gli span tipo + o %)
+            statEls.forEach(function(el) {
+                var firstNode = el.childNodes[0];
+                if (firstNode && firstNode.nodeType === 3) { // text node
+                    var target = parseInt(firstNode.textContent.trim(), 10);
+                    if (!isNaN(target)) {
+                        el.dataset.target = target;
+                        firstNode.textContent = '0';
+                    }
+                }
+            });
+            function animateCount(el) {
+                var target = parseInt(el.dataset.target, 10);
+                if (!target || el.dataset.animated) return;
+                el.dataset.animated = '1';
+                var duration = 1600;
+                var start = performance.now();
+                var firstNode = el.childNodes[0];
+                function tick(now) {
+                    var t = Math.min((now - start) / duration, 1);
+                    // easeOutCubic
+                    var eased = 1 - Math.pow(1 - t, 3);
+                    var current = Math.floor(target * eased);
+                    if (firstNode) firstNode.textContent = current.toString();
+                    if (t < 1) requestAnimationFrame(tick);
+                    else if (firstNode) firstNode.textContent = target.toString();
+                }
+                requestAnimationFrame(tick);
+            }
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(e) {
+                        if (e.isIntersecting) animateCount(e.target);
+                    });
+                }, { threshold: 0.4 });
+                statEls.forEach(function(el) { if (el.dataset.target) io.observe(el); });
+            } else {
+                // Fallback: animate immediately
+                statEls.forEach(animateCount);
+            }
+        })();
     </script>
 
     <!-- Iubenda embed loader -->
