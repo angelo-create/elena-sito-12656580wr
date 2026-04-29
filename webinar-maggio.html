@@ -890,6 +890,166 @@
         display: block;
     }
 
+    /* ═══════════════════════════════════════════════════════════
+       MINIMAL OVERRIDE — bianco dominante, solo il pink di Elena.
+       Toglie gold/coral/cream e tutta la decorazione warm.
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+        --bg:        #FFFFFF;
+        --bg-soft:   #FFFFFF;
+        --bg-warm:   #FAFAFA;
+        --bg-mute:   #F7F7F7;
+        --border:    #E8E8E8;
+        --border-soft:#F0F0F0;
+        --grad-warm: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+        --grad-cta:  #E91E63;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+        --shadow-lg: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
+        --shadow-pink:0 8px 24px rgba(233,30,99,0.18);
+    }
+    body { background: #FFFFFF; }
+
+    /* HERO: bianco pieno, niente radial glow */
+    .ei-hero {
+        background: #FFFFFF !important;
+        padding: 5rem 0 3rem;
+    }
+    @media (min-width: 1024px) { .ei-hero { padding: 7rem 0 4rem; } }
+    .ei-hero::before, .ei-hero::after { display: none !important; }
+    .ei-hero-photo { box-shadow: 0 12px 32px rgba(0,0,0,0.08); border-radius: 20px; }
+    .ei-hero-photo::after { background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,0.45) 100%); }
+
+    /* HERO BADGE: bianco, bordo soft, dot pink */
+    .ei-badge {
+        background: #FFFFFF;
+        border: 1px solid var(--border);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    /* HERO TITLE accent: solo pink, niente gold gradient */
+    .ei-h1 .accent {
+        background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* FORM CARD: white pulito, bordo soft */
+    .ei-form-card {
+        background: #FFFFFF;
+        border: 1px solid var(--border-soft);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03);
+        border-radius: 16px;
+    }
+
+    /* TRUST STRIP: icone pink */
+    .ei-trust-strip svg { stroke: var(--pink); }
+
+    /* PRESS STRIP: bianco rotto soft, niente cream */
+    .ei-press {
+        background: var(--bg-mute);
+        border-top: 1px solid var(--border-soft);
+        border-bottom: 1px solid var(--border-soft);
+    }
+
+    /* LOOP: white background, niente gradient */
+    .ei-loop {
+        background: #FFFFFF !important;
+    }
+    .ei-loop-stat {
+        background: var(--bg-warm);
+        border: 1px solid var(--border-soft);
+    }
+    .ei-loop-stat-number {
+        background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* PROGRAMMA: stessa dark island, ma numeri solo pink (niente gold) */
+    .ei-program .ei-eyebrow { color: #FFB3C5 !important; }
+    .ei-program-date { color: #FFB3C5 !important; }
+    .ei-program-num {
+        background: linear-gradient(135deg, #E91E63 0%, #FF6B9A 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .ei-program-bullets li::before { background: #E91E63; }
+
+    /* SOCIAL: bianco rotto, no cream */
+    .ei-social { background: var(--bg-mute) !important; }
+    .ei-social-stat-num {
+        background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* SCROLL ITEMS: bianco pulito */
+    .ei-scroll-item {
+        background: #FFFFFF;
+        border: 1px solid var(--border-soft);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .ei-scroll-item:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    /* AUTHOR section: bianco */
+    .ei-author { background: #FFFFFF !important; }
+    .ei-author-photo { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .ei-author-fact-num { color: var(--pink); }
+
+    /* CTA FINALE: solo pink solido (no gradient pink→coral) */
+    .ei-cta-final {
+        background: #E91E63 !important;
+    }
+
+    /* FAQ: bianco pulito */
+    .ei-faq { background: #FFFFFF !important; }
+    .ei-faq-toggle {
+        background: var(--bg-mute);
+        color: var(--pink);
+    }
+
+    /* FOOTER: bianco rotto */
+    .ei-footer {
+        background: var(--bg-mute);
+        border-top: 1px solid var(--border-soft);
+    }
+
+    /* HEADER: bianco con sfocatura */
+    .ei-header {
+        background: rgba(255,255,255,0.85);
+    }
+    .ei-header.scrolled {
+        background: rgba(255,255,255,0.96);
+        border-bottom-color: var(--border-soft);
+    }
+    .ei-header-cta {
+        background: var(--pink);
+        box-shadow: 0 2px 8px rgba(233,30,99,0.18);
+    }
+
+    /* STICKY MOBILE CTA: bianco */
+    .ei-sticky-cta {
+        background: rgba(255,255,255,0.96);
+        border-top-color: var(--border);
+    }
+
+    /* ALL EYEBROWS uniform pink */
+    .ei-eyebrow { color: var(--pink) !important; }
+    .ei-press-label { color: var(--text-muted) !important; }
+
+    /* Testimonial avatar (se torna) e altri pink-leaning details */
+    .ei-testimonial-avatar {
+        background: var(--pink) !important;
+    }
+    .ei-testimonial::before { color: var(--pink) !important; }
+
     /* Lightbox */
     .ei-lightbox {
         display: none;
