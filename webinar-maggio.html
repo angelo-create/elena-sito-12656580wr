@@ -376,14 +376,48 @@
         color: var(--text-muted);
         margin-bottom: 1rem;
     }
+    .ei-form-card-iframe-wrap {
+        position: relative;
+        min-height: 480px;
+    }
+    @media (max-width: 480px) { .ei-form-card-iframe-wrap { min-height: 540px; } }
     .ei-form-card iframe {
         width: 100%;
-        min-height: 460px;
+        min-height: 480px;
         border: none;
         border-radius: 8px;
         background: transparent;
+        position: relative;
+        z-index: 1;
     }
-    @media (max-width: 480px) { .ei-form-card iframe { min-height: 500px; } }
+    @media (max-width: 480px) { .ei-form-card iframe { min-height: 540px; } }
+    .ei-form-loader {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background: var(--bg-mute);
+        border-radius: 8px;
+        z-index: 0;
+    }
+    .ei-form-loader-spinner {
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 3px solid var(--border);
+        border-top-color: var(--pink);
+        border-radius: 50%;
+        animation: ei-spin 0.9s linear infinite;
+    }
+    .ei-form-loader-text {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+    @keyframes ei-spin { to { transform: rotate(360deg); } }
+    .ei-form-card-iframe-wrap.loaded .ei-form-loader { display: none; }
 
     /* Trust strip under form */
     .ei-trust-strip {
@@ -1209,17 +1243,24 @@
                 <div class="ei-form-card">
                     <div class="ei-form-card-title">Prendi il tuo posto. &Egrave; gratis.</div>
                     <div class="ei-form-card-subtitle">3 sere insieme, in diretta. Lascia la mail e ti arriva il link Zoom.</div>
-                    <iframe
-                        src="https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61"
-                        id="inline-2oq63J6fm05WSqwcVz61"
-                        data-layout="{'id':'INLINE'}"
-                        data-trigger-type="alwaysShow"
-                        data-form-name="[LP-Form] Estate Inarrestabile"
-                        data-height="460"
-                        data-layout-iframe-id="inline-2oq63J6fm05WSqwcVz61"
-                        data-form-id="2oq63J6fm05WSqwcVz61"
-                        title="[LP-Form] Estate Inarrestabile"
-                    ></iframe>
+                    <div class="ei-form-card-iframe-wrap" id="eiFormWrap">
+                        <div class="ei-form-loader" id="eiFormLoader">
+                            <div class="ei-form-loader-spinner"></div>
+                            <div class="ei-form-loader-text">Carico il modulo&hellip;</div>
+                        </div>
+                        <iframe
+                            src="https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61"
+                            id="inline-2oq63J6fm05WSqwcVz61"
+                            data-layout="{'id':'INLINE'}"
+                            data-trigger-type="alwaysShow"
+                            data-form-name="[LP-Form] Estate Inarrestabile"
+                            data-height="480"
+                            data-layout-iframe-id="inline-2oq63J6fm05WSqwcVz61"
+                            data-form-id="2oq63J6fm05WSqwcVz61"
+                            title="[LP-Form] Estate Inarrestabile"
+                            onload="document.getElementById('eiFormWrap').classList.add('loaded');"
+                        ></iframe>
+                    </div>
                 </div>
 
                 <div class="ei-trust-strip">
@@ -1481,10 +1522,11 @@
 
 <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
 <script>
-// ── Form GHL embed: aggiorna iframe + carica form_embed.js
+// ── Form GHL embed: aggiorna iframe + carica form_embed.js + safety hide loader
 (function() {
     var W = WEBINAR;
     var iframe = document.querySelector('.ei-form-card iframe');
+    var wrap = document.getElementById('eiFormWrap');
     if (iframe) {
         iframe.src = W.formUrl;
         iframe.id = 'inline-' + W.formId;
@@ -1494,6 +1536,10 @@
     var s = document.createElement('script');
     s.src = 'https://link.drewcompany.it/js/form_embed.js';
     document.body.appendChild(s);
+    // Safety: hide loader after 5s comunque, anche se onload non scatta
+    setTimeout(function() {
+        if (wrap) wrap.classList.add('loaded');
+    }, 5000);
 })();
 
 // ── Date config-driven (programma)
