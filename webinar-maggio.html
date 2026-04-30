@@ -30,7 +30,7 @@
         countdownISO: "2026-05-19T18:30:00+02:00",
         // Fallback su form marzo. TODO: sostituire con nuovo form Estate Inarrestabile
         formId:       "2oq63J6fm05WSqwcVz61",
-        formUrl:      "https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61",
+        formUrl:      "https://api.crm.flinky.ai/widget/form/2oq63J6fm05WSqwcVz61",
         whatsappNumero:    "393773892181",
         whatsappMessaggio: "Ciao Elena! Voglio iscrivermi a Estate Inarrestabile (19-20-21 Maggio)!"
     };
@@ -1249,7 +1249,7 @@
                             <div class="ei-form-loader-text">Carico il modulo&hellip;</div>
                         </div>
                         <iframe
-                            src="https://link.drewcompany.it/widget/form/2oq63J6fm05WSqwcVz61"
+                            src="https://api.crm.flinky.ai/widget/form/2oq63J6fm05WSqwcVz61"
                             id="inline-2oq63J6fm05WSqwcVz61"
                             data-layout="{'id':'INLINE'}"
                             data-trigger-type="alwaysShow"
@@ -1534,7 +1534,7 @@
         iframe.setAttribute('data-form-id', W.formId);
     }
     var s = document.createElement('script');
-    s.src = 'https://link.drewcompany.it/js/form_embed.js';
+    s.src = 'https://api.crm.flinky.ai/js/form_embed.js';
     document.body.appendChild(s);
     // Safety: hide loader after 5s comunque, anche se onload non scatta
     setTimeout(function() {
