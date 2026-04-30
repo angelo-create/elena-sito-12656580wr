@@ -969,29 +969,126 @@
         -webkit-text-fill-color: transparent;
     }
 
-    /* FORM CARD: dark island (matcha il theme dark del form Flinky) */
-    .ei-form-card {
-        background: #1A1A1A !important;
-        border: 1px solid rgba(255,255,255,0.08) !important;
-        box-shadow: 0 16px 48px rgba(0,0,0,0.18), 0 4px 12px rgba(0,0,0,0.08) !important;
-        border-radius: 16px;
+    /* FORM NATIVO HTML — bypassa Flinky, posta a /api/newsletter */
+    .ei-native-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+    }
+    .ei-native-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+    .ei-native-field label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text-soft);
+        letter-spacing: 0.02em;
+    }
+    .ei-native-field input[type="text"],
+    .ei-native-field input[type="email"] {
+        background: #FFFFFF;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.95rem 1rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        color: var(--text);
+        transition: border-color 0.2s, box-shadow 0.2s;
+        outline: none;
+    }
+    .ei-native-field input::placeholder {
+        color: #9CA3AF;
+        font-size: 0.95rem;
+    }
+    .ei-native-field input:focus {
+        border-color: var(--pink);
+        box-shadow: 0 0 0 3px rgba(233,30,99,0.15);
+    }
+    .ei-native-field.error input {
+        border-color: #DC2626;
+        background: #FFF5F5;
+    }
+    .ei-native-error {
+        font-size: 0.78rem;
+        color: #DC2626;
+        margin-top: 0.15rem;
+        display: none;
+    }
+    .ei-native-field.error .ei-native-error { display: block; }
+    .ei-native-checkbox {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        font-size: 0.82rem;
+        color: var(--text-soft);
+        line-height: 1.5;
+        cursor: pointer;
+    }
+    .ei-native-checkbox input {
+        margin-top: 0.2rem;
+        width: 1.05rem;
+        height: 1.05rem;
+        accent-color: var(--pink);
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    .ei-native-checkbox a {
+        color: var(--pink);
+        text-decoration: underline;
+    }
+    .ei-native-submit {
+        background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
         color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 1.1rem 1.5rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(233,30,99,0.3);
+        transition: transform 0.2s, box-shadow 0.2s;
     }
-    .ei-form-card-title {
-        color: #FFFFFF !important;
+    .ei-native-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(233,30,99,0.4); }
+    .ei-native-submit:disabled { opacity: 0.7; cursor: wait; transform: none; }
+    .ei-native-submit-error {
+        font-size: 0.85rem;
+        color: #DC2626;
+        text-align: center;
+        margin-top: 0.5rem;
+        display: none;
     }
-    .ei-form-card-subtitle {
-        color: rgba(255,255,255,0.65) !important;
+    .ei-native-submit-error.visible { display: block; }
+    .ei-native-success {
+        text-align: center;
+        padding: 1.5rem 0;
     }
-    .ei-form-card .ei-form-loader {
-        background: #1A1A1A !important;
+    .ei-native-success-icon {
+        width: 3rem;
+        height: 3rem;
+        background: var(--pink);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
     }
-    .ei-form-card .ei-form-loader-spinner {
-        border-color: rgba(255,255,255,0.15) !important;
-        border-top-color: var(--pink) !important;
+    .ei-native-success-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.5rem;
     }
-    .ei-form-card .ei-form-loader-text {
-        color: rgba(255,255,255,0.5) !important;
+    .ei-native-success-text {
+        font-size: 0.95rem;
+        color: var(--text-soft);
+        line-height: 1.6;
     }
 
     /* TRUST STRIP: icone pink */
@@ -1256,27 +1353,37 @@
                     A maggio sei pronta. A giugno gi&agrave; molli. A settembre ti ritrovi pi&ugrave; indietro di quando hai cominciato. <strong>Non &egrave; debolezza tua.</strong> C'&egrave; una ragione precisa, e te la racconto io.
                 </p>
 
-                <!-- Form integrato direttamente nell'hero -->
+                <!-- Form nativo HTML, bypassa Flinky, posta a /api/newsletter -->
                 <div class="ei-form-card">
                     <div class="ei-form-card-title">Prendi il tuo posto. &Egrave; gratis.</div>
-                    <div class="ei-form-card-subtitle">3 sere insieme, in diretta. Lascia la mail e ti arriva il link Zoom.</div>
-                    <div class="ei-form-card-iframe-wrap" id="eiFormWrap">
-                        <div class="ei-form-loader" id="eiFormLoader">
-                            <div class="ei-form-loader-spinner"></div>
-                            <div class="ei-form-loader-text">Carico il modulo&hellip;</div>
+                    <div class="ei-form-card-subtitle">3 sere insieme, in diretta. Lascia nome e mail: ti arriva il link Zoom.</div>
+
+                    <form class="ei-native-form" id="eiNativeForm" novalidate>
+                        <div class="ei-native-field" id="eiFieldName">
+                            <label for="eiFormName">Nome</label>
+                            <input type="text" id="eiFormName" name="name" autocomplete="given-name" placeholder="Il tuo nome" required>
+                            <span class="ei-native-error">Inserisci il tuo nome.</span>
                         </div>
-                        <iframe
-                            src="https://api.crm.flinky.ai/widget/form/2oq63J6fm05WSqwcVz61"
-                            id="inline-2oq63J6fm05WSqwcVz61"
-                            data-layout="{'id':'INLINE'}"
-                            data-trigger-type="alwaysShow"
-                            data-form-name="[LP-Form] Estate Inarrestabile"
-                            data-height="480"
-                            data-layout-iframe-id="inline-2oq63J6fm05WSqwcVz61"
-                            data-form-id="2oq63J6fm05WSqwcVz61"
-                            title="[LP-Form] Estate Inarrestabile"
-                            onload="document.getElementById('eiFormWrap').classList.add('loaded');"
-                        ></iframe>
+
+                        <div class="ei-native-field" id="eiFieldEmail">
+                            <label for="eiFormEmail">Email</label>
+                            <input type="email" id="eiFormEmail" name="email" autocomplete="email" placeholder="latua@email.com" required>
+                            <span class="ei-native-error">Inserisci una mail valida.</span>
+                        </div>
+
+                        <label class="ei-native-checkbox">
+                            <input type="checkbox" id="eiFormPrivacy" required>
+                            <span>Accetto la <a href="https://www.iubenda.com/privacy-policy/49397266" target="_blank" rel="noopener">Privacy Policy</a> e di ricevere il link Zoom delle 3 sere via email.</span>
+                        </label>
+
+                        <button type="submit" class="ei-native-submit" id="eiFormSubmit">Prendi il tuo posto &rarr;</button>
+                        <div class="ei-native-submit-error" id="eiFormError">Qualcosa &egrave; andato storto. Riprova tra un attimo.</div>
+                    </form>
+
+                    <div class="ei-native-success" id="eiFormSuccess" style="display:none;">
+                        <div class="ei-native-success-icon">&#10003;</div>
+                        <div class="ei-native-success-title">Sei dentro!</div>
+                        <div class="ei-native-success-text">Ti ho appena mandato l'email con il link Zoom. Controlla anche lo spam, qualche volta finisce l&igrave;.</div>
                     </div>
                 </div>
 
@@ -1539,24 +1646,117 @@
 
 <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
 <script>
-// ── Form GHL embed: aggiorna iframe + carica form_embed.js + safety hide loader
+// ── Native form submit → /api/newsletter (bypassa Flinky)
 (function() {
-    var W = WEBINAR;
-    var iframe = document.querySelector('.ei-form-card iframe');
-    var wrap = document.getElementById('eiFormWrap');
-    if (iframe) {
-        iframe.src = W.formUrl;
-        iframe.id = 'inline-' + W.formId;
-        iframe.setAttribute('data-layout-iframe-id', 'inline-' + W.formId);
-        iframe.setAttribute('data-form-id', W.formId);
+    var form = document.getElementById('eiNativeForm');
+    if (!form) return;
+    var nameField = document.getElementById('eiFieldName');
+    var emailField = document.getElementById('eiFieldEmail');
+    var nameInput = document.getElementById('eiFormName');
+    var emailInput = document.getElementById('eiFormEmail');
+    var privacyInput = document.getElementById('eiFormPrivacy');
+    var submitBtn = document.getElementById('eiFormSubmit');
+    var errorBox = document.getElementById('eiFormError');
+    var successBox = document.getElementById('eiFormSuccess');
+
+    function setFieldError(field, has) {
+        if (has) field.classList.add('error');
+        else field.classList.remove('error');
     }
-    var s = document.createElement('script');
-    s.src = 'https://api.crm.flinky.ai/js/form_embed.js';
-    document.body.appendChild(s);
-    // Safety: hide loader after 5s comunque, anche se onload non scatta
-    setTimeout(function() {
-        if (wrap) wrap.classList.add('loaded');
-    }, 5000);
+
+    function isEmailValid(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    [nameInput, emailInput].forEach(function(inp) {
+        inp.addEventListener('input', function() {
+            inp.closest('.ei-native-field').classList.remove('error');
+            errorBox.classList.remove('visible');
+        });
+    });
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var nameVal = nameInput.value.trim();
+        var emailVal = emailInput.value.trim();
+        var hasErrors = false;
+        if (!nameVal) { setFieldError(nameField, true); hasErrors = true; }
+        if (!isEmailValid(emailVal)) { setFieldError(emailField, true); hasErrors = true; }
+        if (!privacyInput.checked) {
+            errorBox.textContent = 'Devi accettare la privacy policy per iscriverti.';
+            errorBox.classList.add('visible');
+            hasErrors = true;
+        }
+        if (hasErrors) return;
+
+        // Cattura UTM dall'URL
+        var p = new URLSearchParams(location.search);
+        var parts = nameVal.split(/\s+/);
+        var firstName = parts[0];
+        var lastName = parts.slice(1).join(' ');
+
+        var payload = {
+            email: emailVal,
+            first_name: firstName,
+            last_name: lastName,
+            source: 'webinar-maggio-estate-inarrestabile',
+            utm_source: p.get('utm_source') || undefined,
+            utm_medium: p.get('utm_medium') || undefined,
+            utm_campaign: p.get('utm_campaign') || undefined,
+            utm_content: p.get('utm_content') || undefined,
+            utm_term: p.get('utm_term') || undefined,
+            referrer: document.referrer || undefined,
+            landing_url: location.href,
+            fbclid: p.get('fbclid') || undefined,
+            gclid: p.get('gclid') || undefined,
+            msclkid: p.get('msclkid') || undefined
+        };
+
+        // Rimuovi campi undefined
+        Object.keys(payload).forEach(function(k) {
+            if (payload[k] === undefined) delete payload[k];
+        });
+
+        var origLabel = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Invio in corso\u2026';
+        errorBox.classList.remove('visible');
+
+        // Pixel Lead event (sessionStorage guard contro doppi)
+        try {
+            if (!sessionStorage.getItem('lead_eim') && window.fbq) {
+                sessionStorage.setItem('lead_eim', '1');
+                window.fbq('track', 'Lead', { content_name: 'Estate Inarrestabile 2026', content_category: 'webinar' });
+            }
+        } catch(e) {}
+
+        fetch('/api/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(function(res) {
+            return res.json().then(function(d) { return { ok: res.ok, data: d }; });
+        })
+        .then(function(r) {
+            if (!r.ok || !r.data || !r.data.success) {
+                throw new Error(r.data && r.data.error ? r.data.error : 'Errore submit');
+            }
+            // Success: mostra messaggio + redirect a /webinar-maggio-grazie dopo 1.2s
+            form.style.display = 'none';
+            successBox.style.display = 'block';
+            setTimeout(function() {
+                location.href = 'webinar-maggio-grazie.html?source=' + encodeURIComponent(payload.source);
+            }, 1500);
+        })
+        .catch(function(err) {
+            console.error('[eiNativeForm]', err);
+            errorBox.textContent = 'Qualcosa \u00e8 andato storto. Scrivimi su WhatsApp e ti iscrivo a mano.';
+            errorBox.classList.add('visible');
+            submitBtn.disabled = false;
+            submitBtn.textContent = origLabel;
+        });
+    });
 })();
 
 // ── Date config-driven (programma)
