@@ -1098,6 +1098,12 @@
   padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+  .container-page {
+    padding: 0;
+  }
+}
+
 .method-section .method-intro {
   display: block;
   grid-template-columns: none;
