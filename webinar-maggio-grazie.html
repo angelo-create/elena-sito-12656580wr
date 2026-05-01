@@ -625,11 +625,25 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '446130387840122');
     fbq('track', 'PageView');
-    // Purchase con event_id per deduplicazione pixel ↔ CAPI
+    // Purchase con event_id deterministico (payment_intent) per dedup pixel ↔ server CAPI
     if (new URLSearchParams(window.location.search).get('paid') === 'true') {
         (function() {
-            var eid = 'purchase_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            fbq('track', 'Purchase', {content_name: 'Kit Pre-Estate', value: 27, currency: 'EUR'}, {eventID: eid});
+            var qs = new URLSearchParams(window.location.search);
+            // Stripe redirect aggiunge ?payment_intent=pi_xxx → usalo come event_id deterministico,
+            // così il webhook Stripe server-side può firare lo stesso event con stesso ID e Meta dedupica.
+            var pi = qs.get('payment_intent') || '';
+            var eid = pi || ('purchase_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9));
+
+            // Recupera email/nome dal localStorage salvato durante l'OTO checkout — serve per EMQ
+            var contact = {};
+            try { contact = JSON.parse(localStorage.getItem('oto_contact') || '{}'); } catch(e) {}
+            var email = (contact.email || '').toLowerCase().trim();
+            var nome = (contact.nome || '').trim();
+            var firstName = nome.split(' ')[0] || '';
+            var lastName = nome.split(' ').slice(1).join(' ') || '';
+
+            fbq('track', 'Purchase', {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'}, {eventID: eid});
+
             var ck = document.cookie.split(';').reduce(function(a, c) {
                 var p = c.trim().split('='); a[p[0]] = p.slice(1).join('='); return a;
             }, {});
@@ -640,8 +654,14 @@
                     event_name: 'Purchase',
                     event_id: eid,
                     event_source_url: window.location.href,
-                    user_data: {fbc: ck._fbc || '', fbp: ck._fbp || ''},
-                    custom_data: {content_name: 'Kit Pre-Estate', value: 27, currency: 'EUR'}
+                    user_data: {
+                        em: email || undefined,
+                        fn: firstName || undefined,
+                        ln: lastName || undefined,
+                        fbc: ck._fbc || '',
+                        fbp: ck._fbp || ''
+                    },
+                    custom_data: {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'}
                 })
             }).catch(function() {});
         })();

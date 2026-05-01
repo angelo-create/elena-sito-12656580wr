@@ -1756,13 +1756,28 @@
         submitBtn.textContent = 'Invio in corso\u2026';
         errorBox.classList.remove('visible');
 
-        // Pixel Lead event (sessionStorage guard contro doppi)
+        // Pixel Lead event con event_id deterministico per dedup pixel ↔ server CAPI.
+        // Il server (api/webinar-lead) firma lo stesso event_id quando l'upsert GHL va a buon fine.
+        var leadEventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         try {
             if (!sessionStorage.getItem('lead_eim') && window.fbq) {
                 sessionStorage.setItem('lead_eim', '1');
-                window.fbq('track', 'Lead', { content_name: 'Estate Inarrestabile 2026', content_category: 'webinar' });
+                window.fbq('track', 'Lead',
+                    { content_name: 'Estate Inarrestabile 2026', content_category: 'webinar' },
+                    { eventID: leadEventId }
+                );
             }
         } catch(e) {}
+
+        // Cookie fbc/fbp passati al server per Match Quality Meta
+        var ck = document.cookie.split(';').reduce(function(a, c) {
+            var p = c.trim().split('='); a[p[0]] = p.slice(1).join('='); return a;
+        }, {});
+        payload.event_id = leadEventId;
+        payload.fbc = ck._fbc || '';
+        payload.fbp = ck._fbp || '';
+        payload.event_source_url = location.href;
+        payload.user_agent = navigator.userAgent;
 
         fetch('/api/webinar-lead', {
             method: 'POST',

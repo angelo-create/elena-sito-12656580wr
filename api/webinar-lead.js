@@ -4,6 +4,60 @@
 // Usa GHL contacts/upsert API direttamente con tag dedicati: il workflow
 // GHL "Webinar — Estate Inarrestabile" può triggerare sul tag
 // `webinar-maggio-2026` per inviare l'email di benvenuto + link Zoom.
+//
+// Inoltre fira un evento Lead a Meta CAPI server-side con lo stesso event_id
+// generato dal client → Meta dedupica pixel client + CAPI server. Email,
+// nome, cognome e telefono sono hashati SHA-256 lowercase come richiesto da Meta.
+
+const crypto = require('crypto');
+
+function hash(value) {
+  return crypto.createHash('sha256').update(String(value).toLowerCase().trim()).digest('hex');
+}
+
+async function notifyMetaCAPI({ eventId, email, firstName, lastName, phone, fbc, fbp, sourceUrl, userAgent, clientIp }) {
+  const pixelId = process.env.META_PIXEL_ID;
+  const accessToken = process.env.META_ACCESS_TOKEN;
+  if (!pixelId || !accessToken || !eventId) return;
+
+  const userData = {};
+  if (email)     userData.em = [hash(email)];
+  if (firstName) userData.fn = [hash(firstName)];
+  if (lastName)  userData.ln = [hash(lastName)];
+  if (phone)     userData.ph = [hash(phone.replace(/\D/g, ''))];
+  if (fbc)       userData.fbc = fbc;
+  if (fbp)       userData.fbp = fbp;
+  if (clientIp)  userData.client_ip_address = clientIp;
+  if (userAgent) userData.client_user_agent = userAgent;
+
+  const payload = {
+    data: [{
+      event_name: 'Lead',
+      event_time: Math.floor(Date.now() / 1000),
+      event_id: eventId,
+      event_source_url: sourceUrl || 'https://go.elenagiordani.com/webinar-maggio',
+      action_source: 'website',
+      user_data: userData,
+      custom_data: {
+        content_name: 'Estate Inarrestabile 2026',
+        content_category: 'webinar',
+      },
+    }],
+  };
+
+  try {
+    const url = `https://graph.facebook.com/v21.0/${pixelId}/events?access_token=${accessToken}`;
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await resp.json();
+    console.log('[webinar-lead] Meta CAPI Lead:', eventId, JSON.stringify(result));
+  } catch (err) {
+    console.error('[webinar-lead] Meta CAPI error:', err.message);
+  }
+}
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -101,6 +155,24 @@ module.exports = async function handler(req, res) {
     } catch (e) {}
 
     console.log('[webinar-lead] Lead captured:', email, '| source:', source, '| contactId:', contactId);
+
+    // Fire Meta CAPI Lead — fire-and-forget, non blocca la risposta al client
+    if (body.event_id) {
+      const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress;
+      notifyMetaCAPI({
+        eventId: body.event_id,
+        email,
+        firstName,
+        lastName,
+        phone: phoneDigits,
+        fbc: body.fbc,
+        fbp: body.fbp,
+        sourceUrl: body.event_source_url,
+        userAgent: body.user_agent || req.headers['user-agent'],
+        clientIp,
+      }).catch((err) => console.error('[webinar-lead] CAPI fire-and-forget error:', err.message));
+    }
+
     return res.status(200).json({ success: true, contactId });
   } catch (err) {
     console.error('[webinar-lead] Error:', err.message);
