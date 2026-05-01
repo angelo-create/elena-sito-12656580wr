@@ -9,6 +9,11 @@
   },
   "redirects": [
     {
+      "source": "/risorse-gratuite",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/webinar-coach",
       "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
       "destination": "https://go.elenagiordani.com/webinar-coach",
