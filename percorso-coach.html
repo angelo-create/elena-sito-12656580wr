@@ -373,9 +373,12 @@
             position: relative;
             z-index: 1;
         }
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
+            .pc-area-grid { grid-template-columns: 1fr !important; }
             .pc-overview-grid { grid-template-columns: 1fr !important; }
-            .pc-weekend-grid { grid-template-columns: 1fr !important; }
+            .pc-weekend-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+        }
+        @media (max-width: 640px) {
             .pc-deco-img {
                 width: 50% !important;
                 opacity: 0.35 !important;
