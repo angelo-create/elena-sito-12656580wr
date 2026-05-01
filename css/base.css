@@ -26,13 +26,40 @@ body {
 
 @media (max-width: 768px) {
     .section {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1rem;
+    }
+
+    .value-card,
+    .testimonial-card,
+    .shop-preview-card,
+    .resource-card,
+    .press-page-card,
+    .pillar-card,
+    .schedule-card,
+    .past-event-card {
+        padding: 1.5rem;
+    }
+
+    .method-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .book-card {
+        padding: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .section {
-        padding: 3rem 1rem;
+        padding: 3rem 0.75rem;
+    }
+
+    .value-card,
+    .testimonial-card,
+    .shop-preview-card,
+    .resource-card,
+    .press-page-card {
+        padding: 1.25rem;
     }
 }
 
