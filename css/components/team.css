@@ -259,6 +259,12 @@
     gap: 1.5rem;
 }
 
+@media (max-width: 768px) {
+    .specialist-expertise {
+        grid-template-columns: 1fr;
+    }
+}
+
 .expertise-item {
     display: flex;
     align-items: flex-start;

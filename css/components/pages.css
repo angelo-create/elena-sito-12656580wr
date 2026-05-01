@@ -2395,10 +2395,8 @@
         flex: 0 0 calc(50% - 0.5rem);
     }
 
-
-
     .transformations-page-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .story-stats {
