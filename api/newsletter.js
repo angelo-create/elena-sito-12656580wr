@@ -26,6 +26,7 @@ module.exports = async function handler(req, res) {
     const source = body.source ? String(body.source).slice(0, 120) : 'website';
     const firstName = body.first_name ? String(body.first_name).trim().slice(0, 80) : '';
     const lastName = body.last_name ? String(body.last_name).trim().slice(0, 80) : '';
+    const phone = body.phone ? String(body.phone).trim().slice(0, 30) : '';
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return res.status(400).json({ error: 'invalid email' });
@@ -40,6 +41,7 @@ module.exports = async function handler(req, res) {
     if (firstName) payload.first_name = firstName;
     if (lastName) payload.last_name = lastName;
     if (fullName) payload.name = fullName;
+    if (phone) payload.phone = phone;
 
     const clip = (v, max = 500) => v ? String(v).slice(0, max) : undefined;
     if (body.utm_source)   payload.utm_source   = clip(body.utm_source);

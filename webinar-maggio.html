@@ -975,6 +975,14 @@
         flex-direction: column;
         gap: 0.85rem;
     }
+    .ei-native-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.85rem;
+    }
+    @media (max-width: 480px) {
+        .ei-native-row { grid-template-columns: 1fr; }
+    }
     .ei-native-field {
         display: flex;
         flex-direction: column;
@@ -1359,16 +1367,30 @@
                     <div class="ei-form-card-subtitle">3 sere insieme, in diretta. Lascia nome e mail: ti arriva il link Zoom.</div>
 
                     <form class="ei-native-form" id="eiNativeForm" novalidate>
-                        <div class="ei-native-field" id="eiFieldName">
-                            <label for="eiFormName">Nome</label>
-                            <input type="text" id="eiFormName" name="name" autocomplete="given-name" placeholder="Il tuo nome" required>
-                            <span class="ei-native-error">Inserisci il tuo nome.</span>
+                        <div class="ei-native-row">
+                            <div class="ei-native-field" id="eiFieldFirstName">
+                                <label for="eiFormFirstName">Nome</label>
+                                <input type="text" id="eiFormFirstName" name="first_name" autocomplete="given-name" placeholder="Il tuo nome" required>
+                                <span class="ei-native-error">Inserisci il tuo nome.</span>
+                            </div>
+
+                            <div class="ei-native-field" id="eiFieldLastName">
+                                <label for="eiFormLastName">Cognome</label>
+                                <input type="text" id="eiFormLastName" name="last_name" autocomplete="family-name" placeholder="Il tuo cognome" required>
+                                <span class="ei-native-error">Inserisci il tuo cognome.</span>
+                            </div>
                         </div>
 
                         <div class="ei-native-field" id="eiFieldEmail">
                             <label for="eiFormEmail">Email</label>
                             <input type="email" id="eiFormEmail" name="email" autocomplete="email" placeholder="latua@email.com" required>
                             <span class="ei-native-error">Inserisci una mail valida.</span>
+                        </div>
+
+                        <div class="ei-native-field" id="eiFieldPhone">
+                            <label for="eiFormPhone">Telefono <span style="font-weight: 400; opacity: 0.6;">(con prefisso, es. +39…)</span></label>
+                            <input type="tel" id="eiFormPhone" name="phone" autocomplete="tel" placeholder="+39 333 1234567" required>
+                            <span class="ei-native-error">Inserisci un numero di telefono valido.</span>
                         </div>
 
                         <label class="ei-native-checkbox">
@@ -1650,10 +1672,14 @@
 (function() {
     var form = document.getElementById('eiNativeForm');
     if (!form) return;
-    var nameField = document.getElementById('eiFieldName');
+    var firstNameField = document.getElementById('eiFieldFirstName');
+    var lastNameField = document.getElementById('eiFieldLastName');
     var emailField = document.getElementById('eiFieldEmail');
-    var nameInput = document.getElementById('eiFormName');
+    var phoneField = document.getElementById('eiFieldPhone');
+    var firstNameInput = document.getElementById('eiFormFirstName');
+    var lastNameInput = document.getElementById('eiFormLastName');
     var emailInput = document.getElementById('eiFormEmail');
+    var phoneInput = document.getElementById('eiFormPhone');
     var privacyInput = document.getElementById('eiFormPrivacy');
     var submitBtn = document.getElementById('eiFormSubmit');
     var errorBox = document.getElementById('eiFormError');
@@ -1668,7 +1694,13 @@
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
     }
 
-    [nameInput, emailInput].forEach(function(inp) {
+    function isPhoneValid(v) {
+        // Accetta numeri con prefisso o senza, almeno 8 cifre
+        var digits = v.replace(/[^\d]/g, '');
+        return digits.length >= 8 && digits.length <= 15;
+    }
+
+    [firstNameInput, lastNameInput, emailInput, phoneInput].forEach(function(inp) {
         inp.addEventListener('input', function() {
             inp.closest('.ei-native-field').classList.remove('error');
             errorBox.classList.remove('visible');
@@ -1677,11 +1709,15 @@
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        var nameVal = nameInput.value.trim();
+        var firstNameVal = firstNameInput.value.trim();
+        var lastNameVal = lastNameInput.value.trim();
         var emailVal = emailInput.value.trim();
+        var phoneVal = phoneInput.value.trim();
         var hasErrors = false;
-        if (!nameVal) { setFieldError(nameField, true); hasErrors = true; }
+        if (!firstNameVal) { setFieldError(firstNameField, true); hasErrors = true; }
+        if (!lastNameVal) { setFieldError(lastNameField, true); hasErrors = true; }
         if (!isEmailValid(emailVal)) { setFieldError(emailField, true); hasErrors = true; }
+        if (!isPhoneValid(phoneVal)) { setFieldError(phoneField, true); hasErrors = true; }
         if (!privacyInput.checked) {
             errorBox.textContent = 'Devi accettare la privacy policy per iscriverti.';
             errorBox.classList.add('visible');
@@ -1691,14 +1727,12 @@
 
         // Cattura UTM dall'URL
         var p = new URLSearchParams(location.search);
-        var parts = nameVal.split(/\s+/);
-        var firstName = parts[0];
-        var lastName = parts.slice(1).join(' ');
 
         var payload = {
             email: emailVal,
-            first_name: firstName,
-            last_name: lastName,
+            first_name: firstNameVal,
+            last_name: lastNameVal,
+            phone: phoneVal,
             source: 'webinar-maggio-estate-inarrestabile',
             utm_source: p.get('utm_source') || undefined,
             utm_medium: p.get('utm_medium') || undefined,
