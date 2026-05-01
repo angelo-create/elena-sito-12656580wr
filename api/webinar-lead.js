@@ -156,6 +156,35 @@ module.exports = async function handler(req, res) {
 
     console.log('[webinar-lead] Lead captured:', email, '| source:', source, '| contactId:', contactId);
 
+    // Fetch custom values GHL per la thank-you page (link Zoom, passcode, ecc.)
+    // Non bloccante: se fallisce, la thank-you mostra placeholder/email-only.
+    let webinarInfo = {};
+    try {
+      const cvRes = await fetch(`https://services.leadconnectorhq.com/locations/${locationId}/customValues`, {
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Version': '2021-07-28'
+        }
+      });
+      if (cvRes.ok) {
+        const cvData = await cvRes.json();
+        const map = {};
+        (cvData.customValues || []).forEach((cv) => {
+          if (cv && cv.name) map[cv.name] = cv.value;
+        });
+        webinarInfo = {
+          link: map['link_webinar'] || '',
+          codice: map['codice_accesso_webinar'] || '',
+          idRiunione: map['id_riunione'] || ''
+        };
+      } else {
+        const errText = await cvRes.text();
+        console.warn('[webinar-lead] Custom values fetch failed:', cvRes.status, errText.slice(0, 200));
+      }
+    } catch (cvErr) {
+      console.warn('[webinar-lead] Custom values fetch error:', cvErr.message);
+    }
+
     // Fire Meta CAPI Lead — fire-and-forget, non blocca la risposta al client
     if (body.event_id) {
       const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress;
@@ -173,7 +202,7 @@ module.exports = async function handler(req, res) {
       }).catch((err) => console.error('[webinar-lead] CAPI fire-and-forget error:', err.message));
     }
 
-    return res.status(200).json({ success: true, contactId });
+    return res.status(200).json({ success: true, contactId, webinarInfo });
   } catch (err) {
     console.error('[webinar-lead] Error:', err.message);
     return res.status(500).json({ error: 'Server error', message: err.message });
