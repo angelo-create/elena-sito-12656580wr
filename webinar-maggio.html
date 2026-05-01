@@ -1791,12 +1791,13 @@
             if (!r.ok || !r.data || !r.data.success) {
                 throw new Error(r.data && r.data.error ? r.data.error : 'Errore submit');
             }
-            // Success: mostra messaggio + redirect a /webinar-maggio-grazie dopo 1.2s
+            // Success: redirect diretto alla OTO (la thank-you resta come destinazione
+            // finale post-OTO: skip → ?oto=done, paid → ?paid=true).
             form.style.display = 'none';
             successBox.style.display = 'block';
             setTimeout(function() {
-                location.href = 'webinar-maggio-grazie.html?source=' + encodeURIComponent(payload.source);
-            }, 1500);
+                location.href = 'webinar-maggio-oto.html?source=' + encodeURIComponent(payload.source);
+            }, 1200);
         })
         .catch(function(err) {
             console.error('[eiNativeForm]', err);
