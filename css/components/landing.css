@@ -14,6 +14,12 @@
   padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+  .container-academy {
+    padding: 0;
+  }
+}
+
 .highlight-gradient {
   color: var(--pink-primary);
 }
@@ -2207,10 +2213,10 @@
 
   /* --- Press --- */
   .section-press {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .press-quote-section {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
   }
   .stats-grid {
     grid-template-columns: 1fr;
@@ -2218,29 +2224,29 @@
 
   /* --- Comparison --- */
   .problem-section {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .comparison-card {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .philosophy-quote {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   /* --- Phases --- */
   .how-it-works {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .phases-grid {
     grid-template-columns: 1fr;
   }
   .phase-card {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   /* --- Elena Message --- */
   .elena-message {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .elena-video-container {
     max-width: 100%;
@@ -2248,7 +2254,7 @@
 
   /* --- Workouts --- */
   .section-workouts {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .workouts-grid {
     display: grid;
@@ -2256,15 +2262,15 @@
     gap: 1.25rem;
   }
   .workout-card {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .workouts-cta-box {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   /* --- Transformations --- */
   .section-transformations {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .transformations-mashup-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2285,10 +2291,10 @@
 
   /* --- Method E.A.S.Y. --- */
   .method-section {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .method-hero {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .easy-letters {
     gap: 0.75rem;
@@ -2303,81 +2309,81 @@
     gap: 1.5rem;
   }
   .method-section .pillar-card {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .why-it-works {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .why-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   .method-quote {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   /* --- Annual --- */
   .section-academy-annual {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .annual-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   .annual-column {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .annual-bottom {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
   }
 
   /* --- Team --- */
   .team-medico-section {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .team-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   .team-card {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .team-photo {
     height: 16rem;
     margin: 0 0 1.25rem 0;
   }
   .team-quote {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   /* --- Pricing --- */
   .pricing-info {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .pricing-truth-box {
     flex-direction: column;
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
   }
   .pricing-grid-points {
     grid-template-columns: 1fr;
   }
   .pricing-point {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .pricing-why-box {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .stat-box {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   /* --- CTA Final --- */
   .cta-final {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
   }
   .cta-box {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
   }
   .btn-cta-form {
     width: 100%;
@@ -2490,5 +2496,15 @@
   }
   .btn-cta-form {
     padding: 1rem 2rem;
+  }
+  .section-press,
+  .problem-section,
+  .how-it-works,
+  .section-workouts,
+  .method-section,
+  .team-medico-section,
+  .pricing-info {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

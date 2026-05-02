@@ -6751,6 +6751,12 @@ body {
   padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+  .container-academy {
+    padding: 0;
+  }
+}
+
 .highlight-gradient {
   color: var(--pink-primary);
 }
