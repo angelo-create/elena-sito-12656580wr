@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrello | Club delle Inarrestabili - Elena Giordani</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --pink: #E91E63;
+            --pink-dark: #C2185B;
+            --pink-soft: rgba(233, 30, 99, 0.06);
+            --pink-bump: rgba(233, 30, 99, 0.07);
+            --gold: #FFB800;
+            --success: #2E7D32;
+            --success-soft: rgba(46, 125, 50, 0.10);
+
+            --white: #FFFFFF;
+            --bg-page: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --bg-soft: #F5F5F5;
+            --bg-tag:  #F0F0F0;
+
+            --text-strong: #0A0A0A;
+            --text: #2A2A2A;
+            --text-muted: #6B6B6B;
+
+            --border: #E5E5E5;
+            --border-hover: #C8C8C8;
+
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-md: 0 2px 10px rgba(0,0,0,0.05);
+            --shadow-bump: 0 4px 16px rgba(233, 30, 99, 0.10);
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, sans-serif;
+            background: var(--bg-page);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HEADER ===== */
+        .ck-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--white);
+        }
+        .ck-logo {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: var(--text-strong);
+            text-decoration: none;
+        }
+        .ck-secure {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--success);
+            letter-spacing: 0.05em;
+        }
+        .ck-secure svg { width: 1rem; height: 1rem; }
+
+        /* ===== PROGRESS STEPS ===== */
+        .ck-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            padding: 1.75rem 2rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+        .ck-step {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+        .ck-step.active { color: var(--text-strong); }
+        .ck-step.completed { color: var(--success); }
+        .ck-step-num {
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        .ck-step.active .ck-step-num {
+            border-color: var(--pink);
+            background: var(--pink);
+            color: var(--white);
+        }
+        .ck-step.completed .ck-step-num {
+            border-color: var(--success);
+            background: var(--success);
+            color: var(--white);
+        }
+        .ck-step-line {
+            width: 3rem;
+            height: 1px;
+            background: var(--border);
+            margin: 0 1rem;
+        }
+        .ck-step-line.done { background: var(--success); }
+
+        /* ===== MAIN LAYOUT ===== */
+        .ck-main {
+            max-width: 76rem;
+            margin: 0 auto;
+            padding: 2.5rem 2.5rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* ===== SECTION ===== */
+        .ck-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem 2.25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .ck-section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .ck-section-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            background: var(--pink-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ck-section-icon svg {
+            width: 1rem;
+            height: 1rem;
+            stroke: var(--pink);
+        }
+        .ck-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            letter-spacing: -0.01em;
+        }
+
+        /* ===== PRODUCT CARD (CLUB) ===== */
+        .ck-product {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 1.75rem;
+            align-items: start;
+        }
+        .ck-product-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 0.75rem;
+            object-fit: cover;
+            border: 1px solid var(--border);
+        }
+        .ck-product-badge {
+            display: inline-block;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink);
+            background: var(--pink-soft);
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+            margin-bottom: 0.6rem;
+        }
+        .ck-product-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .ck-product-desc {
+            font-size: 0.82rem;
+            color: var(--text);
+            font-weight: 400;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+        .ck-product-price-inline {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            margin-top: 0.4rem;
+            flex-wrap: wrap;
+        }
+        .ck-price-now {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-strong);
+            letter-spacing: -0.02em;
+        }
+        .ck-price-old {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            font-weight: 400;
+        }
+        .ck-price-tag {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--success);
+            background: var(--success-soft);
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.25rem;
+            margin-left: 0.3rem;
+        }
+
+        /* ===== INCLUDES LIST ===== */
+        .ck-includes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem 1.5rem;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+        .ck-include-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--text);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        .ck-include-item svg {
+            flex-shrink: 0;
+            width: 0.9rem;
+            height: 0.9rem;
+            margin-top: 0.1rem;
+        }
+
+        /* ===== ORDER BUMP CARD ===== */
+        .ck-bump {
+            background: var(--pink-bump);
+            border: 2px solid var(--pink);
+            border-radius: 1rem;
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: all 0.25s ease;
+            box-shadow: var(--shadow-bump);
+        }
+        .ck-bump.unchecked {
+            background: var(--bg-card);
+            border-color: var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        .ck-bump-ribbon {
+            position: absolute;
+            top: -0.7rem;
+            left: 1.5rem;
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-strong);
+            background: var(--gold);
+            padding: 0.35rem 0.75rem;
+            border-radius: 0.3rem;
+            box-shadow: 0 2px 8px rgba(255, 184, 0, 0.35);
+        }
+        .ck-bump-top {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.1rem;
+            align-items: start;
+        }
+        .ck-bump-checkbox {
+            width: 1.6rem;
+            height: 1.6rem;
+            border: 2.5px solid var(--pink);
+            border-radius: 0.4rem;
+            background: var(--white);
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            position: relative;
+            margin-top: 0.15rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .ck-bump-checkbox:checked {
+            background: var(--pink);
+            border-color: var(--pink);
+        }
+        .ck-bump-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 0.45rem;
+            top: 0.15rem;
+            width: 0.4rem;
+            height: 0.75rem;
+            border: solid var(--white);
+            border-width: 0 2.5px 2.5px 0;
+            transform: rotate(45deg);
+        }
+        .ck-bump-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+        .ck-bump-subtitle {
+            font-size: 0.78rem;
+            color: var(--pink);
+            font-weight: 600;
+            margin-bottom: 0.85rem;
+            letter-spacing: 0.01em;
+        }
+        .ck-bump-desc {
+            font-size: 0.82rem;
+            color: var(--text);
+            font-weight: 400;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+        .ck-bump-price {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--pink);
+            letter-spacing: -0.02em;
+            text-align: right;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+        .ck-bump-price small {
+            display: block;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 0.1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .ck-bump-includes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.25rem;
+            margin: 1rem 0 1.1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(233, 30, 99, 0.2);
+        }
+        .ck-bump.unchecked .ck-bump-includes {
+            border-top-color: var(--border);
+        }
+        .ck-bump-include-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.45rem;
+            font-size: 0.76rem;
+            color: var(--text);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        .ck-bump-include-item svg {
+            flex-shrink: 0;
+            width: 0.85rem;
+            height: 0.85rem;
+            margin-top: 0.1rem;
+            stroke: var(--pink);
+        }
+        .ck-bump-microcopy {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.55;
+            font-style: italic;
+            padding-top: 0.85rem;
+            border-top: 1px dashed rgba(233, 30, 99, 0.3);
+        }
+        .ck-bump.unchecked .ck-bump-microcopy {
+            border-top-color: var(--border);
+        }
+
+        /* ===== RIGHT COLUMN - SIDEBAR ===== */
+        .ck-sidebar {
+            position: sticky;
+            top: 1.5rem;
+        }
+        .ck-summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem 2rem 1.75rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+        .ck-summary-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+        .ck-summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 0;
+        }
+        .ck-summary-row.bump-row {
+            transition: opacity 0.2s;
+        }
+        .ck-summary-label {
+            font-size: 0.82rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .ck-summary-value {
+            font-size: 0.82rem;
+            color: var(--text-strong);
+            font-weight: 600;
+        }
+        .ck-summary-row.bump-row .ck-summary-label,
+        .ck-summary-row.bump-row .ck-summary-value {
+            color: var(--pink);
+        }
+        .ck-summary-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0.75rem 0;
+        }
+        .ck-summary-total {
+            padding-top: 0.5rem;
+        }
+        .ck-summary-total .ck-summary-label {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-strong);
+        }
+        .ck-summary-total .ck-summary-value {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--pink);
+            letter-spacing: -0.02em;
+        }
+        .ck-summary-saved {
+            text-align: right;
+            font-size: 0.7rem;
+            color: var(--success);
+            font-weight: 600;
+            margin-top: 0.15rem;
+            letter-spacing: 0.02em;
+        }
+
+        .ck-checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 1.15rem;
+            background: var(--pink);
+            color: var(--white);
+            border: none;
+            border-radius: 0.65rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 1.4rem;
+            transition: all 0.2s;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(233, 30, 99, 0.25);
+        }
+        .ck-checkout-btn:hover {
+            background: var(--pink-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(233, 30, 99, 0.32);
+        }
+        .ck-checkout-btn:active { transform: translateY(0); }
+        .ck-checkout-microcopy {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ===== TRUST BADGES ===== */
+        .ck-trust-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+        .ck-trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .ck-trust-badge svg {
+            width: 0.85rem;
+            height: 0.85rem;
+            stroke: var(--text-muted);
+        }
+
+        /* ===== SOCIAL PROOF ===== */
+        .ck-social-proof {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .ck-social-proof-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .ck-stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.75rem;
+        }
+        .ck-stat-box {
+            text-align: center;
+            padding: 0.85rem 0.5rem;
+            background: var(--bg-soft);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .ck-stat-number {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-strong);
+            letter-spacing: -0.02em;
+        }
+        .ck-stat-label {
+            font-size: 0.58rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ===== FOOTER ===== */
+        .ck-footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+        }
+        .ck-footer-text {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+        .ck-footer-links {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .ck-footer-links a {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .ck-footer-links a:hover { color: var(--text-strong); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .ck-main {
+                grid-template-columns: 1fr;
+                padding: 1.5rem 1.25rem 3rem;
+                gap: 1.5rem;
+            }
+            .ck-sidebar { position: static; }
+            .ck-product { grid-template-columns: 100px 1fr; gap: 1.25rem; }
+            .ck-product-img { width: 100px; height: 100px; }
+            .ck-includes { grid-template-columns: 1fr; }
+            .ck-bump-includes { grid-template-columns: 1fr; }
+            .ck-header { padding: 1rem 1.25rem; }
+            .ck-steps { padding: 1.25rem 1rem; gap: 0; }
+            .ck-step { font-size: 0.6rem; }
+            .ck-step-line { width: 1.5rem; margin: 0 0.4rem; }
+            .ck-section, .ck-bump { padding: 1.5rem; }
+            .ck-bump-top { grid-template-columns: auto 1fr; }
+            .ck-bump-price {
+                grid-column: 2 / 3;
+                text-align: left;
+                margin-top: 0.4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .ck-product { grid-template-columns: 1fr; }
+            .ck-product-img { width: 100%; height: 180px; }
+            .ck-stats-row { grid-template-columns: 1fr; }
+            .ck-trust-bar { flex-wrap: wrap; gap: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="ck-header">
+        <a href="/" class="ck-logo">ELENA GIORDANI</a>
+        <div class="ck-secure">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Checkout sicuro SSL
+        </div>
+    </header>
+
+    <!-- PROGRESS STEPS -->
+    <div class="ck-steps">
+        <div class="ck-step active">
+            <div class="ck-step-num">1</div>
+            Carrello
+        </div>
+        <div class="ck-step-line"></div>
+        <div class="ck-step">
+            <div class="ck-step-num">2</div>
+            Pagamento
+        </div>
+        <div class="ck-step-line"></div>
+        <div class="ck-step">
+            <div class="ck-step-num">3</div>
+            Conferma
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="ck-main">
+
+        <!-- LEFT COLUMN -->
+        <div>
+
+            <!-- 1. PRODOTTO PRINCIPALE: CLUB -->
+            <div class="ck-section">
+                <div class="ck-section-header">
+                    <div class="ck-section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h2 class="ck-section-title">Il tuo accesso</h2>
+                </div>
+
+                <div class="ck-product">
+                    <img src="img/elena-webp/Elena81.webp" alt="Club delle Inarrestabili" class="ck-product-img">
+                    <div>
+                        <span class="ck-product-badge">Accesso Lifetime</span>
+                        <h3 class="ck-product-name">Club delle Inarrestabili</h3>
+                        <p class="ck-product-desc">
+                            La community privata di Elena per donne over 35 che hanno smesso di credere alle diete miracolose. Dentro trovi storie vere, metodo, e una corsia preferenziale su tutti gli eventi dal vivo.
+                        </p>
+                        <div class="ck-product-price-inline">
+                            <span class="ck-price-now">&euro;127</span>
+                            <span class="ck-price-old">&euro;147</span>
+                            <span class="ck-price-tag">Risparmi &euro;20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ck-includes">
+                    <div class="ck-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Newsletter del luned&igrave; (storie e strumenti)
+                    </div>
+                    <div class="ck-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Accesso anticipato a tutti gli eventi
+                    </div>
+                    <div class="ck-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Community privata di donne 35+
+                    </div>
+                    <div class="ck-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Risorse riservate (audio, schede, mini-corsi)
+                    </div>
+                    <div class="ck-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Codice membro per sconti su eventi
+                    </div>
+                    <div class="ck-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Pagamento unico, senza rinnovi
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. ORDER BUMP: EVENTO 2027 (PRESELEZIONATO) -->
+            <div class="ck-bump" id="bumpCard">
+                <div class="ck-bump-ribbon">RACCOMANDATO PER TE</div>
+
+                <div class="ck-bump-top">
+                    <input
+                        type="checkbox"
+                        id="bumpEvento2027"
+                        class="ck-bump-checkbox"
+                        checked
+                        aria-label="Aggiungi Evento 2027 al carrello"
+                    >
+                    <div>
+                        <div class="ck-bump-title">S&igrave;, voglio anche il posto a <em>Nel Corpo Che Vuoi Live 2027</em></div>
+                        <div class="ck-bump-subtitle">Maggio 2027 &middot; Roma &middot; Solo 140 posti</div>
+                        <p class="ck-bump-desc">
+                            Replica annuale dell'evento sold out di maggio 2026. 2 giorni di full immersion con Elena: allenamento, mindset, community. I membri del Club hanno la <strong>corsia preferenziale</strong> e bloccano il posto prima dell'apertura pubblica.
+                        </p>
+                    </div>
+                    <div class="ck-bump-price">
+                        +&euro;147
+                        <small>una tantum</small>
+                    </div>
+                </div>
+
+                <div class="ck-bump-includes">
+                    <div class="ck-bump-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        2 giorni dal vivo a Roma
+                    </div>
+                    <div class="ck-bump-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Allenamento con Elena
+                    </div>
+                    <div class="ck-bump-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Workshop mindset e nutrizione
+                    </div>
+                    <div class="ck-bump-include-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Posto riservato membri Club
+                    </div>
+                </div>
+
+                <p class="ck-bump-microcopy">
+                    Spunta lasciata <strong>gi&agrave; attiva</strong> per riservare il tuo posto ora. Puoi rimuoverla se preferisci decidere pi&ugrave; avanti &mdash; il prezzo per il pubblico sar&agrave; superiore.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN - SIDEBAR -->
+        <div class="ck-sidebar">
+
+            <!-- Riepilogo ordine -->
+            <div class="ck-summary-card">
+                <h3 class="ck-summary-title">Riepilogo ordine</h3>
+
+                <div class="ck-summary-row">
+                    <span class="ck-summary-label">Club delle Inarrestabili</span>
+                    <span class="ck-summary-value">&euro;127,00</span>
+                </div>
+                <div class="ck-summary-row bump-row" id="summaryBumpRow">
+                    <span class="ck-summary-label">+ Evento 2027</span>
+                    <span class="ck-summary-value">&euro;147,00</span>
+                </div>
+
+                <hr class="ck-summary-divider">
+
+                <div class="ck-summary-row ck-summary-total">
+                    <span class="ck-summary-label">Totale</span>
+                    <span class="ck-summary-value" id="summaryTotal">&euro;274,00</span>
+                </div>
+                <div class="ck-summary-saved" id="summarySaved">Hai risparmiato &euro;20</div>
+
+                <a href="club-pagamento.html?bump=1" class="ck-checkout-btn" id="checkoutBtn">
+                    Completa ordine &rarr;
+                </a>
+                <div class="ck-checkout-microcopy">Pagamento sicuro tramite Stripe</div>
+
+                <div class="ck-trust-bar">
+                    <div class="ck-trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        SSL 256-bit
+                    </div>
+                    <div class="ck-trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Dati protetti
+                    </div>
+                    <div class="ck-trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        Stripe
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="ck-social-proof">
+                <div class="ck-social-proof-title">Le Inarrestabili in numeri</div>
+                <div class="ck-stats-row">
+                    <div class="ck-stat-box">
+                        <div class="ck-stat-number">2.300+</div>
+                        <div class="ck-stat-label">Donne</div>
+                    </div>
+                    <div class="ck-stat-box">
+                        <div class="ck-stat-number">8</div>
+                        <div class="ck-stat-label">Paesi</div>
+                    </div>
+                    <div class="ck-stat-box">
+                        <div class="ck-stat-number">4.7</div>
+                        <div class="ck-stat-label">Trustpilot</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="ck-footer">
+        <div class="ck-footer-text">
+            &copy; 2026 Elena Giordani &mdash; Club delle Inarrestabili. Tutti i diritti riservati.<br>
+            P.IVA 03912345678 &middot; Via Example 10, 00100 Roma
+        </div>
+        <div class="ck-footer-links">
+            <a href="https://www.iubenda.com/privacy-policy/49397266">Privacy Policy</a>
+            <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy">Cookie Policy</a>
+            <a href="/terms-and-conditions">Termini e Condizioni</a>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var PRICE_CLUB = 127;
+        var PRICE_BUMP = 147;
+        var SAVED_BASE = 20;
+
+        var bumpCheckbox = document.getElementById('bumpEvento2027');
+        var bumpCard     = document.getElementById('bumpCard');
+        var summaryRow   = document.getElementById('summaryBumpRow');
+        var totalEl      = document.getElementById('summaryTotal');
+        var savedEl      = document.getElementById('summarySaved');
+        var checkoutBtn  = document.getElementById('checkoutBtn');
+
+        function format(amount) {
+            return '\u20AC' + amount.toFixed(2).replace('.', ',');
+        }
+
+        function recalc() {
+            var bumpActive = bumpCheckbox.checked;
+            var total      = PRICE_CLUB + (bumpActive ? PRICE_BUMP : 0);
+
+            summaryRow.style.display = bumpActive ? 'flex' : 'none';
+            totalEl.textContent      = format(total);
+            savedEl.textContent      = 'Hai risparmiato \u20AC' + SAVED_BASE;
+            checkoutBtn.href         = 'club-pagamento.html?bump=' + (bumpActive ? '1' : '0');
+
+            if (bumpActive) {
+                bumpCard.classList.remove('unchecked');
+            } else {
+                bumpCard.classList.add('unchecked');
+            }
+        }
+
+        bumpCheckbox.addEventListener('change', recalc);
+        recalc();
+    })();
+    </script>
+</body>
+</html>

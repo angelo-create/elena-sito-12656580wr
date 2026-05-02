@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvenuta tra le Inarrestabili | Elena Giordani</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --pink: #E91E63;
+            --pink-dark: #C2185B;
+            --pink-soft: rgba(233, 30, 99, 0.06);
+            --gold: #FFB800;
+            --success: #2E7D32;
+            --success-soft: rgba(46, 125, 50, 0.10);
+            --success-bg:   rgba(46, 125, 50, 0.06);
+
+            --white: #FFFFFF;
+            --bg-page: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --bg-soft: #F5F5F5;
+
+            --text-strong: #0A0A0A;
+            --text: #2A2A2A;
+            --text-muted: #6B6B6B;
+
+            --border: #E5E5E5;
+
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-md: 0 2px 10px rgba(0,0,0,0.05);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, sans-serif;
+            background: var(--bg-page);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HEADER ===== */
+        .ck-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--white);
+        }
+        .ck-logo {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: var(--text-strong);
+            text-decoration: none;
+        }
+        .ck-secure {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--success);
+            letter-spacing: 0.05em;
+        }
+        .ck-secure svg { width: 1rem; height: 1rem; }
+
+        /* ===== STEPS ===== */
+        .ck-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.75rem 2rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+        .ck-step {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+        .ck-step.completed { color: var(--success); }
+        .ck-step.active { color: var(--text-strong); }
+        .ck-step-num {
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        .ck-step.active .ck-step-num {
+            border-color: var(--pink);
+            background: var(--pink);
+            color: var(--white);
+        }
+        .ck-step.completed .ck-step-num {
+            border-color: var(--success);
+            background: var(--success);
+            color: var(--white);
+        }
+        .ck-step-line {
+            width: 3rem;
+            height: 1px;
+            background: var(--border);
+            margin: 0 1rem;
+        }
+        .ck-step-line.done { background: var(--success); }
+
+        /* ===== HERO CONFIRM ===== */
+        .ck-hero {
+            text-align: center;
+            padding: 4rem 1.5rem 3rem;
+            max-width: 44rem;
+            margin: 0 auto;
+        }
+        .ck-check-circle {
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto 1.75rem;
+            border-radius: 50%;
+            background: var(--success-bg);
+            border: 2px solid var(--success-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 8px rgba(46, 125, 50, 0.04);
+        }
+        .ck-check-circle svg {
+            width: 2.4rem;
+            height: 2.4rem;
+            stroke: var(--success);
+        }
+        .ck-hero-eyebrow {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink);
+            background: var(--pink-soft);
+            padding: 0.4rem 0.85rem;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+        }
+        .ck-hero-title {
+            font-size: clamp(1.85rem, 4vw, 2.6rem);
+            font-weight: 800;
+            color: var(--text-strong);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+        .ck-hero-title em {
+            color: var(--pink);
+            font-style: normal;
+        }
+        .ck-hero-text {
+            font-size: 1rem;
+            color: var(--text);
+            font-weight: 400;
+            line-height: 1.65;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        /* ===== MAIN ===== */
+        .ck-main {
+            max-width: 60rem;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .ck-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem 2.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .ck-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+        .ck-card-title svg {
+            width: 1.05rem;
+            height: 1.05rem;
+            stroke: var(--pink);
+        }
+
+        /* Riepilogo ordine */
+        .ck-order-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.65rem 0;
+            font-size: 0.85rem;
+        }
+        .ck-order-row .label {
+            color: var(--text);
+            font-weight: 500;
+        }
+        .ck-order-row .value {
+            color: var(--text-strong);
+            font-weight: 600;
+        }
+        .ck-order-row.bump-row .label,
+        .ck-order-row.bump-row .value {
+            color: var(--pink);
+        }
+        .ck-order-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0.6rem 0;
+        }
+        .ck-order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-top: 0.5rem;
+        }
+        .ck-order-total .label {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-strong);
+        }
+        .ck-order-total .value {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--pink);
+            letter-spacing: -0.02em;
+        }
+        .ck-order-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1rem;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+        .ck-order-meta strong {
+            display: block;
+            color: var(--text-strong);
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-top: 0.15rem;
+        }
+
+        /* Cosa succede ora */
+        .ck-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+        .ck-next-step {
+            display: grid;
+            grid-template-columns: 2.25rem 1fr;
+            gap: 0.85rem;
+            align-items: start;
+        }
+        .ck-next-num {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 50%;
+            background: var(--pink-soft);
+            color: var(--pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .ck-next-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            margin-bottom: 0.2rem;
+            line-height: 1.3;
+        }
+        .ck-next-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .ck-cta-wrap {
+            grid-column: 1 / -1;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+        .ck-cta-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-strong);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+        .ck-cta-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 32rem;
+            margin: 0 auto 1.5rem;
+        }
+        .ck-cta-btn {
+            display: inline-block;
+            padding: 1.1rem 2.25rem;
+            background: var(--pink);
+            color: var(--white);
+            border: none;
+            border-radius: 0.65rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(233, 30, 99, 0.25);
+        }
+        .ck-cta-btn:hover {
+            background: var(--pink-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(233, 30, 99, 0.32);
+        }
+        .ck-cta-secondary {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-top: 1.25rem;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        .ck-cta-secondary:hover { color: var(--text-strong); }
+
+        /* ===== FOOTER ===== */
+        .ck-footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+        }
+        .ck-footer-text {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+        .ck-footer-links {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .ck-footer-links a {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        .ck-footer-links a:hover { color: var(--text-strong); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 800px) {
+            .ck-main {
+                grid-template-columns: 1fr;
+                padding: 0 1.25rem 3rem;
+            }
+            .ck-hero { padding: 2.5rem 1.25rem 2rem; }
+            .ck-card, .ck-cta-wrap { padding: 1.5rem; }
+            .ck-header { padding: 1rem 1.25rem; }
+            .ck-steps { padding: 1.25rem 1rem; }
+            .ck-step { font-size: 0.6rem; }
+            .ck-step-line { width: 1.5rem; margin: 0 0.4rem; }
+            .ck-order-meta { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="ck-header">
+        <a href="/" class="ck-logo">ELENA GIORDANI</a>
+        <div class="ck-secure">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Pagamento confermato
+        </div>
+    </header>
+
+    <!-- STEPS -->
+    <div class="ck-steps">
+        <div class="ck-step completed">
+            <div class="ck-step-num">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="10" height="10"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Carrello
+        </div>
+        <div class="ck-step-line done"></div>
+        <div class="ck-step completed">
+            <div class="ck-step-num">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="10" height="10"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Pagamento
+        </div>
+        <div class="ck-step-line done"></div>
+        <div class="ck-step active">
+            <div class="ck-step-num">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="10" height="10"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Conferma
+        </div>
+    </div>
+
+    <!-- HERO CONFIRM -->
+    <section class="ck-hero">
+        <div class="ck-check-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="ck-hero-eyebrow">Sei dentro</span>
+        <h1 class="ck-hero-title">Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span></h1>
+        <p class="ck-hero-text">
+            Il tuo posto nel Club &egrave; confermato. Tra pochi minuti riceverai una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.
+        </p>
+    </section>
+
+    <!-- MAIN: 2 colonne -->
+    <main class="ck-main">
+
+        <!-- RIEPILOGO ORDINE -->
+        <div class="ck-card">
+            <div class="ck-card-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Riepilogo ordine
+            </div>
+
+            <div class="ck-order-row">
+                <span class="label">Club delle Inarrestabili</span>
+                <span class="value">&euro;127,00</span>
+            </div>
+            <div class="ck-order-row bump-row" id="orderBumpRow">
+                <span class="label">+ Evento 2027</span>
+                <span class="value">&euro;147,00</span>
+            </div>
+
+            <hr class="ck-order-divider">
+
+            <div class="ck-order-total">
+                <span class="label">Totale pagato</span>
+                <span class="value" id="orderTotal">&euro;274,00</span>
+            </div>
+
+            <div class="ck-order-meta">
+                <div>
+                    Numero ordine
+                    <strong id="orderNumber">CDI-XXXXXX</strong>
+                </div>
+                <div>
+                    Email di conferma
+                    <strong id="orderEmail">la tua email</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- COSA SUCCEDE ORA -->
+        <div class="ck-card">
+            <div class="ck-card-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Cosa succede ora
+            </div>
+
+            <div class="ck-steps-list">
+                <div class="ck-next-step">
+                    <div class="ck-next-num">1</div>
+                    <div>
+                        <div class="ck-next-title">Email con accessi (entro 5 minuti)</div>
+                        <div class="ck-next-desc">Ricevi le credenziali per la community privata e il link alla newsletter del luned&igrave;.</div>
+                    </div>
+                </div>
+
+                <div class="ck-next-step">
+                    <div class="ck-next-num">2</div>
+                    <div>
+                        <div class="ck-next-title">Primo lunedi&igrave; con noi</div>
+                        <div class="ck-next-desc">Il prossimo luned&igrave; mattina ti arriva la newsletter delle Inarrestabili. Storie vere, niente promesse miracolose.</div>
+                    </div>
+                </div>
+
+                <div class="ck-next-step" id="stepEvento">
+                    <div class="ck-next-num">3</div>
+                    <div>
+                        <div class="ck-next-title">Posto evento 2027 riservato</div>
+                        <div class="ck-next-desc">Quando aprir&ograve; le iscrizioni per <em>Nel Corpo Che Vuoi Live 2027</em>, sarai tra le prime ad avere il link &mdash; il tuo posto &egrave; gi&agrave; bloccato.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="ck-cta-wrap">
+            <h2 class="ck-cta-title">Inizia adesso</h2>
+            <p class="ck-cta-text">
+                Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili. &Egrave; quello che faremo insieme tutti i luned&igrave;.
+            </p>
+            <a href="/lunedi-inarrestabili" class="ck-cta-btn">Leggi l'ultima storia &rarr;</a>
+            <br>
+            <a href="/" class="ck-cta-secondary">Torna alla home</a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="ck-footer">
+        <div class="ck-footer-text">
+            &copy; 2026 Elena Giordani &mdash; Club delle Inarrestabili. Tutti i diritti riservati.<br>
+            P.IVA 03912345678 &middot; Via Example 10, 00100 Roma
+        </div>
+        <div class="ck-footer-links">
+            <a href="https://www.iubenda.com/privacy-policy/49397266">Privacy Policy</a>
+            <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy">Cookie Policy</a>
+            <a href="/terms-and-conditions">Termini e Condizioni</a>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var PRICE_CLUB = 127;
+        var PRICE_BUMP = 147;
+
+        var params  = new URLSearchParams(window.location.search);
+        var bumpRaw = params.get('bump');
+        var bumpOn  = bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true');
+        var nome    = (params.get('nome') || '').trim();
+        var email   = (params.get('email') || '').trim();
+
+        var bumpRow    = document.getElementById('orderBumpRow');
+        var totalEl    = document.getElementById('orderTotal');
+        var heroName   = document.getElementById('heroName');
+        var stepEvento = document.getElementById('stepEvento');
+        var emailEl    = document.getElementById('orderEmail');
+        var orderNum   = document.getElementById('orderNumber');
+
+        function format(amount) {
+            return '\u20AC' + amount.toFixed(2).replace('.', ',');
+        }
+
+        var total = PRICE_CLUB + (bumpOn ? PRICE_BUMP : 0);
+
+        bumpRow.style.display    = bumpOn ? 'flex' : 'none';
+        stepEvento.style.display = bumpOn ? 'grid' : 'none';
+        totalEl.textContent      = format(total);
+
+        if (nome) {
+            heroName.textContent = ', ' + nome;
+        }
+        if (email) {
+            emailEl.textContent = email;
+        }
+
+        // Numero ordine demo (se non passato via query). Sostituibile con l'ID Stripe / GHL.
+        var orderId = params.get('order');
+        if (!orderId) {
+            orderId = 'CDI-' + Date.now().toString(36).toUpperCase().slice(-6);
+        }
+        orderNum.textContent = orderId;
+    })();
+    </script>
+</body>
+</html>

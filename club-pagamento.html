@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento | Club delle Inarrestabili - Elena Giordani</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --pink: #E91E63;
+            --pink-dark: #C2185B;
+            --pink-soft: rgba(233, 30, 99, 0.06);
+            --gold: #FFB800;
+            --success: #2E7D32;
+            --success-soft: rgba(46, 125, 50, 0.10);
+
+            --white: #FFFFFF;
+            --bg-page: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --bg-soft: #F5F5F5;
+
+            --text-strong: #0A0A0A;
+            --text: #2A2A2A;
+            --text-muted: #6B6B6B;
+
+            --border: #E5E5E5;
+            --border-hover: #C8C8C8;
+
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-md: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, sans-serif;
+            background: var(--bg-page);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HEADER ===== */
+        .ck-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--white);
+        }
+        .ck-logo {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: var(--text-strong);
+            text-decoration: none;
+        }
+        .ck-secure {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--success);
+            letter-spacing: 0.05em;
+        }
+        .ck-secure svg { width: 1rem; height: 1rem; }
+
+        /* ===== PROGRESS STEPS ===== */
+        .ck-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            padding: 1.75rem 2rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+        .ck-step {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+        .ck-step.active { color: var(--text-strong); }
+        .ck-step.completed { color: var(--success); }
+        .ck-step-num {
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        .ck-step.active .ck-step-num {
+            border-color: var(--pink);
+            background: var(--pink);
+            color: var(--white);
+        }
+        .ck-step.completed .ck-step-num {
+            border-color: var(--success);
+            background: var(--success);
+            color: var(--white);
+        }
+        .ck-step-line {
+            width: 3rem;
+            height: 1px;
+            background: var(--border);
+            margin: 0 1rem;
+        }
+        .ck-step-line.done { background: var(--success); }
+
+        /* ===== MAIN ===== */
+        .ck-main {
+            max-width: 76rem;
+            margin: 0 auto;
+            padding: 2.5rem 2.5rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 3rem;
+            align-items: start;
+        }
+        .ck-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem 2.25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .ck-section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .ck-section-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            background: var(--pink-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ck-section-icon svg {
+            width: 1rem;
+            height: 1rem;
+            stroke: var(--pink);
+        }
+        .ck-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            letter-spacing: -0.01em;
+        }
+
+        /* ===== FORM ===== */
+        .ck-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.25rem;
+        }
+        .ck-form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .ck-form-group.full { grid-column: 1 / -1; }
+        .ck-form-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-strong);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .ck-form-input {
+            padding: 0.85rem 1rem;
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 0.55rem;
+            color: var(--text-strong);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 400;
+            outline: none;
+            transition: all 0.15s;
+        }
+        .ck-form-input::placeholder { color: var(--text-muted); font-weight: 400; }
+        .ck-form-input:focus {
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.10);
+        }
+
+        /* ===== CARD INPUT (mock Stripe Element) ===== */
+        .ck-card-block {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        .ck-card-row {
+            display: grid;
+            grid-template-columns: 1fr 90px 90px;
+            gap: 0.75rem;
+        }
+        .ck-card-input {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 0.55rem;
+            padding: 0.85rem 1rem;
+            transition: all 0.15s;
+        }
+        .ck-card-input:focus-within {
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.10);
+        }
+        .ck-card-input input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-strong);
+            width: 100%;
+            letter-spacing: 0.05em;
+        }
+        .ck-card-input input::placeholder { color: var(--text-muted); }
+        .ck-card-icons {
+            display: flex;
+            gap: 0.4rem;
+            margin-left: 0.5rem;
+            flex-shrink: 0;
+        }
+        .ck-card-icon-mini {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            padding: 0.15rem 0.35rem;
+            font-size: 0.55rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+        .ck-stripe-note {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.85rem;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .ck-stripe-note svg { width: 0.85rem; height: 0.85rem; stroke: var(--text-muted); }
+
+        /* ===== SIDEBAR ===== */
+        .ck-sidebar {
+            position: sticky;
+            top: 1.5rem;
+        }
+        .ck-summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem 2rem 1.75rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+        .ck-summary-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+        .ck-summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 0;
+        }
+        .ck-summary-label {
+            font-size: 0.82rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .ck-summary-value {
+            font-size: 0.82rem;
+            color: var(--text-strong);
+            font-weight: 600;
+        }
+        .ck-summary-row.bump-row .ck-summary-label,
+        .ck-summary-row.bump-row .ck-summary-value {
+            color: var(--pink);
+        }
+        .ck-summary-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0.75rem 0;
+        }
+        .ck-summary-total { padding-top: 0.5rem; }
+        .ck-summary-total .ck-summary-label {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-strong);
+        }
+        .ck-summary-total .ck-summary-value {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--pink);
+            letter-spacing: -0.02em;
+        }
+        .ck-edit-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            transition: color 0.15s;
+        }
+        .ck-edit-link:hover { color: var(--pink); }
+        .ck-edit-link svg { width: 0.8rem; height: 0.8rem; stroke: currentColor; }
+
+        .ck-pay-btn {
+            display: block;
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--pink);
+            color: var(--white);
+            border: none;
+            border-radius: 0.65rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 1.4rem;
+            transition: all 0.2s;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(233, 30, 99, 0.25);
+        }
+        .ck-pay-btn:hover {
+            background: var(--pink-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(233, 30, 99, 0.32);
+        }
+        .ck-pay-btn:active { transform: translateY(0); }
+        .ck-pay-microcopy {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            font-weight: 500;
+        }
+
+        .ck-trust-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+        .ck-trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .ck-trust-badge svg {
+            width: 0.85rem;
+            height: 0.85rem;
+            stroke: var(--text-muted);
+        }
+
+        /* ===== FOOTER ===== */
+        .ck-footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+        }
+        .ck-footer-text {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+        .ck-footer-links {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .ck-footer-links a {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        .ck-footer-links a:hover { color: var(--text-strong); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .ck-main {
+                grid-template-columns: 1fr;
+                padding: 1.5rem 1.25rem 3rem;
+                gap: 1.5rem;
+            }
+            .ck-sidebar { position: static; }
+            .ck-form-grid { grid-template-columns: 1fr; }
+            .ck-card-row { grid-template-columns: 1fr; }
+            .ck-header { padding: 1rem 1.25rem; }
+            .ck-steps { padding: 1.25rem 1rem; }
+            .ck-step { font-size: 0.6rem; }
+            .ck-step-line { width: 1.5rem; margin: 0 0.4rem; }
+            .ck-section { padding: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .ck-trust-bar { flex-wrap: wrap; gap: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="ck-header">
+        <a href="/" class="ck-logo">ELENA GIORDANI</a>
+        <div class="ck-secure">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Pagamento sicuro SSL
+        </div>
+    </header>
+
+    <!-- PROGRESS STEPS -->
+    <div class="ck-steps">
+        <div class="ck-step completed">
+            <div class="ck-step-num">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="10" height="10"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Carrello
+        </div>
+        <div class="ck-step-line done"></div>
+        <div class="ck-step active">
+            <div class="ck-step-num">2</div>
+            Pagamento
+        </div>
+        <div class="ck-step-line"></div>
+        <div class="ck-step">
+            <div class="ck-step-num">3</div>
+            Conferma
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <main class="ck-main">
+
+        <!-- LEFT COLUMN -->
+        <form id="payForm">
+
+            <!-- 1. DATI CLIENTE -->
+            <div class="ck-section">
+                <div class="ck-section-header">
+                    <div class="ck-section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h2 class="ck-section-title">I tuoi dati</h2>
+                </div>
+
+                <div class="ck-form-grid">
+                    <div class="ck-form-group">
+                        <label class="ck-form-label" for="firstName">Nome</label>
+                        <input id="firstName" name="firstName" type="text" class="ck-form-input" placeholder="Maria" autocomplete="given-name" required>
+                    </div>
+                    <div class="ck-form-group">
+                        <label class="ck-form-label" for="lastName">Cognome</label>
+                        <input id="lastName" name="lastName" type="text" class="ck-form-input" placeholder="Rossi" autocomplete="family-name" required>
+                    </div>
+                    <div class="ck-form-group full">
+                        <label class="ck-form-label" for="email">Email</label>
+                        <input id="email" name="email" type="email" class="ck-form-input" placeholder="maria.rossi@email.com" autocomplete="email" required>
+                    </div>
+                    <div class="ck-form-group full">
+                        <label class="ck-form-label" for="phone">Telefono</label>
+                        <input id="phone" name="phone" type="tel" class="ck-form-input" placeholder="+39 333 000 0000" autocomplete="tel" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. CARTA DI PAGAMENTO -->
+            <div class="ck-section">
+                <div class="ck-section-header">
+                    <div class="ck-section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <h2 class="ck-section-title">Dati della carta</h2>
+                </div>
+
+                <!--
+                    TODO: sostituire questo blocco con Stripe Payment Element
+                    Vedi https://stripe.com/docs/payments/payment-element
+                    1. Caricare https://js.stripe.com/v3/
+                    2. const stripe = Stripe('pk_live_xxx');
+                    3. const elements = stripe.elements({ clientSecret });
+                    4. const paymentElement = elements.create('payment');
+                    5. paymentElement.mount('#stripe-payment-element');
+                -->
+                <div class="ck-card-block" id="stripe-payment-element">
+
+                    <div class="ck-form-group">
+                        <label class="ck-form-label" for="cardName">Nome sulla carta</label>
+                        <input id="cardName" name="cardName" type="text" class="ck-form-input" placeholder="MARIA ROSSI" autocomplete="cc-name" required>
+                    </div>
+
+                    <div class="ck-form-group">
+                        <label class="ck-form-label" for="cardNumber">Numero carta</label>
+                        <div class="ck-card-input">
+                            <input id="cardNumber" name="cardNumber" type="text" inputmode="numeric" placeholder="1234 1234 1234 1234" autocomplete="cc-number" maxlength="19" required>
+                            <div class="ck-card-icons">
+                                <span class="ck-card-icon-mini">VISA</span>
+                                <span class="ck-card-icon-mini">MC</span>
+                                <span class="ck-card-icon-mini">AMEX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ck-card-row">
+                        <div class="ck-form-group">
+                            <label class="ck-form-label" for="cardExpiry">Scadenza</label>
+                            <input id="cardExpiry" name="cardExpiry" type="text" inputmode="numeric" class="ck-form-input" placeholder="MM/AA" autocomplete="cc-exp" maxlength="5" required>
+                        </div>
+                        <div class="ck-form-group">
+                            <label class="ck-form-label" for="cardCvc">CVC</label>
+                            <input id="cardCvc" name="cardCvc" type="text" inputmode="numeric" class="ck-form-input" placeholder="123" autocomplete="cc-csc" maxlength="4" required>
+                        </div>
+                        <div class="ck-form-group">
+                            <label class="ck-form-label" for="zip">CAP</label>
+                            <input id="zip" name="zip" type="text" inputmode="numeric" class="ck-form-input" placeholder="00100" autocomplete="postal-code" maxlength="5" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="ck-stripe-note">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Pagamento crittografato e processato da Stripe. Nessun dato carta salvato sui nostri server.
+                </div>
+            </div>
+
+        </form>
+
+        <!-- RIGHT COLUMN -->
+        <div class="ck-sidebar">
+
+            <div class="ck-summary-card">
+                <h3 class="ck-summary-title">Riepilogo ordine</h3>
+
+                <div class="ck-summary-row">
+                    <span class="ck-summary-label">Club delle Inarrestabili</span>
+                    <span class="ck-summary-value">&euro;127,00</span>
+                </div>
+                <div class="ck-summary-row bump-row" id="summaryBumpRow">
+                    <span class="ck-summary-label">+ Evento 2027</span>
+                    <span class="ck-summary-value">&euro;147,00</span>
+                </div>
+
+                <hr class="ck-summary-divider">
+
+                <div class="ck-summary-row ck-summary-total">
+                    <span class="ck-summary-label">Totale</span>
+                    <span class="ck-summary-value" id="summaryTotal">&euro;274,00</span>
+                </div>
+
+                <a href="club-checkout.html" class="ck-edit-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    Modifica ordine
+                </a>
+
+                <!-- TODO: collegare al confirm endpoint Stripe + redirect a club-grazie.html -->
+                <button type="submit" form="payForm" class="ck-pay-btn" id="payBtn">
+                    Paga <span id="payBtnAmount">&euro;274</span>
+                </button>
+                <div class="ck-pay-microcopy">Pagamento sicuro tramite Stripe</div>
+
+                <div class="ck-trust-bar">
+                    <div class="ck-trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        SSL 256-bit
+                    </div>
+                    <div class="ck-trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Dati protetti
+                    </div>
+                    <div class="ck-trust-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        Stripe
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="ck-footer">
+        <div class="ck-footer-text">
+            &copy; 2026 Elena Giordani &mdash; Club delle Inarrestabili. Tutti i diritti riservati.<br>
+            P.IVA 03912345678 &middot; Via Example 10, 00100 Roma
+        </div>
+        <div class="ck-footer-links">
+            <a href="https://www.iubenda.com/privacy-policy/49397266">Privacy Policy</a>
+            <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy">Cookie Policy</a>
+            <a href="/terms-and-conditions">Termini e Condizioni</a>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var PRICE_CLUB = 127;
+        var PRICE_BUMP = 147;
+
+        // Leggi bump da query string (?bump=1 default ON, ?bump=0 OFF)
+        var params  = new URLSearchParams(window.location.search);
+        var bumpRaw = params.get('bump');
+        var bumpOn  = bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true');
+
+        var summaryRow = document.getElementById('summaryBumpRow');
+        var totalEl    = document.getElementById('summaryTotal');
+        var btnAmount  = document.getElementById('payBtnAmount');
+        var editLink   = document.querySelector('.ck-edit-link');
+
+        function format(amount, withDecimals) {
+            return '\u20AC' + (withDecimals
+                ? amount.toFixed(2).replace('.', ',')
+                : amount.toString());
+        }
+
+        var total = PRICE_CLUB + (bumpOn ? PRICE_BUMP : 0);
+
+        summaryRow.style.display = bumpOn ? 'flex' : 'none';
+        totalEl.textContent      = format(total, true);
+        btnAmount.textContent    = format(total, false);
+
+        if (editLink) {
+            editLink.href = 'club-checkout.html';
+        }
+
+        // ====== Mock di formattazione carta (UX). Sar\u00e0 sostituito dal Stripe Element. ======
+        var num = document.getElementById('cardNumber');
+        if (num) {
+            num.addEventListener('input', function () {
+                var v = num.value.replace(/\D/g, '').slice(0, 16);
+                num.value = v.replace(/(.{4})/g, '$1 ').trim();
+            });
+        }
+        var exp = document.getElementById('cardExpiry');
+        if (exp) {
+            exp.addEventListener('input', function () {
+                var v = exp.value.replace(/\D/g, '').slice(0, 4);
+                if (v.length >= 3) v = v.slice(0, 2) + '/' + v.slice(2);
+                exp.value = v;
+            });
+        }
+        var cvc = document.getElementById('cardCvc');
+        if (cvc) cvc.addEventListener('input', function () {
+            cvc.value = cvc.value.replace(/\D/g, '').slice(0, 4);
+        });
+        var zip = document.getElementById('zip');
+        if (zip) zip.addEventListener('input', function () {
+            zip.value = zip.value.replace(/\D/g, '').slice(0, 5);
+        });
+
+        // ====== Submit demo: redirect a thank you. Sostituire con Stripe confirmPayment(). ======
+        var form = document.getElementById('payForm');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var firstName = document.getElementById('firstName').value || '';
+            var qs = new URLSearchParams();
+            qs.set('bump', bumpOn ? '1' : '0');
+            if (firstName) qs.set('nome', firstName.trim());
+            window.location.href = 'club-grazie.html?' + qs.toString();
+        });
+    })();
+    </script>
+</body>
+</html>
