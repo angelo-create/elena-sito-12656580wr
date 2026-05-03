@@ -40,12 +40,7 @@
       <zone id="cta-overlay" position="lower" margin-bottom="60px" padding="0 32px" z-index="3">
         <text language="it">👉 Scoprila gratis. 3 sere live.</text>
         <font>Inter SemiBold</font><font-color>brand-white</font-color>
-        <font-size-pct>3.6</font-size-pct>
-      </zone>
-      <zone id="scarcity-pill" position="bottom-right" margin-bottom="130px" margin-right="24px" z-index="3">
-        <shape>pill rounded</shape><bg>brand-pink</bg><padding>8px 18px</padding>
-        <text language="it">🔥 100 POSTI</text>
-        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.8</font-size-pct>
+        <font-size-pct>4.5</font-size-pct>
       </zone>
       <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
         <half side="left" bg="brand-pink">
