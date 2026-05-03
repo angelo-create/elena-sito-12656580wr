@@ -26,15 +26,16 @@
       </zone>
       <zone id="body-area-black" position="middle" height-pct="68" z-index="1">
       </zone>
-      <zone id="headline-overlay" position="middle" margin-top="120px" padding="0 32px" z-index="3">
-        <text-block alignment="center" line-spacing="1.2">
-          <line>L'estate a <bold>40</bold> ti pesa.</line>
-          <line>A <bold>30</bold> era <highlight bg="brand-pink" color="brand-white" padding="2px 10px">leggera</highlight>.</line>
+      <zone id="headline-overlay" position="middle" margin-top="80px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.25">
+          <line>L'estate a <bold>30</bold> era leggera.</line>
+          <line>A <bold>40</bold> ti pesa.</line>
+          <line>Non è il sole. <highlight bg="brand-pink" color="brand-white" padding="2px 10px">Sei tu</highlight>.</line>
         </text-block>
         <font>Inter Black</font>
         <font-color>brand-white</font-color>
         <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
-        <font-size-pct>10</font-size-pct>
+        <font-size-pct>8.5</font-size-pct>
       </zone>
       <zone id="cta-overlay" position="lower" margin-bottom="60px" padding="0 32px" z-index="3">
         <text language="it">👉 Te lo racconto gratis</text>
