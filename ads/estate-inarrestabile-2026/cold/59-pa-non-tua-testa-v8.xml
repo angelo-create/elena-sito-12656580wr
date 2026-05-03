@@ -5,7 +5,7 @@
     <objective>LEADS</objective>
     <funnel-stage>cold</funnel-stage>
     <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
-    <angle>Self-Blame Relief - "Hai mollato di nuovo? Non e la tua testa"</angle>
+    <angle>Self-Blame Relief - "Hai mollato di nuovo? Non è la tua testa"</angle>
     <copy-framework>Problem Aware Schwartz - anti-shaming + curiosity</copy-framework>
     <design-template>v8-problem-aware-brand</design-template>
   </meta>
@@ -60,7 +60,7 @@ Composition: subject center frame from chest up leaning forward, plenty of clean
       <zone id="headline-overlay" position="middle-on-photo" margin-top="50px" padding="0 32px" z-index="3">
         <text-block alignment="center" line-spacing="1.2">
           <line>Hai mollato di nuovo?</line>
-          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">Non e la tua testa.</highlight></line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">Non è la tua testa.</highlight></line>
         </text-block>
         <font>Inter Black</font>
         <font-color>brand-white</font-color>
@@ -69,7 +69,7 @@ Composition: subject center frame from chest up leaning forward, plenty of clean
       </zone>
       <zone id="sub-headline" position="below-headline-on-photo" margin-top="170px" padding="0 40px" z-index="3">
         <text language="it">Per anni ti hanno fatto credere che il problema fossi tu. Falso.</text>
-        <text language="it"><italic>C'e un meccanismo preciso che si rompe — e si puo aggiustare.</italic></text>
+        <text language="it"><italic>C'è un meccanismo preciso che si rompe — e si può aggiustare.</italic></text>
         <font>Inter Regular</font><font-color>brand-white</font-color>
         <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
         <font-size-pct>3.4</font-size-pct>
@@ -98,13 +98,13 @@ Composition: subject center frame from chest up leaning forward, plenty of clean
   <copy-for-meta-ads-manager>
     <primary-text language="it">
       <![CDATA[
-💜 Hai mollato di nuovo? Non e la tua testa.
+💜 Hai mollato di nuovo? Non è la tua testa.
 
-Per anni ti hanno fatto credere che fosse colpa tua. Che ti mancasse la disciplina. Che dovevi "volerlo di piu". Che non avevi forza di volonta.
+Per anni ti hanno fatto credere che fosse colpa tua. Che ti mancasse la disciplina. Che dovevi "volerlo di più". Che non avevi forza di volontà.
 
 Falso. Tutto falso.
 
-C'e un meccanismo preciso che si inceppa nelle donne 40+ — non e mentale, e fisiologico. Una volta che lo capisci, smetti di sentirti rotta.
+C'è un meccanismo preciso che si inceppa nelle donne 40+ — non è mentale, è fisiologico. Una volta che lo capisci, smetti di sentirti rotta.
 
 👉 Te lo racconto in 3 sere live. Senza giudizio.
 
@@ -119,7 +119,7 @@ Iscriviti qui ↓
     <description max-chars="30">Scopri il vero motivo · live</description>
     <cta-button>SIGN_UP</cta-button>
     <variants>
-      <headline-alt max-chars="40">Non e mai stata colpa tua.</headline-alt>
+      <headline-alt max-chars="40">Non è mai stata colpa tua.</headline-alt>
       <headline-alt max-chars="40">Smetti di sentirti rotta.</headline-alt>
     </variants>
   </copy-for-meta-ads-manager>

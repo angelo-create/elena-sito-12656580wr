@@ -68,14 +68,14 @@ Composition: subject center frame from chest up, plenty of clean negative space 
         <font-size-pct>6.5</font-size-pct>
       </zone>
       <zone id="sub-headline" position="below-headline-on-photo" margin-top="170px" padding="0 40px" z-index="3">
-        <text language="it">Non e eta. Non e "essere mamme". C'e una causa precisa di cui nessuno parla</text>
-        <text language="it"><italic>— e si puo sistemare.</italic></text>
+        <text language="it">Non è eta. Non è "essere mamme". C'è una causa precisa di cui nessuno parla</text>
+        <text language="it"><italic>— e si può sistemare.</italic></text>
         <font>Inter Regular</font><font-color>brand-white</font-color>
         <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
         <font-size-pct>3.4</font-size-pct>
       </zone>
       <zone id="cta-overlay" position="lower-on-photo" margin-bottom="60px" padding="0 32px" z-index="3">
-        <text language="it">👉 Capisci perche succede</text>
+        <text language="it">👉 Capisci perché succede</text>
         <font>Inter SemiBold</font><font-color>brand-white</font-color>
         <font-size-pct>3.6</font-size-pct>
       </zone>
@@ -102,11 +102,11 @@ Composition: subject center frame from chest up, plenty of clean negative space 
 
 Non sei sola. E NON e eta. NON e "essere mamme". NON e "lo stress della vita".
 
-A 40+ il sonno cambia struttura — meno fasi profonde, piu risvegli. Cortisolo che non cala. Ormoni che non sostengono il recupero.
+A 40+ il sonno cambia struttura — meno fasi profonde, più risvegli. Cortisolo che non cala. Ormoni che non sostengono il recupero.
 
 E quando il sonno non rigenera, tutto crolla a cascata: energia, voglia, costanza, tono dell'umore.
 
-C'e una causa precisa. E si puo sistemare. Senza farmaci.
+C'è una causa precisa. E si può sistemare. Senza farmaci.
 
 👉 In 3 sere live ti spiego cosa succede + cosa fare.
 
@@ -118,11 +118,11 @@ Iscriviti qui ↓
       ]]>
     </primary-text>
     <headline max-chars="40">Stanca anche dopo 8 ore?</headline>
-    <description max-chars="30">Non e eta · 3 sere live</description>
+    <description max-chars="30">Non è eta · 3 sere live</description>
     <cta-button>SIGN_UP</cta-button>
     <variants>
-      <headline-alt max-chars="40">8 ore di sonno e stanca: perche?</headline-alt>
-      <headline-alt max-chars="40">Non e eta. C'e una causa precisa.</headline-alt>
+      <headline-alt max-chars="40">8 ore di sonno e stanca: perché?</headline-alt>
+      <headline-alt max-chars="40">Non è eta. C'è una causa precisa.</headline-alt>
     </variants>
   </copy-for-meta-ads-manager>
 
@@ -158,7 +158,7 @@ Iscriviti qui ↓
 
   <notes>
     <note role="image-generator">Mood mattutino intimo, NO drama. Just-woke-up real. Empathic.</note>
-    <note role="copywriter">PA puro daily pain. Lista negazioni (NO eta/mamme/stress) = anti-cliche. Reframe scientifico (sonno+ormoni+cortisolo).</note>
+    <note role="copywriter">PA puro daily pain. Lista negazioni (NO eta/mamme/stress) = anti-cliché. Reframe scientifico (sonno+ormoni+cortisolo).</note>
     <note role="designer">Highlight pink su "8 ORE?" = la sorpresa.</note>
   </notes>
 </creative>

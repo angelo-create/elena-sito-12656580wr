@@ -5,7 +5,7 @@
     <objective>LEADS</objective>
     <funnel-stage>cold</funnel-stage>
     <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
-    <angle>Knowledge Gap Eta - "A 40+ il corpo funziona DIVERSO"</angle>
+    <angle>Knowledge Gap Età - "A 40+ il corpo funziona DIVERSO"</angle>
     <copy-framework>Problem Aware Schwartz - knowledge gap + age-relevance</copy-framework>
     <design-template>v8-problem-aware-brand</design-template>
   </meta>
@@ -69,7 +69,7 @@ Composition: subject center frame chest up, plenty of clean negative space top/b
         <font-size-pct>6</font-size-pct>
       </zone>
       <zone id="sub-headline" position="below-headline-on-photo" margin-top="200px" padding="0 40px" z-index="3">
-        <text language="it">Ormoni, metabolismo, sonno, energia. Niente e come a 25.</text>
+        <text language="it">Ormoni, metabolismo, sonno, energia. Niente è come a 25.</text>
         <text language="it"><italic>E se nessuno te lo spiega, mollare diventa inevitabile.</italic></text>
         <font>Inter Regular</font><font-color>brand-white</font-color>
         <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
@@ -103,7 +103,7 @@ Composition: subject center frame chest up, plenty of clean negative space top/b
 
 Ormoni che fluttuano. Metabolismo che rallenta. Sonno meno profondo. Cortisolo cronico. Massa muscolare che cala. Energia che non torna come prima.
 
-Niente di tutto questo e "vecchiaia". E FISIOLOGIA NORMALE delle donne dopo i 40. Ma se nessuno te la spiega, ti senti rotta — e molli.
+Niente di tutto questo e "vecchiaia". È FISIOLOGIA NORMALE delle donne dopo i 40. Ma se nessuno te la spiega, ti senti rotta — e molli.
 
 👉 Te lo racconto in 3 sere live. Le 4 cose che cambiano + cosa fare per ognuna.
 
@@ -118,7 +118,7 @@ Iscriviti qui ↓
     <description max-chars="30">Capisci cosa cambia · live</description>
     <cta-button>SIGN_UP</cta-button>
     <variants>
-      <headline-alt max-chars="40">Non e vecchiaia. E fisiologia.</headline-alt>
+      <headline-alt max-chars="40">Non è vecchiaia. È fisiologia.</headline-alt>
       <headline-alt max-chars="40">A 40+ niente e come a 25.</headline-alt>
     </variants>
   </copy-for-meta-ads-manager>

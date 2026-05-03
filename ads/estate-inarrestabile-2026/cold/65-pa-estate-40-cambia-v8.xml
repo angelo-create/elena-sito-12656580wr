@@ -25,7 +25,7 @@ Expression: Italian "lo sguardo del 'l'estate cambia, lo so'" - both eyebrows ne
 
 Camera: iPhone 15 Pro vertical equivalent, eye level, distance 100cm.
 
-Light: warm late afternoon natural light camera-left at 30°, 4900K warm-neutral (slightly warmer for "summer" feel but NOT golden hour Mediterranean cliche).
+Light: warm late afternoon natural light camera-left at 30°, 4900K warm-neutral (slightly warmer for "summer" feel but NOT golden hour Mediterranean cliché).
 
 Aesthetic: contemporary Italian Instagram coach 2026, summer real not editorial.
 
@@ -36,7 +36,7 @@ Color grading: neutral + 5% warmth (slightly warmer for summer mood, but NOT ora
 Composition: subject center frame chest up, terrace/balcony background blurred, plenty of clean negative space top/bottom for brand overlay.
       ]]>
     </prompt-elaborate>
-    <negative-prompt>cinematic editorial, golden hour Mediterranean cliche, dramatic, model thin, instagram filter, beauty retouch, makeup heavy, beach paradise</negative-prompt>
+    <negative-prompt>cinematic editorial, golden hour Mediterranean cliché, dramatic, model thin, instagram filter, beauty retouch, makeup heavy, beach paradise</negative-prompt>
     <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
   </image-generation>
 
@@ -69,7 +69,7 @@ Composition: subject center frame chest up, terrace/balcony background blurred, 
       </zone>
       <zone id="sub-headline" position="below-headline-on-photo" margin-top="180px" padding="0 40px" z-index="3">
         <text language="it">Il caldo si sente diverso. Il corpo si gonfia diverso. La fatica torna diversa.</text>
-        <text language="it"><italic>C'e un perche — e c'e un modo.</italic></text>
+        <text language="it"><italic>C'è un perché — e c'è un modo.</italic></text>
         <font>Inter Regular</font><font-color>brand-white</font-color>
         <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
         <font-size-pct>3.3</font-size-pct>
@@ -100,11 +100,11 @@ Composition: subject center frame chest up, terrace/balcony background blurred, 
       <![CDATA[
 🌞 L'estate dei 40 anni cambia.
 
-Il caldo si sente diverso. Il corpo si gonfia diverso. La fatica arriva prima e torna piu lenta. Il sonno si rompe con l'afa.
+Il caldo si sente diverso. Il corpo si gonfia diverso. La fatica arriva prima e torna più lenta. Il sonno si rompe con l'afa.
 
-Non e solo "il caldo". E che a 40+ il tuo corpo reagisce all'estate in un modo nuovo, e nessuno te lo spiega.
+Non è solo "il caldo". E che a 40+ il tuo corpo reagisce all'estate in un modo nuovo, e nessuno te lo spiega.
 
-E cosi mollare a giugno diventa quasi automatico. Ma c'e un perche preciso. E c'e un modo per non ripetersi.
+E così mollare a giugno diventa quasi automatico. Ma c'è un perché preciso. E c'è un modo per non ripetersi.
 
 👉 Te lo racconto io in 3 sere live.
 
@@ -119,7 +119,7 @@ Iscriviti qui ↓
     <description max-chars="30">Sai cosa succede? · live</description>
     <cta-button>SIGN_UP</cta-button>
     <variants>
-      <headline-alt max-chars="40">A 40+ l'estate non e piu come prima.</headline-alt>
+      <headline-alt max-chars="40">A 40+ l'estate non è più come prima.</headline-alt>
       <headline-alt max-chars="40">Il caldo dopo i 40 ti pesa diverso.</headline-alt>
     </variants>
   </copy-for-meta-ads-manager>
@@ -136,10 +136,10 @@ Iscriviti qui ↓
   </destination>
 
   <targeting>
-    <audience-name>IT-Donne-40-58-Estate-Eta-Cold</audience-name>
+    <audience-name>IT-Donne-40-58-Estate-Età-Cold</audience-name>
     <country>IT</country><gender>female</gender>
     <age-min>40</age-min><age-max>58</age-max>
-    <interests>vacanze estate, mar mediterraneo, prova costume, perimenopausa, eta donne 40+, summer</interests>
+    <interests>vacanze estate, mar mediterraneo, prova costume, perimenopausa, età donne 40+, summer</interests>
     <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
     <advantage-plus>true</advantage-plus>
     <placements>auto</placements>
@@ -155,8 +155,8 @@ Iscriviti qui ↓
   </budget-and-kpi>
 
   <notes>
-    <note role="image-generator">Setting estate light NON cliche golden Mediterranean. Realistic warm afternoon, terrazzo italiano comune.</note>
+    <note role="image-generator">Setting estate light NON cliché golden Mediterranean. Realistic warm afternoon, terrazzo italiano comune.</note>
     <note role="copywriter">PA puro topic-relevant ESTATE INARRESTABILE. Lista sensoriale (caldo/gonfia/fatica/sonno) = self-recognition.</note>
-    <note role="designer">Highlight pink su "cambia" = la verita. Headline serif italic? NO Inter Black brand-consistent.</note>
+    <note role="designer">Highlight pink su "cambia" = la verità. Headline serif italic? NO Inter Black brand-consistent.</note>
   </notes>
 </creative>

@@ -5,7 +5,7 @@
     <objective>LEADS</objective>
     <funnel-stage>cold</funnel-stage>
     <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
-    <angle>Reframe Biologia - "Non e volonta. E biologia"</angle>
+    <angle>Reframe Biologia - "Non è volontà. È biologia"</angle>
     <copy-framework>Problem Aware Schwartz - reframe causa + scientific authority</copy-framework>
     <design-template>v8-problem-aware-brand</design-template>
   </meta>
@@ -21,7 +21,7 @@ A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face, war
 
 Stance grounded confident, arms relaxed. Looking direct at camera with calm assertive expression - "let me set the record straight" coach energy.
 
-Expression: Italian "lo sguardo del 'no, non e cosi'" - left eyebrow micro-raised 3mm, mouth firm but warm slight smirk corner up 3mm, eyes laser direct camera. Subtle chin tilt up 2° for authority correction.
+Expression: Italian "lo sguardo del 'no, non è così'" - left eyebrow micro-raised 3mm, mouth firm but warm slight smirk corner up 3mm, eyes laser direct camera. Subtle chin tilt up 2° for authority correction.
 
 Camera: iPhone 15 Pro vertical equivalent, eye level, distance 100cm.
 
@@ -59,9 +59,9 @@ Composition: subject center frame chest up, plenty of clean negative space top/b
       </zone>
       <zone id="headline-overlay" position="middle-on-photo" margin-top="40px" padding="0 32px" z-index="3">
         <text-block alignment="center" line-spacing="1.2">
-          <line>Non e <bold>"metterci la</bold></line>
-          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">VOLONTA</highlight><bold>".</bold></line>
-          <line><italic>E biologia.</italic></line>
+          <line>Non è <bold>"metterci la</bold></line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">VOLONTÀ</highlight><bold>".</bold></line>
+          <line><italic>È biologia.</italic></line>
         </text-block>
         <font>Inter Black</font>
         <font-color>brand-white</font-color>
@@ -69,8 +69,8 @@ Composition: subject center frame chest up, plenty of clean negative space top/b
         <font-size-pct>6</font-size-pct>
       </zone>
       <zone id="sub-headline" position="below-headline-on-photo" margin-top="220px" padding="0 40px" z-index="3">
-        <text language="it">Cortisolo, estrogeni, sonno meno profondo. A 40+ la "forza di volonta" non basta piu</text>
-        <text language="it"><italic>— perche il problema e altrove.</italic></text>
+        <text language="it">Cortisolo, estrogeni, sonno meno profondo. A 40+ la "forza di volontà" non basta più</text>
+        <text language="it"><italic>— perché il problema è altrove.</italic></text>
         <font>Inter Regular</font><font-color>brand-white</font-color>
         <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
         <font-size-pct>3.4</font-size-pct>
@@ -99,13 +99,13 @@ Composition: subject center frame chest up, plenty of clean negative space top/b
   <copy-for-meta-ads-manager>
     <primary-text language="it">
       <![CDATA[
-🧬 Non e "metterci la volonta". E biologia.
+🧬 Non è "metterci la volontà". È biologia.
 
-A 40+ il tuo corpo NON risponde piu come a 25. Non per pigrizia, non per "scarsa motivazione". Per fisiologia.
+A 40+ il tuo corpo NON risponde più come a 25. Non per pigrizia, non per "scarsa motivazione". Per fisiologia.
 
 Cortisolo che oscilla cronicamente. Estrogeni che fluttuano. Sonno meno profondo. Massa muscolare che cala. Resistenza all'insulina che cambia.
 
-E quando la "forza di volonta" non basta piu — la verita e che il problema e altrove. E si puo capire.
+E quando la "forza di volontà" non basta più — la verità e che il problema è altrove. E si può capire.
 
 👉 Te lo spiega Elena Giordani in 3 sere live gratuite.
 
@@ -116,11 +116,11 @@ E quando la "forza di volonta" non basta piu — la verita e che il problema e a
 Iscriviti qui ↓
       ]]>
     </primary-text>
-    <headline max-chars="40">Non e volonta. E biologia.</headline>
+    <headline max-chars="40">Non è volontà. È biologia.</headline>
     <description max-chars="30">3 sere live · 19-21 maggio</description>
     <cta-button>SIGN_UP</cta-button>
     <variants>
-      <headline-alt max-chars="40">A 40+ la volonta NON basta piu.</headline-alt>
+      <headline-alt max-chars="40">A 40+ la volontà NON basta più.</headline-alt>
       <headline-alt max-chars="40">Il problema NON e mentale.</headline-alt>
     </variants>
   </copy-for-meta-ads-manager>
@@ -158,6 +158,6 @@ Iscriviti qui ↓
   <notes>
     <note role="image-generator">Espressione assertive correction "let me set record straight".</note>
     <note role="copywriter">PA puro reframe scientifico. Lista fisiologica concreta = autorita. Anti-shaming impl ("non per pigrizia").</note>
-    <note role="designer">Highlight pink su VOLONTA = la parola contraddetta.</note>
+    <note role="designer">Highlight pink su VOLONTÀ = la parola contraddetta.</note>
   </notes>
 </creative>

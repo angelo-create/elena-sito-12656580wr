@@ -8,14 +8,14 @@
     <angle>Pattern Estate Ricorrente - "Ogni estate la stessa storia"</angle>
     <copy-framework>Problem Aware Schwartz - pain naming + curiosity gap + light CTA</copy-framework>
     <design-template>v8-problem-aware-brand</design-template>
-    <design-rationale>Schwartz Stage 2: nomina pain ricorrente, apre "perche preciso", NO menzione metodo/Elena nel body. Elena entra solo nel CTA. Massima reach economica cold.</design-rationale>
+    <design-rationale>Schwartz Stage 2: nomina pain ricorrente, apre "perché preciso", NO menzione metodo/Elena nel body. Elena entra solo nel CTA. Massima reach economica cold.</design-rationale>
     <campaign-target>1000 iscritti totali (mix cold+warm+rtg) - questo creative su cold broad</campaign-target>
   </meta>
 
   <image-generation>
     <model>gpt-image-2 (via Higgsfield - reference Elena caricate)</model>
     <reference-images>
-      <ref id="elena-higgsfield" required="true">Reference Elena gia caricate in Higgsfield</ref>
+      <ref id="elena-higgsfield" required="true">Reference Elena già caricate in Higgsfield</ref>
     </reference-images>
     <prompt-elaborate language="en">
       <![CDATA[
@@ -69,7 +69,7 @@ Composition: subject center frame chest up, plenty of clean negative space top 1
       </zone>
       <zone id="sub-headline" position="below-headline-on-photo" margin-top="160px" padding="0 40px" z-index="3">
         <text language="it">A maggio carica. A giugno mollata. A settembre indietro.</text>
-        <text language="it"><italic>C'e un PERCHE preciso. Lo stesso, ogni volta.</italic></text>
+        <text language="it"><italic>C'è un PERCHÉ preciso. Lo stesso, ogni volta.</italic></text>
         <font>Inter Regular</font>
         <font-color>brand-white</font-color>
         <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
@@ -103,13 +103,13 @@ Composition: subject center frame chest up, plenty of clean negative space top 1
       <![CDATA[
 🌞 OGNI ESTATE la stessa storia.
 
-A maggio sei carica. A giugno hai gia mollato. A settembre torni indietro di sei mesi.
+A maggio sei carica. A giugno hai già mollato. A settembre torni indietro di sei mesi.
 
 E pensi: "stavolta era diverso".
 
 Poi guardi il calendario. Era diverso anche l'anno scorso. E quello prima. E quello prima ancora.
 
-C'e un PERCHE preciso. Ed e lo stesso, ogni volta. Una volta che lo capisci, smetti di ripetere il ciclo.
+C'è un PERCHÉ preciso. Ed è lo stesso, ogni volta. Una volta che lo capisci, smetti di ripetere il ciclo.
 
 👉 Te lo racconto in 3 sere live gratuite.
 
@@ -124,8 +124,8 @@ Iscriviti qui ↓
     <description max-chars="30">3 sere live · 19-21 maggio</description>
     <cta-button>SIGN_UP</cta-button>
     <variants>
-      <headline-alt max-chars="40">Stessa storia ogni estate. Perche?</headline-alt>
-      <headline-alt max-chars="40">Da quanti anni mollas a giugno?</headline-alt>
+      <headline-alt max-chars="40">Stessa storia ogni estate. Perché?</headline-alt>
+      <headline-alt max-chars="40">Da quanti anni molli a giugno?</headline-alt>
     </variants>
   </copy-for-meta-ads-manager>
 
