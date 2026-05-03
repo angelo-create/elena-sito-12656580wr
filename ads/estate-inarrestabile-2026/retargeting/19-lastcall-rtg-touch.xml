@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-19-v2" status="ready" priority="P0" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>touch (visitatori landing) - LAST CALL DYNAMIC</retarget-type>
+    <angle>Last Call Dynamic - 3 varianti countdown D-3/D-2/D-1+D0</angle>
+    <copy-framework>Real Scarcity (winner pattern)</copy-framework>
+    <design-template>winner-elena-v1-urgency-red</design-template>
+    <activation-window>17-18-19 maggio (D-3 a D0) - DA NON ATTIVARE PRIMA</activation-window>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="3 varianti grafiche - solo l'headline countdown cambia. CTA pill RED warning per amplificare urgency.">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>brand-black</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+      <color name="warning-red" hex="#E63946"/>
+    </brand-tokens>
+
+    <variant id="D-3" activation-date="17 maggio 2026">
+      <layout-zones>
+        <zone id="top-banner" position="top" height-pct="18" bg="warning-red">
+          <text language="it">MANCANO 3 GIORNI</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>9</font-size-pct><align>center</align>
+        </zone>
+        <zone id="body" position="middle" bg="brand-black" padding="56px">
+          <text-block alignment="center" line-spacing="1.5">
+            <line emoji="🚨" font-size-multiplier="1.4"><bold>Lunedì sera si parte.</bold></line>
+            <line-break/>
+            <line>72 ore al via.</line>
+            <line>La prossima edizione è a settembre.</line>
+            <line-break/>
+            <line emoji="🔥">Iscriviti adesso. 30 secondi.</line>
+          </text-block>
+          <font-color>brand-white</font-color><font-size-pct>4.8</font-size-pct>
+        </zone>
+      </layout-zones>
+    </variant>
+
+    <variant id="D-2" activation-date="18 maggio 2026">
+      <layout-zones>
+        <zone id="top-banner" position="top" height-pct="18" bg="warning-red">
+          <text language="it">DOMANI SI PARTE</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>9</font-size-pct><align>center</align>
+        </zone>
+        <zone id="body" position="middle" bg="brand-black" padding="56px">
+          <text-block alignment="center" line-spacing="1.5">
+            <line emoji="🚨" font-size-multiplier="1.4"><bold>Domani sera 18.30.</bold></line>
+            <line-break/>
+            <line>Ultime 24 ore per essere dentro dall'inizio.</line>
+            <line>Se ti iscrivi durante la diretta, perdi i primi 30 minuti.</line>
+            <line-break/>
+            <line emoji="🔥">E i primi 30 minuti sono <bold>IL MOTIVO.</bold></line>
+          </text-block>
+          <font-color>brand-white</font-color><font-size-pct>4.8</font-size-pct>
+        </zone>
+      </layout-zones>
+    </variant>
+
+    <variant id="D-1-D0" activation-date="19 maggio 2026 (mattina + pomeriggio)">
+      <layout-zones>
+        <zone id="top-banner" position="top" height-pct="18" bg="warning-red">
+          <text language="it">STASERA · 18:30</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>9</font-size-pct><align>center</align>
+        </zone>
+        <zone id="body" position="middle" bg="brand-black" padding="56px">
+          <text-block alignment="center" line-spacing="1.5">
+            <line emoji="🚨" font-size-multiplier="1.4"><bold>Tra qualche ora.</bold></line>
+            <line-break/>
+            <line>Se sei qui che leggi è perché stai ancora pensando se entrare.</line>
+            <line-break/>
+            <line emoji="🔥"><bold>Entra.</bold> Non ti costa niente.</line>
+            <line>30 minuti. Replay incluso.</line>
+          </text-block>
+          <font-color>brand-white</font-color><font-size-pct>4.8</font-size-pct>
+        </zone>
+      </layout-zones>
+    </variant>
+
+    <shared-zones>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="32px">
+        <shape>pill rounded</shape><bg>warning-red</bg><padding>8px 20px</padding>
+        <text language="it">⚡ ULTIMI POSTI</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.8</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50">
+        <half side="left" bg="warning-red">
+          <text-line-1 language="it">19 MAGGIO</text-line-1>
+          <text-line-2 language="it">18:30 LIVE</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI ORA →</text>
+          <font>Inter Black ALL-CAPS</font><font-color>warning-red</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </shared-zones>
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text-D3 language="it">
+      <![CDATA[
+🚨 Lunedì sera si parte. 72 ore al via.
+
+Hai pensato a iscriverti, hai rimandato, ed eccoci qua.
+
+La prossima edizione è a settembre. Tre mesi di "potevo".
+
+🔥 Iscriviti adesso. 30 secondi. WEBINAR GRATUITO "Estate Inarrestabile" — 19-20-21 maggio 18.30.
+
+Posto qui ↓
+      ]]>
+    </primary-text-D3>
+    <primary-text-D2 language="it">
+      <![CDATA[
+🚨 DOMANI SERA si parte. Lunedì 18.30.
+
+Ultime 24 ore per essere dentro dall'inizio. Se ti iscrivi durante la diretta, perdi i primi 30 minuti — e i primi 30 minuti sono IL MOTIVO (sera 1).
+
+🔥 Iscriviti ora. WEBINAR GRATUITO. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text-D2>
+    <primary-text-D1 language="it">
+      <![CDATA[
+🚨 STASERA alle 18.30. Tra qualche ora.
+
+Se sei qui che leggi è perché stai ancora pensando. Entra. Non ti costa niente. 30 minuti, replay incluso.
+
+🔥 A stasera.
+
+Posto qui ↓
+      ]]>
+    </primary-text-D1>
+    <headline-D3 max-chars="40">MANCANO 3 GIORNI. Iscriviti.</headline-D3>
+    <headline-D2 max-chars="40">DOMANI SERA si parte. Sei dentro?</headline-D2>
+    <headline-D1 max-chars="40">STASERA 18.30. Entri o no?</headline-D1>
+    <description max-chars="30">Last call · webinar gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-touch-lastcall</utm_campaign>
+      <utm_content>EI26-RTG-19v2-lastcall</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-touch-lastcall&amp;utm_content=EI26-RTG-19v2-lastcall&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-touch</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Visitatori-NoOptin-21d-LASTCALL</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>60</age-max>
+    <custom-audiences>
+      <audience>Visitatori go.elenagiordani.com/webinar-maggio 21gg</audience>
+      <audience>Engagers FB+IG 14gg che hanno visto creative cold/warm</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar, acquirenti Club</exclusions>
+    <advantage-plus>false</advantage-plus>
+    <placements>auto (priority Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>3 (17-18-19 maggio)</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="4.0"/>
+    <kill-rule>Mai. Lasciare fino a inizio webinar 19/5 ore 18:30</kill-rule>
+    <scale-rule>D-1 (19/5): raddoppiare budget a 30€/g per ultimo push</scale-rule>
+    <frequency-cap>Max 2/giorno</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">3 grafiche separate - solo top banner + body cambiano. Footer e pill condivisi (warning-red invece di pink). Branded urgency colorway.</note>
+    <note role="copywriter">3 copy distinte D-3/D-2/D-1. Tono crescente. Real scarcity (data fissa).</note>
+    <note role="media-buyer">SCHEDULE CRITICAL:
+      17/5 00:00 → attiva D-3 variant
+      18/5 00:00 → off D-3, attiva D-2
+      19/5 00:00 → off D-2, attiva D-1+D0
+      19/5 18:30 → off all
+      Frequency 2/giorno per saturare ultime 72h.</note>
+  </notes>
+</creative>

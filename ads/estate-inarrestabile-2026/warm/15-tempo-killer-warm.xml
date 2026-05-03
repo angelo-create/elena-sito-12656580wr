@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-WARM-15-v2" status="ready" priority="P1" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>warm</funnel-stage>
+    <angle>Tempo Killer - "30 MINUTI A SERA. Non di più."</angle>
+    <copy-framework>Objection Killer (winner pattern)</copy-framework>
+    <design-template>winner-elena-v1</design-template>
+  </meta>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>brand-black</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink">
+        <text language="it">WEBINAR PER DONNE</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+      <zone id="body" position="middle" bg="brand-black" padding="48px 56px">
+        <text-block alignment="center" line-spacing="1.5">
+          <line emoji="⏱" font-size-multiplier="1.4"><bold>30 MINUTI A SERA.</bold></line>
+          <line><italic>Non di più. Promesso.</italic></line>
+          <line-break/>
+          <line emoji="✅">3 sere · 18:30 - 19:00</line>
+          <line emoji="✅">Replay incluso (se salti, recuperi)</line>
+          <line emoji="✅">Q&amp;A live solo per chi vuole restare</line>
+          <line-break/>
+          <line emoji="💡"><bold>WEBINAR GRATUITO</bold> Lunedì 19 Maggio 18.30!</line>
+        </text-block>
+        <font-color>brand-white</font-color><font-size-pct>4.5</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="32px">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>8px 20px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.8</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedì, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⏱ 30 MINUTI A SERA. Non di più. Promesso.
+
+"Non ho 3 sere libere consecutive" — Lo so. Anche io non le ho.
+
+Ecco perché Estate Inarrestabile è costruito così:
+✅ 30 minuti a sera (cronometro alla mano)
+✅ 3 sere · 18:30 - 19:00
+✅ Replay incluso (se salti, recuperi)
+✅ Q&amp;A live solo per chi vuole restare
+
+90 minuti totali in 3 giorni. È il formato meno invadente per la TUA vita.
+
+💡 WEBINAR GRATUITO "Estate Inarrestabile" — 19-20-21 maggio.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">30 MINUTI A SERA. Non di più.</headline>
+    <description max-chars="30">Replay incluso · gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">90 minuti in 3 giorni. Replay.</headline-alt>
+      <headline-alt max-chars="40">Non hai tempo? 30 min/sera.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-warm</utm_campaign>
+      <utm_content>EI26-WARM-15v2-tempo</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-warm&amp;utm_content=EI26-WARM-15v2-tempo&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Engagers-NoSignup + Mamme-Lavoratrici</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>55</age-max>
+    <custom-audiences>
+      <audience>Engagers 180gg che NON si sono iscritti webinar passati</audience>
+      <audience>LAL 2% iscritti webinar marzo</audience>
+    </custom-audiences>
+    <exclusions>visitatori webinar-maggio.html 14gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +25% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">"30 MINUTI" giga focus. Lista ✅ con 4 punti = visual rhythm. Concrete time slot 18:30-19:00 leggibilissimo.</note>
+    <note role="copywriter">Objection killer Halbert: nominare obiezione esplicita ("non ho 3 sere libere") + risposta concreta. Specifity (30 min) elimina ambiguità.</note>
+    <note role="media-buyer">Audience: engagers che non hanno mai cliccato webinar = bottleneck è tempo. Sblocca segmento.</note>
+  </notes>
+</creative>

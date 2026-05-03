@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-16-v2" status="ready" priority="P0" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>touch (visitatori landing no opt-in)</retarget-type>
+    <angle>Quasi Dentro - Reminder + Soft Urgency</angle>
+    <copy-framework>Reminder + Urgency (winner pattern)</copy-framework>
+    <design-template>winner-elena-v1</design-template>
+  </meta>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>brand-black</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink">
+        <text language="it">ULTIMO PROMEMORIA</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+      <zone id="body" position="middle" bg="brand-black" padding="48px 56px">
+        <text-block alignment="center" line-spacing="1.5">
+          <line emoji="⚠️"><bold>Eri quasi dentro.</bold></line>
+          <line>Hai visto la pagina, hai pensato "lo faccio dopo cena".</line>
+          <line>E "dopo cena" è ancora lì.</line>
+          <line-break/>
+          <line emoji="🔥">Lunedì 19 Maggio 18.30 si parte. <bold>Senza di te?</bold></line>
+          <line-break/>
+          <line emoji="✅">Riprendi da dove avevi lasciato →</line>
+        </text-block>
+        <font-color>brand-white</font-color><font-size-pct>4.6</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="32px">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>8px 20px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.8</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedì, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI ORA</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⚠️ Eri quasi dentro.
+
+Hai visto la pagina. Hai letto. Forse hai pensato "lo faccio dopo cena". E quel "dopo cena" è ancora lì.
+
+🔥 Lunedì 19 Maggio alle 18.30 si parte. Tre sere. Senza di te?
+
+Non c'è una nuova edizione il mese prossimo. La prossima è a settembre. Tre mesi di "potevo".
+
+✅ Riprendi da dove avevi lasciato →
+
+100 posti. Replay incluso.
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Eri quasi dentro. Riprendi.</headline>
+    <description max-chars="30">Lunedì 19/5 18.30 · ultima</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Manca solo l'iscrizione.</headline-alt>
+      <headline-alt max-chars="40">19 maggio si parte. Senza te?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-touch</utm_campaign>
+      <utm_content>EI26-RTG-16v2-quasi</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-touch&amp;utm_content=EI26-RTG-16v2-quasi&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-touch</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Visitatori-Landing-NoOptin-30d</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>60</age-max>
+    <custom-audiences>
+      <audience>Visitatori go.elenagiordani.com/webinar-maggio ultimi 30gg</audience>
+      <audience>EXCLUDE: chi ha completato Lead event</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar, acquirenti Club</exclusions>
+    <advantage-plus>false</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>8</test-budget-eur-day>
+    <test-duration-days>10</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="3.5"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +25% budget</scale-rule>
+    <frequency-cap>Max 5/settimana</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">Top banner specifico "ULTIMO PROMEMORIA" = urgency soft. Body riconoscimento esplicito.</note>
+    <note role="copywriter">Mind-reading Halbert: nominare l'esitazione esatta ("dopo cena"). Soft urgency (data fissa, no fake scarcity).</note>
+    <note role="media-buyer">Frequency cap 5/settimana. Lanciare D-10 → D-1.</note>
+  </notes>
+</creative>

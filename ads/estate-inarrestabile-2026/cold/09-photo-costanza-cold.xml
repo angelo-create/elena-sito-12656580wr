@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-09-v2" status="ready" priority="P0" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Photo-Led Costanza - Replica esatta reference 6 ("COME ESSERE COSTANTE")</angle>
+    <copy-framework>Brand-led + Concrete Promise (winner pattern fotografico)</copy-framework>
+    <design-template>winner-elena-v2-photo-led (variante con foto stock)</design-template>
+    <reference-source>Screenshot 2026-05-03 alle 11.04.37.png ("Come Essere Costante" — STESSO TEMA)</reference-source>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="REPLICA ESATTA reference 11.04.37 - 'Come Essere Costante'. Pink full background con foto stock donna fitness in basso, testo white sopra, header Zoom + WEBINAR GRATUITO, pill data. Topic: stesso del webinar (costanza).">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>brand-pink</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-header" position="top" height-pct="10" bg="brand-pink" layout="row">
+        <element type="zoom-icon" position="left" margin-left="32px">
+          <text language="en">Zoom</text>
+          <font>Zoom Sans Bold (or fallback Inter Bold)</font>
+          <font-color>brand-white</font-color>
+          <font-size-pct>4.5</font-size-pct>
+          <icon>zoom video camera icon left of text</icon>
+        </element>
+        <element type="separator" position="center" margin="0 16px">
+          <text>·</text>
+          <font-color>brand-white</font-color>
+        </element>
+        <element type="webinar-tag" position="left-after-separator">
+          <text language="it">WEBINAR GRATUITO</text>
+          <font>Inter Bold ALL-CAPS</font>
+          <font-color>brand-white</font-color>
+          <font-size-pct>4</font-size-pct>
+        </element>
+      </zone>
+
+      <zone id="title-area" position="upper-middle" bg="brand-pink" padding="32px 56px 16px 56px">
+        <text-block alignment="center">
+          <line language="it" font-size-multiplier="1.2">COME ESSERE</line>
+          <line language="it" font-size-multiplier="2.0"><bold>COSTANTE</bold></line>
+          <line-break/>
+          <line language="it" font-size-multiplier="0.7">3 step per ottenere la migliore <italic>forma fisica</italic></line>
+        </text-block>
+        <font>Inter Black ALL-CAPS</font>
+        <font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct>
+      </zone>
+
+      <zone id="date-pill" position="middle-left" margin-left="48px" margin-top="12px">
+        <shape>rounded rectangle</shape>
+        <bg>brand-white</bg>
+        <padding>10px 18px</padding>
+        <text-block>
+          <element language="it" weight="medium" size-pct="3">lunedì</element>
+          <element language="it" weight="black" size-pct="6.5">19 maggio</element>
+        </text-block>
+        <font-color>brand-black</font-color>
+        <icon>small calendar icon left</icon>
+      </zone>
+
+      <zone id="photo-area" position="bottom-right" width-pct="55" height-pct="60">
+        <photo-asset>
+          <subject>Donna 35-50 anni, vista dorsale o tre quarti, mid-curl con manubrio piccolo, top sportivo neutro, sfondo neutro chiaro/grigio, faccia non visibile o parzialmente nascosta. Atletica ma reale (NO fitness model esagerata).</subject>
+          <treatment>Foto stock professionale OPPURE generata con AI (vedi prompt sotto). Edit: ritagliata su sfondo neutro, leggera grain, NON saturated.</treatment>
+          <or-generate-with-ai>
+            <model>nano-banana</model>
+            <prompt language="en">A real woman aged 40-50 with shoulder-length dark hair, photographed from behind in a three-quarter angle, holding a small dumbbell mid-bicep curl. Wearing a simple dark athletic top. Natural light, clean light grey/cream studio background. Photorealistic, soft documentary lifestyle photography, real body type (not fitness model), focused expression visible in profile only. No face directly to camera. Mood: capable, focused, real woman.</prompt>
+            <negative-prompt>fitness influencer, model, perfect body, oily skin, gym posing, fake smile, photoshopped, instagram filter, oversaturated</negative-prompt>
+          </or-generate-with-ai>
+        </photo-asset>
+      </zone>
+
+      <zone id="time-pill" position="bottom-left" margin-left="48px" margin-bottom="48px">
+        <shape>rounded rectangle</shape>
+        <bg>brand-white</bg>
+        <padding>10px 18px</padding>
+        <text language="it">ore 18:30</text>
+        <font>Inter Bold</font>
+        <font-color>brand-black</font-color>
+        <font-size-pct>5</font-size-pct>
+        <icon>small clock icon left</icon>
+      </zone>
+
+      <zone id="logo" position="bottom-left" margin-left="48px" margin-bottom="16px">
+        <text language="it">EG ACADEMY</text>
+        <font>Inter Bold</font>
+        <font-color>brand-white</font-color>
+        <font-size-pct>3</font-size-pct>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+COME ESSERE COSTANTE — 3 step per ottenere la migliore forma fisica.
+
+Quest'estate non si molla. Lunedì 19 maggio alle 18:30 ti spiego il metodo che ha permesso a 2300+ donne 35+ di restare costanti anche a giugno, luglio e agosto.
+
+3 sere live (19-20-21 maggio). 30 minuti l'una. Replay incluso. Gratuito.
+
+🔥 100 posti.
+
+Iscrizione qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">COME ESSERE COSTANTE — 3 step.</headline>
+    <description max-chars="30">19 maggio · ore 18:30 · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">3 step per restare costante.</headline-alt>
+      <headline-alt max-chars="40">Webinar gratuito · 19 maggio.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-09v2-photocostanza</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-09v2-photocostanza&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Fitness-Direct-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>55</age-max>
+    <interests>fitness femminile, palestra donne, allenamento a casa, pesi donne, tonificazione</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.0"/>
+    <kill-rule>Se CPL &gt; 5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">REPLICA del format reference 11.04.37 ("Come Essere Costante"). Pink full bg, header Zoom+webinar gratuito, titolo COSTANTE giga, foto stock donna manubrio bottom-right, pill data e ora bianchi a sinistra, logo EG ACADEMY in basso. Stesso topic del nostro webinar = pattern proven.</note>
+    <note role="copywriter">Headline replicata letteralmente. Adattamento: aggiunta dei 3 sere e del 19-20-21 maggio.</note>
+    <note role="media-buyer">Format già testato ad alta performance. Aspettarsi sub-3€ CPL su audience fitness donna 35+.</note>
+  </notes>
+</creative>

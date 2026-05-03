@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-01-v2" status="ready" priority="P0" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Constitutional Reframe - "Non è la tua costituzione, è il metodo"</angle>
+    <copy-framework>Direct Response Reframe (replica reference winner sub-3€ CPL)</copy-framework>
+    <design-template>winner-elena-v1 (replica esatta WEBINAR PER DONNE format)</design-template>
+    <reference-source>Screenshot 2026-05-03 alle 11.02.42.png (winner sub-3€ CPL)</reference-source>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="Produrre grafica statica 1:1 1080x1080 con layout sotto. NO foto Elena. NO video. Pure tipografia + emoji + brand pink/black/white.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>brand-black</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+      <font name="font-display" value="Inter Black (extra bold) ALL-CAPS"/>
+      <font name="font-body" value="Inter Regular per testo, Inter Bold per claim chiave"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink">
+        <text language="it">WEBINAR PER DONNE</text>
+        <font>font-display</font>
+        <font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct>
+        <align>center</align>
+        <vertical-align>middle</vertical-align>
+      </zone>
+
+      <zone id="body" position="middle" bg="brand-black" padding="48px 56px">
+        <text-block alignment="center" line-spacing="1.5">
+          <line emoji="❌">Ti hanno sempre detto che il problema sei tu?</line>
+          <line emoji="❌">Che non puoi cambiare perché è la tua costituzione?</line>
+          <line-break/>
+          <line emoji="⚠️">Falso! Il problema è che <bold>non hai mai trovato un metodo specifico per il corpo FEMMINILE.</bold></line>
+          <line-break/>
+          <line emoji="💡">Te lo svelo nel <bold>WEBINAR GRATUITO</bold> di <bold>Lunedì 19 Maggio 2026 alle 18.30!</bold></line>
+        </text-block>
+        <font>font-body</font>
+        <font-color>brand-white</font-color>
+        <font-size-pct>4.5</font-size-pct>
+      </zone>
+
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="32px">
+        <shape>pill rounded</shape>
+        <bg>brand-pink</bg>
+        <padding>8px 20px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font>
+        <font-color>brand-white</font-color>
+        <font-size-pct>3.8</font-size-pct>
+      </zone>
+
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedì, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>font-display</font>
+          <font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct>
+          <align>center</align>
+          <vertical-align>middle</vertical-align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font>
+          <font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct>
+          <align>center</align>
+          <vertical-align>middle</vertical-align>
+        </half>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false">Questa creativa è solo tipografica - no photo.</photo-asset>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+❌ Ti hanno sempre detto che il problema sei tu?
+❌ Che non puoi cambiare perché è la tua costituzione?
+
+⚠️ Falso! Il problema è che non hai mai trovato un metodo specifico per il corpo FEMMINILE 35+ — soprattutto in estate, quando tutto si ribalta.
+
+💡 Te lo svelo nel WEBINAR GRATUITO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio 2026 alle 18.30.
+
+🔥 100 posti. Replay incluso. Iscrizione gratuita.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Il problema NON sei tu. È il METODO.</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Falso che è la tua costituzione.</headline-alt>
+      <headline-alt max-chars="40">100 posti · webinar PER DONNE.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-01v2-constreframe</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-01v2-constreframe&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Broad-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>55</age-max>
+    <interests>fitness femminile, benessere donna, alimentazione sana, dieta, perdita peso, wellness</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, lookalike acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.0"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="30"/>
+    <kill-rule>Se CPL &gt; 5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2.5€ e spend ≥ 50€ → +30% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">REPLICA ESATTA del format reference 2026-05-03 11.02.42.png. Pink #FF0066 acceso (non pastello). Layout: top 18% / body 64% / footer 18%. Pill "100 Posti" bottom-right SOPRA il footer (margin-bottom ~120px). Font Inter Black per display, Inter Regular+Bold per body. Bold strategico solo sulle parole chiave evidenziate.</note>
+    <note role="copywriter">NO "non prometto miracoli" / NO storytelling poetico — qui registro è direct response classico. Bold su FEMMINILE / GRATUITO / METODO. Emoji come bullet markers, non decorativi.</note>
+    <note role="media-buyer">Replica del winner storico (sub-3€ CPL) adattata al tema estate. Lanciare in CBO con altre cold v2. CPL target 3€ basato su benchmark reale brand.</note>
+  </notes>
+</creative>

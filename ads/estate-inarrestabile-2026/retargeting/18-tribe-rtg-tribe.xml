@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-18-v2" status="ready" priority="P0" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>tribe (follower IG/FB attivi 90gg)</retarget-type>
+    <angle>Tribe Direct - "A te. Che mi segui da un po'."</angle>
+    <copy-framework>Direct Address Tribale (winner pattern)</copy-framework>
+    <design-template>winner-elena-v1-pink-dominant</design-template>
+  </meta>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>brand-pink</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-white">
+        <text language="it">SOLO PER LE INARRESTABILI</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-pink</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="body" position="middle" bg="brand-pink" padding="48px 56px">
+        <text-block alignment="center" line-spacing="1.5">
+          <line emoji="💜"><bold>A te.</bold></line>
+          <line>Che mi segui da un po'.</line>
+          <line-break/>
+          <line>Ogni volta che ho lanciato qualcosa hai pensato:</line>
+          <line><italic>"Magari la prossima."</italic></line>
+          <line-break/>
+          <line emoji="🔥"><bold>Stavolta è il momento.</bold></line>
+          <line-break/>
+          <line emoji="✅">Lunedì 19 Maggio 18.30 — <bold>GRATUITO</bold></line>
+        </text-block>
+        <font-color>brand-white</font-color><font-size-pct>4.6</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="32px">
+        <shape>pill rounded</shape><bg>brand-white</bg><padding>8px 20px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-pink</font-color><font-size-pct>3.8</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedì, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ENTRA DENTRO</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+💜 A te. Che mi segui da un po'.
+
+So che hai visto i miei post. Hai messo qualche like. Hai pensato "questa donna dice cose vere".
+
+E ogni volta che ho lanciato qualcosa, hai pensato: "Magari la prossima."
+
+🔥 Stavolta è il momento. Tra noi parlo diretto.
+
+WEBINAR GRATUITO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio alle 18.30. È il modo più semplice per entrare nelle Inarrestabili senza spendere un euro.
+
+Se non lo fai adesso, lo farò di nuovo a settembre. E tu sarai stata in giro un altro giro.
+
+100 posti. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">A te. Che mi segui da un po'.</headline>
+    <description max-chars="30">Stavolta è il momento.</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Tra noi: stavolta entra.</headline-alt>
+      <headline-alt max-chars="40">Quante volte ancora "magari"?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source><utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-tribe</utm_campaign>
+      <utm_content>EI26-RTG-18v2-tribe</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-tribe&amp;utm_content=EI26-RTG-18v2-tribe&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-tribe</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Follower-Attivi-90d</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>65</age-max>
+    <custom-audiences>
+      <audience>Follower IG @elenagiordani 90gg engaged</audience>
+      <audience>Follower Pagina FB Elena Giordani 90gg engaged</audience>
+      <audience>Video viewers 50%+ contenuti organici 90gg</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar, acquirenti Club, visitatori landing 14gg</exclusions>
+    <advantage-plus>false</advantage-plus>
+    <placements>Reels + Stories + Feed</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>10</test-budget-eur-day>
+    <test-duration-days>10</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="1.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="4.0"/>
+    <kill-rule>Se CPL &gt; 3€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1€ → +30% budget</scale-rule>
+    <frequency-cap>Max 4/settimana</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">Variante pink-dominant. Top banner bianco "SOLO PER LE INARRESTABILI" = exclusivity tribale.</note>
+    <note role="copywriter">Direct address. Mind-reading "magari la prossima" + naming la procrastination senza giudizio.</note>
+    <note role="media-buyer">Audience tribale = altissima conversione. CPL atteso ~1-2€.</note>
+  </notes>
+</creative>

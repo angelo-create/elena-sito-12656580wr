@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-05-v2" status="ready" priority="P0" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Stanche di Spendere - "Per sole donne stanche di spendere migliaia in metodi non definitivi"</angle>
+    <copy-framework>Audience Self-Selection + Authority (replica winner sub-3€ CPL)</copy-framework>
+    <design-template>winner-elena-v1-pink-dominant (variante con pink full background per body)</design-template>
+    <reference-source>Screenshot 2026-05-03 alle 11.03.20.png (winner pink dominant)</reference-source>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="VARIANTE pink-dominant: body con sfondo pink invece che nero. Replica reference 11.03.20.">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>brand-pink</bg-base></canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-white">
+        <text language="it">WEBINAR ESCLUSIVO</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-pink</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+
+      <zone id="body" position="middle" bg="brand-pink" padding="56px 56px">
+        <text-block alignment="left" line-spacing="1.3">
+          <line>PER <underline>SOLE DONNE</underline></line>
+          <line>CHE SONO STANCHE</line>
+          <line>DI SPENDERE MIGLIAIA</line>
+          <line>DI EURO IN METODI</line>
+          <line>NON DEFINITIVI PER</line>
+          <line>TRASFORMARE IL</line>
+          <line>LORO CORPO</line>
+        </text-block>
+        <font>Inter Black ALL-CAPS</font>
+        <font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct>
+      </zone>
+
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="32px">
+        <shape>pill rounded</shape><bg>brand-pink</bg><border>2px solid white</border><padding>8px 20px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.8</font-size-pct>
+      </zone>
+
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedì, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+PER SOLE DONNE che sono stanche di spendere migliaia di euro in metodi non definitivi per trasformare il loro corpo.
+
+Se hai già provato di tutto — diete, palestre, app, integratori, programmi online — e ti ritrovi sempre al punto di partenza: il problema NON sei tu.
+
+È che nessuno ha costruito un metodo specifico per le donne 35+ che funzioni anche d'estate.
+
+✅ Te lo svelo nel WEBINAR ESCLUSIVO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio alle 18.30. Gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Stanca di buttare soldi in metodi?</headline>
+    <description max-chars="30">Webinar ESCLUSIVO · gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Per sole donne stanche di provarne.</headline-alt>
+      <headline-alt max-chars="40">Hai già provato tutto? Manca questo.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-05v2-stanchesoldi</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-05v2-stanchesoldi&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-55-Spenders-Disillusioned-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>55</age-max>
+    <interests>integratori dimagranti, programmi online dimagrimento, app fitness premium, weight watchers, lifesum, melarossa, dieta plank</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kill-rule>Se CPL &gt; 5.5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ → +25% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">VARIANTE pink-dominant (replica esatta reference 11.03.20). Body PINK con testo bianco ALL-CAPS multi-riga left-aligned. "SOLE DONNE" sottolineato. Top banner BIANCO con "WEBINAR ESCLUSIVO" pink. Diversifica visivamente da altre cold.</note>
+    <note role="copywriter">Self-selection: chi si riconosce in "stanca di spendere" si auto-qualifica. Authority frame "metodo per donne 35+" ricalibra autorità.</note>
+    <note role="media-buyer">Audience: spenders di programmi diet/fitness disillusi. Format pink dominant attira attenzione diversa dal nero - alterna in CBO.</note>
+  </notes>
+</creative>

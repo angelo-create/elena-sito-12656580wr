@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-02-v2" status="ready" priority="P0" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Diet+Gym Failure - "Dieta e palestra eppure non cambia? Errore che blocca metabolismo"</angle>
+    <copy-framework>Direct Response New Mechanism (replica reference winner sub-3€ CPL)</copy-framework>
+    <design-template>winner-elena-v1</design-template>
+    <reference-source>Screenshot 2026-05-03 alle 11.03.33.png (winner sub-3€ CPL)</reference-source>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="Replica esatta del format winner. Solo tipografia + emoji su nero, banner pink top, footer pink+white split.">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>brand-black</bg-base></canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink">
+        <text language="it">WEBINAR PER DONNE</text>
+        <font>Inter Black ALL-CAPS</font>
+        <font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct>
+        <align>center</align>
+      </zone>
+
+      <zone id="body" position="middle" bg="brand-black" padding="48px 56px">
+        <text-block alignment="center" line-spacing="1.5">
+          <line emoji="⚠️">Dieta sana e palestra...</line>
+          <line emoji="" indent="true">eppure il tuo corpo non cambia?</line>
+          <line-break/>
+          <line emoji="">Probabilmente stai commettendo l'errore che <bold>blocca il metabolismo!</bold></line>
+          <line-break/>
+          <line emoji="💡">Scopri come <bold>riattivarlo</bold> nel <bold>WEBINAR GRATUITO</bold></line>
+          <line emoji="">Lunedì 19 Maggio 2026 alle 18.30!</line>
+        </text-block>
+        <font-color>brand-white</font-color>
+        <font-size-pct>4.8</font-size-pct>
+      </zone>
+
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="32px">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>8px 20px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.8</font-size-pct>
+      </zone>
+
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedì, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⚠️ Dieta sana e palestra... eppure il tuo corpo non cambia?
+
+Probabilmente stai commettendo l'errore che blocca il metabolismo. È un meccanismo specifico delle donne 35+ che peggiora proprio d'estate.
+
+💡 Scopri come riattivarlo nel WEBINAR GRATUITO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio alle 18.30.
+
+🔥 100 posti. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Dieta + palestra ma niente cambia?</headline>
+    <description max-chars="30">Riattiva il metabolismo · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">L'errore che blocca il metabolismo.</headline-alt>
+      <headline-alt max-chars="40">Webinar gratuito · scopri come.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-02v2-dietgym</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-02v2-dietgym&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Diet-Gym-Plateau-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>55</age-max>
+    <interests>palestra, fitness, dieta mediterranea, perdita peso, alimentazione, nutrizione, dimagrire</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.0"/>
+    <kill-rule>Se CPL &gt; 5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">Replica reference 11.03.33. Pink banner alto, body nero centrato, footer split. Pill "100 Posti" bottom-right.</note>
+    <note role="copywriter">Hook = pain self-recognition immediata ("dieta+palestra ma niente"). Reframe = "metabolismo bloccato". Promise = "riattivarlo".</note>
+    <note role="media-buyer">Audience: chi è in plateau dopo dieta/palestra. CPL atteso ≤3€ basato su reference winner.</note>
+  </notes>
+</creative>

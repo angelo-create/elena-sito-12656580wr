@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-08-v2" status="ready" priority="P0" version="winner-pattern-v2">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Inarrestabili Identity - "Le INARRESTABILI NON aspettano settembre"</angle>
+    <copy-framework>Identity + Social Proof (winner pattern)</copy-framework>
+    <design-template>winner-elena-v1-pink-dominant</design-template>
+  </meta>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>brand-pink</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-white">
+        <text language="it">WEBINAR ESCLUSIVO</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-pink</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+      <zone id="body" position="middle" bg="brand-pink" padding="48px 56px">
+        <text-block alignment="center" line-spacing="1.4">
+          <line emoji="🔥" font-size-multiplier="1.5"><bold>LE INARRESTABILI</bold></line>
+          <line-break/>
+          <line>NON aspettano settembre per ricominciare.</line>
+          <line-break/>
+          <line>Sono <bold>2300+ donne 35+</bold> che hanno smesso di mollare a giugno.</line>
+          <line-break/>
+          <line>✅ Entra nella tribù nel <bold>WEBINAR GRATUITO</bold> di Lunedì 19 Maggio 2026 alle 18.30!</line>
+        </text-block>
+        <font-color>brand-white</font-color><font-size-pct>5</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="32px">
+        <shape>pill rounded</shape><bg>brand-white</bg><padding>8px 20px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-pink</font-color><font-size-pct>3.8</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedì, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+🔥 LE INARRESTABILI non aspettano settembre per ricominciare.
+
+Sono 2300+ donne 35+ in 8 paesi che hanno smesso di mollare a giugno. Non sono donne con genetica fortunata. Sono donne come te, che a un certo punto hanno trovato il METODO.
+
+✅ Entra nella tribù nel WEBINAR GRATUITO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio alle 18.30.
+
+🔥 100 posti. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Le INARRESTABILI non aspettano.</headline>
+    <description max-chars="30">2300+ donne · entra dentro</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">2300+ donne 35+. Una tribù.</headline-alt>
+      <headline-alt max-chars="40">Smetti di mollare a giugno.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-08v2-identity</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-08v2-identity&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-65-Sisterhood-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>65</age-max>
+    <interests>amicizia femminile, gruppi donne, community online, libri Brené Brown, retreat benessere, lifestyle donne</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="2"/>
+    <kill-rule>Se CPL &gt; 5.5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ → +25% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">Variante pink-dominant. "LE INARRESTABILI" = focus visivo (font extra big). Numero 2300+ in bold.</note>
+    <note role="copywriter">Identity belonging + social proof inline. "Tribù" frame.</note>
+    <note role="media-buyer">Aspettarsi alti share (donne taggano amiche). Audience più ampia 40-65.</note>
+  </notes>
+</creative>
