@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-08-v3-typewriter" status="ready" priority="P0" version="winner-pattern-v3-typewriter">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Inarrestabili Identity (stesso v2)</angle>
+    <copy-framework>Identity + Direct Mail Halbert Letter Format</copy-framework>
+    <design-template>v3-typewriter-vintage-email (alternativa v2)</design-template>
+    <design-rationale>Format "lettera scritta a macchina" = direct response classico anni '70-'80 (Halbert/Sugarman). Mono font + bianco crema = anti-brand-shouting, intimità diretta. Pattern interrupt vs feed pieno di brand patinati.</design-rationale>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="DESIGN TYPEWRITER VINTAGE EMAIL - lettera scritta a macchina. Mono font, cream background, accenti pink minimi. Look Halbert direct mail letter.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>brand-paper</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-paper" hex="#F5F0E8"/>
+      <color name="brand-ink" hex="#1A1611"/>
+      <color name="brand-paper-shadow" hex="#E8E2D6"/>
+      <font name="font-mono" value="Courier Prime / IBM Plex Mono / Special Elite (typewriter)"/>
+      <font name="font-handwritten" value="Caveat / Homemade Apple (firma)"/>
+    </brand-tokens>
+
+    <texture-overlay>
+      <type>subtle paper grain + slight ink imperfections</type>
+      <opacity>0.08</opacity>
+      <description>Texture leggera paper / typewriter ink bleed per autenticità vintage</description>
+    </texture-overlay>
+
+    <layout-zones>
+      <zone id="paper-margins" position="full" bg="brand-paper" padding="64px 56px">
+
+        <date-header position="top" align="right">
+          <text language="it">Roma, 19 maggio 2026</text>
+          <font>font-mono</font>
+          <font-color>brand-ink</font-color>
+          <font-size-pct>2.8</font-size-pct>
+        </date-header>
+
+        <salutation position="below-date" margin-top="40px" align="left">
+          <text language="it">Cara <highlight bg="brand-pink" color="brand-paper" padding="2px 8px">INARRESTABILE</highlight>,</text>
+          <font>font-mono</font>
+          <font-color>brand-ink</font-color>
+          <font-size-pct>4.2</font-size-pct>
+        </salutation>
+
+        <body position="below-salutation" margin-top="24px" align="left">
+          <paragraph language="it">non aspettiamo settembre. Mai più.</paragraph>
+          <paragraph language="it"></paragraph>
+          <paragraph language="it">Siamo 2300+. In 8 paesi. Donne 35+ che hanno smesso di mollare a giugno.</paragraph>
+          <paragraph language="it"></paragraph>
+          <paragraph language="it">Non per la genetica. Per il <bold>METODO</bold>.</paragraph>
+          <font>font-mono</font>
+          <font-color>brand-ink</font-color>
+          <font-size-pct>3.8</font-size-pct>
+          <line-height>1.6</line-height>
+        </body>
+
+        <signature position="below-body" margin-top="32px" align="left">
+          <text language="it">— Elena G.</text>
+          <font>font-handwritten</font>
+          <font-color>brand-pink</font-color>
+          <font-size-pct>5</font-size-pct>
+        </signature>
+
+        <postscript position="below-signature" margin-top="32px" align="left" bg-bar-left="brand-pink">
+          <ps-marker language="it">P.S.</ps-marker>
+          <ps-marker-color>brand-pink</ps-marker-color>
+          <ps-marker-bold>true</ps-marker-bold>
+          <ps-text language="it">Webinar gratuito 19-20-21 maggio · 18.30. 100 posti. Iscrizione →</ps-text>
+          <font>font-mono</font>
+          <font-color>brand-ink</font-color>
+          <font-size-pct>3.4</font-size-pct>
+          <padding-left>16px</padding-left>
+          <border-left>3px solid brand-pink</border-left>
+        </postscript>
+      </zone>
+
+      <zone id="bottom-stamp" position="bottom-right" margin-bottom="32px" margin-right="32px">
+        <stamp-shape>rounded square</stamp-shape>
+        <bg>transparent</bg>
+        <border>2px solid brand-pink dashed</border>
+        <padding>8px 14px</padding>
+        <text-line-1 language="it">100 POSTI</text-line-1>
+        <text-line-2 language="it">RIMASTI</text-line-2>
+        <font>font-mono</font>
+        <font-color>brand-pink</font-color>
+        <font-size-pct>2.6</font-size-pct>
+        <rotation>-8deg</rotation>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+🔥 LE INARRESTABILI non aspettano settembre per ricominciare.
+
+Sono 2300+ donne 35+ in 8 paesi che hanno smesso di mollare a giugno. Non sono donne con genetica fortunata. Sono donne come te, che a un certo punto hanno trovato il METODO.
+
+✅ Entra nella tribù nel WEBINAR GRATUITO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio alle 18.30.
+
+🔥 100 posti. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Cara INARRESTABILE, una lettera.</headline>
+    <description max-chars="30">2300+ donne · entra dentro</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Lettera per le Inarrestabili.</headline-alt>
+      <headline-alt max-chars="40">Smetti di mollare a giugno.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-08v3-typewriter</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-08v3-typewriter&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-45-65-Reading-Letter-Format-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>45</age-min><age-max>65</age-max>
+    <interests>libri, lettura, romanzi, biografie, lettere, slow living, scrittura, journaling, podcast lunghi</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>10</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.5"/>
+    <kpi-secondary metric="time-on-ad" target-min-sec="8"/>
+    <kpi-secondary metric="A/B-vs-v2-CPL" comparison="vs EI26-COLD-08-v2"/>
+    <kill-rule>Se CPL &gt; 5.5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ → +25% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">DESIGN TYPEWRITER VINTAGE: paper background cream (#F5F0E8) con texture subtle. Font Courier Prime / IBM Plex Mono per body. Caveat per firma "— Elena G." (handwritten). Highlight pink solo su "INARRESTABILE" + signature pink + barra laterale P.S. + stamp ruotato bottom-right "100 POSTI RIMASTI". Pattern interrupt vs brand pink dominante.</note>
+    <note role="copywriter">Lettera Halbert-style: data, salutation, body breve, signature, P.S. con CTA. P.S. = elemento chiave Halbert (è dove Halbert sapeva la gente leggeva).</note>
+    <note role="media-buyer">A/B vs v2. Audience più matura (45-65) lettori. Aspettarsi alto time-on-ad (formato letterario lento). Pattern interrupt nel feed.</note>
+  </notes>
+</creative>

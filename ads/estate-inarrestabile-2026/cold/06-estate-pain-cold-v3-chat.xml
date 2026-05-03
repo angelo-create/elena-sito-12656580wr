@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-06-v3-chat" status="ready" priority="P0" version="winner-pattern-v3-chat">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Estate Specific Pain (stesso v2)</angle>
+    <copy-framework>PAS via Conversational Format</copy-framework>
+    <design-template>v3-conversational-chat (alternativa v2)</design-template>
+    <design-rationale>Format chat bubble iMessage-style = scroll-stopping naturale (utenti riconoscono format messaging quotidiano). Empatia immediata visiva. Particolarmente forte su Reels/Stories.</design-rationale>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="DESIGN CHAT BUBBLE iMessage / WhatsApp - simula schermata messaging. Bolle alternate sinistra (grigia, voce comune) e destra (pink, Elena). Time stamp in alto, indicator 'sta scrivendo' opzionale.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>brand-chat-bg</bg-base>
+      <alternative-aspect>9:16 anche per Story/Reel</alternative-aspect>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-chat-bg" hex="#1C1C1E"/>
+      <color name="bubble-grey" hex="#3A3A3C"/>
+      <color name="bubble-pink" hex="#FF0066"/>
+      <color name="text-white" hex="#FFFFFF"/>
+      <color name="text-grey" hex="#8E8E93"/>
+      <font name="font-chat" value="SF Pro / Inter Regular (system font feel)"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="chat-header" position="top" height-pct="10" bg="brand-chat-bg" padding="16px 24px" layout="row-center">
+        <avatar>
+          <shape>circle</shape>
+          <bg>brand-pink</bg>
+          <size>40px</size>
+          <text-inside>EG</text-inside>
+          <text-color>text-white</text-color>
+        </avatar>
+        <name-block margin-left="12px">
+          <name language="it">Elena Giordani</name>
+          <font-color>text-white</font-color>
+          <font-size-pct>3.5</font-size-pct>
+          <font-weight>semibold</font-weight>
+          <status language="it">online · ti sta scrivendo...</status>
+          <status-color>text-grey</status-color>
+          <status-size-pct>2.4</status-size-pct>
+        </name-block>
+      </zone>
+
+      <zone id="chat-body" position="middle" bg="brand-chat-bg" padding="24px 20px" layout="vertical-stack" gap="14px">
+        <bubble side="left" bg="bubble-grey" max-width-pct="78">
+          <text language="it">Inizio a maggio carica come una molla 💪</text>
+          <font>font-chat</font>
+          <font-color>text-white</font-color>
+          <font-size-pct>3.4</font-size-pct>
+          <padding>10px 16px</padding>
+          <border-radius>20px (top-left 4px corner small)</border-radius>
+        </bubble>
+        <bubble side="left" bg="bubble-grey" max-width-pct="78">
+          <text language="it">A giugno mollo. A settembre torno indietro 6 mesi 😩</text>
+        </bubble>
+        <bubble side="left" bg="bubble-grey" max-width-pct="78">
+          <text language="it">Sempre lo stesso schema. Da quanti anni??</text>
+        </bubble>
+        <typing-indicator side="right">
+          <text>Elena sta scrivendo...</text>
+          <dots-animation>true</dots-animation>
+        </typing-indicator>
+        <bubble side="right" bg="bubble-pink" max-width-pct="78">
+          <text language="it">Non è la tua disciplina.</text>
+          <text language="it">È un meccanismo che a giugno si rompe.</text>
+          <text language="it"><bold>Te lo spiego live 19/5 18.30 ✨</bold></text>
+          <font-color>text-white</font-color>
+          <padding>10px 16px</padding>
+          <border-radius>20px (top-right 4px corner small)</border-radius>
+        </bubble>
+      </zone>
+
+      <zone id="chat-input-cta" position="bottom" height-pct="14" bg="brand-chat-bg" padding="12px 20px" layout="row">
+        <input-bar bg="bubble-grey" border-radius="22px" padding="12px 20px" flex-grow="true">
+          <placeholder-text language="it">Iscriviti gratis al webinar →</placeholder-text>
+          <font-color>text-grey</font-color>
+          <font-size-pct>3</font-size-pct>
+        </input-bar>
+        <send-button bg="brand-pink" border-radius="22px" padding="12px 20px" margin-left="10px">
+          <text language="it">ISCRIVITI</text>
+          <font-color>text-white</font-color>
+          <font-weight>bold</font-weight>
+          <font-size-pct>3</font-size-pct>
+        </send-button>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⚠️ A maggio sei pronta. A giugno hai già mollato. A settembre torni indietro di 6 mesi.
+
+Il problema NON è la tua disciplina. È che nessuno ti ha mai spiegato perché succede ogni estate alle donne 35+.
+
+💡 Te lo svelo nel WEBINAR GRATUITO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio alle 18.30.
+
+🔥 100 posti. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Maggio→Giugno→Settembre indietro?</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Quest'estate non molli più.</headline-alt>
+      <headline-alt max-chars="40">Perché molli ogni giugno?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-06v3-chat</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-06v3-chat&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-50-Mobile-First-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>50</age-max>
+    <interests>WhatsApp, Telegram, social media, mobile users, app messaging</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels + Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="40"/>
+    <kpi-secondary metric="A/B-vs-v2-CPL" comparison="vs EI26-COLD-06-v2"/>
+    <kill-rule>Se hook-rate &lt; 25% dopo 50€ spesi → format non scroll-stoppa, off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">DESIGN CHAT BUBBLE: simula iMessage scuro (bg #1C1C1E). Bolle grigie sinistra (la "voce comune") e bolle pink destra (Elena). Avatar circolare "EG" pink in alto. "Sta scrivendo..." indicator come Apple/WhatsApp con 3 dots animation (se versione video Reel). Input bar bottom con CTA pink "ISCRIVITI" come bottone send.</note>
+    <note role="copywriter">Stesso messaggio di v2 ma SPEZZATO in bolle conversational. Usa emoji come reaction nei messaggi.</note>
+    <note role="media-buyer">A/B test vs EI26-COLD-06-v2. Audience mobile-first. Format scroll-stopping nei feed Reels/Stories. Misurare hook-rate (chiave per chat format).</note>
+    <note role="copy-asset">Se vuoi versione video Reel: animare le bolle che appaiono una alla volta (typing → bubble pop). Durata 12-15s.</note>
+  </notes>
+</creative>

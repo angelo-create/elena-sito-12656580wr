@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-07-v3-stats" status="ready" priority="P0" version="winner-pattern-v3-stats">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Primo Passo Curiosity (stesso v2)</angle>
+    <copy-framework>Curiosity Loop via Data/Stats Visualization</copy-framework>
+    <design-template>v3-stats-infographic (alternativa v2)</design-template>
+    <design-rationale>Numero "1°" gigante come hero + cross-out delle 3 risposte sbagliate = visual data-driven. Audience cognitively-driven (lettori, podcast self-help). Differenzia da pure tipografia.</design-rationale>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="DESIGN STATS / DATA INFOGRAPHIC - numero hero giga, 3 box neri orizzontali con strikethrough, freccia che indica reveal. Look McKinsey deck / Bloomberg minimale.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>brand-cream</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#0A0A0A"/>
+      <color name="brand-cream" hex="#F8F4ED"/>
+      <color name="warning-red" hex="#E63946"/>
+      <font name="font-display-numeric" value="Inter Black (per il numero)"/>
+      <font name="font-label" value="Inter Black ALL-CAPS"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="kicker" position="top" height-pct="8" bg="brand-cream" padding="20px 32px">
+        <text language="it">QUAL È IL PRIMO PASSO PER ESSERE COSTANTE?</text>
+        <font>font-label</font>
+        <font-color>brand-black</font-color>
+        <font-size-pct>3.2</font-size-pct>
+        <align>center</align>
+        <letter-spacing>0.1em</letter-spacing>
+      </zone>
+
+      <zone id="hero-number" position="upper-middle" bg="brand-cream" padding="20px 56px" align="center">
+        <text language="it">1°</text>
+        <font>font-display-numeric</font>
+        <font-color>brand-pink</font-color>
+        <font-size-pct>40</font-size-pct>
+        <line-height>0.9</line-height>
+      </zone>
+
+      <zone id="cross-out-list" position="middle" bg="brand-cream" padding="16px 56px" layout="vertical-stack" gap="10px">
+        <stat-row>
+          <bg-bar bg="brand-black" border-radius="6px" padding="14px 20px">
+            <text language="it">la motivazione</text>
+            <font>font-label</font>
+            <font-color>brand-cream</font-color>
+            <font-size-pct>4.5</font-size-pct>
+            <strikethrough color="warning-red" thickness="3px"/>
+          </bg-bar>
+        </stat-row>
+        <stat-row>
+          <bg-bar bg="brand-black" border-radius="6px" padding="14px 20px">
+            <text language="it">la disciplina</text>
+            <font>font-label</font>
+            <font-color>brand-cream</font-color>
+            <font-size-pct>4.5</font-size-pct>
+            <strikethrough color="warning-red" thickness="3px"/>
+          </bg-bar>
+        </stat-row>
+        <stat-row>
+          <bg-bar bg="brand-black" border-radius="6px" padding="14px 20px">
+            <text language="it">iscriverti in palestra</text>
+            <font>font-label</font>
+            <font-color>brand-cream</font-color>
+            <font-size-pct>4.5</font-size-pct>
+            <strikethrough color="warning-red" thickness="3px"/>
+          </bg-bar>
+        </stat-row>
+      </zone>
+
+      <zone id="reveal-arrow-cta" position="lower-middle" bg="brand-cream" padding="16px 56px" align="center">
+        <arrow direction="down" size="40px" color="brand-pink"/>
+        <text language="it"><bold>Te lo svelo live</bold></text>
+        <font>Inter SemiBold</font>
+        <font-color>brand-black</font-color>
+        <font-size-pct>5</font-size-pct>
+        <margin-top>8px</margin-top>
+      </zone>
+
+      <zone id="footer" position="bottom" height-pct="14" bg="brand-pink" padding="20px 32px" layout="row-space-between">
+        <left-block>
+          <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
+          <text-line-2 language="it">18.30 · live · gratis</text-line-2>
+          <font>font-label</font>
+          <font-color>brand-cream</font-color>
+          <font-size-pct>3</font-size-pct>
+        </left-block>
+        <right-block>
+          <cta-text language="it">ISCRIVITI →</cta-text>
+          <font>font-label</font>
+          <font-color>brand-cream</font-color>
+          <font-size-pct>4.5</font-size-pct>
+        </right-block>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+❓ Qual è il PRIMO PASSO per essere costante quest'estate?
+
+❌ NON è la motivazione.
+❌ NON è la disciplina.
+❌ NON è iscriverti in palestra.
+
+💡 Te lo svelo nel WEBINAR GRATUITO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio alle 18.30. Spoiler: è una cosa che chi vende metodi NON vuole che tu sappia.
+
+🔥 100 posti. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Il PRIMO PASSO non è quello.</headline>
+    <description max-chars="30">Spoiler: NON è la motivazione</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Spoiler: NON è la motivazione.</headline-alt>
+      <headline-alt max-chars="40">Cos'è il vero PRIMO PASSO?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-07v3-stats</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-07v3-stats&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Cognitive-Habits-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>55</age-max>
+    <interests>libri saggistica, atomic habits, James Clear, podcast self-help, mindset, neuroscienze, abitudini, productivity</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.2"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="35"/>
+    <kpi-secondary metric="A/B-vs-v2-CPL" comparison="vs EI26-COLD-07-v2"/>
+    <kill-rule>Se CPL &gt; 5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">DESIGN STATS: numero "1°" pink GIGA come hero (40% altezza). 3 box neri pill orizzontali con testo cream + strikethrough rosso. Freccia ↓ pink dopo i 3 box che indica "Te lo svelo live". Look McKinsey deck / data viz. Cream background warmer.</note>
+    <note role="copywriter">Copy identico v2. Visual ribadisce le 3 negazioni con gerarchia.</note>
+    <note role="media-buyer">A/B vs v2. Audience cognitivo-driven (lettori atomic habits, podcast). Format data-viz parla loro lingua.</note>
+  </notes>
+</creative>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-01-v3-editorial" status="ready" priority="P0" version="winner-pattern-v3-editorial">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Constitutional Reframe (stesso v2)</angle>
+    <copy-framework>Direct Response Reframe</copy-framework>
+    <design-template>v3-editorial-magazine (alternativa v2 - test A/B vs winner)</design-template>
+    <design-rationale>Layout magazine sofisticato per audience più premium / 45+. Serif italic + masthead = lifestyle editoriale (Vogue/Elle/Harper's Bazaar). Differenzia da winner pattern brutalist.</design-rationale>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="DESIGN EDITORIAL/MAGAZINE - sofisticato, serif italic, due-colonne, pull-quote tipografica. Brand pink usato come accento, NON come dominante.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>brand-cream</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#0A0A0A"/>
+      <color name="brand-cream" hex="#F5F0E8"/>
+      <color name="brand-pink-soft" hex="#FFE8F0"/>
+      <font name="font-display" value="Playfair Display Black Italic (serif elegante)"/>
+      <font name="font-body" value="Inter Light"/>
+      <font name="font-masthead" value="Inter Bold ALL-CAPS letter-spacing 0.15em"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="masthead" position="top" height-pct="6" bg="brand-cream" border-bottom="1px solid brand-black">
+        <text-row layout="space-between" padding="20px 32px">
+          <left-text language="it">N° 1 · MAGGIO 2026</left-text>
+          <center-text language="it">ESTATE INARRESTABILE</center-text>
+          <right-text language="it">€0 · 100 POSTI</right-text>
+        </text-row>
+        <font>font-masthead</font>
+        <font-color>brand-black</font-color>
+        <font-size-pct>2.4</font-size-pct>
+      </zone>
+
+      <zone id="kicker" position="top-second" height-pct="6" bg="brand-cream" padding="16px 32px">
+        <text language="it">UN'INCHIESTA SULLA COSTANZA FEMMINILE</text>
+        <font>font-masthead</font>
+        <font-color>brand-pink</font-color>
+        <font-size-pct>2.2</font-size-pct>
+        <align>center</align>
+      </zone>
+
+      <zone id="hero-headline" position="upper-middle" bg="brand-cream" padding="40px 56px 24px 56px">
+        <text language="it"><italic>"Il problema</italic></text>
+        <text language="it"><italic>NON sei tu.</italic></text>
+        <text language="it"><italic>È il </italic><underline color="brand-pink" thickness="6px">metodo</underline><italic>."</italic></text>
+        <font>font-display</font>
+        <font-color>brand-black</font-color>
+        <font-size-pct>10</font-size-pct>
+        <line-height>1.1</line-height>
+        <align>center</align>
+      </zone>
+
+      <zone id="byline" position="middle" bg="brand-cream" padding="16px 56px 24px">
+        <text language="it">— Elena Giordani, life coach 20+ anni, riconosciuta OPES</text>
+        <font>Playfair Display Italic</font>
+        <font-color>brand-black</font-color>
+        <font-size-pct>2.6</font-size-pct>
+        <align>center</align>
+      </zone>
+
+      <zone id="body-two-columns" position="middle-lower" bg="brand-cream" padding="0 56px" layout="two-columns" gap="24px">
+        <column id="left" width-pct="48">
+          <text language="it">Ti hanno detto per 20 anni che era la tua costituzione. Che dovevi accettarti. Che a 35 anni "il metabolismo cambia e basta".</text>
+        </column>
+        <column id="right" width-pct="48">
+          <text language="it">In realtà nessuno ha mai costruito un metodo specifico per il tuo corpo, nella tua estate, con la tua vita.</text>
+        </column>
+        <font>font-body</font>
+        <font-color>brand-black</font-color>
+        <font-size-pct>3.2</font-size-pct>
+        <line-height>1.5</line-height>
+      </zone>
+
+      <zone id="footer" position="bottom" height-pct="14" bg="brand-pink" layout="row-space-between" padding="20px 32px">
+        <left-block>
+          <text-line-1 language="it">19-20-21 maggio 2026</text-line-1>
+          <text-line-2 language="it">ore 18.30 · live · gratuito</text-line-2>
+          <font>font-masthead</font>
+          <font-color>brand-cream</font-color>
+          <font-size-pct>3</font-size-pct>
+        </left-block>
+        <right-block>
+          <cta-text language="it">ISCRIVITI →</cta-text>
+          <font>font-masthead</font>
+          <font-color>brand-cream</font-color>
+          <font-size-pct>4.5</font-size-pct>
+          <underline>true</underline>
+        </right-block>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+❌ Ti hanno sempre detto che il problema sei tu?
+❌ Che non puoi cambiare perché è la tua costituzione?
+
+⚠️ Falso! Il problema è che non hai mai trovato un metodo specifico per il corpo FEMMINILE 35+ — soprattutto in estate, quando tutto si ribalta.
+
+💡 Te lo svelo nel WEBINAR GRATUITO "Estate Inarrestabile" — 3 sere live, 19-20-21 maggio 2026 alle 18.30.
+
+🔥 100 posti. Replay incluso. Iscrizione gratuita.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Il problema NON sei tu. È il METODO.</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Falso che è la tua costituzione.</headline-alt>
+      <headline-alt max-chars="40">Un'inchiesta sulla costanza.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-01v3-editorial</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-01v3-editorial&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-60-Lifestyle-Premium-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>60</age-max>
+    <interests>Vogue, Elle, Harper's Bazaar, lifestyle premium, libri saggistica donne, lettori Repubblica/Corriere/Sole24Ore, donne in carriera</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="A/B-vs-v2-CPL" comparison="vs EI26-COLD-01-v2"/>
+    <kill-rule>Se CPL &gt; 5.5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ E performance vs v2 +20% → scala +30%</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">DESIGN EDITORIAL diverso da winner v2: cream background (#F5F0E8) NO nero. Playfair Display Black Italic per headline (serif elegante). Pink usato solo come accento (underline su "metodo", footer band, kicker). Two-column body. Masthead in alto stile rivista. Punta su audience premium 40-60 lifestyle.</note>
+    <note role="copywriter">Copy IDENTICO a v2 - cambia solo il design. utm_content distinto (v3-editorial) per attribution differenziata.</note>
+    <note role="media-buyer">A/B test puro vs EI26-COLD-01-v2. Stesso budget, stessa durata, audience leggermente più premium (40-60 lifestyle vs 35-55 broad). Confronta CPL e CTR → scopri se brand pink brutalist vince contro editorial sofisticato per Elena.</note>
+  </notes>
+</creative>

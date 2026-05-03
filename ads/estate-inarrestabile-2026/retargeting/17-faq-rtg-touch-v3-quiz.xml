@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-17-v3-quiz" status="ready" priority="P0" version="winner-pattern-v3-quiz">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>touch (visitatori landing no opt-in)</retarget-type>
+    <angle>FAQ Killer (stesso v2)</angle>
+    <copy-framework>Objection Stack via Quiz/Card Format</copy-framework>
+    <design-template>v3-quiz-cards-stack (alternativa v2)</design-template>
+    <design-rationale>Card stack overlapping (Tinder/quiz app feel) = interactive look + scroll-stopping naturale. Progress dots = sense of progression. Feel mobile-app moderno vs poster brutale.</design-rationale>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="DESIGN QUIZ CARDS STACK - 3 card overlapping con shadow, ognuna 1 FAQ. Toggle visivo, progress dots, CTA bottone bottom. Look Tinder / Typeform / quiz mobile app.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>brand-pink-gradient</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-pink-light" hex="#FFB3CD"/>
+      <color name="brand-pink-gradient" value="linear-gradient(135deg, #FF0066 0%, #FF4D8F 100%)"/>
+      <color name="card-white" hex="#FFFFFF"/>
+      <color name="card-shadow" hex="rgba(0,0,0,0.15)"/>
+      <color name="brand-black" hex="#0A0A0A"/>
+      <color name="text-grey" hex="#5A5A5A"/>
+      <color name="check-green" hex="#34C759"/>
+      <font name="font-app" value="Inter Bold (mobile app feel)"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="header-faq" position="top" height-pct="10" bg="transparent" padding="20px 32px">
+        <text language="it">FAQ · 3 domande oneste</text>
+        <font>font-app</font>
+        <font-color>card-white</font-color>
+        <font-size-pct>3.8</font-size-pct>
+        <align>center</align>
+      </zone>
+
+      <zone id="cards-stack" position="middle" bg="transparent" padding="0 56px" align="center">
+        <card position="back" rotation="-4deg" offset-x="-8px" offset-y="-8px" opacity="0.4">
+          <bg>card-white</bg>
+          <border-radius>24px</border-radius>
+          <shadow>0 8px 24px card-shadow</shadow>
+          <size>aspect-ratio 4:5</size>
+        </card>
+        <card position="middle" rotation="2deg" offset-x="4px" offset-y="-4px" opacity="0.7">
+          <bg>card-white</bg>
+          <border-radius>24px</border-radius>
+          <shadow>0 12px 32px card-shadow</shadow>
+        </card>
+        <card position="front" rotation="0deg" bg="card-white" padding="32px 28px" border-radius="24px" shadow="0 16px 40px card-shadow" size="aspect-ratio 4:5">
+          <card-number language="it">1 / 3</card-number>
+          <card-number-color>text-grey</card-number-color>
+          <card-number-size-pct>2.4</card-number-size-pct>
+          <card-question language="it">"Non ho tempo per 3 sere."</card-question>
+          <card-question-font>font-app</card-question-font>
+          <card-question-color>brand-black</card-question-color>
+          <card-question-size-pct>5.5</card-question-size-pct>
+          <card-question-margin-top>20px</card-question-margin-top>
+          <divider color="brand-pink-light" margin="20px 0"/>
+          <card-answer language="it">30 min/sera. Replay incluso.</card-answer>
+          <card-answer-icon>check-green ✓</card-answer-icon>
+          <card-answer-font>font-app</card-answer-font>
+          <card-answer-color>brand-black</card-answer-color>
+          <card-answer-size-pct>4.5</card-answer-size-pct>
+          <card-tag-row position="bottom" layout="row" gap="8px" margin-top="24px">
+            <tag bg="brand-pink-light" color="brand-pink" padding="6px 12px" border-radius="14px">90 min totali</tag>
+            <tag bg="brand-pink-light" color="brand-pink" padding="6px 12px" border-radius="14px">replay incluso</tag>
+            <tag bg="brand-pink-light" color="brand-pink" padding="6px 12px" border-radius="14px">live</tag>
+          </card-tag-row>
+        </card>
+      </zone>
+
+      <zone id="progress-dots" position="lower-middle" bg="transparent" padding="20px 0" align="center" layout="row" gap="8px">
+        <dot bg="card-white" size="10px" border-radius="50%" active="true"/>
+        <dot bg="card-white" size="10px" border-radius="50%" opacity="0.4"/>
+        <dot bg="card-white" size="10px" border-radius="50%" opacity="0.4"/>
+      </zone>
+
+      <zone id="cta-button" position="bottom" height-pct="14" bg="transparent" padding="20px 56px">
+        <button bg="card-white" border-radius="999px" padding="18px 32px" align="center" shadow="0 8px 24px card-shadow">
+          <text language="it">OK, MI ISCRIVO →</text>
+          <font>font-app</font>
+          <font-color>brand-pink</font-color>
+          <font-size-pct>5</font-size-pct>
+        </button>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false"/>
+    <variants-suggestion>
+      <variant>Carousel Meta: 3 card separate (1 per FAQ) per swipe-through nativo Meta - alternative al stack visual</variant>
+    </variants-suggestion>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+3 domande, 3 risposte oneste:
+
+💬 "Non ho tempo per 3 sere."
+✅ 30 minuti a sera. Non di più. Replay incluso.
+
+💬 "È un'altra dieta camuffata?"
+✅ No. Non conto calorie. Non vieto cibi. Niente meal plan.
+
+💬 "Poi mi vendi qualcosa di costoso?"
+✅ Sì, ti parlerò del Club Inarrestabili. €127 una volta per sempre. Solo se vuoi continuare.
+
+🔥 Adesso lo sai. WEBINAR GRATUITO Lunedì 19 Maggio 18.30.
+
+100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">3 domande, 3 risposte oneste.</headline>
+    <description max-chars="30">FAQ webinar · onesto</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Le 3 domande che mi fate.</headline-alt>
+      <headline-alt max-chars="40">Quiz: cosa devi sapere.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source><utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-touch</utm_campaign>
+      <utm_content>EI26-RTG-17v3-quiz</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-touch&amp;utm_content=EI26-RTG-17v3-quiz&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-touch</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Visitatori-NoOptin-30d</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>60</age-max>
+    <custom-audiences>
+      <audience>Visitatori go.elenagiordani.com/webinar-maggio 30gg (no Lead event)</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar, acquirenti Club</exclusions>
+    <advantage-plus>false</advantage-plus>
+    <placements>auto (priority Stories + Reels)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>6</test-budget-eur-day>
+    <test-duration-days>10</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="3.0"/>
+    <kpi-secondary metric="A/B-vs-v2-CPL" comparison="vs EI26-RTG-17-v2"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +25% budget</scale-rule>
+    <frequency-cap>Max 4/settimana</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">DESIGN QUIZ CARDS: gradient pink background. Stack di 3 card bianche con shadow + lieve rotazione (look "deck di carte"). Front card mostra FAQ 1 con domanda grande + risposta + 3 tag pill. Progress dots bianchi sotto. CTA bottone pillola bianca con freccia. Look mobile app moderno (Tinder/Typeform/Duolingo).</note>
+    <note role="copywriter">Stesso v2 copy. La card grande mostra solo FAQ 1 (la prima è quella che blocca di più - "tempo"). Le altre 2 FAQ vanno in secondario.</note>
+    <note role="media-buyer">A/B vs v2. Format mobile-native = scroll-stopping su Stories/Reels. Suggerimento: testare anche versione Carousel Meta (3 card separate, 1 FAQ per card).</note>
+  </notes>
+</creative>

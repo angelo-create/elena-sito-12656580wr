@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-19-v3-calendar" status="ready" priority="P0" version="winner-pattern-v3-calendar">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>touch (visitatori landing) - LAST CALL DYNAMIC</retarget-type>
+    <angle>Last Call Dynamic (stesso v2)</angle>
+    <copy-framework>Real Scarcity via Calendar Visualization</copy-framework>
+    <design-template>v3-calendar-date-focus (alternativa v2)</design-template>
+    <design-rationale>Calendar visivo (Apple Calendar / Notion style) = visualizza la scarcity in modo concreto. I 3 giorni evento (19-20-21) cerchiati pink + countdown. Self-evident urgency, no testo aggressivo.</design-rationale>
+    <activation-window>17-18-19 maggio (D-3 a D0)</activation-window>
+  </meta>
+
+  <design-brief output="canva-figma-static" instructions="DESIGN CALENDAR PAGE - replica visiva pagina calendario (Apple Calendar / Notion). MAGGIO 2026 header, grid 7x5 giorni, 19-20-21 cerchiati pink con effetto pulsante. 3 varianti dinamiche per countdown D-3/D-2/D-1+D0.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>brand-paper</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-pink-light" hex="#FFE8F0"/>
+      <color name="brand-paper" hex="#FAFAFA"/>
+      <color name="brand-ink" hex="#0A0A0A"/>
+      <color name="text-grey" hex="#8E8E93"/>
+      <color name="warning-red" hex="#E63946"/>
+      <font name="font-cal-display" value="SF Pro Display Bold / Inter Bold"/>
+      <font name="font-cal-numbers" value="Inter Regular per giorni, Inter Black per giorni evidenziati"/>
+    </brand-tokens>
+
+    <variant id="D-3" activation-date="17 maggio 2026">
+      <countdown-banner-text language="it">⏱ MANCANO 3 GIORNI</countdown-banner-text>
+      <countdown-banner-color>warning-red</countdown-banner-color>
+    </variant>
+    <variant id="D-2" activation-date="18 maggio 2026">
+      <countdown-banner-text language="it">⏱ DOMANI SI PARTE</countdown-banner-text>
+      <countdown-banner-color>warning-red</countdown-banner-color>
+    </variant>
+    <variant id="D-1-D0" activation-date="19 maggio 2026">
+      <countdown-banner-text language="it">🚨 STASERA ALLE 18:30</countdown-banner-text>
+      <countdown-banner-color>warning-red</countdown-banner-color>
+    </variant>
+
+    <layout-zones>
+      <zone id="countdown-banner" position="top" height-pct="10" bg="warning-red" padding="20px 32px">
+        <text-dynamic-from-variant/>
+        <font>font-cal-display</font>
+        <font-color>brand-paper</font-color>
+        <font-size-pct>5</font-size-pct>
+        <align>center</align>
+        <letter-spacing>0.05em</letter-spacing>
+      </zone>
+
+      <zone id="month-header" position="upper-middle" bg="brand-paper" padding="20px 32px 8px">
+        <text language="it">maggio 2026</text>
+        <font>font-cal-display</font>
+        <font-color>brand-ink</font-color>
+        <font-size-pct>4.5</font-size-pct>
+        <align>center</align>
+      </zone>
+
+      <zone id="weekday-row" position="below-month" bg="brand-paper" padding="0 32px 4px" layout="grid-7-cols">
+        <weekday>L</weekday>
+        <weekday>M</weekday>
+        <weekday>M</weekday>
+        <weekday>G</weekday>
+        <weekday>V</weekday>
+        <weekday>S</weekday>
+        <weekday>D</weekday>
+        <font>font-cal-numbers</font>
+        <font-color>text-grey</font-color>
+        <font-size-pct>2.4</font-size-pct>
+        <align>center</align>
+      </zone>
+
+      <zone id="calendar-grid" position="middle" bg="brand-paper" padding="0 32px" layout="grid-7-cols-5-rows" gap="2px">
+        <cell-row row="1">
+          <cell day-display="" inactive="true"/>
+          <cell day-display="" inactive="true"/>
+          <cell day-display="" inactive="true"/>
+          <cell day-display="1"/>
+          <cell day-display="2"/>
+          <cell day-display="3" weekend="true"/>
+          <cell day-display="4" weekend="true"/>
+        </cell-row>
+        <cell-row row="2">
+          <cell day-display="5"/>
+          <cell day-display="6"/>
+          <cell day-display="7"/>
+          <cell day-display="8"/>
+          <cell day-display="9"/>
+          <cell day-display="10" weekend="true"/>
+          <cell day-display="11" weekend="true"/>
+        </cell-row>
+        <cell-row row="3">
+          <cell day-display="12"/>
+          <cell day-display="13"/>
+          <cell day-display="14"/>
+          <cell day-display="15"/>
+          <cell day-display="16"/>
+          <cell day-display="17" weekend="true" highlight-today="if D-3"/>
+          <cell day-display="18" weekend="true" highlight-today="if D-2"/>
+        </cell-row>
+        <cell-row row="4">
+          <cell day-display="19" highlighted="event-day-1" highlight-today="if D-1">
+            <bg>brand-pink</bg>
+            <text-color>brand-paper</text-color>
+            <font-weight>black</font-weight>
+            <pulse-animation>true</pulse-animation>
+            <event-marker>•</event-marker>
+            <event-time>18:30</event-time>
+          </cell>
+          <cell day-display="20" highlighted="event-day-2">
+            <bg>brand-pink</bg>
+            <text-color>brand-paper</text-color>
+            <font-weight>black</font-weight>
+          </cell>
+          <cell day-display="21" highlighted="event-day-3">
+            <bg>brand-pink</bg>
+            <text-color>brand-paper</text-color>
+            <font-weight>black</font-weight>
+          </cell>
+          <cell day-display="22"/>
+          <cell day-display="23"/>
+          <cell day-display="24" weekend="true"/>
+          <cell day-display="25" weekend="true"/>
+        </cell-row>
+        <cell-row row="5">
+          <cell day-display="26"/>
+          <cell day-display="27"/>
+          <cell day-display="28"/>
+          <cell day-display="29"/>
+          <cell day-display="30"/>
+          <cell day-display="31" weekend="true"/>
+          <cell day-display="" inactive="true"/>
+        </cell-row>
+        <cell-default-style>
+          <padding>14px 0</padding>
+          <align>center</align>
+          <bg>brand-paper</bg>
+          <font>font-cal-numbers</font>
+          <font-color>brand-ink</font-color>
+          <font-size-pct>3.6</font-size-pct>
+          <border-radius>50%</border-radius>
+        </cell-default-style>
+      </zone>
+
+      <zone id="event-card" position="lower-middle" bg="brand-pink-light" padding="16px 24px" margin="20px 32px" border-radius="14px" border-left="4px solid brand-pink">
+        <event-time language="it">⏰ 18:30 - 19:00</event-time>
+        <event-title language="it"><bold>Estate Inarrestabile</bold> · webinar live gratuito</event-title>
+        <event-meta language="it">3 sere · 19, 20, 21 maggio · zoom · replay incluso</event-meta>
+        <font>font-cal-display</font>
+        <font-color>brand-ink</font-color>
+        <event-time-size-pct>2.6</event-time-size-pct>
+        <event-time-color>brand-pink</event-time-color>
+        <event-title-size-pct>3.8</event-title-size-pct>
+        <event-meta-size-pct>2.4</event-meta-size-pct>
+        <event-meta-color>text-grey</event-meta-color>
+      </zone>
+
+      <zone id="cta-bottom" position="bottom" height-pct="12" bg="brand-paper" padding="16px 32px">
+        <button bg="warning-red" border-radius="14px" padding="18px 24px" align="center" full-width="true">
+          <text language="it">+ AGGIUNGI AL CALENDARIO →</text>
+          <font>font-cal-display</font>
+          <font-color>brand-paper</font-color>
+          <font-size-pct>4</font-size-pct>
+        </button>
+      </zone>
+    </layout-zones>
+
+    <photo-asset use="false"/>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text-D3 language="it">
+      <![CDATA[
+🚨 Lunedì sera si parte. 72 ore al via.
+
+Hai pensato a iscriverti, hai rimandato, ed eccoci qua.
+
+La prossima edizione è a settembre. Tre mesi di "potevo".
+
+🔥 Iscriviti adesso. 30 secondi. WEBINAR GRATUITO "Estate Inarrestabile" — 19-20-21 maggio 18.30.
+
+Posto qui ↓
+      ]]>
+    </primary-text-D3>
+    <primary-text-D2 language="it">
+      <![CDATA[
+🚨 DOMANI SERA si parte. Lunedì 18.30.
+
+Ultime 24 ore per essere dentro dall'inizio. Se ti iscrivi durante la diretta, perdi i primi 30 minuti — e i primi 30 minuti sono IL MOTIVO (sera 1).
+
+🔥 Iscriviti ora. WEBINAR GRATUITO. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text-D2>
+    <primary-text-D1 language="it">
+      <![CDATA[
+🚨 STASERA alle 18.30. Tra qualche ora.
+
+Se sei qui che leggi è perché stai ancora pensando. Entra. Non ti costa niente. 30 minuti, replay incluso.
+
+🔥 A stasera.
+
+Posto qui ↓
+      ]]>
+    </primary-text-D1>
+    <headline-D3 max-chars="40">📅 Mancano 3 giorni. Salva la data.</headline-D3>
+    <headline-D2 max-chars="40">📅 Domani 18:30. Aggiungi al cal.</headline-D2>
+    <headline-D1 max-chars="40">📅 Stasera 18:30. Sei dentro?</headline-D1>
+    <description max-chars="30">Last call · webinar gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-touch-lastcall</utm_campaign>
+      <utm_content>EI26-RTG-19v3-calendar</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-touch-lastcall&amp;utm_content=EI26-RTG-19v3-calendar&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-touch</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Visitatori-NoOptin-21d-LASTCALL</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>60</age-max>
+    <custom-audiences>
+      <audience>Visitatori go.elenagiordani.com/webinar-maggio 21gg</audience>
+      <audience>Engagers FB+IG 14gg che hanno visto creative cold/warm</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar, acquirenti Club</exclusions>
+    <advantage-plus>false</advantage-plus>
+    <placements>auto (priority Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>3 (17-18-19 maggio)</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="4.0"/>
+    <kpi-secondary metric="A/B-vs-v2-CPL" comparison="vs EI26-RTG-19-v2"/>
+    <kill-rule>Mai. Lasciare fino a inizio webinar 19/5 ore 18:30</kill-rule>
+    <scale-rule>D-1 (19/5): raddoppiare budget a 30€/g per ultimo push</scale-rule>
+    <frequency-cap>Max 2/giorno</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="designer">DESIGN CALENDAR PAGE: replica visivo Apple Calendar / Notion. Bg paper #FAFAFA pulito. Mese "maggio 2026" header. Grid 7 colonne (L M M G V S D). Giorni 19-20-21 in cerchi pink con testo bianco BLACK weight (highlighted). Pulse animation su 19 (event day). Banner countdown rosso warning in alto cambia per variante (D-3/D-2/D-1+D0). Event card pink-light in basso con dettagli evento. CTA "+ AGGIUNGI AL CALENDARIO" red - gioca sul concetto calendario.</note>
+    <note role="copywriter">Stesso copy v2. Visual rinforza scarcity in modo concreto (vedi i giorni avvicinarsi).</note>
+    <note role="media-buyer">A/B vs v2. CTA "+ Aggiungi al calendario" gioca sul concetto - può aumentare CTR su mobile (lo fa una volta, ti ricorda lui). Schedule identico v2 (D-3 17/5 → D-1 19/5 18:30).</note>
+  </notes>
+</creative>
