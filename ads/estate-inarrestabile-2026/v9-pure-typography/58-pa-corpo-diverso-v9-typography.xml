@@ -28,8 +28,8 @@
       </zone>
       <zone id="headline-overlay" position="middle" margin-top="120px" padding="0 32px" z-index="3">
         <text-block alignment="center" line-spacing="1.2">
-          <line>Quello che funzionava a <bold>25</bold></line>
-          <line>a <bold>45</bold> <highlight bg="brand-pink" color="brand-white" padding="2px 10px">non basta più</highlight>.</line>
+          <line>A <bold>25</bold> dimagrivi.</line>
+          <line>A <bold>45</bold> <highlight bg="brand-pink" color="brand-white" padding="2px 10px">ingrassi anche d'aria</highlight>.</line>
         </text-block>
         <font>Inter Black</font>
         <font-color>brand-white</font-color>
