@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-07" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Contrarian Insight - "Non è la forza di volontà"</angle>
+    <copy-framework copywriter="Eugene Schwartz + Direct Response Classic">Contrarian Reframe</copy-framework>
+    <hypothesis>Donne hanno colpevolizzato sé stesse per anni ("sono debole, non ho forza di volontà") -> ribaltare la colpa = relief emotivo + alta gratitudine + alto CTR</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed in a tight medium shot against a softly blurred warm beige wall. She holds her right hand up palm-out in a gentle "stop" gesture, but her face is calm and reassuring - not aggressive. She looks directly at camera with a "let me free you from this" expression: kind, slightly serious, slightly empathetic. She wears a soft cream linen shirt. Natural side daylight from upper left creating soft shadows. Photorealistic intimate portrait, 50mm lens, shallow depth of field at f/2.0, sharp eyes, natural skin texture with visible imperfections, warm cinematic color grading. Composition: subject centered, hand in lower-right of frame, plenty of negative space top for headline overlay. Mood: liberating, "you can stop blaming yourself", calm authority.
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, aggressive expression, angry, pointing finger, school teacher scolding, stop sign, hand close to camera, harsh light, plastic skin, fake smile, beauty filter, oversaturated, instagram pose, model pose
+    </negative-prompt>
+    <style-keywords>photorealistic, intimate portrait, calm authority, warm light, shallow DOF, liberating, kind serious</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Reel/Story) + 1:1 (Feed)</aspect-ratio>
+      <resolution>1080x1920 / 1080x1080</resolution>
+      <variations-to-generate>3</variations-to-generate>
+      <safe-zones-916 top-px="250" bottom-px="350"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline che CONTRADDICE una credenza. Va grossa e affermativa.</description>
+    <primary-overlay position="top-third-center">
+      <text language="it">NON È LA FORZA DI VOLONTÀ.</text>
+      <font>Inter Black</font>
+      <size-pct>9</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.45) 0 3px 14px</shadow>
+      <strikethrough-text>FORZA DI VOLONTÀ</strikethrough-text>
+      <strikethrough-color>red #E63946 line through</strikethrough-color>
+      <max-width-pct>88</max-width-pct>
+    </primary-overlay>
+    <secondary-overlay position="below-primary">
+      <text language="it">Te lo provo in 3 sere live.</text>
+      <font>Inter Medium Italic</font>
+      <size-pct>5</size-pct>
+      <color>#FFE9C7</color>
+    </secondary-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">19-20-21 MAGGIO · 18:30 · GRATIS</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 65% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Per anni ti hanno fatto credere che il problema fossi tu.
+
+"Devi essere più costante."
+"Ti manca la forza di volontà."
+"Non vuoi abbastanza."
+
+Ti sei portata addosso questa colpa per quanti anni? 5? 10? 20?
+
+Ti dico una cosa scomoda: non è vero. Non è la tua forza di volontà che si rompe a giugno. È che ti hanno venduto metodi pensati per donne che hanno 25 anni, niente figli, niente lavoro, niente menopausa in arrivo, niente vita vera.
+
+Tu hai una vita vera. E hai bisogno di un metodo costruito su quella vita, non contro quella vita.
+
+Te lo spiego in 3 sere live. 19, 20, 21 maggio alle 18:30.
+
+Non prometto miracoli. Non è una dieta. È il primo passo giusto.
+
+Gratis. Posto qui. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Non è la forza di volontà.</headline>
+    <description max-chars="30">3 sere live · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Non è colpa tua. Davvero.</headline-alt>
+      <headline-alt max-chars="40">Smetti di colpevolizzarti.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-07-contrarian</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-07-contrarian&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Burnout-Wellness-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>55</age-max>
+    <interests>burnout, salute mentale, body neutrality, anti-dieta, intuitive eating, mindful eating, perimenopausa, donne lavoratrici</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club, fitness influencer follower (BodyBuilding, etc.)</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels + Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="6.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="3"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="1"/>
+    <kill-rule>Se CPL > 10€ dopo 80€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 5€ E commenti positivi alti → +30% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Il gesto "stop" deve essere CALMO, non aggressivo. Se nano-banana fa una mano "fermate" troppo dura, esplicitare "gentle, calm hand raised, not aggressive, palm out softly". Espressione facciale chiave: kind serious, mai severa.</note>
+    <note role="designer">Strikethrough rosso su "FORZA DI VOLONTÀ" è chiave visiva. Va animato in Reel: la frase appare bianca, dopo 0.4s la riga rossa la attraversa.</note>
+    <note role="copywriter">Contrarian = ribaltare credenza dominante. Funziona per audience che si è colpevolizzata. Pericolo: NON deve sembrare "ti scarico io di responsabilità per venderti un corso". Mantenere "è il primo passo, devi farlo tu".</note>
+    <note role="media-buyer">Aspettarsi alti commenti emotivi ("verissimo!" "anch'io!"). Monitorare commenti negativi ("scuse, dipende da te") - rispondere con grace, non cancellare se moderati.</note>
+  </notes>
+</creative>

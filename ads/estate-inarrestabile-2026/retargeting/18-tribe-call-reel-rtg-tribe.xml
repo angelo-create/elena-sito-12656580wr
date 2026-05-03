@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-18" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>tribe (follower IG/FB attivi 90gg)</retarget-type>
+    <angle>Tribe Call - Direct call to followers, "tu sei già parte di questo"</angle>
+    <copy-framework copywriter="Direct Response Tribal">In-Group Direct Address</copy-framework>
+    <hypothesis>Follower attivi 90gg sono già "parte della tribù" -> direct call con riconoscimento esplicito ("tu mi segui da tempo") = altissima conversione</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, in a tight close-up vertical portrait shot, looking directly at camera with a warm intimate "I'm talking to YOU" expression - genuine smile, eyes connected, slight forward lean. The vibe is "I see you, you've been here a while, I'm telling you something just for you". She wears a soft cream linen shirt. Background: warm beige wall with soft natural daylight, slightly out of focus. Photorealistic intimate portrait, 85mm lens look, very shallow DOF at f/1.8, sharp eyes, natural skin texture, warm cinematic color grading. Composition: face fills upper two-thirds, eyes at upper third line, plenty of space below for headline. Mood: insider conversation, warm direct address, "this one is for my people".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, distant shot, full body, harsh light, plastic skin, fake smile, beauty filter, oversaturated, instagram pose, model pose, hand gestures
+    </negative-prompt>
+    <style-keywords>photorealistic, intimate close-up, direct address, warm light, very shallow DOF, insider feel</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Reel/Story) primary</aspect-ratio>
+      <resolution>1080x1920</resolution>
+      <variations-to-generate>2</variations-to-generate>
+      <safe-zones-916 top-px="250" bottom-px="350"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Direct address tribale. Headline che parla "a noi". Tono insider.</description>
+    <primary-overlay position="top-third-center">
+      <text language="it">A te. Che mi segui da un po'.</text>
+      <font>Lora Italic (serif)</font>
+      <size-pct>7</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.4) 0 2px 12px</shadow>
+      <max-width-pct>85</max-width-pct>
+    </primary-overlay>
+    <bottom-cta-overlay position="bottom-quarter-center">
+      <text language="it">Stavolta è il momento.</text>
+      <font>Inter SemiBold</font>
+      <size-pct>5.5</size-pct>
+      <color>#FFE9C7</color>
+    </bottom-cta-overlay>
+    <date-pill position="bottom-eighth-center">
+      <text language="it">19-20-21 MAGGIO · 18:30 · LIVE</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>warm dark #2B1F18 pill</background>
+    </date-pill>
+    <logo position="bottom-right" opacity="0.5" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+A te. Che mi segui da un po'.
+
+So che hai visto i miei post. Hai messo qualche like. Magari hai salvato un Reel. Forse hai pensato "questa donna dice cose vere".
+
+E ogni volta che ho lanciato qualcosa, hai pensato: "Magari la prossima."
+
+Senti, lo dico in modo diretto perché tra noi non c'è bisogno di girarci intorno: stavolta è il momento.
+
+Il webinar di maggio è 3 sere — 19, 20, 21 — alle 18:30. Gratis. 30 minuti l'una. Replay incluso. È il modo più semplice che esiste per entrare nelle Inarrestabili senza spendere un euro.
+
+Se non lo fai adesso, lo farò di nuovo a settembre. E tu sarai stata in giro un altro giro.
+
+Non prometto miracoli. Non è una dieta. È il primo passo. Il TUO primo passo.
+
+Posto qui. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">A te. Che mi segui da un po'.</headline>
+    <description max-chars="30">Stavolta è il momento.</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Tra noi, parlo diretto.</headline-alt>
+      <headline-alt max-chars="40">Quante volte ancora "magari"?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source>
+      <utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-tribe</utm_campaign>
+      <utm_content>EI26-RTG-18-tribe</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-tribe&amp;utm_content=EI26-RTG-18-tribe&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-tribe (landing personalizza con tono insider/tribale)</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Follower-IG-FB-Attivi-90d</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>65</age-max>
+    <custom-audiences>
+      <audience>Follower IG @elenagiordani attivi 90gg (interazione almeno 1 in 90gg)</audience>
+      <audience>Follower Pagina FB Elena Giordani 90gg engaged</audience>
+      <audience>Video viewers 50%+ contenuti organici 90gg</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar (Lead), acquirenti Club, visitatori landing 14gg (gestiti da RTG-touch)</exclusions>
+    <advantage-plus>false</advantage-plus>
+    <placements>Reels + Stories + Feed (priority Reels)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>10</test-budget-eur-day>
+    <test-duration-days>10</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="3.5"/>
+    <kpi-secondary metric="ThruPlay" target-min-pct="35"/>
+    <kill-rule>Se CPL > 5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+    <frequency-cap>Max 4/settimana per persona</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Close-up molto intimo - eye contact diretto = chiave. F/1.8 per shallow DOF estremo. Espressione "warm direct" senza esibizionismo sorriso forzato.</note>
+    <note role="designer">Headline serif italic = continuity con story-led. "A te. Che mi segui da un po'." è insider call → emoziona follower.</note>
+    <note role="copywriter">Direct address tribale: ammette esplicitamente la procrastination del follower ("magari la prossima") senza giudizio. Halbert "name the resistance".</note>
+    <note role="media-buyer">Audience tribale = altissima conversione attesa (CPL ~2-3€). Lanciare in concomitanza con RTG-16/17 (touch) ma audience separata per attribution.</note>
+  </notes>
+</creative>

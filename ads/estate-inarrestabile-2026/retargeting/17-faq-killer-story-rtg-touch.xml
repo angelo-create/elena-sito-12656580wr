@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-17" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>touch (landing visitors no opt-in)</retarget-type>
+    <angle>FAQ-killer - 3 obiezioni dei visitatori in dubbio</angle>
+    <copy-framework copywriter="Halbert + Hopkins">Objection Stack Removal</copy-framework>
+    <hypothesis>Visitatori che non hanno cliccato hanno 1-2 obiezioni specifiche -> rispondere alle 3 più comuni in formato Story sequence = sblocca conversione</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed in a clean modern home setting, looking directly at camera with a calm reassuring expression - the look of "let me answer your questions". She wears a soft cream linen shirt. Slight head tilt, hand gesture as if mid-explanation. Natural daylight from upper left. Photorealistic editorial portrait, 50mm lens, shallow DOF, warm cinematic color grading. Composition: subject centered, plenty of space around for FAQ overlay text. Mood: reassuring expert answering doubts.
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, harsh light, plastic skin, fake smile, beauty filter, oversaturated, instagram pose
+    </negative-prompt>
+    <style-keywords>photorealistic, editorial, reassuring, calm, soft daylight, soft DOF, expert vibe</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Story sequence) - 3 stories da swipe</aspect-ratio>
+      <resolution>1080x1920</resolution>
+      <variations-to-generate>2</variations-to-generate>
+      <safe-zones-916 top-px="250" bottom-px="350"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>3 Story sequence. Ogni story = 1 obiezione + risposta. Format Q&amp;A semplice.</description>
+    <story-sequence>
+      <story index="1" duration-sec="7">
+        <visual>Elena (medium shot)</visual>
+        <header-overlay position="top-third">
+          <text language="it">"Non ho tempo per 3 sere."</text>
+          <font>Lora Italic</font>
+          <size-pct>7</size-pct>
+          <color>#FFE9C7</color>
+        </header-overlay>
+        <body-overlay position="middle">
+          <text language="it">30 minuti a sera. Non di più.
+Replay incluso se salti.
+90 minuti totali in 3 giorni.</text>
+          <font>Inter Medium</font>
+          <size-pct>5</size-pct>
+          <color>#FFFFFF</color>
+        </body-overlay>
+        <bottom-cta>Swipe →</bottom-cta>
+      </story>
+      <story index="2" duration-sec="7">
+        <visual>Elena (medium shot)</visual>
+        <header-overlay position="top-third">
+          <text language="it">"È un'altra dieta?"</text>
+          <font>Lora Italic</font>
+          <size-pct>7</size-pct>
+          <color>#FFE9C7</color>
+        </header-overlay>
+        <body-overlay position="middle">
+          <text language="it">No. Non conto calorie.
+Non vieto cibi.
+Non ti darò un piano alimentare.
+Ti spiego un metodo.</text>
+          <font>Inter Medium</font>
+          <size-pct>5</size-pct>
+          <color>#FFFFFF</color>
+        </body-overlay>
+        <bottom-cta>Swipe →</bottom-cta>
+      </story>
+      <story index="3" duration-sec="7">
+        <visual>Elena (medium shot, soft smile)</visual>
+        <header-overlay position="top-third">
+          <text language="it">"E poi mi vendi qualcosa?"</text>
+          <font>Lora Italic</font>
+          <size-pct>7</size-pct>
+          <color>#FFE9C7</color>
+        </header-overlay>
+        <body-overlay position="middle">
+          <text language="it">Ti dirò del Club Inarrestabili.
+Costa €127. Una volta. Per sempre.
+Solo se vuoi continuare.
+Le 3 sere sono complete da sole.</text>
+          <font>Inter Medium</font>
+          <size-pct>4.5</size-pct>
+          <color>#FFFFFF</color>
+        </body-overlay>
+        <bottom-cta>SWIPE UP per iscriverti</bottom-cta>
+      </story>
+    </story-sequence>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+3 domande che mi state facendo via DM in questi giorni:
+
+→ "Non ho tempo per 3 sere consecutive."
+30 minuti a sera. Non di più. Replay se salti. Totale 90 minuti in tre giorni.
+
+→ "È un'altra dieta camuffata?"
+No. Non conto calorie. Non vieto cibi. Non ti darò un meal plan. Ti spiego un metodo.
+
+→ "E poi mi vendi qualcosa di costoso?"
+Sì, ti parlerò del Club delle Inarrestabili. Costa €127 una volta per sempre. Solo se vuoi continuare. Le 3 sere sono complete da sole.
+
+Adesso lo sai. Decidi se vuoi essere dentro.
+
+19-20-21 maggio. 18:30. Live, gratis.
+
+Posto qui. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">3 domande, 3 risposte. Onesto.</headline>
+    <description max-chars="30">19-21 maggio · 30 min/sera</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">FAQ del webinar — onesto.</headline-alt>
+      <headline-alt max-chars="40">Le 3 domande che mi fate.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source>
+      <utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-touch</utm_campaign>
+      <utm_content>EI26-RTG-17-faq</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-touch&amp;utm_content=EI26-RTG-17-faq&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-touch</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Visitatori-Landing-NoOptin-30d</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>60</age-max>
+    <custom-audiences>
+      <audience>Visitatori go.elenagiordani.com/webinar-maggio ultimi 30gg (no Lead event)</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar (Lead event), acquirenti Club</exclusions>
+    <advantage-plus>false</advantage-plus>
+    <placements>Stories + Reels solo</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>6</test-budget-eur-day>
+    <test-duration-days>10</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="story-completion-rate" target-min-pct="50"/>
+    <kpi-secondary metric="story-3-view-rate" target-min-pct="35"/>
+    <kill-rule>Se story-1-to-2 drop > 60% → riformulare obiezione 1</kill-rule>
+    <scale-rule>Se CPL ≤ 2.5€ → +25% budget</scale-rule>
+    <frequency-cap>Max 4/settimana per persona</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">3 stories simili visivamente (stessa Elena stesso setting) - solo overlay text cambia. Generare 1 cover frame, riusare per tutte e 3.</note>
+    <note role="designer">Q&amp;A format pulito: domanda in alto serif italic, risposta sotto sans-serif chiaro. Story 3 svela "Club" + prezzo - radical honesty Halbert. Funzionale per pre-qualificare.</note>
+    <note role="copywriter">Onestà chirurgica. Story 3 menziona PREZZO Club (€127) per filtrare price-sensitive prima dell'opt-in. Funziona perché elimina sospetto "ci sarà la fregatura".</note>
+    <note role="media-buyer">Story sequence in CBO. Misurare drop-off tra story 1→2→3 = quale obiezione filtra di più. Iterare l'obiezione che fa droppare di più.</note>
+  </notes>
+</creative>

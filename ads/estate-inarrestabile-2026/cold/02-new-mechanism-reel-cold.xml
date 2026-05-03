@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-02" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>New Mechanism - "Non è la motivazione, è un meccanismo che si rompe a giugno"</angle>
+    <copy-framework copywriter="Eugene Schwartz">New Mechanism (Breakthrough Advertising)</copy-framework>
+    <hypothesis>Donne hanno provato 100 metodi falliti -> rispondono a "nuovo meccanismo che spiega perché finora non ha funzionato" più che a promessa di risultato</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed in a clean modern home office setting with neutral cream walls. She stands beside a simple white wall where a minimalist hand-drawn timeline is visible (May going up, June flat, July going down, September deep down) - drawn in soft pencil-like strokes, almost like a teacher explaining. She points to the timeline with one hand and looks directly at the camera with a clarifying, "let me show you" expression. She wears a soft sage green linen shirt, sleeves rolled up. Natural daylight from a side window. Photorealistic lifestyle photography, authentic teacher-friend vibe, shallow depth of field, 50mm lens, warm but slightly cooler tones than morning shots. Composition centered with timeline visible left side, Elena right side. Mood: educational, clarifying, "I'm about to explain something nobody told you".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, 3D, low quality, blurry, watermark, deformed face, multiple people, blackboard, school chalkboard, classroom, presentation slides, powerpoint, infographic style, complex chart, numbers, percentages, bar chart, gym, weight, scale, lab coat, doctor coat, harsh light, fake smile, plastic skin
+    </negative-prompt>
+    <style-keywords>photorealistic, lifestyle, educational, calm, authentic, soft daylight, intimate teacher vibe</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Reel/Story) + 4:5 (Feed)</aspect-ratio>
+      <resolution>1080x1920 / 1080x1350</resolution>
+      <variations-to-generate>3</variations-to-generate>
+      <safe-zones-916 top-px="250" bottom-px="350">Timeline visibile sotto safe-zone top, viso Elena visibile in zona centrale</safe-zones-916>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Overlay in post. Lasciare spazio per la curva temporale visibile (May/June/July/September).</description>
+    <primary-overlay position="top-third-center">
+      <text language="it">NON È LA MOTIVAZIONE</text>
+      <font>Inter Bold</font>
+      <size-pct>9</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.4) 0 2px 12px</shadow>
+    </primary-overlay>
+    <secondary-overlay position="below-primary">
+      <text language="it">è un meccanismo che a giugno si rompe</text>
+      <font>Inter Regular Italic</font>
+      <size-pct>5</size-pct>
+      <color>#FFE9C7 (warm cream)</color>
+    </secondary-overlay>
+    <bottom-cta-overlay position="bottom-third-center">
+      <text language="it">19-20-21 MAGGIO · 18:30 · LIVE GRATIS</text>
+      <font>Inter Medium</font>
+      <size-pct>4</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 70% opacity pill shape padding</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.6" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Per anni ti hanno detto: "Devi essere più motivata."
+
+Ma se la motivazione fosse il problema, l'avresti già risolto. Hai letto libri, fatto programmi, scaricato app. Eppure ogni giugno crolla tutto.
+
+Il motivo è uno solo: c'è un meccanismo specifico che a giugno si inceppa. Caldo, routine spaccata, vacanze, piani sociali. Nessuno te l'ha mai spiegato perché nessuno è entrato nel dettaglio di cosa succede a una donna di 35-55 anni quando arriva l'estate.
+
+Io sì. In 3 sere live. 19, 20, 21 maggio alle 18:30.
+
+Sera 1 → Il motivo (che nessuno ti spiega).
+Sera 2 → Il metodo per essere costante senza diventare una nazi del cibo.
+Sera 3 → Come non tornare al punto di partenza a settembre.
+
+Non prometto miracoli. Non è una dieta. È il primo passo giusto.
+
+Gratis. Posto tuo qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Non è la motivazione il problema.</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Il vero motivo (nessuno lo dice).</headline-alt>
+      <headline-alt max-chars="40">Perché a giugno crolla tutto.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-02-newmech</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-02-newmech&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Fitness-Sophisticated-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>55</age-max>
+    <interests>nutrizione, mindful eating, intuitive eating, anti-dieta, body positivity, salute femminile, perimenopausa</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club Inarrestabili</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="6.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="ThruPlay" target-min-pct="20"/>
+    <kill-rule>Se CPL > 10€ dopo 80€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 5€ e spend ≥ 50€ → +20% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">La timeline a parete è la chiave visiva. Generare anche varianti senza timeline (solo Elena in posa "sto per spiegare"). Testare entrambe.</note>
+    <note role="designer">Se animazione Reel: la curva timeline va animata con tracciato disegnato a mano. 3 frame: maggio (top) → giugno (flat) → settembre (bottom).</note>
+    <note role="copywriter">Audience più sofisticata (Stage 4-5 Schwartz). Funziona con donne che hanno già provato di tutto. Non parlare di "dimagrire", parla di "meccanismo".</note>
+    <note role="media-buyer">Pair in CBO con COLD-01 (PAS, audience più mainstream). Comparare quale angle vince per scaling.</note>
+  </notes>
+</creative>

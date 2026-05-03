@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-10" status="ready" priority="P1" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Identity Belonging - "Le Inarrestabili" community/tribe</angle>
+    <copy-framework copywriter="Eugene Schwartz + Tribal Marketing">Belonging / In-Group Identity</copy-framework>
+    <hypothesis>Donne 40+ cercano community + appartenenza più che soluzione individuale -> "entra in una tribù" funziona meglio di "compra un metodo"</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="lifestyle-group" required="false" purpose="mood-reference">opzionale: foto cerchio donne 40+</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A circle of 5-6 Italian women aged 40-55, photographed from a slight high angle, standing in a sun-dappled olive grove or open Mediterranean field at golden hour. They are not holding hands - they are standing in a loose circle facing each other, mid-conversation, some laughing, some listening intently. Diverse body types and shapes - real women, not models. Outfits: each in their own personal style, casual chic linen, soft earth tones (cream, sage, terracotta, dusty rose). Camera angle creates a sense of intimate sharing, like the viewer is being invited in. Background: soft golden light filtering through leaves, blurred warm bokeh. Photorealistic documentary photography, candid moment, 35mm lens, natural skin texture, warm cinematic golden hour grading. Composition: circle balanced with subtle opening toward viewer, plenty of negative space top for headline. Mood: belonging, sisterhood without cheesiness, "this is our tribe and you can join".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, posed group photo wedding style, all looking at camera smiling, all young women, all skinny women, all white women, makeup heavy, fashion editorial, instagram filter, fake stock photo group, cheesy hands raised in air, yoga pose group, jumping in air group, harsh midday light, oversaturated
+    </negative-prompt>
+    <style-keywords>photorealistic, documentary, intimate group, golden hour, Mediterranean nature, real women, belonging, sisterhood, candid</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Story) + 1:1 (Feed)</aspect-ratio>
+      <resolution>1080x1920 / 1080x1080</resolution>
+      <variations-to-generate>4 (different settings: olive grove / terrace / coastal path)</variations-to-generate>
+      <safe-zones-916 top-px="250" bottom-px="350"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline brand-led con simbolo identitario. Story format ottimizzato per shareability dentro la community.</description>
+    <primary-overlay position="top-quarter-center">
+      <text language="it">LE INARRESTABILI</text>
+      <font>Inter Black</font>
+      <size-pct>10</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.45) 0 3px 14px</shadow>
+      <letter-spacing>0.08em</letter-spacing>
+    </primary-overlay>
+    <secondary-overlay position="below-primary">
+      <text language="it">una tribù di 2300+ donne 35+ che hanno smesso di rimandare</text>
+      <font>Inter Light</font>
+      <size-pct>4</size-pct>
+      <color>#FFE9C7</color>
+      <max-width-pct>78</max-width-pct>
+      <line-height>1.3</line-height>
+    </secondary-overlay>
+    <middle-cta-overlay position="lower-third-center">
+      <text language="it">Entra dentro →</text>
+      <font>Inter Bold Italic</font>
+      <size-pct>6</size-pct>
+      <color>#FFFFFF</color>
+      <background>warm dark #2B1F18 pill 16px padding</background>
+    </middle-cta-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Webinar gratis · 19-20-21 maggio · 18:30</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Si chiamano Le Inarrestabili.
+
+Sono 2300+. Sono in 8 paesi. Hanno tra i 35 e i 65 anni. Lavorano, hanno famiglie, hanno vissuto cose, hanno fallito diete, si sono prese gioco di sé stesse e poi hanno smesso.
+
+A un certo punto hanno scelto: basta rimandare a settembre. Basta partire e mollare. Basta credere a chi promette miracoli.
+
+Hanno scelto un metodo costruito per donne come loro. Per donne come te.
+
+Il prossimo webinar è il 19, 20, 21 maggio alle 18:30. Si entra dentro lì. Tre sere live, gratis.
+
+Non prometto miracoli. Non è una dieta. È solo il primo passo per entrare in una tribù che non aspetta più settembre.
+
+Posto tuo qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Una tribù che non aspetta settembre.</headline>
+    <description max-chars="30">2300+ donne · entra dentro</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Le Inarrestabili. Entra dentro.</headline-alt>
+      <headline-alt max-chars="40">2300+ donne in 8 paesi. Tu?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-10-belonging</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-10-belonging&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-65-Sisterhood-Wellness-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>40</age-min>
+    <age-max>65</age-max>
+    <interests>amicizia femminile, gruppi donne, libri Brené Brown, community online, social club donne, viaggi solo donne, retreat benessere</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>10</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="7.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.3"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="2"/>
+    <kill-rule>Se CPL > 11€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 6€ E share-rate alta → +25% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: diversità reale (corpi, età 40-65, no makeup esagerato). Cerchio "loose, not posed". Se nano-banana genera modelle photoshop-perfect, rigenerare. Provare anche variante con solo 3-4 donne più ravvicinate.</note>
+    <note role="designer">Story format prima scelta. Headline "LE INARRESTABILI" come brand identity - va MOLTO grande. Il visual è ambiente, le donne sono "le altre come te".</note>
+    <note role="copywriter">Identity belonging = parla del gruppo che lei può raggiungere, non del prodotto. "Una tribù che non aspetta settembre" è frame migliore di "un webinar".</note>
+    <note role="media-buyer">Aspettarsi share alti (donne taggano amiche). Misurare share-rate = indicatore engagement organico.</note>
+  </notes>
+</creative>

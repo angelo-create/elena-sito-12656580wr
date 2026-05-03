@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-08" status="ready" priority="P1" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Objection Killer - "Lavori, hai famiglia, e a giugno salti?"</angle>
+    <copy-framework copywriter="Gary Halbert">Obstacle Removal / Specific Persona</copy-framework>
+    <hypothesis>Donne 35-55 con famiglia/lavoro pensano "non è per me, non ho tempo" -> ad che riconosce esplicitamente quella vita = self-identification + click</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="false" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+Lifestyle scene: a 45-year-old Italian woman in casual home clothes (oversized soft sage cardigan, leggings, hair loosely tied back) standing in a real Italian kitchen at 7pm summer evening. Background shows authentic chaos of family life - kid's school bag on chair, half-prepared dinner ingredients on counter, shopping bags in corner, but framed beautifully. She is mid-action, gently leaning against the counter holding a glass of water, looking at camera with a tired-but-real half-smile - the look of "this is my reality and I made it work anyway". Warm interior evening light, slight golden haze from window. Photorealistic documentary lifestyle photography, 35mm lens, natural skin texture (some tiredness around eyes is okay - real). Composition: subject offset right, kitchen chaos visible left blurred, plenty of headline space top. Mood: relatable real life, "I see you, I am you, and it works for us".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, kids visible faces (privacy), pristine kitchen, magazine kitchen, perfect arrangement, fake busy mom influencer aesthetic, glamorous mom, perfect makeup, fake smile, plastic skin, harsh light, instagram filter, oversaturated, posing
+    </negative-prompt>
+    <style-keywords>photorealistic, documentary, real life, relatable, warm evening light, authentic mom, lived-in kitchen, no idealization</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="4:5">4:5 (Feed) + 1:1 (Feed) + 9:16 (Story)</aspect-ratio>
+      <resolution>1080x1350 / 1080x1080 / 1080x1920</resolution>
+      <variations-to-generate>3</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Domanda diretta come headline - parla A LEI specificamente. Long-form persona description.</description>
+    <primary-overlay position="top-quarter-center">
+      <text language="it">Lavori. Hai famiglia. A giugno salti?</text>
+      <font>Inter Bold</font>
+      <size-pct>7</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.45) 0 2px 12px</shadow>
+      <max-width-pct>88</max-width-pct>
+    </primary-overlay>
+    <secondary-overlay position="below-primary">
+      <text language="it">È pensato per la TUA vita.</text>
+      <font>Inter SemiBold Italic</font>
+      <size-pct>5</size-pct>
+      <color>#FFE9C7</color>
+    </secondary-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">3 sere · 19-20-21 maggio · 18:30 · gratis</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 65% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Lavori 9-10 ore al giorno.
+Hai figli che a giugno escono da scuola.
+Hai un partner che mangia diversamente da te.
+Hai una famiglia che si organizza per le vacanze.
+
+E in mezzo a tutto questo dovresti "essere costante" con un metodo pensato da una influencer di 28 anni che vive da sola e ha tre ore di palestra al giorno.
+
+Non funziona.
+
+Quello che ti racconto in 3 sere è pensato per la TUA vita. Quella vera. Quella con il caos di giugno, le vacanze di luglio, la riunione di lavoro che salta i piani, il pranzo della suocera, il gelato col bambino.
+
+Costante d'estate non significa rinunciare. Significa avere un metodo che funziona DENTRO la tua vita, non contro.
+
+19, 20, 21 maggio. 18:30. Live, gratis.
+
+Non prometto miracoli. Non è una dieta. È il primo passo giusto — per donne con la vita vera.
+
+Posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Pensato per la tua vita vera.</headline>
+    <description max-chars="30">Webinar live · 19-21 maggio</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Hai figli, lavoro, e zero tempo?</headline-alt>
+      <headline-alt max-chars="40">Anche con vita vera. Funziona.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-08-objection</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-08-objection&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Mamme-35-50-Lavoratrici-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>50</age-max>
+    <interests>genitori, mamme lavoratrici, time management, work-life balance, scuola, vacanze in famiglia, organizzazione casa</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="6.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.5"/>
+    <kpi-secondary metric="time-on-ad" target-min-sec="6"/>
+    <kill-rule>Se CPL > 10€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 5.5€ → +20% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: la "casa caotica" deve essere REALE, non un set ordinato. Se nano-banana genera kitchen perfetta da magazine, esplicitare "real lived-in chaos, school bag, half-cut vegetables, shopping bags". Bambini NON visibili (privacy + per esser inclusivo anche di donne senza figli).</note>
+    <note role="designer">Headline molto lunga - testa che entri nel safe zone. Eventualmente spezzare su 3 righe: "Lavori. / Hai famiglia. / A giugno salti?".</note>
+    <note role="copywriter">Long-copy persona Halbertiana. Dettagli specifici (9-10 ore, suocera, gelato col bambino) > generico. Più dettagli concreti = più self-identification.</note>
+    <note role="media-buyer">Audience più ristretta (mamme lavoratrici). Budget più basso (12€/g). Aspettarsi tempo-on-ad alto (è long-copy).</note>
+  </notes>
+</creative>

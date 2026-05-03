@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-03" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Identity Shift - "Le Inarrestabili non aspettano settembre"</angle>
+    <copy-framework copywriter="Eugene Schwartz">Identity Advertising (Stage 5 sophistication)</copy-framework>
+    <hypothesis>Target che si identifica come "donna non fatta per le diete" risponde a frame identitario "diventa una Inarrestabile" più che a promessa funzionale</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="lifestyle-only" required="false" purpose="mood-reference">opzionale: foto lifestyle donne 40+ outdoor estate</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+Three Italian women aged 40-55 walking together along a sun-drenched Mediterranean coastal path in early morning summer light. They are dressed in casual athleisure - one in soft coral linen shirt over leggings, one in a sage green tank top with light cargo pants, one in a soft white t-shirt with denim shorts. They are laughing genuinely, mid-conversation, not posing. Real bodies of women in their 40s-50s - not models, just real-looking authentic women with natural shapes. Background: blurred sea and pine trees on the side, golden hour light hitting them from behind creating subtle rim lighting. Photorealistic lifestyle photography, candid documentary style, natural skin texture, 50mm lens, soft depth of field, warm golden cinematic color grading. Composition: three women centered, walking toward camera, plenty of negative space top for headline overlay. Mood: empowering belonging, "we figured it out", confident summer joy without exhibitionism.
+      ]]>
+    </prompt>
+    <negative-prompt>
+      models, fashion shoot, perfect bodies, thin only bodies, gym workout, gym equipment, beach swimsuit, bikini, weight loss before after, scale, diet food, salads on plates, posed group photo, cheesy stock photo, instagram filter, oversaturated, plastic skin, fake smile, all young women, all white women only, harsh midday sun, sand beach posing, makeup heavy
+    </negative-prompt>
+    <style-keywords>photorealistic, candid, lifestyle, documentary, golden hour, Mediterranean, natural, empowering, real bodies, authentic</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="1:1">1:1 (Feed) + 4:5 (Feed vertical)</aspect-ratio>
+      <resolution>1080x1080 / 1080x1350</resolution>
+      <variations-to-generate>4</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Overlay headline grande in alto, max impatto identitario.</description>
+    <primary-overlay position="top-quarter-center">
+      <text language="it">LE INARRESTABILI</text>
+      <font>Inter Black (extra bold)</font>
+      <size-pct>11</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.45) 0 3px 14px</shadow>
+      <letter-spacing>0.05em</letter-spacing>
+    </primary-overlay>
+    <secondary-overlay position="below-primary">
+      <text language="it">non aspettano settembre</text>
+      <font>Inter Light Italic</font>
+      <size-pct>5</size-pct>
+      <color>#FFE9C7</color>
+    </secondary-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Webinar gratis · 19-20-21 maggio · 18:30</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 65% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Le Inarrestabili non aspettano settembre per ricominciare.
+
+Non sono donne con la genetica fortunata. Non sono donne senza famiglia, senza lavoro, senza giornate impossibili. Sono donne come te che a un certo punto hanno smesso di credere alle diete miracolose e hanno scelto un'altra cosa: un metodo che funziona anche d'estate.
+
+Sono 2300+. Hanno smesso di "rimandare a settembre". Si tengono per mano nei mesi in cui prima mollavano.
+
+Se vuoi vedere come funziona, ti aspetto in 3 sere live: 19, 20, 21 maggio alle 18:30.
+
+Non prometto miracoli. Non è una dieta. È il primo passo.
+
+Gratis. Prendi il tuo posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Le Inarrestabili non aspettano.</headline>
+    <description max-chars="30">2300+ donne · webinar live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Diventa una Inarrestabile.</headline-alt>
+      <headline-alt max-chars="40">Niente attesa fino a settembre.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-03-identity</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-03-identity&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-55-Lifestyle-Wellness-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>40</age-min>
+    <age-max>55</age-max>
+    <interests>self care, lifestyle benessere, libri di crescita personale, slow living, donne in carriera, perimenopausa, amicizia femminile</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="7.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.3"/>
+    <kpi-secondary metric="cost-per-engagement" target-max-eur="0.20"/>
+    <kill-rule>Se CPL > 11€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 6€ e spend ≥ 50€ → +20% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: i corpi devono essere realistici donne 40-55, non modelle. Se nano-banana di default genera modelle, esplicitare nel prompt "real bodies, real women not models". Generare 4-5 variazioni per scegliere quella più autentica.</note>
+    <note role="designer">Lasciare in alto 25% di spazio negativo per "LE INARRESTABILI" headline grande. Il visual deve sostenere la headline, non competere.</note>
+    <note role="copywriter">Tono identitario, no funzionale. Niente parlare di "kg in meno". Parlare di "smettere di rimandare a settembre".</note>
+    <note role="media-buyer">Audience più ristretta 40-55, lifestyle. Budget iniziale leggermente più basso (12€/g vs 15€/g) per raffinare audience.</note>
+  </notes>
+</creative>

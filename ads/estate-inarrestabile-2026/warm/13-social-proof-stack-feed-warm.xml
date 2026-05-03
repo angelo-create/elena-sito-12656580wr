@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-WARM-13" status="ready" priority="P1" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>warm</funnel-stage>
+    <angle>Social Proof Stack v2 - Testimonial reali Inarrestabili</angle>
+    <copy-framework copywriter="Caples Tested + Halbert Testimonial">Real Testimonial Wall</copy-framework>
+    <hypothesis>Warm audience risponde a testimonial specifici (nome, età, città) > a numeri aggregati. Specifity Halbert.</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="testimonial-photos" required="true" purpose="real-testimonials">CARICARE foto reali di 3-4 Inarrestabili (con loro consenso) prima di lanciare</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+[ATTENZIONE: Questa creativita ideale dovrebbe usare FOTO REALI di testimonial Inarrestabili (con consenso). Se non disponibili, generare con AI le seguenti scene NEUTRE, evitando claim/risultati specifici:]
+
+A grid composition or single image of 3 Italian women in their 40s-50s in different real-life moments: one walking on a Mediterranean coastal path at sunrise (back to camera), one preparing breakfast in a sunny home kitchen (looking down at food), one writing in a journal at a small cafe table outdoors (writing, not posing). Each woman in casual real outfit, no athletic gear poses, no fitness influencer looks. Documentary photography, candid moments not posed, soft natural daylight, warm cinematic color grading, real bodies, authentic. Composition: triptych or grid, plenty of space for testimonial text overlays. Mood: real women living real life, "this is what consistency looks like".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, before/after weight, gym selfie, posed transformation photo, fashion editorial, makeup heavy, models, perfect bodies, fake smile, scale, weight number, celebrity stock photos
+    </negative-prompt>
+    <style-keywords>photorealistic, documentary, real women, candid, soft daylight, lifestyle moments, authentic</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="1:1">1:1 (Feed) + 4:5 (Feed)</aspect-ratio>
+      <resolution>1080x1080 / 1080x1350</resolution>
+      <variations-to-generate>3</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Testimonial cards in stile review-card. Nome + età + città + 1 frase. Visual umile.</description>
+    <testimonial-cards>
+      <card index="1">
+        <quote language="it">"A giugno non ho mollato. Per la prima volta in 12 anni."</quote>
+        <name>Marta, 47</name>
+        <city>Milano</city>
+        <stars>5</stars>
+      </card>
+      <card index="2">
+        <quote language="it">"Non sono dimagrita di kg. Ma non mi pesi più ogni mattina con angoscia."</quote>
+        <name>Giulia, 52</name>
+        <city>Roma</city>
+        <stars>5</stars>
+      </card>
+      <card index="3">
+        <quote language="it">"Mio marito ha mangiato gli stessi piatti. Tutti. Senza pensarci."</quote>
+        <name>Anna, 44</name>
+        <city>Bologna</city>
+        <stars>5</stars>
+      </card>
+    </testimonial-cards>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Webinar gratis · 19-20-21 maggio · 18:30</text>
+      <font>Inter Medium</font>
+      <size-pct>4</size-pct>
+      <color>#FFFFFF</color>
+      <background>warm dark pill</background>
+    </bottom-cta-overlay>
+    <header-overlay position="top-eighth-center">
+      <text language="it">Testimoni delle Inarrestabili</text>
+      <font>Lora Italic</font>
+      <size-pct>5</size-pct>
+      <color>#FFFFFF</color>
+    </header-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+"A giugno non ho mollato. Per la prima volta in 12 anni." — Marta, 47, Milano
+
+"Non sono dimagrita di chissà quanti kg. Ma non mi peso più ogni mattina con angoscia." — Giulia, 52, Roma
+
+"Mio marito ha mangiato gli stessi piatti. Tutti. Senza pensarci." — Anna, 44, Bologna
+
+Questi non sono claim di brochure. Sono donne che ti potrei presentare una per una. Sono parte delle 2300+ Inarrestabili che hanno smesso di rimandare a settembre.
+
+Se vuoi capire come hanno fatto, ti aspetto in 3 sere live: 19, 20, 21 maggio alle 18:30.
+
+Non prometto miracoli. Non è una dieta. È il primo passo.
+
+Posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">"A giugno non ho mollato." — Marta</headline>
+    <description max-chars="30">3 sere live · 19-21 maggio</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Le voci delle Inarrestabili.</headline-alt>
+      <headline-alt max-chars="40">Cosa dicono di sé, dopo.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-warm</utm_campaign>
+      <utm_content>EI26-WARM-13-testimonial</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-warm&amp;utm_content=EI26-WARM-13-testimonial&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Engagers-180d + Newsletter-Subscribers</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>60</age-max>
+    <custom-audiences>
+      <audience>Engagers FB+IG 180gg</audience>
+      <audience>Newsletter subscribers ultimi 365gg</audience>
+      <audience>Visitatori sito elenagiordani.com 90gg (no webinar landing)</audience>
+    </custom-audiences>
+    <exclusions>visitatori webinar-maggio.html ultimi 14gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="4.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="2"/>
+    <kill-rule>Se CPL > 7€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3.5€ → +25% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">PRIORITÀ ASSOLUTA: usare foto reali delle Inarrestabili (con consenso scritto). Se non disponibili, generare AI con AI (no claim su risultati).</note>
+    <note role="designer">Testimonial cards stile rectangle review (tipo Trustpilot/Google review). 5 stelle gialle, nome+età+città in piccolo, quote in grande. Layout pulito. NO before/after.</note>
+    <note role="copywriter">Quote chiave: NON parlano di kg/chili. Parlano di anti-ossessione, libertà, normalizzazione. Coerente con anti-dieta brand.</note>
+    <note role="media-buyer">Warm testimonial = converte alto. Misurare anche commenti ("anch'io vorrei!" - alta intent). Il visual reale > AI se possibile.</note>
+    <note role="legal">Verificare consenso scritto delle 3 donne citate (nome + foto). Se non hai consenso, sostituire con citazioni anonime ("Una donna di 47 anni di Milano, dopo 6 mesi:").</note>
+  </notes>
+</creative>

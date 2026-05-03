@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-WARM-12" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>warm</funnel-stage>
+    <angle>New Mechanism Educational - Carosello "i 4 pilastri E.A.S.Y."</angle>
+    <copy-framework copywriter="Schwartz New Mechanism + Educational Carousel">Mechanism Reveal Edu</copy-framework>
+    <hypothesis>Audience warm pre-aware del brand -> spiegazione del metodo (E.A.S.Y. = Esercizio, Alimentazione, Supporto, You) anticipa valore + qualifica click-through</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+[Solo Card 1 da generare con AI - le altre cards sono grafiche statiche con testo]
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed in a clean bright modern setting, holding up four fingers of her right hand in a clear "four" gesture (thumb folded). She looks at camera with a confident "let me show you" expression. She wears a soft cream linen shirt. Background: clean warm cream wall, soft natural daylight. Photorealistic editorial portrait, 50mm lens, shallow DOF, natural skin texture, warm cinematic color grading. Composition: subject centered slightly left, four fingers visible right side, plenty of space top for headline. Mood: clear teacher, "there are 4 things, listen up".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, gym, harsh light, fake smile, plastic skin, beauty filter, instagram pose, peace sign, ok sign, okay gesture, complex hand pose
+    </negative-prompt>
+    <style-keywords>photorealistic, editorial, clean, teacher, confident, soft daylight, intentional gesture</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="1:1">1:1 (Feed) + 4:5 (Feed) - CAROUSEL: 6 cards</aspect-ratio>
+      <resolution>1080x1080 / 1080x1350</resolution>
+      <variations-to-generate>2 (cover only)</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Carousel 6 card. Card 1 cover. Card 2-5 = un pilastro ciascuna. Card 6 = CTA. Educational reveal.</description>
+    <carousel>
+      <card index="1" role="cover">
+        <visual>Elena (immagine generata sopra)</visual>
+        <primary-text language="it">Il metodo E.A.S.Y.</primary-text>
+        <subtitle language="it">4 pilastri per essere costante (anche d'estate)</subtitle>
+        <swipe-prompt language="it">→ Scopri quali</swipe-prompt>
+      </card>
+      <card index="2" role="pillar-card">
+        <background>solid warm coral #F4A582</background>
+        <big-letter>E</big-letter>
+        <pillar-name language="it">Esercizio</pillar-name>
+        <microcopy language="it">Quanto basta. Non quanto possibile. Sostenibile a giugno come a settembre.</microcopy>
+        <text-color>#1A1A1A</text-color>
+      </card>
+      <card index="3" role="pillar-card">
+        <background>solid sage #B8C4A0</background>
+        <big-letter>A</big-letter>
+        <pillar-name language="it">Alimentazione</pillar-name>
+        <microcopy language="it">La regola dei 3 pasti. Niente diete, niente conteggi ossessivi.</microcopy>
+        <text-color>#1A1A1A</text-color>
+      </card>
+      <card index="4" role="pillar-card">
+        <background>solid warm cream #E8DCC4</background>
+        <big-letter>S</big-letter>
+        <pillar-name language="it">Supporto</pillar-name>
+        <microcopy language="it">Una tribù di 2300+ donne. Senza cui mollare è facile, con cui restare è normale.</microcopy>
+        <text-color>#1A1A1A</text-color>
+      </card>
+      <card index="5" role="pillar-card">
+        <background>solid dusty rose #D4A5A5</background>
+        <big-letter>Y</big-letter>
+        <pillar-name language="it">You</pillar-name>
+        <microcopy language="it">Tu. La cosa che nessuno mette al primo posto in un metodo. E che è tutto.</microcopy>
+        <text-color>#1A1A1A</text-color>
+      </card>
+      <card index="6" role="cta-card">
+        <background>warm dark #2B1F18</background>
+        <big-text language="it">TI SPIEGO TUTTO LIVE</big-text>
+        <text-color>#FFE9C7</text-color>
+        <subtitle language="it">3 sere · 19-20-21 maggio · 18:30 · gratis</subtitle>
+        <cta-bubble language="it">SWIPE UP → Iscriviti</cta-bubble>
+      </card>
+    </carousel>
+    <logo position="bottom-right" opacity="0.6" size-pct="5">elena-giordani-logo.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Tutto quello che farò in queste 3 sere live si regge su 4 pilastri. Te li dico subito:
+
+E — Esercizio. Quanto basta, non quanto possibile.
+A — Alimentazione. La regola dei 3 pasti, niente diete.
+S — Supporto. Una tribù di donne come te.
+Y — You. Tu, prima del metodo.
+
+Si chiama E.A.S.Y. Non perché sia facile (non lo è). Ma perché è essenziale: queste 4 cose tenute in equilibrio sono ciò che fa la differenza tra mollare a giugno e arrivare a settembre più avanti.
+
+Te li racconto uno per uno: 19, 20, 21 maggio alle 18:30. Live. Gratis.
+
+Non prometto miracoli. Non è una dieta. È il primo passo.
+
+Posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">I 4 pilastri E.A.S.Y. (1 per sera)</headline>
+    <description max-chars="30">Webinar live · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Il metodo. Pilastro per pilastro.</headline-alt>
+      <headline-alt max-chars="40">E. A. S. Y. — te lo spiego.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-warm</utm_campaign>
+      <utm_content>EI26-WARM-12-newmech-carousel</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-warm&amp;utm_content=EI26-WARM-12-newmech-carousel&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Engagers-90d + LAL-Acquirenti-Club-1pct</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>60</age-max>
+    <custom-audiences>
+      <audience>Engagers FB+IG 90gg</audience>
+      <audience>Lookalike 1% acquirenti Club</audience>
+      <audience>Newsletter subscribers ultimi 180gg</audience>
+    </custom-audiences>
+    <exclusions>visitatori webinar-maggio.html ultimi 14gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed - carousel)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="4.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="carousel-swipe-rate" target-min-pct="40"/>
+    <kpi-secondary metric="card4-or-deeper-view-rate" target-min-pct="20"/>
+    <kill-rule>Se CPL > 7€ dopo 80€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3.5€ → +30% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">SOLO Card 1 cover con AI. Cards 2-6 sono grafiche statiche Canva/Figma. Big letter (E/A/S/Y) deve essere ENORME (60-70% altezza card), font Inter Black. Colori palette caldi (coral, sage, cream, dusty rose, dark warm).</note>
+    <note role="designer">Carousel educativo - sequenza importante. Verificare che ogni card si capisca da sola (alcuni utenti vedranno solo 1-2 card). Card 6 deve avere CTA chiarissima.</note>
+    <note role="copywriter">E.A.S.Y. è acronimo del metodo Elena. Verificare che sia consistente con materiali esistenti del brand. Se "Y" non è "You" ma altro, correggere.</note>
+    <note role="media-buyer">Warm carousel = audience pre-aware educata. CPL atteso basso. Monitorare deep card view (chi arriva a card 4+ è alto-intent).</note>
+  </notes>
+</creative>

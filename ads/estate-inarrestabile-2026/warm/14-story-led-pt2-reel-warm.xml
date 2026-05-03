@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-WARM-14" status="ready" priority="P1" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>warm</funnel-stage>
+    <angle>Story Pt.2 - Il momento di svolta + cliffhanger sul metodo</angle>
+    <copy-framework copywriter="Halbert Storytelling + Schwartz Mechanism">Story Cliffhanger Reveal</copy-framework>
+    <hypothesis>Audience che ha visto Story Pt.1 (cold-05) -> sequel rivela parte del metodo + cliffhanger sulle 3 sere = alto sign-up</hypothesis>
+    <created>2026-05-03</created>
+    <related-creative>EI26-COLD-05 (Story Pt.1)</related-creative>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed walking slowly along the same Mediterranean coastal path or terrace setting from the Story Pt.1 image - this should feel like a continuation. Her stride is calm and grounded, hands loosely in pockets, looking ahead toward camera with a soft confident half-smile - the look of someone who has figured something out. She wears a soft cream linen oversized shirt over comfortable wide-leg pants. Background: blurred Mediterranean coastline or olive grove at golden hour, hints of summer. Photorealistic documentary photography, 50mm lens, shallow DOF, natural skin texture, warm cinematic color grading consistent with COLD-05 aesthetic. Composition: subject offset right, walking slightly toward camera, large negative space top-left for headline. Mood: arrived at clarity, peaceful confidence, "I'm going to tell you what came next".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, dramatic pose, model pose, fashion editorial, dark mood, sad, harsh light, plastic skin, fake smile, beauty filter, oversaturated, vintage filter
+    </negative-prompt>
+    <style-keywords>photorealistic, documentary, Mediterranean, golden hour, peaceful clarity, lifestyle, sequel feel</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Reel/Story) + 4:5 (Feed)</aspect-ratio>
+      <resolution>1080x1920 / 1080x1350</resolution>
+      <variations-to-generate>3</variations-to-generate>
+      <safe-zones-916 top-px="250" bottom-px="350"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline che ricollega a Pt.1 e rilancia. Stile coerente con COLD-05 (serif italic).</description>
+    <primary-overlay position="top-third-center">
+      <text language="it">"E poi è arrivata la mattina dopo."</text>
+      <font>Lora Italic (serif)</font>
+      <size-pct>6.5</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.4) 0 2px 10px</shadow>
+      <max-width-pct>82</max-width-pct>
+    </primary-overlay>
+    <byline-overlay position="below-primary">
+      <text language="it">— Elena (parte 2)</text>
+      <font>Inter Light</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFE9C7</color>
+    </byline-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Te la racconto live · 19-20-21 maggio · 18:30</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 60% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.5" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+(Se non hai letto la prima parte: l'estate dei 42 anni in Salento, davanti allo specchio del bagno. Quella che ha cambiato tutto.)
+
+Cosa è successo la mattina dopo?
+
+Mi sono svegliata e per la prima volta non ho aperto l'app del peso. Sono andata in cucina e mi sono fatta una colazione che non mi avrebbe fatto sentire in colpa entro mezzogiorno. Sono uscita a camminare per il puro piacere di camminare, non per "bruciare".
+
+Suona piccolo. Ma quel giorno ho rotto un loop che mi aveva tenuta prigioniera per 15 anni.
+
+Quello che non ti dirò qui — perché ci vogliono 3 sere per spiegarlo bene — è la cosa specifica che mi ha permesso di farlo, e di farlo POI ANCORA il giorno dopo, e poi un mese dopo, e poi ancora a giugno (il mese in cui mollavo sempre).
+
+Te lo racconto live. 19, 20, 21 maggio alle 18:30. 3 sere. Gratis.
+
+È il primo passo. Quello vero.
+
+Posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">"E poi è arrivata la mattina dopo."</headline>
+    <description max-chars="30">Storia parte 2 · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Cos'è successo dopo Salento?</headline-alt>
+      <headline-alt max-chars="40">Il giorno dopo. Il primo passo.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-warm</utm_campaign>
+      <utm_content>EI26-WARM-14-storypt2</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-warm&amp;utm_content=EI26-WARM-14-storypt2&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Video-Viewers-COLD05-50pct + LAL-Story-Engagers</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>40</age-min>
+    <age-max>60</age-max>
+    <custom-audiences>
+      <audience>Video viewers 50%+ di EI26-COLD-05 (Story Pt.1) ultimi 30gg</audience>
+      <audience>Engagers IG/FB 60gg</audience>
+      <audience>Lookalike 1% engagers Pt.1</audience>
+    </custom-audiences>
+    <exclusions>visitatori webinar-maggio.html ultimi 14gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="4.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kpi-secondary metric="time-on-ad" target-min-sec="10"/>
+    <kill-rule>Se CPL > 7€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ → +30% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: deve sentirsi come "stessa donna, momento dopo". Aesthetic consistente con COLD-05 (golden hour, Mediterranean). Espressione cambia: da "reflective" (Pt.1) a "arrived at clarity peaceful" (Pt.2).</note>
+    <note role="designer">Reel: bonus se inseriamo 1-2 secondi inizio del COLD-05 image come "previously" hook. Headline serif italic stile Pt.1.</note>
+    <note role="copywriter">Cliffhanger studiato: rivelo PARTE della storia (la mattina dopo, le piccole cose) ma trattengo IL METODO (per quello servono le 3 sere). Halbert "leave them wanting more".</note>
+    <note role="media-buyer">Audience custom: video viewers Pt.1 50%+ = altissimo intent. Aspettarsi CPL bassissimo (3-4€) e CTR alto. Sequenziare: Pt.1 prima, Pt.2 dopo 7 giorni.</note>
+  </notes>
+</creative>

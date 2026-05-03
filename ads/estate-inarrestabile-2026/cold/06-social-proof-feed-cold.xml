@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-06" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Social Proof Stack - Numeri + Press + Testimonial</angle>
+    <copy-framework copywriter="John Caples">Social Proof Stack - "Tested Advertising Methods"</copy-framework>
+    <hypothesis>Audience scettica risponde a stack di prove concrete (numero donne, satisfaction, press, anni esperienza) più che a hook emotivi</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, sitting at a clean modern desk in a bright Italian home office, slightly turned toward the camera with a confident, grounded half-smile. She wears a soft cream blazer over a white tee, professional but approachable. On the desk: an open laptop (closed slightly to not distract), a small ceramic coffee cup, a hardcover book, neat papers. Background is a softly out-of-focus white wall with a single framed press magazine clipping (looks like a real article frame, content not readable). Photorealistic editorial portrait photography, natural daylight from large window left, 50mm lens, shallow depth of field, warm cinematic color grading. Composition: subject centered, large negative space top for headline + numbers stack overlay. Mood: credible, grounded expert, "I've done this for 20 years and I've got the receipts".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, gym, dumbbells, kitchen, doctor coat, lab coat, harsh light, fake forced smile, plastic skin, beauty filter, oversaturated, posing arms crossed, posing pointing finger, stock photo cliché
+    </negative-prompt>
+    <style-keywords>photorealistic, editorial, credible, grounded, soft daylight, professional but warm, Italian home office</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="1:1">1:1 (Feed) + 4:5 (Feed vertical) - CAROUSEL: 5 cards</aspect-ratio>
+      <resolution>1080x1080 / 1080x1350</resolution>
+      <variations-to-generate>2 (cover) + 4 (carousel cards = mix Elena + numero overlay)</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Carousel 5 card. Card 1 = cover con Elena + headline. Card 2-4 = numeri grandi + microcopy. Card 5 = CTA forte.</description>
+    <carousel>
+      <card index="1" role="cover">
+        <visual>Elena (immagine generata sopra)</visual>
+        <primary-text language="it">2300+ donne hanno smesso di aspettare settembre</primary-text>
+        <position>top-half-center</position>
+        <font>Inter Bold</font>
+        <size-pct>8</size-pct>
+        <color>#FFFFFF</color>
+        <shadow>drop-shadow rgba(0,0,0,0.4) 0 2px 12px</shadow>
+        <swipe-prompt language="it">→ Ecco perché funziona</swipe-prompt>
+      </card>
+      <card index="2" role="number-card">
+        <background>solid warm cream #FAF6EE</background>
+        <big-number>2.300+</big-number>
+        <number-color>#1A1A1A</number-color>
+        <microcopy language="it">donne 35+ hanno seguito il metodo. In 8 paesi.</microcopy>
+        <microcopy-color>#5A5A5A</microcopy-color>
+      </card>
+      <card index="3" role="number-card">
+        <background>solid warm cream #FAF6EE</background>
+        <big-number>97%</big-number>
+        <number-color>#1A1A1A</number-color>
+        <microcopy language="it">tasso di soddisfazione. (E sono donne difficili da accontentare.)</microcopy>
+        <microcopy-color>#5A5A5A</microcopy-color>
+      </card>
+      <card index="4" role="press-card">
+        <background>solid warm cream #FAF6EE</background>
+        <big-text language="it">"Anti-dieta credibile."</big-text>
+        <microcopy language="it">Ne hanno parlato: Sole 24 Ore, Repubblica, Corriere, Elle, Cosmopolitan, DiLei.</microcopy>
+        <press-logos-row>placeholders 6 logos B/W in fondo</press-logos-row>
+      </card>
+      <card index="5" role="cta-card">
+        <background>warm dark #2B1F18</background>
+        <big-text language="it">19-20-21 MAGGIO 18:30</big-text>
+        <text-color>#FFE9C7</text-color>
+        <subtitle language="it">Webinar live · gratis · 3 sere</subtitle>
+        <cta-bubble language="it">SWIPE UP → Prendi il tuo posto</cta-bubble>
+      </card>
+    </carousel>
+    <logo position="bottom-right" opacity="0.6" size-pct="5">elena-giordani-logo.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+2300+ donne. 8 paesi. 97% di soddisfazione.
+
+Non sono numeri da brochure. Sono donne 35+ che hanno seguito il metodo di Elena Giordani — coach con 20+ anni di esperienza, riconosciuta OPES, citata da Sole 24 Ore, Repubblica, Corriere, Elle e Cosmopolitan.
+
+Hanno smesso di aspettare settembre per ricominciare. Hanno smesso di crederci alle diete che durano 90 giorni. Hanno trovato un modo per essere costanti anche d'estate.
+
+Il prossimo webinar è il 19, 20, 21 maggio alle 18:30. 3 sere live. Gratis.
+
+Non prometto miracoli. Non è una dieta. È solo il primo passo giusto.
+
+Posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">2300+ donne. 97% soddisfatte.</headline>
+    <description max-chars="30">Webinar live · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Sole24Ore: "Anti-dieta credibile."</headline-alt>
+      <headline-alt max-chars="40">8 paesi · 2300+ donne · 97%.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-06-socialproof</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-06-socialproof&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-60-Skeptical-Wellness-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>40</age-min>
+    <age-max>60</age-max>
+    <interests>quotidiani online, news lettori, donne di affari, libri saggistica, rivista Donna Moderna, lettori Repubblica/Corriere</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="6.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.4"/>
+    <kpi-secondary metric="carousel-swipe-rate" target-min-pct="35"/>
+    <kill-rule>Se CPL > 10€ dopo 80€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 5€ → +20% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">SOLO Card 1 va generata con AI (Elena scrivania). Card 2-5 sono GRAFICHE statiche da fare in Canva/Figma con i numeri/logos. Non chiedere a nano-banana di generare numeri grandi precisi - non lo fa bene.</note>
+    <note role="designer">Press logos card 4: usare versioni B/W ufficiali (Sole24Ore, Repubblica, Corriere, Elle, Cosmopolitan, DiLei). Verifica diritti d'uso loghi - se Elena è stata davvero citata, OK; altrimenti rimuovere.</note>
+    <note role="copywriter">Carousel = formato di prova/credibilità. Numeri come hero, microcopy come supporto. Mai claim come "perderai X kg".</note>
+    <note role="media-buyer">Carousel social proof tipicamente performa meno scroll-stop ma più conversione qualificata. Confronta CTR con creative single-image.</note>
+  </notes>
+</creative>

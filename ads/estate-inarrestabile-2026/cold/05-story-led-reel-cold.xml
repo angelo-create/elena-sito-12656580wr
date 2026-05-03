@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-05" status="ready" priority="P1" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Story-led - Racconto prima persona Elena, momento di svolta</angle>
+    <copy-framework copywriter="Gary Halbert">Storytelling - The "I was just like you" letter</copy-framework>
+    <hypothesis>Story personal in prima persona di Elena -> alto engagement + tempo di lettura + conversione qualificata (chi clicca è già pre-bonded)</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair sitting on a small wooden bench in front of a sun-washed Italian terrace at golden hour. She holds an open notebook on her lap with one hand, the other resting gently on the bench. She is looking off into middle distance with a slight reflective half-smile - the look of someone remembering something significant they've decided to share. She wears an oversized soft beige knit cardigan over a white tee, comfortable casual. Background: blurred Mediterranean foliage, hints of olive trees and terracotta pots, warm late afternoon sun. Photorealistic intimate documentary photography, 50mm lens, shallow depth of field, warm cinematic color grading like Gianfranco Ferré editorial - quiet honest. Composition: subject centered slightly left, large negative space top-right for headline overlay, lower half blurred bench/terrace details. Mood: reflective, honest, "I want to tell you something true", quiet vulnerability without sadness.
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, 3D, deformed face, multiple people, sad crying expression, dramatic posing, fashion editorial, instagram influencer pose, hand on chin posing, looking at camera, harsh midday sun, plastic skin, beauty filter, makeup heavy, oversaturated, vintage filter sepia, black and white
+    </negative-prompt>
+    <style-keywords>photorealistic, documentary, intimate, golden hour, Mediterranean terrace, reflective, honest, soft warm light, shallow DOF</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Reel/Story) + 4:5 (Feed)</aspect-ratio>
+      <resolution>1080x1920 / 1080x1350</resolution>
+      <variations-to-generate>3</variations-to-generate>
+      <safe-zones-916 top-px="250" bottom-px="350"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Overlay sobrio, deve sostenere story-feel non interromperlo. Font più morbido di altri creative.</description>
+    <primary-overlay position="top-third-center">
+      <text language="it">"L'estate che ho capito una cosa."</text>
+      <font>Lora Italic (serif) o Playfair Display Italic</font>
+      <size-pct>7</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.35) 0 2px 10px</shadow>
+      <max-width-pct>80</max-width-pct>
+    </primary-overlay>
+    <byline-overlay position="below-primary">
+      <text language="it">— Elena</text>
+      <font>Inter Light</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFE9C7</color>
+    </byline-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Te la racconto live · 19-20-21 maggio · 18:30</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 60% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.5" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Tre anni fa, a metà luglio, mi sono fermata davanti allo specchio del bagno di una casa in affitto in Salento.
+
+Avevo 42 anni. Ero esausta. Non per il caldo: per quella sensazione di aver mollato di nuovo. Avevo iniziato a maggio con un piano. Tre settimane dopo, niente. Stava per ripetersi tutto: settembre, vergogna, ricominciare da zero, rimangiarsi.
+
+Ed è in quel momento che ho capito una cosa che ha cambiato tutto. Non era la disciplina. Non era la motivazione. Era una cosa molto più semplice — e molto più scomoda — che nessuna delle "guru" del fitness mi aveva mai detto.
+
+Ho passato i tre anni successivi a metterla a punto. L'ho testata su 2300+ donne. Funziona.
+
+Ti racconto cosa ho capito quel pomeriggio (e cosa è venuto dopo) in 3 sere live: 19, 20, 21 maggio alle 18:30.
+
+Non prometto miracoli. Non è una dieta. È solo il primo passo, quello vero.
+
+Gratis. Qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">L'estate che ho capito una cosa.</headline>
+    <description max-chars="30">3 sere live · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Quel luglio in Salento.</headline-alt>
+      <headline-alt max-chars="40">Avevo 42 anni e ho capito.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-05-story</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-05-story&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-60-Storytelling-Wellness-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>40</age-min>
+    <age-max>60</age-max>
+    <interests>memoir, libri biografici, narrativa femminile, slow living, journaling, wellness, mindfulness, Brené Brown</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="7.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.4"/>
+    <kpi-secondary metric="time-on-ad" target-min-sec="8"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="2"/>
+    <kill-rule>Se CPL > 12€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 5€ E commenti positivi > 5/1000 impr → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">L'espressione "reflective half-smile guardando in lontananza" è centrale - se l'AI tende a fare guardare in camera, esplicitare "looking off into middle distance, NOT at camera". Notebook è opzionale ma aggiunge profondità simbolica.</note>
+    <note role="designer">Story-led richiede font serif italic per evocare diary/lettera. NON usare il sans-serif degli altri creative.</note>
+    <note role="copywriter">Story personal in prima persona. Mantenere "Salento" e "42 anni" come dettagli specifici (concretezza Sugarman). Se Elena non ha mai vissuto questo specifico episodio, sostituire con dettaglio reale dalla sua biografia.</note>
+    <note role="media-buyer">Story-led tipicamente performa peggio in CTR cold ma meglio in conversione e LTV. Misurare cost-per-acquirente Club, non solo CPL webinar.</note>
+  </notes>
+</creative>

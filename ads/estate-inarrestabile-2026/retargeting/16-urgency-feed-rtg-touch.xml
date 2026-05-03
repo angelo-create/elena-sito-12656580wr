@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-16" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>touch (landing visitors no opt-in)</retarget-type>
+    <angle>Urgency Reminder - "Hai visto la pagina, non ti sei iscritta. Ecco cosa rischi."</angle>
+    <copy-framework copywriter="Halbert FOMO + Caples Urgency">Urgency + Reminder</copy-framework>
+    <hypothesis>Visitatori landing che non hanno opt-in -> sono interessati ma incerti. Reminder + soft urgency (scarcity reale) = conversione retargeting</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed in a tight medium shot looking directly at camera with a warm but slightly raised-eyebrow "I see you hesitating" expression - friendly accountability, not judgmental. She has a slight knowing smile. She wears a soft cream linen shirt. Background: warm beige wall with subtle natural daylight from upper left. Photorealistic intimate portrait, 50mm lens, shallow DOF, natural skin texture, warm cinematic color grading. Composition: subject centered, plenty of negative space top for headline. Mood: friendly nudge, "you were close, come back".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, judgmental expression, angry, disappointed, harsh light, plastic skin, fake forced smile, beauty filter, instagram pose
+    </negative-prompt>
+    <style-keywords>photorealistic, intimate portrait, friendly nudge, warm light, soft DOF, knowing smile</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="1:1">1:1 (Feed) + 4:5 (Feed) + 9:16 (Story)</aspect-ratio>
+      <resolution>1080x1080 / 1080x1350 / 1080x1920</resolution>
+      <variations-to-generate>2</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Reminder + countdown specifico. Soft urgency (no fake scarcity).</description>
+    <primary-overlay position="top-quarter-center">
+      <text language="it">Eri quasi dentro.</text>
+      <font>Inter Bold</font>
+      <size-pct>9</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.45) 0 3px 14px</shadow>
+    </primary-overlay>
+    <secondary-overlay position="below-primary">
+      <text language="it">Manca solo l'iscrizione.</text>
+      <font>Inter Medium Italic</font>
+      <size-pct>5</size-pct>
+      <color>#FFE9C7</color>
+    </secondary-overlay>
+    <countdown-overlay position="lower-third-center">
+      <text language="it">Inizio: lunedì 19 maggio · 18:30</text>
+      <font>Inter Medium</font>
+      <size-pct>5</size-pct>
+      <color>#FFFFFF</color>
+      <background>warm dark #2B1F18 pill 14px padding</background>
+    </countdown-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Riprendi da dove avevi lasciato →</text>
+      <font>Inter SemiBold</font>
+      <size-pct>4</size-pct>
+      <color>#FFFFFF</color>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Lo so. Sei stata sulla pagina. Hai letto. Forse hai pensato "ne parlo con mio marito" o "lo faccio dopo cena" o "domani me lo segno".
+
+Poi è successa la vita. E quel "domani" è ancora lì.
+
+Te lo dico senza giri: se aspetti ancora 5 giorni, sarà già il 19 maggio e si parte. Senza di te.
+
+Non c'è una vendita dietro. Non c'è un upsell aggressivo. C'è un webinar gratis di 3 sere — 30 minuti l'una — che può cambiarti l'estate.
+
+19, 20, 21 maggio. 18:30. Live. Replay incluso.
+
+Riprendi da dove avevi lasciato. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Eri quasi dentro. Riprendi.</headline>
+    <description max-chars="30">Inizia il 19 maggio · 18:30</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Manca solo l'iscrizione.</headline-alt>
+      <headline-alt max-chars="40">5 giorni e si parte. Senza di te?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-touch</utm_campaign>
+      <utm_content>EI26-RTG-16-urgency</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-touch&amp;utm_content=EI26-RTG-16-urgency&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-touch (landing personalizza kicker e copy per visitatori di ritorno)</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Visitatori-Webinar-Landing-NoOptin-30d</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>60</age-max>
+    <custom-audiences>
+      <audience>Visitatori go.elenagiordani.com/webinar-maggio ultimi 30gg</audience>
+      <audience>EXCLUDE: chi ha già completato form lead</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar (Lead event Pixel/CAPI), acquirenti Club</exclusions>
+    <advantage-plus>false (audience custom troppo piccola, no broadening)</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>8</test-budget-eur-day>
+    <test-duration-days>10 (D-10 a D-1)</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="3.0"/>
+    <kpi-secondary metric="frequency" target-max-per-week="5"/>
+    <kill-rule>Se CPL > 6€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2.5€ → +25% budget</scale-rule>
+    <frequency-cap>Max 5 impressioni/settimana per persona</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Espressione "knowing smile + slight raised eyebrow" — Elena che ti sta dicendo "ti vedo, dai, fai questo passo". NON aggressivo, NON disappointed. Friendly nudge.</note>
+    <note role="designer">Reminder data + ora visibile e leggibile. Il "Riprendi da dove avevi lasciato" è il chiave psicologico (recupero progress).</note>
+    <note role="copywriter">Acknowledgment esplicito ("hai pensato 'ne parlo con mio marito'") = creator-mind-reading Halbert. Soft urgency reale (data 19 maggio), no fake scarcity.</note>
+    <note role="media-buyer">Frequency cap 5/settimana CRITICO - audience piccola, evitare ad-fatigue. Lanciare D-10 (9 maggio) fino a D-1 (18 maggio).</note>
+  </notes>
+</creative>

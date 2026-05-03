@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-09" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Pattern Interrupt - Split visivo Maggio/Settembre stessa donna mood</angle>
+    <copy-framework copywriter="Direct Response Visual">Pattern Interrupt - Visual Hook</copy-framework>
+    <hypothesis>Visual non convenzionale + composizione split = scroll-stop estremo nel feed (donne abituate a foto singole)</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="reference-mood-only" required="false" purpose="mood-reference">opzionale: foto donna 40+ casa</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A split-screen vertical composition divided exactly down the middle, showing the same 45-year-old Italian woman in two contrasting moments - SAME WOMAN, SAME BODY, only mood and context change.
+
+LEFT side ("MAY"): she stands in her kitchen in early morning sunny light, wearing fresh activewear, holding a smoothie, standing tall with confident energy and hopeful slight smile, ready-to-conquer expression. Light: bright, warm, energetic. Color: warm yellows and corals.
+
+RIGHT side ("SEPTEMBER"): same woman, same kitchen, but the light is overcast grey afternoon, she wears a comfortable hoodie, sits slumped slightly at the kitchen table with her chin resting in one hand, looking at her phone with a tired discouraged expression. Light: cooler, dimmer, deflated. Color: cooler greys and blues.
+
+CRITICAL: same woman face, same body type, same kitchen background. Only mood, lighting and outfit change to convey emotional contrast. Photorealistic lifestyle documentary photography both sides, 50mm lens, soft DOF. Composition: clean vertical split with thin white divider line, both halves balanced, headline space top, CTA space bottom. Mood: pattern recognition - "this is the cycle".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, before/after weight loss, body comparison, weight scale, fat shaming, body negative, sad crying woman, depressed woman in bed, different women on each side, different bodies, different faces, weight gain comparison, body transformation, clinical setting, fitness influencer pose
+    </negative-prompt>
+    <style-keywords>photorealistic, split-screen, mood contrast, same woman, lifestyle, documentary, two seasons same person</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Reel/Story) - vertical split optimal</aspect-ratio>
+      <resolution>1080x1920</resolution>
+      <variations-to-generate>4 (different kitchens/outfits to choose best)</variations-to-generate>
+      <safe-zones-916 top-px="250" bottom-px="350"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline arrowed: MAGGIO → SETTEMBRE su top con frecce. Sotto: STOP. Visual è già di per sé il messaggio.</description>
+    <top-overlay position="top-eighth">
+      <text-left language="it">MAGGIO</text-left>
+      <text-arrow>→</text-arrow>
+      <text-right language="it">SETTEMBRE</text-right>
+      <font>Inter Black</font>
+      <size-pct>6</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.5) 0 2px 12px</shadow>
+      <letter-spacing>0.1em</letter-spacing>
+    </top-overlay>
+    <middle-overlay position="exact-center" overlay-type="stamp">
+      <text language="it">STOP.</text>
+      <font>Inter Black</font>
+      <size-pct>14</size-pct>
+      <color>#E63946 (warning red)</color>
+      <background>white pill 12px padding rounded</background>
+      <rotation>-3deg</rotation>
+    </middle-overlay>
+    <bottom-overlay position="bottom-third-center">
+      <text language="it">Quest'estate cambi schema.</text>
+      <font>Inter SemiBold</font>
+      <size-pct>6</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.5) 0 2px 12px</shadow>
+    </bottom-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Live gratis · 19-20-21 maggio · 18:30</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 65% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+A maggio sei pronta. A settembre sei più indietro di quando hai cominciato.
+
+È lo schema. Lo stesso. Da quanti anni? 5? 10? 20?
+
+Quest'estate ti propongo di romperlo.
+
+3 sere live, 19-20-21 maggio alle 18:30. Ti spiego perché succede e cosa fa chi invece resta costante anche d'estate.
+
+Non prometto miracoli. Non è una dieta. È il primo passo.
+
+Stop al ciclo. Posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Maggio carica → settembre indietro.</headline>
+    <description max-chars="30">Stop al ciclo · live gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Quest'estate cambi schema.</headline-alt>
+      <headline-alt max-chars="40">È sempre lo stesso ciclo. Stop.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-09-pattern</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-09-pattern&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Broad-Visual-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>55</age-max>
+    <interests>broad - benessere donna, lifestyle</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels + Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>3</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="6.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.0"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="40"/>
+    <kill-rule>Se hook-rate &lt; 25% dopo 50€ spesi → visual non funziona, off</kill-rule>
+    <scale-rule>Se hook-rate &gt; 45% E CPL ≤ 5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: la STESSA donna in entrambi i lati. Se nano-banana genera due donne diverse, rifare specificando "same exact woman, identical face, identical body, only mood/lighting/outfit changes". NON fare confronto peso/corpo - SOLO mood/energia.</note>
+    <note role="designer">Lo "STOP." al centro è il visual hero. Animarlo in Reel: appare con piccolo bounce 0.3s in. Lo split può essere statico (immagine sola) o animato con subtle zoom on each side alternativamente.</note>
+    <note role="copywriter">Pattern interrupt = visual fa il lavoro. Copy più breve del solito. Headline stessa frase del visual ("MAGGIO → SETTEMBRE") amplifica.</note>
+    <note role="media-buyer">Pattern interrupt deve scroll-stoppare. Misurare hook-rate sopra ogni cosa. Se hook-rate alto ma CTR basso = il visual incuriosisce ma il copy non chiude. Iterare copy.</note>
+  </notes>
+</creative>

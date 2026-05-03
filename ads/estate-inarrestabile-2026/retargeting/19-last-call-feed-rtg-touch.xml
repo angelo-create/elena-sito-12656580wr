@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-RTG-19" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>retargeting</funnel-stage>
+    <retarget-type>touch (landing visitors no opt-in) - LAST CALL</retarget-type>
+    <angle>Last Call - Hard urgency days before launch</angle>
+    <copy-framework copywriter="Caples + Halbert">Last Chance / Real Scarcity</copy-framework>
+    <hypothesis>Visitatori in dubbio rispondono a urgency reale (data fissa imminente) ultimi 3 giorni -> conversione finale tier</hypothesis>
+    <created>2026-05-03</created>
+    <activation-window>17-18-19 maggio (D-3 a D0) - DA NON ATTIVARE PRIMA</activation-window>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed in a clean modern setting holding her phone showing a calendar app or countdown - phone slightly visible but text not readable. She looks at camera with an "okay this is the moment" expression - direct, slightly urgent but not aggressive, warm. She wears a soft cream linen shirt. Natural daylight from upper left. Photorealistic editorial portrait, 50mm lens, shallow DOF, warm cinematic color grading. Composition: subject centered, phone visible lower right, plenty of space top for big urgency headline. Mood: "the moment is now, see you tonight".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, panicked expression, fake urgency, harsh light, plastic skin, fake smile, beauty filter, oversaturated, instagram pose
+    </negative-prompt>
+    <style-keywords>photorealistic, editorial, direct urgency, warm calm, clear moment, soft daylight</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="1:1">1:1 (Feed) + 4:5 (Feed) + 9:16 (Story)</aspect-ratio>
+      <resolution>1080x1080 / 1080x1350 / 1080x1920</resolution>
+      <variations-to-generate>2</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>3 versioni dinamiche per i 3 giorni: D-3, D-2, D-1, D0. Countdown numero giorno cambia.</description>
+    <dynamic-variants>
+      <variant day="D-3" date-display="17 maggio">
+        <primary-overlay>
+          <text language="it">MANCANO 3 GIORNI</text>
+          <font>Inter Black</font>
+          <size-pct>10</size-pct>
+          <color>#FFFFFF</color>
+        </primary-overlay>
+        <secondary>Lunedì si parte. Sei dentro o no?</secondary>
+      </variant>
+      <variant day="D-2" date-display="18 maggio">
+        <primary-overlay>
+          <text language="it">DOMANI SI PARTE</text>
+          <font>Inter Black</font>
+          <size-pct>10</size-pct>
+          <color>#FFFFFF</color>
+        </primary-overlay>
+        <secondary>Lunedì 18:30. Sei iscritta?</secondary>
+      </variant>
+      <variant day="D-1 / D0" date-display="19 maggio">
+        <primary-overlay>
+          <text language="it">STASERA · 18:30</text>
+          <font>Inter Black</font>
+          <size-pct>10</size-pct>
+          <color>#FFFFFF</color>
+        </primary-overlay>
+        <secondary>Si parte tra poche ore. Ultimo posto.</secondary>
+      </variant>
+    </dynamic-variants>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Iscriviti adesso →</text>
+      <font>Inter SemiBold</font>
+      <size-pct>5</size-pct>
+      <color>#FFFFFF</color>
+      <background>warning red #E63946 pill 14px padding</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+[VERSIONE D-3 / 17 maggio]
+Lunedì sera si parte. Tre sere. 18:30. Live.
+
+Hai pensato a iscriverti, hai rimandato, ed eccoci qua: 72 ore al via.
+
+Non c'è una nuova edizione il mese prossimo. La prossima è a settembre. E settembre è dopo tre mesi di "potevo" e "non ho fatto".
+
+Iscriviti adesso. Bastano 30 secondi. Posto qui. ↓
+
+[VERSIONE D-2 / 18 maggio]
+DOMANI SERA si parte. Lunedì. 18:30. Tre sere.
+
+Ultime 24 ore per essere dentro dall'inizio. Se ti iscrivi domani durante la diretta, perdi i primi 30 minuti — e i primi 30 minuti sono il MOTIVO (sera 1).
+
+Ti aspetto. Posto qui. ↓
+
+[VERSIONE D-1 / 19 maggio mattina]
+Stasera alle 18:30. Tra qualche ora.
+
+Se sei qui che leggi è perché stai ancora pensando se entrare. Entra. Non ti costa niente. Tre sere, 30 minuti l'una. Replay incluso.
+
+A stasera. Posto qui. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Mancano 3 giorni. Stasera si parte.</headline>
+    <description max-chars="30">Iscriviti · si parte 19/5</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40" day="D-2">Domani sera si parte. Tu?</headline-alt>
+      <headline-alt max-chars="40" day="D-1">Stasera 18:30. Sei dentro?</headline-alt>
+      <headline-alt max-chars="40" day="D-3">72 ore al via. Iscriviti.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>retargeting</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-retarget-touch-lastcall</utm_campaign>
+      <utm_content>EI26-RTG-19-lastcall</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=retargeting&amp;utm_campaign=estate-inarrestabile-2026-retarget-touch-lastcall&amp;utm_content=EI26-RTG-19-lastcall&amp;utm_term={{adset.name}}</full-url>
+    <landing-variant-triggered>retarget-touch</landing-variant-triggered>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-RTG-Visitatori-Landing-NoOptin-21d-LASTCALL</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>60</age-max>
+    <custom-audiences>
+      <audience>Visitatori go.elenagiordani.com/webinar-maggio ultimi 21gg</audience>
+      <audience>Engagers FB+IG ultimi 14gg che hanno visto creative cold/warm</audience>
+      <audience>EXCLUDE: iscritti Lead event</audience>
+    </custom-audiences>
+    <exclusions>iscritti webinar (Lead), acquirenti Club</exclusions>
+    <advantage-plus>false</advantage-plus>
+    <placements>auto (priority Stories per dynamic countdown feel)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>3 (17-18-19 maggio)</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="3.5"/>
+    <kpi-secondary metric="frequency" target-max-per-day="2"/>
+    <kill-rule>Mai. Lasciare attivo fino a inizio webinar 19/5 ore 18:30</kill-rule>
+    <scale-rule>D-1 (19 maggio): raddoppiare budget a 30€/g per ultimo push</scale-rule>
+    <frequency-cap>Max 2/giorno per persona (audience piccola, frequency alta a fini conversione)</frequency-cap>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Phone in mano = simbolo "stiamo per iniziare, hai poco tempo". NON serve countdown specifico nel visual (overlay text fa il lavoro). Generare 1 cover, riusare per tutte e 3 varianti dinamiche.</note>
+    <note role="designer">3 versioni grafiche identiche solo headline cambia. Dynamic creative: caricare 3 ad in 1 ad set, programmare attivazione D-3, D-2, D-1+D0 con scheduling Meta. CTA pill ROSSO (urgency) - unica creative con red.</note>
+    <note role="copywriter">3 copy distinte per giorno (D-3, D-2, D-1). Caricare come 3 ad separati con scheduling. Tono crescente: D-3 informativo → D-1 imperativo. Real scarcity (no fake "ultimi 3 posti"), basata su data evento.</note>
+    <note role="media-buyer">CRITICAL: NON attivare prima del 17/5. Schedule:
+      - 17/5 00:00 → attiva D-3 variant
+      - 18/5 00:00 → attiva D-2 variant (off D-3)
+      - 19/5 00:00 → attiva D-1 variant (off D-2)
+      - 19/5 18:30 → off all (webinar started)
+    Frequency cap 2/giorno per saturare audience nelle ultime 72h.</note>
+  </notes>
+</creative>

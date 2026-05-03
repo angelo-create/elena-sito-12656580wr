@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-04" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Curiosity Loop - "Il primo passo non è quello che pensi"</angle>
+    <copy-framework copywriter="Joe Sugarman">Curiosity Loop / Slippery Slide</copy-framework>
+    <hypothesis>Domanda specifica + contraddizione di aspettativa = scroll-stop alto + click curiosity-driven</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+Tight close-up vertical portrait of a 45-year-old Italian woman with warm brown shoulder-length hair, looking straight into the camera with raised eyebrows and a slightly tilted head - the universal "let me ask you something" expression. Her lips are slightly parted as if mid-question. She wears a soft cream linen shirt. Background is a softly blurred warm beige wall with subtle natural light from upper left. Photorealistic intimate portrait, very shallow depth of field at f/1.8, 85mm lens look, eyes are razor sharp, natural skin texture with subtle imperfections, warm golden cinematic color grading. Composition: face fills upper two-thirds of frame, eyes positioned at upper third line, mouth at lower third line, plenty of space below for question text overlay. Mood: provocative, conspiratorial, "I have a question that will surprise you".
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, low quality, blurry, deformed face, multiple people, smile, big smile, neutral expression, looking away, side profile, bright harsh light, white background, studio background, plastic skin, beauty filter, makeup heavy, oversaturated, instagram filter, fake expression
+    </negative-prompt>
+    <style-keywords>photorealistic, intimate close-up portrait, provocative, warm light, shallow DOF, cinematic, raw, authentic</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Reel/Story) + 4:5 (Feed)</aspect-ratio>
+      <resolution>1080x1920 / 1080x1350</resolution>
+      <variations-to-generate>3</variations-to-generate>
+      <safe-zones-916 top-px="220" bottom-px="380">Viso al centro alto, spazio bottom per question text + CTA</safe-zones-916>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Question hook in basso al viso (zona naso/bocca). Effetto "Elena ti sta chiedendo una cosa".</description>
+    <primary-overlay position="below-eyes-mid-frame">
+      <text language="it">Qual è il PRIMO passo per essere costante?</text>
+      <font>Inter SemiBold</font>
+      <size-pct>7</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.5) 0 2px 12px</shadow>
+      <max-width-pct>85</max-width-pct>
+      <line-height>1.2</line-height>
+    </primary-overlay>
+    <secondary-overlay position="below-primary">
+      <text language="it">(Spoiler: non è quello che pensi)</text>
+      <font>Inter Italic</font>
+      <size-pct>4.5</size-pct>
+      <color>#FFE9C7</color>
+    </secondary-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">Te lo dico live · 19-20-21 maggio 18:30 · GRATIS</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 65% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Quale pensi sia il primo passo per essere costante quest'estate?
+
+Iscriverti in palestra? No.
+Comprare il meal prep? No.
+Trovare la motivazione giusta? No (e ti spiego perché).
+
+Il primo passo è una cosa che nessuno ti ha mai detto perché chi vende metodi non guadagna se te lo dice.
+
+Te lo racconto in diretta. 3 sere. 19, 20, 21 maggio alle 18:30.
+
+Non prometto miracoli. Non è una dieta. È solo il primo passo giusto — quello vero.
+
+Gratis, posti limitati. Qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Il primo passo non è quello che pensi.</headline>
+    <description max-chars="30">Live gratis · 19-21 maggio</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Spoiler: non è la motivazione.</headline-alt>
+      <headline-alt max-chars="40">Cosa fanno le donne costanti?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-04-curiosity</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-04-curiosity&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Curiosity-Cold</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>55</age-max>
+    <interests>libri self help, podcast benessere, crescita personale, mindset, abitudini, James Clear, atomic habits</interests>
+    <exclusions>visitatori webinar-maggio.html ultimi 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="6.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.0"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="35"/>
+    <kill-rule>Se hook-rate &lt; 20% dopo 50€ spesi → off (visual non scroll-stoppa)</kill-rule>
+    <scale-rule>Se hook-rate &gt; 40% e CPL ≤ 5€ → +30% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: l'espressione facciale è tutto. Sguardo dritto camera + sopracciglia leggermente alzate + bocca semi-aperta. Se la prima generazione ha sorriso, rigenerare. Provare anche una variante con dito appoggiato al mento (gesto "domanda").</note>
+    <note role="designer">Reel: la question text può apparire animata (typewriter effect 0.5s) per aumentare attention. Spoiler line appare dopo 0.3s.</note>
+    <note role="copywriter">Curiosity gap classica Sugarman. Mantenere mistero su QUALE è il primo passo. Non rivelarlo nel copy. Solo "live ti spiego".</note>
+    <note role="media-buyer">Cold curiosity: alto hook-rate atteso ma CTR potenzialmente più basso (alcuni si fermano, scrollano via curiosi). Misurare hook-rate prima di CTR.</note>
+  </notes>
+</creative>

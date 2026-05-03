@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-WARM-15" status="ready" priority="P1" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>warm</funnel-stage>
+    <angle>Objection Killer Tempo - "30 minuti a sera, non di più"</angle>
+    <copy-framework copywriter="Halbert Obstacle Removal v2">Specific Objection Killer (Time)</copy-framework>
+    <hypothesis>Warm audience interessata ma trattenuta da "non ho tempo per un webinar 3 sere" -> dichiarare durata esplicita + flessibilità (replay) = sblocca conversione</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed in a relaxed evening home setting at 6:30pm summer light - she sits on a soft linen sofa with one leg curled under her, holding a small notepad and pen, looking at camera with a calm relatable smile. She wears comfortable home clothes (oversized soft beige cardigan, slim leggings). Background: blurred living room with warm lamp lighting just turned on, plant in corner, books on shelf. The vibe is "I just sat down, I have 30 minutes, I'm here". Photorealistic lifestyle documentary photography, 50mm lens, shallow DOF, warm evening color grading. Composition: subject centered slightly left, evening home vibe right, plenty of headline space top. Mood: accessible, "this fits in your evening", warm.
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, formal pose, posed sit, instagram pose, magazine pose, gym clothes, athletic wear, harsh light, plastic skin, beauty filter, oversaturated, fake smile, makeup heavy
+    </negative-prompt>
+    <style-keywords>photorealistic, lifestyle, evening home, accessible, warm lamp light, comfortable, relatable, cozy</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="4:5">4:5 (Feed) + 1:1 (Feed)</aspect-ratio>
+      <resolution>1080x1350 / 1080x1080</resolution>
+      <variations-to-generate>3</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline numero specifico tempo. Aggiunge timer/clock overlay piccolo per visual reinforcement.</description>
+    <primary-overlay position="top-quarter-center">
+      <text language="it">30 MINUTI A SERA</text>
+      <font>Inter Black</font>
+      <size-pct>9</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.45) 0 3px 14px</shadow>
+      <letter-spacing>0.05em</letter-spacing>
+    </primary-overlay>
+    <secondary-overlay position="below-primary">
+      <text language="it">Non di più. Promesso.</text>
+      <font>Inter Medium Italic</font>
+      <size-pct>5</size-pct>
+      <color>#FFE9C7</color>
+    </secondary-overlay>
+    <icon-overlay position="below-secondary">
+      <text>⏱ 18:30 - 19:00</text>
+      <font>Inter Medium</font>
+      <size-pct>4</size-pct>
+      <color>#FFFFFF</color>
+    </icon-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">3 sere · 19-20-21 maggio · gratis · replay incluso</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 65% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+"Non ho 3 sere libere consecutive."
+
+Lo so. Anche io non le ho.
+
+Ecco perché ho costruito Estate Inarrestabile così:
+
+⏱ 30 minuti a sera. Non di più. (Davvero. Cronometro alla mano.)
+📅 19, 20, 21 maggio. Dalle 18:30 alle 19:00.
+🎥 Replay incluso. Se salti una sera, recuperi.
+💬 Q&A live solo per chi vuole restare oltre.
+
+Sono 90 minuti totali. Spalmati in tre giorni. Con replay. È il formato meno invadente che potessi pensare per la TUA vita.
+
+Se non hai 30 minuti a sera per investire in una cosa che può cambiarti l'estate, capisco. Ma se ce li hai, ti aspetto.
+
+Non prometto miracoli. Non è una dieta. È il primo passo giusto.
+
+Posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">30 minuti a sera. Non di più.</headline>
+    <description max-chars="30">Replay incluso · gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Bastano 30 minuti per 3 sere.</headline-alt>
+      <headline-alt max-chars="40">90 minuti totali. Replay incluso.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-warm</utm_campaign>
+      <utm_content>EI26-WARM-15-tempo</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-warm&amp;utm_content=EI26-WARM-15-tempo&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Engagers-180d-NoSignup + LAL-Webinar-Past-Attendees</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>55</age-max>
+    <custom-audiences>
+      <audience>Engagers FB+IG 180gg che NON si sono iscritti a webinar precedenti</audience>
+      <audience>Lookalike 2% iscritti webinar precedenti (marzo)</audience>
+      <audience>Newsletter open 30%+ ultimi 90gg</audience>
+    </custom-audiences>
+    <exclusions>visitatori webinar-maggio.html ultimi 14gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="4.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.0"/>
+    <kpi-secondary metric="conv-rate-landing" target-min-pct="35"/>
+    <kill-rule>Se CPL > 6€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ → +30% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Setting "evening home, 6:30pm just sat down" è chiave. Notepad in mano = "sono qui per imparare/prendere appunti". Eviti pose che dicono "occupato" o "stanco".</note>
+    <note role="designer">Numero "30" deve essere il visual hero (font Black molto grande). Icone clock/calendar per reinforcement. Replay = pill rassicurante in basso.</note>
+    <note role="copywriter">Objection killer Halbert classico: nominare l'obiezione esatta ("Non ho 3 sere libere") + risposta immediata. Specifity (30 min, 18:30-19:00) elimina ambiguità.</note>
+    <note role="media-buyer">Target chiave: engagers che NON si sono iscritti a webinar precedenti. Bottleneck è il TEMPO. Se questa converte = sblocca segmento intero.</note>
+  </notes>
+</creative>

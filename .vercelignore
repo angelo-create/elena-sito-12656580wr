@@ -6,3 +6,6 @@ scripts/
 
 # Contesto interno Conductor
 .context/
+
+# Brief creativi ads (file marketing interni, non pubblicati)
+ads/

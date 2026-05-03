@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-WARM-11" status="ready" priority="P0" generator="nano-banana">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>warm</funnel-stage>
+    <angle>PAS Deeper - Long-form per audience già aware</angle>
+    <copy-framework copywriter="Halbert long-form">PAS Extended (300+ parole)</copy-framework>
+    <hypothesis>Lookalike acquirenti Club + engagers 90gg = audience già pre-bonded -> long copy converte meglio (tempo di lettura alto = scoring Meta + qualifica auto-selezione)</hypothesis>
+    <created>2026-05-03</created>
+  </meta>
+
+  <image-generation>
+    <model>gemini-2.5-flash-image (nano-banana)</model>
+    <reference-images>
+      <ref id="elena-portrait" required="true" purpose="character-consistency">PLACEHOLDER_elena_reference_photo.jpg</ref>
+    </reference-images>
+    <prompt language="en">
+      <![CDATA[
+A 45-year-old Italian woman with warm brown shoulder-length hair, photographed in her sun-bathed home reading nook - a small armchair near a window with a side table holding stacked books. She sits leaning forward slightly, elbow on knee, hand under chin, looking directly at camera with an intent, attentive expression - the look of "I want to share something important and I have time". She wears a soft cream linen shirt over comfortable jeans. Background: blurred bookshelf with hardcover books, small plants, framed Mediterranean print. Warm late afternoon light slanting through window from right. Photorealistic intimate editorial photography, 50mm lens, shallow DOF, natural skin texture, warm cinematic color grading. Composition: subject centered slightly left, plenty of space top-right for headline overlay. Mood: invested, "let's have a real conversation", warm intellectual intimacy.
+      ]]>
+    </prompt>
+    <negative-prompt>
+      cartoon, illustration, deformed face, multiple people, gym, kitchen, doctor coat, harsh light, fake forced smile, plastic skin, beauty filter, oversaturated, fashion editorial pose, instagram pose, posed sit
+    </negative-prompt>
+    <style-keywords>photorealistic, editorial, intimate, intellectual warm, reading nook, soft afternoon light, invested attention</style-keywords>
+    <output-specs>
+      <aspect-ratio primary="4:5">4:5 (Feed vertical) + 1:1 (Feed)</aspect-ratio>
+      <resolution>1080x1350 / 1080x1080</resolution>
+      <variations-to-generate>3</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Overlay sobrio. La forza è nel copy lungo - visual deve attrarre lettore "serioso".</description>
+    <primary-overlay position="top-quarter-center">
+      <text language="it">Se sei qui di nuovo, devi sapere una cosa.</text>
+      <font>Lora Italic (serif)</font>
+      <size-pct>6</size-pct>
+      <color>#FFFFFF</color>
+      <shadow>drop-shadow rgba(0,0,0,0.4) 0 2px 10px</shadow>
+      <max-width-pct>82</max-width-pct>
+    </primary-overlay>
+    <bottom-cta-overlay position="bottom-eighth-center">
+      <text language="it">3 sere live · 19-20-21 maggio · 18:30</text>
+      <font>Inter Medium</font>
+      <size-pct>3.5</size-pct>
+      <color>#FFFFFF</color>
+      <background>black 60% opacity pill</background>
+    </bottom-cta-overlay>
+    <logo position="bottom-right" opacity="0.55" size-pct="5">elena-giordani-logo-white.png</logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+So che mi conosci. So che hai già letto qualcosa di mio, hai visto un mio video, magari hai seguito un altro webinar.
+
+E so che, se sei qui di nuovo, c'è una ragione: dentro hai capito che quello che dico ha senso. Solo che — finora — non hai fatto il primo passo vero.
+
+Va bene. Davvero. Non sei in ritardo.
+
+Ma voglio dirti una cosa che probabilmente non ti ho mai detto direttamente: la costanza non è una questione di carattere. Non è una questione di motivazione. Non è nemmeno una questione di "trovare il tempo" o "essere più organizzata".
+
+La costanza è una questione di metodo. Di un metodo specifico, costruito su tre pilastri che si tengono in equilibrio: come ti muovi, cosa mangi, e — la cosa che nessuno spiega — come ti tieni quando arrivano i mesi in cui di solito molli. Per te quei mesi sono giugno, luglio, agosto.
+
+Per le 2300+ donne che hanno già fatto questo percorso, la differenza è stata capire perché funziona DENTRO la vita vera, non contro. Perché il metodo è stato pensato per te — donna 35-65, con lavoro, con famiglia, con figli grandi o piccoli, con menopausa che bussa o è già arrivata.
+
+Ti racconto tutto in 3 sere live: 19, 20, 21 maggio alle 18:30.
+
+Sera 1 → Il vero motivo per cui d'estate molli (e non è la motivazione).
+Sera 2 → Il metodo per essere costante senza diventare ossessiva.
+Sera 3 → Come arrivare a settembre più avanti, non più indietro.
+
+Non prometto miracoli. Non è una dieta. È il primo passo giusto.
+
+Ti aspetto. Posto qui sotto. ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Se sei qui di nuovo, ascolta.</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Mi conosci. Devo dirti una cosa.</headline-alt>
+      <headline-alt max-chars="40">Adesso forse è il momento.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source>
+      <utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-warm</utm_campaign>
+      <utm_content>EI26-WARM-11-pasdeep</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-warm&amp;utm_content=EI26-WARM-11-pasdeep&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-LAL-Acquirenti-Club-1pct + Engagers-90d</audience-name>
+    <country>IT</country>
+    <gender>female</gender>
+    <age-min>35</age-min>
+    <age-max>60</age-max>
+    <custom-audiences>
+      <audience>Lookalike 1% acquirenti Club Inarrestabili</audience>
+      <audience>Engagers Pagina FB Elena Giordani 90gg</audience>
+      <audience>Engagers IG Elena Giordani 90gg</audience>
+      <audience>Video viewers 25%+ ultimi 60gg</audience>
+    </custom-audiences>
+    <exclusions>visitatori webinar-maggio.html ultimi 14gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>20</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="4.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.0"/>
+    <kpi-secondary metric="time-on-ad" target-min-sec="12"/>
+    <kpi-secondary metric="cost-per-purchase-club" target-max-eur="35"/>
+    <kill-rule>Se CPL > 7€ dopo 100€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3.5€ → +30% budget/giorno</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Mood "intellectual intimate" - Elena come scrittrice/saggista, non come fitness coach. Books background importante. Se nano-banana mette telefono o laptop in mano, rigenerare.</note>
+    <note role="designer">Headline serif italic (Lora) per evocare lettera personale. Differenzia visivamente da cold creative.</note>
+    <note role="copywriter">Long-copy per warm = filtra non-engaged, qualifica chi continua a leggere. Mantenere "non sei in ritardo" - rimuove vergogna comune in audience che ha "abbandonato" prima.</note>
+    <note role="media-buyer">Warm CPL atteso più basso (4-5€ vs 6-7€ cold). Misurare anche cost-per-purchase Club post-webinar (LTV).</note>
+  </notes>
+</creative>
