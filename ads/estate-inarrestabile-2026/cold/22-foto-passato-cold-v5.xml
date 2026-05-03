@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-22-v5-brand" status="ready" priority="P0" version="winner-pattern-v5-brand-pain-hybrid">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Foto Passato - dialogo passato + future-self (pain v4 + brand v2)</angle>
+    <pain-targeted>"Cosa diresti adesso a te di tre anni fa?" - confronto temporale</pain-targeted>
+    <copy-framework>Pain-Direct Hybrid + Time-Shift</copy-framework>
+    <design-template>v5-brand-pain-hybrid</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true" purpose="character-consistency">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference) holding her smartphone in both hands, looking at the screen with a direct attentive expression - she is showing the screen to camera as if saying "look at this". On the screen we see what looks like a Photos app with a single photo thumbnail (intentionally blurred so we cannot identify the subject). She holds the phone slightly raised so both her face and the phone are visible.
+
+She wears practical home clothes (simple top, comfortable). Clean modern home setting, neutral background (white wall or soft beige), soft natural daylight from upper-left, NEUTRAL white-balanced color (NOT warm golden Mediterranean grading). Her expression: coach direct, slight knowing smile, "I want to ask you something" energy.
+
+CRITICAL STYLE: PRACTICAL coach moment, clean modern photography, NOT editorial cinematic. NOT vintage desk lamp scene. Real Italian woman 45, natural skin, no retouching. Phone screen content blurred (we see it's a photo but not WHO).
+
+Composition: subject from chest up, phone in lower-third visible, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic editorial, Wim Wenders intimate, vintage desk, candle light, golden hour, polaroid prop, dramatic, sad, harsh light, makeup heavy, beauty filter, photo on screen clearly visible, fashion pose
+    </negative-prompt>
+
+    <output-specs>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <variations-to-generate>4</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static" instructions="Layout brand WINNER v5 con foto Elena come background.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>foto-elena (full bleed)</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">WEBINAR PER DONNE</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="❓">Cosa <highlight bg="brand-pink" color="brand-white" padding="2px 8px">DIRESTI</highlight> adesso</line>
+          <line>a te di <bold>3 ANNI FA</bold>?</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6</font-size-pct>
+        <max-width-pct>92</max-width-pct>
+      </zone>
+
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+❓ Cosa DIRESTI adesso a te di 3 anni fa?
+
+Le diresti "non hai capito niente". "Stavi sprecando tempo". "Comincia ORA".
+
+Le diresti tutto questo perche oggi, dopo 3 anni, sei nello stesso punto.
+
+⚠️ E se tra 3 anni tu ti guardassi indietro a OGGI? Cosa vorrai aver fatto?
+
+💡 In 3 sere live ti racconto il METODO che ha permesso a 2300+ donne 35+ di non rivedersi piu indietro a settembre. Lunedi 19 Maggio 18.30. Live. Gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Cosa diresti a te di 3 anni fa?</headline>
+    <description max-chars="30">Quest'estate cambia · gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Tra 3 anni cosa vorrai aver fatto?</headline-alt>
+      <headline-alt max-chars="40">Stesso punto da 3 anni. Stop.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-22v5-foto-brand</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-22v5-foto-brand&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-58-Time-Shift-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>58</age-max>
+    <interests>perdita peso, dieta, fitness donne 40+, perimenopausa, mindset, abitudini</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.2"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Elena con phone in mano, NO desk vintage, NO Polaroid. Stile coach moderna che mostra qualcosa al suo follower.</note>
+    <note role="copywriter">Time-shift trick mantenuto v4 ma format direct emoji. Reframe forte: stesso punto da 3 anni.</note>
+    <note role="designer">Brand layout standard. Highlight pink su DIRESTI = parola chiave domanda.</note>
+  </notes>
+</creative>

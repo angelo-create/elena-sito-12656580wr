@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-21-v5-brand" status="ready" priority="P0" version="winner-pattern-v5-brand-pain-hybrid">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Vestito Giugno - prova armadio (pain v4 + brand winner v2)</angle>
+    <pain-targeted>"Il vestito di giugno ti aspetta da 3 estati" - simbolo armadio</pain-targeted>
+    <copy-framework>Pain-Direct Hybrid</copy-framework>
+    <design-template>v5-brand-pain-hybrid</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield - reference Elena caricate)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true" purpose="character-consistency">Reference Elena gia caricate in Higgsfield</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference) holding a summer dress on a hanger, looking at it with a direct knowing expression - she is showing it to camera as if saying "you know this one". NOT contemplative cinematic. NOT closeted melancholy. She is in a clean modern bedroom or near a closet, neutral background, holding the dress slightly raised in front of her body. The dress is a simple summer dress (cream or sage), recognizable as a "going out summer dress".
+
+She wears casual home clothes (athletic top + leggings or simple t-shirt). Bright clean modern home setting, soft natural daylight, NEUTRAL white-balanced color (NOT warm golden Mediterranean grading). Her expression: direct, eyebrow slightly raised, "I see you, I have one too" coach energy.
+
+CRITICAL STYLE: PRACTICAL coach moment, clean modern photography, NOT editorial cinematic. Real Italian woman 45, real body, no retouching. Composition: subject center, dress visible in frame, plenty of clean negative space top and bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic editorial, Sofia Coppola, Guadagnino, golden hour Mediterranean, contemplative quiet moment, walk-in closet warm wood luxury, dress fitting drama, model thin, fashion editorial, Vogue mood, instagram filter, beauty filter, makeup heavy, sad regret pose
+    </negative-prompt>
+
+    <output-specs>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <variations-to-generate>4</variations-to-generate>
+      <usage>Background image per layout brand v5</usage>
+    </output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static" instructions="Layout brand WINNER v5 con foto Elena come background.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>foto-elena-generata-sopra (full bleed)</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">WEBINAR PER DONNE</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena generata sopra (full width, fit cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="⚠️">Il vestito di GIUGNO</line>
+          <line>ti aspetta da <highlight bg="brand-pink" color="brand-white" padding="2px 8px">3 estati</highlight></line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6</font-size-pct>
+        <max-width-pct>92</max-width-pct>
+      </zone>
+
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⚠️ Il vestito di GIUGNO ti aspetta da 3 estati.
+
+L'hai comprato a maggio del 2023 ("questa e l'estate buona").
+Estate 2023, 2024, 2025 → e quel vestito e ancora li.
+
+❌ Non e il vestito che ha sbagliato.
+❌ Non sei tu che hai sbagliato.
+✅ E il METODO che ti manca.
+
+💡 Te lo svelo nel WEBINAR GRATUITO Lunedi 19 Maggio 18.30 - 3 sere live, 30 minuti l'una.
+
+🔥 100 posti. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Il vestito di giugno. Da 3 estati.</headline>
+    <description max-chars="30">Quest'estate cambia · gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">L'armadio sa cosa stai facendo.</headline-alt>
+      <headline-alt max-chars="40">Quel vestito ti aspetta. Ancora.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-21v5-vestito-brand</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-21v5-vestito-brand&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-55-Wardrobe-Pain-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>55</age-max>
+    <interests>moda donna over 40, lifestyle, dieta donne, dimagrire, perimenopausa, prova costume</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.2"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="32"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Elena tiene vestito a gruccia DAVANTI al corpo, gesto coach "guarda questo" - NO posa fitting Vogue. Bedroom modern bianco, NO walk-in closet warm wood luxury. Espressione direct knowing.</note>
+    <note role="copywriter">Specifity Halbert: anni elencati 2023/2024/2025. Anti-colpa esplicito ("non e il vestito... non sei tu... e il METODO"). Format direct emoji.</note>
+    <note role="designer">Stesso brand layout v2 winner. Headline su gradient bottom della foto.</note>
+    <note role="media-buyer">A/B vs v2 + v4. Audience moda over 40.</note>
+  </notes>
+</creative>

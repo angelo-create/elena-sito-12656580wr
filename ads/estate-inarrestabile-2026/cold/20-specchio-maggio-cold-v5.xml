@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-20-v5-brand" status="ready" priority="P0" version="winner-pattern-v5-brand-pain-hybrid">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Specchio Maggio - vergogna ricorrente (pain v4 + brand winner v2)</angle>
+    <pain-targeted>"Quanti maggio ti sei guardata e hai detto questa volta sì?" - vergogna allo specchio + ricorsività</pain-targeted>
+    <copy-framework>Pain-Direct Hybrid (pain v4 emotional + winner v2 direct response)</copy-framework>
+    <design-template>v5-brand-pain-hybrid (foto Elena coach + brand winner layout)</design-template>
+    <design-rationale>v4 troppo editoriale Sofia Coppola NO Elena style. v5 = stesso pain ma layout brand pink/black/white + foto Elena coach direct (NO cinema mood) + emoji bullets. Sfida: CPL piu basso possibile.</design-rationale>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield - reference Elena gia caricate)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true" purpose="character-consistency">Reference Elena gia caricate in Higgsfield workspace - usa quelle</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference for face/body) standing in front of a clean modern bathroom mirror in soft natural daylight. She is mid-action looking at her own reflection - her expression is direct, knowing, slightly raised eyebrow - the look of a coach who is about to tell you something honest. NOT contemplative cinematic. NOT sad. She wears practical home clothes: simple black athletic top, comfortable. Her hair is natural, slightly pulled back.
+
+The bathroom is bright, modern, clean Italian style: white tiles, simple chrome fixtures, no clutter, natural daylight from window upper-left. The mirror shows her reflection clearly. We see her from the chest up, three-quarter angle showing both her side and the mirror reflection.
+
+CRITICAL STYLE NOTE: This is NOT editorial cinematic mood. NOT Sofia Coppola. NOT Mediterranean golden hour. This is a PRACTICAL real coach moment - clean, direct, honest, like a fitness coach about to record an Instagram talking head. Real woman body type, no retouching, natural makeup or none. Authentic Italian woman 45 years old.
+
+Composition: subject in center, mirror reflection visible, plenty of clean negative space TOP and BOTTOM for brand overlay (pink banner top + footer). Clean modern photography style, sharp focus, soft natural light, neutral white-balanced color (NOT warm golden-grading).
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic editorial, Sofia Coppola mood, Wim Wenders aesthetic, golden hour Mediterranean, intimate quiet moment, sad contemplation, theatrical pose, fashion editorial, Vogue, Pinterest mood, vintage filter, sepia, warm color grading, dramatic lighting, dark mood, model thin, beauty filter, instagram filter, makeup heavy
+    </negative-prompt>
+
+    <output-specs>
+      <aspect-ratio primary="1:1">1:1 (Feed) per layout brand winner</aspect-ratio>
+      <resolution>1080x1080 (output finale dopo overlay brand)</resolution>
+      <variations-to-generate>4</variations-to-generate>
+      <usage>Foto va inserita come BACKGROUND IMAGE nel layout brand v5 (vedi design-brief sotto). Lasciare safe-zone top 18% e bottom 18% per banner brand.</usage>
+    </output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static" instructions="Layout brand WINNER v5 con foto Elena come background. Stesso format dei winner sub-3€ CPL ma con foto Elena al posto del nero pieno.">
+    <canvas>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <bg-base>foto-elena-generata-sopra (full bleed)</bg-base>
+    </canvas>
+
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+      <color name="text-shadow" value="rgba(0,0,0,0.5)"/>
+    </brand-tokens>
+
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">WEBINAR PER DONNE</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena generata sopra (full width, fit cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="⚠️">Quanti <bold>MAGGIO</bold> ti sei guardata</line>
+          <line>e hai detto <highlight bg="brand-pink" color="brand-white" padding="2px 8px">"questa volta si"</highlight>?</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px text-shadow</text-shadow>
+        <font-size-pct>5.5</font-size-pct>
+        <max-width-pct>92</max-width-pct>
+      </zone>
+
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⚠️ Quanti MAGGIO ti sei guardata allo specchio e hai detto "questa volta si"?
+
+❌ Quanti GIUGNO hai mollato.
+❌ Quanti SETTEMBRE ti sei detta "il prossimo".
+
+Il problema NON sei tu. E io te lo provo.
+
+💡 In 3 sere live ti spiego perche succede ogni anno alle donne 35+ e cosa fa chi invece resta costante anche d'estate.
+
+Lunedi 19 Maggio 18.30. Live, gratis. 30 minuti.
+
+🔥 100 posti. Replay incluso.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Quanti maggio "questa volta si"?</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Stop al ciclo maggio-giugno-sett.</headline-alt>
+      <headline-alt max-chars="40">Il problema NON sei tu.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-20v5-specchio-brand</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-20v5-specchio-brand&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Self-Recognition-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>55</age-max>
+    <interests>fitness femminile, dieta donne, perdita peso, benessere donna, perimenopausa</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="35"/>
+    <kpi-secondary metric="A/B-vs-v2-CPL" comparison="vs EI26-COLD-06-v2 (estate pain pure tipo)"/>
+    <kpi-secondary metric="A/B-vs-v4-CPL" comparison="vs EI26-COLD-20-v4 (specchio editorial)"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: Elena coach diretta, NO Sofia Coppola. Bagno PRATICO bianco moderno (NO crema Mediterraneo). Espressione "ti dico una cosa onesta" non contemplativa. Generare 4 varianti con leggere differenze di gesto/sguardo, scegliere quella piu "coach diretta".</note>
+    <note role="copywriter">Mantiene il pain v4 (quanti maggio, ricorsivita) MA in formato direct response brand: ALL-CAPS strategici, emoji bullets, "il problema non sei tu" come reframe esplicito brand-aligned.</note>
+    <note role="designer">Replica EXACTLY layout brand winner v2 (top banner pink + body + scarcity pill + footer split). Differenza: il body NON e nero pieno, ma foto Elena con gradient overlay scuro bottom per leggibilita headline. Headline overlay sopra foto in basso (zona piu scura grazie a gradient).</note>
+    <note role="media-buyer">A/B test triplo: v5 (foto+brand) vs v2 (pure brand) vs v4 (foto editorial). Vedere quale aesthetic + format combo vince per Elena. CPL target 2.50€ = aggressivo (combina i vincenti).</note>
+  </notes>
+</creative>

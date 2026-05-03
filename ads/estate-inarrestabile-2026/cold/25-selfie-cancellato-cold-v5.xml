@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-25-v5-brand" status="ready" priority="P0" version="winner-pattern-v5-brand-pain-hybrid">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Selfie Cancellato - digital self-rejection (pain v4 + brand v2)</angle>
+    <pain-targeted>"Quanti selfie hai cancellato questo mese?" - rifiuto digitale moderno</pain-targeted>
+    <copy-framework>Pain-Direct + Modern Universal</copy-framework>
+    <design-template>v5-brand-pain-hybrid</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true" purpose="character-consistency">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference) holding her smartphone up showing the screen toward camera. On the phone screen we see a Photos app interface with a prominent red trash/delete icon highlighted - she has just deleted or is about to delete a photo. A blurred selfie thumbnail is visible on the screen (not identifiable). Her expression: direct knowing slight smile, raised eyebrow - "we all do this" coach energy.
+
+She wears practical home clothes (simple top, comfortable). Clean modern home setting, neutral background (white or soft beige wall), bright natural daylight, NEUTRAL white-balanced color (NOT golden hour Mediterranean).
+
+CRITICAL STYLE: COACH talking-head Instagram energy, clean modern photography, NOT cinematic intimate. Real Italian woman 45, real skin, no retouching. Phone tilted toward camera so screen content visible (but selfie blurred).
+
+Composition: Elena chest-up center frame, phone visible held up showing screen, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic intimate, Spike Jonze Her aesthetic, sad contemplation, dim lighting, blue glow dramatic, vintage filter, sad expression, fashion editorial, instagram filter, beauty filter, makeup heavy, model thin, photo on screen clearly visible
+    </negative-prompt>
+
+    <output-specs>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <variations-to-generate>4</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static" instructions="Layout brand WINNER v5 con foto Elena.">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">WEBINAR PER DONNE</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="❓">Quanti <bold>SELFIE</bold></line>
+          <line>hai <highlight bg="brand-pink" color="brand-white" padding="2px 8px">cancellato</highlight></line>
+          <line>questo mese?</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>5.8</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+❓ Quanti SELFIE hai cancellato questo mese?
+
+❌ Quanti ne hai scattati che non hai mai postato?
+❌ Quanti gruppi WhatsApp hai mutato per non vedere le foto delle altre in vacanza?
+
+💜 Sei in buona compagnia. Le 2300+ donne del mio metodo lo hanno fatto tutte. Non perche siano vanitose.
+
+⚠️ Perche c'e una distanza tra come ti senti dentro e come ti vedi fuori. E quella distanza fa male, ogni giorno, in modo silenzioso.
+
+✅ In 3 sere live ti racconto come si chiude. Non con un filtro. Non con una dieta. Con un METODO.
+
+Lunedi 19 Maggio 18.30. Live. Gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Quanti selfie hai cancellato?</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">La distanza dentro/fuori.</headline-alt>
+      <headline-alt max-chars="40">Il prossimo selfie potrai tenerlo.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-25v5-selfie-brand</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-25v5-selfie-brand&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-50-Digital-Native-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>50</age-max>
+    <interests>Instagram, social media, digital wellbeing, body image, photo editing apps, selfie</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels + Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="3"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Elena tiene phone TOWARD camera mostrando screen. Bright clean home, NO Spike Jonze blue glow drama. Coach Instagram-talking-head energy.</note>
+    <note role="copywriter">3 question stack (selfie cancellati / non postati / WhatsApp mutati). Universal modern pain.</note>
+    <note role="designer">Brand layout. Highlight pink su "cancellato" parola chiave azione.</note>
+    <note role="media-buyer">Audience digital-native. IG/Reels priority.</note>
+  </notes>
+</creative>

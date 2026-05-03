@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-24-v5-brand" status="ready" priority="P0" version="winner-pattern-v5-brand-pain-hybrid">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Anti-Bilancia - smettere di pesarsi (pain v4 + brand v2)</angle>
+    <pain-targeted>"Hai smesso di salire perche sai cosa direbbe" - evitamento bilancia</pain-targeted>
+    <copy-framework>Pain-Direct + Brand Anti-Bilancia Positioning</copy-framework>
+    <design-template>v5-brand-pain-hybrid</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true" purpose="character-consistency">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference) standing in a clean modern bathroom, looking at camera with a direct strong expression. With one hand she points down toward an old analog bathroom scale on the floor, with the other hand she does a clear "STOP" gesture (palm out toward viewer). The scale on the floor visibly has a thin dust layer or a towel half-covering it - clearly abandoned. Her expression: coach assertive but warm, "let me tell you something" energy, slight smile.
+
+She wears practical home clothes (athletic top + leggings or simple). Bright clean modern Italian bathroom, white tiles, soft natural daylight from window, NEUTRAL white-balanced color (NOT warm golden Mediterranean grading).
+
+CRITICAL STYLE: COACH POWER MOMENT, clean direct photography, NOT cinematic still life. NOT vintage Wim Wenders quiet. Real Italian woman 45, real body, natural skin. The "STOP" gesture toward camera is the visual hero, the abandoned scale is the supporting detail.
+
+Composition: Elena center-frame from chest up, hand-stop visible toward viewer, scale visible at bottom of frame (lower-third), plenty of clean negative space top for brand overlay.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic still life, Wim Wenders quiet, vintage bathroom, golden hour, contemplative quiet moment, woman standing on scale, weight number visible, body shaming, harsh fluorescent, sad pose, fashion editorial
+    </negative-prompt>
+
+    <output-specs>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <variations-to-generate>4</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static" instructions="Layout brand WINNER v5 con foto Elena.">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">ANTI-BILANCIA</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>9</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="✋">Hai SMESSO di salire</line>
+          <line>perche <highlight bg="brand-pink" color="brand-white" padding="2px 8px">sai gia</highlight></line>
+          <line>cosa direbbe.</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>5.8</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+✋ Hai SMESSO di salire sulla bilancia perche sai gia cosa direbbe.
+
+E quel "sapere gia" e una forma di onestà.
+
+💜 Te lo dico chiaro: io sono ANTI-BILANCIA. Le 2300+ donne del mio metodo NON si pesano.
+
+❌ Non perche il peso non esista
+✅ Ma perche NON e la leva giusta per essere costante
+
+💡 In 3 sere live ti spiego qual e la vera leva. Lunedi 19 Maggio 18.30. Gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Hai smesso di salire? C'e un perche.</headline>
+    <description max-chars="30">Anti-bilancia · webinar gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">ANTI-BILANCIA. Per scelta.</headline-alt>
+      <headline-alt max-chars="40">2300+ donne NON si pesano.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-24v5-bilancia-brand</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-24v5-bilancia-brand&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-58-Anti-Diet-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>58</age-max>
+    <interests>anti-dieta, intuitive eating, body neutrality, salute mentale, self compassion, anti-diet movement</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club, fitness influencer aggressivi</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="3"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Elena gesto STOP forte verso camera + indica bilancia con altra mano = doppio gesto coach assertivo. Bagno bianco moderno (NO vintage). Espressione "let me tell you" coach diretta.</note>
+    <note role="copywriter">Top banner "ANTI-BILANCIA" = posizionamento brand frontale. Differenzia da concorrenza dieta-pesomag. Stamp brand identity.</note>
+    <note role="designer">Top banner "ANTI-BILANCIA" invece di "WEBINAR PER DONNE" = brand frame forte. Layout standard.</note>
+    <note role="media-buyer">Audience anti-diet = sweet spot brand. Aspettarsi share alti.</note>
+  </notes>
+</creative>
