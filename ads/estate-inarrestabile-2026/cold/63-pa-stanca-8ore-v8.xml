@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-63-v8-stanca-8ore" status="ready" priority="P0" version="problem-aware-v8">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
+    <angle>Stanchezza Quotidiana - "Ti svegli stanca anche dopo 8 ore?"</angle>
+    <copy-framework>Problem Aware Schwartz - daily pain + curiosity</copy-framework>
+    <design-template>v8-problem-aware-brand</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face, warm brown hair slightly tousled (just woke up). Sitting on edge of bed in clean modern Italian bedroom at early dawn natural light. She wears soft heather grey oversized t-shirt (real morning, NOT matching pajama set).
+
+Posture relaxed but slightly forward, hand resting on bed beside her. Looking direct camera with empathic understanding expression - "I get it, this is real" coach energy.
+
+Expression: Italian "lo sguardo del 'so cosa stai vivendo'" - both eyebrows neutral relaxed, mouth gentle warm smile right corner up 3mm, eyes soft direct contact with empathic recognition.
+
+Camera: iPhone 15 Pro vertical equivalent, eye level, distance 95cm.
+
+Light: single soft early morning window light camera-left at 30°, 4500K dawn warm-neutral.
+
+Aesthetic: intimate morning realness, contemporary Italian coach 2026.
+
+Body: real Italian woman 45.
+
+Color grading: neutral + 4% warmth (slightly warmer for morning intimacy).
+
+Composition: subject center frame from chest up, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, dramatic, sad theatrical, golden hour Mediterranean, model thin, instagram filter, beauty retouch, makeup heavy, sleeping pose</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="14" bg="brand-pink" z-index="2">
+        <text language="it">WEBINAR PER DONNE 40+</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="68" z-index="1">
+        <photo>foto Elena</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="middle-on-photo" margin-top="50px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.2">
+          <line>Ti svegli stanca</line>
+          <line>anche dopo <highlight bg="brand-pink" color="brand-white" padding="2px 10px">8 ORE?</highlight></line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6.5</font-size-pct>
+      </zone>
+      <zone id="sub-headline" position="below-headline-on-photo" margin-top="170px" padding="0 40px" z-index="3">
+        <text language="it">Non e eta. Non e "essere mamme". C'e una causa precisa di cui nessuno parla</text>
+        <text language="it"><italic>— e si puo sistemare.</italic></text>
+        <font>Inter Regular</font><font-color>brand-white</font-color>
+        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
+        <font-size-pct>3.4</font-size-pct>
+      </zone>
+      <zone id="cta-overlay" position="lower-on-photo" margin-bottom="60px" padding="0 32px" z-index="3">
+        <text language="it">👉 Capisci perche succede</text>
+        <font>Inter SemiBold</font><font-color>brand-white</font-color>
+        <font-size-pct>3.6</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
+          <text-line-2 language="it">ZOOM · 18:30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>4.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.2</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+😴 Ti svegli stanca anche dopo 8 ore?
+
+Non sei sola. E NON e eta. NON e "essere mamme". NON e "lo stress della vita".
+
+A 40+ il sonno cambia struttura — meno fasi profonde, piu risvegli. Cortisolo che non cala. Ormoni che non sostengono il recupero.
+
+E quando il sonno non rigenera, tutto crolla a cascata: energia, voglia, costanza, tono dell'umore.
+
+C'e una causa precisa. E si puo sistemare. Senza farmaci.
+
+👉 In 3 sere live ti spiego cosa succede + cosa fare.
+
+📅 19, 20, 21 Maggio 2026 · ore 18:30 · LIVE su Zoom · GRATIS
+
+🔥 100 posti.
+
+Iscriviti qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Stanca anche dopo 8 ore?</headline>
+    <description max-chars="30">Non e eta · 3 sere live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">8 ore di sonno e stanca: perche?</headline-alt>
+      <headline-alt max-chars="40">Non e eta. C'e una causa precisa.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-63v8-pa-stanca-8ore</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-63v8-pa-stanca-8ore&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-58-Sleep-Energy-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>58</age-max>
+    <interests>sonno, stanchezza cronica, fatigue, perimenopausa, ormoni, energia donne, melatonina</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Mood mattutino intimo, NO drama. Just-woke-up real. Empathic.</note>
+    <note role="copywriter">PA puro daily pain. Lista negazioni (NO eta/mamme/stress) = anti-cliche. Reframe scientifico (sonno+ormoni+cortisolo).</note>
+    <note role="designer">Highlight pink su "8 ORE?" = la sorpresa.</note>
+  </notes>
+</creative>

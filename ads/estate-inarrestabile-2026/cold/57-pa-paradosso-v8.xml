@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-57-v8-paradosso" status="ready" priority="P0" version="problem-aware-v8">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
+    <angle>Paradosso Effort/Result - "Mangi sano, ti alleni, nulla cambia"</angle>
+    <copy-framework>Problem Aware Schwartz - paradosso sforzo/risultato + curiosity</copy-framework>
+    <design-template>v8-problem-aware-brand</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face, warm brown hair natural. Standing in a clean modern Italian kitchen at late morning natural light. She wears a fitted black athletic short-sleeve top (suggesting active lifestyle).
+
+Hands gestured open palms-up at chest level in a "but why" gesture - hands soft natural, NOT theatrical. Stance grounded.
+
+Expression: Italian "lo sguardo del paradosso" - both eyebrows slightly raised 2mm, mouth slight asymmetric smirk left corner up 4mm, eyes direct camera with "I know it doesn't make sense" empathy. Slight head tilt right 4°.
+
+Camera: iPhone 15 Pro vertical equivalent, eye level, distance 100cm.
+
+Light: single soft window light camera-left at 45°, 5000K neutral, subtle natural fill.
+
+Aesthetic: contemporary Italian fitness coach Instagram 2026, NOT cinematic.
+
+Body: real Italian woman 45, average proportions with subtle definition (consistent with someone who works out moderately).
+
+Color grading: neutral white balance + 3% warmth.
+
+Composition: subject center frame chest up, hands gesture visible mid-frame, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, golden hour, model thin, instagram filter, beauty retouch, makeup heavy, fitness influencer flexing pose</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="14" bg="brand-pink" z-index="2">
+        <text language="it">EVENTO LIVE GRATUITO</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="68" z-index="1">
+        <photo>foto Elena</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="middle-on-photo" margin-top="40px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.2">
+          <line>Mangi sano. Ti alleni.</line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">Nulla cambia.</highlight></line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6.5</font-size-pct>
+      </zone>
+      <zone id="sub-headline" position="below-headline-on-photo" margin-top="170px" padding="0 40px" z-index="3">
+        <text language="it">Eppure stai facendo "tutto giusto". A 40+ c'e UNA cosa che ti manca</text>
+        <text language="it"><italic>— e nessuno te la dice.</italic></text>
+        <font>Inter Regular</font><font-color>brand-white</font-color>
+        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
+        <font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="cta-overlay" position="lower-on-photo" margin-bottom="60px" padding="0 32px" z-index="3">
+        <text language="it">👉 Capisci cosa manca davvero</text>
+        <font>Inter SemiBold</font><font-color>brand-white</font-color>
+        <font-size-pct>3.6</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
+          <text-line-2 language="it">ZOOM · 18:30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>4.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.2</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+🤔 Mangi sano. Ti alleni. NULLA cambia.
+
+E ti chiedi: "che sto sbagliando?"
+
+Niente. Forse stai facendo davvero "tutto giusto" — secondo i parametri che funzionavano a 25 anni.
+
+A 40+ c'e UNA cosa che cambia tutto. Una sola. E nessuno te la dice mai, perche se te la dicessero non avrebbero piu nulla da venderti.
+
+👉 Te la racconto in 3 sere live. Senza vendite. Senza miracoli. Solo la verita.
+
+📅 19, 20, 21 Maggio 2026 · ore 18:30 · LIVE su Zoom · GRATIS
+
+🔥 100 posti.
+
+Iscriviti qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Mangi sano, ti alleni: NULLA cambia.</headline>
+    <description max-chars="30">Capisci cosa manca · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Fai tutto giusto. Nulla cambia.</headline-alt>
+      <headline-alt max-chars="40">UNA cosa che a 40+ manca sempre.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-57v8-pa-paradosso</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-57v8-pa-paradosso&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-58-Cold-Broad-Advantage</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>58</age-max>
+    <interests>broad - Advantage+ Audience ON</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>20</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="40"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 80€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Hands "but why" gesture chiave. Espressione paradosso empatico.</note>
+    <note role="copywriter">PA puro. Curiosity gap "UNA cosa nessuno dice". Anti-sales twist ("se te la dicessero non avrebbero piu nulla da venderti") = anti-establishment authority.</note>
+    <note role="designer">Top banner neutro PA. Layout standard.</note>
+  </notes>
+</creative>

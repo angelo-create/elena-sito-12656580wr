@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-60-v8-giugno-crolla" status="ready" priority="P0" version="problem-aware-v8">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
+    <angle>Causa Nascosta Stagionale - "Perche ogni giugno crolla tutto?"</angle>
+    <copy-framework>Problem Aware Schwartz - domanda specifica + curiosity gap</copy-framework>
+    <design-template>v8-problem-aware-brand</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face, warm brown hair natural. Standing in clean modern Italian living room at warm late afternoon natural light. She wears soft cream short-sleeve linen shirt.
+
+Stance grounded, slightly turned 5° to camera-left (three-quarter angle) for natural conversation feel. Looking direct camera with thoughtful inquiring expression.
+
+Expression: Italian "lo sguardo del 'ti faccio una domanda'" - left eyebrow micro-raised 3mm asking, mouth neutral with slight smirk corner left up 2mm, eyes laser direct camera with curiosity-inviting energy.
+
+Camera: iPhone 15 Pro vertical equivalent, eye level, distance 100cm.
+
+Light: single soft late afternoon window light camera-left at 30°, 4900K warm-neutral.
+
+Aesthetic: contemporary Italian Instagram coach 2026, NOT cinematic.
+
+Body: real Italian woman 45.
+
+Color grading: neutral + 3% warmth.
+
+Composition: subject center frame chest up, three-quarter angle, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, dramatic, golden hour, model thin, instagram filter, beauty retouch, makeup heavy</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="14" bg="brand-pink" z-index="2">
+        <text language="it">3 SERE LIVE · GRATIS</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="68" z-index="1">
+        <photo>foto Elena</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="middle-on-photo" margin-top="50px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.2">
+          <line>Perche ogni</line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">GIUGNO</highlight></line>
+          <line>crolla tutto?</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6.5</font-size-pct>
+      </zone>
+      <zone id="sub-headline" position="below-headline-on-photo" margin-top="220px" padding="0 40px" z-index="3">
+        <text language="it">Caldo, vacanze, routine spaccata. Ma il vero motivo e UNO solo</text>
+        <text language="it"><italic>— ed e dentro di te.</italic></text>
+        <font>Inter Regular</font><font-color>brand-white</font-color>
+        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
+        <font-size-pct>3.4</font-size-pct>
+      </zone>
+      <zone id="cta-overlay" position="lower-on-photo" margin-bottom="60px" padding="0 32px" z-index="3">
+        <text language="it">👉 La risposta in 3 sere live</text>
+        <font>Inter SemiBold</font><font-color>brand-white</font-color>
+        <font-size-pct>3.6</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
+          <text-line-2 language="it">ZOOM · 18:30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>4.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.2</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+🌞 Perche ogni GIUGNO crolla tutto?
+
+Tutti dicono "e il caldo". "Sono le vacanze". "E la routine spaccata".
+
+Falso. Sono cause superficiali. Il vero motivo e UNO solo, ed e dentro di te.
+
+E quando lo capisci, ti rendi conto che non e mai stata colpa di giugno. E che puoi finalmente smettere il ciclo.
+
+👉 In 3 sere live ti racconto cos'e e perche succede SOLO a te (e non solo a te).
+
+📅 19, 20, 21 Maggio 2026 · ore 18:30 · LIVE su Zoom · GRATIS
+
+🔥 100 posti.
+
+Iscriviti qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Perche ogni GIUGNO crolla tutto?</headline>
+    <description max-chars="30">La risposta in 3 sere · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Non e il caldo. C'e dell'altro.</headline-alt>
+      <headline-alt max-chars="40">Ogni giugno la stessa cosa. Perche?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-60v8-pa-giugno-crolla</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-60v8-pa-giugno-crolla&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-58-Estate-Pattern-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>58</age-max>
+    <interests>vacanze estate, prova costume, summer body, dieta estate, lifestyle estate</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Espressione "ti faccio una domanda" thoughtful inquiring.</note>
+    <note role="copywriter">PA puro. Domanda specifica = curiosity hook. Reframe (NO caldo/vacanze, SI dentro di te).</note>
+    <note role="designer">Top banner "3 SERE LIVE GRATIS" (formato esplicito). Headline "GIUGNO" highlighted enorme.</note>
+  </notes>
+</creative>

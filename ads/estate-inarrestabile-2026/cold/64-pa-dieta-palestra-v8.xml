@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-64-v8-dieta-palestra" status="ready" priority="P0" version="problem-aware-v8">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
+    <angle>Dieta + Palestra Nulla - "Manca UNA cosa"</angle>
+    <copy-framework>Problem Aware Schwartz - effort/result paradox + curiosity</copy-framework>
+    <design-template>v8-problem-aware-brand</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face, warm brown hair tied back loose. Standing in clean modern Italian living room at midday natural light. She wears fitted black athletic short-sleeve top.
+
+Stance grounded confident with one hand making subtle "wait" gesture (palm up at hip level) - calm not aggressive. Other hand relaxed.
+
+Expression: Italian "lo sguardo del 'manca una cosa'" - left eyebrow micro-raised 3mm intriguing, mouth slight knowing smirk right corner up 4mm, eyes laser direct camera with insider revelation energy.
+
+Camera: iPhone 15 Pro vertical equivalent, eye level, distance 100cm.
+
+Light: single soft window light camera-left at 45°, 5100K neutral.
+
+Aesthetic: contemporary Italian fitness coach Instagram 2026.
+
+Body: real Italian woman 45 with subtle athletic tone.
+
+Color grading: neutral + 3% warmth.
+
+Composition: subject center frame chest up, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, dramatic, golden hour, model thin, gym setting, bodybuilder, instagram filter, makeup heavy</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="14" bg="brand-pink" z-index="2">
+        <text language="it">3 SERE LIVE · GRATIS</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="68" z-index="1">
+        <photo>foto Elena</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="middle-on-photo" margin-top="40px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.2">
+          <line><bold>Dieta. Palestra.</bold></line>
+          <line><bold>Nulla.</bold></line>
+          <line>Manca <highlight bg="brand-pink" color="brand-white" padding="2px 10px">UNA cosa.</highlight></line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6</font-size-pct>
+      </zone>
+      <zone id="sub-headline" position="below-headline-on-photo" margin-top="220px" padding="0 40px" z-index="3">
+        <text language="it">Hai provato di tutto. E ancora niente. Non sei tu</text>
+        <text language="it"><italic>— e che ti hanno fatto provare le cose nell'ordine sbagliato.</italic></text>
+        <font>Inter Regular</font><font-color>brand-white</font-color>
+        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
+        <font-size-pct>3.4</font-size-pct>
+      </zone>
+      <zone id="cta-overlay" position="lower-on-photo" margin-bottom="60px" padding="0 32px" z-index="3">
+        <text language="it">👉 Te la svelo gratis. 3 sere.</text>
+        <font>Inter SemiBold</font><font-color>brand-white</font-color>
+        <font-size-pct>3.6</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
+          <text-line-2 language="it">ZOOM · 18:30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>4.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.2</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+🤔 Dieta. Palestra. Integratori. App. NULLA.
+
+Hai provato di tutto, in ordine sparso, sperando che qualcosa funzionasse.
+
+Niente.
+
+Non sei tu il problema. E che ti hanno fatto provare TANTE cose, ma in ordine SBAGLIATO. C'e una sequenza precisa che le donne 40+ devono seguire — e quasi nessuno te la spiega.
+
+👉 Te la svelo in 3 sere live gratuite. Senza vendite. Solo metodo.
+
+📅 19, 20, 21 Maggio 2026 · ore 18:30 · LIVE su Zoom · GRATIS
+
+🔥 100 posti.
+
+Iscriviti qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Dieta + palestra. Manca UNA cosa.</headline>
+    <description max-chars="30">L'ordine giusto · 3 sere live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Hai provato tutto. Manca questa.</headline-alt>
+      <headline-alt max-chars="40">L'ordine sbagliato uccide tutto.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-64v8-pa-dieta-palestra</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-64v8-pa-dieta-palestra&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-58-Tried-Everything-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>58</age-max>
+    <interests>dieta, palestra, fitness, integratori, app fitness, dimagrimento, perdita peso</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Subtle "wait" gesture casual. Espressione knowing reveal.</note>
+    <note role="copywriter">PA puro reframe brillante: "ordine sbagliato" = nuovo angolo (NON "metodo sbagliato"). Curiosity gap su "sequenza precisa".</note>
+    <note role="designer">Layout 3 righe staccato per ritmo. Highlight pink su "UNA cosa".</note>
+  </notes>
+</creative>

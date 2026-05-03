@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-58-v8-corpo-diverso" status="ready" priority="P0" version="problem-aware-v8">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
+    <angle>Knowledge Gap Eta - "A 40+ il corpo funziona DIVERSO"</angle>
+    <copy-framework>Problem Aware Schwartz - knowledge gap + age-relevance</copy-framework>
+    <design-template>v8-problem-aware-brand</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face, warm brown hair tied loose ponytail. Standing in a clean modern Italian living room at clean midday natural light. She wears soft cream linen short-sleeve shirt over comfortable home pants.
+
+Stance grounded confident. Looking directly at camera with educational empathic expression - the look of "let me explain something important you didn't know".
+
+Expression: Italian "lo sguardo del 'devi sapere una cosa'" - left eyebrow micro-raised 3mm, mouth slight serious half-smile right corner up 2mm, eyes direct camera with calm authority. Subtle chin tilt down 1° for credible explanation tone.
+
+Camera: iPhone 15 Pro vertical equivalent, eye level, distance 105cm.
+
+Light: single soft window light camera-left at 45°, 5100K neutral.
+
+Aesthetic: modern Italian Instagram coach 2026 educational style. NOT cinematic editorial.
+
+Body: real Italian woman 45, average proportions.
+
+Color grading: neutral + 3% warmth max.
+
+Composition: subject center frame chest up, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, dramatic, golden hour, model thin, instagram filter, beauty retouch, makeup heavy, lab coat, doctor pose</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="14" bg="brand-pink" z-index="2">
+        <text language="it">WEBINAR PER DONNE 40+</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="68" z-index="1">
+        <photo>foto Elena</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="middle-on-photo" margin-top="40px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.2">
+          <line>A 40+ il corpo</line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">funziona DIVERSO.</highlight></line>
+          <line><italic>Lo sapevi?</italic></line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6</font-size-pct>
+      </zone>
+      <zone id="sub-headline" position="below-headline-on-photo" margin-top="200px" padding="0 40px" z-index="3">
+        <text language="it">Ormoni, metabolismo, sonno, energia. Niente e come a 25.</text>
+        <text language="it"><italic>E se nessuno te lo spiega, mollare diventa inevitabile.</italic></text>
+        <font>Inter Regular</font><font-color>brand-white</font-color>
+        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
+        <font-size-pct>3.4</font-size-pct>
+      </zone>
+      <zone id="cta-overlay" position="lower-on-photo" margin-bottom="60px" padding="0 32px" z-index="3">
+        <text language="it">👉 Capisci cosa cambia (e cosa fare)</text>
+        <font>Inter SemiBold</font><font-color>brand-white</font-color>
+        <font-size-pct>3.6</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
+          <text-line-2 language="it">ZOOM · 18:30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>4.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.2</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⚠️ A 40+ il corpo funziona DIVERSO. Lo sapevi?
+
+Ormoni che fluttuano. Metabolismo che rallenta. Sonno meno profondo. Cortisolo cronico. Massa muscolare che cala. Energia che non torna come prima.
+
+Niente di tutto questo e "vecchiaia". E FISIOLOGIA NORMALE delle donne dopo i 40. Ma se nessuno te la spiega, ti senti rotta — e molli.
+
+👉 Te lo racconto in 3 sere live. Le 4 cose che cambiano + cosa fare per ognuna.
+
+📅 19, 20, 21 Maggio 2026 · ore 18:30 · LIVE su Zoom · GRATIS
+
+🔥 100 posti.
+
+Iscriviti qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">A 40+ il corpo funziona DIVERSO.</headline>
+    <description max-chars="30">Capisci cosa cambia · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Non e vecchiaia. E fisiologia.</headline-alt>
+      <headline-alt max-chars="40">A 40+ niente e come a 25.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-58v8-pa-corpo-diverso</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-58v8-pa-corpo-diverso&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-58-Cold-Perimenopausa-Aware</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>58</age-max>
+    <interests>perimenopausa, menopausa, salute femminile over 40, ormoni femminili</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Espressione educativa empatic, NO drama clinico.</note>
+    <note role="copywriter">PA puro. Knowledge gap = "lo sapevi?". Lista fisiologica concreta = autorita scientifica. NO claim metodo, solo "te lo racconto".</note>
+    <note role="designer">Top banner "WEBINAR PER DONNE 40+" (segmento esplicito).</note>
+  </notes>
+</creative>

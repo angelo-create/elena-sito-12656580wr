@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-46-v7-ozempic" status="ready" priority="P0" version="winner-pattern-v7-hype-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Ozempic / GLP-1 - "Hai pensato alla puntura?" anti-quick-fix</angle>
+    <hype-topic-2026>GLP-1 (Ozempic, Wegovy, Mounjaro) - dibattito pubblico forte Italia 2026</hype-topic-2026>
+    <pain-targeted>Tentazione quick-fix farmacologico + paura effetti collaterali + costo</pain-targeted>
+    <copy-framework>Hype Hijack + Authority + Anti-Quick-Fix Reframe</copy-framework>
+    <design-template>v7-brand-hype-elaborated</design-template>
+    <design-rationale>Cavalca conversazione virale ma riposiziona: Elena come voce affidabile vs scorciatoia farmacologica. Self-selection audience anti-pillola.</design-rationale>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield - reference Elena caricate)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference for face/body), lived-in face with subtle fine lines around eyes (no airbrush), shoulder-length warm brown hair tied back loose. Standing in a clean modern Italian bathroom or kitchen at midday natural light. She wears a simple soft heather grey ribbed tank top (NO athletic wear, NO professional outfit - real home).
+
+She holds up an empty hand toward camera in a clear "stop, listen" gesture (palm out, fingers slightly splayed, not aggressive - more like "let me tell you something first"). Her other hand rests on hip naturally.
+
+Camera: iPhone 15 Pro vertical shot equivalent, eye level, subject distance 100cm (medium shot chest up), slight 5° forward lean of subject for engagement.
+
+Light: single soft window light from camera-left at 45°, color temperature 5200K (neutral midday), no fill - allow subtle shadow on right side of face for depth and authority.
+
+Expression: Italian "lo sguardo del 'aspetta, prima ascolta questa cosa'" - left eyebrow raised 3mm, mouth in micro-smirk corner left, eyes direct laser camera, NOT pleading NOT aggressive - composed authority of someone with 20 years experience. Slight chin-up tilt (1-2°) for credibility.
+
+Aesthetic reference: NOT Sofia Coppola. NOT cinematic editorial. Reference Italian Instagram coaches Federica Fontana, Carlotta Perego, Cristina Marino for naturalism. Modern Italian fitness coach 2026 Instagram aesthetic - clean, direct, real.
+
+Body: real Italian woman 45, average proportions, real arms (subtle softness on upper arms NOT airbrushed, NOT plus-size styling either), no fitness model symmetry. Just regular Italian woman.
+
+Color grading: neutral white balance + 3% warmth maximum, NO Mediterranean orange, NO golden hour. Slight saturation boost on subject only. Background slightly desaturated.
+
+Composition: rule of thirds, subject center-right (right intersection points), hand-stop gesture in center frame, plenty of clean negative space top 18% for brand banner overlay, bottom 18% for footer.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic editorial, Sofia Coppola, golden hour Mediterranean, cinematic warm grading, dramatic lighting, fashion editorial, model thin, beauty retouch, instagram filter, makeup heavy, syringe visible, medical setting, hospital, doctor coat, weight loss before/after, fitness influencer pose, peace sign, ok sign
+    </negative-prompt>
+
+    <output-specs>
+      <aspect-ratio>1:1</aspect-ratio>
+      <resolution>1080x1080</resolution>
+      <variations-to-generate>4</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">PRIMA DI FARE LA PUNTURA</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="✋"><bold>Ozempic. Wegovy.</bold></line>
+          <line>Prima di firmare</line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 8px">ascolta questa cosa.</highlight></line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>5.5</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+✋ Ozempic. Wegovy. Mounjaro. La puntura magica.
+
+So che ci hai pensato. Lo capisco. Anche le mie clienti me lo chiedono ogni settimana.
+
+Prima di firmare quella ricetta:
+❌ Costo: €200-400 al mese, a vita
+❌ Effetti collaterali (nausea, perdita massa muscolare 40%)
+❌ Sospendi = riprendi tutto + interessi
+❌ NON insegni al tuo corpo nulla
+
+✅ Per donne 40+ esiste un'altra strada. Funziona piu lentamente. Ma resta.
+
+💡 In 3 sere live ti spiego ESATTAMENTE perche e come. Lunedi 19 Maggio 18.30. Live, gratis. 30 minuti.
+
+🔥 100 posti. (Decidi DOPO se la puntura ti serve davvero.)
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Prima di Ozempic, ascolta questa.</headline>
+    <description max-chars="30">€400/mese a vita? · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">La puntura: prima di firmare.</headline-alt>
+      <headline-alt max-chars="40">Ozempic: pro, contro, alternative.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-46v7-ozempic</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-46v7-ozempic&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-58-Ozempic-Curious-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>58</age-max>
+    <interests>Ozempic, Wegovy, Mounjaro, GLP-1, semaglutide, dimagrimento veloce, dieta proteica, dimagrimento farmacologico</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club, professionisti sanitari (medici/infermieri)</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="3.0"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="40"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="3"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Espressione laser direct: "aspetta, prima ascolta". Hand-stop palm out NO aggressivo. NO seringhe visibili. Pure photography fitness coach modern.</note>
+    <note role="copywriter">HYPE HIJACK: cavalca conversazione Ozempic ma reframe anti-quick-fix. Stack contro (costo/effetti/sospensione/non-impari). Promise "altra strada per 40+". Tono empatico ("anche le mie clienti me lo chiedono") = autorita.</note>
+    <note role="designer">Top banner "PRIMA DI FARE LA PUNTURA" = pattern interrupt scroll feed. Hyper-relevant 2026 IT.</note>
+    <note role="media-buyer">Audience EXTRA caldo: chi ha cercato Ozempic. CPL atteso bassissimo per topic hype virale. Aspettarsi alti commenti polarizzati - moderare con grace.</note>
+    <note role="ethical-check">NO claim medico, NO consigli sanitari. Solo "alternativa esiste, vieni a sentire". Disclaimer non necessario perche frame educativo. Verde compliance.</note>
+  </notes>
+</creative>

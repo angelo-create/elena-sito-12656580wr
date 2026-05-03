@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-47-v7-cortisol" status="ready" priority="P0" version="winner-pattern-v7-hype-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Cortisol Belly - mito virale TikTok pancia gonfia stress</angle>
+    <hype-topic-2026>"Cortisol belly check" + "cortisol face" - viral TikTok 2025-2026</hype-topic-2026>
+    <pain-targeted>Pancia gonfia + stress cronico + confusione su cosa funziona davvero</pain-targeted>
+    <copy-framework>Hype Hijack + Myth Bust + Authority</copy-framework>
+    <design-template>v7-brand-hype-elaborated</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face with subtle fine lines around eyes (no airbrush), warm brown shoulder-length hair loose natural. Standing in a clean modern Italian living room at late afternoon natural light. She wears a soft cream linen short-sleeve shirt (NOT athletic wear).
+
+She gestures with both hands palms-up at chest level in a clear "wait, let me explain" gesture - hands soft not stiff, fingers relaxed. Her stance is grounded, natural weight on both legs.
+
+Camera: iPhone 15 Pro vertical shot equivalent, eye level, subject distance 100cm (medium shot waist up), slight forward lean.
+
+Light: single soft window light from camera-left at 45°, color temperature 4800K (warm late afternoon), subtle bounce fill from camera-right (white wall), soft natural look.
+
+Expression: Italian "lo sguardo della prof che spiega che TikTok ha esagerato" - both eyebrows neutral position, mouth slight half-smile right corner, eyes direct camera with patient explanatory energy. Slight chin tilt down 1-2° for "I'm explaining something" body language.
+
+Aesthetic reference: NOT cinematic. Reference contemporary Italian science communicators (Cristina Marino fitness style, Carlotta Perego naturalism, Claudio Garatti coach). Modern Italian Instagram aesthetic 2026.
+
+Body: real Italian woman 45, average proportions, real waist (NOT airbrushed flat stomach, NOT exaggerated either), real arms.
+
+Color grading: neutral white balance + 4% warmth max, slight saturation boost on subject. NO golden orange, NO Mediterranean filter.
+
+Composition: rule of thirds, subject center frame, hands-explanation gesture in mid-frame, plenty of clean negative space top 18% for brand banner overlay, bottom 18% for footer.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic editorial, Sofia Coppola, golden hour, dramatic lighting, model thin, flat stomach focus, body parts close-up, instagram filter, beauty retouch, makeup heavy, fitness pose, gym setting, clinical setting
+    </negative-prompt>
+
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">CORTISOL BELLY - VERITA</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7.5</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="⚠️">"<bold>Cortisol belly</bold>"</line>
+          <line>Quanto e <highlight bg="brand-pink" color="brand-white" padding="2px 8px">vero</highlight></line>
+          <line>e quanto e TikTok?</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>5.5</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⚠️ "Cortisol belly", "cortisol face": cosa e vero e cosa e TikTok?
+
+L'algoritmo ti ha detto che la pancia gonfia e tutto stress. Ti ha venduto la tisana. Il corso. Il magnesio.
+
+✅ Vero: il cortisol cronico INFLUISCE su accumulo addominale donne 40+
+❌ Mito: dormire 9 ore + ashwagandha = pancia piatta
+❌ Mito: smetti di stressarti (lol)
+
+💡 In 3 sere live ti spiego cosa fare DAVVERO per gestire cortisol + grasso addominale a 40+. Senza tisane miracolose. Lunedi 19 Maggio 18.30. Live, gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Cortisol belly: vero o TikTok?</headline>
+    <description max-chars="30">Stop tisane miracolose · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Pancia gonfia da stress: i fatti.</headline-alt>
+      <headline-alt max-chars="40">L'algoritmo ti ha mentito.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-47v7-cortisol</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-47v7-cortisol&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Cortisol-Stress-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>55</age-max>
+    <interests>cortisolo, stress cronico, ashwagandha, magnesio, adaptogeni, salute olistica, TikTok wellness, salute mentale</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels - topic Tikkok-native)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="3.0"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="40"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Hands palms-up gesture "let me explain" SOFT non stiff. Espressione "prof spiega che TikTok ha esagerato".</note>
+    <note role="copywriter">Myth-bust ben strutturato (✅ vero, ❌ mito x2). Tono "lol" su "smetti di stressarti" = relatable umorismo. Anti-quick-fix tisane.</note>
+    <note role="designer">Highlight pink su "vero" = la parola che ti chiedi. Pattern interrupt feed.</note>
+    <note role="media-buyer">Topic ULTRA virale TikTok. CPL bassissimo atteso. Reels priority.</note>
+  </notes>
+</creative>

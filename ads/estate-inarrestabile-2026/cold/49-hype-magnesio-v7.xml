@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-49-v7-magnesio" status="ready" priority="P0" version="winner-pattern-v7-hype-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Magnesio Glicinato - "Hai comprato il magnesio. Ti aspettavi miracoli?"</angle>
+    <hype-topic-2026>Magnesium glicinato boom (TikTok 2024-2026) - "ho dormito 10 ore", "miracoloso"</hype-topic-2026>
+    <pain-targeted>Pillole/integratori shopping list senza vero risultato - magic-pill thinking</pain-targeted>
+    <copy-framework>Hype Hijack + Anti-Magic-Pill</copy-framework>
+    <design-template>v7-brand-hype-elaborated</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face, warm brown shoulder-length hair loose. Standing in a clean modern Italian kitchen at morning light. She wears soft cream short-sleeve linen shirt.
+
+She holds a generic supplement bottle (white plastic bottle with no readable label, no brand) up at chest level with her left hand, looking at it with a knowing skeptical expression. Her right hand rests casually on her hip.
+
+Camera: iPhone 15 Pro vertical shot, eye level, subject distance 100cm.
+
+Light: single soft window light from camera-left at 45°, color temperature 5300K (clean morning), subtle natural fill.
+
+Expression: Italian "lo sguardo del 'aspetta che ti spiego'" - both eyebrows neutral, mouth slight smirk right corner mouth raised 3mm, eyes direct camera with informed skepticism. Subtle chin tilt down 1° for educational tone.
+
+Aesthetic reference: Modern Italian wellness Instagram 2026, Carlotta Perego naturalism, Federica Fontana directness. NOT cinematic.
+
+Body: real Italian woman 45, average, real arms.
+
+Color grading: neutral + 3% warmth, slight saturation on pink elements only.
+
+Composition: subject center frame, supplement bottle visible mid-frame held up, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic editorial, golden hour, Sofia Coppola, real supplement brand visible, Solgar Now Foods readable label, model thin, beauty retouch, makeup heavy, instagram filter, dramatic
+    </negative-prompt>
+
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">MAGNESIO GLICINATO?</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>8</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="💊">L'hai comprato</line>
+          <line>perche TikTok dice <highlight bg="brand-pink" color="brand-white" padding="2px 8px">miracoli</highlight>.</line>
+          <line>Ti dico la verita.</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>5.5</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+💊 Magnesio glicinato. L'hai comprato perche TikTok diceva miracoli.
+
+✅ Vero: il magnesio AIUTA su sonno + crampi + ansia (se sei carente)
+❌ Mito: ti fa dimagrire
+❌ Mito: sostituisce un metodo
+❌ Mito: tutte ne hanno bisogno
+
+Il magnesio NON e una scorciatoia. E un mattone. Ma ti serve un MURO, non un mattone in mezzo alla stanza.
+
+💡 In 3 sere live ti spiego cosa serve davvero a 40+ (integratori inclusi solo dove servono). Lunedi 19 Maggio 18.30. Live, gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Magnesio: TikTok mente?</headline>
+    <description max-chars="30">Stop integratori a caso · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Hai comprato il magnesio. E poi?</headline-alt>
+      <headline-alt max-chars="40">Il mattone non e il muro.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-49v7-magnesio</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-49v7-magnesio&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Supplements-Magnesium-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>55</age-max>
+    <interests>magnesio, integratori, supplements, ashwagandha, melatonina, sonno, salute olistica, biohacking</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.8"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Bottiglia integratore generic (NO brand reali per copyright). Espressione informed skepticism.</note>
+    <note role="copywriter">Myth bust ben strutturato. Metafora killer "mattone vs muro" = visual mentale. Anti-magic-pill brand.</note>
+    <note role="designer">Highlight pink su "miracoli" = la parola che TikTok ha promesso.</note>
+  </notes>
+</creative>

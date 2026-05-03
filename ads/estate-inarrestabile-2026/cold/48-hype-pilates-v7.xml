@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-48-v7-pilates" status="ready" priority="P0" version="winner-pattern-v7-hype-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Pilates Reformer Boom - "Tutte fanno Pilates. A 45 funziona davvero?"</angle>
+    <hype-topic-2026>Pilates Reformer boom 2025-2026 (sostituisce yoga come "trend body") - Solidcore, Pilates clubs Italia</hype-topic-2026>
+    <pain-targeted>Pressure FOMO Pilates ("tutte ci vanno") + dubbio risultato + costo</pain-targeted>
+    <copy-framework>Hype Hijack + Honest Assessment + Authority</copy-framework>
+    <design-template>v7-brand-hype-elaborated</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face with subtle fine lines, warm brown shoulder-length hair tied in a low casual ponytail. Sitting on the edge of a soft couch in a clean modern Italian living room at late morning natural light. She wears soft cream lounge pants and a fitted black tank top (suggesting just-back-from-or-going-to a workout, but NOT in a Pilates studio).
+
+She holds a phone in her left hand showing a generic fitness app/Pilates booking interface (not specific brand visible). Her right hand makes a subtle "so-so" gesture - hand flat, slightly tilted, palm down - the universal "ehhh" Italian gesture.
+
+Camera: iPhone 15 Pro vertical shot, eye level, subject distance 110cm (medium shot upper body), natural posture.
+
+Light: single soft window light from camera-right at 30°, color temperature 5000K (neutral late morning), subtle ambient fill from white ceiling, soft realistic.
+
+Expression: Italian "lo sguardo del 'guarda, te lo dico io'" - left eyebrow micro-raised 2mm, mouth in slight smirk right corner, eyes direct camera with friendly skepticism. Head tilted right 5° for "let me give you the real take" body language.
+
+Aesthetic reference: Modern Italian fitness coach Instagram 2026 - Federica Fontana, Cristina Marino aesthetic. NOT cinematic editorial. NOT golden hour Mediterranean.
+
+Body: real Italian woman 45, average proportions, real arms with subtle definition (consistent with someone who works out moderately), NOT model thin.
+
+Color grading: neutral white balance + 3% warmth max, slight pop on cream couch and her tank top.
+
+Composition: subject left-of-frame, phone visible mid-frame, "so-so" gesture clearly readable, plenty of clean negative space top 18% and bottom 18% for brand overlay.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cinematic editorial, Sofia Coppola, golden hour Mediterranean, Pilates studio setting, reformer machine visible, fitness model body, dramatic lighting, instagram filter, beauty retouch, makeup heavy, gym
+    </negative-prompt>
+
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">PILATES BOOM - LA VERITA</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7.5</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="🤔"><bold>Tutte fanno Pilates.</bold></line>
+          <line>A <highlight bg="brand-pink" color="brand-white" padding="2px 8px">45</highlight></line>
+          <line>funziona davvero?</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>5.7</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+🤔 Pilates Reformer da €120/mese. Tutte ci vanno. Tu?
+
+Anche le mie clienti me lo chiedono. Ti dico la verita senza giri:
+
+✅ Pilates a 40+ FUNZIONA per: postura, mobilita, core, mind-body
+❌ Pilates a 40+ NON basta per: ricomposizione, perdita grasso, ormoni
+✅ Migliore COMPLEMENTO se gia sai cosa stai facendo
+❌ NON e l'allenamento principale che ti serve a 45
+
+💡 In 3 sere live ti spiego l'allenamento vero per donne 40+. Pilates incluso solo dove serve. Lunedi 19 Maggio 18.30. Live, gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Tutte fanno Pilates. A 45 basta?</headline>
+    <description max-chars="30">Allenamento vero per 40+ · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Pilates Reformer: serve davvero?</headline-alt>
+      <headline-alt max-chars="40">€120/mese di Pilates: ne vale la pena?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-48v7-pilates</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-48v7-pilates&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-55-Pilates-Reformer-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>55</age-max>
+    <interests>Pilates, Reformer, Solidcore, Pilates studio, yoga, mind body, fitness boutique, lifestyle wellness premium</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed + Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.5"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Italian "so-so" gesture chiave (mano flat ondulata). Espressione friendly skepticism.</note>
+    <note role="copywriter">Honest assessment ✅/❌ x4 = autorita non polemica. NO Pilates-bashing. Riconoscimento + ridimensionamento.</note>
+    <note role="designer">Highlight pink su "45" = self-identification age.</note>
+    <note role="media-buyer">Audience Pilates studio premium IT (Solidcore, club Pilates). CPL 2.50€ atteso.</note>
+  </notes>
+</creative>

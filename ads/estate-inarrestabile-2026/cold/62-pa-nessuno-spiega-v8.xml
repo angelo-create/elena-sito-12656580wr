@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-62-v8-nessuno-spiega" status="ready" priority="P0" version="problem-aware-v8">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
+    <angle>Gap Educativo - "C'e UNA cosa che a 40+ NESSUNO ti spiega"</angle>
+    <copy-framework>Problem Aware Schwartz - knowledge gap + insider revelation</copy-framework>
+    <design-template>v8-problem-aware-brand</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face, warm brown hair loose. Standing in clean modern Italian setting at midday natural light. She wears soft cream linen short-sleeve top.
+
+She holds up one finger (index finger raised) at chest level - clear "ONE thing" gesture. Stance grounded, slight forward lean.
+
+Expression: Italian "lo sguardo del segreto svelato" - left eyebrow raised 3mm intriguing, mouth slight knowing smirk right corner up 4mm, eyes laser direct camera with insider energy.
+
+Camera: iPhone 15 Pro vertical equivalent, eye level, distance 100cm.
+
+Light: single soft window light camera-left at 45°, 5100K neutral.
+
+Aesthetic: contemporary Italian Instagram coach 2026, NOT cinematic.
+
+Body: real Italian woman 45.
+
+Color grading: neutral + 3% warmth.
+
+Composition: subject center frame chest up, finger gesture visible mid-frame, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, dramatic, golden hour, model thin, instagram filter, makeup heavy, finger pointing aggressive</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="14" bg="brand-pink" z-index="2">
+        <text language="it">EVENTO LIVE GRATUITO</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="68" z-index="1">
+        <photo>foto Elena</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="middle-on-photo" margin-top="50px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.2">
+          <line>C'e UNA cosa che a 40+</line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">NESSUNO</highlight></line>
+          <line>ti spiega.</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6</font-size-pct>
+      </zone>
+      <zone id="sub-headline" position="below-headline-on-photo" margin-top="220px" padding="0 40px" z-index="3">
+        <text language="it">Le riviste, le palestre, le diete. Tutti ti vendono qualcosa.</text>
+        <text language="it"><italic>Ma quella UNA cosa, nessuno te la dice mai.</italic></text>
+        <font>Inter Regular</font><font-color>brand-white</font-color>
+        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
+        <font-size-pct>3.3</font-size-pct>
+      </zone>
+      <zone id="cta-overlay" position="lower-on-photo" margin-bottom="60px" padding="0 32px" z-index="3">
+        <text language="it">👉 Scoprila gratis. 3 sere live.</text>
+        <font>Inter SemiBold</font><font-color>brand-white</font-color>
+        <font-size-pct>3.6</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
+          <text-line-2 language="it">ZOOM · 18:30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>4.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.2</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+🤫 C'e UNA cosa che a 40+ NESSUNO ti spiega.
+
+Le riviste ti vendono integratori. Le palestre ti vendono abbonamenti. Le diete ti vendono restrizione. Le app ti vendono notifiche.
+
+Tutti hanno qualcosa da venderti. E tutti ti dicono cose vere — ma incomplete.
+
+Quella UNA cosa che farebbe la differenza, nessuno te la dice perche se te la dicessero non avresti piu motivo di comprare nulla.
+
+👉 Te la racconto io in 3 sere live. Senza vendite. Solo verita.
+
+📅 19, 20, 21 Maggio 2026 · ore 18:30 · LIVE su Zoom · GRATIS
+
+🔥 100 posti.
+
+Iscriviti qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">UNA cosa che NESSUNO ti spiega.</headline>
+    <description max-chars="30">Scoprila gratis · 3 sere</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Quello che le palestre non dicono.</headline-alt>
+      <headline-alt max-chars="40">Senza vendite. Solo la verita.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-62v8-pa-nessuno-spiega</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-62v8-pa-nessuno-spiega&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-58-Skeptical-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>58</age-max>
+    <interests>broad - Advantage+ Audience ON</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>20</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.8"/>
+    <kpi-secondary metric="hook-rate-3s" target-min-pct="42"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 80€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Index finger raised "ONE thing" gesture. Espressione insider knowing.</note>
+    <note role="copywriter">PA puro curiosity gap MASSIMO. Anti-establishment authority ("se te la dicessero non avresti motivo di comprare"). Aspettarsi top hook-rate.</note>
+    <note role="designer">Highlight pink su NESSUNO = la negazione enfatica.</note>
+  </notes>
+</creative>

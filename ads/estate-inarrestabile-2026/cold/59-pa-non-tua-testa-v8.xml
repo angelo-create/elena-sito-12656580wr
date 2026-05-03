@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-59-v8-non-tua-testa" status="ready" priority="P0" version="problem-aware-v8">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <schwartz-stage>Problem Aware (Stage 2) - puro</schwartz-stage>
+    <angle>Self-Blame Relief - "Hai mollato di nuovo? Non e la tua testa"</angle>
+    <copy-framework>Problem Aware Schwartz - anti-shaming + curiosity</copy-framework>
+    <design-template>v8-problem-aware-brand</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference), lived-in face with subtle expression lines, warm brown hair loose. Sitting on edge of soft beige sofa in clean modern Italian living room at warm afternoon natural light. She wears comfortable cream linen shirt.
+
+Body posture leaning slightly forward toward camera with hands gently joined in lap or one resting on knee - intimate empathic stance. Looking directly at camera with calm warm expression - "I see you, you're not crazy" coach energy.
+
+Expression: Italian "lo sguardo del 'non sei tu, fidati'" - both eyebrows neutral relaxed, mouth gentle warm half-smile right corner up 4mm, eyes soft direct contact. Subtle head tilt right 3° for empathic listening posture.
+
+Camera: iPhone 15 Pro vertical equivalent, eye level, distance 95cm (more intimate than other shots).
+
+Light: single soft afternoon window light camera-left at 30°, 4900K warm-neutral, gentle natural fill from white wall.
+
+Aesthetic: warm intimate Italian coach 2026, NOT cinematic editorial. Conversational empathy.
+
+Body: real Italian woman 45, real proportions.
+
+Color grading: neutral + 4% warmth (slightly warmer than other v8 for intimacy).
+
+Composition: subject center frame from chest up leaning forward, plenty of clean negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, dramatic, sad pleading, golden hour Mediterranean, model thin, instagram filter, beauty retouch, makeup heavy, therapy session pose</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="14" bg="brand-pink" z-index="2">
+        <text language="it">EVENTO LIVE GRATUITO</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>7</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="68" z-index="1">
+        <photo>foto Elena</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="middle-on-photo" margin-top="50px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.2">
+          <line>Hai mollato di nuovo?</line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">Non e la tua testa.</highlight></line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>6.5</font-size-pct>
+      </zone>
+      <zone id="sub-headline" position="below-headline-on-photo" margin-top="170px" padding="0 40px" z-index="3">
+        <text language="it">Per anni ti hanno fatto credere che il problema fossi tu. Falso.</text>
+        <text language="it"><italic>C'e un meccanismo preciso che si rompe — e si puo aggiustare.</italic></text>
+        <font>Inter Regular</font><font-color>brand-white</font-color>
+        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
+        <font-size-pct>3.4</font-size-pct>
+      </zone>
+      <zone id="cta-overlay" position="lower-on-photo" margin-bottom="60px" padding="0 32px" z-index="3">
+        <text language="it">👉 Scopri il vero motivo</text>
+        <font>Inter SemiBold</font><font-color>brand-white</font-color>
+        <font-size-pct>3.6</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
+          <text-line-2 language="it">ZOOM · 18:30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>4.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.2</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+💜 Hai mollato di nuovo? Non e la tua testa.
+
+Per anni ti hanno fatto credere che fosse colpa tua. Che ti mancasse la disciplina. Che dovevi "volerlo di piu". Che non avevi forza di volonta.
+
+Falso. Tutto falso.
+
+C'e un meccanismo preciso che si inceppa nelle donne 40+ — non e mentale, e fisiologico. Una volta che lo capisci, smetti di sentirti rotta.
+
+👉 Te lo racconto in 3 sere live. Senza giudizio.
+
+📅 19, 20, 21 Maggio 2026 · ore 18:30 · LIVE su Zoom · GRATIS
+
+🔥 100 posti.
+
+Iscriviti qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Hai mollato? NON e la tua testa.</headline>
+    <description max-chars="30">Scopri il vero motivo · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Non e mai stata colpa tua.</headline-alt>
+      <headline-alt max-chars="40">Smetti di sentirti rotta.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-59v8-pa-non-tua-testa</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-59v8-pa-non-tua-testa&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-58-Self-Compassion-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>58</age-max>
+    <interests>self compassion, mindfulness, salute mentale, libri Brene Brown, body neutrality, anti-dieta</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>20</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.00"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.8"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="4"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="2"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 80€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 1.5€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Postura empathic forward-leaning, espressione warm calm. Pretiosamente intimo.</note>
+    <note role="copywriter">PA puro anti-shaming. Reframe esplicito "non mentale, fisiologico". Aspettarsi commenti emotivi alti = engagement amplifica = CPM scende.</note>
+    <note role="designer">Layout standard, top banner neutro PA.</note>
+  </notes>
+</creative>
