@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-28-v6-sveglia" status="ready" priority="P0" version="winner-pattern-v6-costanza-40plus">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>La Sveglia Delle 6 - rituale quotidiano del primo cedimento</angle>
+    <pain-targeted>Sveglia delle 6 messa con entusiasmo + spostata a 7 dopo 3 giorni = primo crollo costanza</pain-targeted>
+    <copy-framework>Pain-Direct + Daily Ritual Recognition</copy-framework>
+    <design-template>v6-brand-pain-costanza</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference) sitting on the edge of her bed in soft morning light, holding her smartphone showing the alarm clock app on screen with "06:00" visible (or "07:00" - the screen should clearly show an alarm time). Her expression: direct knowing slight smile - she's about to say something honest. She wears soft sleepwear (simple t-shirt, comfortable). Bedroom in clean modern Italian style with bedside table, simple lamp.
+
+CRITICAL STYLE: PRACTICAL coach moment with phone visible, clean modern photography, NOT cinematic. Real Italian woman 45, no retouching. NEUTRAL light not golden hour drama.
+
+Composition: Elena from waist up center frame, phone with alarm visible in hand lower-third, plenty of negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, sad, dramatic, golden hour, model thin, instagram filter, makeup heavy, sleeping pose</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">WEBINAR PER DONNE 40+</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>8</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="⏰">La sveglia delle <bold>6:00</bold></line>
+          <line>e diventata delle <highlight bg="brand-pink" color="brand-white" padding="2px 8px">7:30</highlight></line>
+          <line>dopo 3 giorni.</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>5.5</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+⏰ La sveglia delle 6:00 e diventata delle 7:30 dopo 3 giorni.
+
+E poi delle 7:45. Poi non l'hai piu rimessa.
+
+❌ Non e che hai poca volonta. E che ti hanno venduto un metodo costruito per chi ha 25 anni e dorme 9 ore.
+
+✅ A 40+ funziona DIVERSO. Lo ormoni, la stanchezza, il sonno meno riposante. Tutto vero. Tutto gestibile - se sai come.
+
+💡 In 3 sere live ti spiego il METODO che funziona per donne 40+ con vita vera. Lunedi 19 Maggio 18.30. Live, gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">La sveglia delle 6 dura 3 giorni.</headline>
+    <description max-chars="30">A 40+ funziona diverso · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">3 giorni e poi la sveglia salta.</headline-alt>
+      <headline-alt max-chars="40">A 40+ NON e questione di volonta.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-28v6-sveglia</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-28v6-sveglia&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-58-Sleep-Energy-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>58</age-max>
+    <interests>perimenopausa, menopausa, sonno, stanchezza cronica, energia donne 40+, ormoni</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.2"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Phone con alarm 06:00 chiaramente visibile sullo schermo. Elena seduta sul bordo del letto, mood "ti racconto una cosa onesta".</note>
+    <note role="copywriter">Specifity numerica (6:00 → 7:30 → 7:45). Reframe ormonale-età ("a 40+ funziona DIVERSO") = anti-colpa + age-relevant.</note>
+    <note role="designer">Highlight pink su "7:30" = il momento del cedimento.</note>
+  </notes>
+</creative>

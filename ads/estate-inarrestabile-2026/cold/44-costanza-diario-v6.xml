@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-44-v6-diario" status="ready" priority="P0" version="winner-pattern-v6-costanza-40plus">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Il Diario Alimentare Interrotto - pagina 4 e basta</angle>
+    <pain-targeted>Diario alimentare iniziato con entusiasmo + abbandonato dopo 4 giorni</pain-targeted>
+    <copy-framework>Pain-Direct + Object Specifity</copy-framework>
+    <design-template>v6-brand-pain-costanza</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-higgsfield" required="true">Reference Elena caricate in Higgsfield</ref>
+    </reference-images>
+    <prompt-elaborate language="en">
+      <![CDATA[
+A 45-year-old Italian woman (use Elena Higgsfield reference) holding a small notebook open showing handwritten pages on the first few pages then blank pages clearly visible (the contrast between filled and empty pages should be visible). Her expression: direct knowing slight smile, "we both started one of these" coach energy.
+
+She wears practical home clothes. Clean modern home, soft daylight.
+
+CRITICAL STYLE: PRACTICAL coach moment, NOT cinematic. Real Italian woman 45. Notebook handwritten pages but text not specifically readable.
+
+Composition: Elena chest up center frame, notebook visible held open in hands, plenty of negative space top/bottom for brand overlay.
+      ]]>
+    </prompt-elaborate>
+    <negative-prompt>cinematic editorial, dramatic, sad, golden hour, model thin, instagram filter, makeup heavy, vintage notebook luxury</negative-prompt>
+    <output-specs><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><variations-to-generate>4</variations-to-generate></output-specs>
+  </image-generation>
+
+  <design-brief output="canva-figma-static">
+    <canvas><aspect-ratio>1:1</aspect-ratio><resolution>1080x1080</resolution><bg-base>foto-elena</bg-base></canvas>
+    <brand-tokens>
+      <color name="brand-pink" hex="#FF0066"/>
+      <color name="brand-black" hex="#000000"/>
+      <color name="brand-white" hex="#FFFFFF"/>
+    </brand-tokens>
+    <layout-zones>
+      <zone id="top-banner" position="top" height-pct="18" bg="brand-pink" z-index="2">
+        <text language="it">WEBINAR PER DONNE 40+</text>
+        <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+        <font-size-pct>8</font-size-pct><align>center</align>
+      </zone>
+      <zone id="photo-area" position="middle" height-pct="64" z-index="1">
+        <photo>foto Elena (full width, cover)</photo>
+        <gradient-overlay-bottom>linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%)</gradient-overlay-bottom>
+      </zone>
+      <zone id="headline-overlay" position="lower-middle-on-photo" margin-bottom="32px" padding="0 32px" z-index="3">
+        <text-block alignment="center" line-spacing="1.3">
+          <line emoji="📓">Il diario alimentare:</line>
+          <line><bold>Pagina 1, 2, 3, 4.</bold></line>
+          <line><highlight bg="brand-pink" color="brand-white" padding="2px 8px">Bianco</highlight> da li in poi.</line>
+        </text-block>
+        <font>Inter Black</font>
+        <font-color>brand-white</font-color>
+        <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
+        <font-size-pct>5.5</font-size-pct>
+      </zone>
+      <zone id="scarcity-pill" position="bottom-right" margin-bottom="120px" margin-right="24px" z-index="3">
+        <shape>pill rounded</shape><bg>brand-pink</bg><padding>6px 16px</padding>
+        <text language="it">100 Posti</text>
+        <font>Inter Bold</font><font-color>brand-white</font-color><font-size-pct>3.5</font-size-pct>
+      </zone>
+      <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
+        <half side="left" bg="brand-pink">
+          <text-line-1 language="it">Lunedi, 19</text-line-1>
+          <text-line-2 language="it">MAGGIO 18.30</text-line-2>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-white</font-color>
+          <font-size-pct>5.8</font-size-pct><align>center</align>
+        </half>
+        <half side="right" bg="brand-white">
+          <text language="it">ISCRIVITI GRATIS</text>
+          <font>Inter Black ALL-CAPS</font><font-color>brand-black</font-color>
+          <font-size-pct>5.5</font-size-pct><align>center</align>
+        </half>
+      </zone>
+    </layout-zones>
+  </design-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+📓 Il diario alimentare. Pagina 1, 2, 3, 4. Bianco da li in poi.
+
+E il bullet journal? E l'app per tracciare le calorie? E il Notion che ti sei fatta?
+
+❌ Tracciare TUTTO funziona per 4 giorni. Poi diventa un peso.
+❌ E quando salti UN giorno, non riprendi piu.
+✅ Il METODO che funziona NON ha bisogno di tracciamento ossessivo. E costruito per essere leggero.
+
+💡 In 3 sere live ti spiego come si fa. Lunedi 19 Maggio 18.30. Live, gratis.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Diario alimentare. Bianco da pag 5</headline>
+    <description max-chars="30">Stop al tracciamento ossessivo</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">4 giorni e poi l'oblio.</headline-alt>
+      <headline-alt max-chars="40">Quanti diari abbandonati?</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-44v6-diario</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-44v6-diario&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-58-Tracking-Bullet-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>58</age-max>
+    <interests>bullet journal, journaling, productivity, app fitness tracking, MyFitnessPal, Notion</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>4</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="2.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.2"/>
+    <kill-rule>Se CPL &gt; 4€ dopo 50€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 2€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Notebook aperto, contrasto pagine scritte vs vuote visible.</note>
+    <note role="copywriter">Specifity numerica (pagine 1-2-3-4 + bianco). Reframe: tracking ossessivo NON serve.</note>
+    <note role="designer">Highlight pink su "Bianco" = il vuoto.</note>
+  </notes>
+</creative>
