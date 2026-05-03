@@ -26,7 +26,7 @@
       </zone>
       <zone id="body-area-black" position="middle" height-pct="68" z-index="1">
       </zone>
-      <zone id="headline-overlay" position="middle" margin-top="40px" padding="0 32px" z-index="3">
+      <zone id="headline-overlay" position="middle" margin-top="120px" padding="0 32px" z-index="3">
         <text-block alignment="center" line-spacing="1.2">
           <line>Non è <bold>"metterci la</bold></line>
           <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">VOLONTÀ</highlight><bold>".</bold></line>
@@ -35,14 +35,7 @@
         <font>Inter Black</font>
         <font-color>brand-white</font-color>
         <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
-        <font-size-pct>6</font-size-pct>
-      </zone>
-      <zone id="sub-headline" position="below-headline" margin-top="220px" padding="0 40px" z-index="3">
-        <text language="it">Cortisolo, estrogeni, sonno meno profondo. A 40+ la "forza di volontà" non basta più</text>
-        <text language="it"><italic>— perché il problema è altrove.</italic></text>
-        <font>Inter Regular</font><font-color>brand-white</font-color>
-        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
-        <font-size-pct>3.4</font-size-pct>
+        <font-size-pct>10</font-size-pct>
       </zone>
       <zone id="cta-overlay" position="lower" margin-bottom="60px" padding="0 32px" z-index="3">
         <text language="it">👉 Te lo spiega Elena Giordani</text>

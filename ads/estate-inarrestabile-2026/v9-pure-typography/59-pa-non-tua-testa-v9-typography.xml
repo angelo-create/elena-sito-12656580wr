@@ -26,7 +26,7 @@
       </zone>
       <zone id="body-area-black" position="middle" height-pct="68" z-index="1">
       </zone>
-      <zone id="headline-overlay" position="middle" margin-top="50px" padding="0 32px" z-index="3">
+      <zone id="headline-overlay" position="middle" margin-top="120px" padding="0 32px" z-index="3">
         <text-block alignment="center" line-spacing="1.2">
           <line>Hai mollato di nuovo?</line>
           <line><highlight bg="brand-pink" color="brand-white" padding="2px 10px">Non è la tua testa.</highlight></line>
@@ -34,14 +34,7 @@
         <font>Inter Black</font>
         <font-color>brand-white</font-color>
         <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
-        <font-size-pct>6.5</font-size-pct>
-      </zone>
-      <zone id="sub-headline" position="below-headline" margin-top="170px" padding="0 40px" z-index="3">
-        <text language="it">Per anni ti hanno fatto credere che il problema fossi tu. Falso.</text>
-        <text language="it"><italic>C'è un meccanismo preciso che si rompe — e si può aggiustare.</italic></text>
-        <font>Inter Regular</font><font-color>brand-white</font-color>
-        <text-shadow>0 1px 8px rgba(0,0,0,0.6)</text-shadow>
-        <font-size-pct>3.4</font-size-pct>
+        <font-size-pct>10</font-size-pct>
       </zone>
       <zone id="cta-overlay" position="lower" margin-bottom="60px" padding="0 32px" z-index="3">
         <text language="it">👉 Scopri il vero motivo</text>
