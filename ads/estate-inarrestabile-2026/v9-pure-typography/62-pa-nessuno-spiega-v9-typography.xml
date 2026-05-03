@@ -38,11 +38,6 @@
         <text-shadow>0 2px 12px rgba(0,0,0,0.5)</text-shadow>
         <font-size-pct>8.5</font-size-pct>
       </zone>
-      <zone id="cta-overlay" position="lower" margin-bottom="60px" padding="0 32px" z-index="3">
-        <text language="it">👉 Scoprila gratis. 3 sere live.</text>
-        <font>Inter SemiBold</font><font-color>brand-white</font-color>
-        <font-size-pct>4.5</font-size-pct>
-      </zone>
       <zone id="footer" position="bottom" height-pct="18" layout="split-50-50" z-index="2">
         <half side="left" bg="brand-pink">
           <text-line-1 language="it">19-20-21 MAGGIO</text-line-1>
