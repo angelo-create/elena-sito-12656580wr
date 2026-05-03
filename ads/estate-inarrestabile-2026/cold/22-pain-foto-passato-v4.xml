@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-22-v4-foto" status="ready" priority="P0" version="winner-pattern-v4-pain-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>La Foto di Tre Anni Fa - confronto con sé più giovane + nostalgia agency</angle>
+    <pain-targeted>Confronto col proprio passato (versione più giovane / più in forma) + paura del tempo che passa</pain-targeted>
+    <pain-depth>deep emotional - alta self-recognition (universale donna 40+)</pain-depth>
+    <empathy-warning>NO body comparison shaming. Frame: dialogo gentile col passato, no rimpianto torturante. Reframe: "cosa diresti adesso a quella di allora".</empathy-warning>
+    <copy-framework>Nostalgia + Self-Dialogue + Future-Self Reframe</copy-framework>
+    <design-template>v4-cinematic-photo-elena-with-polaroid</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-mani-volto" required="true" purpose="character-consistency">PLACEHOLDER: foto Elena mezzo busto con mani visibili</ref>
+      <ref id="polaroid-prop" required="false" purpose="object-reference">opzionale: foto reference polaroid vintage in mano</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+Cinematic editorial intimate scene. A 45-year-old Italian woman (use Elena reference) sits at an old wooden writing desk near a window in early evening warm light. She holds a single old Polaroid photo in both hands, looking down at it with a soft tender expression - not sad, not nostalgic in a tortured way, just gently honest. The Polaroid in her hands is intentionally blurred/out of focus so we cannot see who is in it (could be her younger self, could be anyone - viewer projects). On the desk: an open vintage notebook with handwritten pages visible but text not readable, a small ceramic cup of tea, an open photo album.
+
+She wears a soft cream knit cardigan over a white tee. Her hair is loose. The room is a warm Italian study with bookshelves softly out of focus in background, a small lamp with warm bulb just lit on the desk.
+
+Photorealistic editorial cinematography, 50mm lens, shallow depth of field at f/2.0, sharp focus on her hands holding the Polaroid and her face, natural skin texture, warm cinematic color grading reminiscent of Wim Wenders' "Perfect Days" intimate domestic scenes. Color palette: warm wood, soft amber lamp light, cream, hints of sepia in the polaroid object.
+
+Mood: tender, contemplative dialogue with the past, "soft eyes for younger me", gentle agency. NOT crying, NOT regret-heavy.
+
+CRITICAL: We never see what's IN the Polaroid - it's intentionally out of focus. Real woman body type. Natural skin (no retouching). The notebook pages should look hand-written real (not lorem ipsum).
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cartoon, illustration, sad crying, dramatic regret, before/after weight, fitness model body, harsh light, fluorescent, modern minimal cold setting, instagram filter, beauty filter, makeup heavy, polaroid clearly visible (must be blurred), text readable in notebook
+    </negative-prompt>
+
+    <composition-notes>
+      <camera>Subject from chest up, hands holding Polaroid prominent in lower frame, warm domestic background blurred</camera>
+      <lighting>Single warm desk lamp + soft window light from left, golden hour fall</lighting>
+      <reference-films>Wim Wenders "Perfect Days", Wong Kar-wai "In the Mood for Love" intimate moments, Annie Leibovitz portrait work</reference-films>
+    </composition-notes>
+
+    <output-specs>
+      <aspect-ratio primary="4:5">4:5 + 1:1 + 9:16</aspect-ratio>
+      <resolution>2048x2560 / 2048x2048 / 2048x3640</resolution>
+      <variations-to-generate>5</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline serif italic in alto, "domanda gentile". Pink solo su "diresti".</description>
+    <primary-overlay position="top-third-center">
+      <text language="it">"Cosa <highlight color="brand-pink">diresti</highlight> adesso</text>
+      <text language="it">a te di tre anni fa?"</text>
+      <font>Playfair Display Italic</font>
+      <font-color>brand-cream</font-color>
+      <text-shadow>0 2px 12px rgba(0,0,0,0.45)</text-shadow>
+      <font-size-pct>6.5</font-size-pct>
+      <align>center</align>
+      <line-height>1.25</line-height>
+      <max-width-pct>78</max-width-pct>
+    </primary-overlay>
+    <bottom-overlay position="bottom-eighth-center">
+      <text language="it">Quest'estate cambia · <bold>WEBINAR GRATUITO 19 maggio 18.30</bold> →</text>
+      <font>Inter Medium</font>
+      <font-color>brand-cream</font-color>
+      <font-size-pct>3.3</font-size-pct>
+      <background>black 55% opacity pill</background>
+    </bottom-overlay>
+    <minimal-logo position="bottom-right" opacity="0.5" size-pct="4">elena-giordani-monogram-cream.png</minimal-logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Cosa diresti adesso a te di tre anni fa?
+
+Le diresti "non hai capito niente". Le diresti "stavi sprecando tempo". Le diresti "comincia ORA".
+
+Le diresti tutto questo perché oggi, dopo tre anni, sei nello stesso punto. Forse un po' indietro.
+
+💜 E se tra tre anni tu ti guardassi indietro a OGGI? Cosa vorresti aver fatto stasera?
+
+In 3 sere live (19, 20, 21 maggio alle 18:30) ti racconto il METODO che ha permesso a 2300+ donne 35+ di non rivedersi più indietro a settembre. Gratis. 30 minuti l'una.
+
+Non prometto miracoli. Prometto solo che fra tre anni non sarai punto e a capo.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Cosa diresti a te di 3 anni fa?</headline>
+    <description max-chars="30">Quest'estate cambia · gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Tra 3 anni cosa vorrai aver fatto?</headline-alt>
+      <headline-alt max-chars="40">La foto di te di 3 anni fa.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-22v4-foto</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-22v4-foto&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-42-60-Reflective-Reading-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>42</age-min><age-max>60</age-max>
+    <interests>journaling, libri biografici, memoir, slow living, fotografia analogica, podcast lunghi, riflessione, libri Brené Brown / Pema Chödrön</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.6"/>
+    <kpi-secondary metric="time-on-ad" target-min-sec="12"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="3"/>
+    <kill-rule>Se CPL &gt; 5.5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ E commenti reflective alti → +25% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Polaroid intentionally out of focus = potente: ognuno ci vede sé. Non rivelare il soggetto. Lampada da scrivania accesa = "sera, sto pensando". Notebook hand-written real (no lorem ipsum visibile).</note>
+    <note role="copywriter">Time-shift trick (passato → presente → futuro): "cosa diresti a te di 3 anni fa" + "se tra 3 anni guardassi indietro a oggi". Genera urgency interna senza fake scarcity. Promise umile ("non punto e a capo").</note>
+    <note role="designer">Pink solo su "diresti" = highlight della parola che fa la domanda. Tono molto serio empatico, no urlato.</note>
+    <note role="media-buyer">Audience reflective/journaling readers. Aspettarsi commenti molto profondi ("ho appena pianto", "questa sono io"). Time-on-ad alto.</note>
+    <note role="ethical-check">Pain è temporale (anni passati / anni futuri), non corporeo. Compliance Meta verde.</note>
+  </notes>
+</creative>

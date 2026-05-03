@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-25-v4-selfie" status="ready" priority="P0" version="winner-pattern-v4-pain-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Il Selfie Cancellato - moderno digital pain + rifiuto immagine attuale</angle>
+    <pain-targeted>Cancellare selfie appena scattati perché "non mi piaccio" + auto-rifiuto digitale quotidiano</pain-targeted>
+    <pain-depth>deep emotional - high self-recognition (modern universal)</pain-depth>
+    <empathy-warning>Frame: digital self-rejection è universale. Reframe: agency, non patologizzare.</empathy-warning>
+    <copy-framework>Modern Digital Pain + Universalize + Agency Promise</copy-framework>
+    <design-template>v4-photo-elena-phone-screen</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-mani-volto" required="true" purpose="character-consistency">PLACEHOLDER: foto Elena primo piano + mani</ref>
+      <ref id="phone-mockup" required="false" purpose="object-reference">opzionale: reference iPhone screen mockup foto app</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+Cinematic close-up intimate scene. A 45-year-old Italian woman (use Elena reference) sits on a soft beige sofa in a warm living room in late afternoon light. She holds an iPhone in both hands, looking down at the screen with a soft contemplative expression - her thumb is hovering over the screen. The phone screen is partially visible: we see what appears to be a Photos app interface with a recent selfie thumbnail visible AND a "Delete" trash icon highlighted - she has just deleted a photo or is about to. The just-deleted photo on screen is intentionally blurred/pixelated so we cannot see the face clearly.
+
+She wears a comfortable cream cardigan. Her hair is loose. The living room is warm and lived-in: a soft blanket draped on the sofa beside her, a small ceramic cup on the side table, golden afternoon light streaming from an unseen window on her left.
+
+Photorealistic editorial cinematography, 50mm lens, shallow depth of field at f/2.0, sharp focus on her thumb hovering on screen + her face, natural skin texture, warm cinematic color grading. Color palette: warm cream, soft beige, gold light, hints of phone screen blue glow on her face.
+
+Mood: private modern moment, quiet self-rejection acknowledged without drama. The kind of moment every modern woman has had alone with her phone.
+
+CRITICAL: phone screen content (the deleted selfie) must be intentionally unrecognizable/blurred. Real woman skin on her face (no retouching). The "delete" gesture is implied, not theatrical. No tears, no drama.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cartoon, illustration, dramatic crying, theatrical sadness, before/after weight comparison, fitness model thin, instagram heavy filter, body shaming, harsh light, modern cold setting, photoshopped phone, makeup heavy, selfie clearly visible (must be blurred)
+    </negative-prompt>
+
+    <composition-notes>
+      <camera>Tight close-up of her holding phone, screen visible but partial, face in upper third</camera>
+      <lighting>Warm afternoon window light + subtle blue phone screen glow on face</lighting>
+      <reference-films>"Her" Spike Jonze intimate phone moments, "Lost in Translation" private reflection scenes</reference-films>
+    </composition-notes>
+
+    <output-specs>
+      <aspect-ratio primary="9:16">9:16 (Reel/Story - mobile native) + 4:5 (Feed) + 1:1</aspect-ratio>
+      <resolution>2048x3640 / 2048x2560 / 2048x2048</resolution>
+      <variations-to-generate>5</variations-to-generate>
+      <safe-zones-916 top-px="280" bottom-px="380"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline serif italic. Pink su "questo mese".</description>
+    <primary-overlay position="top-third-center">
+      <text language="it">"Quanti selfie hai cancellato</text>
+      <text language="it"><highlight color="brand-pink">questo mese</highlight>?"</text>
+      <font>Playfair Display Italic</font>
+      <font-color>brand-cream</font-color>
+      <text-shadow>0 2px 12px rgba(0,0,0,0.45)</text-shadow>
+      <font-size-pct>6.8</font-size-pct>
+      <align>center</align>
+      <line-height>1.25</line-height>
+      <max-width-pct>82</max-width-pct>
+    </primary-overlay>
+    <bottom-overlay position="bottom-eighth-center">
+      <text language="it">Quest'estate cambia · <bold>WEBINAR GRATUITO 19 maggio 18.30</bold> →</text>
+      <font>Inter Medium</font>
+      <font-color>brand-cream</font-color>
+      <font-size-pct>3.3</font-size-pct>
+      <background>black 55% opacity pill</background>
+    </bottom-overlay>
+    <minimal-logo position="bottom-right" opacity="0.5" size-pct="4">elena-giordani-monogram-cream.png</minimal-logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Quanti selfie hai cancellato questo mese?
+
+Quanti ne hai scattati che non hai mai postato?
+
+Quanti gruppi WhatsApp hai mutato per non vedere le foto delle altre in vacanza?
+
+💜 Sei in buona compagnia. Le 2300+ donne del mio metodo hanno fatto tutte questa cosa, almeno per un periodo. Non perché siano vanitose. Perché c'è una distanza tra come si sentono dentro e come si vedono fuori — e quella distanza fa male, ogni giorno, in modo silenzioso.
+
+In 3 sere live ti racconto come si chiude quella distanza. Non con un filtro. Non con una dieta. Con un METODO. 19, 20, 21 maggio 18:30. Gratis. 30 minuti l'una.
+
+Non prometto miracoli. Prometto solo che il prossimo selfie potrai tenerlo.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Quanti selfie hai cancellato?</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">La distanza dentro/fuori.</headline-alt>
+      <headline-alt max-chars="40">Il prossimo selfie potrai tenerlo.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>ig</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-25v4-selfie</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=ig&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-25v4-selfie&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-50-Mobile-Digital-Native-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>50</age-max>
+    <interests>Instagram, social media, digital wellbeing, salute mentale, self compassion, body neutrality, body image, photo editing apps</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Reels + Stories)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="2.0"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="4"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="2"/>
+    <kill-rule>Se CPL &gt; 5€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Phone screen visibile MA selfie blurred/pixelated. Thumb hovering = gesto delete-implicit. Subtle blue glow del telefono sul viso = realismo digital. NO drama theatrical.</note>
+    <note role="copywriter">3 question stack ("selfie cancellati / selfie non postati / WhatsApp mutati") = self-recognition cumulativa. "Distanza tra come ti senti dentro e come ti vedi fuori" = framing brillante (universalize + non-pathologize). Promise concreta: "il prossimo selfie potrai tenerlo".</note>
+    <note role="designer">Format priority 9:16 (Reel/Story) per topic mobile-native. Highlight pink su "questo mese" = quantifica recency.</note>
+    <note role="media-buyer">Audience digital-native 35-50. Aspettarsi alti share (universal modern pain). Topic-relevance fortissima per IG/Reels users.</note>
+    <note role="ethical-check">Pain è digitale, non corporeo diretto. NO claim peso. Frame psicologico healthy ("distanza dentro/fuori"). Compliance Meta verde.</note>
+  </notes>
+</creative>

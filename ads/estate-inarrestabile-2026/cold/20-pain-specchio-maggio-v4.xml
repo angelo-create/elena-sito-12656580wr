@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-20-v4-specchio" status="ready" priority="P0" version="winner-pattern-v4-pain-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Lo Specchio di Maggio - vergogna ricorrente + ricorsività anni</angle>
+    <pain-targeted>Vergogna allo specchio + senso di fallimento ricorrente ("anche quest'anno...")</pain-targeted>
+    <pain-depth>deep emotional - high self-recognition</pain-depth>
+    <empathy-warning>EMPATIA OBBLIGATORIA - mai shaming. Frame: "anche tu, anche io, c'è un perché". Reframe da colpa a meccanismo.</empathy-warning>
+    <copy-framework>Pain Empathic + Reframe + Promise (Halbert/Sugarman empathic letter)</copy-framework>
+    <design-template>v4-cinematic-photo-elena (compositing GPT Image 2 + Elena reference)</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield wrapper)</model>
+    <reference-images>
+      <ref id="elena-frontale" required="true" purpose="character-consistency">PLACEHOLDER: caricare in Higgsfield foto Elena frontale (primo piano, sguardo camera, illuminazione naturale)</ref>
+      <ref id="elena-profile" required="false" purpose="profile-angle-variant">PLACEHOLDER: foto Elena profilo / tre-quarti</ref>
+      <ref id="bathroom-mood" required="false" purpose="environment-reference">opzionale: foto reference bagno casa luminoso, golden hour, lavabo + specchio (Pinterest mood)</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+Cinematic editorial portrait. A 45-year-old Italian woman (use the Elena reference for facial features and body) stands in front of an Italian bathroom mirror in early summer morning light. She wears a soft cream silk robe, her hair is slightly undone (just woke up). Her eyes are looking at her own reflection in the mirror - she is not looking at the camera. Her expression is contemplative, gently honest, almost asking herself a question - the universal "is this me?" mid-life mirror moment. There is no judgment, no sadness, just truth.
+
+The bathroom has warm Mediterranean cream-colored tiles, a small ceramic vase with one fresh white flower on the marble counter, soft golden morning light streaming from a frosted window on the right creating gentle highlights on the mirror. The mirror frame is thin brass. The composition shows her from the chest up, viewer sees both her actual face from a slight three-quarter back angle AND her face reflected in the mirror facing forward.
+
+Photorealistic editorial cinematography style, 50mm lens, shallow depth of field at f/2.0, sharp focus on her face in the mirror reflection, natural skin texture with visible pores and subtle imperfections (real woman, not retouched), warm golden cinematic color grading reminiscent of Sofia Coppola's "Lost in Translation" bathroom scene. Color palette: cream, soft gold, warm whites, hint of blush pink in the morning light.
+
+Mood: intimate, contemplative, recognizable - the kind of moment every woman over 40 has had. Self-recognition over performance.
+
+CRITICAL: real woman body type (not model thin), no makeup or minimal natural makeup, no fitness aesthetic, no transformation cliché. Just a real intimate honest mirror moment in golden morning light.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cartoon, illustration, before/after weight comparison, fitness model body, dramatic crying, sadness theatrical, harsh fluorescent bathroom light, modern cold bathroom, hospital bathroom, plastic skin, beauty filter, instagram filter, makeup heavy, fitness influencer pose, body shaming framing, weight scale visible, body parts focus instead of face
+    </negative-prompt>
+
+    <composition-notes>
+      <camera>Three-quarter back angle of subject, mirror reflection facing viewer (composition creates dual portrait)</camera>
+      <lighting>Single golden morning light source from frosted window right side, soft natural fill</lighting>
+      <color-grading>Sofia Coppola intimate warmth - cream/gold/soft pink palette</color-grading>
+      <reference-films>"Lost in Translation" bathroom scenes, "Marriage Story" intimate moments, Annie Leibovitz portrait work</reference-films>
+    </composition-notes>
+
+    <output-specs>
+      <aspect-ratio primary="4:5">4:5 (Feed) + 1:1 (Feed) + 9:16 (Story/Reel)</aspect-ratio>
+      <resolution>2048x2560 / 2048x2048 / 2048x3640</resolution>
+      <variations-to-generate>5 (tre angolazioni diverse, due varianti light)</variations-to-generate>
+      <safe-zones-916 top-px="280" bottom-px="380"/>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline overlay che dialoga con il visual mirror. Posizionata in alto a sx (negative space), font serif italic empathic.</description>
+    <primary-overlay position="top-third-left" margin-left="48px">
+      <text language="it">"Quanti maggio</text>
+      <text language="it">ti sei guardata e</text>
+      <text language="it">hai detto <highlight color="brand-pink">'questa volta sì'</highlight>?"</text>
+      <font>Playfair Display Italic (serif)</font>
+      <font-color>brand-cream</font-color>
+      <text-shadow>0 2px 12px rgba(0,0,0,0.45)</text-shadow>
+      <font-size-pct>6.5</font-size-pct>
+      <max-width-pct>60</max-width-pct>
+      <line-height>1.2</line-height>
+    </primary-overlay>
+    <bottom-overlay position="bottom-eighth-center">
+      <text language="it">Quest'estate cambia. <bold>WEBINAR GRATUITO 19 maggio 18.30</bold> →</text>
+      <font>Inter Medium</font>
+      <font-color>brand-cream</font-color>
+      <font-size-pct>3.5</font-size-pct>
+      <background>black 55% opacity pill padding 10px 20px</background>
+    </bottom-overlay>
+    <minimal-logo position="bottom-right" opacity="0.5" size-pct="4">elena-giordani-monogram-cream.png</minimal-logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Quanti maggio ti sei guardata allo specchio e hai detto "questa volta sì"?
+
+Quanti giugno hai mollato.
+
+Quanti settembre ti sei detta "il prossimo".
+
+Non sei tu che sei "incostante". È che nessuno ti ha mai spiegato perché succede a te, donna 35+, proprio in estate. C'è un motivo. È preciso. È quasi sempre lo stesso.
+
+💜 Te lo racconto in 3 sere live: 19, 20, 21 maggio alle 18:30. Gratis. Nessuno ti chiede di trasformarti. Ti chiedo solo di ascoltare per 30 minuti.
+
+Non prometto miracoli. Ma quel "questa volta sì" — stavolta può essere vero.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">"Questa volta sì" — quante volte?</headline>
+    <description max-chars="30">Webinar gratis · 19-21 mag</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Lo specchio di maggio. Di nuovo.</headline-alt>
+      <headline-alt max-chars="40">Stavolta può essere vero.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-20v4-specchio</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-20v4-specchio&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-60-Empathic-Wellness-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>60</age-max>
+    <interests>self compassion, mindfulness, perimenopausa, libri donne autobiografici, journaling, meditazione, Brené Brown, Pema Chödrön</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto (priority Feed - photo richiede contemplation)</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="time-on-ad" target-min-sec="10"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="3"/>
+    <kill-rule>Se CPL &gt; 5€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ E commenti positivi alti → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: caricare 3-5 foto Elena reference in Higgsfield prima di prompt. La doppia esposizione faccia diretta + riflesso specchio è il visual hero - se GPT Image 2 fa fatica, semplificare a solo riflesso. Mood Sofia Coppola NON dramatic. Skin texture reale, no beauty filter. Generare 5 varianti, scegliere quella con sguardo più "interrogativo gentile" (no sadness).</note>
+    <note role="copywriter">Tono empatico, NON shaming. Ripetizione "quanti maggio/giugno/settembre" = ritmo riconoscibile. "Stavolta può essere vero" = agency, non promessa. "Non sei tu che sei 'incostante'" = anti-colpa esplicito.</note>
+    <note role="designer">Headline serif italic = peso letterario, contrasta brand pink brutalist. Pink solo come accento su 'questa volta sì' (parola chiave emotiva). Bottom CTA discreta, non urlata.</note>
+    <note role="media-buyer">Audience self-compassion / Brené Brown readers - alta empathy reception attesa. Aspettarsi commenti emotivi profondi (rispondere personalmente o non rispondere, MAI con automazione/copy bot).</note>
+    <note role="ethical-check">Pain è reale, framing è empatico-agency. NO body shaming, NO claim peso/kg, NO before/after. Compliance Meta verde.</note>
+  </notes>
+</creative>

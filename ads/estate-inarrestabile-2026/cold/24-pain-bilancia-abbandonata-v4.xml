@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-24-v4-bilancia" status="ready" priority="P0" version="winner-pattern-v4-pain-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>La Bilancia Abbandonata - evitamento + smettere di pesarsi</angle>
+    <pain-targeted>Smettere di salire sulla bilancia per evitare l'ennesima delusione + meccanismo evitamento</pain-targeted>
+    <pain-depth>deep emotional - very high self-recognition</pain-depth>
+    <empathy-warning>NO weight focus. Frame: la bilancia è simbolo di "rendiconto" evitato, non target. Reframe: anti-bilancia (Elena è anti-dieta).</empathy-warning>
+    <copy-framework>Avoidance Pattern + Reframe Anti-Bilancia + Promise di Pace</copy-framework>
+    <design-template>v4-cinematic-still-life-bilancia</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-piedi" required="false" purpose="optional-character-feet">PLACEHOLDER opzionale: foto Elena piedi/gambe basse</ref>
+      <ref id="bathroom-vintage" required="false" purpose="environment-mood">opzionale: reference bagno vintage italiano, piastrelle bianche, soft light</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+Cinematic still-life intimate scene. Floor-level perspective in a quiet Italian bathroom in early morning soft light. We see an old white mechanical bathroom scale (NOT digital, an analog dial scale, vintage Italian Salter style) sitting on a soft cream bath mat in the corner, half-hidden under a folded white towel that has been casually draped over part of it. There is visible thin layer of dust on top of the towel/scale corner suggesting it hasn't been touched in months. Beside the scale, slightly out of frame, the soft bare feet of a woman (just feet visible, clearly female, real adult foot - 45 year old) walking past, mid-step, NOT stepping on the scale - she's walking away.
+
+The bathroom has soft cream tiles, a small wicker basket with rolled towels, soft natural morning light from a window we don't see (light comes from upper right). Composition: scale in lower-left third, walking feet in lower-right, plenty of negative space top for headline. The atmosphere is quiet, intimate, like an honest visual diary entry.
+
+Photorealistic editorial still-life cinematography, 35mm lens, shallow depth of field at f/2.8 with focus on the scale dust + the towel covering it, walking feet softly out of focus suggesting motion. Natural skin texture on visible feet. Warm cinematic color grading reminiscent of Wim Wenders' "Perfect Days" everyday objects. Color palette: warm cream, soft white, hints of natural wood, warm morning gold.
+
+Mood: quiet honesty, "I see what I'm doing and I'm not pretending anymore", gentle relief disguised as avoidance. NOT shameful, NOT sad.
+
+CRITICAL: scale must look ABANDONED (dust, towel covering, hidden in corner) - this is the visual hero. Feet walking PAST scale (not on it, not avoiding looking - just walking away). No body parts above ankle. Real foot, slight imperfection (real woman foot).
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cartoon, illustration, before/after weight, scale digital modern, woman standing on scale, weight number visible, body shaming, sad crying woman, harsh fluorescent bathroom, modern cold bathroom, hospital aesthetic, model thin feet, instagram filter, beauty filter, pedicure perfect (must look real)
+    </negative-prompt>
+
+    <composition-notes>
+      <camera>Floor-level perspective, scale lower-left, walking feet lower-right, headline space top</camera>
+      <lighting>Single warm morning side light from unseen right window</lighting>
+      <reference-films>Wim Wenders "Perfect Days" everyday object focus, Sofia Coppola intimate domestic still-life</reference-films>
+    </composition-notes>
+
+    <output-specs>
+      <aspect-ratio primary="1:1">1:1 + 4:5 + 9:16</aspect-ratio>
+      <resolution>2048x2048 / 2048x2560 / 2048x3640</resolution>
+      <variations-to-generate>5</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline serif italic in alto. Pink minimo su "smesso".</description>
+    <primary-overlay position="top-quarter-center">
+      <text language="it">"Hai <highlight color="brand-pink">smesso</highlight> di salire</text>
+      <text language="it">perché sai cosa direbbe."</text>
+      <font>Playfair Display Italic</font>
+      <font-color>brand-cream</font-color>
+      <text-shadow>0 2px 12px rgba(0,0,0,0.4)</text-shadow>
+      <font-size-pct>6.5</font-size-pct>
+      <align>center</align>
+      <line-height>1.25</line-height>
+      <max-width-pct>78</max-width-pct>
+    </primary-overlay>
+    <bottom-overlay position="bottom-eighth-center">
+      <text language="it">Anti-bilancia · <bold>WEBINAR GRATUITO 19 maggio 18.30</bold> →</text>
+      <font>Inter Medium</font>
+      <font-color>brand-cream</font-color>
+      <font-size-pct>3.3</font-size-pct>
+      <background>black 55% opacity pill</background>
+    </bottom-overlay>
+    <minimal-logo position="bottom-right" opacity="0.5" size-pct="4">elena-giordani-monogram-cream.png</minimal-logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Hai smesso di salire sulla bilancia perché sai già cosa direbbe.
+
+E quel "sapere già" è una forma di onestà. Non sei nel deny. Sei semplicemente stanca di essere giudicata da un numero, ogni mattina, da te stessa.
+
+💜 Te lo dico in chiaro: io sono anti-bilancia. Le 2300+ donne del mio metodo non si pesano. Non ti chiederò mai un kg-target. Non perché il peso non esista, ma perché NON è la leva giusta per essere costante.
+
+In 3 sere live ti spiego quale è la vera leva. 19, 20, 21 maggio alle 18:30. Gratis. 30 minuti l'una.
+
+Non prometto miracoli. Prometto solo che il tuo bagno può tornare a essere SOLO un bagno.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Hai smesso di salire. C'è un perché.</headline>
+    <description max-chars="30">Anti-bilancia · webinar gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Anti-bilancia. Per scelta.</headline-alt>
+      <headline-alt max-chars="40">Il bagno torna ad essere bagno.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-24v4-bilancia</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-24v4-bilancia&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-35-60-Anti-Diet-Self-Compassion-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>35</age-min><age-max>60</age-max>
+    <interests>anti-dieta, intuitive eating, body neutrality, salute mentale, self compassion, libri Brené Brown / Geneen Roth, anti-diet movement</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club, fitness influencer follower</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="4"/>
+    <kpi-secondary metric="share-rate" target-min-per-1000-impr="2"/>
+    <kill-rule>Se CPL &gt; 5.5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">Bilancia ANALOGICA vintage italiana (NO digitale moderno). Polvere visibile + asciugamano gettato sopra = key signal "abbandonata". Piedi che camminano via, NON in piedi sulla bilancia. Foglio NON visibile. Mood quiet domestic.</note>
+    <note role="copywriter">"Anti-bilancia" = posizionamento BRAND chiaro (coerente con anti-dieta brand voice). Dichiarazione esplicita "le 2300+ non si pesano" = qualifica vs concorrenza dieta-pesomag. Promise tenera ("bagno torni a essere SOLO un bagno").</note>
+    <note role="designer">Pink minimo solo su "smesso". Tono empatico, no urlato.</note>
+    <note role="media-buyer">Audience anti-diet/self-compassion = sweet spot brand. Aspettarsi share alti (donne taggano amiche "anche tu sei così"). Misurare share-rate.</note>
+    <note role="ethical-check">"Anti-bilancia" = posizionamento esplicito brand. NO claim peso. NO before/after. Compliance Meta verde + brand-aligned.</note>
+  </notes>
+</creative>

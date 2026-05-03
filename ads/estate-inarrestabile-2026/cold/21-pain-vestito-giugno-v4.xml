@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-21-v4-vestito" status="ready" priority="P0" version="winner-pattern-v4-pain-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Il Vestito di Giugno - prova armadio + accumulo anni mancati</angle>
+    <pain-targeted>Vergogna armadio (vestiti che non entrano), accumulo di "promesse a sé stessa" non mantenute</pain-targeted>
+    <pain-depth>deep emotional - high self-recognition (universal experience donna 40+)</pain-depth>
+    <empathy-warning>NO shaming sui kg. Frame: il vestito è simbolo, non target. Reframe: agency, non punizione.</empathy-warning>
+    <copy-framework>Pain Specifico + Symbolic Object + Agency Reframe</copy-framework>
+    <design-template>v4-cinematic-photo-elena</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-tre-quarti" required="true" purpose="character-consistency">PLACEHOLDER: foto Elena tre-quarti / mezza figura</ref>
+      <ref id="walk-in-closet-reference" required="false" purpose="environment-mood">opzionale: reference walk-in closet warm caldo legno</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+Editorial cinematic lifestyle scene. A 45-year-old Italian woman (use Elena reference for face/body) stands in a warm walk-in closet in late afternoon golden light. She holds a soft summer linen dress in front of her body - the dress is a beautiful sage green or warm cream color, simple cut, knee-length, the kind of dress you save for "when". She is looking down at the dress in her hands, not at camera, with a slight tender half-smile - the look of someone who is having a private conversation with an old promise to herself.
+
+The closet has warm wooden shelving, soft beige carpet, several other dresses hanging in muted tones (cream, dusty rose, sage), a small velvet stool in the corner. Golden afternoon light streams from an unseen window creating warm highlights and soft shadows. Composition shows her from waist up, dress filling lower-center frame, plenty of negative space top-left for headline.
+
+Photorealistic editorial cinematography, 50mm lens, shallow depth of field at f/2.2, sharp focus on her hands holding the dress and her face, natural skin texture without retouching, warm cinematic color grading reminiscent of Luca Guadagnino's "Call Me By Your Name" interior scenes. Color palette: warm wood, sage green, cream, gold light, hints of dusty rose.
+
+Mood: tender private moment, recognition, "I see you and I'm not judging you", gentle hope. NOT triumphant, NOT sad, NOT before-after.
+
+CRITICAL: real body type (NOT thin model). No mirror visible. No body parts close-up - face and hands are the focus. The dress is the "character" of the scene, not her body.
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cartoon, illustration, before/after weight, mirror reflection focus, body close-up, fitting room shaming aesthetic, dramatic crying, sadness, model thin, fashion editorial pose, posing for camera, makeup heavy, fitness influencer, weight scale, tight dress not fitting (NO body shame visual), measuring tape, harsh light
+    </negative-prompt>
+
+    <composition-notes>
+      <camera>Subject from waist up, dress prominent in lower-center, warm closet environment background blurred</camera>
+      <lighting>Single warm golden afternoon window light from unseen left source, soft natural fill</lighting>
+      <color-grading>Luca Guadagnino warmth - wood/sage/cream palette</color-grading>
+      <reference-films>"Call Me By Your Name" interiors, Sofia Coppola "The Beguiled", Nora Ephron quiet domestic scenes</reference-films>
+    </composition-notes>
+
+    <output-specs>
+      <aspect-ratio primary="4:5">4:5 + 1:1 + 9:16</aspect-ratio>
+      <resolution>2048x2560 / 2048x2048 / 2048x3640</resolution>
+      <variations-to-generate>5</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline serif italic in alto a sx, su negative space del closet. Sotto piccolo CTA discreto.</description>
+    <primary-overlay position="top-quarter-left" margin-left="48px">
+      <text language="it">"Il vestito di giugno</text>
+      <text language="it">ti aspetta da</text>
+      <text language="it"><highlight color="brand-pink">tre estati</highlight>."</text>
+      <font>Playfair Display Italic</font>
+      <font-color>brand-cream</font-color>
+      <text-shadow>0 2px 12px rgba(0,0,0,0.4)</text-shadow>
+      <font-size-pct>6.5</font-size-pct>
+      <max-width-pct>55</max-width-pct>
+      <line-height>1.2</line-height>
+    </primary-overlay>
+    <bottom-overlay position="bottom-eighth-center">
+      <text language="it">Quest'estate cambia · <bold>WEBINAR GRATUITO 19 maggio 18.30</bold> →</text>
+      <font>Inter Medium</font>
+      <font-color>brand-cream</font-color>
+      <font-size-pct>3.3</font-size-pct>
+      <background>black 55% opacity pill</background>
+    </bottom-overlay>
+    <minimal-logo position="bottom-right" opacity="0.5" size-pct="4">elena-giordani-monogram-cream.png</minimal-logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Il vestito di giugno ti aspetta da tre estati.
+
+L'hai comprato a maggio del 2023 dicendo "questa è l'estate buona". Poi l'estate è arrivata e quel vestito è rimasto nell'armadio. È rimasto lì anche nel 2024. Anche nel 2025.
+
+E oggi, a maggio del 2026, lo stai guardando di nuovo.
+
+💜 Non è il vestito che ha sbagliato. Non sei tu che hai sbagliato. È che nessuno ti ha mai spiegato il METODO per essere costante d'estate — quando il caldo, le vacanze e la routine spaccata ti remano contro tutti insieme.
+
+Te lo racconto in 3 sere live: 19, 20, 21 maggio alle 18:30. 30 minuti l'una. Gratis.
+
+Non prometto miracoli. Prometto solo di non lasciarti sola con un vestito di giugno per il quarto anno di fila.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Il vestito di giugno. Da 3 estati.</headline>
+    <description max-chars="30">Quest'estate cambia · gratis</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">L'armadio sa cosa stai facendo.</headline-alt>
+      <headline-alt max-chars="40">Quel vestito ti aspetta. Ancora.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-21v4-vestito</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-21v4-vestito&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-60-Wardrobe-Self-Recognition-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>60</age-max>
+    <interests>moda donna over 40, lifestyle, slow fashion, intuitive eating, self compassion, anti-dieta, libri Brené Brown</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>12</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="time-on-ad" target-min-sec="10"/>
+    <kill-rule>Se CPL &gt; 5€ dopo 60€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ → +25% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: il vestito NON va indossato e NON va mostrato che non entra. È in mano davanti al corpo come oggetto-simbolo. Vestito sage green o cream (NO black, NO red - tonalità calde). Walk-in closet warm wood (NO bianco asettico). Skin texture reale Elena.</note>
+    <note role="copywriter">Specifity Halbert: "vestito di giugno" + "tre estati" + "2023/2024/2025/2026" - dettagli concreti = self-identification. Anti-colpa esplicito ("non è il vestito... non sei tu... è il metodo"). Promise umile ("non lasciarti sola con un vestito").</note>
+    <note role="designer">Headline serif italic con highlight pink solo su "tre estati" (la specificità che colpisce). Sfondo warm wood = headline cream brilla.</note>
+    <note role="media-buyer">Aspettarsi commenti tipo "anche io ho il mio vestito" - alto engagement emotivo. Audience moda over 40 + self-compassion = sweet spot.</note>
+    <note role="ethical-check">NO claim su peso/kg. Pain è SIMBOLO (vestito) non DIRECT (corpo). Compliance Meta verde.</note>
+  </notes>
+</creative>

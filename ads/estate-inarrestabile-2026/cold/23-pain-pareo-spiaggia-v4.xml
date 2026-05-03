@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creative id="EI26-COLD-23-v4-pareo" status="ready" priority="P0" version="winner-pattern-v4-pain-elaborated">
+  <meta>
+    <campaign>Estate Inarrestabile 2026</campaign>
+    <objective>LEADS</objective>
+    <funnel-stage>cold</funnel-stage>
+    <angle>Il Pareo in Spiaggia - nascondersi in vacanza + paura giudizio sociale</angle>
+    <pain-targeted>Vergogna del corpo in costume + nascondersi sotto pareo/cappello/coperta in vacanza, godere meno del mare</pain-targeted>
+    <pain-depth>deep emotional - high topic-relevance estate (vacanze imminenti)</pain-depth>
+    <empathy-warning>NO bikini-shaming. Frame: nascondersi è LIBERTÀ persa, non corpo "sbagliato". Promise: tornare a stare in spiaggia, non avere "il corpo perfetto".</empathy-warning>
+    <copy-framework>Pain Estivo Specifico + Liberty Frame + Sustainability Promise</copy-framework>
+    <design-template>v4-cinematic-photo-elena-beach</design-template>
+  </meta>
+
+  <image-generation>
+    <model>gpt-image-2 (via Higgsfield)</model>
+    <reference-images>
+      <ref id="elena-volto" required="true" purpose="character-consistency">PLACEHOLDER: foto Elena primo piano</ref>
+      <ref id="beach-mood" required="false" purpose="environment-mood">opzionale: reference spiaggia mediterranea sunset, sedie sdraio, parei svolazzanti</ref>
+    </reference-images>
+
+    <prompt-elaborate language="en">
+      <![CDATA[
+Cinematic intimate beach scene at golden sunset hour. A 45-year-old Italian woman (use Elena reference for face) sits on a wooden lounge chair on a quiet Mediterranean beach. She wears a long flowing soft cream linen kaftan that covers her from neck to ankles, a wide-brim straw sun hat, large sunglasses pushed up on her head. Beside her: a stack of books (one open in her lap, page turned), a glass of iced tea, a closed straw beach bag. The beach is mostly empty in the background - we see calm sea reflecting golden light, distant figures of two people walking on the shoreline far away (small in frame).
+
+Her posture is relaxed but contained - legs crossed at ankle, arms gently around the open book. Her expression is gentle, looking off toward the sea horizon with a soft pensive half-smile - the look of someone who has chosen this comfortable hidden spot intentionally, who watches but doesn't participate.
+
+Photorealistic editorial cinematography, 50mm lens, shallow depth of field at f/2.5, sharp focus on her face, soft warm sunset glow on skin, natural texture, cinematic color grading reminiscent of Luca Guadagnino's beach scenes in "I Am Love" or Alfonso Cuarón's "Roma" emotional landscapes. Color palette: warm golden sand, sunset peach, soft blues, cream linen.
+
+Mood: gentle melancholy disguised as relaxation, the universal "I'm here but I'm not in" beach feeling. NOT sad theatrically, NOT triumphant.
+
+CRITICAL: real body type, kaftan must be flowy and beautiful (NOT shame-shapeless), the kaftan is a CHOICE made beautiful, not a disguise. No body shaming visual cues. No bikini visible. The hat and kaftan should feel "elegant private hiding".
+      ]]>
+    </prompt-elaborate>
+
+    <negative-prompt>
+      cartoon, illustration, before/after weight, bikini visible, body parts focus, fitness model thin, transformation aesthetic, sad theatrical crying, harsh midday sun, crowded party beach, vacation paradise stock photo, photoshopped sunset, instagram filter, plastic skin, makeup heavy
+    </negative-prompt>
+
+    <composition-notes>
+      <camera>Three-quarter angle of subject on lounge chair, sea horizon visible behind, sunset golden hour</camera>
+      <lighting>Single warm sunset golden light from upper right (sun setting), soft natural rim lighting</lighting>
+      <reference-films>"I Am Love" Guadagnino beach scenes, "Roma" Cuarón emotional landscapes, "Stealing Beauty" Bertolucci</reference-films>
+    </composition-notes>
+
+    <output-specs>
+      <aspect-ratio primary="4:5">4:5 + 1:1 + 9:16</aspect-ratio>
+      <resolution>2048x2560 / 2048x2048 / 2048x3640</resolution>
+      <variations-to-generate>5</variations-to-generate>
+    </output-specs>
+  </image-generation>
+
+  <text-overlay-brief>
+    <description>Headline serif italic in alto a sx (cielo). Pink minimo su "estati".</description>
+    <primary-overlay position="top-quarter-left" margin-left="48px">
+      <text language="it">"Quante <highlight color="brand-pink">estati</highlight></text>
+      <text language="it">hai passato</text>
+      <text language="it">sotto un pareo?"</text>
+      <font>Playfair Display Italic</font>
+      <font-color>brand-cream</font-color>
+      <text-shadow>0 2px 12px rgba(0,0,0,0.4)</text-shadow>
+      <font-size-pct>6.5</font-size-pct>
+      <max-width-pct>52</max-width-pct>
+      <line-height>1.2</line-height>
+    </primary-overlay>
+    <bottom-overlay position="bottom-eighth-center">
+      <text language="it">Quest'estate stai dentro · <bold>WEBINAR GRATUITO 19 maggio 18.30</bold> →</text>
+      <font>Inter Medium</font>
+      <font-color>brand-cream</font-color>
+      <font-size-pct>3.3</font-size-pct>
+      <background>black 55% opacity pill</background>
+    </bottom-overlay>
+    <minimal-logo position="bottom-right" opacity="0.5" size-pct="4">elena-giordani-monogram-cream.png</minimal-logo>
+  </text-overlay-brief>
+
+  <copy-for-meta-ads-manager>
+    <primary-text language="it">
+      <![CDATA[
+Quante estati hai passato sotto un pareo?
+
+Sotto un cappello che ti copriva. Sotto una camicia oversize "tanto fa caldo". Sotto un libro tenuto strategicamente. Sotto la scusa "preferisco l'ombra".
+
+💜 Non è il corpo il problema. È che hai smesso di stare in vacanza. Sei lì ma non sei dentro. Guardi gli altri, scatti foto agli altri, ti tieni un po' fuori.
+
+E nel frattempo l'estate passa. Una. Due. Cinque. Quindici.
+
+In 3 sere live (19, 20, 21 maggio alle 18:30) ti racconto il METODO per riprenderti l'estate. Non per "essere perfetta". Per essere DENTRO. Gratis. 30 minuti l'una.
+
+Non prometto miracoli. Prometto che ad agosto puoi nuotare di nuovo invece di guardare gli altri farlo.
+
+🔥 100 posti.
+
+Posto qui ↓
+      ]]>
+    </primary-text>
+    <headline max-chars="40">Quante estati sotto un pareo?</headline>
+    <description max-chars="30">Quest'estate stai dentro · live</description>
+    <cta-button>SIGN_UP</cta-button>
+    <variants>
+      <headline-alt max-chars="40">Riprenditi l'estate. Sul serio.</headline-alt>
+      <headline-alt max-chars="40">Smetti di guardare. Entra in acqua.</headline-alt>
+    </variants>
+  </copy-for-meta-ads-manager>
+
+  <destination>
+    <landing-url>https://go.elenagiordani.com/webinar-maggio</landing-url>
+    <utm>
+      <utm_source>fb</utm_source><utm_medium>paid</utm_medium>
+      <utm_campaign>estate-inarrestabile-2026-cold</utm_campaign>
+      <utm_content>EI26-COLD-23v4-pareo</utm_content>
+      <utm_term>{{adset.name}}</utm_term>
+    </utm>
+    <full-url>https://go.elenagiordani.com/webinar-maggio?utm_source=fb&amp;utm_medium=paid&amp;utm_campaign=estate-inarrestabile-2026-cold&amp;utm_content=EI26-COLD-23v4-pareo&amp;utm_term={{adset.name}}</full-url>
+  </destination>
+
+  <targeting>
+    <audience-name>IT-Donne-40-60-Vacanze-Mare-Cold</audience-name>
+    <country>IT</country><gender>female</gender>
+    <age-min>40</age-min><age-max>60</age-max>
+    <interests>vacanze mare, viaggi Italia, mar Mediterraneo, vacanze in famiglia, costiera amalfitana, Salento, Puglia, Sicilia</interests>
+    <exclusions>visitatori webinar-maggio.html 30gg, acquirenti Club</exclusions>
+    <advantage-plus>true</advantage-plus>
+    <placements>auto</placements>
+  </targeting>
+
+  <budget-and-kpi>
+    <test-budget-eur-day>15</test-budget-eur-day>
+    <test-duration-days>5</test-duration-days>
+    <kpi-primary metric="CPL" target-max-eur="3.50"/>
+    <kpi-secondary metric="CTR" target-min-pct="1.8"/>
+    <kpi-secondary metric="comment-rate" target-min-per-1000-impr="4"/>
+    <kill-rule>Se CPL &gt; 5€ dopo 70€ spesi → off</kill-rule>
+    <scale-rule>Se CPL ≤ 3€ E commenti alti → +30% budget</scale-rule>
+  </budget-and-kpi>
+
+  <notes>
+    <note role="image-generator">CRITICO: il pareo/kaftan deve essere ELEGANTE, non shame-shapeless. Lei è bella. La scena è bella. Ma c'è un velo di "non sono dentro". Sunset golden hour = mood agro-dolce universale. Spiaggia mediterranea (NO Maldive stock).</note>
+    <note role="copywriter">Lista nascondigli specifici ("pareo, cappello, camicia oversize, libro, l'ombra") = self-recognition profonda. Reframe BRILLANTE: "non è il corpo, è che hai smesso di stare in vacanza". Promise concreta: "nuotare di nuovo invece di guardare".</note>
+    <note role="designer">Highlight pink solo su "estati" = quantifica anni persi. Negative space cielo top-left perfetto per headline serif.</note>
+    <note role="media-buyer">Audience vacanze mare. Topic-relevance massima per maggio (vacanze imminenti). Aspettarsi commenti molto emotivi.</note>
+    <note role="ethical-check">NO bikini-shaming, NO "summer body" pressure. Frame è LIBERTÀ (essere dentro l'esperienza), non corpo. Compliance Meta verde.</note>
+  </notes>
+</creative>
