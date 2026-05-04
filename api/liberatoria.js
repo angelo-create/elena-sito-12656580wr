@@ -89,9 +89,11 @@ async function uploadToGhlMedia({ pdfBuffer, fileName, locationId, pitToken, par
 }
 
 // Upsert contatto GHL via API diretta. Match per email -> mai duplicati.
-// In caso di match aggiorna il contatto esistente preservando i tag già presenti
-// (i nuovi vengono aggiunti additivamente).
-async function upsertContactViaApi({ data, locationId, pitToken, customFields, tags, timestamp }) {
+// IMPORTANTE: NON passiamo `tags` qui. /contacts/upsert con campo `tags`
+// SOVRASCRIVE l'array tag del contatto (cancella i tag preesistenti come
+// newsletter, webinar, ecc.). I tag vanno aggiunti dopo l'upsert tramite
+// `addTagsToContact` che usa POST /contacts/{id}/tags (additivo nativo).
+async function upsertContactViaApi({ data, locationId, pitToken, customFields, timestamp }) {
   const url = `${GHL_API_BASE}/contacts/upsert`;
   const body = {
     locationId,
@@ -107,7 +109,6 @@ async function upsertContactViaApi({ data, locationId, pitToken, customFields, t
     country: 'IT',
     dateOfBirth: data.dataNascita,
     source: 'liberatoria-firma-digitale',
-    tags,
     customFields
   };
   const res = await fetch(url, {
@@ -122,6 +123,27 @@ async function upsertContactViaApi({ data, locationId, pitToken, customFields, t
   const text = await res.text();
   if (!res.ok) {
     throw new Error(`GHL upsert failed: ${res.status} ${text.slice(0, 400)}`);
+  }
+  try { return JSON.parse(text); } catch { return null; }
+}
+
+// Aggiunge tag a un contatto GHL in modo additivo, senza toccare i tag esistenti.
+// Endpoint nativo additivo, no-op su tag già presenti.
+async function addTagsToContact({ contactId, pitToken, tags }) {
+  if (!contactId || !Array.isArray(tags) || tags.length === 0) return null;
+  const url = `${GHL_API_BASE}/contacts/${encodeURIComponent(contactId)}/tags`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${pitToken}`,
+      Version: GHL_API_VERSION,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ tags })
+  });
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(`GHL add tags failed: ${res.status} ${text.slice(0, 300)}`);
   }
   try { return JSON.parse(text); } catch { return null; }
 }
@@ -291,7 +313,6 @@ module.exports = async function handler(req, res) {
           locationId: LOCATION_ID,
           pitToken: PIT,
           customFields: customFieldsArr,
-          tags: [eventTag],
           timestamp
         });
         contactId = upsertRes && upsertRes.contact ? upsertRes.contact.id : (upsertRes ? upsertRes.id : '');
@@ -300,8 +321,19 @@ module.exports = async function handler(req, res) {
         console.error('[liberatoria] GHL contact upsert failed:', err.message);
         return res.status(502).json({ error: 'Errore di salvataggio. Riprova tra qualche minuto.' });
       }
+
+      if (contactId) {
+        try {
+          await addTagsToContact({ contactId, pitToken: PIT, tags: [eventTag] });
+          console.log('[liberatoria] Tag added (additive):', eventTag, '|', contactId);
+        } catch (err) {
+          console.error('[liberatoria] Add tag failed (non-blocking):', err.message);
+        }
+      }
     } else if (WEBHOOK_URL) {
-      // Fallback legacy: webhook GHL (sviluppatore deve garantire upsert nel workflow)
+      // Fallback legacy: webhook GHL. Il workflow GHL deve usare l'azione
+      // "Add Tag" (additiva), NON "Update Contact" con campo tags, altrimenti
+      // sovrascrive i tag preesistenti del contatto.
       const contactPayload = {
         email: body.email,
         first_name: body.nome,

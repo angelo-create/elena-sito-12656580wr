@@ -35,6 +35,11 @@ module.exports = async function handler(req, res) {
     }
 
     const source = 'metabolismo-guida-landing';
+    const tags = ['trigger-metabolismo-dm', 'metabolismo-guida'];
+
+    // NB: NON passiamo `tags` in upsert. /contacts/upsert con `tags` sovrascrive
+    // l'array tag del contatto (cancella newsletter/altri tag preesistenti).
+    // I tag vengono aggiunti dopo via POST /contacts/{id}/tags (additivo nativo).
     const payload = {
       email,
       firstName,
@@ -42,7 +47,6 @@ module.exports = async function handler(req, res) {
       name: `${firstName} ${lastName}`.trim(),
       phone: phoneDigits,
       locationId,
-      tags: ['trigger-metabolismo-dm', 'metabolismo-guida'],
       source
     };
 
@@ -85,6 +89,29 @@ module.exports = async function handler(req, res) {
     } catch (e) {}
 
     console.log('[metabolismo-lead] Lead captured:', email, '| contactId:', contactId);
+
+    if (contactId) {
+      try {
+        const addTagsRes = await fetch(`https://services.leadconnectorhq.com/contacts/${encodeURIComponent(contactId)}/tags`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Version': '2021-07-28',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ tags })
+        });
+        if (!addTagsRes.ok) {
+          const errText = await addTagsRes.text();
+          console.error('[metabolismo-lead] Add tags failed:', addTagsRes.status, errText.slice(0, 200));
+        } else {
+          console.log('[metabolismo-lead] Tags added (additive):', tags.join(', '), '|', contactId);
+        }
+      } catch (tagErr) {
+        console.error('[metabolismo-lead] Add tags error (non-blocking):', tagErr.message);
+      }
+    }
+
     return res.status(200).json({ success: true, contactId });
   } catch (err) {
     console.error('[metabolismo-lead] Error:', err.message);

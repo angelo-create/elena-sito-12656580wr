@@ -105,6 +105,9 @@ module.exports = async function handler(req, res) {
     // secondo è specifico dell'evento.
     const tags = ['webinar-iscritta', 'webinar-maggio-2026'];
 
+    // NB: NON passiamo `tags` in upsert. /contacts/upsert con `tags` sovrascrive
+    // l'array tag del contatto (cancella newsletter/altri tag preesistenti).
+    // I tag vengono aggiunti dopo via POST /contacts/{id}/tags (additivo nativo).
     const payload = {
       email,
       firstName,
@@ -112,7 +115,6 @@ module.exports = async function handler(req, res) {
       name: `${firstName} ${lastName}`.trim(),
       phone: phoneDigits,
       locationId,
-      tags,
       source
     };
 
@@ -155,6 +157,28 @@ module.exports = async function handler(req, res) {
     } catch (e) {}
 
     console.log('[webinar-lead] Lead captured:', email, '| source:', source, '| contactId:', contactId);
+
+    if (contactId) {
+      try {
+        const addTagsRes = await fetch(`https://services.leadconnectorhq.com/contacts/${encodeURIComponent(contactId)}/tags`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Version': '2021-07-28',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ tags })
+        });
+        if (!addTagsRes.ok) {
+          const errText = await addTagsRes.text();
+          console.error('[webinar-lead] Add tags failed:', addTagsRes.status, errText.slice(0, 200));
+        } else {
+          console.log('[webinar-lead] Tags added (additive):', tags.join(', '), '|', contactId);
+        }
+      } catch (tagErr) {
+        console.error('[webinar-lead] Add tags error (non-blocking):', tagErr.message);
+      }
+    }
 
     // Fetch custom values GHL per la thank-you page (link Zoom, passcode, ecc.)
     // Non bloccante: se fallisce, la thank-you mostra placeholder/email-only.
