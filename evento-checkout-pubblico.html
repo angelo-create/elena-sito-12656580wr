@@ -844,26 +844,6 @@
                 </div>
             </div>
 
-            <!-- CODICE SCONTO -->
-            <div class="ck-discount" id="discountBox">
-                <label class="ck-discount-label" for="discountCode">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                    Hai un codice sconto?
-                </label>
-                <div class="ck-discount-row">
-                    <input
-                        type="text"
-                        id="discountCode"
-                        class="ck-discount-input"
-                        placeholder="Inserisci il codice"
-                        autocomplete="off"
-                        spellcheck="false"
-                    >
-                    <button type="button" id="discountApplyBtn" class="ck-discount-btn">Applica</button>
-                </div>
-                <div class="ck-discount-msg" id="discountMsg" aria-live="polite"></div>
-            </div>
-
         </div>
 
         <!-- RIGHT COLUMN - SIDEBAR -->
@@ -876,10 +856,6 @@
                 <div class="ck-summary-row">
                     <span class="ck-summary-label">Nel Corpo Che Vuoi Live</span>
                     <span class="ck-summary-value">&euro;157,00</span>
-                </div>
-                <div class="ck-summary-row discount-row" id="summaryDiscountRow" style="display:none;">
-                    <span class="ck-summary-label">Sconto <span id="summaryDiscountCode"></span></span>
-                    <span class="ck-summary-value" id="summaryDiscountValue">&minus;&euro;0,00</span>
                 </div>
 
                 <hr class="ck-summary-divider">
@@ -952,24 +928,14 @@
         var PRICE_BUMP      = 0;
         var OLD_CLUB        = 347;
         var SAVED_BASE      = 190;
-        var DISCOUNT_CODE   = '';
-        var DISCOUNT_AMOUNT = 0;
 
         var bumpCheckbox = document.getElementById('bumpEvento2027');
         var bumpCard     = document.getElementById('bumpCard');
         var bumpRow      = document.getElementById('summaryBumpRow');
-        var discountRow  = document.getElementById('summaryDiscountRow');
-        var discountCodeEl = document.getElementById('summaryDiscountCode');
         var totalEl      = document.getElementById('summaryTotal');
         var savedEl      = document.getElementById('summarySaved');
         var checkoutBtn  = document.getElementById('checkoutBtn');
 
-        var discBox      = document.getElementById('discountBox');
-        var discInput    = document.getElementById('discountCode');
-        var discBtn      = document.getElementById('discountApplyBtn');
-        var discMsg      = document.getElementById('discountMsg');
-
-        var discountApplied = false;
 
         function format(amount) {
             return '\u20AC' + amount.toFixed(2).replace('.', ',');
@@ -978,71 +944,16 @@
         function recalc() {
             var bumpActive = false;
             var subtotal   = PRICE_CLUB + (bumpActive ? PRICE_BUMP : 0);
-            var discount   = discountApplied ? DISCOUNT_AMOUNT : 0;
-            var total      = Math.max(0, subtotal - discount);
-            var totalSaved = SAVED_BASE + discount;
-
+        var total      = subtotal;
+        var totalSaved = SAVED_BASE;
             if (bumpRow) bumpRow.style.display = "none";
-            discountRow.style.display = discountApplied ? 'flex' : 'none';
             totalEl.textContent       = format(total);
             savedEl.textContent       = totalSaved > 0 ? 'Hai risparmiato \u20AC' + totalSaved : '';
             savedEl.style.display     = totalSaved > 0 ? 'block' : 'none';
 
             var qs = "plan=pubblico";
-            if (discountApplied) qs += '&discount=1';
             checkoutBtn.href = 'club-pagamento.html?' + qs;
         }
-
-        function setMsg(text, kind) {
-            discMsg.className = 'ck-discount-msg' + (kind ? ' ' + kind : '');
-            if (!text) { discMsg.textContent = ''; return; }
-            var icon = kind === 'success'
-                ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
-                : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
-            discMsg.innerHTML = icon + '<span>' + text + '</span>';
-        }
-
-        function applyDiscount() {
-            var code = (discInput.value || '').trim().toUpperCase();
-            if (!code) {
-                setMsg('Inserisci un codice prima di applicarlo.', 'error');
-                return;
-            }
-            if (code !== DISCOUNT_CODE) {
-                setMsg('Codice non valido. Controlla e riprova.', 'error');
-                return;
-            }
-            discountApplied = true;
-            discountCodeEl.textContent = DISCOUNT_CODE;
-            discInput.value = DISCOUNT_CODE;
-            discInput.disabled = true;
-            discBtn.textContent = 'Rimuovi';
-            discBox.classList.add('applied');
-            setMsg('Codice applicato. Hai risparmiato \u20AC' + DISCOUNT_AMOUNT + '.', 'success');
-            recalc();
-        }
-
-        function removeDiscount() {
-            discountApplied = false;
-            discInput.value = '';
-            discInput.disabled = false;
-            discBtn.textContent = 'Applica';
-            discBox.classList.remove('applied');
-            setMsg('', null);
-            recalc();
-        }
-
-        discBtn.addEventListener('click', function () {
-            if (discountApplied) removeDiscount();
-            else applyDiscount();
-        });
-
-        discInput.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                if (!discountApplied) applyDiscount();
-            }
-        });
 
         recalc();
     })();

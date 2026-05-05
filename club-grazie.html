@@ -234,6 +234,23 @@
         .ck-order-row.bump-row .value {
             color: var(--pink);
         }
+        .ck-order-row.discount-row .label,
+        .ck-order-row.discount-row .value {
+            color: var(--success);
+            font-weight: 600;
+        }
+        .ck-discount-tag {
+            display: inline-block;
+            padding: 0.1rem 0.4rem;
+            background: var(--success-soft);
+            border-radius: 0.2rem;
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            margin-left: 0.3rem;
+            text-transform: uppercase;
+            color: var(--success);
+        }
         .ck-order-divider {
             border: none;
             border-top: 1px solid var(--border);
@@ -414,6 +431,24 @@
             .ck-order-meta { grid-template-columns: 1fr; }
         }
     </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -455,9 +490,9 @@
         <div class="ck-check-circle">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <span class="ck-hero-eyebrow">Sei dentro</span>
-        <h1 class="ck-hero-title">Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span></h1>
-        <p class="ck-hero-text">
+        <span class="ck-hero-eyebrow" id="heroEyebrow">Sei dentro</span>
+        <h1 class="ck-hero-title" id="heroTitle">Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span></h1>
+        <p class="ck-hero-text" id="heroText">
             Il tuo posto nel Club &egrave; confermato. Tra pochi minuti riceverai una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.
         </p>
     </section>
@@ -473,12 +508,16 @@
             </div>
 
             <div class="ck-order-row">
-                <span class="label">Club delle Inarrestabili</span>
-                <span class="value">&euro;127,00</span>
+                <span class="label" id="orderMainLabel">Club delle Inarrestabili</span>
+                <span class="value" id="orderMainValue">&euro;147,00</span>
             </div>
             <div class="ck-order-row bump-row" id="orderBumpRow">
-                <span class="label">+ Evento 2027</span>
-                <span class="value">&euro;147,00</span>
+                <span class="label">+ Evento Nov 2026</span>
+                <span class="value">&euro;127,00</span>
+            </div>
+            <div class="ck-order-row discount-row" id="orderDiscountRow" style="display:none;">
+                <span class="label">Sconto <span class="ck-discount-tag">EVENTO26</span></span>
+                <span class="value">&minus;&euro;20,00</span>
             </div>
 
             <hr class="ck-order-divider">
@@ -516,10 +555,10 @@
                     </div>
                 </div>
 
-                <div class="ck-next-step">
+                <div class="ck-next-step" id="stepClubNewsletter">
                     <div class="ck-next-num">2</div>
                     <div>
-                        <div class="ck-next-title">Primo lunedi&igrave; con noi</div>
+                        <div class="ck-next-title">Primo luned&igrave; con noi</div>
                         <div class="ck-next-desc">Il prossimo luned&igrave; mattina ti arriva la newsletter delle Inarrestabili. Storie vere, niente promesse miracolose.</div>
                     </div>
                 </div>
@@ -527,8 +566,8 @@
                 <div class="ck-next-step" id="stepEvento">
                     <div class="ck-next-num">3</div>
                     <div>
-                        <div class="ck-next-title">Posto evento 2027 riservato</div>
-                        <div class="ck-next-desc">Quando aprir&ograve; le iscrizioni per <em>Nel Corpo Che Vuoi Live 2027</em>, sarai tra le prime ad avere il link &mdash; il tuo posto &egrave; gi&agrave; bloccato.</div>
+                        <div class="ck-next-title">Posto evento Novembre 2026 riservato</div>
+                        <div class="ck-next-desc">Quando aprir&ograve; le iscrizioni per <em>Nel Corpo Che Vuoi Live &mdash; Edizione Novembre 2026</em>, sarai tra le prime ad avere il link &mdash; il tuo posto &egrave; gi&agrave; bloccato.</div>
                     </div>
                 </div>
             </div>
@@ -536,11 +575,11 @@
 
         <!-- CTA -->
         <div class="ck-cta-wrap">
-            <h2 class="ck-cta-title">Inizia adesso</h2>
-            <p class="ck-cta-text">
+            <h2 class="ck-cta-title" id="ctaTitle">Inizia adesso</h2>
+            <p class="ck-cta-text" id="ctaText">
                 Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili. &Egrave; quello che faremo insieme tutti i luned&igrave;.
             </p>
-            <a href="/lunedi-inarrestabili" class="ck-cta-btn">Leggi l'ultima storia &rarr;</a>
+            <a href="/lunedi-inarrestabili" class="ck-cta-btn" id="ctaBtn">Leggi l'ultima storia &rarr;</a>
             <br>
             <a href="/" class="ck-cta-secondary">Torna alla home</a>
         </div>
@@ -562,45 +601,90 @@
 
     <script>
     (function () {
-        var PRICE_CLUB = 127;
-        var PRICE_BUMP = 147;
+        var PLANS = {
+            'partecipanti-no-bump': { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 0, bumpVisible: false, hasEventoStep: false, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'partecipanti-bump':    { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 127, bumpVisible: true, hasEventoStep: true, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato e ti aspetto a Roma il 7-8 novembre. Tra pochi minuti ricevi una email con tutti gli accessi e la logistica.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'pubblico':             { mainLabel: 'Club delle Inarrestabili', mainPrice: 167, bumpPrice: 0, bumpVisible: false, hasEventoStep: false, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',   mainPrice: 157, bumpPrice: 0, bumpVisible: false, hasEventoStep: true, hasClubStep: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' }
+        };
+        var DISCOUNT_AMOUNT = 20;
 
-        var params  = new URLSearchParams(window.location.search);
+        var params = new URLSearchParams(window.location.search);
+        var planRaw = (params.get('plan') || 'partecipanti').toLowerCase();
         var bumpRaw = params.get('bump');
-        var bumpOn  = bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true');
-        var nome    = (params.get('nome') || '').trim();
-        var email   = (params.get('email') || '').trim();
+        var bumpOn = bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true');
 
-        var bumpRow    = document.getElementById('orderBumpRow');
-        var totalEl    = document.getElementById('orderTotal');
-        var heroName   = document.getElementById('heroName');
-        var stepEvento = document.getElementById('stepEvento');
-        var emailEl    = document.getElementById('orderEmail');
-        var orderNum   = document.getElementById('orderNumber');
+        var planKey;
+        if (planRaw === 'pubblico')              planKey = 'pubblico';
+        else if (planRaw === 'evento-pubblico')  planKey = 'evento-pubblico';
+        else                                      planKey = bumpOn ? 'partecipanti-bump' : 'partecipanti-no-bump';
+        var plan = PLANS[planKey];
+
+        var discountOn = plan.bumpVisible && (params.get('discount') === '1' || params.get('discount') === 'true');
+        var nome  = (params.get('nome') || '').trim();
+        var email = (params.get('email') || '').trim();
+
+        var heroEyebrow = document.getElementById('heroEyebrow');
+        var heroTitle   = document.getElementById('heroTitle');
+        var heroText    = document.getElementById('heroText');
+        var orderMainLabel = document.getElementById('orderMainLabel');
+        var orderMainValue = document.getElementById('orderMainValue');
+        var bumpRow     = document.getElementById('orderBumpRow');
+        var discountRow = document.getElementById('orderDiscountRow');
+        var totalEl     = document.getElementById('orderTotal');
+        var stepEvento  = document.getElementById('stepEvento');
+        var stepClub    = document.getElementById('stepClubNewsletter');
+        var emailEl     = document.getElementById('orderEmail');
+        var orderNum    = document.getElementById('orderNumber');
+        var ctaTitle    = document.getElementById('ctaTitle');
+        var ctaText     = document.getElementById('ctaText');
+        var ctaBtn      = document.getElementById('ctaBtn');
 
         function format(amount) {
             return '\u20AC' + amount.toFixed(2).replace('.', ',');
         }
 
-        var total = PRICE_CLUB + (bumpOn ? PRICE_BUMP : 0);
+        heroEyebrow.textContent = plan.heroEyebrow;
+        heroTitle.innerHTML = plan.heroTitle;
+        heroText.innerHTML = plan.heroText;
+        var heroName = document.getElementById('heroName');
+        if (heroName && nome) heroName.textContent = ', ' + nome;
 
-        bumpRow.style.display    = bumpOn ? 'flex' : 'none';
-        stepEvento.style.display = bumpOn ? 'grid' : 'none';
-        totalEl.textContent      = format(total);
+        orderMainLabel.textContent = plan.mainLabel;
+        orderMainValue.textContent = format(plan.mainPrice);
+        bumpRow.style.display = plan.bumpVisible ? 'flex' : 'none';
+        discountRow.style.display = discountOn ? 'flex' : 'none';
+        var subtotal = plan.mainPrice + (plan.bumpVisible ? plan.bumpPrice : 0);
+        var total = Math.max(0, subtotal - (discountOn ? DISCOUNT_AMOUNT : 0));
+        totalEl.textContent = format(total);
 
-        if (nome) {
-            heroName.textContent = ', ' + nome;
-        }
-        if (email) {
-            emailEl.textContent = email;
-        }
+        if (stepClub) stepClub.style.display = plan.hasClubStep ? 'grid' : 'none';
+        if (stepEvento) stepEvento.style.display = plan.hasEventoStep ? 'grid' : 'none';
 
-        // Numero ordine demo (se non passato via query). Sostituibile con l'ID Stripe / GHL.
+        ctaTitle.textContent = plan.ctaTitle;
+        ctaText.textContent = plan.ctaText;
+        ctaBtn.textContent = plan.ctaBtnText;
+        ctaBtn.href = plan.ctaBtnHref;
+
+        if (email) emailEl.textContent = email;
         var orderId = params.get('order');
         if (!orderId) {
-            orderId = 'CDI-' + Date.now().toString(36).toUpperCase().slice(-6);
+            orderId = plan.orderPrefix + '-' + Date.now().toString(36).toUpperCase().slice(-6);
         }
         orderNum.textContent = orderId;
+
+        // Meta Pixel Purchase event
+        if (typeof fbq === 'function') {
+            try {
+                fbq('track', 'Purchase', {
+                    value: total,
+                    currency: 'EUR',
+                    content_name: planKey,
+                    content_category: planKey === 'evento-pubblico' ? 'event' : 'club',
+                    content_ids: [planKey]
+                }, { eventID: orderId });
+            } catch (e) { /* no-op */ }
+        }
     })();
     </script>
 </body>

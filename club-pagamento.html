@@ -525,63 +525,9 @@
             </div>
 
             <!-- 2. CARTA DI PAGAMENTO -->
-            <div class="ck-section">
-                <div class="ck-section-header">
-                    <div class="ck-section-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                    </div>
-                    <h2 class="ck-section-title">Dati della carta</h2>
-                </div>
-
-                <!--
-                    TODO: sostituire questo blocco con Stripe Payment Element
-                    Vedi https://stripe.com/docs/payments/payment-element
-                    1. Caricare https://js.stripe.com/v3/
-                    2. const stripe = Stripe('pk_live_xxx');
-                    3. const elements = stripe.elements({ clientSecret });
-                    4. const paymentElement = elements.create('payment');
-                    5. paymentElement.mount('#stripe-payment-element');
-                -->
-                <div class="ck-card-block" id="stripe-payment-element">
-
-                    <div class="ck-form-group">
-                        <label class="ck-form-label" for="cardName">Nome sulla carta</label>
-                        <input id="cardName" name="cardName" type="text" class="ck-form-input" placeholder="MARIA ROSSI" autocomplete="cc-name" required>
-                    </div>
-
-                    <div class="ck-form-group">
-                        <label class="ck-form-label" for="cardNumber">Numero carta</label>
-                        <div class="ck-card-input">
-                            <input id="cardNumber" name="cardNumber" type="text" inputmode="numeric" placeholder="1234 1234 1234 1234" autocomplete="cc-number" maxlength="19" required>
-                            <div class="ck-card-icons">
-                                <span class="ck-card-icon-mini">VISA</span>
-                                <span class="ck-card-icon-mini">MC</span>
-                                <span class="ck-card-icon-mini">AMEX</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ck-card-row">
-                        <div class="ck-form-group">
-                            <label class="ck-form-label" for="cardExpiry">Scadenza</label>
-                            <input id="cardExpiry" name="cardExpiry" type="text" inputmode="numeric" class="ck-form-input" placeholder="MM/AA" autocomplete="cc-exp" maxlength="5" required>
-                        </div>
-                        <div class="ck-form-group">
-                            <label class="ck-form-label" for="cardCvc">CVC</label>
-                            <input id="cardCvc" name="cardCvc" type="text" inputmode="numeric" class="ck-form-input" placeholder="123" autocomplete="cc-csc" maxlength="4" required>
-                        </div>
-                        <div class="ck-form-group">
-                            <label class="ck-form-label" for="zip">CAP</label>
-                            <input id="zip" name="zip" type="text" inputmode="numeric" class="ck-form-input" placeholder="00100" autocomplete="postal-code" maxlength="5" required>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="ck-stripe-note">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    Pagamento crittografato e processato da Stripe. Nessun dato carta salvato sui nostri server.
-                </div>
+            <div class="ck-stripe-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Pagamento sicuro tramite Stripe. Verrai reindirizzata sulla pagina di pagamento dopo aver confermato i tuoi dati.
             </div>
 
         </form>
@@ -732,47 +678,37 @@
             zip.value = zip.value.replace(/\D/g, '').slice(0, 5);
         });
 
-        // ====== Submit: salva contatto in GHL via /api/club-checkout, poi redirect a grazie. ======
-        // Il pagamento Stripe non e' ancora collegato — i dati carta sono UI mock.
+        // ====== Submit ======
+        // 1. Tenta /api/club-stripe-session (se Stripe e' configurato lato server)
+        //    -> redirect alla hosted page Stripe; il webhook server poi sincronizza GHL.
+        // 2. Fallback su /api/club-checkout (modalita' pre-Stripe: solo CRM upsert + redirect grazie)
+        //    -> utile durante test del team prima che Stripe sia attivo.
         var form = document.getElementById('payForm');
         var payBtn = document.getElementById('payBtn');
         var payBtnDefault = payBtn ? payBtn.innerHTML : '';
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var firstName = (document.getElementById('firstName').value || '').trim();
-            var lastName  = (document.getElementById('lastName').value  || '').trim();
-            var email     = (document.getElementById('email').value     || '').trim();
-            var phone     = (document.getElementById('phone').value     || '').trim();
-
-            if (!firstName || !lastName || !email || !phone) {
-                alert('Compila nome, cognome, email e telefono per procedere.');
-                return;
-            }
-
-            if (payBtn) {
-                payBtn.disabled = true;
-                payBtn.innerHTML = 'Invio in corso...';
-            }
-
+        function buildPayload() {
             var attrParams = new URLSearchParams(window.location.search);
             var attrFields = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','msclkid','referrer','landing_url'];
-            var payload = {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                phone: phone,
+            var p = {
+                firstName: (document.getElementById('firstName').value || '').trim(),
+                lastName:  (document.getElementById('lastName').value  || '').trim(),
+                email:     (document.getElementById('email').value     || '').trim(),
+                phone:     (document.getElementById('phone').value     || '').trim(),
                 plan: planKey,
                 bump: bumpOn ? 1 : 0
             };
             attrFields.forEach(function (k) {
                 var v = attrParams.get(k);
-                if (v) payload[k] = v;
+                if (v) p[k] = v;
             });
-            if (!payload.referrer && document.referrer) payload.referrer = document.referrer;
-            if (!payload.landing_url) payload.landing_url = window.location.href;
+            if (!p.referrer && document.referrer) p.referrer = document.referrer;
+            if (!p.landing_url) p.landing_url = window.location.href;
+            return p;
+        }
 
-            fetch('/api/club-checkout', {
+        function fallbackToCrm(payload, firstName) {
+            return fetch('/api/club-checkout', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -780,21 +716,50 @@
                 return r.json().then(function (data) { return { ok: r.ok, data: data }; });
             }).then(function (res) {
                 if (!res.ok || !res.data || res.data.error) {
-                    var msg = (res.data && res.data.error) || 'Si e\' verificato un errore. Riprova.';
-                    alert(msg);
-                    if (payBtn) { payBtn.disabled = false; payBtn.innerHTML = payBtnDefault; }
-                    return;
+                    throw new Error((res.data && res.data.error) || 'Errore generico');
                 }
                 var qs = new URLSearchParams();
                 qs.set('plan', planKey);
                 qs.set('bump', bumpOn ? '1' : '0');
-                if (discountOn) qs.set('discount', '1');
                 if (firstName) qs.set('nome', firstName);
                 window.location.href = 'club-grazie.html?' + qs.toString();
+            });
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var payload = buildPayload();
+            if (!payload.firstName || !payload.lastName || !payload.email || !payload.phone) {
+                alert('Compila nome, cognome, email e telefono per procedere.');
+                return;
+            }
+
+            if (payBtn) {
+                payBtn.disabled = true;
+                payBtn.innerHTML = 'Apertura pagamento...';
+            }
+
+            fetch('/api/club-stripe-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(function (r) {
+                return r.json().then(function (data) { return { ok: r.ok, data: data }; });
+            }).then(function (res) {
+                if (res.ok && res.data && res.data.url) {
+                    window.location.href = res.data.url;
+                    return;
+                }
+                // Stripe non ancora configurato lato server -> fallback al flusso CRM
+                console.warn('[club-pagamento] Stripe non configurato, uso /api/club-checkout. Detail:', res.data);
+                return fallbackToCrm(payload, payload.firstName);
             }).catch(function (err) {
-                console.error('[club-checkout] Submit error:', err);
-                alert('Errore di rete. Riprova tra qualche istante.');
-                if (payBtn) { payBtn.disabled = false; payBtn.innerHTML = payBtnDefault; }
+                // errore di rete su /api/club-stripe-session -> ritento via /api/club-checkout
+                console.warn('[club-pagamento] Stripe session fallita, fallback CRM:', err.message);
+                return fallbackToCrm(payload, payload.firstName).catch(function (err2) {
+                    alert(err2.message || 'Errore di rete. Riprova tra qualche istante.');
+                    if (payBtn) { payBtn.disabled = false; payBtn.innerHTML = payBtnDefault; }
+                });
             });
         });
     })();

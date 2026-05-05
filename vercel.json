@@ -53,6 +53,30 @@
       "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
       "destination": "https://go.elenagiordani.com/lunedi-inarrestabili",
       "permanent": true
+    },
+    {
+      "source": "/club-checkout",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/club-checkout",
+      "permanent": true
+    },
+    {
+      "source": "/club-checkout-pubblico",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/club-checkout-pubblico",
+      "permanent": true
+    },
+    {
+      "source": "/evento-checkout-pubblico",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/evento-checkout-pubblico",
+      "permanent": true
+    },
+    {
+      "source": "/club-pagamento",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/club-pagamento",
+      "permanent": true
     }
   ],
   "headers": [
