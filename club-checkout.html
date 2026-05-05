@@ -806,6 +806,8 @@
                         </p>
                         <div class="ck-product-price-inline">
                             <span class="ck-price-now">&euro;147</span>
+                            <span class="ck-price-old">&euro;367</span>
+                            <span class="ck-price-tag">Risparmi &euro;220</span>
                         </div>
                     </div>
                 </div>
@@ -863,7 +865,7 @@
                     </div>
                     <div class="ck-bump-price">
                         +&euro;127
-                        <small>una tantum</small>
+                        <small><s style="opacity:.6">&euro;347</s> &middot; una tantum</small>
                     </div>
                 </div>
 
@@ -1009,7 +1011,8 @@
     (function () {
         var PRICE_CLUB      = 147;
         var PRICE_BUMP      = 127;
-        var SAVED_BASE      = 0;
+        var OLD_CLUB        = 367;
+        var OLD_BUMP        = 347;
         var DISCOUNT_CODE   = 'EVENTO26';
         var DISCOUNT_AMOUNT = 20;
 
@@ -1038,7 +1041,8 @@
             var subtotal   = PRICE_CLUB + (bumpActive ? PRICE_BUMP : 0);
             var discount   = discountApplied ? DISCOUNT_AMOUNT : 0;
             var total      = Math.max(0, subtotal - discount);
-            var totalSaved = SAVED_BASE + discount;
+            var savedFromList = (OLD_CLUB - PRICE_CLUB) + (bumpActive ? (OLD_BUMP - PRICE_BUMP) : 0);
+            var totalSaved = savedFromList + discount;
 
             bumpRow.style.display     = bumpActive ? 'flex' : 'none';
             discountRow.style.display = discountApplied ? 'flex' : 'none';
