@@ -732,17 +732,70 @@
             zip.value = zip.value.replace(/\D/g, '').slice(0, 5);
         });
 
-        // ====== Submit demo: redirect a thank you. Sostituire con Stripe confirmPayment(). ======
+        // ====== Submit: salva contatto in GHL via /api/club-checkout, poi redirect a grazie. ======
+        // Il pagamento Stripe non e' ancora collegato — i dati carta sono UI mock.
         var form = document.getElementById('payForm');
+        var payBtn = document.getElementById('payBtn');
+        var payBtnDefault = payBtn ? payBtn.innerHTML : '';
+
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            var firstName = document.getElementById('firstName').value || '';
-            var qs = new URLSearchParams();
-            qs.set('plan', planKey);
-            qs.set('bump', bumpOn ? '1' : '0');
-            if (discountOn) qs.set('discount', '1');
-            if (firstName) qs.set('nome', firstName.trim());
-            window.location.href = 'club-grazie.html?' + qs.toString();
+            var firstName = (document.getElementById('firstName').value || '').trim();
+            var lastName  = (document.getElementById('lastName').value  || '').trim();
+            var email     = (document.getElementById('email').value     || '').trim();
+            var phone     = (document.getElementById('phone').value     || '').trim();
+
+            if (!firstName || !lastName || !email || !phone) {
+                alert('Compila nome, cognome, email e telefono per procedere.');
+                return;
+            }
+
+            if (payBtn) {
+                payBtn.disabled = true;
+                payBtn.innerHTML = 'Invio in corso...';
+            }
+
+            var attrParams = new URLSearchParams(window.location.search);
+            var attrFields = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','msclkid','referrer','landing_url'];
+            var payload = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone,
+                plan: planKey,
+                bump: bumpOn ? 1 : 0
+            };
+            attrFields.forEach(function (k) {
+                var v = attrParams.get(k);
+                if (v) payload[k] = v;
+            });
+            if (!payload.referrer && document.referrer) payload.referrer = document.referrer;
+            if (!payload.landing_url) payload.landing_url = window.location.href;
+
+            fetch('/api/club-checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(function (r) {
+                return r.json().then(function (data) { return { ok: r.ok, data: data }; });
+            }).then(function (res) {
+                if (!res.ok || !res.data || res.data.error) {
+                    var msg = (res.data && res.data.error) || 'Si e\' verificato un errore. Riprova.';
+                    alert(msg);
+                    if (payBtn) { payBtn.disabled = false; payBtn.innerHTML = payBtnDefault; }
+                    return;
+                }
+                var qs = new URLSearchParams();
+                qs.set('plan', planKey);
+                qs.set('bump', bumpOn ? '1' : '0');
+                if (discountOn) qs.set('discount', '1');
+                if (firstName) qs.set('nome', firstName);
+                window.location.href = 'club-grazie.html?' + qs.toString();
+            }).catch(function (err) {
+                console.error('[club-checkout] Submit error:', err);
+                alert('Errore di rete. Riprova tra qualche istante.');
+                if (payBtn) { payBtn.disabled = false; payBtn.innerHTML = payBtnDefault; }
+            });
         });
     })();
     </script>
