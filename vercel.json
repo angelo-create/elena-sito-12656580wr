@@ -28,7 +28,18 @@
     {
       "source": "/evento-maggio",
       "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
-      "destination": "https://go.elenagiordani.com/evento-maggio",
+      "destination": "https://go.elenagiordani.com/evento-novembre",
+      "permanent": true
+    },
+    {
+      "source": "/evento-maggio",
+      "destination": "/evento-novembre",
+      "permanent": true
+    },
+    {
+      "source": "/evento-novembre",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/evento-novembre",
       "permanent": true
     },
     {

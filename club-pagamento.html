@@ -308,6 +308,22 @@
         .ck-summary-row.bump-row .ck-summary-value {
             color: var(--pink);
         }
+        .ck-summary-row.discount-row .ck-summary-label,
+        .ck-summary-row.discount-row .ck-summary-value {
+            color: var(--success);
+            font-weight: 600;
+        }
+        .ck-discount-tag {
+            display: inline-block;
+            padding: 0.1rem 0.4rem;
+            background: var(--success-soft);
+            border-radius: 0.2rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            margin-left: 0.3rem;
+            text-transform: uppercase;
+        }
         .ck-summary-divider {
             border: none;
             border-top: 1px solid var(--border);
@@ -577,12 +593,16 @@
                 <h3 class="ck-summary-title">Riepilogo ordine</h3>
 
                 <div class="ck-summary-row">
-                    <span class="ck-summary-label">Club delle Inarrestabili</span>
-                    <span class="ck-summary-value">&euro;127,00</span>
+                    <span class="ck-summary-label" id="summaryMainLabel">Club delle Inarrestabili</span>
+                    <span class="ck-summary-value" id="summaryMainValue">&euro;147,00</span>
                 </div>
                 <div class="ck-summary-row bump-row" id="summaryBumpRow">
-                    <span class="ck-summary-label">+ Evento 2027</span>
-                    <span class="ck-summary-value">&euro;147,00</span>
+                    <span class="ck-summary-label">+ Evento Nov 2026</span>
+                    <span class="ck-summary-value">&euro;127,00</span>
+                </div>
+                <div class="ck-summary-row discount-row" id="summaryDiscountRow" style="display:none;">
+                    <span class="ck-summary-label">Sconto <span class="ck-discount-tag">EVENTO26</span></span>
+                    <span class="ck-summary-value">&minus;&euro;20,00</span>
                 </div>
 
                 <hr class="ck-summary-divider">
@@ -637,33 +657,54 @@
 
     <script>
     (function () {
-        var PRICE_CLUB = 127;
-        var PRICE_BUMP = 147;
+        // Plans:
+        //   undefined / 'partecipanti' -> Club 147 + bump Evento 127 (carrello partecipanti)
+        //   'pubblico'                  -> solo Club a 167 (club-checkout-pubblico.html)
+        //   'evento-pubblico'           -> solo Evento a 157 (evento-checkout-pubblico.html)
+        var PLANS = {
+            partecipanti:      { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, allowBump: true,  editHref: 'club-checkout.html' },
+            pubblico:          { mainLabel: 'Club delle Inarrestabili', mainPrice: 167, allowBump: false, editHref: 'club-checkout-pubblico.html' },
+            'evento-pubblico': { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 157, allowBump: false, editHref: 'evento-checkout-pubblico.html' }
+        };
+        var BUMP_PRICE      = 127;
+        var DISCOUNT_AMOUNT = 20;
 
-        // Leggi bump da query string (?bump=1 default ON, ?bump=0 OFF)
-        var params  = new URLSearchParams(window.location.search);
-        var bumpRaw = params.get('bump');
-        var bumpOn  = bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true');
+        var params      = new URLSearchParams(window.location.search);
+        var planKey     = params.get('plan');
+        if (!planKey || !PLANS[planKey]) planKey = 'partecipanti';
+        var plan        = PLANS[planKey];
 
-        var summaryRow = document.getElementById('summaryBumpRow');
-        var totalEl    = document.getElementById('summaryTotal');
-        var btnAmount  = document.getElementById('payBtnAmount');
-        var editLink   = document.querySelector('.ck-edit-link');
+        var bumpRaw     = params.get('bump');
+        var bumpOn      = plan.allowBump && (bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true'));
+        var discountOn  = plan.allowBump && (params.get('discount') === '1' || params.get('discount') === 'true');
+
+        var mainLabelEl = document.getElementById('summaryMainLabel');
+        var mainValueEl = document.getElementById('summaryMainValue');
+        var bumpRow     = document.getElementById('summaryBumpRow');
+        var discountRow = document.getElementById('summaryDiscountRow');
+        var totalEl     = document.getElementById('summaryTotal');
+        var btnAmount   = document.getElementById('payBtnAmount');
+        var editLink    = document.querySelector('.ck-edit-link');
 
         function format(amount, withDecimals) {
-            return '\u20AC' + (withDecimals
+            return '€' + (withDecimals
                 ? amount.toFixed(2).replace('.', ',')
                 : amount.toString());
         }
 
-        var total = PRICE_CLUB + (bumpOn ? PRICE_BUMP : 0);
+        var subtotal = plan.mainPrice + (bumpOn ? BUMP_PRICE : 0);
+        var total    = Math.max(0, subtotal - (discountOn ? DISCOUNT_AMOUNT : 0));
 
-        summaryRow.style.display = bumpOn ? 'flex' : 'none';
-        totalEl.textContent      = format(total, true);
-        btnAmount.textContent    = format(total, false);
+        mainLabelEl.textContent   = plan.mainLabel;
+        mainValueEl.textContent   = format(plan.mainPrice, true);
+        bumpRow.style.display     = bumpOn ? 'flex' : 'none';
+        discountRow.style.display = discountOn ? 'flex' : 'none';
+        totalEl.textContent       = format(total, true);
+        btnAmount.textContent     = format(total, false);
 
         if (editLink) {
-            editLink.href = 'club-checkout.html';
+            editLink.href = plan.editHref;
+        }
         }
 
         // ====== Mock di formattazione carta (UX). Sar\u00e0 sostituito dal Stripe Element. ======
@@ -697,7 +738,9 @@
             e.preventDefault();
             var firstName = document.getElementById('firstName').value || '';
             var qs = new URLSearchParams();
+            qs.set('plan', planKey);
             qs.set('bump', bumpOn ? '1' : '0');
+            if (discountOn) qs.set('discount', '1');
             if (firstName) qs.set('nome', firstName.trim());
             window.location.href = 'club-grazie.html?' + qs.toString();
         });
