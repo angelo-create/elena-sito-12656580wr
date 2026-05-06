@@ -674,8 +674,10 @@
             'pubblico':             { mainLabel: 'Club delle Inarrestabili',           mainPrice: 167, allowBump: false, editHref: 'club-checkout-pubblico.html' },
             'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',            mainPrice: 157, allowBump: false, editHref: 'evento-checkout-pubblico.html' }
         };
-        var BUMP_PRICE      = 127;
-        var DISCOUNT_AMOUNT = 20;
+        // Bundle: Club 147 + Evento 127 = 274 -> 247 (sconto 10% arrotondato, -27€)
+        var BUNDLE_PRICE_CLUB   = 147;
+        var BUNDLE_PRICE_EVENTO = 127;
+        var BUNDLE_DISCOUNT     = (BUNDLE_PRICE_CLUB + BUNDLE_PRICE_EVENTO) - 247; // 27
 
         var params      = new URLSearchParams(window.location.search);
         var planKey = (params.get('plan') || '').toLowerCase();
@@ -688,13 +690,14 @@
         if (!planKey || !PLANS[planKey]) planKey = 'partecipanti-bundle';
         var plan = PLANS[planKey];
 
-        var bumpOn = false;
-        var discountOn = false;
-
         var mainLabelEl = document.getElementById('summaryMainLabel');
         var mainValueEl = document.getElementById('summaryMainValue');
         var bumpRow     = document.getElementById('summaryBumpRow');
+        var bumpLabelEl = bumpRow.querySelector('.ck-summary-label');
+        var bumpValueEl = bumpRow.querySelector('.ck-summary-value');
         var discountRow = document.getElementById('summaryDiscountRow');
+        var discountLabelEl = discountRow.querySelector('.ck-summary-label');
+        var discountValueEl = discountRow.querySelector('.ck-summary-value');
         var totalEl     = document.getElementById('summaryTotal');
         var btnAmount   = document.getElementById('payBtnAmount');
         var editLink    = document.querySelector('.ck-edit-link');
@@ -705,19 +708,33 @@
                 : amount.toString());
         }
 
-        var subtotal = plan.mainPrice + (bumpOn ? BUMP_PRICE : 0);
-        var total    = Math.max(0, subtotal - (discountOn ? DISCOUNT_AMOUNT : 0));
+        if (planKey === 'partecipanti-bundle') {
+            // Riepilogo trasparente: Club + Evento - sconto bundle = 247
+            mainLabelEl.textContent = 'Club delle Inarrestabili';
+            mainValueEl.textContent = format(BUNDLE_PRICE_CLUB, true);
 
-        mainLabelEl.textContent   = plan.mainLabel;
-        mainValueEl.textContent   = format(plan.mainPrice, true);
-        bumpRow.style.display     = bumpOn ? 'flex' : 'none';
-        discountRow.style.display = discountOn ? 'flex' : 'none';
-        totalEl.textContent       = format(total, true);
-        btnAmount.textContent     = format(total, false);
+            bumpLabelEl.textContent = '+ Nel Corpo Che Vuoi Live';
+            bumpValueEl.textContent = format(BUNDLE_PRICE_EVENTO, true);
+            bumpRow.style.display   = 'flex';
+
+            discountLabelEl.textContent = 'Sconto bundle 10%';
+            discountValueEl.innerHTML   = '−' + format(BUNDLE_DISCOUNT, true);
+            discountRow.style.display   = 'flex';
+
+            totalEl.textContent   = format(247, true);
+            btnAmount.textContent = format(247, false);
+        } else {
+            // Single plan: una sola riga
+            mainLabelEl.textContent = plan.mainLabel;
+            mainValueEl.textContent = format(plan.mainPrice, true);
+            bumpRow.style.display     = 'none';
+            discountRow.style.display = 'none';
+            totalEl.textContent   = format(plan.mainPrice, true);
+            btnAmount.textContent = format(plan.mainPrice, false);
+        }
 
         if (editLink) {
             editLink.href = plan.editHref;
-        }
         }
 
         // ====== Mock di formattazione carta (UX). Sar\u00e0 sostituito dal Stripe Element. ======
@@ -750,6 +767,10 @@
         //    -> redirect alla hosted page Stripe; il webhook server poi sincronizza GHL.
         // 2. Fallback su /api/club-checkout (modalita' pre-Stripe: solo CRM upsert + redirect grazie)
         //    -> utile durante test del team prima che Stripe sia attivo.
+        // 3. Se anche il CRM fallisce (env GHL mancante), redirige comunque a club-grazie
+        //    cosi' il flusso e' percorribile in modalita' test.
+        var bumpOn = (planKey === 'partecipanti-bundle');
+
         var form = document.getElementById('payForm');
         var payBtn = document.getElementById('payBtn');
         var payBtnDefault = payBtn ? payBtn.innerHTML : '';
@@ -774,6 +795,14 @@
             return p;
         }
 
+        function goToThankYou(firstName) {
+            var qs = new URLSearchParams();
+            qs.set('plan', planKey);
+            qs.set('bump', bumpOn ? '1' : '0');
+            if (firstName) qs.set('nome', firstName);
+            window.location.href = 'club-grazie.html?' + qs.toString();
+        }
+
         function fallbackToCrm(payload, firstName) {
             return fetch('/api/club-checkout', {
                 method: 'POST',
@@ -783,13 +812,12 @@
                 return r.json().then(function (data) { return { ok: r.ok, data: data }; });
             }).then(function (res) {
                 if (!res.ok || !res.data || res.data.error) {
-                    throw new Error((res.data && res.data.error) || 'Errore generico');
+                    console.warn('[club-pagamento] CRM upsert fallito, vado comunque al thank you:', res.data);
                 }
-                var qs = new URLSearchParams();
-                qs.set('plan', planKey);
-                qs.set('bump', bumpOn ? '1' : '0');
-                if (firstName) qs.set('nome', firstName);
-                window.location.href = 'club-grazie.html?' + qs.toString();
+                goToThankYou(firstName);
+            }).catch(function (err) {
+                console.warn('[club-pagamento] CRM rete fallita, vado comunque al thank you:', err.message);
+                goToThankYou(firstName);
             });
         }
 
@@ -823,10 +851,7 @@
             }).catch(function (err) {
                 // errore di rete su /api/club-stripe-session -> ritento via /api/club-checkout
                 console.warn('[club-pagamento] Stripe session fallita, fallback CRM:', err.message);
-                return fallbackToCrm(payload, payload.firstName).catch(function (err2) {
-                    alert(err2.message || 'Errore di rete. Riprova tra qualche istante.');
-                    if (payBtn) { payBtn.disabled = false; payBtn.innerHTML = payBtnDefault; }
-                });
+                return fallbackToCrm(payload, payload.firstName);
             });
         });
     })();
