@@ -28,7 +28,8 @@ const PLAN_TAGS = {
   'partecipanti-evento':  ['evento-ncv-2026', 'acquisto-partecipante'],
   'partecipanti-bundle':  ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-partecipante', 'acquisto-bundle'],
   'pubblico':             ['club-membro-attivo', 'acquisto-pubblico'],
-  'evento-pubblico':      ['evento-ncv-2026', 'acquisto-pubblico']
+  'evento-pubblico':      ['evento-ncv-2026', 'acquisto-pubblico'],
+  'pubblico-bundle':      ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-pubblico', 'acquisto-bundle']
 };
 
 const PLAN_SOURCES = {
@@ -36,7 +37,8 @@ const PLAN_SOURCES = {
   'partecipanti-evento':  'stripe-club-partecipanti-evento',
   'partecipanti-bundle':  'stripe-club-partecipanti-bundle',
   'pubblico':             'stripe-club-pubblico',
-  'evento-pubblico':      'stripe-evento-pubblico'
+  'evento-pubblico':      'stripe-evento-pubblico',
+  'pubblico-bundle':      'stripe-club-pubblico-bundle'
 };
 
 async function ghlUpsertContact({ apiKey, locationId, email, firstName, lastName, phone, source, customFields, attributionSource }) {

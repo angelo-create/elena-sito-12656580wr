@@ -837,6 +837,56 @@
             .ck-offer-timer { font-size: 0.78rem; padding: 0.6rem 0.75rem; }
             .ck-offer-timer-time { display: block; margin: 0.2rem 0 0; font-size: 0.95rem; }
         }
+
+        /* ===== COUPON ===== */
+        .ck-coupon {
+            margin: 1rem 0 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border);
+        }
+        .ck-coupon-toggle {
+            background: none; border: none; padding: 0;
+            color: var(--text-muted);
+            font-family: inherit; font-size: 0.78rem; font-weight: 500;
+            cursor: pointer; text-decoration: underline; text-underline-offset: 0.2rem;
+            transition: color 0.15s;
+        }
+        .ck-coupon-toggle:hover, .ck-coupon-toggle[aria-expanded="true"] { color: var(--pink); }
+        .ck-coupon-form { margin-top: 0.7rem; }
+        .ck-coupon-row { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; }
+        .ck-coupon-input {
+            padding: 0.7rem 0.85rem; background: var(--white);
+            border: 1.5px solid var(--border); border-radius: 0.5rem;
+            color: var(--text-strong); font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            outline: none; text-transform: uppercase; letter-spacing: 0.05em;
+            transition: all 0.15s;
+        }
+        .ck-coupon-input::placeholder { color: var(--text-muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+        .ck-coupon-input:focus { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.10); }
+        .ck-coupon-input:disabled { background: var(--success-soft); border-color: var(--success); color: var(--success); }
+        .ck-coupon-btn {
+            padding: 0.7rem 1.15rem; background: var(--text-strong); color: var(--white);
+            border: none; border-radius: 0.5rem;
+            font-family: 'Poppins', sans-serif; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.07em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.15s; white-space: nowrap;
+        }
+        .ck-coupon-btn:hover { background: var(--pink); }
+        .ck-coupon-btn.applied { background: var(--success); }
+        .ck-coupon-msg { margin-top: 0.55rem; font-size: 0.74rem; font-weight: 500; min-height: 1rem; }
+        .ck-coupon-msg.success { color: var(--success); }
+        .ck-coupon-msg.error { color: #C62828; }
+        .ck-summary-row.coupon-discount .ck-summary-label,
+        .ck-summary-row.coupon-discount .ck-summary-value {
+            color: var(--success); font-weight: 600;
+        }
+        .ck-summary-row.coupon-discount .ck-summary-label strong {
+            display: inline-block; padding: 0.1rem 0.4rem;
+            background: var(--success-soft); border-radius: 0.2rem;
+            font-size: 0.65rem; font-weight: 800; letter-spacing: 0.05em;
+            margin-left: 0.3rem; text-transform: uppercase;
+        }
 </style>
 </head>
 <body>
@@ -898,9 +948,9 @@
                             La community privata di Elena per donne over 35 che hanno smesso di credere alle diete miracolose. Dentro trovi storie vere, metodo, e una corsia preferenziale su tutti gli eventi dal vivo.
                         </p>
                         <div class="ck-product-price-inline">
-                            <span class="ck-price-now">&euro;167</span>
+                            <span class="ck-price-now" id="priceNow">&euro;167</span>
                             <span class="ck-price-old">&euro;367</span>
-                            <span class="ck-price-tag">Risparmi &euro;200</span>
+                            <span class="ck-price-tag" id="priceSaved">Risparmi &euro;200</span>
                         </div>
                     </div>
                 </div>
@@ -948,7 +998,11 @@
 
                 <div class="ck-summary-row">
                     <span class="ck-summary-label">Club delle Inarrestabili</span>
-                    <span class="ck-summary-value">&euro;167,00</span>
+                    <span class="ck-summary-value" id="summaryClubValue">&euro;167,00</span>
+                </div>
+                <div class="ck-summary-row coupon-discount" id="summaryCouponRow" style="display:none;">
+                    <span class="ck-summary-label">Codice <strong>EVENTO26</strong></span>
+                    <span class="ck-summary-value" id="summaryCouponValue">&minus;&euro;20,00</span>
                 </div>
 
                 <hr class="ck-summary-divider">
@@ -959,7 +1013,21 @@
                 </div>
                 <div class="ck-summary-saved" id="summarySaved" style="display:none"></div>
 
-                <a href="club-pagamento.html?bump=1" class="ck-checkout-btn" id="checkoutBtn">
+                <!-- Codice sconto -->
+                <div class="ck-coupon">
+                    <button type="button" class="ck-coupon-toggle" id="couponToggle" aria-expanded="false">
+                        Hai un codice sconto?
+                    </button>
+                    <div class="ck-coupon-form" id="couponForm" style="display:none;">
+                        <div class="ck-coupon-row">
+                            <input type="text" id="couponInput" class="ck-coupon-input" placeholder="Inserisci codice" autocomplete="off" autocapitalize="characters">
+                            <button type="button" id="couponBtn" class="ck-coupon-btn">Applica</button>
+                        </div>
+                        <div class="ck-coupon-msg" id="couponMsg"></div>
+                    </div>
+                </div>
+
+                <a href="club-pagamento.html?plan=pubblico" class="ck-checkout-btn" id="checkoutBtn">
                     Completa ordine &rarr;
                 </a>
                 <div class="ck-checkout-microcopy">Pagamento sicuro tramite Stripe</div>
@@ -1045,30 +1113,111 @@
             setInterval(tickCountdown, 1000);
         }
 
-        var PRICE_CLUB      = 167;
-        var OLD_CLUB        = 367;
-        var SAVED_BASE      = 200;
+        var PRICING = {
+            'pubblico':     { price: 167, saved: 200, plan: 'pubblico' },
+            'partecipanti': { price: 147, saved: 220, plan: 'partecipanti-club' }
+        };
+        var COUPON_VALID = 'EVENTO26';
+        var couponApplied = false;
 
-        var totalEl      = document.getElementById('summaryTotal');
-        var savedEl      = document.getElementById('summarySaved');
-        var checkoutBtn  = document.getElementById('checkoutBtn');
+        var priceNow      = document.getElementById('priceNow');
+        var priceSaved    = document.getElementById('priceSaved');
+        var clubValueEl   = document.getElementById('summaryClubValue');
+        var couponRow     = document.getElementById('summaryCouponRow');
+        var couponValue   = document.getElementById('summaryCouponValue');
+        var totalEl       = document.getElementById('summaryTotal');
+        var savedEl       = document.getElementById('summarySaved');
+        var checkoutBtn   = document.getElementById('checkoutBtn');
+        var couponToggle  = document.getElementById('couponToggle');
+        var couponForm    = document.getElementById('couponForm');
+        var couponInput   = document.getElementById('couponInput');
+        var couponBtn     = document.getElementById('couponBtn');
+        var couponMsg     = document.getElementById('couponMsg');
 
         function format(amount) {
             return '\u20AC' + amount.toFixed(2).replace('.', ',');
         }
 
         function recalc() {
-        var subtotal   = PRICE_CLUB;
-        var total      = subtotal;
-        var totalSaved = SAVED_BASE;
+            var tier = couponApplied ? 'partecipanti' : 'pubblico';
+            var P = PRICING[tier];
+
+            priceNow.textContent    = '€' + P.price;
+            priceSaved.textContent  = 'Risparmi €' + P.saved;
+            clubValueEl.textContent = format(P.price);
+
+            if (couponApplied) {
+                couponRow.style.display = 'flex';
+                couponValue.innerHTML   = '−' + format(PRICING.pubblico.price - P.price);
+            } else {
+                couponRow.style.display = 'none';
+            }
+
+            var total      = P.price;
+            var totalSaved = P.saved;
 
             totalEl.textContent       = format(total);
             savedEl.textContent       = totalSaved > 0 ? 'Hai risparmiato \u20AC' + totalSaved : '';
             savedEl.style.display     = totalSaved > 0 ? 'block' : 'none';
 
-        checkoutBtn.href = "club-pagamento.html?plan=pubblico";
+        checkoutBtn.href = 'club-pagamento.html?plan=' + P.plan;
         }
 
+        couponToggle.addEventListener('click', function () {
+            var open = couponForm.style.display !== 'none';
+            couponForm.style.display = open ? 'none' : 'block';
+            couponToggle.setAttribute('aria-expanded', String(!open));
+            if (!open) couponInput.focus();
+        });
+
+        function applyCoupon() {
+            var code = (couponInput.value || '').trim().toUpperCase();
+            if (!code) {
+                couponMsg.textContent = 'Inserisci un codice.';
+                couponMsg.className = 'ck-coupon-msg error';
+                return;
+            }
+            if (code !== COUPON_VALID) {
+                couponMsg.textContent = 'Codice non valido.';
+                couponMsg.className = 'ck-coupon-msg error';
+                return;
+            }
+            couponApplied = true;
+            couponInput.value = COUPON_VALID;
+            couponInput.disabled = true;
+            couponBtn.textContent = 'Rimuovi';
+            couponBtn.classList.add('applied');
+            couponMsg.textContent = '✓ Codice EVENTO26 applicato: prezzo riservato ai partecipanti';
+            couponMsg.className = 'ck-coupon-msg success';
+            recalc();
+        }
+
+        function removeCoupon() {
+            couponApplied = false;
+            couponInput.value = '';
+            couponInput.disabled = false;
+            couponBtn.textContent = 'Applica';
+            couponBtn.classList.remove('applied');
+            couponMsg.textContent = '';
+            couponMsg.className = 'ck-coupon-msg';
+            recalc();
+        }
+
+        couponBtn.addEventListener('click', function () {
+            if (couponApplied) removeCoupon();
+            else applyCoupon();
+        });
+        couponInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }
+        });
+
+        var urlCoupon = new URLSearchParams(window.location.search).get('coupon');
+        if (urlCoupon && urlCoupon.toUpperCase() === COUPON_VALID) {
+            couponForm.style.display = 'block';
+            couponToggle.setAttribute('aria-expanded', 'true');
+            couponInput.value = COUPON_VALID;
+            applyCoupon();
+        }
 
         recalc();
     })();

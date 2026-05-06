@@ -13,16 +13,18 @@
 //   utm_*, fbclid, gclid, msclkid, referrer, landing_url (opzionali, attribution)
 
 const PLAN_TAGS = {
-  // Partecipanti, solo Club a 147€
+  // Partecipanti (con codice EVENTO26), solo Club a 147€
   'partecipanti-club':    ['club-membro-attivo', 'acquisto-partecipante'],
-  // Partecipanti, solo Evento a 127€
+  // Partecipanti (con codice EVENTO26), solo Evento a 127€
   'partecipanti-evento':  ['evento-ncv-2026', 'acquisto-partecipante'],
-  // Partecipanti, bundle Club + Evento a 247€ (sconto 10%)
+  // Partecipanti (con codice EVENTO26), bundle Club + Evento a 247€
   'partecipanti-bundle':  ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-partecipante', 'acquisto-bundle'],
-  // Pubblico Club, solo Club a 167€
+  // Pubblico, solo Club a 167€
   'pubblico':             ['club-membro-attivo', 'acquisto-pubblico'],
-  // Pubblico Evento, solo Evento a 157€
-  'evento-pubblico':      ['evento-ncv-2026', 'acquisto-pubblico']
+  // Pubblico, solo Evento a 157€
+  'evento-pubblico':      ['evento-ncv-2026', 'acquisto-pubblico'],
+  // Pubblico, bundle Club + Evento a 294€
+  'pubblico-bundle':      ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-pubblico', 'acquisto-bundle']
 };
 
 const PLAN_SOURCES = {
@@ -30,7 +32,8 @@ const PLAN_SOURCES = {
   'partecipanti-evento':  'club-checkout-partecipanti-evento',
   'partecipanti-bundle':  'club-checkout-partecipanti-bundle',
   'pubblico':             'club-checkout-pubblico',
-  'evento-pubblico':      'evento-checkout-pubblico'
+  'evento-pubblico':      'evento-checkout-pubblico',
+  'pubblico-bundle':      'club-checkout-pubblico-bundle'
 };
 
 module.exports = async function handler(req, res) {

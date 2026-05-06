@@ -1,39 +1,43 @@
-// /api/club-stripe-session — crea una Stripe Checkout Session per i 3 carrelli.
+// /api/club-stripe-session — crea una Stripe Checkout Session per i carrelli.
 //
 // Body atteso:
 //   firstName, lastName, email, phone (obbligatori)
-//   plan: 'partecipanti' | 'pubblico' | 'evento-pubblico'
-//   bump: 1|0|true|false (rilevante solo per plan=partecipanti)
+//   plan: 'partecipanti-club' | 'partecipanti-evento' | 'partecipanti-bundle'
+//       | 'pubblico' | 'evento-pubblico' | 'pubblico-bundle'
 //   utm_*, fbclid, gclid, msclkid, referrer, landing_url (opzionali)
 //
 // Ritorna: { url } -> il client fa window.location = url
 //
-// Env richieste (5 Prices Stripe):
+// Env richieste:
 //   STRIPE_SECRET_KEY
-//   STRIPE_PRICE_PARTECIPANTI_CLUB     (Club partecipante a 147€)
-//   STRIPE_PRICE_PARTECIPANTI_EVENTO   (Evento partecipante a 127€)
-//   STRIPE_PRICE_PARTECIPANTI_BUNDLE   (Bundle Club+Evento a 247€)
-//   STRIPE_PRICE_PUBBLICO_CLUB         (Club pubblico a 167€)
-//   STRIPE_PRICE_PUBBLICO_EVENTO       (Evento pubblico a 157€)
 //   SITE_URL (default: https://go.elenagiordani.com)
+//
+// I prezzi sono inline via price_data (no Stripe Prices da creare): cambiare
+// PLAN_PRICES qui per modificare gli importi. Il backend e' source of truth.
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+// Prezzi in centesimi EUR. Backend = source of truth (no manomissione lato client).
+const PLAN_PRICES = {
+  'partecipanti-club':    { amount: 14700, name: 'Club delle Inarrestabili (partecipante)' },
+  'partecipanti-evento':  { amount: 12700, name: 'Nel Corpo Che Vuoi Live (partecipante)' },
+  'partecipanti-bundle':  { amount: 24700, name: 'Club + Evento (bundle partecipante)' },
+  'pubblico':             { amount: 16700, name: 'Club delle Inarrestabili' },
+  'evento-pubblico':      { amount: 15700, name: 'Nel Corpo Che Vuoi Live' },
+  'pubblico-bundle':      { amount: 29400, name: 'Club + Evento (bundle)' }
+};
+
 function buildLineItems(planKey) {
-  switch (planKey) {
-    case 'partecipanti-bundle':
-      return [{ price: process.env.STRIPE_PRICE_PARTECIPANTI_BUNDLE, quantity: 1 }];
-    case 'partecipanti-club':
-      return [{ price: process.env.STRIPE_PRICE_PARTECIPANTI_CLUB,   quantity: 1 }];
-    case 'partecipanti-evento':
-      return [{ price: process.env.STRIPE_PRICE_PARTECIPANTI_EVENTO, quantity: 1 }];
-    case 'pubblico':
-      return [{ price: process.env.STRIPE_PRICE_PUBBLICO_CLUB,       quantity: 1 }];
-    case 'evento-pubblico':
-      return [{ price: process.env.STRIPE_PRICE_PUBBLICO_EVENTO,     quantity: 1 }];
-    default:
-      return null;
-  }
+  const p = PLAN_PRICES[planKey];
+  if (!p) return null;
+  return [{
+    price_data: {
+      currency: 'eur',
+      product_data: { name: p.name },
+      unit_amount: p.amount
+    },
+    quantity: 1
+  }];
 }
 
 module.exports = async function handler(req, res) {
@@ -72,21 +76,20 @@ module.exports = async function handler(req, res) {
     }
 
     const planRaw = String(body.plan || '').toLowerCase();
-    const VALID_PLANS = ['partecipanti-club', 'partecipanti-evento', 'partecipanti-bundle', 'pubblico', 'evento-pubblico'];
     let planKey;
-    if (VALID_PLANS.indexOf(planRaw) !== -1) {
+    if (PLAN_PRICES[planRaw]) {
       planKey = planRaw;
     } else if (planRaw === 'partecipanti') {
       const bumpOn = body.bump === 1 || body.bump === '1' || body.bump === true || body.bump === 'true';
       planKey = bumpOn ? 'partecipanti-bundle' : 'partecipanti-club';
     } else {
-      planKey = 'partecipanti-bundle';
+      planKey = 'pubblico-bundle';
     }
 
     const lineItems = buildLineItems(planKey);
-    if (!lineItems || lineItems.some(li => !li.price)) {
-      console.error('[club-stripe-session] Missing STRIPE_PRICE_* for plan', planKey);
-      return res.status(500).json({ error: 'Configurazione prezzi non disponibile.' });
+    if (!lineItems) {
+      console.error('[club-stripe-session] Plan non valido', planKey);
+      return res.status(500).json({ error: 'Plan non valido.' });
     }
 
     const SITE_URL = process.env.SITE_URL || 'https://go.elenagiordani.com';

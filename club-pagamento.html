@@ -668,16 +668,13 @@
         //   'pubblico'                  -> solo Club a 167 (club-checkout-pubblico.html)
         //   'evento-pubblico'           -> solo Evento a 157 (evento-checkout-pubblico.html)
         var PLANS = {
-            'partecipanti-club':    { mainLabel: 'Club delle Inarrestabili',           mainPrice: 147, allowBump: false, editHref: 'club-checkout.html' },
-            'partecipanti-evento':  { mainLabel: 'Nel Corpo Che Vuoi Live',            mainPrice: 127, allowBump: false, editHref: 'club-checkout.html' },
-            'partecipanti-bundle':  { mainLabel: 'Club + Evento (bundle Inarrestabili)', mainPrice: 247, allowBump: false, editHref: 'club-checkout.html' },
-            'pubblico':             { mainLabel: 'Club delle Inarrestabili',           mainPrice: 167, allowBump: false, editHref: 'club-checkout-pubblico.html' },
-            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',            mainPrice: 157, allowBump: false, editHref: 'evento-checkout-pubblico.html' }
+            'partecipanti-club':    { mainLabel: 'Club delle Inarrestabili',           mainPrice: 147, isBundle: false, editHref: 'club-checkout.html' },
+            'partecipanti-evento':  { mainLabel: 'Nel Corpo Che Vuoi Live',            mainPrice: 127, isBundle: false, editHref: 'club-checkout.html' },
+            'partecipanti-bundle':  { mainLabel: 'Club + Evento (bundle partecipanti)', mainPrice: 247, isBundle: true, bundleClub: 147, bundleEvento: 127, editHref: 'club-checkout.html' },
+            'pubblico':             { mainLabel: 'Club delle Inarrestabili',           mainPrice: 167, isBundle: false, editHref: 'club-checkout-pubblico.html' },
+            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',            mainPrice: 157, isBundle: false, editHref: 'evento-checkout-pubblico.html' },
+            'pubblico-bundle':      { mainLabel: 'Club + Evento (bundle)',             mainPrice: 294, isBundle: true, bundleClub: 167, bundleEvento: 157, editHref: 'club-checkout.html' }
         };
-        // Bundle: Club 147 + Evento 127 = 274 -> 247 (sconto 10% arrotondato, -27€)
-        var BUNDLE_PRICE_CLUB   = 147;
-        var BUNDLE_PRICE_EVENTO = 127;
-        var BUNDLE_DISCOUNT     = (BUNDLE_PRICE_CLUB + BUNDLE_PRICE_EVENTO) - 247; // 27
 
         var params      = new URLSearchParams(window.location.search);
         var planKey = (params.get('plan') || '').toLowerCase();
@@ -708,21 +705,22 @@
                 : amount.toString());
         }
 
-        if (planKey === 'partecipanti-bundle') {
-            // Riepilogo trasparente: Club + Evento - sconto bundle = 247
+        if (plan.isBundle) {
+            // Riepilogo trasparente: Club + Evento - sconto bundle = mainPrice
+            var bundleDiscount = (plan.bundleClub + plan.bundleEvento) - plan.mainPrice;
             mainLabelEl.textContent = 'Club delle Inarrestabili';
-            mainValueEl.textContent = format(BUNDLE_PRICE_CLUB, true);
+            mainValueEl.textContent = format(plan.bundleClub, true);
 
             bumpLabelEl.textContent = '+ Nel Corpo Che Vuoi Live';
-            bumpValueEl.textContent = format(BUNDLE_PRICE_EVENTO, true);
+            bumpValueEl.textContent = format(plan.bundleEvento, true);
             bumpRow.style.display   = 'flex';
 
             discountLabelEl.textContent = 'Sconto bundle 10%';
-            discountValueEl.innerHTML   = '−' + format(BUNDLE_DISCOUNT, true);
+            discountValueEl.innerHTML   = '−' + format(bundleDiscount, true);
             discountRow.style.display   = 'flex';
 
-            totalEl.textContent   = format(247, true);
-            btnAmount.textContent = format(247, false);
+            totalEl.textContent   = format(plan.mainPrice, true);
+            btnAmount.textContent = format(plan.mainPrice, false);
         } else {
             // Single plan: una sola riga
             mainLabelEl.textContent = plan.mainLabel;

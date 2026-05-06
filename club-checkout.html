@@ -1182,6 +1182,106 @@
             .ck-footer-links { gap: 0.85rem; flex-wrap: wrap; justify-content: center; }
             .ck-footer-links a { font-size: 0.7rem; }
         }
+
+        /* ===== COUPON ===== */
+        .ck-pkg-coupon {
+            margin: 1rem 0 0.85rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border);
+        }
+        .ck-pkg-coupon-toggle {
+            background: none;
+            border: none;
+            padding: 0;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 0.2rem;
+            transition: color 0.15s;
+        }
+        .ck-pkg-coupon-toggle:hover { color: var(--pink); }
+        .ck-pkg-coupon-toggle[aria-expanded="true"] { color: var(--pink); }
+        .ck-pkg-coupon-form { margin-top: 0.75rem; }
+        .ck-pkg-coupon-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.5rem;
+        }
+        .ck-pkg-coupon-input {
+            padding: 0.7rem 0.85rem;
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text-strong);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            outline: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.15s;
+        }
+        .ck-pkg-coupon-input::placeholder {
+            color: var(--text-muted);
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .ck-pkg-coupon-input:focus {
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.10);
+        }
+        .ck-pkg-coupon-input:disabled {
+            background: var(--success-soft);
+            border-color: var(--success);
+            color: var(--success);
+        }
+        .ck-pkg-coupon-btn {
+            padding: 0.7rem 1.15rem;
+            background: var(--text-strong);
+            color: var(--white);
+            border: none;
+            border-radius: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .ck-pkg-coupon-btn:hover { background: var(--pink); }
+        .ck-pkg-coupon-btn.applied { background: var(--success); }
+        .ck-pkg-coupon-msg {
+            margin-top: 0.55rem;
+            font-size: 0.74rem;
+            font-weight: 500;
+            min-height: 1rem;
+        }
+        .ck-pkg-coupon-msg.success { color: var(--success); }
+        .ck-pkg-coupon-msg.error   { color: #C62828; }
+
+        /* Coupon row in summary */
+        .ck-pkg-summary-row.coupon-discount .label,
+        .ck-pkg-summary-row.coupon-discount .value {
+            color: var(--success);
+            font-weight: 600;
+        }
+        .ck-pkg-summary-row.coupon-discount .label strong {
+            display: inline-block;
+            padding: 0.1rem 0.4rem;
+            background: var(--success-soft);
+            border-radius: 0.2rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            margin-left: 0.3rem;
+            text-transform: uppercase;
+        }
 </style>
 </head>
 <body>
@@ -1232,9 +1332,9 @@
                 14 giorni consecutivi di sessioni live con Elena (25 maggio: 7 giugno) per riconnetterti con te stessa, ritrovare energia e tornare protagonista delle tue giornate.
             </p>
             <div class="ck-pkg-price">
-                <span class="now">&euro;147</span>
+                <span class="now" id="priceClubNow">&euro;167</span>
                 <span class="old">&euro;367</span>
-                <span class="saved">Risparmi &euro;220</span>
+                <span class="saved" id="priceClubSaved">Risparmi &euro;200</span>
             </div>
             <div class="ck-pkg-features">
                 <div class="ck-pkg-feature"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>14 giorni consecutivi di sessioni live (5:30&ndash;6:00 Lun-Ven, 6:30&ndash;7:00 Sab-Dom)</div>
@@ -1261,9 +1361,9 @@
                 2 giorni dal vivo a Roma con Elena per riaccendere la donna che sei: sabato allo Shangri-La, domenica corri la Rome 15K insieme alle altre Inarrestabili.
             </p>
             <div class="ck-pkg-price">
-                <span class="now">&euro;127</span>
+                <span class="now" id="priceEventoNow">&euro;157</span>
                 <span class="old">&euro;347</span>
-                <span class="saved">Risparmi &euro;220</span>
+                <span class="saved" id="priceEventoSaved">Risparmi &euro;190</span>
             </div>
             <div class="ck-pkg-features">
                 <div class="ck-pkg-feature"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>2 giorni dal vivo a Roma con Elena (sabato 7 e domenica 8 novembre 2026)</div>
@@ -1283,27 +1383,45 @@
 
             <div class="ck-pkg-summary-row" id="sumRowClub">
                 <span class="label">Club delle Inarrestabili</span>
-                <span class="value">&euro;147,00</span>
+                <span class="value" id="sumValueClub">&euro;167,00</span>
             </div>
             <div class="ck-pkg-summary-row" id="sumRowEvento">
                 <span class="label">Nel Corpo Che Vuoi Live</span>
-                <span class="value">&euro;127,00</span>
+                <span class="value" id="sumValueEvento">&euro;157,00</span>
             </div>
             <div class="ck-pkg-summary-row bundle-savings" id="sumRowBundle">
                 <span class="label">Insieme costano meno</span>
-                <span class="value" id="sumBundleValue">&minus;&euro;27,00</span>
+                <span class="value" id="sumBundleValue">&minus;&euro;30,00</span>
+            </div>
+            <div class="ck-pkg-summary-row coupon-discount" id="sumRowCoupon" style="display:none;">
+                <span class="label">Codice <strong>EVENTO26</strong></span>
+                <span class="value" id="sumCouponValue">&minus;&euro;0,00</span>
             </div>
 
             <hr class="ck-pkg-summary-divider">
 
             <div class="ck-pkg-summary-total">
                 <span class="label">Totale</span>
-                <span class="value" id="sumTotal">&euro;247,00</span>
+                <span class="value" id="sumTotal">&euro;294,00</span>
             </div>
 
             <p class="ck-pkg-empty-msg" id="emptyMsg" style="display:none;">
                 Seleziona almeno uno dei due pacchetti per proseguire.
             </p>
+
+            <!-- Codice sconto (per chi era al webinar) -->
+            <div class="ck-pkg-coupon" id="couponBox">
+                <button type="button" class="ck-pkg-coupon-toggle" id="couponToggle" aria-expanded="false">
+                    Hai un codice sconto?
+                </button>
+                <div class="ck-pkg-coupon-form" id="couponForm" style="display:none;">
+                    <div class="ck-pkg-coupon-row">
+                        <input type="text" id="couponInput" class="ck-pkg-coupon-input" placeholder="Inserisci codice" autocomplete="off" autocapitalize="characters">
+                        <button type="button" id="couponBtn" class="ck-pkg-coupon-btn">Applica</button>
+                    </div>
+                    <div class="ck-pkg-coupon-msg" id="couponMsg"></div>
+                </div>
+            </div>
 
             <a href="#" class="ck-pkg-checkout-btn" id="pkgCheckoutBtn">
                 Continuo con te &rarr;
@@ -1384,27 +1502,62 @@
             setInterval(tickCountdown, 1000);
         }
 
-        var PRICE_CLUB    = 147;
-        var PRICE_EVENTO  = 127;
-        var PRICE_BUNDLE  = 247;
-        var BUNDLE_SAVED  = (PRICE_CLUB + PRICE_EVENTO) - PRICE_BUNDLE; // 27
+        // Prezzi pubblico (default) e prezzi partecipanti (con codice EVENTO26).
+        var PRICING = {
+            'pubblico':     { club: 167, evento: 157, bundle: 294, plan: { club: 'pubblico',         evento: 'evento-pubblico',     bundle: 'pubblico-bundle' } },
+            'partecipanti': { club: 147, evento: 127, bundle: 247, plan: { club: 'partecipanti-club', evento: 'partecipanti-evento', bundle: 'partecipanti-bundle' } }
+        };
+        // Saved tag rispetto al prezzo old (Club: 367, Evento: 347)
+        var SAVED = {
+            'pubblico':     { club: 200, evento: 190 },
+            'partecipanti': { club: 220, evento: 220 }
+        };
+        var COUPON_VALID = 'EVENTO26';
+        var couponApplied = false;
 
         var optClub     = document.getElementById('optClub');
         var optEvento   = document.getElementById('optEvento');
         var cardClub    = document.getElementById('pkgCardClub');
         var cardEvento  = document.getElementById('pkgCardEvento');
-        var sumRowClub  = document.getElementById('sumRowClub');
-        var sumRowEvento= document.getElementById('sumRowEvento');
-        var sumRowBundle= document.getElementById('sumRowBundle');
+        var priceClubNow    = document.getElementById('priceClubNow');
+        var priceClubSaved  = document.getElementById('priceClubSaved');
+        var priceEventoNow  = document.getElementById('priceEventoNow');
+        var priceEventoSaved= document.getElementById('priceEventoSaved');
+        var sumRowClub   = document.getElementById('sumRowClub');
+        var sumRowEvento = document.getElementById('sumRowEvento');
+        var sumRowBundle = document.getElementById('sumRowBundle');
+        var sumValueClub   = document.getElementById('sumValueClub');
+        var sumValueEvento = document.getElementById('sumValueEvento');
+        var sumBundleValue = document.getElementById('sumBundleValue');
+        var sumRowCoupon = document.getElementById('sumRowCoupon');
+        var sumCouponValue = document.getElementById('sumCouponValue');
         var sumTotal    = document.getElementById('sumTotal');
         var emptyMsg    = document.getElementById('emptyMsg');
         var checkoutBtn = document.getElementById('pkgCheckoutBtn');
+        var couponToggle = document.getElementById('couponToggle');
+        var couponForm   = document.getElementById('couponForm');
+        var couponInput  = document.getElementById('couponInput');
+        var couponBtn    = document.getElementById('couponBtn');
+        var couponMsg    = document.getElementById('couponMsg');
 
         function format(amount) {
             return '€' + amount.toFixed(2).replace('.', ',');
         }
 
         function recalc() {
+            var tier = couponApplied ? 'partecipanti' : 'pubblico';
+            var P = PRICING[tier];
+
+            // Aggiorna prezzi nelle 2 card
+            priceClubNow.textContent     = '€' + P.club;
+            priceEventoNow.textContent   = '€' + P.evento;
+            priceClubSaved.textContent   = 'Risparmi €' + SAVED[tier].club;
+            priceEventoSaved.textContent = 'Risparmi €' + SAVED[tier].evento;
+
+            // Aggiorna prezzi nel summary
+            sumValueClub.textContent   = format(P.club);
+            sumValueEvento.textContent = format(P.evento);
+
             var clubOn   = optClub.checked;
             var eventoOn = optEvento.checked;
 
@@ -1415,24 +1568,37 @@
             sumRowEvento.style.display = eventoOn ? 'flex' : 'none';
 
             var planKey = '';
-            var total = 0;
+            var total   = 0;
+            var bundleSaved = (P.club + P.evento) - P.bundle;
 
             if (clubOn && eventoOn) {
-                planKey = 'partecipanti-bundle';
-                total = PRICE_BUNDLE;
+                planKey = P.plan.bundle;
+                total   = P.bundle;
                 sumRowBundle.style.display = 'flex';
+                sumBundleValue.innerHTML   = '−' + format(bundleSaved);
             } else if (clubOn) {
-                planKey = 'partecipanti-club';
-                total = PRICE_CLUB;
+                planKey = P.plan.club;
+                total   = P.club;
                 sumRowBundle.style.display = 'none';
             } else if (eventoOn) {
-                planKey = 'partecipanti-evento';
-                total = PRICE_EVENTO;
+                planKey = P.plan.evento;
+                total   = P.evento;
                 sumRowBundle.style.display = 'none';
             } else {
                 planKey = '';
-                total = 0;
+                total   = 0;
                 sumRowBundle.style.display = 'none';
+            }
+
+            // Riga "codice sconto": visibile solo quando coupon attivo + qualcosa selezionato
+            if (couponApplied && planKey) {
+                var publicPrice  = (clubOn && eventoOn) ? PRICING.pubblico.bundle
+                                 : clubOn ? PRICING.pubblico.club
+                                 : PRICING.pubblico.evento;
+                sumRowCoupon.style.display = 'flex';
+                sumCouponValue.innerHTML   = '−' + format(publicPrice - total);
+            } else {
+                sumRowCoupon.style.display = 'none';
             }
 
             sumTotal.textContent = format(total);
@@ -1453,9 +1619,67 @@
         optClub.addEventListener('change', recalc);
         optEvento.addEventListener('change', recalc);
 
-        // Block label-from-input bubbling so clicking the checkbox doesn't toggle twice
-        // (label#card -> input click). Browsers handle this OK natively but the click on
-        // sub-elements like img/badge sould toggle the checkbox.
+        // Coupon UI
+        couponToggle.addEventListener('click', function () {
+            var open = couponForm.style.display !== 'none';
+            couponForm.style.display = open ? 'none' : 'block';
+            couponToggle.setAttribute('aria-expanded', String(!open));
+            if (!open) couponInput.focus();
+        });
+
+        function applyCoupon() {
+            var code = (couponInput.value || '').trim().toUpperCase();
+            if (!code) {
+                couponMsg.textContent = 'Inserisci un codice.';
+                couponMsg.className = 'ck-pkg-coupon-msg error';
+                return;
+            }
+            if (code !== COUPON_VALID) {
+                couponMsg.textContent = 'Codice non valido.';
+                couponMsg.className = 'ck-pkg-coupon-msg error';
+                return;
+            }
+            couponApplied = true;
+            couponInput.value = COUPON_VALID;
+            couponInput.disabled = true;
+            couponBtn.textContent = 'Rimuovi';
+            couponBtn.classList.add('applied');
+            couponMsg.textContent = '✓ Codice EVENTO26 applicato — prezzi riservati ai partecipanti';
+            couponMsg.className = 'ck-pkg-coupon-msg success';
+            recalc();
+        }
+
+        function removeCoupon() {
+            couponApplied = false;
+            couponInput.value = '';
+            couponInput.disabled = false;
+            couponBtn.textContent = 'Applica';
+            couponBtn.classList.remove('applied');
+            couponMsg.textContent = '';
+            couponMsg.className = 'ck-pkg-coupon-msg';
+            recalc();
+        }
+
+        couponBtn.addEventListener('click', function () {
+            if (couponApplied) removeCoupon();
+            else applyCoupon();
+        });
+        couponInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                applyCoupon();
+            }
+        });
+
+        // Pre-fill da query param ?coupon=EVENTO26
+        var urlCoupon = new URLSearchParams(window.location.search).get('coupon');
+        if (urlCoupon && urlCoupon.toUpperCase() === COUPON_VALID) {
+            couponForm.style.display = 'block';
+            couponToggle.setAttribute('aria-expanded', 'true');
+            couponInput.value = COUPON_VALID;
+            applyCoupon();
+        }
+
         recalc();
     })();
     </script>
