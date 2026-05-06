@@ -113,42 +113,67 @@ module.exports = async function handler(req, res) {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  if (event.type !== 'checkout.session.completed') {
+  // Stripe Elements -> ascoltiamo payment_intent.succeeded.
+  // Lasciamo anche checkout.session.completed per retro-compat con vecchio flow.
+  if (event.type !== 'payment_intent.succeeded' && event.type !== 'checkout.session.completed') {
     return res.status(200).json({ received: true, ignored: event.type });
   }
 
-  const session = event.data.object;
-  const md = session.metadata || {};
-  const planKey = (md.plan && PLAN_TAGS[md.plan]) ? md.plan : 'partecipanti-bundle';
+  const obj = event.data.object;
+  const isPaymentIntent = event.type === 'payment_intent.succeeded';
+  const md = obj.metadata || {};
+  const planKey = (md.plan && PLAN_TAGS[md.plan]) ? md.plan : 'pubblico-bundle';
   const tags = PLAN_TAGS[planKey] || [];
   const source = PLAN_SOURCES[planKey] || 'stripe-checkout';
 
   const apiKey = process.env.GHL_API_KEY || process.env.GHL_PIT_TOKEN;
   const locationId = process.env.GHL_LOCATION_ID;
   if (!apiKey || !locationId) {
-    console.error('[stripe-webhook] GHL credentials missing — payment OK ma contatto non sincronizzato', session.id);
+    console.error('[stripe-webhook] GHL credentials missing — payment OK ma contatto non sincronizzato', obj.id);
     return res.status(500).json({ error: 'GHL not configured' });
   }
 
-  const email = (session.customer_details && session.customer_details.email) || session.customer_email || '';
-  const firstName = md.firstName || (session.customer_details && session.customer_details.name && session.customer_details.name.split(' ')[0]) || '';
-  const lastName  = md.lastName  || (session.customer_details && session.customer_details.name && session.customer_details.name.split(' ').slice(1).join(' ')) || '';
-  const phone = md.phone || (session.customer_details && session.customer_details.phone) || '';
+  // Estrae info contatto:
+  //  - PaymentIntent: receipt_email + metadata + charges[0].billing_details
+  //  - Session:       customer_details + customer_email
+  let email, firstName, lastName, phone, customerId, paymentIntentId, amountCents, currency;
+  if (isPaymentIntent) {
+    const charge = (obj.charges && obj.charges.data && obj.charges.data[0]) || null;
+    const bd = (charge && charge.billing_details) || {};
+    email = obj.receipt_email || bd.email || '';
+    const fullName = bd.name || '';
+    firstName = md.firstName || (fullName ? fullName.split(' ')[0] : '');
+    lastName  = md.lastName  || (fullName ? fullName.split(' ').slice(1).join(' ') : '');
+    phone = md.phone || bd.phone || '';
+    customerId = obj.customer || '';
+    paymentIntentId = obj.id || '';
+    amountCents = obj.amount_received || obj.amount || 0;
+    currency = obj.currency || 'eur';
+  } else {
+    const cd = obj.customer_details || {};
+    email = cd.email || obj.customer_email || '';
+    firstName = md.firstName || (cd.name ? cd.name.split(' ')[0] : '');
+    lastName  = md.lastName  || (cd.name ? cd.name.split(' ').slice(1).join(' ') : '');
+    phone = md.phone || cd.phone || '';
+    customerId = obj.customer || '';
+    paymentIntentId = obj.payment_intent || '';
+    amountCents = obj.amount_total || 0;
+    currency = obj.currency || 'eur';
+  }
 
   if (!email) {
-    console.error('[stripe-webhook] Missing email in session', session.id);
+    console.error('[stripe-webhook] Missing email in event', obj.id);
     return res.status(400).json({ error: 'Missing email' });
   }
 
-  // Custom field GHL: tracciamento pagamento
-  const amountTotal = (session.amount_total || 0) / 100;
+  const amountTotal = amountCents / 100;
   const paidAt = new Date((event.created || 0) * 1000).toISOString();
   const customFields = [
-    { key: 'stripe_session_id',     field_value: session.id || '' },
-    { key: 'stripe_customer_id',    field_value: session.customer || '' },
-    { key: 'stripe_payment_intent', field_value: session.payment_intent || '' },
+    { key: 'stripe_session_id',     field_value: isPaymentIntent ? '' : (obj.id || '') },
+    { key: 'stripe_customer_id',    field_value: customerId },
+    { key: 'stripe_payment_intent', field_value: paymentIntentId },
     { key: 'stripe_amount_eur',     field_value: amountTotal.toFixed(2) },
-    { key: 'stripe_currency',       field_value: (session.currency || 'eur').toUpperCase() },
+    { key: 'stripe_currency',       field_value: currency.toUpperCase() },
     { key: 'stripe_paid_at',        field_value: paidAt },
     { key: 'stripe_plan_key',       field_value: planKey }
   ];
