@@ -810,6 +810,33 @@
             .ck-footer-links { gap: 0.85rem; flex-wrap: wrap; justify-content: center; }
             .ck-footer-links a { font-size: 0.7rem; }
         }
+
+        /* ===== OFFER TIMER ===== */
+        .ck-offer-timer {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: linear-gradient(90deg, var(--pink) 0%, var(--pink-dark) 100%);
+            color: var(--white);
+            padding: 0.7rem 1rem;
+            text-align: center;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            box-shadow: 0 2px 8px rgba(233,30,99,0.18);
+        }
+        .ck-offer-timer-label { opacity: 0.92; }
+        .ck-offer-timer-time {
+            display: inline-block;
+            font-weight: 800;
+            margin-left: 0.4rem;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.02em;
+        }
+        @media (max-width: 600px) {
+            .ck-offer-timer { font-size: 0.78rem; padding: 0.6rem 0.75rem; }
+            .ck-offer-timer-time { display: block; margin: 0.2rem 0 0; font-size: 0.95rem; }
+        }
 </style>
 </head>
 <body>
@@ -822,6 +849,12 @@
             Checkout sicuro SSL
         </div>
     </header>
+
+    <!-- TIMER OFFERTA (10 giorni) -->
+    <div class="ck-offer-timer" id="offerTimer" style="display:none;">
+        <span class="ck-offer-timer-label">Iscrizioni aperte ancora per:</span>
+        <span class="ck-offer-timer-time" id="offerTimerTime">10g 00h 00m 00s</span>
+    </div>
 
     <!-- PROGRESS STEPS -->
     <div class="ck-steps">
@@ -984,6 +1017,34 @@
 
     <script>
     (function () {
+        // Deadline offerta Club pubblico (10 giorni: 12-22 maggio 2026).
+        // Modificare qui se cambia la finestra promozionale.
+        var OFFER_DEADLINE = new Date('2026-05-22T23:59:59+02:00').getTime();
+
+        var offerTimer     = document.getElementById('offerTimer');
+        var offerTimerTime = document.getElementById('offerTimerTime');
+
+        function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+        function tickCountdown() {
+            var diff = OFFER_DEADLINE - Date.now();
+            if (diff <= 0) {
+                if (offerTimer) offerTimer.style.display = 'none';
+                return false;
+            }
+            if (offerTimer) offerTimer.style.display = 'block';
+            var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            var m = Math.floor((diff / (1000 * 60)) % 60);
+            var s = Math.floor((diff / 1000) % 60);
+            if (offerTimerTime) offerTimerTime.textContent = d + 'g ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+            return true;
+        }
+
+        if (tickCountdown()) {
+            setInterval(tickCountdown, 1000);
+        }
+
         var PRICE_CLUB      = 167;
         var OLD_CLUB        = 367;
         var SAVED_BASE      = 200;
