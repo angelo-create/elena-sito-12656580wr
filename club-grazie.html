@@ -183,11 +183,11 @@
 
         /* ===== MAIN ===== */
         .ck-main {
-            max-width: 60rem;
+            max-width: 44rem;
             margin: 0 auto;
             padding: 0 2rem 4rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
@@ -525,8 +525,8 @@
         </div>
         <span class="ck-hero-eyebrow" id="heroEyebrow">Sei dentro</span>
         <h1 class="ck-hero-title" id="heroTitle">Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span></h1>
-        <p class="ck-hero-text" id="heroText">
-            Il tuo posto nel Club &egrave; confermato. Tra pochi minuti riceverai una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.
+        <p class="ck-hero-text">
+            Tra pochi minuti ricevi una mail di conferma. Controlla anche in <strong>spam</strong>.
         </p>
     </section>
 
@@ -572,24 +572,6 @@
             </div>
         </div>
 
-        <!-- COSA SUCCEDE ORA -->
-        <div class="ck-card">
-            <div class="ck-card-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Cosa succede ora
-            </div>
-
-            <div class="ck-steps-list">
-                <div class="ck-next-step">
-                    <div class="ck-next-num">1</div>
-                    <div>
-                        <div class="ck-next-title" id="confirmStepTitle">Ricevi l'email di conferma</div>
-                        <div class="ck-next-desc" id="confirmStepDesc">Tra pochi minuti arriva nella tua casella.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- CTA -->
         <div class="ck-cta-wrap">
             <h2 class="ck-cta-title" id="ctaTitle">Inizia adesso</h2>
@@ -619,11 +601,11 @@
     <script>
     (function () {
         var PLANS = {
-            'partecipanti-club':    { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle 14 mattine in live.", confirmTitle: "Ricevi l'email di conferma del Club", confirmDesc: "Tra pochi minuti arriva nella tua casella, con accessi e calendario delle 14 mattine in live.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
-            'partecipanti-evento':  { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 127, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", confirmTitle: "Ricevi l'email di conferma dell'Evento", confirmDesc: "Tra pochi minuti arriva nella tua casella, con tutta la logistica per Roma 7-8 novembre 2026.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' },
-            'partecipanti-bundle':  { mainLabel: 'Club + Evento bundle',     mainPrice: 247, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Hai preso entrambi: il Club da fine maggio e il Live di novembre a Roma. Tra pochi minuti ricevi una email con accessi, calendario delle live e logistica evento.", confirmTitle: "Ricevi l'email di conferma di Club + Evento", confirmDesc: "Tra pochi minuti arriva nella tua casella: accessi al Club, calendario delle live e logistica evento Roma.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'BUN' },
-            'pubblico':             { mainLabel: 'Club delle Inarrestabili', mainPrice: 167, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.", confirmTitle: "Ricevi l'email di conferma del Club", confirmDesc: "Tra pochi minuti arriva nella tua casella, con accessi e calendario.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
-            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 157, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", confirmTitle: "Ricevi l'email di conferma dell'Evento", confirmDesc: "Tra pochi minuti arriva nella tua casella, con tutta la logistica per Roma 7-8 novembre 2026.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' }
+            'partecipanti-club':    { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'partecipanti-evento':  { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 127, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' },
+            'partecipanti-bundle':  { mainLabel: 'Club + Evento bundle',     mainPrice: 247, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'BUN' },
+            'pubblico':             { mainLabel: 'Club delle Inarrestabili', mainPrice: 167, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 157, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' }
         };
         var DISCOUNT_AMOUNT = 20;
 
@@ -649,14 +631,11 @@
 
         var heroEyebrow = document.getElementById('heroEyebrow');
         var heroTitle   = document.getElementById('heroTitle');
-        var heroText    = document.getElementById('heroText');
         var orderMainLabel = document.getElementById('orderMainLabel');
         var orderMainValue = document.getElementById('orderMainValue');
         var bumpRow     = document.getElementById('orderBumpRow');
         var discountRow = document.getElementById('orderDiscountRow');
         var totalEl     = document.getElementById('orderTotal');
-        var confirmTitleEl = document.getElementById('confirmStepTitle');
-        var confirmDescEl  = document.getElementById('confirmStepDesc');
         var emailEl     = document.getElementById('orderEmail');
         var orderNum    = document.getElementById('orderNumber');
         var ctaTitle    = document.getElementById('ctaTitle');
@@ -669,7 +648,6 @@
 
         heroEyebrow.textContent = plan.heroEyebrow;
         heroTitle.innerHTML = plan.heroTitle;
-        heroText.innerHTML = plan.heroText;
         var heroName = document.getElementById('heroName');
         if (heroName && nome) heroName.textContent = ', ' + nome;
 
@@ -681,8 +659,6 @@
         var total = Math.max(0, subtotal - (discountOn ? DISCOUNT_AMOUNT : 0));
         totalEl.textContent = format(total);
 
-        if (confirmTitleEl) confirmTitleEl.textContent = plan.confirmTitle;
-        if (confirmDescEl)  confirmDescEl.textContent  = plan.confirmDesc;
 
         ctaTitle.textContent = plan.ctaTitle;
         ctaText.textContent = plan.ctaText;
