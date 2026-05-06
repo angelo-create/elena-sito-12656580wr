@@ -583,24 +583,8 @@
                 <div class="ck-next-step">
                     <div class="ck-next-num">1</div>
                     <div>
-                        <div class="ck-next-title">Email con accessi (entro 5 minuti)</div>
-                        <div class="ck-next-desc">Ricevi le credenziali per la community privata e il link alla newsletter del luned&igrave;.</div>
-                    </div>
-                </div>
-
-                <div class="ck-next-step" id="stepClubNewsletter">
-                    <div class="ck-next-num">2</div>
-                    <div>
-                        <div class="ck-next-title">Primo luned&igrave; con noi</div>
-                        <div class="ck-next-desc">Il prossimo luned&igrave; mattina ti arriva la newsletter delle Inarrestabili. Storie vere, niente promesse miracolose.</div>
-                    </div>
-                </div>
-
-                <div class="ck-next-step" id="stepEvento">
-                    <div class="ck-next-num">3</div>
-                    <div>
-                        <div class="ck-next-title">Posto evento Novembre 2026 riservato</div>
-                        <div class="ck-next-desc">Quando aprir&ograve; le iscrizioni per <em>Nel Corpo Che Vuoi Live &mdash; Edizione Novembre 2026</em>, sarai tra le prime ad avere il link &mdash; il tuo posto &egrave; gi&agrave; bloccato.</div>
+                        <div class="ck-next-title" id="confirmStepTitle">Ricevi l'email di conferma</div>
+                        <div class="ck-next-desc" id="confirmStepDesc">Tra pochi minuti arriva nella tua casella.</div>
                     </div>
                 </div>
             </div>
@@ -635,11 +619,11 @@
     <script>
     (function () {
         var PLANS = {
-            'partecipanti-club':    { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 0, bumpVisible: false, hasEventoStep: false, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle 14 mattine in live.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
-            'partecipanti-evento':  { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 127, bumpPrice: 0, bumpVisible: false, hasEventoStep: true, hasClubStep: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' },
-            'partecipanti-bundle':  { mainLabel: 'Club + Evento bundle',     mainPrice: 247, bumpPrice: 0, bumpVisible: false, hasEventoStep: true, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Hai preso entrambi: il Club da fine maggio e il Live di novembre a Roma. Tra pochi minuti ricevi una email con accessi, calendario delle live e logistica evento.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'BUN' },
-            'pubblico':             { mainLabel: 'Club delle Inarrestabili', mainPrice: 167, bumpPrice: 0, bumpVisible: false, hasEventoStep: false, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
-            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 157, bumpPrice: 0, bumpVisible: false, hasEventoStep: true, hasClubStep: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' }
+            'partecipanti-club':    { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle 14 mattine in live.", confirmTitle: "Ricevi l'email di conferma del Club", confirmDesc: "Tra pochi minuti arriva nella tua casella, con accessi e calendario delle 14 mattine in live.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'partecipanti-evento':  { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 127, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", confirmTitle: "Ricevi l'email di conferma dell'Evento", confirmDesc: "Tra pochi minuti arriva nella tua casella, con tutta la logistica per Roma 7-8 novembre 2026.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' },
+            'partecipanti-bundle':  { mainLabel: 'Club + Evento bundle',     mainPrice: 247, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Hai preso entrambi: il Club da fine maggio e il Live di novembre a Roma. Tra pochi minuti ricevi una email con accessi, calendario delle live e logistica evento.", confirmTitle: "Ricevi l'email di conferma di Club + Evento", confirmDesc: "Tra pochi minuti arriva nella tua casella: accessi al Club, calendario delle live e logistica evento Roma.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'BUN' },
+            'pubblico':             { mainLabel: 'Club delle Inarrestabili', mainPrice: 167, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.", confirmTitle: "Ricevi l'email di conferma del Club", confirmDesc: "Tra pochi minuti arriva nella tua casella, con accessi e calendario.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 157, bumpPrice: 0, bumpVisible: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", confirmTitle: "Ricevi l'email di conferma dell'Evento", confirmDesc: "Tra pochi minuti arriva nella tua casella, con tutta la logistica per Roma 7-8 novembre 2026.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' }
         };
         var DISCOUNT_AMOUNT = 20;
 
@@ -671,8 +655,8 @@
         var bumpRow     = document.getElementById('orderBumpRow');
         var discountRow = document.getElementById('orderDiscountRow');
         var totalEl     = document.getElementById('orderTotal');
-        var stepEvento  = document.getElementById('stepEvento');
-        var stepClub    = document.getElementById('stepClubNewsletter');
+        var confirmTitleEl = document.getElementById('confirmStepTitle');
+        var confirmDescEl  = document.getElementById('confirmStepDesc');
         var emailEl     = document.getElementById('orderEmail');
         var orderNum    = document.getElementById('orderNumber');
         var ctaTitle    = document.getElementById('ctaTitle');
@@ -697,8 +681,8 @@
         var total = Math.max(0, subtotal - (discountOn ? DISCOUNT_AMOUNT : 0));
         totalEl.textContent = format(total);
 
-        if (stepClub) stepClub.style.display = plan.hasClubStep ? 'grid' : 'none';
-        if (stepEvento) stepEvento.style.display = plan.hasEventoStep ? 'grid' : 'none';
+        if (confirmTitleEl) confirmTitleEl.textContent = plan.confirmTitle;
+        if (confirmDescEl)  confirmDescEl.textContent  = plan.confirmDesc;
 
         ctaTitle.textContent = plan.ctaTitle;
         ctaText.textContent = plan.ctaText;
