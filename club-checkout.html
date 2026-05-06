@@ -721,6 +721,100 @@
         .ck-footer-links a:hover { color: var(--text-strong); }
 
 
+
+        /* ===== OFFER TIMER (14 giorni riservato) ===== */
+        .ck-offer-timer {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: linear-gradient(90deg, var(--pink) 0%, var(--pink-dark) 100%);
+            color: var(--white);
+            padding: 0.7rem 1rem;
+            text-align: center;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            box-shadow: 0 2px 8px rgba(233,30,99,0.18);
+        }
+        .ck-offer-timer-label { opacity: 0.92; }
+        .ck-offer-timer-time {
+            display: inline-block;
+            font-weight: 800;
+            margin: 0 0.35rem;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.02em;
+        }
+        .ck-offer-timer-suffix { opacity: 0.92; }
+
+        /* ===== EXPIRED STATE ===== */
+        .ck-expired {
+            max-width: 42rem;
+            margin: 1rem auto 3rem;
+            padding: 0 1.5rem;
+        }
+        .ck-expired-inner {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+        .ck-expired-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-strong);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.85rem;
+        }
+        .ck-expired-text {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 28rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .ck-expired-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+        .ck-expired-link {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--text-strong);
+            font-size: 0.9rem;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .ck-expired-link:hover {
+            border-color: var(--pink);
+            box-shadow: 0 4px 12px rgba(233,30,99,0.10);
+        }
+        .ck-expired-link strong { font-size: 0.95rem; }
+        .ck-expired-link span {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--pink);
+        }
+
+        @media (max-width: 600px) {
+            .ck-offer-timer { font-size: 0.78rem; padding: 0.6rem 0.75rem; }
+            .ck-offer-timer-time { display: block; margin: 0.2rem 0; font-size: 0.95rem; }
+            .ck-offer-timer-label, .ck-offer-timer-suffix { display: inline; }
+            .ck-expired-title { font-size: 1.35rem; }
+            .ck-expired-inner { padding: 2rem 1.25rem; }
+            .ck-expired-links { grid-template-columns: 1fr; }
+        }
         /* ===== HERO LANDING ===== */
         .ck-hero {
             text-align: center;
@@ -1089,6 +1183,13 @@
         </div>
     </header>
 
+    <!-- TIMER OFFERTA RISERVATA (14 giorni) -->
+    <div class="ck-offer-timer" id="offerTimer" style="display:none;">
+        <span class="ck-offer-timer-label">Prezzo riservato:</span>
+        <span class="ck-offer-timer-time" id="offerTimerTime">14g 00h 00m 00s</span>
+        <span class="ck-offer-timer-suffix">rimasti</span>
+    </div>
+
 
     <!-- HERO -->
     <section class="ck-hero">
@@ -1196,6 +1297,26 @@
         </div>
     </section>
 
+    <!-- EXPIRED STATE (mostrato dopo scadenza countdown) -->
+    <section class="ck-expired" id="expiredCard" style="display:none;">
+        <div class="ck-expired-inner">
+            <h2 class="ck-expired-title">L'offerta riservata &egrave; scaduta</h2>
+            <p class="ck-expired-text">
+                I prezzi riservati alle Inarrestabili dell'evento sono finiti. Le iscrizioni al pubblico sono attive qui:
+            </p>
+            <div class="ck-expired-links">
+                <a href="club-checkout-pubblico.html" class="ck-expired-link">
+                    <strong>Club delle Inarrestabili</strong>
+                    <span>167&euro;</span>
+                </a>
+                <a href="evento-checkout-pubblico.html" class="ck-expired-link">
+                    <strong>Nel Corpo Che Vuoi Live</strong>
+                    <span>157&euro;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="ck-footer">
         <div class="ck-footer-text">
@@ -1211,6 +1332,43 @@
 
     <script>
     (function () {
+        // Deadline offerta riservata Partecipanti.
+        // Modifica questa data quando Elena annuncia l'offerta dal vivo.
+        // Formato ISO con timezone Europa/Roma: YYYY-MM-DDTHH:mm:ss+02:00
+        var OFFER_DEADLINE = new Date('2026-05-20T23:59:59+02:00').getTime();
+
+        var offerTimer     = document.getElementById('offerTimer');
+        var offerTimerTime = document.getElementById('offerTimerTime');
+        var expiredCard    = document.getElementById('expiredCard');
+        var pkgGrid        = document.querySelector('.ck-pkg-grid');
+        var pkgSummary     = document.querySelector('.ck-pkg-summary');
+        var heroSection    = document.querySelector('.ck-hero');
+
+        function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+        function tickCountdown() {
+            var diff = OFFER_DEADLINE - Date.now();
+            if (diff <= 0) {
+                if (offerTimer)  offerTimer.style.display  = 'none';
+                if (heroSection) heroSection.style.display = 'none';
+                if (pkgGrid)     pkgGrid.style.display     = 'none';
+                if (pkgSummary)  pkgSummary.style.display  = 'none';
+                if (expiredCard) expiredCard.style.display = 'block';
+                return false;
+            }
+            if (offerTimer) offerTimer.style.display = 'block';
+            var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            var m = Math.floor((diff / (1000 * 60)) % 60);
+            var s = Math.floor((diff / 1000) % 60);
+            if (offerTimerTime) offerTimerTime.textContent = d + 'g ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+            return true;
+        }
+
+        if (tickCountdown()) {
+            setInterval(tickCountdown, 1000);
+        }
+
         var PRICE_CLUB    = 147;
         var PRICE_EVENTO  = 127;
         var PRICE_BUNDLE  = 247;
