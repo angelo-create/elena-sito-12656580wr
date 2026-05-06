@@ -1068,9 +1068,26 @@
         }
         .ck-pkg-checkout-microcopy {
             text-align: center;
-            font-size: 0.72rem;
+            font-size: 0.85rem;
+            color: var(--text);
+            margin-top: 0.95rem;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        .ck-pkg-checkout-stripe {
+            text-align: center;
+            font-size: 0.7rem;
             color: var(--text-muted);
-            margin-top: 0.85rem;
+            margin-top: 0.4rem;
+        }
+        .ck-pkg-bridge {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 32rem;
+            margin: 0 auto 1.25rem;
+            padding: 0 1.5rem;
+            font-style: italic;
         }
 
         @media (max-width: 760px) {
@@ -1188,7 +1205,7 @@
 
     <!-- TIMER OFFERTA RISERVATA (14 giorni) -->
     <div class="ck-offer-timer" id="offerTimer" style="display:none;">
-        <span class="ck-offer-timer-label">Prezzo riservato:</span>
+        <span class="ck-offer-timer-label">Riservato a voi:</span>
         <span class="ck-offer-timer-time" id="offerTimerTime">14g 00h 00m 00s</span>
         <span class="ck-offer-timer-suffix">rimasti</span>
     </div>
@@ -1202,6 +1219,9 @@
             Da quel giorno il modo in cui ti svegli è diverso. Ma essere diverse, da sole, è più stancante che essere uguali. Il Club ti dà 14 mattine alle 5:30 per non esserlo più. L'Evento di novembre ti dà 2 giorni a Roma per vederlo. Insieme: 247€ invece di 714€. Tuo, finché il timer regge.
         </p>
     </section>
+
+    <!-- BRIDGE -->
+    <p class="ck-pkg-bridge">Scegli da dove vuoi continuare.</p>
 
     <!-- PACCHETTI -->
     <section class="ck-pkg-grid">
@@ -1278,7 +1298,7 @@
                 <span class="value">&euro;127,00</span>
             </div>
             <div class="ck-pkg-summary-row bundle-savings" id="sumRowBundle">
-                <span class="label">Sconto bundle 10%</span>
+                <span class="label">Insieme costano meno</span>
                 <span class="value" id="sumBundleValue">&minus;&euro;27,00</span>
             </div>
 
@@ -1294,9 +1314,10 @@
             </p>
 
             <a href="#" class="ck-pkg-checkout-btn" id="pkgCheckoutBtn">
-                Completa ordine &rarr;
+                Continuo con te &rarr;
             </a>
-            <div class="ck-pkg-checkout-microcopy">Pagamento sicuro tramite Stripe</div>
+            <div class="ck-pkg-checkout-microcopy">Niente miracoli. Solo lavoro vero, insieme.</div>
+            <div class="ck-pkg-checkout-stripe">Pagamento sicuro tramite Stripe</div>
         </div>
     </section>
 
