@@ -13,19 +13,22 @@
 //   utm_*, fbclid, gclid, msclkid, referrer, landing_url (opzionali, attribution)
 
 const PLAN_TAGS = {
-  // Partecipanti senza bump = solo Club al prezzo riservato
-  'partecipanti-no-bump': ['club-membro-attivo', 'acquisto-partecipante'],
-  // Partecipanti con bump = Club + Evento bundle al prezzo riservato
-  'partecipanti-bump':    ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-partecipante', 'acquisto-bundle'],
-  // Pubblico Club = solo Club al prezzo aperto
+  // Partecipanti, solo Club a 147€
+  'partecipanti-club':    ['club-membro-attivo', 'acquisto-partecipante'],
+  // Partecipanti, solo Evento a 127€
+  'partecipanti-evento':  ['evento-ncv-2026', 'acquisto-partecipante'],
+  // Partecipanti, bundle Club + Evento a 247€ (sconto 10%)
+  'partecipanti-bundle':  ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-partecipante', 'acquisto-bundle'],
+  // Pubblico Club, solo Club a 167€
   'pubblico':             ['club-membro-attivo', 'acquisto-pubblico'],
-  // Pubblico Evento = solo Evento al prezzo aperto
+  // Pubblico Evento, solo Evento a 157€
   'evento-pubblico':      ['evento-ncv-2026', 'acquisto-pubblico']
 };
 
 const PLAN_SOURCES = {
-  'partecipanti-no-bump': 'club-checkout-partecipanti',
-  'partecipanti-bump':    'club-checkout-partecipanti-bundle',
+  'partecipanti-club':    'club-checkout-partecipanti-club',
+  'partecipanti-evento':  'club-checkout-partecipanti-evento',
+  'partecipanti-bundle':  'club-checkout-partecipanti-bundle',
   'pubblico':             'club-checkout-pubblico',
   'evento-pubblico':      'evento-checkout-pubblico'
 };
@@ -66,14 +69,17 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'Telefono non valido' });
     }
 
-    // Plan + bump -> chiave di mapping unica
-    const planRaw = String(body.plan || 'partecipanti').toLowerCase();
-    const bumpOn  = body.bump === 1 || body.bump === '1' || body.bump === true || body.bump === 'true';
-
+    const planRaw = String(body.plan || '').toLowerCase();
     let planKey;
-    if (planRaw === 'pubblico')                planKey = 'pubblico';
-    else if (planRaw === 'evento-pubblico')    planKey = 'evento-pubblico';
-    else                                        planKey = bumpOn ? 'partecipanti-bump' : 'partecipanti-no-bump';
+    if (PLAN_TAGS[planRaw]) {
+      planKey = planRaw;
+    } else if (planRaw === 'partecipanti') {
+      // legacy: ?plan=partecipanti&bump=1 -> bundle, &bump=0 -> club only
+      const bumpOn = body.bump === 1 || body.bump === '1' || body.bump === true || body.bump === 'true';
+      planKey = bumpOn ? 'partecipanti-bundle' : 'partecipanti-club';
+    } else {
+      planKey = 'partecipanti-bundle';
+    }
 
     const tags = PLAN_TAGS[planKey] || [];
     const source = PLAN_SOURCES[planKey] || 'club-checkout';

@@ -24,15 +24,17 @@ const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 const GHL_API_VERSION = '2021-07-28';
 
 const PLAN_TAGS = {
-  'partecipanti-no-bump': ['club-membro-attivo', 'acquisto-partecipante'],
-  'partecipanti-bump':    ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-partecipante', 'acquisto-bundle'],
+  'partecipanti-club':    ['club-membro-attivo', 'acquisto-partecipante'],
+  'partecipanti-evento':  ['evento-ncv-2026', 'acquisto-partecipante'],
+  'partecipanti-bundle':  ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-partecipante', 'acquisto-bundle'],
   'pubblico':             ['club-membro-attivo', 'acquisto-pubblico'],
   'evento-pubblico':      ['evento-ncv-2026', 'acquisto-pubblico']
 };
 
 const PLAN_SOURCES = {
-  'partecipanti-no-bump': 'stripe-club-partecipanti',
-  'partecipanti-bump':    'stripe-club-partecipanti-bundle',
+  'partecipanti-club':    'stripe-club-partecipanti-club',
+  'partecipanti-evento':  'stripe-club-partecipanti-evento',
+  'partecipanti-bundle':  'stripe-club-partecipanti-bundle',
   'pubblico':             'stripe-club-pubblico',
   'evento-pubblico':      'stripe-evento-pubblico'
 };
@@ -115,7 +117,7 @@ module.exports = async function handler(req, res) {
 
   const session = event.data.object;
   const md = session.metadata || {};
-  const planKey = md.plan || 'partecipanti-no-bump';
+  const planKey = (md.plan && PLAN_TAGS[md.plan]) ? md.plan : 'partecipanti-bundle';
   const tags = PLAN_TAGS[planKey] || [];
   const source = PLAN_SOURCES[planKey] || 'stripe-checkout';
 

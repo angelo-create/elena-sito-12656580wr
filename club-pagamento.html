@@ -668,21 +668,28 @@
         //   'pubblico'                  -> solo Club a 167 (club-checkout-pubblico.html)
         //   'evento-pubblico'           -> solo Evento a 157 (evento-checkout-pubblico.html)
         var PLANS = {
-            partecipanti:      { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, allowBump: true,  editHref: 'club-checkout.html' },
-            pubblico:          { mainLabel: 'Club delle Inarrestabili', mainPrice: 167, allowBump: false, editHref: 'club-checkout-pubblico.html' },
-            'evento-pubblico': { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 157, allowBump: false, editHref: 'evento-checkout-pubblico.html' }
+            'partecipanti-club':    { mainLabel: 'Club delle Inarrestabili',           mainPrice: 147, allowBump: false, editHref: 'club-checkout.html' },
+            'partecipanti-evento':  { mainLabel: 'Nel Corpo Che Vuoi Live',            mainPrice: 127, allowBump: false, editHref: 'club-checkout.html' },
+            'partecipanti-bundle':  { mainLabel: 'Club + Evento (bundle Inarrestabili)', mainPrice: 247, allowBump: false, editHref: 'club-checkout.html' },
+            'pubblico':             { mainLabel: 'Club delle Inarrestabili',           mainPrice: 167, allowBump: false, editHref: 'club-checkout-pubblico.html' },
+            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',            mainPrice: 157, allowBump: false, editHref: 'evento-checkout-pubblico.html' }
         };
         var BUMP_PRICE      = 127;
         var DISCOUNT_AMOUNT = 20;
 
         var params      = new URLSearchParams(window.location.search);
-        var planKey     = params.get('plan');
-        if (!planKey || !PLANS[planKey]) planKey = 'partecipanti';
-        var plan        = PLANS[planKey];
+        var planKey = (params.get('plan') || '').toLowerCase();
+        // Normalizza: vecchi link possono ancora arrivare come ?plan=partecipanti
+        if (planKey === 'partecipanti') {
+            var bumpRaw = params.get('bump');
+            var bumpOn = bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true');
+            planKey = bumpOn ? 'partecipanti-bundle' : 'partecipanti-club';
+        }
+        if (!planKey || !PLANS[planKey]) planKey = 'partecipanti-bundle';
+        var plan = PLANS[planKey];
 
-        var bumpRaw     = params.get('bump');
-        var bumpOn      = plan.allowBump && (bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true'));
-        var discountOn  = plan.allowBump && (params.get('discount') === '1' || params.get('discount') === 'true');
+        var bumpOn = false;
+        var discountOn = false;
 
         var mainLabelEl = document.getElementById('summaryMainLabel');
         var mainValueEl = document.getElementById('summaryMainValue');

@@ -635,10 +635,11 @@
     <script>
     (function () {
         var PLANS = {
-            'partecipanti-no-bump': { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 0, bumpVisible: false, hasEventoStep: false, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
-            'partecipanti-bump':    { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 127, bumpVisible: true, hasEventoStep: true, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato e ti aspetto a Roma il 7-8 novembre. Tra pochi minuti ricevi una email con tutti gli accessi e la logistica.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'partecipanti-club':    { mainLabel: 'Club delle Inarrestabili', mainPrice: 147, bumpPrice: 0, bumpVisible: false, hasEventoStep: false, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle 14 mattine in live.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
+            'partecipanti-evento':  { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 127, bumpPrice: 0, bumpVisible: false, hasEventoStep: true, hasClubStep: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' },
+            'partecipanti-bundle':  { mainLabel: 'Club + Evento bundle',     mainPrice: 247, bumpPrice: 0, bumpVisible: false, hasEventoStep: true, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Hai preso entrambi: il Club da fine maggio e il Live di novembre a Roma. Tra pochi minuti ricevi una email con accessi, calendario delle live e logistica evento.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'BUN' },
             'pubblico':             { mainLabel: 'Club delle Inarrestabili', mainPrice: 167, bumpPrice: 0, bumpVisible: false, hasEventoStep: false, hasClubStep: true, heroEyebrow: 'Sei dentro', heroTitle: 'Benvenuta tra le <em>Inarrestabili</em><span id="heroName"></span>', heroText: "Il tuo posto nel Club e' confermato. Tra pochi minuti ricevi una email con tutti gli accessi e il calendario delle prossime cose belle che faremo insieme.", ctaTitle: 'Inizia adesso', ctaText: "Mentre la mail arriva, fai il primo passo: leggi l'ultima storia delle Inarrestabili.", ctaBtnText: "Leggi l'ultima storia \u2192", ctaBtnHref: '/lunedi-inarrestabili', orderPrefix: 'CDI' },
-            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',   mainPrice: 157, bumpPrice: 0, bumpVisible: false, hasEventoStep: true, hasClubStep: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' }
+            'evento-pubblico':      { mainLabel: 'Nel Corpo Che Vuoi Live',  mainPrice: 157, bumpPrice: 0, bumpVisible: false, hasEventoStep: true, hasClubStep: false, heroEyebrow: 'Ci vediamo a Roma', heroTitle: 'A novembre ci vediamo<span id="heroName"></span>', heroText: "Il tuo posto a <em>Nel Corpo Che Vuoi Live</em> 7-8 novembre 2026 e' confermato. Tra pochi minuti ricevi una email con la logistica.", ctaTitle: "Tutto sull'evento", ctaText: 'Programma, location, info pratiche: trovi tutto sulla pagina dedicata.', ctaBtnText: 'Vai alla pagina evento \u2192', ctaBtnHref: '/evento-novembre', orderPrefix: 'NCV' }
         };
         var DISCOUNT_AMOUNT = 20;
 
@@ -648,9 +649,14 @@
         var bumpOn = bumpRaw === null ? true : (bumpRaw === '1' || bumpRaw === 'true');
 
         var planKey;
-        if (planRaw === 'pubblico')              planKey = 'pubblico';
-        else if (planRaw === 'evento-pubblico')  planKey = 'evento-pubblico';
-        else                                      planKey = bumpOn ? 'partecipanti-bump' : 'partecipanti-no-bump';
+        if (PLANS[planRaw]) {
+            planKey = planRaw;
+        } else if (planRaw === 'partecipanti') {
+            // legacy: ?plan=partecipanti&bump=1 -> bundle, &bump=0 -> club only
+            planKey = bumpOn ? 'partecipanti-bundle' : 'partecipanti-club';
+        } else {
+            planKey = 'partecipanti-bundle';
+        }
         var plan = PLANS[planKey];
 
         var discountOn = plan.bumpVisible && (params.get('discount') === '1' || params.get('discount') === 'true');

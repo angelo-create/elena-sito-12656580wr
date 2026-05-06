@@ -8,29 +8,29 @@
 //
 // Ritorna: { url } -> il client fa window.location = url
 //
-// Env richieste:
+// Env richieste (5 Prices Stripe):
 //   STRIPE_SECRET_KEY
-//   STRIPE_PRICE_PARTECIPANTI_CLUB     (Club a 147€)
-//   STRIPE_PRICE_PARTECIPANTI_EVENTO   (Evento bump a 127€)
-//   STRIPE_PRICE_PUBBLICO_CLUB         (Club a 167€)
-//   STRIPE_PRICE_PUBBLICO_EVENTO       (Evento a 157€)
+//   STRIPE_PRICE_PARTECIPANTI_CLUB     (Club partecipante a 147€)
+//   STRIPE_PRICE_PARTECIPANTI_EVENTO   (Evento partecipante a 127€)
+//   STRIPE_PRICE_PARTECIPANTI_BUNDLE   (Bundle Club+Evento a 247€)
+//   STRIPE_PRICE_PUBBLICO_CLUB         (Club pubblico a 167€)
+//   STRIPE_PRICE_PUBBLICO_EVENTO       (Evento pubblico a 157€)
 //   SITE_URL (default: https://go.elenagiordani.com)
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 function buildLineItems(planKey) {
   switch (planKey) {
-    case 'partecipanti-bump':
-      return [
-        { price: process.env.STRIPE_PRICE_PARTECIPANTI_CLUB,   quantity: 1 },
-        { price: process.env.STRIPE_PRICE_PARTECIPANTI_EVENTO, quantity: 1 }
-      ];
-    case 'partecipanti-no-bump':
-      return [{ price: process.env.STRIPE_PRICE_PARTECIPANTI_CLUB, quantity: 1 }];
+    case 'partecipanti-bundle':
+      return [{ price: process.env.STRIPE_PRICE_PARTECIPANTI_BUNDLE, quantity: 1 }];
+    case 'partecipanti-club':
+      return [{ price: process.env.STRIPE_PRICE_PARTECIPANTI_CLUB,   quantity: 1 }];
+    case 'partecipanti-evento':
+      return [{ price: process.env.STRIPE_PRICE_PARTECIPANTI_EVENTO, quantity: 1 }];
     case 'pubblico':
-      return [{ price: process.env.STRIPE_PRICE_PUBBLICO_CLUB, quantity: 1 }];
+      return [{ price: process.env.STRIPE_PRICE_PUBBLICO_CLUB,       quantity: 1 }];
     case 'evento-pubblico':
-      return [{ price: process.env.STRIPE_PRICE_PUBBLICO_EVENTO, quantity: 1 }];
+      return [{ price: process.env.STRIPE_PRICE_PUBBLICO_EVENTO,     quantity: 1 }];
     default:
       return null;
   }
@@ -71,13 +71,17 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'Telefono non valido' });
     }
 
-    const planRaw = String(body.plan || 'partecipanti').toLowerCase();
-    const bumpOn  = body.bump === 1 || body.bump === '1' || body.bump === true || body.bump === 'true';
-
+    const planRaw = String(body.plan || '').toLowerCase();
+    const VALID_PLANS = ['partecipanti-club', 'partecipanti-evento', 'partecipanti-bundle', 'pubblico', 'evento-pubblico'];
     let planKey;
-    if (planRaw === 'pubblico')              planKey = 'pubblico';
-    else if (planRaw === 'evento-pubblico')  planKey = 'evento-pubblico';
-    else                                      planKey = bumpOn ? 'partecipanti-bump' : 'partecipanti-no-bump';
+    if (VALID_PLANS.indexOf(planRaw) !== -1) {
+      planKey = planRaw;
+    } else if (planRaw === 'partecipanti') {
+      const bumpOn = body.bump === 1 || body.bump === '1' || body.bump === true || body.bump === 'true';
+      planKey = bumpOn ? 'partecipanti-bundle' : 'partecipanti-club';
+    } else {
+      planKey = 'partecipanti-bundle';
+    }
 
     const lineItems = buildLineItems(planKey);
     if (!lineItems || lineItems.some(li => !li.price)) {
@@ -90,7 +94,6 @@ module.exports = async function handler(req, res) {
     // Metadata: vengono propagati al webhook tramite session.metadata
     const metadata = {
       plan: planKey,
-      bump: bumpOn ? '1' : '0',
       firstName,
       lastName,
       phone: phoneDigits
@@ -106,8 +109,8 @@ module.exports = async function handler(req, res) {
       line_items: lineItems,
       customer_email: email,
       allow_promotion_codes: true,
-      success_url: `${SITE_URL}/club-grazie?plan=${encodeURIComponent(planKey)}&bump=${bumpOn ? '1' : '0'}&order={CHECKOUT_SESSION_ID}&nome=${encodeURIComponent(firstName)}&email=${encodeURIComponent(email)}`,
-      cancel_url: `${SITE_URL}/club-pagamento?plan=${encodeURIComponent(planRaw)}&bump=${bumpOn ? '1' : '0'}&cancelled=1`,
+      success_url: `${SITE_URL}/club-grazie?plan=${encodeURIComponent(planKey)}&order={CHECKOUT_SESSION_ID}&nome=${encodeURIComponent(firstName)}&email=${encodeURIComponent(email)}`,
+      cancel_url: `${SITE_URL}/club-pagamento?plan=${encodeURIComponent(planKey)}&cancelled=1`,
       metadata
     });
 
