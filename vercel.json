@@ -62,8 +62,7 @@
     },
     {
       "source": "/club-checkout-pubblico",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
-      "destination": "https://go.elenagiordani.com/club-checkout-pubblico",
+      "destination": "/club-checkout",
       "permanent": true
     },
     {
@@ -74,8 +73,7 @@
     },
     {
       "source": "/evento-checkout-pubblico",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
-      "destination": "https://go.elenagiordani.com/evento-checkout-pubblico",
+      "destination": "/club-checkout",
       "permanent": true
     },
     {
