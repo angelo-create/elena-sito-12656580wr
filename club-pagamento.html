@@ -786,12 +786,17 @@
         // ====== STRIPE ELEMENTS (full custom checkout) ======
         // Il pagamento avviene dentro il sito: campi carta in iframe Stripe,
         // PaymentIntent creato server-side, confirmCardPayment client-side.
-        var STRIPE_PUBLISHABLE_KEY = 'pk_live_PlmpKYRfj33BahVyr0vP0h4S00koliBOSB';
-        var stripe = (typeof Stripe === 'function') ? Stripe(STRIPE_PUBLISHABLE_KEY) : null;
+        // La publishable key arriva da /api/stripe-config (env, non hardcoded).
+        var stripe = null;
         var cardElement = null;
         var cardErrors = document.getElementById('card-errors');
 
-        if (stripe) {
+        function initStripe(publishableKey) {
+            if (typeof Stripe !== 'function') {
+                cardErrors.textContent = 'Stripe.js non caricato. Ricarica la pagina.';
+                return;
+            }
+            stripe = Stripe(publishableKey);
             var elements = stripe.elements({
                 fonts: [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap' }]
             });
@@ -813,9 +818,21 @@
             cardElement.on('change', function (event) {
                 cardErrors.textContent = (event.error && event.error.message) ? event.error.message : '';
             });
-        } else {
-            cardErrors.textContent = 'Stripe non disponibile. Riprova tra qualche istante.';
         }
+
+        fetch('/api/stripe-config').then(function (r) {
+            return r.json().then(function (data) { return { ok: r.ok, data: data }; });
+        }).then(function (res) {
+            if (!res.ok || !res.data || !res.data.publishableKey) {
+                console.error('[club-pagamento] Stripe config non disponibile:', res.data);
+                cardErrors.textContent = 'Pagamento non disponibile in questo momento. Riprova tra qualche istante.';
+                return;
+            }
+            initStripe(res.data.publishableKey);
+        }).catch(function (err) {
+            console.error('[club-pagamento] Stripe config fetch failed:', err);
+            cardErrors.textContent = 'Pagamento non disponibile in questo momento. Riprova tra qualche istante.';
+        });
 
         var bumpOn = (planKey === 'partecipanti-bundle' || planKey === 'pubblico-bundle');
 
