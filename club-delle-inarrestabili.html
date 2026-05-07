@@ -2511,65 +2511,88 @@ document.addEventListener('DOMContentLoaded', function() {
 <style id="redesign-mindset-section">
 /* ===== REDESIGN SECTION "IL PUNTO DI PARTENZA / MINDSET" ===== */
 
-/* Hide GHL empty left column (had placeholder "Prezzo evento (15 Giorni)") */
-#col-F5kgDUTXFo {
-    display: none !important;
-}
+/* 1. Hide GHL empty left column + placeholders "Prezzo evento (15 Giorni)" */
+#col-F5kgDUTXFo,
 #paragraph-2wld22AWqZ,
-#paragraph-kvQdOO6JkO {
-    display: none !important;
+#paragraph-kvQdOO6JkO { display: none !important; }
+
+/* 2. Force row to be a single centered block (override GHL flex layout) */
+#section-BUUA21ufz9 { padding: 0 !important; }
+#section-BUUA21ufz9 > .inner { padding: 0 !important; max-width: 100% !important; }
+#row-Fh6W4GCL9R { width: 100% !important; }
+#row-Fh6W4GCL9R > .inner {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-/* Right column takes full width, centered */
+/* 3. Right column: full width, centered, padding generoso */
 #col-rIIhvUtlLc {
     width: 100% !important;
-    max-width: 880px !important;
-    margin: 0 auto !important;
-    flex: none !important;
-}
-#row-Fh6W4GCL9R .inner {
-    justify-content: center !important;
-}
-
-/* Section wrapper: meno padding top, centrato */
-#section-BUUA21ufz9 {
-    padding: 0 !important;
-}
-#section-BUUA21ufz9 .inner {
-    padding: 2.5rem 1.5rem !important;
     max-width: 100% !important;
+    flex: none !important;
+    margin: 0 !important;
+}
+#col-rIIhvUtlLc > .inner {
+    width: 100% !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+    padding: 3.5rem 1.5rem 2.5rem !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
-/* Heading 1: "Il punto di partenza per diventare INARRESTABILE è il mindset." */
-.heading-Ap66E_aVNo {
-    text-align: center !important;
-    margin-bottom: 1.75rem !important;
+/* 4. Decorative top sparkle ✦ */
+#col-rIIhvUtlLc > .inner::before {
+    content: '✦';
+    display: block;
+    font-size: 1.4rem;
+    color: #E91E63;
+    margin: 0 0 1.5rem;
+    opacity: 0.55;
+    line-height: 1;
 }
+
+/* 5. Heading 1: "Il punto di partenza per diventare INARRESTABILE è il mindset." */
+#heading-Ap66E_aVNo {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 0 1.5rem !important;
+}
+.heading-Ap66E_aVNo,
+.heading-Ap66E_aVNo > div { text-align: center !important; }
 .heading-Ap66E_aVNo h1 {
     font-family: 'Poppins', -apple-system, sans-serif !important;
-    font-size: clamp(1.7rem, 4.5vw, 2.85rem) !important;
+    font-size: clamp(1.55rem, 4.2vw, 2.5rem) !important;
     font-weight: 800 !important;
     letter-spacing: -0.025em !important;
-    line-height: 1.15 !important;
+    line-height: 1.18 !important;
     color: #0A0A0A !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
+    max-width: 22ch;
 }
 .heading-Ap66E_aVNo h1 u {
     text-decoration: none !important;
     position: relative;
     display: inline-block;
+    z-index: 1;
 }
 .heading-Ap66E_aVNo h1 u::after {
     content: '';
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0.05em;
-    height: 0.18em;
-    background: rgba(233, 30, 99, 0.25);
+    left: -0.05em;
+    right: -0.05em;
+    bottom: 0.08em;
+    height: 0.32em;
+    background: linear-gradient(135deg, rgba(233,30,99,0.22), rgba(233,30,99,0.12));
     z-index: -1;
-    border-radius: 2px;
+    border-radius: 4px;
 }
+.heading-Ap66E_aVNo h1 strong { font-weight: 800 !important; }
 .heading-Ap66E_aVNo h1 strong span {
     background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
     -webkit-background-clip: text;
@@ -2577,73 +2600,69 @@ document.addEventListener('DOMContentLoaded', function() {
     -webkit-text-fill-color: transparent;
     color: transparent !important;
     font-weight: 800 !important;
-    display: inline-block;
 }
 
-/* Heading 2: descrizione 14 giorni + closing italic */
-.heading-qXGp74-ESL {
-    max-width: 720px !important;
+/* 6. Heading 2: descrizione 14 giorni + closing italic */
+#heading-qXGp74-ESL {
+    width: 100% !important;
+    max-width: 600px !important;
     margin: 0 auto !important;
+    text-align: center !important;
 }
+.heading-qXGp74-ESL,
+.heading-qXGp74-ESL > div { text-align: center !important; }
 .heading-qXGp74-ESL h1 {
     font-family: 'Poppins', -apple-system, sans-serif !important;
-    font-size: clamp(0.98rem, 1.6vw, 1.08rem) !important;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem) !important;
     font-weight: 400 !important;
     line-height: 1.7 !important;
     color: #2A2A2A !important;
     margin: 0 !important;
-    text-align: center !important;
 }
-.heading-qXGp74-ESL h1 strong {
-    color: #0A0A0A !important;
-    font-weight: 700 !important;
-}
-.heading-qXGp74-ESL h1 strong span {
-    color: #0A0A0A !important;
-}
-.heading-qXGp74-ESL h1 em {
-    display: block;
-    margin: 1.75rem auto 0;
-    padding: 1.25rem 1.5rem;
-    background: linear-gradient(135deg, rgba(233, 30, 99, 0.06) 0%, rgba(233, 30, 99, 0.03) 100%);
-    border-left: 3px solid #E91E63;
-    border-radius: 0 14px 14px 0;
-    font-style: italic !important;
-    font-size: 1rem !important;
-    font-weight: 500 !important;
-    color: #0A0A0A !important;
-    line-height: 1.55;
-    max-width: 640px;
-}
+.heading-qXGp74-ESL h1 + h1 { margin-top: 1.75rem !important; }
+.heading-qXGp74-ESL h1 strong,
+.heading-qXGp74-ESL h1 strong span { color: #0A0A0A !important; font-weight: 700 !important; }
+.heading-qXGp74-ESL h1 em,
 .heading-qXGp74-ESL h1 em span {
     color: #0A0A0A !important;
+    font-style: italic !important;
+    font-weight: 500 !important;
+    font-size: 1.02em !important;
 }
-
-/* Decorative pre-heading icon */
-.heading-Ap66E_aVNo::before {
-    content: '✦';
-    display: block;
-    font-size: 1.2rem;
-    color: #E91E63;
-    margin-bottom: 0.85rem;
-    letter-spacing: 0.5em;
-    text-align: center;
+.heading-qXGp74-ESL h1:has(em) {
+    position: relative;
+    margin-top: 2rem !important;
+    padding: 1.6rem 1.5rem !important;
+    background: linear-gradient(135deg, rgba(233,30,99,0.05), rgba(233,30,99,0.02));
+    border-radius: 16px !important;
+}
+.heading-qXGp74-ESL h1:has(em)::before,
+.heading-qXGp74-ESL h1:has(em)::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #E91E63;
+    border-radius: 2px;
     opacity: 0.7;
 }
+.heading-qXGp74-ESL h1:has(em)::before { top: 0; }
+.heading-qXGp74-ESL h1:has(em)::after { bottom: 0; }
 
-/* Mobile tweaks */
+/* 7. Mobile tweaks */
 @media (max-width: 600px) {
-    #section-BUUA21ufz9 .inner {
-        padding: 3rem 1.15rem !important;
+    #col-rIIhvUtlLc > .inner {
+        padding: 2.25rem 1.15rem 1.75rem !important;
     }
-    .heading-Ap66E_aVNo h1 { font-size: 1.55rem !important; line-height: 1.2 !important; }
-    .heading-qXGp74-ESL h1 { font-size: 0.95rem !important; line-height: 1.65 !important; }
-    .heading-qXGp74-ESL h1 em {
-        margin-top: 1.5rem;
-        padding: 1rem 1.15rem;
-        font-size: 0.92rem !important;
+    #col-rIIhvUtlLc > .inner::before { font-size: 1.1rem; margin-bottom: 1rem; }
+    .heading-Ap66E_aVNo h1 { font-size: 1.45rem !important; line-height: 1.22 !important; max-width: 18ch; }
+    .heading-qXGp74-ESL h1 { font-size: 0.92rem !important; line-height: 1.65 !important; }
+    .heading-qXGp74-ESL h1:has(em) {
+        padding: 1.25rem 1rem !important;
+        margin-top: 1.6rem !important;
     }
-    .heading-Ap66E_aVNo::before { font-size: 1rem; margin-bottom: 0.6rem; }
 }
 </style>
 </body></html>
