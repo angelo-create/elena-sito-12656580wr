@@ -2513,37 +2513,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* 1. Hide GHL empty left column + placeholders "Prezzo evento (15 Giorni)" */
 #col-F5kgDUTXFo,
+.c-row #col-F5kgDUTXFo,
 #paragraph-2wld22AWqZ,
 #paragraph-kvQdOO6JkO { display: none !important; }
 
-/* 2. Force row to be a single centered block (override GHL flex layout) */
-#section-BUUA21ufz9 { padding: 0 !important; }
-#section-BUUA21ufz9 > .inner { padding: 0 !important; max-width: 100% !important; }
-#row-Fh6W4GCL9R { width: 100% !important; }
-#row-Fh6W4GCL9R > .inner {
+/* 2. Force section + row to take full width, single column block */
+#section-BUUA21ufz9 { padding: 0 !important; width: 100% !important; }
+#section-BUUA21ufz9 > .inner { padding: 0 !important; max-width: 100% !important; width: 100% !important; }
+
+#row-Fh6W4GCL9R,
+.c-row#row-Fh6W4GCL9R { width: 100% !important; max-width: 100% !important; }
+#row-Fh6W4GCL9R > .inner,
+.c-row#row-Fh6W4GCL9R > .inner {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
 }
 
-/* 3. Right column: full width, centered, padding generoso */
+/* 3. Right column: KILL i 50% width imposti da GHL .c-column, full width */
+.c-row #col-rIIhvUtlLc,
+.c-row .c-column#col-rIIhvUtlLc,
+#col-rIIhvUtlLc.c-column,
 #col-rIIhvUtlLc {
     width: 100% !important;
     max-width: 100% !important;
-    flex: none !important;
+    min-width: 100% !important;
+    flex: 1 1 100% !important;
+    flex-basis: 100% !important;
+    flex-grow: 1 !important;
+    flex-shrink: 0 !important;
+    align-self: stretch !important;
+    grid-column: 1 / -1 !important;
     margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
 }
-#col-rIIhvUtlLc > .inner {
+#col-rIIhvUtlLc > .inner,
+.c-row #col-rIIhvUtlLc > .inner {
     width: 100% !important;
-    max-width: 720px !important;
+    max-width: 760px !important;
     margin: 0 auto !important;
-    padding: 3.5rem 1.5rem 2.5rem !important;
+    padding: 4rem 1.5rem 3rem !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    box-sizing: border-box !important;
 }
 
 /* 4. Decorative top sparkle ✦ */
