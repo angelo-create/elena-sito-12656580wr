@@ -2511,17 +2511,33 @@ document.addEventListener('DOMContentLoaded', function() {
 <style id="redesign-mindset-section">
 /* ===== REDESIGN SECTION "IL PUNTO DI PARTENZA / MINDSET" ===== */
 
-/* Hide GHL placeholder "Prezzo evento (15 Giorni)" duplicate */
+/* Hide GHL empty left column (had placeholder "Prezzo evento (15 Giorni)") */
+#col-F5kgDUTXFo {
+    display: none !important;
+}
 #paragraph-2wld22AWqZ,
 #paragraph-kvQdOO6JkO {
     display: none !important;
 }
 
-/* Section wrapper */
+/* Right column takes full width, centered */
+#col-rIIhvUtlLc {
+    width: 100% !important;
+    max-width: 880px !important;
+    margin: 0 auto !important;
+    flex: none !important;
+}
+#row-Fh6W4GCL9R .inner {
+    justify-content: center !important;
+}
+
+/* Section wrapper: meno padding top, centrato */
+#section-BUUA21ufz9 {
+    padding: 0 !important;
+}
 #section-BUUA21ufz9 .inner {
-    padding: 4rem 1.5rem !important;
-    max-width: 880px;
-    margin: 0 auto;
+    padding: 2.5rem 1.5rem !important;
+    max-width: 100% !important;
 }
 
 /* Heading 1: "Il punto di partenza per diventare INARRESTABILE è il mindset." */
