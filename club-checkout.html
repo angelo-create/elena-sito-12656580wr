@@ -1507,6 +1507,14 @@
             'pubblico':     { club: 167, evento: 157, bundle: 294, plan: { club: 'pubblico',         evento: 'evento-pubblico',     bundle: 'pubblico-bundle' } },
             'partecipanti': { club: 147, evento: 127, bundle: 247, plan: { club: 'partecipanti-club', evento: 'partecipanti-evento', bundle: 'partecipanti-bundle' } }
         };
+        var STRIPE_LINKS = {
+            'partecipanti-club':    'https://buy.stripe.com/4gMeVd7U943C4iieDv77O0w',
+            'partecipanti-evento':  'https://buy.stripe.com/fZudR9b6l9nWcOO66Z77O0x',
+            'partecipanti-bundle':  'https://buy.stripe.com/dRmfZh0rHgQo4ii7b377O0y',
+            'pubblico':             'https://buy.stripe.com/aFa7sL7U99nW7uu3YR77O0z',
+            'evento-pubblico':      'https://buy.stripe.com/5kQdR9b6l1Vu7uufHz77O0A',
+            'pubblico-bundle':      'https://buy.stripe.com/6oUfZhb6l9nW9CCcvn77O0B'
+        };
         // Saved tag rispetto al prezzo old (Club: 367, Evento: 347)
         var SAVED = {
             'pubblico':     { club: 200, evento: 190 },
@@ -1605,7 +1613,7 @@
 
             if (planKey) {
                 checkoutBtn.classList.remove('disabled');
-                checkoutBtn.href = 'club-pagamento.html?plan=' + planKey;
+                checkoutBtn.href = STRIPE_LINKS[planKey] || '#';
                 emptyMsg.style.display = 'none';
                 checkoutBtn.style.display = 'block';
             } else {

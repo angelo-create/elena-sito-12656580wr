@@ -667,9 +667,15 @@
         ctaBtn.href = plan.ctaBtnHref;
 
         if (email) emailEl.textContent = email;
-        var orderId = params.get('order');
+        // Stripe Payment Link redirect default: ?session_id=cs_xxx
+        // GHL redirect default: ?contact_id=xxx&order_id=xxx
+        // Nostro flusso storico: ?order=xxx
+        var orderId = params.get('order') || params.get('session_id') || params.get('order_id') || params.get('transaction_id');
         if (!orderId) {
             orderId = plan.orderPrefix + '-' + Date.now().toString(36).toUpperCase().slice(-6);
+        } else if (orderId.length > 12) {
+            // Compatta gli ID lunghi tipo cs_test_xxxxx in qualcosa di leggibile
+            orderId = plan.orderPrefix + '-' + orderId.slice(-8).toUpperCase();
         }
         orderNum.textContent = orderId;
 

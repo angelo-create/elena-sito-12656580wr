@@ -990,7 +990,7 @@
                     </div>
                 </div>
 
-                <a href="club-pagamento.html?plan=evento-pubblico" class="ck-checkout-btn" id="checkoutBtn">
+                <a href="https://buy.stripe.com/5kQdR9b6l1Vu7uufHz77O0A" class="ck-checkout-btn" id="checkoutBtn">
                     Completa ordine &rarr;
                 </a>
                 <div class="ck-checkout-microcopy">Pagamento sicuro tramite Stripe</div>
@@ -1053,6 +1053,10 @@
             'pubblico':     { price: 157, saved: 190, plan: 'evento-pubblico' },
             'partecipanti': { price: 127, saved: 220, plan: 'partecipanti-evento' }
         };
+        var STRIPE_LINKS = {
+            'evento-pubblico':       'https://buy.stripe.com/5kQdR9b6l1Vu7uufHz77O0A',
+            'partecipanti-evento':   'https://buy.stripe.com/fZudR9b6l9nWcOO66Z77O0x'
+        };
         var COUPON_VALID = 'EVENTO26';
         var couponApplied = false;
 
@@ -1096,7 +1100,7 @@
             savedEl.textContent       = totalSaved > 0 ? 'Hai risparmiato \u20AC' + totalSaved : '';
             savedEl.style.display     = totalSaved > 0 ? 'block' : 'none';
 
-            checkoutBtn.href = 'club-pagamento.html?plan=' + P.plan;
+            checkoutBtn.href = STRIPE_LINKS[P.plan] || STRIPE_LINKS['evento-pubblico'];
         }
 
         couponToggle.addEventListener('click', function () {
