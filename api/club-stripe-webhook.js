@@ -65,6 +65,71 @@ const PLAN_SOURCES = {
   'pubblico-bundle':      'stripe-club-pubblico-bundle'
 };
 
+// Fallback 1: mappa prezzi unici -> plan key. Si rompe solo se metti coupon
+// Stripe sul Payment Link o cambi prezzo. In quel caso la cascata continua.
+const AMOUNT_TO_PLAN = {
+  14700: 'partecipanti-club',
+  12700: 'partecipanti-evento',
+  24700: 'partecipanti-bundle',
+  16700: 'pubblico',
+  15700: 'evento-pubblico',
+  29400: 'pubblico-bundle'
+};
+
+// Fallback 2: fuzzy match sul product name (description di line_items).
+// Riconosce parole chiave: bundle/club+evento, club, evento, partecipante.
+function inferFromProductName(name) {
+  if (!name) return null;
+  const n = String(name).toLowerCase();
+  const isPart   = n.includes('partecipant');
+  const isBundle = n.includes('bundle') || (n.includes('club') && n.includes('evento'));
+  const isClub   = n.includes('club') || n.includes('inarrestabili');
+  const isEvento = n.includes('evento') || n.includes('corpo che vuoi') || n.includes('ncv');
+
+  if (isBundle && isPart) return 'partecipanti-bundle';
+  if (isBundle)           return 'pubblico-bundle';
+  if (isEvento && !isClub && isPart) return 'partecipanti-evento';
+  if (isEvento && !isClub)           return 'evento-pubblico';
+  if (isClub && isPart) return 'partecipanti-club';
+  if (isClub)           return 'pubblico';
+  return null;
+}
+
+// Cascata di rilevamento planKey. Ritorna { plan, source } dove `source`
+// indica con quale strategia il plan e' stato dedotto (utile per debug log).
+async function detectPlanKey(obj) {
+  const md = obj.metadata || {};
+
+  // 1. metadata.plan -> piu' affidabile
+  if (md.plan && PLAN_TAGS[md.plan]) {
+    return { plan: md.plan, via: 'metadata' };
+  }
+
+  // 2. amount_total exact match
+  const amount = obj.amount_total || obj.amount_received || obj.amount || 0;
+  if (AMOUNT_TO_PLAN[amount]) {
+    return { plan: AMOUNT_TO_PLAN[amount], via: 'amount' };
+  }
+
+  // 3. product name dal line_items (Sessions) o description (PI)
+  try {
+    let productName = obj.description || '';
+    if (!productName && obj.id && String(obj.id).startsWith('cs_')) {
+      const session = await stripe.checkout.sessions.retrieve(obj.id, { expand: ['line_items'] });
+      productName = (session.line_items && session.line_items.data && session.line_items.data[0] && session.line_items.data[0].description) || '';
+    }
+    const inferred = inferFromProductName(productName);
+    if (inferred) {
+      return { plan: inferred, via: 'product_name', name: productName };
+    }
+  } catch (e) {
+    console.warn('[stripe-webhook] line_items lookup failed:', e.message);
+  }
+
+  // 4. fallback: nessuna mappatura. Verra' applicato tag di investigazione.
+  return { plan: null, via: 'fallback' };
+}
+
 async function ghlUpsertContact({ apiKey, locationId, email, firstName, lastName, phone, source, customFields, attributionSource }) {
   const payload = {
     locationId,
@@ -146,9 +211,13 @@ module.exports = async function handler(req, res) {
   const obj = event.data.object;
   const isPaymentIntent = event.type === 'payment_intent.succeeded';
   const md = obj.metadata || {};
-  const planKey = (md.plan && PLAN_TAGS[md.plan]) ? md.plan : 'pubblico-bundle';
-  const tags = PLAN_TAGS[planKey] || [];
-  const source = PLAN_SOURCES[planKey] || 'stripe-checkout';
+
+  // Cascata: metadata -> amount -> product name -> investiga
+  const detected = await detectPlanKey(obj);
+  const planKey = detected.plan;
+  const tags = planKey ? PLAN_TAGS[planKey] : ['acquisto-da-investigare'];
+  const source = planKey ? (PLAN_SOURCES[planKey] || 'stripe-checkout') : 'stripe-unknown';
+  console.log('[stripe-webhook] planKey detected via', detected.via, '->', planKey || 'unknown', detected.name ? `(name: ${detected.name})` : '');
 
   const apiKey = process.env.GHL_API_KEY || process.env.GHL_PIT_TOKEN;
   const locationId = process.env.GHL_LOCATION_ID;
@@ -199,7 +268,8 @@ module.exports = async function handler(req, res) {
     { key: 'stripe_amount_eur',     field_value: amountTotal.toFixed(2) },
     { key: 'stripe_currency',       field_value: currency.toUpperCase() },
     { key: 'stripe_paid_at',        field_value: paidAt },
-    { key: 'stripe_plan_key',       field_value: planKey }
+    { key: 'stripe_plan_key',       field_value: planKey || 'unknown' },
+    { key: 'stripe_plan_via',       field_value: detected.via }
   ];
 
   // Attribution: Payment Links statici non accettano metadata custom via URL,
