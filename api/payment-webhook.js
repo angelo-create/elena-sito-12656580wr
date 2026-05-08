@@ -88,9 +88,15 @@ module.exports = async function handler(req, res) {
 
   try {
     const rawBody = await buffer(req);
-    // .trim() difensivo: paste del secret dalla Stripe Dashboard si porta dietro
-    // \n o spazi finali, Stripe rifiuta la firma con "signing secret contains whitespace".
-    const secret = (process.env.STRIPE_WEBHOOK_SECRET || '').trim();
+    // Endpoint dedicato OTO Sfida 7 Giorni: ha il PROPRIO signing secret su Stripe
+    // Dashboard, diverso da quello del webhook Club/Evento. Cerca prima l'env var
+    // dedicata; fallback all'altra per compat. .trim() difensivo perche' i paste
+    // dalla Dashboard si portano dietro newline.
+    const secret = (
+      process.env.STRIPE_WEBHOOK_SECRET_OTO ||
+      process.env.STRIPE_WEBHOOK_SECRET ||
+      ''
+    ).trim();
     event = stripe.webhooks.constructEvent(
       rawBody,
       sig,
