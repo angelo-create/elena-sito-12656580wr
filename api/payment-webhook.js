@@ -88,10 +88,13 @@ module.exports = async function handler(req, res) {
 
   try {
     const rawBody = await buffer(req);
+    // .trim() difensivo: paste del secret dalla Stripe Dashboard si porta dietro
+    // \n o spazi finali, Stripe rifiuta la firma con "signing secret contains whitespace".
+    const secret = (process.env.STRIPE_WEBHOOK_SECRET || '').trim();
     event = stripe.webhooks.constructEvent(
       rawBody,
       sig,
-      process.env.STRIPE_WEBHOOK_SECRET
+      secret
     );
   } catch (err) {
     console.error('Webhook signature failed:', err.message);

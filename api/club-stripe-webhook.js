@@ -196,7 +196,10 @@ module.exports = async function handler(req, res) {
   try {
     const buf = await buffer(req);
     const sig = req.headers['stripe-signature'];
-    event = stripe.webhooks.constructEvent(buf, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    // .trim() difensivo: paste del secret dalla Stripe Dashboard si porta dietro \n
+    // o spazi finali, e Stripe rifiuta la firma con "signing secret contains whitespace".
+    const secret = (process.env.STRIPE_WEBHOOK_SECRET || '').trim();
+    event = stripe.webhooks.constructEvent(buf, sig, secret);
   } catch (err) {
     console.error('[stripe-webhook] Signature verification failed:', err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
