@@ -62,6 +62,38 @@ Il bug riguarda SOLO il campo `tags`. I `customFields` in upsert vengono
 mergiati correttamente (nuovo valore aggiorna, gli altri restano). Ok
 continuare a passarli nel body upsert.
 
+## REGOLA #4 — UTM: sempre come custom field, non solo `attributionSource`
+
+GHL ha due posti dove possono finire gli UTM:
+
+1. **`attributionSource`** in upsert — popola il tab "Attribution / Last Source"
+   sulla scheda contatto. Comodo ma:
+   - non e' filtrabile nelle Smart List
+   - non e' esportabile in CSV
+   - non e' utilizzabile come variabile/condizione nei workflow
+2. **`customFields`** in upsert — popola un custom field visibile direttamente
+   sulla scheda contatto. Filtrabile, esportabile, utilizzabile in workflow.
+
+**Sempre passare gli UTM in entrambi i posti.** L'helper `_lib/build-utm-payload.js`
+produce il payload corretto. Gli ID dei 5 custom field UTM vivono in
+`_lib/utm-fields.js` e devono essere popolati a mano dopo aver creato i field
+in GHL Settings → Custom Fields → folder "UTM Attribution" (tipo TEXT).
+
+Per recuperare gli ID dopo la creazione:
+
+```
+GET /api/debug-fields?key=<DEBUG_SECRET>
+```
+
+Endpoint che usano l'helper: `webinar-lead.js`, `metabolismo-lead.js`,
+`candidatura.js`, `soldout-lead.js`. `newsletter.js` passa via webhook GHL,
+quindi gli UTM nel body devono essere mappati ai custom field dal workflow GHL
+inbound (action "Update Custom Field").
+
+Lato client la cattura UTM e' centralizzata in `/js/utm-capture.js` (first-touch
+persistente in `sessionStorage`, chiave `attribution`). Il pattern `getAttribution()`
+sopravvive alla navigazione cross-page.
+
 ## Checklist prima di mergeare un nuovo endpoint che parla con GHL
 
 - [ ] Il payload `POST /contacts/upsert` NON contiene il campo `tags`?
@@ -69,6 +101,8 @@ continuare a passarli nel body upsert.
 - [ ] Se devo applicare tag, faccio una chiamata separata a `POST /contacts/{id}/tags`?
 - [ ] L'errore di add-tag e' non-bloccante (catch + log) per non rompere il flow utente?
 - [ ] Ho aggiunto un commento sopra il payload upsert che spiega perche' `tags` e' assente?
+- [ ] Gli UTM passano da `buildUtmPayload(body)` (sia `attributionSource` sia `customFields`)?
+- [ ] La landing che chiama questo endpoint include `<script src="/js/utm-capture.js"></script>`?
 
 ## Endpoint GHL di riferimento usati dal progetto
 

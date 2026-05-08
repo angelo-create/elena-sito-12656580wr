@@ -1319,6 +1319,9 @@
     fbq('track', 'ViewContent', {content_name: 'Estate Inarrestabile 2026', content_category: 'webinar'});
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"/></noscript>
+
+    <!-- UTM capture: first-touch persistente in sessionStorage, sopravvive a navigazione cross-page -->
+    <script src="/js/utm-capture.js"></script>
 </head>
 <body>
 
@@ -1725,31 +1728,17 @@
         }
         if (hasErrors) return;
 
-        // Cattura UTM dall'URL
-        var p = new URLSearchParams(location.search);
+        // UTM da sessionStorage (first-touch persistente, vedi js/utm-capture.js)
+        var attr = (typeof window.getAttribution === 'function') ? window.getAttribution() : {};
 
         var payload = {
             email: emailVal,
             first_name: firstNameVal,
             last_name: lastNameVal,
             phone: phoneVal,
-            source: 'webinar-maggio-estate-inarrestabile',
-            utm_source: p.get('utm_source') || undefined,
-            utm_medium: p.get('utm_medium') || undefined,
-            utm_campaign: p.get('utm_campaign') || undefined,
-            utm_content: p.get('utm_content') || undefined,
-            utm_term: p.get('utm_term') || undefined,
-            referrer: document.referrer || undefined,
-            landing_url: location.href,
-            fbclid: p.get('fbclid') || undefined,
-            gclid: p.get('gclid') || undefined,
-            msclkid: p.get('msclkid') || undefined
+            source: 'webinar-maggio-estate-inarrestabile'
         };
-
-        // Rimuovi campi undefined
-        Object.keys(payload).forEach(function(k) {
-            if (payload[k] === undefined) delete payload[k];
-        });
+        Object.keys(attr).forEach(function(k) { if (attr[k]) payload[k] = attr[k]; });
 
         var origLabel = submitBtn.textContent;
         submitBtn.disabled = true;

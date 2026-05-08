@@ -1283,6 +1283,9 @@
             text-transform: uppercase;
         }
 </style>
+
+<!-- UTM capture: first-touch persistente in sessionStorage -->
+<script src="/js/utm-capture.js"></script>
 </head>
 <body>
 
@@ -1552,6 +1555,52 @@
             return '€' + amount.toFixed(2).replace('.', ',');
         }
 
+        // Encoda gli UTM (first-touch da sessionStorage, vedi js/utm-capture.js)
+        // in formato base64url <= 200 char per il client_reference_id di Stripe
+        // Payment Link. Chiavi corte (s/m/c/n/t). Se l'output supera 200 char,
+        // droppa progressivamente i campi meno critici (term -> content -> medium)
+        // per preservare almeno source + campaign. Vedi api/club-stripe-webhook.js.
+        function encodeUtmRef() {
+            try {
+                var attr = (typeof window.getAttribution === 'function') ? window.getAttribution() : {};
+                var keyMap = { utm_source: 's', utm_medium: 'm', utm_campaign: 'c', utm_content: 'n', utm_term: 't' };
+                var sub = {};
+                Object.keys(keyMap).forEach(function(k) {
+                    if (attr[k]) sub[keyMap[k]] = String(attr[k]).slice(0, 80);
+                });
+                if (!Object.keys(sub).length) return '';
+
+                function pack(obj) {
+                    var b64 = btoa(JSON.stringify(obj));
+                    var url = b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+                    return 'u_' + url;
+                }
+
+                var ref = pack(sub);
+                if (ref.length <= 200) return ref;
+
+                // Fallback: droppa progressivamente term, poi content, poi medium
+                ['t', 'n', 'm'].forEach(function(k) {
+                    if (ref.length > 200) { delete sub[k]; ref = pack(sub); }
+                });
+                if (ref.length <= 200) return ref;
+
+                // Ultima risorsa: tronca source e campaign a 30 char
+                if (sub.s) sub.s = sub.s.slice(0, 30);
+                if (sub.c) sub.c = sub.c.slice(0, 30);
+                ref = pack(sub);
+                return ref.length <= 200 ? ref : '';
+            } catch (e) { return ''; }
+        }
+
+        function withUtmRef(href) {
+            if (!href || href === '#') return href;
+            var ref = encodeUtmRef();
+            if (!ref) return href;
+            var sep = href.indexOf('?') === -1 ? '?' : '&';
+            return href + sep + 'client_reference_id=' + encodeURIComponent(ref);
+        }
+
         function recalc() {
             var tier = couponApplied ? 'partecipanti' : 'pubblico';
             var P = PRICING[tier];
@@ -1613,7 +1662,7 @@
 
             if (planKey) {
                 checkoutBtn.classList.remove('disabled');
-                checkoutBtn.href = STRIPE_LINKS[planKey] || '#';
+                checkoutBtn.href = withUtmRef(STRIPE_LINKS[planKey] || '#');
                 emptyMsg.style.display = 'none';
                 checkoutBtn.style.display = 'block';
             } else {

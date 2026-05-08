@@ -1,3 +1,5 @@
+const { buildUtmPayload } = require('./_lib/build-utm-payload');
+
 // Labels for email formatting (Italian question text)
 const questionLabels = {
   full_name: 'Nome e Cognome',
@@ -107,28 +109,33 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'full_name and email are required' });
     }
 
-    // Build custom fields array
+    // Build custom fields array (candidatura answers + UTM)
     const customFields = [];
     for (const [formKey, ghlId] of Object.entries(fieldMap)) {
       if (body[formKey] !== undefined && body[formKey] !== '') {
         customFields.push({ id: ghlId, value: String(body[formKey]) });
       }
     }
+    const utmPayload = buildUtmPayload(body);
+    utmPayload.customFields.forEach(f => customFields.push(f));
 
     console.log('[candidatura] Upserting contact:', full_name, email, '| custom fields:', customFields.length);
 
-    // Upsert contact with custom fields
+    // NB: NON passiamo `tags` in upsert (vedi api/README.md REGOLA #1).
+    // Il tag `candidatura-coach` viene aggiunto dopo via POST /contacts/{id}/tags.
+    const upsertBody = {
+      name: full_name,
+      email: email,
+      phone: phone || '',
+      locationId: locationId,
+      customFields: customFields
+    };
+    if (utmPayload.attributionSource) upsertBody.attributionSource = utmPayload.attributionSource;
+
     const upsertRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
       method: 'POST',
       headers,
-      body: JSON.stringify({
-        name: full_name,
-        email: email,
-        phone: phone || '',
-        locationId: locationId,
-        customFields: customFields,
-        tags: ['candidatura-coach']
-      })
+      body: JSON.stringify(upsertBody)
     });
 
     const upsertText = await upsertRes.text();
@@ -151,6 +158,25 @@ module.exports = async function handler(req, res) {
       console.log(`[candidatura] Fields sent: ${sentIds.length} | saved: ${savedIds.length} | missing: ${missing.length}`);
       if (missing.length > 0) {
         missing.forEach(id => console.warn(`[candidatura] Missing field: ${reverseMap[id] || 'unknown'} (${id})`));
+      }
+    }
+
+    // Tag additivo (vedi api/README.md REGOLA #1).
+    if (contactId) {
+      try {
+        const addTagsRes = await fetch(`https://services.leadconnectorhq.com/contacts/${encodeURIComponent(contactId)}/tags`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({ tags: ['candidatura-coach'] })
+        });
+        if (!addTagsRes.ok) {
+          const errText = await addTagsRes.text();
+          console.error('[candidatura] Add tags failed:', addTagsRes.status, errText.slice(0, 200));
+        } else {
+          console.log('[candidatura] Tag added (additive): candidatura-coach |', contactId);
+        }
+      } catch (tagErr) {
+        console.error('[candidatura] Add tags error (non-blocking):', tagErr.message);
       }
     }
 

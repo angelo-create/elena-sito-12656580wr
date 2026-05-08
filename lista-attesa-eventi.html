@@ -480,6 +480,9 @@
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <!-- UTM capture: first-touch persistente in sessionStorage -->
+    <script src="/js/utm-capture.js"></script>
 </head>
 <body>
 
@@ -766,9 +769,41 @@
         // Form Submit Handler
         document.getElementById('waitlistForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // TODO: collegare a GHL webhook, Zapier, o altro backend
-            document.getElementById('formContent').style.display = 'none';
-            document.getElementById('formSuccess').classList.add('active');
+            var form = e.target;
+            var btn = form.querySelector('.la-form-btn');
+            var nome = form.nome.value.trim();
+            var email = form.email.value.trim();
+            var telefono = form.telefono.value.trim();
+            if (!nome || !email || !telefono) return;
+
+            var origLabel = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Invio in corso...';
+
+            var attr = (typeof window.getAttribution === 'function') ? window.getAttribution() : {};
+            var payload = {
+                name: nome,
+                email: email,
+                phone: telefono,
+                source: 'lista-attesa-eventi-generica'
+            };
+            Object.keys(attr).forEach(function(k) { if (attr[k]) payload[k] = attr[k]; });
+
+            fetch('/api/soldout-lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function(res) {
+                if (!res.ok) throw new Error('Errore invio');
+                document.getElementById('formContent').style.display = 'none';
+                document.getElementById('formSuccess').classList.add('active');
+            })
+            .catch(function() {
+                btn.disabled = false;
+                btn.textContent = origLabel;
+                alert('Si è verificato un errore. Riprova o scrivici a info.xfitacademy@gmail.com');
+            });
         });
 
         // Smooth scroll for anchor links

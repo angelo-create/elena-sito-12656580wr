@@ -1,3 +1,5 @@
+const { buildUtmPayload } = require('./_lib/build-utm-payload');
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -16,7 +18,6 @@ module.exports = async function handler(req, res) {
     }
     if (!body) return res.status(400).json({ error: 'invalid body' });
 
-    const clip = (v, max = 500) => v ? String(v).slice(0, max) : undefined;
     const firstName = body.nome ? String(body.nome).trim().slice(0, 80) : '';
     const lastName  = body.cognome ? String(body.cognome).trim().slice(0, 80) : '';
     const email     = body.email ? String(body.email).trim().toLowerCase() : '';
@@ -50,21 +51,12 @@ module.exports = async function handler(req, res) {
       source
     };
 
-    // Attribution: UTM + click IDs + referrer + landing URL (same pattern as newsletter.js)
-    const attr = {};
-    if (body.utm_source)   attr.utmSource   = clip(body.utm_source);
-    if (body.utm_medium)   attr.medium      = clip(body.utm_medium);
-    if (body.utm_campaign) attr.campaign    = clip(body.utm_campaign);
-    if (body.utm_content)  attr.utmContent  = clip(body.utm_content);
-    if (body.utm_term)     attr.utmKeyword  = clip(body.utm_term);
-    if (body.referrer)     attr.referrer    = clip(body.referrer, 1000);
-    if (body.landing_url)  attr.url         = clip(body.landing_url, 1000);
-    if (body.fbclid)       attr.fbclid      = clip(body.fbclid);
-    if (body.gclid)        attr.gclid       = clip(body.gclid);
-    if (body.msclkid)      attr.msclikid    = clip(body.msclkid);
-    if (Object.keys(attr).length > 0) {
-      payload.attributionSource = attr;
-    }
+    // Attribution: UTM + click IDs + referrer + landing URL.
+    // Vanno sia in attributionSource (tab Attribution GHL) sia in customFields[]
+    // (scheda contatto + smart list + export). Vedi api/README.md REGOLA #4.
+    const utmPayload = buildUtmPayload(body);
+    if (utmPayload.attributionSource) payload.attributionSource = utmPayload.attributionSource;
+    if (utmPayload.customFields.length > 0) payload.customFields = utmPayload.customFields;
 
     const upsertRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
       method: 'POST',

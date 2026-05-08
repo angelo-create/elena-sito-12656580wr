@@ -19,6 +19,30 @@
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const { buffer } = require('micro');
+const { buildUtmPayload } = require('./_lib/build-utm-payload');
+
+// Decodifica il client_reference_id costruito da club-checkout.html (formato
+// 'u_<base64url(JSON con chiavi corte s/m/c/n/t)>'). Rimappa alle chiavi
+// utm_*. Ritorna {} se mancante/invalido. Vedi encodeUtmRef() in
+// club-checkout.html.
+function decodeUtmRef(ref) {
+  if (!ref || typeof ref !== 'string' || !ref.startsWith('u_')) return {};
+  try {
+    const url = ref.slice(2);
+    const std = url.replace(/-/g, '+').replace(/_/g, '/') + '=='.slice(0, (4 - url.length % 4) % 4);
+    const json = Buffer.from(std, 'base64').toString('utf-8');
+    const parsed = JSON.parse(json);
+    if (!parsed || typeof parsed !== 'object') return {};
+    const keyMap = { s: 'utm_source', m: 'utm_medium', c: 'utm_campaign', n: 'utm_content', t: 'utm_term' };
+    const out = {};
+    Object.keys(keyMap).forEach(function(k) {
+      if (parsed[k]) out[keyMap[k]] = parsed[k];
+    });
+    return out;
+  } catch {
+    return {};
+  }
+}
 
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 const GHL_API_VERSION = '2021-07-28';
@@ -178,19 +202,28 @@ module.exports = async function handler(req, res) {
     { key: 'stripe_plan_key',       field_value: planKey }
   ];
 
-  // Attribution dai metadata
-  const attr = {};
-  if (md.utm_source)   attr.utmSource   = md.utm_source;
-  if (md.utm_medium)   attr.medium      = md.utm_medium;
-  if (md.utm_campaign) attr.campaign    = md.utm_campaign;
-  if (md.utm_content)  attr.utmContent  = md.utm_content;
-  if (md.utm_term)     attr.utmKeyword  = md.utm_term;
-  if (md.referrer)     attr.referrer    = md.referrer;
-  if (md.landing_url)  attr.url         = md.landing_url;
-  if (md.fbclid)       attr.fbclid      = md.fbclid;
-  if (md.gclid)        attr.gclid       = md.gclid;
-  if (md.msclkid)      attr.msclikid    = md.msclkid;
-  const attributionSource = Object.keys(attr).length > 0 ? attr : undefined;
+  // Attribution: Payment Links statici non accettano metadata custom via URL,
+  // quindi club-checkout.html passa UTM via `client_reference_id` con encoding
+  // base64url. Stripe Checkout Session API (futuro) puo' invece passarli direttamente
+  // in `metadata`. Mergio entrambe le fonti con priorita' ai metadata.
+  const refUtm = isPaymentIntent ? {} : decodeUtmRef(obj.client_reference_id || '');
+  const attrInput = {
+    utm_source:   md.utm_source   || refUtm.utm_source,
+    utm_medium:   md.utm_medium   || refUtm.utm_medium,
+    utm_campaign: md.utm_campaign || refUtm.utm_campaign,
+    utm_content:  md.utm_content  || refUtm.utm_content,
+    utm_term:     md.utm_term     || refUtm.utm_term,
+    referrer:     md.referrer,
+    landing_url:  md.landing_url,
+    fbclid:       md.fbclid,
+    gclid:        md.gclid,
+    msclkid:      md.msclkid
+  };
+  const utmPayload = buildUtmPayload(attrInput);
+  const attributionSource = utmPayload.attributionSource || undefined;
+  // Append UTM custom fields (formato API: { id, value }) all'array esistente.
+  // I campi stripe_* usano formato { key, field_value } legacy: non li tocco.
+  utmPayload.customFields.forEach(function(f) { customFields.push(f); });
 
   try {
     const contactId = await ghlUpsertContact({

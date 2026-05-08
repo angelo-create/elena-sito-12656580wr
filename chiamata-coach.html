@@ -427,6 +427,9 @@
             .cc-form-2col { grid-template-columns: 1fr !important; }
         }
     </style>
+
+    <!-- UTM capture: first-touch persistente in sessionStorage -->
+    <script src="/js/utm-capture.js"></script>
 </head>
 <body>
 
@@ -783,11 +786,17 @@
         }
 
         function submitCandidatura() {
+            // Merge UTM (first-touch da sessionStorage, vedi js/utm-capture.js)
+            var attr = (typeof window.getAttribution === 'function') ? window.getAttribution() : {};
+            var body = {};
+            Object.keys(candidaturaData).forEach(function(k) { body[k] = candidaturaData[k]; });
+            Object.keys(attr).forEach(function(k) { if (attr[k]) body[k] = attr[k]; });
+
             // Send to API to upsert contact with custom fields
             fetch(API_CANDIDATURA, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(candidaturaData)
+                body: JSON.stringify(body)
             }).catch(function() {});
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', { content_name: 'Candidatura Coach' });

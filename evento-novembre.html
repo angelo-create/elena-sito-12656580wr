@@ -540,6 +540,9 @@
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <!-- UTM capture: first-touch persistente in sessionStorage -->
+    <script src="/js/utm-capture.js"></script>
 </head>
 <body>
 
@@ -1250,10 +1253,14 @@
             btn.disabled = true;
             btn.textContent = 'Invio in corso...';
             errEl.style.display = 'none';
+            var attr = (typeof window.getAttribution === 'function') ? window.getAttribution() : {};
+            var payload = { name: name, email: email, phone: phone };
+            Object.keys(attr).forEach(function(k) { if (attr[k]) payload[k] = attr[k]; });
+
             fetch('/api/soldout-lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: name, email: email, phone: phone })
+                body: JSON.stringify(payload)
             })
             .then(function(res) {
                 if (!res.ok) throw new Error('Errore');
