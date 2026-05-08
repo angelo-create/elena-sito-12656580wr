@@ -215,6 +215,18 @@ module.exports = async function handler(req, res) {
   const isPaymentIntent = event.type === 'payment_intent.succeeded';
   const md = obj.metadata || {};
 
+  // Stripe per un acquisto via Payment Link emette DUE eventi: payment_intent.succeeded
+  // (ID inizia per pi_, niente line_items, fallback su 'acquisto-da-investigare') e
+  // checkout.session.completed (ID inizia per cs_, line_items espandibili, detection
+  // funziona). Senza questo skip, il primo applicava il tag canarino, il secondo
+  // aggiungeva quelli giusti -> contatto con tutti e tre, false positive.
+  // club-payment-intent.js (Stripe Elements) setta sempre metadata.plan quando crea
+  // il PI, quindi questo skip non rompe il flow custom checkout.
+  if (isPaymentIntent && !md.plan) {
+    console.log('[stripe-webhook] PI senza metadata.plan -> skip, gestira il session.completed', obj.id);
+    return res.status(200).json({ received: true, skipped: 'pi-without-plan-metadata' });
+  }
+
   // Cascata: metadata -> amount -> product name -> investiga
   const detected = await detectPlanKey(obj);
   const planKey = detected.plan;
