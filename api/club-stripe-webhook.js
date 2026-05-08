@@ -47,13 +47,16 @@ function decodeUtmRef(ref) {
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 const GHL_API_VERSION = '2021-07-28';
 
+// Un tag per prodotto = il planKey stesso. Tag broad rimossi (club-membro-attivo,
+// evento-ncv-2026, acquisto-pubblico, acquisto-partecipante, acquisto-bundle)
+// per evitare ambiguita' nelle segmentazioni GHL.
 const PLAN_TAGS = {
-  'partecipanti-club':    ['club-membro-attivo', 'acquisto-partecipante'],
-  'partecipanti-evento':  ['evento-ncv-2026', 'acquisto-partecipante'],
-  'partecipanti-bundle':  ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-partecipante', 'acquisto-bundle'],
-  'pubblico':             ['club-membro-attivo', 'acquisto-pubblico'],
-  'evento-pubblico':      ['evento-ncv-2026', 'acquisto-pubblico'],
-  'pubblico-bundle':      ['club-membro-attivo', 'evento-ncv-2026', 'acquisto-pubblico', 'acquisto-bundle']
+  'partecipanti-club':    ['partecipanti-club'],
+  'partecipanti-evento':  ['partecipanti-evento'],
+  'partecipanti-bundle':  ['partecipanti-bundle'],
+  'pubblico':             ['pubblico'],
+  'evento-pubblico':      ['evento-pubblico'],
+  'pubblico-bundle':      ['pubblico-bundle']
 };
 
 const PLAN_SOURCES = {
