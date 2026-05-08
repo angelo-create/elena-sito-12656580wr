@@ -1,0 +1,16 @@
+{
+  "id": "ad-05-B-walking-italian-street",
+  "ad_target": "ad-05-pain",
+  "schwartz": "Unaware — pattern interrupt anti-diet",
+  "ad_style": "cream warm",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s walking calmly on a sunlit Italian residential street, white t-shirt, blue denim jeans, sneakers, gentle smile looking forward, slight motion, warm morning light, soft pastel building facades blurred in background, 50mm lens, candid lifestyle photography, warm Mediterranean tones",
+  "negative_prompt": "text on signs, readable signage, words, letters, watermark, logo, multiple recognizable people, cars in focus, gym, harsh shadows, cold tones, distorted face, deformed",
+  "lighting": "warm morning natural sun",
+  "lens": "50mm f/2.0",
+  "color_palette": "soft pastels, warm cream, blue denim accent",
+  "mood": "free, light, post-diet liberation"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "05-B-walking-street",
+  "ad_target": "ad-05-pain",
+  "schwartz": "Unaware",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian lifestyle magazine ad creative 1:1 square, vertical split. LEFT HALF photo: Italian woman late 40s walking calmly on sunlit Italian residential street, white t-shirt, blue denim jeans, sneakers, gentle smile, soft morning light, pastel building facades blurred behind, 50mm candid lifestyle photography, warm Mediterranean tones. RIGHT HALF: cream background #FBF6EE with Poppins typography: top tag 'ELENA GIORDANI' pink dot 14px; HEADLINE 60px black bold in 5 lines exactly 'RICOMINCIARE OGNI GENNAIO FA PIU DANNI DEI CHILI.' 'DEI CHILI' coral underline; subline 22px grey 'Te lo dico dopo venti anni di donne. Vieni a sentirmi.'; bottom black pill 'VIENI A SENTIRMI' white 18px uppercase, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px. Perfect Italian text no accents, editorial magazine quality",
+  "negative_prompt": "readable signs, signage text on buildings, misspelled, garbled, distorted typography, accent errors, watermark, multiple people in focus, cars in focus, plastic skin, distorted face, deformed",
+  "style_reference": "Apple Walk ad meets Vanity Fair Italia editorial",
+  "color_palette": "soft pastels, warm cream, blue denim accent, black text, coral",
+  "typography": "Poppins 60px / 22px, perfect rendering",
+  "mood": "free, light, post-diet liberation"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ad-04-A-authority-darkroom",
+  "ad_target": "ad-04-authority",
+  "schwartz": "Product-Aware — authority claim",
+  "ad_style": "dark editorial",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s, confident warm smile, half-body portrait, slight 3-quarter angle to camera, sitting on a dark wooden chair, hands relaxed on lap, dark moody background with subtle warm rim light, black fitted t-shirt, gold infinity necklace, dramatic editorial lighting, 85mm portrait lens, shallow depth of field, magazine-cover quality, cinematic warm shadows",
+  "negative_prompt": "text, words, letters, watermark, logo, busy background, multiple people, gym, dumbbells, harsh frontal flash, plastic skin, distorted face, cold blue light, oversaturated",
+  "lighting": "rembrandt lighting with warm rim light from right",
+  "lens": "85mm f/1.8",
+  "color_palette": "deep blacks, warm skin highlights, hint of gold",
+  "mood": "confident, authoritative, warm-but-serious"
+}

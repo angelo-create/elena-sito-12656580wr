@@ -1,0 +1,15 @@
+{
+  "id": "07-A-stage-applause",
+  "ad_target": "ad-07-community",
+  "schwartz": "Product",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Cinematic Italian event ad creative 1:1 square, full-bleed photograph layout with text overlay. FULL FRAME PHOTO: Italian woman late 40s on small speaking stage holding wireless microphone mid-talk, warm engaged expression, audience of women silhouetted in soft pink magenta stage lighting in foreground out-of-focus, dark venue, 35mm documentary cinematic. OVERLAY GRADIENT: soft black gradient at bottom 50% to deepen the lower half for text readability. TEXT OVERLAY (over gradient, perfect Poppins typography): top left tag 'ELENA GIORDANI' pink dot 14px white uppercase; lower-third zone has eyebrow pill 'IN PRESENZA E ONLINE' 13px white uppercase tracked on hot pink translucent background with thin pink border; below it large bold white HEADLINE 60px in 4 lines exactly 'HANNO SMESSO DI RICOMINCIARE. ADESSO TOCCA A TE.' with 'ADESSO TOCCA A TE' in hot pink #E91E63; thin white-opacity hairline; bottom row hot pink pill button 'TOCCA A TE GRATIS' white 18px bold uppercase glow, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white tracked. Perfect Italian text no accents, cinematic event poster",
+  "negative_prompt": "readable signs on stage, banner text, sponsor logos, misspelled, garbled, distorted typography, accent errors, watermark, daytime light, harsh flash, multiple recognizable faces in focus, plastic skin",
+  "style_reference": "Nike speaker event poster meets TED Talks promo",
+  "color_palette": "deep blues, magenta pink stage, warm skin highlights, white and pink text",
+  "typography": "Poppins 800 60px / 14px, perfect rendering on dark gradient",
+  "mood": "community proof, energetic, live event"
+}

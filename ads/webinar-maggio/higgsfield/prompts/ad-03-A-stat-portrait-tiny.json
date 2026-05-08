@@ -1,0 +1,17 @@
+{
+  "id": "ad-03-A-stat-portrait-tiny",
+  "ad_target": "ad-03-stat",
+  "schwartz": "Solution-Aware — contrarian stat",
+  "ad_style": "stat poster (small circle photo bottom-right)",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Tight headshot of Italian woman in her late 40s, neutral confident expression, small subtle smile, looking directly at camera, plain dark grey backdrop, professional clean lighting, 85mm portrait lens, sharp focus on face, suitable for cropping into 100x100 circle, editorial corporate-style portrait",
+  "negative_prompt": "text, words, letters, watermark, logo, body fully visible, gym setting, harsh shadows, cold tones, distorted face, deformed, plastic skin, busy background",
+  "lighting": "soft frontal studio light",
+  "lens": "85mm f/2.8",
+  "color_palette": "neutral grey background, natural skin tones",
+  "mood": "professional, trustworthy, confident",
+  "note": "Image will be cropped to a 56-100px circle in the final ad. Focus must be tight on face."
+}

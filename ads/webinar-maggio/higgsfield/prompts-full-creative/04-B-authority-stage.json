@@ -1,0 +1,15 @@
+{
+  "id": "04-B-authority-stage",
+  "ad_target": "ad-04-authority",
+  "schwartz": "Product",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Premium Italian editorial ad creative 1:1 square, vertical split. LEFT HALF: cinematic full-bleed Italian woman late 40s standing confidently in softly-lit speaking-stage setting, dark backdrop with subtle pink stage lights bokeh, half-body, slight knowing smile, black tank top, professional speaker presence, 70mm f/2.0 cinematic. RIGHT HALF: solid #0B0B0C deep black with Poppins typography: top tag 'ELENA GIORDANI' pink dot 14px; HEADLINE 60px white bold in 6 lines exactly 'LE MIE RAGAZZE DEL 2018 SONO ANCORA IN FORMA NEL 2026.' with '2018' and '2026' in hot pink #E91E63; subline 21px grey 'Venti anni con le donne. 2300 trasformate. Senza ricadute.'; thin hairline; bottom hot pink pill button 'RISERVA IL TUO POSTO' white 18px bold uppercase, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white. Perfect Italian text no accents, magazine-cover crisp typography",
+  "negative_prompt": "readable banners on stage, signage text, misspelled, garbled, distorted typography, accent errors, watermark, multiple layouts, cartoon, plastic skin, distorted face, deformed",
+  "style_reference": "Nike Athletic ad meets TED Talks editorial",
+  "color_palette": "deep black, hot pink, magenta stage bokeh, warm skin",
+  "typography": "Poppins 800 60px / 21px, perfect rendering",
+  "mood": "expert speaker authority, cinematic"
+}

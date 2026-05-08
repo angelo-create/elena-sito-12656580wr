@@ -1,0 +1,16 @@
+{
+  "id": "ad-10-B-no-miracoli-realtalk",
+  "ad_target": "ad-10-no-miracoli",
+  "schwartz": "Solution-Aware — anti-diet positioning",
+  "ad_style": "dark editorial",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s mid-conversation, hand gesture explaining honestly, looking off-camera slightly, candid expression of authenticity, black tee, warm dark studio background, soft key light from front-left, 85mm lens, editorial photography, sense of authentic real-talk moment",
+  "negative_prompt": "text, words, letters, watermark, logo, posed, gym, dumbbells, harsh light, multiple people, distorted face, deformed, plastic skin, smiling broadly",
+  "lighting": "soft front-left key, deep ambient",
+  "lens": "85mm f/2.0",
+  "color_palette": "deep blacks, warm skin, subtle warm rim",
+  "mood": "real-talk, honest, anti-bullshit, mentor moment"
+}

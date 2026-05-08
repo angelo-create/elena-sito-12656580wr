@@ -1,0 +1,17 @@
+{
+  "id": "ad-08-A-mirror-reflection",
+  "ad_target": "ad-08-permanence",
+  "schwartz": "Problem-Aware — self-recognition (mirror)",
+  "ad_style": "evento overlay (dark moody)",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Anonymous woman around 50 standing in front of a soft-focus bathroom mirror, only her back and partial reflection visible, warm dim morning light from a side window, contemplative atmosphere, beige towel robe, soft cream tiles, intimate emotional bathroom scene, 35mm lens, cinematic documentary photography, no recognizable face features",
+  "negative_prompt": "Elena Giordani character, recognizable face, text, words, letters, watermark, logo, harsh light, multiple people, gym, distorted body, deformed",
+  "lighting": "soft warm window light, dim ambient",
+  "lens": "35mm f/2.8",
+  "color_palette": "warm beige, soft cream, muted tones",
+  "mood": "introspective, vulnerable, self-recognition",
+  "note": "This is one of 2 ads where Elena does NOT appear. Anonymous figure represents the viewer."
+}

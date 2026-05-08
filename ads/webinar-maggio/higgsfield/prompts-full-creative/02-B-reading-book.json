@@ -1,0 +1,15 @@
+{
+  "id": "02-B-reading-book",
+  "ad_target": "ad-02-narrative",
+  "schwartz": "Problem",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian editorial ad creative 1:1 square, vertical split. LEFT HALF photo: Italian woman late 40s reading a hardcover book on a beige linen sofa, gentle introspective smile, casual cream cardigan over white tee, legs tucked under, soft afternoon light, 85mm shallow DOF, warm cream tones lifestyle editorial. RIGHT HALF cream warm #FBF6EE background with crisp Poppins typography: top tag 'ELENA GIORDANI' with pink dot 14px; large bold black HEADLINE 56px in 5 lines exactly 'A MAGGIO SEI PRONTA. A GIUGNO MOLLI. A SETTEMBRE PIU INDIETRO DI PRIMA.' with 'MOLLI' coral underline; subline 22px grey weight 500 'Succede sempre per lo stesso motivo. Te lo spiego.'; bottom black pill button 'ISCRIVITI E GRATIS' white 18px bold uppercase, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px. Perfect Italian rendering no accents, magazine-quality typography editorial composition",
+  "negative_prompt": "readable book title, text on book cover, misspelled text, garbled typography, watermark, cartoon, multiple people, gym, distorted face, plastic skin, accent errors",
+  "style_reference": "Vogue Italia magazine cover",
+  "color_palette": "cream, beige, soft caramel, black text, coral accent",
+  "typography": "Poppins 56px / 22px, perfect crisp rendering",
+  "mood": "intimate, introspective, narrative"
+}

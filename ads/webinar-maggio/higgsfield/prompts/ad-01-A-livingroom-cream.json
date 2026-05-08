@@ -1,0 +1,16 @@
+{
+  "id": "ad-01-A-livingroom-cream",
+  "ad_target": "ad-01-curiosity",
+  "schwartz": "Unaware — identity aspiration",
+  "ad_style": "cream warm",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s sitting relaxed on a cream linen sofa in a bright Italian living room, warm genuine smile, soft morning sunlight from a left window, neutral beige t-shirt, hands loosely on lap, slight 3-quarter angle to camera, 85mm portrait lens, shallow depth of field, calm reassuring atmosphere, warm cream and beige color palette, editorial lifestyle photography",
+  "negative_prompt": "text, words, letters, captions, watermark, logo, cartoon, illustration, multiple people, gym setting, dumbbells, harsh shadows, cold blue light, plastic skin, distorted face, oversaturated, deformed",
+  "lighting": "soft natural morning sun from left window",
+  "lens": "85mm f/2.0",
+  "color_palette": "cream, warm beige, soft white",
+  "mood": "calm, reassuring, aspirational"
+}

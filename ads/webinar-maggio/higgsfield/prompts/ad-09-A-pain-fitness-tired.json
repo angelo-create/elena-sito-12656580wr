@@ -1,0 +1,16 @@
+{
+  "id": "ad-09-A-pain-fitness-tired",
+  "ad_target": "ad-09-promise",
+  "schwartz": "Problem-Aware — pain quantification",
+  "ad_style": "dark editorial",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s sitting on a workout bench with a small towel on shoulders, calm but understanding expression, soft warm key light from left, black tank top, dark grey home gym background, 85mm portrait lens, editorial fitness photography, deep blacks with warm skin highlights, contemplative coaching pose",
+  "negative_prompt": "text, words, letters, watermark, logo, exhausted ugly expression, dramatic suffering, gym brand logos, multiple people, harsh fluorescent, distorted face, deformed, plastic skin",
+  "lighting": "soft warm key from left, deep ambient shadows",
+  "lens": "85mm f/2.0",
+  "color_palette": "deep blacks, warm beige skin, hint of pink",
+  "mood": "understanding, knowing the struggle, calm"
+}

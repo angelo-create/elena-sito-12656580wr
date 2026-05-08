@@ -1,0 +1,15 @@
+{
+  "id": "01-A-livingroom-cream",
+  "ad_target": "ad-01-curiosity",
+  "schwartz": "Unaware",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Professional Italian magazine ad creative, square 1:1 social media format, split vertical layout with photo on the LEFT half and text composition on the RIGHT half. LEFT HALF: full-bleed photograph of an Italian woman in her late 40s with warm genuine smile, sitting relaxed on a cream linen sofa, soft morning sunlight from a left window, beige t-shirt, hands loose on lap, 85mm portrait lens, shallow depth of field, calm reassuring atmosphere. RIGHT HALF: solid warm cream background #FBF6EE with three text elements rendered in perfect bold sans-serif Poppins typography: at the top left a small uppercase tag 'ELENA GIORDANI' in black 14px with a tiny pink dot before it; in the middle a large bold black headline reading exactly 'SI PUO TORNARE IN FORMA A 55 ANNI' in 4 lines, 60px weight 800, letter-spacing tight, with the words 'A 55 ANNI' highlighted by a coral peach underline brush stroke; below the headline a smaller grey subline reading exactly 'Con calma. Senza fanatismi.' in 22px weight 500; at the bottom a black rounded pill button reading 'VIENI A SENTIRMI' in white 18px bold uppercase, and to the right of the button a small uppercase date block reading '19·20·21 MAGGIO / ORE 18:30 · ZOOM' in 14px black. Editorial fitness brand for Italian women 50+, clean typography, magazine-quality crisp text, no spelling errors, no AI text artifacts, perfectly readable Italian text without accented characters",
+  "negative_prompt": "misspelled text, garbled letters, distorted typography, gibberish words, blurred text, overlapping text, accented characters with errors, multiple competing layouts, watermark, generic stock photo, cartoon, illustration, multiple people, gym setting, dumbbells, harsh shadows, cold blue light, plastic skin, distorted face, deformed",
+  "style_reference": "Vogue Italia editorial meets Apple Health ad",
+  "color_palette": "cream #FBF6EE background, black text, coral #FF8C5A accent, hot pink #E91E63 dot",
+  "typography": "Poppins / Inter bold sans-serif, perfect rendering, high contrast",
+  "mood": "calm, reassuring, aspirational"
+}

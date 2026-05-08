@@ -1,0 +1,15 @@
+{
+  "id": "04-A-authority-darkroom",
+  "ad_target": "ad-04-authority",
+  "schwartz": "Product",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Premium Italian editorial ad creative, square 1:1, vertical split. LEFT HALF: full-bleed cinematic portrait of Italian woman in her late 40s, confident warm smile, half-body, slight 3-quarter angle, sitting on dark wooden chair, hands relaxed on lap, dramatic warm rim light from right, dark moody background, black fitted t-shirt, gold infinity necklace, 85mm f/1.8 magazine cover quality. RIGHT HALF: solid deep black background #0B0B0C with crisp Poppins typography: top right tag 'ELENA GIORDANI' with pink dot 14px white uppercase; large white bold HEADLINE 60px in 6 lines reading exactly 'LE MIE RAGAZZE DEL 2018 SONO ANCORA IN FORMA NEL 2026.' with the years '2018' and '2026' rendered in hot pink #E91E63; below it grey opacity-70 subline 21px weight 400 'Venti anni con le donne. 2300 trasformate. Senza ricadute.'; thin white-opacity hairline; bottom hot pink #E91E63 rounded pill button 'RISERVA IL TUO POSTO' white text 18px bold uppercase with subtle pink glow shadow, beside it small white uppercase block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px tracked. Cinematic editorial, all Italian text perfectly rendered without accents, magazine-quality typography",
+  "negative_prompt": "misspelled text, garbled numbers, distorted typography, accent errors, watermark, generic stock photo, multiple competing layouts, cartoon, multiple people, gym setting, harsh fluorescent flash, plastic skin, distorted face, deformed body, busy background",
+  "style_reference": "Vogue Italia cover meets Nike Athletic ad",
+  "color_palette": "deep black, hot pink #E91E63, warm honey skin highlights, white text",
+  "typography": "Poppins 800 60px headline, 21px sub, perfect rendering",
+  "mood": "authoritative, cinematic, magazine-cover quality"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ad-07-A-stage-applause",
+  "ad_target": "ad-07-community",
+  "schwartz": "Product-Aware — community proof",
+  "ad_style": "evento overlay",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s on a small speaking stage holding a wireless microphone, mid-talk, warm engaged expression, audience of women silhouetted in soft pink stage lighting in foreground out-of-focus, dark venue with magenta stage lights, full-body composition, dynamic candid shot, 35mm lens documentary style, cinematic event photography",
+  "negative_prompt": "text on signs, readable banners, words, letters, watermark, logo, harsh flash, daytime light, gym setting, distorted face, deformed, multiple speakers",
+  "lighting": "magenta stage key light, dark ambient",
+  "lens": "35mm f/2.8",
+  "color_palette": "deep blues, magenta pinks, warm skin highlights",
+  "mood": "live event, community proof, energetic"
+}

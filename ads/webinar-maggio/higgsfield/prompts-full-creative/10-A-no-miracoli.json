@@ -1,0 +1,15 @@
+{
+  "id": "10-A-no-miracoli",
+  "ad_target": "ad-10-no-miracoli",
+  "schwartz": "Solution",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Premium Italian editorial ad creative 1:1 square, vertical split. LEFT HALF: cinematic Italian woman late 40s standing tall confident, half-body, arms loosely crossed, slight knowing smile, looking directly at camera, black fitted top, dark moody studio, dramatic side key light from right, 85mm editorial magazine cover composition, warm shadows. RIGHT HALF: deep black #0B0B0C with Poppins typography: top tag 'ELENA GIORDANI' pink dot 14px white; HEADLINE 60px white bold in 6 lines exactly 'NON PROMETTO MIRACOLI. PROMETTO UN METODO CHE REGGE CON LA VITA VERA.' with 'MIRACOLI' rendered in hot pink #E91E63; subline 21px grey opacity-70 'Senza fanatismi. Senza pesare ogni grammo.'; thin hairline; bottom hot pink pill button 'RISERVA IL TUO POSTO' white text 18px bold uppercase glow, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white. Magazine-cover crisp Italian typography no accents perfectly rendered",
+  "negative_prompt": "misspelled, garbled, distorted typography, accent errors, watermark, gym, multiple people, harsh fluorescent, plastic skin, distorted face, deformed, smiling broadly",
+  "style_reference": "Vogue Italia editorial cover meets Nike mentor portrait",
+  "color_palette": "deep black, hot pink, warm honey skin highlights, white text",
+  "typography": "Poppins 800 60px / 21px, perfect rendering",
+  "mood": "anti-fanaticism, grounded real, no-bs"
+}

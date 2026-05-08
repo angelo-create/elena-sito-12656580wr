@@ -1,0 +1,15 @@
+{
+  "id": "07-B-hugging-attendee",
+  "ad_target": "ad-07-community",
+  "schwartz": "Product",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Cinematic Italian community ad creative 1:1 square, full-bleed event photograph with text overlay. FULL FRAME PHOTO: Italian woman late 40s sharing warm hug with older woman attendee at event, both smiling, candid emotional, soft warm event lighting, blurred audience with magenta accents background, full upper body 50mm documentary. OVERLAY: soft black gradient bottom-third for readability. TEXT (perfect Poppins): top left 'ELENA GIORDANI' pink dot 14px white; lower-third eyebrow pill '2300 DONNE · 8 PAESI · 1 METODO' 13px white uppercase tracked on translucent pink background with pink border; large white bold HEADLINE 60px in 4 lines exactly 'HANNO SMESSO DI RICOMINCIARE. ADESSO TOCCA A TE.' 'ADESSO TOCCA A TE' in hot pink; hairline; bottom hot pink pill 'TOCCA A TE GRATIS' white 18px bold uppercase, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white. Perfect Italian text no accents",
+  "negative_prompt": "readable banners, signage, sponsor text, misspelled, garbled, distorted typography, accent errors, watermark, harsh flash, multiple identifiable faces in focus, plastic skin, distorted",
+  "style_reference": "Italian Vogue community editorial meets emotional Apple ad",
+  "color_palette": "warm skin tones, magenta event accents, white and pink text on dark gradient",
+  "typography": "Poppins 800 60px / 14px, perfect rendering",
+  "mood": "emotional connection, sisterhood, transformation"
+}

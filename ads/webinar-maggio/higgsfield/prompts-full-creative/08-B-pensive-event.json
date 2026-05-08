@@ -1,0 +1,14 @@
+{
+  "id": "08-B-pensive-event",
+  "ad_target": "ad-08-permanence",
+  "schwartz": "Problem",
+  "model": "soul",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Cinematic editorial ad creative 1:1 square, full-bleed event photograph with text overlay. FULL FRAME: close-up of anonymous Italian woman around 50 sitting in event audience, pensive thoughtful expression, soft pink magenta stage light bathing face, slight melancholic emotion, blurred audience around, evening event, 85mm shallow DOF cinematic documentary, no recognizable specific identity. OVERLAY: black gradient bottom-half for readability. TEXT (perfect Poppins): top left 'ELENA GIORDANI' pink dot 14px white; eyebrow pill '3 SERE INSIEME · E GRATIS' 13px white uppercase translucent pink; HEADLINE 60px white bold 3 lines exactly 'TI GUARDI ALLO SPECCHIO E NON TI RICONOSCI PIU.' 'NON TI RICONOSCI PIU' hot pink; hairline; hot pink pill 'RISERVA IL TUO POSTO' white 18px bold uppercase, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white. Perfect Italian text no accents, anonymous attendee represents viewer",
+  "negative_prompt": "Elena Giordani character recognizable face, misspelled, garbled, distorted typography, accent errors, watermark, multiple identifiable faces in focus, harsh flash, gym, plastic skin",
+  "style_reference": "Italian Vogue cinematic editorial",
+  "color_palette": "magenta pinks, deep shadows, warm skin, white and pink text",
+  "typography": "Poppins 800 60px / 14px, perfect rendering",
+  "mood": "self-recognition, emotional, vulnerable"
+}

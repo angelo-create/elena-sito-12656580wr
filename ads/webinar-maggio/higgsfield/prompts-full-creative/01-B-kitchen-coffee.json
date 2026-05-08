@@ -1,0 +1,15 @@
+{
+  "id": "01-B-kitchen-coffee",
+  "ad_target": "ad-01-curiosity",
+  "schwartz": "Unaware",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Professional Italian magazine ad creative, square 1:1, split vertical layout. LEFT HALF photo: Italian woman late 40s in sunlit Italian kitchen, espresso cup in hand, warm calm smile looking slightly off-camera, beige linen sweater, marble countertop, late morning golden filtered light through wooden shutters, 50mm lens, lifestyle editorial. RIGHT HALF cream warm background #FBF6EE with crisp Poppins typography: top left small uppercase tag 'ELENA GIORDANI' with pink dot 14px black; center large bold black headline exactly 'SI PUO TORNARE IN FORMA A 55 ANNI' 60px weight 800 in 4 lines, with 'A 55 ANNI' underlined by coral peach brush; subline 22px grey weight 500 'Con calma. Senza fanatismi.'; bottom black pill button 'VIENI A SENTIRMI' white text 18px bold uppercase, beside it date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px black uppercase. Magazine cover quality, perfectly rendered Italian text without accents, clean editorial composition for women 50+ wellness brand",
+  "negative_prompt": "misspelled text, garbled letters, gibberish, distorted typography, accent errors, watermark, generic stock photo, multiple text variants competing, cartoon, multiple people, gym, dumbbells, plastic skin, distorted face, deformed",
+  "style_reference": "Apple Health editorial meets Italian Vogue Cucina",
+  "color_palette": "cream, warm gold filtered light, black text, coral accent",
+  "typography": "Poppins bold sans-serif, perfect rendering",
+  "mood": "intimate Italian morning, calm, aspirational"
+}

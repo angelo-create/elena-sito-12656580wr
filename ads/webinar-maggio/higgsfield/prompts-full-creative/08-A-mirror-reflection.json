@@ -1,0 +1,14 @@
+{
+  "id": "08-A-mirror-reflection",
+  "ad_target": "ad-08-permanence",
+  "schwartz": "Problem",
+  "model": "soul",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Cinematic Italian editorial ad creative 1:1 square, full-bleed atmospheric photograph with text overlay. FULL FRAME PHOTO: anonymous woman around 50 standing in front of soft-focus bathroom mirror, only her back and partial reflection visible, warm dim morning light from side window, contemplative atmosphere, beige towel robe, soft cream tiles, intimate emotional bathroom scene, 35mm cinematic documentary, no recognizable face features. OVERLAY: soft black gradient bottom 50% for text readability. TEXT (perfect Poppins): top left 'ELENA GIORDANI' pink dot 14px white; lower zone eyebrow pill '3 SERE INSIEME · E GRATIS' 13px white uppercase tracked on translucent pink background; large bold white HEADLINE 60px in 3 lines exactly 'TI GUARDI ALLO SPECCHIO E NON TI RICONOSCI PIU.' with 'NON TI RICONOSCI PIU' in hot pink #E91E63; thin hairline; bottom hot pink pill 'RISERVA IL TUO POSTO' white 18px bold uppercase, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white. Perfect Italian text no accents, anonymous figure represents the viewer",
+  "negative_prompt": "recognizable face, Elena Giordani character visible face, misspelled, garbled, distorted typography, accent errors, watermark, harsh light, gym, multiple people, plastic skin, distorted",
+  "style_reference": "moody Italian Vogue Beauty editorial meets cinematic film still",
+  "color_palette": "warm beige, soft cream, deep shadows, white and pink text",
+  "typography": "Poppins 800 60px / 14px, perfect rendering",
+  "mood": "introspective, vulnerable, self-recognition"
+}

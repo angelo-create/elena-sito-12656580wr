@@ -1,0 +1,16 @@
+{
+  "id": "ad-10-A-no-miracoli-portrait",
+  "ad_target": "ad-10-no-miracoli",
+  "schwartz": "Solution-Aware — anti-diet positioning",
+  "ad_style": "dark editorial",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s standing tall confident, half-body portrait, arms crossed loosely, slight knowing smile, looking directly at camera, black fitted top, dark moody studio backdrop, dramatic side key light, 85mm portrait lens, editorial cinematic photography, magazine cover composition, warm shadows",
+  "negative_prompt": "text, words, letters, watermark, logo, gym setting, multiple people, harsh fluorescent, distorted face, deformed, plastic skin, oversaturated, smiling broadly",
+  "lighting": "side key light from right, deep warm shadows",
+  "lens": "85mm f/2.0",
+  "color_palette": "deep blacks, warm honey skin highlights",
+  "mood": "anti-fanaticism, grounded, real, no-bs"
+}

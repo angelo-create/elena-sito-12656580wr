@@ -1,0 +1,16 @@
+{
+  "id": "ad-07-B-hugging-attendee",
+  "ad_target": "ad-07-community",
+  "schwartz": "Product-Aware — community proof",
+  "ad_style": "evento overlay",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s sharing a warm hug with an older woman attendee at a community event, both smiling, candid emotional moment, soft warm event lighting, blurred audience in background with magenta accents, full upper body composition, 50mm lens, documentary photography, intimate connection between two women",
+  "negative_prompt": "text on signs, readable signage, words, letters, watermark, logo, harsh flash, multiple identifiable other faces in focus, gym setting, distorted faces, deformed",
+  "lighting": "warm event ambient with soft pink accents",
+  "lens": "50mm f/2.0",
+  "color_palette": "warm skin tones, magenta event lights, soft golds",
+  "mood": "emotional, connection, transformation, sisterhood"
+}

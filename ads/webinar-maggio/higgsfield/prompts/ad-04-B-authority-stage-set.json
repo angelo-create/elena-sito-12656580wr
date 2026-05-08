@@ -1,0 +1,16 @@
+{
+  "id": "ad-04-B-authority-stage-set",
+  "ad_target": "ad-04-authority",
+  "schwartz": "Product-Aware — authority claim",
+  "ad_style": "dark editorial",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s standing confidently in a softly-lit speaking-stage setting, dark backdrop with subtle pink stage lights bokeh, half-body composition, arms relaxed, slight knowing smile, black tank top showing toned arms, professional speaker presence, 70mm lens, shallow depth of field, cinematic editorial photography",
+  "negative_prompt": "text on backdrop, readable signage, words, letters, watermark, logo, gym setting, dumbbells, multiple people in focus, harsh stage flares, plastic skin, distorted face",
+  "lighting": "soft key light from front-left, magenta rim from behind",
+  "lens": "70mm f/2.0",
+  "color_palette": "deep blacks, warm magenta accents",
+  "mood": "confident speaker, expertise, calm authority"
+}

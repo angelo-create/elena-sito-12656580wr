@@ -1,0 +1,17 @@
+{
+  "id": "ad-03-B-stat-portrait-warm",
+  "ad_target": "ad-03-stat",
+  "schwartz": "Solution-Aware — contrarian stat",
+  "ad_style": "stat poster (small circle photo bottom-right)",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Tight headshot of Italian woman in her late 40s, warm welcoming smile, looking directly at camera, soft warm beige backdrop, golden hour lighting, 85mm portrait lens, sharp focus on face suitable for circular crop, editorial portrait photography",
+  "negative_prompt": "text, words, letters, watermark, logo, body fully visible, gym wear, harsh shadows, distorted face, deformed, plastic skin",
+  "lighting": "warm golden frontal soft light",
+  "lens": "85mm f/2.8",
+  "color_palette": "warm beige background, golden skin tones",
+  "mood": "warm, approachable, expert",
+  "note": "Variant warm tone for circle crop. Higher trust signal."
+}

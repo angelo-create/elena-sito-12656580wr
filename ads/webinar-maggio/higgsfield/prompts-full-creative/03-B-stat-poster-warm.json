@@ -1,0 +1,15 @@
+{
+  "id": "03-B-stat-poster-warm",
+  "ad_target": "ad-03-stat",
+  "schwartz": "Solution",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Bold statistics poster, square 1:1, full-bleed deep black #0B0B0C with subtle warm magenta vignette in upper-center. CENTER: eyebrow tag uppercase white 13px tracked 'IL DATO CHE NESSUNO TI DICE'; GIANT hot pink #E91E63 number '87%' Poppins 900 weight 360px perfectly rendered; below it white label 34px 2 lines 'DELLE DONNE MOLLA A GIUGNO IN DUE SETTIMANE.'; subline 22px grey weight 400 'Non e una questione di volonta. E il metodo.' with 'volonta' in white bold. TOP LEFT 'ELENA GIORDANI' 14px white pink dot. BOTTOM ROW thin hairline above: LEFT 56px circular Italian woman late 40s portrait warm smile, label 'WEBINAR GRATUITO CON / ELENA GIORDANI' 13px white; RIGHT '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white. Perfect Italian rendering no accents, dark editorial NYT poster aesthetic, bold sans-serif",
+  "negative_prompt": "misspelled, garbled, distorted typography, accent errors, multiple competing layouts, watermark, busy background, cartoon, plastic skin, distorted face",
+  "style_reference": "New York Times data graphic, Nike Off-Court poster",
+  "color_palette": "deep black, hot pink, white, subtle pink glow",
+  "typography": "Poppins 900 360px number, 34px label, 22px sub",
+  "mood": "shock data, intelligent contrarian"
+}

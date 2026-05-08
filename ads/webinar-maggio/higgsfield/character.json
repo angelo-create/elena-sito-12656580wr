@@ -1,0 +1,25 @@
+{
+  "name": "Elena Giordani",
+  "slug": "elena-giordani-v1",
+  "description": "Italian fitness coach, 47 years old, mediterranean features, long brown hair with subtle highlights, warm genuine smile, athletic but soft build, dark brown eyes, olive skin tone, expressive eyebrows. Personality: confident, calm, reassuring, motherly authority — the older sister who has answers.",
+  "ethnicity": "Italian Mediterranean",
+  "age": 47,
+  "hair": "long brown straight to wavy, sun-streaked highlights",
+  "eyes": "dark brown",
+  "skin": "olive warm",
+  "build": "athletic toned slim",
+  "signature_jewelry": "small gold necklace with EG infinity pendant",
+  "wardrobe_palette": ["black tank tops", "beige tees", "cream sweaters", "denim jeans", "dark leggings"],
+  "reference_images": [
+    "references/elena-ref-01-closeup-smile.webp",
+    "references/elena-ref-02-portrait-pro.webp",
+    "references/elena-ref-03-lifestyle-book.webp",
+    "references/elena-ref-04-fitness-elastic.webp",
+    "references/elena-ref-05-studio-frontal.webp",
+    "references/elena-ref-06-workshop-mic.webp",
+    "references/elena-ref-07-fitness-pose.webp",
+    "references/elena-ref-08-portrait-warm.webp"
+  ],
+  "negative_prompt_universal": "text, letters, words, captions, watermark, logo, cartoon, illustration, painting, deformed face, distorted features, bad anatomy, extra limbs, blurry, low quality, plastic skin, oversaturated, harsh shadows, multiple women, twin, cloned face",
+  "notes": "Use this character_id in every Soul generate_image call. Returned by mcp__higgsfield__create_character. Save the returned ID into this file under `higgsfield_character_id` after first creation."
+}

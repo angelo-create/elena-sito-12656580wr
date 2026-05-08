@@ -1,0 +1,16 @@
+{
+  "id": "ad-02-B-reading-book",
+  "ad_target": "ad-02-narrative",
+  "schwartz": "Problem-Aware — narrative recognition",
+  "ad_style": "cream warm",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s reading a hardcover book on a beige linen sofa, gentle introspective smile, soft afternoon light, casual cream cardigan over a white tee, legs tucked under, calm domestic atmosphere, 85mm lens, shallow depth of field, warm cream tones, editorial lifestyle photography",
+  "negative_prompt": "text on book cover, readable book title, words, letters, watermark, logo, cartoon, multiple people, gym, dumbbells, plastic skin, distorted face, deformed, oversaturated",
+  "lighting": "warm afternoon natural light",
+  "lens": "85mm f/2.2",
+  "color_palette": "cream, beige, soft gold",
+  "mood": "introspective, intimate, understanding"
+}

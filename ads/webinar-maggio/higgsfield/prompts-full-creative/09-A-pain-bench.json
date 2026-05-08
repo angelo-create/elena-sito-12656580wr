@@ -1,0 +1,15 @@
+{
+  "id": "09-A-pain-bench",
+  "ad_target": "ad-09-promise",
+  "schwartz": "Problem",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Premium Italian editorial fitness ad creative 1:1 square, vertical split. LEFT HALF: cinematic Italian woman late 40s sitting on workout bench with small towel on shoulders, calm understanding expression, soft warm key from left, black tank top, dark grey home gym, 85mm editorial fitness photography, deep blacks with warm skin highlights, contemplative coaching pose. RIGHT HALF: deep black #0B0B0C with Poppins typography: top tag 'ELENA GIORDANI' pink dot 14px white; HEADLINE 60px white bold in 5 lines exactly '5 MESI DI FATICA. 3 SETTIMANE DI APERICENA. TUTTO DA RIFARE.' with '5 MESI' and '3 SETTIMANE' in hot pink #E91E63; subline 21px grey opacity-70 'Capita all 87% delle donne. Non sbagli tu, sbaglia il metodo.'; thin hairline; bottom hot pink pill button 'ISCRIVITI E GRATIS' white text 18px bold uppercase, date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white. Magazine-quality typography all Italian text perfectly rendered no accents",
+  "negative_prompt": "misspelled, garbled, distorted typography, accent errors, watermark, exhausted ugly expression, dramatic suffering, gym brand logos, harsh fluorescent, multiple people, plastic skin, distorted face",
+  "style_reference": "Nike Women editorial meets Italian Vogue fitness feature",
+  "color_palette": "deep black, hot pink, warm honey skin, white text",
+  "typography": "Poppins 800 60px / 21px, perfect rendering",
+  "mood": "understanding, knowing the struggle, calm authority"
+}

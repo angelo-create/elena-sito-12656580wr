@@ -1,0 +1,14 @@
+{
+  "name": "ads-webinar-maggio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prep": "node prep-images.mjs",
+    "render": "node render.mjs",
+    "build": "npm run prep && npm run render"
+  },
+  "devDependencies": {
+    "puppeteer": "^23.0.0",
+    "sharp": "^0.33.5"
+  }
+}

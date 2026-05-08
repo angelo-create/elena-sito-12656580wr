@@ -1,0 +1,15 @@
+{
+  "id": "02-A-window-thoughtful",
+  "ad_target": "ad-02-narrative",
+  "schwartz": "Problem",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian magazine ad creative, square 1:1, vertical split. LEFT HALF photo: Italian woman late 40s sitting by large window in calm Italian apartment, gazing thoughtfully outside, slight melancholic composed expression, soft cream sweater, ceramic mug in hands, warm afternoon light, 85mm shallow depth of field, contemplative editorial. RIGHT HALF cream background #FBF6EE with Poppins typography: top tag 'ELENA GIORDANI' with pink dot; HEADLINE black bold 56px in 5 lines reading exactly 'A MAGGIO SEI PRONTA. A GIUGNO MOLLI. A SETTEMBRE PIU INDIETRO DI PRIMA.' with the word 'MOLLI' highlighted by coral peach brush underline; subline 22px grey 'Succede sempre per lo stesso motivo. Te lo spiego.'; bottom black pill button 'ISCRIVITI E GRATIS' white 18px uppercase, beside it date block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px black. Perfect Italian text rendering without accents, clean editorial composition for women 50+, magazine-quality typography",
+  "negative_prompt": "misspelled text, garbled letters, distorted typography, accent errors, watermark, multiple text layouts, cartoon, multiple people, gym, dumbbells, plastic skin, distorted face, deformed, oversaturated",
+  "style_reference": "Vogue Italia editorial portrait",
+  "color_palette": "cream, warm caramel afternoon, black text, coral accent",
+  "typography": "Poppins bold 56px headline / 22px subline, perfect rendering",
+  "mood": "introspective, understanding, narrative recognition"
+}

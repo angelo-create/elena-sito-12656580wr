@@ -1,0 +1,15 @@
+{
+  "id": "03-A-stat-poster",
+  "ad_target": "ad-03-stat",
+  "schwartz": "Solution",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Bold statistics poster ad creative, square 1:1 format, full-bleed dark almost-black background #0B0B0C with subtle radial pink glow at center. CENTER COMPOSITION: small uppercase eyebrow tag in white opacity-60 reading 'QUELLO CHE VEDO DA 20 ANNI' 13px tracked; below it a GIANT hot pink #E91E63 number '87%' rendered in perfect bold sans-serif Poppins 360px weight 900, dominating the composition; below the number a white bold sans-serif label 34px in 2 lines reading exactly 'DELLE DONNE MOLLA NELLE PRIME DUE SETTIMANE DI GIUGNO.'; below that a smaller grey subline 22px weight 400 reading 'Non e la testa. E il metodo.' with 'testa' in white bold; TOP LEFT corner a small uppercase tag 'ELENA GIORDANI' 14px white with pink dot. BOTTOM ROW with thin hairline divider above: LEFT side a 56px circular photo of an Italian woman late 40s warm smile portrait, beside it small white uppercase text 'WEBINAR GRATUITO CON / ELENA GIORDANI' 13px; RIGHT side small uppercase block '19·20·21 MAGGIO / ORE 18:30 · ZOOM' 14px white. Magazine-quality bold sans-serif typography, all Italian text perfectly rendered without accented characters, dark editorial poster aesthetic",
+  "negative_prompt": "misspelled text, garbled numbers, distorted typography, accent errors, watermark, busy background, gradient mess, cartoon, multiple statistics, plastic skin, distorted face, deformed body",
+  "style_reference": "Nike data poster meets New York Times graphic",
+  "color_palette": "deep black #0B0B0C background, hot pink #E91E63 number, white text, subtle pink radial glow",
+  "typography": "Poppins 900 weight 360px number, 34px label, perfect rendering",
+  "mood": "shocking statistic, contrarian, expert authority"
+}

@@ -1,0 +1,34 @@
+{
+  "campaign": "Webinar Maggio Estate Inarrestabile",
+  "dates": "19-20-21 maggio 2026",
+  "character": "elena-giordani-v1",
+  "model": "soul",
+  "prompts": [
+    { "file": "ad-01-A-livingroom-cream.json", "ad": "ad-01", "schwartz": "Unaware", "style": "cream warm" },
+    { "file": "ad-01-B-kitchen-coffee.json",   "ad": "ad-01", "schwartz": "Unaware", "style": "cream warm" },
+    { "file": "ad-02-A-window-thoughtful.json","ad": "ad-02", "schwartz": "Problem", "style": "cream warm" },
+    { "file": "ad-02-B-reading-book.json",     "ad": "ad-02", "schwartz": "Problem", "style": "cream warm" },
+    { "file": "ad-03-A-stat-portrait-tiny.json","ad": "ad-03","schwartz": "Solution","style": "stat poster" },
+    { "file": "ad-03-B-stat-portrait-warm.json","ad": "ad-03","schwartz": "Solution","style": "stat poster" },
+    { "file": "ad-04-A-authority-darkroom.json","ad": "ad-04","schwartz": "Product", "style": "dark editorial" },
+    { "file": "ad-04-B-authority-stage-set.json","ad":"ad-04","schwartz": "Product", "style": "dark editorial" },
+    { "file": "ad-05-A-pattern-interrupt-yoga.json","ad":"ad-05","schwartz":"Unaware","style":"cream warm" },
+    { "file": "ad-05-B-walking-italian-street.json","ad":"ad-05","schwartz":"Unaware","style":"cream warm" },
+    { "file": "ad-06-A-method-fitness-soft.json","ad":"ad-06","schwartz":"Solution","style":"dark editorial" },
+    { "file": "ad-06-B-method-coaching.json","ad":"ad-06","schwartz":"Solution","style":"dark editorial" },
+    { "file": "ad-07-A-stage-applause.json", "ad": "ad-07","schwartz":"Product", "style":"evento overlay" },
+    { "file": "ad-07-B-hugging-attendee.json","ad":"ad-07","schwartz":"Product", "style":"evento overlay" },
+    { "file": "ad-08-A-mirror-reflection.json","ad":"ad-08","schwartz":"Problem", "style":"evento overlay" },
+    { "file": "ad-08-B-pensive-event.json",  "ad": "ad-08","schwartz":"Problem", "style":"evento overlay" },
+    { "file": "ad-09-A-pain-fitness-tired.json","ad":"ad-09","schwartz":"Problem","style":"dark editorial" },
+    { "file": "ad-09-B-pain-coaching-direct.json","ad":"ad-09","schwartz":"Problem","style":"dark editorial" },
+    { "file": "ad-10-A-no-miracoli-portrait.json","ad":"ad-10","schwartz":"Solution","style":"dark editorial" },
+    { "file": "ad-10-B-no-miracoli-realtalk.json","ad":"ad-10","schwartz":"Solution","style":"dark editorial" }
+  ],
+  "schwartz_distribution": {
+    "Unaware": 4,
+    "Problem-Aware": 6,
+    "Solution-Aware": 6,
+    "Product-Aware": 4
+  }
+}

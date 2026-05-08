@@ -1,0 +1,16 @@
+{
+  "id": "ad-09-B-pain-coaching-direct",
+  "ad_target": "ad-09-promise",
+  "schwartz": "Problem-Aware — pain quantification",
+  "ad_style": "dark editorial",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s seated on a dark warm-wood stool, leaning forward with elbows on knees, hands clasped, intense direct gaze at camera, slight understanding smile, black fitted t-shirt, dark moody studio background, dramatic warm rim light, 85mm portrait lens, editorial cinematic photography, magazine cover quality",
+  "negative_prompt": "text, words, letters, watermark, logo, gym, dumbbells, harsh frontal flash, multiple people, distorted face, deformed, plastic skin, oversaturated",
+  "lighting": "rembrandt with warm rim, deep shadows",
+  "lens": "85mm f/1.8",
+  "color_palette": "deep blacks, warm honey skin, gold accent",
+  "mood": "telling-it-straight, mentor truth-bomb, intimate"
+}

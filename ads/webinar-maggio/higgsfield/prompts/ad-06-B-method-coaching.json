@@ -1,0 +1,16 @@
+{
+  "id": "ad-06-B-method-coaching",
+  "ad_target": "ad-06-method",
+  "schwartz": "Solution-Aware — mechanism teaser",
+  "ad_style": "dark editorial",
+  "model": "soul",
+  "character_id": "{{ELENA_CHARACTER_ID}}",
+  "aspect_ratio": "1:1",
+  "resolution": "1080x1080",
+  "prompt": "Italian woman in her late 40s explaining something with hands gestured forward, mid-coaching moment, half-body portrait, dark grey-black studio background, soft warm key light from left, black tank top, gold necklace, expressive eyes engaging the viewer, 85mm portrait lens, editorial coaching photography, magazine quality",
+  "negative_prompt": "text, words, letters, watermark, logo, gym, dumbbells, multiple people, harsh shadows, cold blue tones, distorted face, deformed, plastic skin",
+  "lighting": "soft warm key from left, deep shadows on right",
+  "lens": "85mm f/1.8",
+  "color_palette": "deep blacks, warm skin, hint of gold",
+  "mood": "explaining, coaching, intelligent authority"
+}
