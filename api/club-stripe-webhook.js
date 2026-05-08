@@ -47,15 +47,15 @@ function decodeUtmRef(ref) {
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 const GHL_API_VERSION = '2021-07-28';
 
-// Un tag per prodotto = il planKey stesso. Tag broad rimossi (club-membro-attivo,
-// evento-ncv-2026, acquisto-pubblico, acquisto-partecipante, acquisto-bundle)
-// per evitare ambiguita' nelle segmentazioni GHL.
+// Un tag GHL per prodotto. Naming convention: <segmento>-<prodotto>.
+// I planKey interni (chiavi della mappa) restano invariati: cambiano solo i
+// valori dei tag, gli unici visibili in GHL.
 const PLAN_TAGS = {
   'partecipanti-club':    ['partecipanti-club'],
   'partecipanti-evento':  ['partecipanti-evento'],
   'partecipanti-bundle':  ['partecipanti-bundle'],
-  'pubblico':             ['pubblico'],
-  'evento-pubblico':      ['evento-pubblico'],
+  'pubblico':             ['pubblico-club'],
+  'evento-pubblico':      ['pubblico-evento'],
   'pubblico-bundle':      ['pubblico-bundle']
 };
 
