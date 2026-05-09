@@ -42,13 +42,6 @@
         if (p.get('link'))   THANKYOU.linkWebinar = p.get('link');
         if (p.get('luogo'))  THANKYOU.luogo = p.get('luogo');
 
-        // OTO REDIRECT: se l'utente arriva da GHL senza aver visto la OTO, mandalo lì prima.
-        // Passa oltre se ha già completato la OTO (oto=done) o ha pagato (paid=true).
-        if (window.self === window.top && !p.get('oto') && !p.get('paid')) {
-            var otoUrl = 'webinar-maggio-oto.html' + (search || '');
-            window.location.replace(otoUrl);
-        }
-
         return {
             paid: p.get('paid') === 'true',
             otoDone: p.get('oto') === 'done',
