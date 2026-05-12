@@ -894,13 +894,14 @@
         padding: 0.5rem 1.25rem;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        align-items: flex-start;
     }
     .ei-scroll-row::-webkit-scrollbar { display: none; }
     .ei-scroll-row.grabbing { cursor: grabbing; }
     .ei-scroll-item {
         flex: 0 0 auto;
-        height: 380px;
-        width: auto;
+        width: 300px;
+        height: auto;
         border-radius: 14px;
         overflow: hidden;
         background: var(--bg-soft);
@@ -910,15 +911,15 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     @media (max-width: 480px) {
-        .ei-scroll-item { height: 300px; }
+        .ei-scroll-item { width: 240px; }
     }
     .ei-scroll-item:hover {
         transform: translateY(-3px);
         box-shadow: 0 12px 32px rgba(180,140,90,0.2), 0 4px 8px rgba(0,0,0,0.06);
     }
     .ei-scroll-item img {
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: auto;
         max-width: none;
         display: block;
     }
@@ -994,7 +995,8 @@
         letter-spacing: 0.02em;
     }
     .ei-native-field input[type="text"],
-    .ei-native-field input[type="email"] {
+    .ei-native-field input[type="email"],
+    .ei-native-field input[type="tel"] {
         background: #FFFFFF;
         border: 1px solid var(--border);
         border-radius: 10px;
