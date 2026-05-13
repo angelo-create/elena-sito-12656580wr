@@ -13,6 +13,54 @@ function hash(value) {
   return crypto.createHash('sha256').update(String(value).toLowerCase().trim()).digest('hex');
 }
 
+// Applica il tag `oto-sfida-7-giorni` al contatto in GHL tramite API diretta.
+// Pattern in 2 step (vedi api/README.md REGOLA #1): upsert senza `tags`, poi
+// POST /contacts/{id}/tags additivo. NON sovrascrive i tag preesistenti.
+// Il tag funziona da "evento centrale" per workflow GHL con trigger
+// Contact Tag → Added → oto-sfida-7-giorni.
+async function tagOtoBuyerInGHL({ email, firstName, lastName }) {
+  const apiKey = process.env.GHL_API_KEY;
+  if (!apiKey || !email) {
+    console.log('[oto-tag] skip: GHL_API_KEY o email mancante');
+    return;
+  }
+  const locationId = 'whfxv9CQCrjAmBTZJwMw';
+  const headers = {
+    'Authorization': `Bearer ${apiKey}`,
+    'Version': '2021-07-28',
+    'Content-Type': 'application/json'
+  };
+  try {
+    const upsertBody = { email, locationId };
+    if (firstName) upsertBody.firstName = firstName;
+    if (lastName) upsertBody.lastName = lastName;
+    const upsertRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+      method: 'POST', headers, body: JSON.stringify(upsertBody)
+    });
+    const upsertJson = await upsertRes.json();
+    if (!upsertRes.ok) {
+      console.error('[oto-tag] upsert failed:', upsertRes.status, JSON.stringify(upsertJson).slice(0, 300));
+      return;
+    }
+    const contactId = upsertJson?.contact?.id;
+    if (!contactId) {
+      console.error('[oto-tag] no contactId in upsert response');
+      return;
+    }
+    const tagRes = await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/tags`, {
+      method: 'POST', headers, body: JSON.stringify({ tags: ['oto-sfida-7-giorni'] })
+    });
+    if (!tagRes.ok) {
+      const errText = await tagRes.text();
+      console.error('[oto-tag] add-tag failed:', tagRes.status, errText.slice(0, 300));
+      return;
+    }
+    console.log('[oto-tag] Tag applied: oto-sfida-7-giorni |', email, '|', contactId);
+  } catch (err) {
+    console.error('[oto-tag] error:', err.message);
+  }
+}
+
 // Forward purchase data to GHL via Inbound Webhook (workflow trigger)
 async function notifyGHL(data) {
   const ghlWebhookUrl = process.env.GHL_WEBHOOK_URL;
@@ -90,7 +138,9 @@ module.exports = async function handler(req, res) {
     const rawBody = await buffer(req);
     // .trim() difensivo: paste del secret dalla Stripe Dashboard si porta dietro
     // \n o spazi finali, Stripe rifiuta la firma con "signing secret contains whitespace".
-    const secret = (process.env.STRIPE_WEBHOOK_SECRET || '').trim();
+    // Endpoint dedicato OTO €27 (Sfida 7 Giorni): legge STRIPE_WEBHOOK_SECRET_OTO,
+    // distinto dal secret del Club (STRIPE_WEBHOOK_SECRET_CLUB).
+    const secret = (process.env.STRIPE_WEBHOOK_SECRET_OTO || process.env.STRIPE_WEBHOOK_SECRET || '').trim();
     event = stripe.webhooks.constructEvent(
       rawBody,
       sig,
@@ -155,6 +205,7 @@ module.exports = async function handler(req, res) {
             currency: pi.currency,
             stripe_payment_id: pi.id,
           }),
+          tagOtoBuyerInGHL({ email, firstName, lastName }),
           // event_id = pi.id → matcha l'event_id che il client legge da
           // ?payment_intent=pi_xxx nel return_url → Meta dedupica.
           notifyMetaCAPI({

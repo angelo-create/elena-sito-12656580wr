@@ -190,8 +190,8 @@ module.exports = async function handler(req, res) {
     return res.status(405).end('Method Not Allowed');
   }
 
-  if (!process.env.STRIPE_WEBHOOK_SECRET) {
-    console.error('[stripe-webhook] STRIPE_WEBHOOK_SECRET non configurato');
+  if (!process.env.STRIPE_WEBHOOK_SECRET_CLUB && !process.env.STRIPE_WEBHOOK_SECRET) {
+    console.error('[stripe-webhook] STRIPE_WEBHOOK_SECRET_CLUB non configurato');
     return res.status(500).end('Webhook secret missing');
   }
 
@@ -201,7 +201,7 @@ module.exports = async function handler(req, res) {
     const sig = req.headers['stripe-signature'];
     // .trim() difensivo: paste del secret dalla Stripe Dashboard si porta dietro \n
     // o spazi finali, e Stripe rifiuta la firma con "signing secret contains whitespace".
-    const secret = (process.env.STRIPE_WEBHOOK_SECRET || '').trim();
+    const secret = (process.env.STRIPE_WEBHOOK_SECRET_CLUB || process.env.STRIPE_WEBHOOK_SECRET || '').trim();
     event = stripe.webhooks.constructEvent(buf, sig, secret);
   } catch (err) {
     console.error('[stripe-webhook] Signature verification failed:', err.message);
