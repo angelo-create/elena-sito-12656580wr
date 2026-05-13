@@ -20,14 +20,13 @@
         orario:       "18:30",
         countdownISO: "2026-05-19T18:30:00+02:00",
         luogo:         "Zoom",
-        codiceAccesso: "INSERISCI-CODICE",
-        linkWebinar:   "https://zoom.us/j/INSERISCI",
+        linkWebinar:   "https://us02web.zoom.us/j/82086033404?pwd=7ag3jZCS132Bcabp3Q1p8uIZLmsIIg.1",
         whatsappNumero:    "393773892181",
         whatsappMessaggio: "Ci sar\u00f2 a Estate Inarrestabile (19-20-21 Maggio)!"
     };
     // URL params da GHL sovrascrivono il config (se presenti)
     // ─── REDIRECT URL DA INCOLLARE IN GHL (Form → Settings → Thank You) ───
-    // https://go.elenagiordani.com/webinar-maggio-grazie.html?data={{custom_values.data}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}&luogo={{custom_values.luogo_webinar}}
+    // https://go.elenagiordani.com/webinar-maggio-grazie.html?data={{custom_values.data}}&link={{custom_values.link_webinar}}&luogo={{custom_values.luogo_webinar}}
     window.TY_FLAGS = (function() {
         var raw = location.href;
         var fixed = raw.replace(/#x3D;/g, '%3D');
@@ -37,7 +36,6 @@
         if (hIdx > -1) search = search.substring(0, hIdx);
         var p = new URLSearchParams(search);
         if (p.get('data'))   THANKYOU.data = p.get('data');
-        if (p.get('codice')) THANKYOU.codiceAccesso = p.get('codice');
         if (p.get('link'))   THANKYOU.linkWebinar = p.get('link');
         if (p.get('luogo'))  THANKYOU.luogo = p.get('luogo');
 
@@ -254,22 +252,6 @@
         font-weight: 700;
         color: var(--text);
     }
-    .ty-access-code {
-        background: rgba(233,30,99,0.05);
-        border: 1px dashed rgba(233,30,99,0.35);
-        border-radius: 12px;
-        padding: 1rem;
-        text-align: center;
-    }
-    .ty-access-code .ty-info-label { color: var(--pink); margin-bottom: 0.3rem; }
-    .ty-access-code-value {
-        font-size: 1.4rem;
-        font-weight: 800;
-        color: var(--text);
-        letter-spacing: 0.1em;
-        font-variant-numeric: tabular-nums;
-    }
-
     /* ════════ WARNING ════════ */
     .ty-warning {
         background: var(--bg-cream);
@@ -600,10 +582,6 @@
                 </div>
             </div>
 
-            <div class="ty-access-code">
-                <div class="ty-info-label">Il tuo codice di accesso</div>
-                <div class="ty-access-code-value" data-cfg="codice">INSERISCI-CODICE</div>
-            </div>
         </div>
     </div>
 </section>
@@ -714,7 +692,6 @@ if (window.TY_FLAGS && window.TY_FLAGS.paid) {
         'orario':          C.orario,
         'orario-display':  'Ore ' + C.orario,
         'luogo':           C.luogo,
-        'codice':          C.codiceAccesso,
         'dates-text':      C.data + ' alle ' + C.orario + '.'
     };
     document.querySelectorAll('[data-cfg]').forEach(function(el) {
@@ -732,7 +709,7 @@ if (window.TY_FLAGS && window.TY_FLAGS.paid) {
         var start = new Date(C.countdownISO);
         var end = new Date(start.getTime() + 2 * 3600000);
         function fmtGcal(d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
-        var details = 'Webinar gratuito con Elena Giordani.\n\nLink accesso: ' + C.linkWebinar + '\nCodice: ' + C.codiceAccesso;
+        var details = 'Webinar gratuito con Elena Giordani.\n\nLink accesso: ' + C.linkWebinar;
         cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Estate+Inarrestabile+%E2%80%94+Elena+Giordani&dates=' + fmtGcal(start) + '/' + fmtGcal(end) + '&details=' + encodeURIComponent(details) + '&location=Online&recur=RRULE:FREQ=DAILY;COUNT=3';
     }
 })();
