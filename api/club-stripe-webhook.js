@@ -199,9 +199,12 @@ module.exports = async function handler(req, res) {
   try {
     const buf = await buffer(req);
     const sig = req.headers['stripe-signature'];
-    // .trim() difensivo: paste del secret dalla Stripe Dashboard si porta dietro \n
-    // o spazi finali, e Stripe rifiuta la firma con "signing secret contains whitespace".
-    const secret = (process.env.STRIPE_WEBHOOK_SECRET_CLUB || process.env.STRIPE_WEBHOOK_SECRET || '').trim();
+    // Sanitize difensivo: strip `\n` letterale (gotcha printf+vercel env pull) + trim.
+    const rawSecret = process.env.STRIPE_WEBHOOK_SECRET_CLUB || process.env.STRIPE_WEBHOOK_SECRET || '';
+    const secret = rawSecret.replace(/\\n$/g, '').trim();
+    if (!secret.startsWith('whsec_') || secret.length < 32) {
+      console.error('[stripe-webhook] secret malformato — len:', secret.length, 'tail:', JSON.stringify(secret.slice(-6)));
+    }
     event = stripe.webhooks.constructEvent(buf, sig, secret);
   } catch (err) {
     console.error('[stripe-webhook] Signature verification failed:', err.message);
@@ -217,6 +220,12 @@ module.exports = async function handler(req, res) {
   const obj = event.data.object;
   const isPaymentIntent = event.type === 'payment_intent.succeeded';
   const md = obj.metadata || {};
+
+  // Skip eventi healthcheck inviati da /api/webhook-self-check.
+  if (md.plan === 'healthcheck' || md.product === 'healthcheck') {
+    console.log('[stripe-webhook] healthcheck skipped:', obj.id);
+    return res.status(200).json({ received: true, healthcheck: true });
+  }
 
   // Stripe per un acquisto via Payment Link emette DUE eventi: payment_intent.succeeded
   // (ID inizia per pi_, niente line_items, fallback su 'acquisto-da-investigare') e

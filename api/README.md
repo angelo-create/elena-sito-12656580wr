@@ -121,3 +121,83 @@ sopravvive alla navigazione cross-page.
 - **Recovery**: `scripts/restore-tags-from-audit.js` riapplica i tag dall'audit
   log GHL (retention 60gg, esportabile in CSV da `Sub-Account → Settings → Audit Logs`).
 - **Fix forward**: pattern in due step adottato in tutti gli endpoint contact-upsert.
+
+---
+
+# Webhook Stripe — runbook operativo
+
+## Endpoint attivi
+
+| Endpoint Stripe | URL Vercel | Eventi | Env secret |
+|---|---|---|---|
+| `we_1TWgIM...` (OTO €27) | `/api/payment-webhook` | `payment_intent.succeeded`, `checkout.session.completed` | `STRIPE_WEBHOOK_SECRET_OTO` |
+| `we_1TUwEZ...` (Club) | `/api/club-stripe-webhook` | `payment_intent.succeeded`, `checkout.session.completed` | `STRIPE_WEBHOOK_SECRET_CLUB` |
+| `we_1T1ZFo...` (GHL nativo) | `https://services.leadconnectorhq.com/hooks/.../dd6ed5d2-...` | `checkout.session.completed`, `charge.succeeded`, `invoice.*` | gestito da GHL |
+
+## Health-check automatico
+
+Cron Vercel giornaliero (09:00 UTC) → `/api/webhook-self-check`.
+Per ciascun webhook firma un evento Stripe-style e verifica HTTP 200. Risultato nei log Vercel come `[self-check] OK ...` o `[self-check] FAILED ...`. I webhook skippano payload con `metadata.product='healthcheck'` o `metadata.plan='healthcheck'` (no side effect su CRM).
+
+Esecuzione manuale: `curl -H "Authorization: Bearer $CRON_SECRET" https://go.elenagiordani.com/api/webhook-self-check`.
+
+## Checklist: aggiungere/rotare un webhook Stripe in sicurezza
+
+### Creare un nuovo endpoint Stripe via API
+
+```bash
+# Esempio: nuovo webhook per /api/foo
+curl -sS -X POST https://api.stripe.com/v1/webhook_endpoints \
+  -u "$STRIPE_SECRET_KEY:" \
+  -d "url=https://go.elenagiordani.com/api/foo" \
+  -d "enabled_events[]=payment_intent.succeeded"
+# Salva il `secret` dal response: è l'unico momento in cui Stripe lo espone.
+```
+
+Mai creare endpoint dalla dashboard se vuoi recuperare il secret subito: solo l'API ritorna `secret` nel JSON.
+
+### Aggiungere il secret a Vercel SENZA il bug del `\n` letterale
+
+**SBAGLIATO:**
+```bash
+CURRENT=$(grep "^FOO=" /tmp/.env | sed 's/^FOO="//;s/"$//')
+printf "%s" "$CURRENT" | vercel env add FOO_NEW production
+# CURRENT contiene "\n" letterale (2 char `\` + `n`) preso dal pull → finisce in Vercel → trim() Node non lo rimuove → signature fail.
+```
+
+**GIUSTO:** usa il valore puro dal Dashboard Stripe (o dal response JSON di `webhook_endpoints` create) e passalo via heredoc:
+```bash
+printf "%s" "whsec_xxxxxxxxxxxxxxxxxxxxxxxxxx" | vercel env add FOO production
+```
+
+Oppure pulisci sempre prima di re-imporre:
+```bash
+CLEAN=$(python3 -c "v='$CURRENT'; v=v[:-2] if v.endswith('\\\\n') else v; print(v, end='')")
+printf "%s" "$CLEAN" | vercel env add FOO production
+```
+
+### Verifica post-deploy
+
+1. Trigger `vercel redeploy <production-url>` per applicare la nuova env
+2. Esegui manualmente l'health-check: `curl -H "Authorization: Bearer $CRON_SECRET" https://go.elenagiordani.com/api/webhook-self-check`
+3. Atteso: `{"allOk": true, ...}`
+4. Se uno dei due risulta `ok:false`, controlla nei log Vercel `[payment-webhook] secret malformato` o `[stripe-webhook] secret malformato` (sanitizer + warning impostato a livello di code).
+
+### Sintomi tipici di webhook rotto
+
+- Vercel log con `Webhook signature failed: No signatures found matching...` ricorrenti.
+- Acquisti reali Stripe senza tag GHL applicati / contatti senza `stripe_*` customFields aggiornati.
+- Smart List GHL "Acquirenti X" che non si popola dopo nuovi pagamenti.
+
+### In caso di incident: recovery dei pagamenti persi
+
+Stripe non re-invia automaticamente webhook falliti se l'endpoint risponde 200 (anche con error logico). Per recovery manuale:
+1. Trova le Checkout Sessions / PaymentIntents `paid`/`succeeded` nel window (Stripe API o Dashboard).
+2. Per ognuno costruisci payload + firma con il secret corretto + POST al webhook live (con `created` originale, `Stripe-Signature: t=NOW`). Il webhook è idempotente sui tag (additive) e sui customFields (upsert merge), quindi safe.
+
+## Storia incidente
+
+- **2026-05-13 21:00**: separato `STRIPE_WEBHOOK_SECRET` in `STRIPE_WEBHOOK_SECRET_OTO` e `STRIPE_WEBHOOK_SECRET_CLUB`. Il secret CLUB salvato via `printf "%s"` da stringa estratta da `vercel env pull` ha conservato `\n` letterale finale.
+- **2026-05-14 11:00-15:00**: 4 pagamenti Club persi (signature failed silenzioso). Diagnosi via log Vercel + hex dump del .env pull.
+- **Recovery**: replay manuale dei 4 webhook con payload Stripe + firma generata da script bash.
+- **Fix forward**: sanitizer del secret (strip `\n` letterale) + health-check automatico + runbook (questo file).

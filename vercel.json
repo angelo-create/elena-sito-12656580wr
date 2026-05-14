@@ -98,5 +98,11 @@
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/webhook-self-check",
+      "schedule": "0 9 * * *"
+    }
   ]
 }

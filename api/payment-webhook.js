@@ -136,19 +136,26 @@ module.exports = async function handler(req, res) {
 
   try {
     const rawBody = await buffer(req);
-    // .trim() difensivo: paste del secret dalla Stripe Dashboard si porta dietro
-    // \n o spazi finali, Stripe rifiuta la firma con "signing secret contains whitespace".
-    // Endpoint dedicato OTO €27 (Sfida 7 Giorni): legge STRIPE_WEBHOOK_SECRET_OTO,
-    // distinto dal secret del Club (STRIPE_WEBHOOK_SECRET_CLUB).
-    const secret = (process.env.STRIPE_WEBHOOK_SECRET_OTO || process.env.STRIPE_WEBHOOK_SECRET || '').trim();
-    event = stripe.webhooks.constructEvent(
-      rawBody,
-      sig,
-      secret
-    );
+    // Sanitize difensivo: strip `\n` letterale (gotcha printf+vercel env pull) + trim.
+    // Vedi docs/feedback memory `feedback_vercel_env_secret_trailing_newline`.
+    const rawSecret = process.env.STRIPE_WEBHOOK_SECRET_OTO || process.env.STRIPE_WEBHOOK_SECRET || '';
+    const secret = rawSecret.replace(/\\n$/g, '').trim();
+    if (!secret.startsWith('whsec_') || secret.length < 32) {
+      console.error('[payment-webhook] secret malformato — len:', secret.length, 'tail:', JSON.stringify(secret.slice(-6)));
+    }
+    event = stripe.webhooks.constructEvent(rawBody, sig, secret);
   } catch (err) {
     console.error('Webhook signature failed:', err.message);
     return res.status(400).json({ error: 'Webhook signature verification failed' });
+  }
+
+  // Skip eventi di health-check inviati da /api/webhook-self-check.
+  // Identificati da metadata.product='healthcheck' (PI) o metadata.plan='healthcheck' (Session).
+  // Restituiscono 200 senza side-effect (no tag, no Meta CAPI, no GHL).
+  const md = event.data?.object?.metadata || {};
+  if (md.product === 'healthcheck' || md.plan === 'healthcheck') {
+    console.log('[payment-webhook] healthcheck skipped:', event.id);
+    return res.status(200).json({ received: true, healthcheck: true });
   }
 
   switch (event.type) {
