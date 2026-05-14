@@ -134,12 +134,27 @@ sopravvive alla navigazione cross-page.
 | `we_1TUwEZ...` (Club) | `/api/club-stripe-webhook` | `payment_intent.succeeded`, `checkout.session.completed` | `STRIPE_WEBHOOK_SECRET_CLUB` |
 | `we_1T1ZFo...` (GHL nativo) | `https://services.leadconnectorhq.com/hooks/.../dd6ed5d2-...` | `checkout.session.completed`, `charge.succeeded`, `invoice.*` | gestito da GHL |
 
-## Health-check automatico
+## Monitoring automatico
 
-Cron Vercel giornaliero (09:00 UTC) → `/api/webhook-self-check`.
-Per ciascun webhook firma un evento Stripe-style e verifica HTTP 200. Risultato nei log Vercel come `[self-check] OK ...` o `[self-check] FAILED ...`. I webhook skippano payload con `metadata.product='healthcheck'` o `metadata.plan='healthcheck'` (no side effect su CRM).
+Due cron Vercel giornalieri coprono diversi casi di failure:
 
-Esecuzione manuale: `curl -H "Authorization: Bearer $CRON_SECRET" https://go.elenagiordani.com/api/webhook-self-check`.
+| Cron | Path | Schedule | Cosa cattura |
+|---|---|---|---|
+| Self-check | `/api/webhook-self-check` | `0 9 * * *` (09:00 UTC) | Webhook irraggiungibili, signature failure, secret malformati |
+| Reconciliation | `/api/webhook-reconciliation` | `0 10 * * *` (10:00 UTC) | Acquisti Stripe senza tag GHL corrispondente (= Stripe non manda, workflow GHL down, eventi Stripe rotti, regression tag) + verifica config endpoint Stripe |
+
+Entrambi loggano in Vercel logs con prefix `[self-check]` o `[reconciliation]`.
+Se `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` sono settati su Vercel env, il reconciliation manda notifica push immediata su problemi.
+
+Esecuzione manuale:
+```
+curl -H "Authorization: Bearer $CRON_SECRET" https://go.elenagiordani.com/api/webhook-self-check
+curl -H "Authorization: Bearer $CRON_SECRET" https://go.elenagiordani.com/api/webhook-reconciliation
+```
+
+I webhook skippano payload con `metadata.product='healthcheck'` o `metadata.plan='healthcheck'` (no side effect su CRM).
+
+Quando aggiungi un nuovo product/plan al checkout, aggiorna le mappe `PRODUCT_TO_TAG` e `PLAN_TO_TAG` in `api/webhook-reconciliation.js` per includere il nuovo tag atteso, altrimenti il reconciliation lo riporterà come "unknown product/plan".
 
 ## Checklist: aggiungere/rotare un webhook Stripe in sicurezza
 
