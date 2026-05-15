@@ -21,6 +21,7 @@
         countdownISO: "2026-05-19T18:30:00+02:00",
         luogo:         "Zoom",
         linkWebinar:   "https://us02web.zoom.us/j/82086033404?pwd=7ag3jZCS132Bcabp3Q1p8uIZLmsIIg.1",
+        whatsappLink:      "https://wa.me/message/2BDLYKM7476IK1",
         whatsappNumero:    "393773892181",
         whatsappMessaggio: "Ci sar\u00f2 a Estate Inarrestabile (19-20-21 Maggio)!"
     };
@@ -705,7 +706,7 @@ if (window.TY_FLAGS && window.TY_FLAGS.paid) {
 
     // WhatsApp link (step 1)
     var wa = document.getElementById('tyWhatsapp');
-    if (wa) wa.href = 'https://wa.me/' + C.whatsappNumero + '?text=' + encodeURIComponent(C.whatsappMessaggio);
+    if (wa) wa.href = C.whatsappLink;
 
     // Google Calendar link (step 2)
     var cal = document.getElementById('tyCalendar');
