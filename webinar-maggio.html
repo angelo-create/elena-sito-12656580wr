@@ -1316,10 +1316,40 @@
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '446130387840122');
+    fbq('init', '1717291565951434');
     fbq('track', 'PageView');
     fbq('track', 'ViewContent', {content_name: 'Estate Inarrestabile 2026', content_category: 'webinar'});
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1717291565951434&ev=PageView&noscript=1"/></noscript>
+
+    <!-- Micro-signals SOLO su pixel 2: intent retargeting pool per nuovo BM (CPL optimization) -->
+    <script>
+    (function() {
+      var P2 = '1717291565951434';
+      var fired = {};
+      function fire(name, data) {
+        if (fired[name] || !window.fbq) return;
+        fired[name] = 1;
+        window.fbq('trackSingleCustom', P2, name, data || {});
+      }
+      window.addEventListener('scroll', function() {
+        var h = document.documentElement;
+        var pct = (h.scrollTop + window.innerHeight) / h.scrollHeight * 100;
+        if (pct >= 75) fire('ScrollDeep', { depth: 75, content_name: 'Estate Inarrestabile 2026' });
+      }, { passive: true });
+      document.addEventListener('click', function(e) {
+        if (e.target.closest && e.target.closest('.ei-header-cta, a[href="#iscriviti"], .ei-hero-cta')) {
+          fire('ClickCTA', { content_name: 'Estate Inarrestabile 2026' });
+        }
+      });
+      document.addEventListener('focusin', function(e) {
+        if (e.target.closest && e.target.closest('#eiNativeForm')) {
+          fire('FormStart', { content_name: 'Estate Inarrestabile 2026' });
+        }
+      });
+    })();
+    </script>
 
     <!-- UTM capture: first-touch persistente in sessionStorage, sopravvive a navigazione cross-page -->
     <script src="/js/utm-capture.js"></script>
@@ -1747,15 +1777,19 @@
         errorBox.classList.remove('visible');
 
         // Pixel Lead event con event_id deterministico per dedup pixel ↔ server CAPI.
-        // Il server (api/webinar-lead) firma lo stesso event_id quando l'upsert GHL va a buon fine.
-        var leadEventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        // Lead va su entrambi i pixel (comportamento esistente conservato).
+        // CompleteRegistration va SOLO sul pixel 2 (signal stacking per CPL optimization).
+        var ts = Date.now();
+        var rnd = Math.random().toString(36).substr(2, 9);
+        var leadEventId = 'lead_' + ts + '_' + rnd;
+        var regEventId  = 'reg_'  + ts + '_' + rnd;
+        var P2 = '1717291565951434';
         try {
             if (!sessionStorage.getItem('lead_eim') && window.fbq) {
                 sessionStorage.setItem('lead_eim', '1');
-                window.fbq('track', 'Lead',
-                    { content_name: 'Estate Inarrestabile 2026', content_category: 'webinar' },
-                    { eventID: leadEventId }
-                );
+                var ev = { content_name: 'Estate Inarrestabile 2026', content_category: 'webinar' };
+                window.fbq('track', 'Lead', ev, { eventID: leadEventId });
+                window.fbq('trackSingle', P2, 'CompleteRegistration', ev, { eventID: regEventId });
             }
         } catch(e) {}
 
@@ -1764,6 +1798,7 @@
             var p = c.trim().split('='); a[p[0]] = p.slice(1).join('='); return a;
         }, {});
         payload.event_id = leadEventId;
+        payload.event_id_register = regEventId;
         payload.fbc = ck._fbc || '';
         payload.fbp = ck._fbp || '';
         payload.event_source_url = location.href;

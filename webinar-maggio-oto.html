@@ -953,10 +953,40 @@
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '446130387840122');
+    fbq('init', '1717291565951434');
     fbq('track', 'PageView');
     fbq('track', 'ViewContent', {content_name: 'OTO Sfida 7 Giorni', content_category: 'oto'});
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1717291565951434&ev=PageView&noscript=1"/></noscript>
+
+    <!-- Micro-signals SOLO su pixel 2: intent retargeting pool per nuovo BM (CPL optimization) -->
+    <script>
+    (function() {
+      var P2 = '1717291565951434';
+      var fired = {};
+      function fire(name, data) {
+        if (fired[name] || !window.fbq) return;
+        fired[name] = 1;
+        window.fbq('trackSingleCustom', P2, name, data || {});
+      }
+      window.addEventListener('scroll', function() {
+        var h = document.documentElement;
+        var pct = (h.scrollTop + window.innerHeight) / h.scrollHeight * 100;
+        if (pct >= 75) fire('ScrollDeep', { depth: 75, content_name: 'OTO Sfida 7 Giorni' });
+      }, { passive: true });
+      document.addEventListener('click', function(e) {
+        if (e.target.closest && e.target.closest('[data-oto-cta], .oto-cta, button[type="submit"]')) {
+          fire('ClickCTA', { content_name: 'OTO Sfida 7 Giorni' });
+        }
+      });
+      document.addEventListener('focusin', function(e) {
+        if (e.target.closest && e.target.closest('form, [class*="oto-form"], [id*="oto-form"]')) {
+          fire('FormStart', { content_name: 'OTO Sfida 7 Giorni' });
+        }
+      });
+    })();
+    </script>
 </head>
 <body>
 
@@ -1542,6 +1572,19 @@
             mountEl.innerHTML = '';
             paymentElement = stripeElements.create('payment');
             paymentElement.mount(mountEl);
+
+            // InitiateCheckout SOLO pixel 2: signal per ottimizzazione campagne sul nuovo BM
+            try {
+                if (window.fbq) {
+                    var icEid = 'ic_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    window.fbq('trackSingle', '1717291565951434', 'InitiateCheckout', {
+                        content_name: 'Sfida 7 Giorni',
+                        content_category: 'oto',
+                        value: 27,
+                        currency: 'EUR'
+                    }, { eventID: icEid });
+                }
+            } catch(e) {}
 
             showStep2();
         })

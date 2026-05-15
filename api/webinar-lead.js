@@ -16,7 +16,7 @@ function hash(value) {
   return crypto.createHash('sha256').update(String(value).toLowerCase().trim()).digest('hex');
 }
 
-async function notifyMetaCAPI({ eventId, email, firstName, lastName, phone, fbc, fbp, sourceUrl, userAgent, clientIp }) {
+async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, phone, fbc, fbp, sourceUrl, userAgent, clientIp }) {
   const pixelId = process.env.META_PIXEL_ID;
   const accessToken = process.env.META_ACCESS_TOKEN;
   if (!pixelId || !accessToken || !eventId) return;
@@ -54,9 +54,62 @@ async function notifyMetaCAPI({ eventId, email, firstName, lastName, phone, fbc,
       body: JSON.stringify(payload),
     });
     const result = await resp.json();
-    console.log('[webinar-lead] Meta CAPI Lead:', eventId, JSON.stringify(result));
+    console.log('[webinar-lead] Meta CAPI Lead pixel 1:', eventId, JSON.stringify(result));
   } catch (err) {
-    console.error('[webinar-lead] Meta CAPI error:', err.message);
+    console.error('[webinar-lead] Meta CAPI pixel 1 error:', err.message);
+  }
+}
+
+// Pixel 2 isolato: Lead + CompleteRegistration con EMQ enrichment (external_id GHL + country).
+// Vedi plan: signal stacking per abbassare CPL sul nuovo BM, senza toccare il pixel 1.
+async function notifyMetaCAPIPixel2({
+  eventIdLead, eventIdRegister,
+  email, firstName, lastName, phone, fbc, fbp,
+  sourceUrl, userAgent, clientIp, contactId
+}) {
+  const pixelId = process.env.META_PIXEL_ID_2;
+  const accessToken = process.env.META_ACCESS_TOKEN_2;
+  if (!pixelId || !accessToken) return;
+
+  const userData = {};
+  if (email)      userData.em = [hash(email)];
+  if (firstName)  userData.fn = [hash(firstName)];
+  if (lastName)   userData.ln = [hash(lastName)];
+  if (phone)      userData.ph = [hash(phone.replace(/\D/g, ''))];
+  userData.country = [hash('it')];
+  if (contactId)  userData.external_id = [hash(contactId)];
+  if (fbc)        userData.fbc = fbc;
+  if (fbp)        userData.fbp = fbp;
+  if (clientIp)   userData.client_ip_address = clientIp;
+  if (userAgent)  userData.client_user_agent = userAgent;
+
+  const baseEvent = {
+    event_time: Math.floor(Date.now() / 1000),
+    event_source_url: sourceUrl || 'https://www.elenagiordani.com/webinar-maggio',
+    action_source: 'website',
+    user_data: userData,
+    custom_data: {
+      content_name: 'Estate Inarrestabile 2026',
+      content_category: 'webinar',
+    },
+  };
+
+  const data = [];
+  if (eventIdLead)     data.push({ ...baseEvent, event_name: 'Lead',                 event_id: eventIdLead });
+  if (eventIdRegister) data.push({ ...baseEvent, event_name: 'CompleteRegistration', event_id: eventIdRegister });
+  if (data.length === 0) return;
+
+  try {
+    const url = `https://graph.facebook.com/v21.0/${pixelId}/events?access_token=${accessToken}`;
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data }),
+    });
+    const result = await resp.json();
+    console.log('[webinar-lead] Meta CAPI pixel 2:', JSON.stringify(result));
+  } catch (err) {
+    console.error('[webinar-lead] Meta CAPI pixel 2 error:', err.message);
   }
 }
 
@@ -200,10 +253,13 @@ module.exports = async function handler(req, res) {
       console.warn('[webinar-lead] Custom values fetch error:', cvErr.message);
     }
 
-    // Fire Meta CAPI Lead — fire-and-forget, non blocca la risposta al client
+    // Fire Meta CAPI Lead — fire-and-forget, non blocca la risposta al client.
+    // Pixel 1: invariato (solo Lead). Pixel 2: Lead + CompleteRegistration con EMQ enrichment.
     if (body.event_id) {
       const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress;
-      notifyMetaCAPI({
+      const userAgent = body.user_agent || req.headers['user-agent'];
+
+      notifyMetaCAPIPixel1({
         eventId: body.event_id,
         email,
         firstName,
@@ -212,9 +268,24 @@ module.exports = async function handler(req, res) {
         fbc: body.fbc,
         fbp: body.fbp,
         sourceUrl: body.event_source_url,
-        userAgent: body.user_agent || req.headers['user-agent'],
+        userAgent,
         clientIp,
-      }).catch((err) => console.error('[webinar-lead] CAPI fire-and-forget error:', err.message));
+      }).catch((err) => console.error('[webinar-lead] CAPI pixel 1 fire-and-forget error:', err.message));
+
+      notifyMetaCAPIPixel2({
+        eventIdLead: body.event_id,
+        eventIdRegister: body.event_id_register,
+        email,
+        firstName,
+        lastName,
+        phone: phoneDigits,
+        fbc: body.fbc,
+        fbp: body.fbp,
+        sourceUrl: body.event_source_url,
+        userAgent,
+        clientIp,
+        contactId,
+      }).catch((err) => console.error('[webinar-lead] CAPI pixel 2 fire-and-forget error:', err.message));
     }
 
     return res.status(200).json({ success: true, contactId, webinarInfo });
