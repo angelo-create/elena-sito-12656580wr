@@ -1330,14 +1330,28 @@
 
     </style>
 
-    <!-- Iubenda Cookie Solution: banner bottom, no autoblocking (pixel firra sempre al PageView) -->
+    <!-- Iubenda Cookie Solution: banner bottom minimale (solo Accetta/Rifiuta + link), no autoblocking -->
     <script type="text/javascript">
     var _iub = _iub || [];
-    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-bottom-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":false,"explicitWithdrawal":false,"listPurposes":false,"ownerName":"www.elenagiordani.com","position":"float-bottom-center","rejectButtonDisplay":true,"showPurposesToggles":false,"showTitle":false,"showTotalNumberOfProviders":false,"slideDown":false}};
     _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
     </script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <style>
+    /* Iubenda banner mini: riduce font/padding/max-width per ridurre invasività su mobile e desktop */
+    #iubenda-cs-banner .iubenda-cs-container { max-width: 520px !important; }
+    #iubenda-cs-banner .iub-cs-content,
+    #iubenda-cs-banner .iubenda-cs-content { padding: 0.6rem 0.8rem !important; }
+    #iubenda-cs-banner .iub-cs-rationale,
+    #iubenda-cs-banner .iubenda-cs-rationale { font-size: 0.78rem !important; line-height: 1.35 !important; }
+    #iubenda-cs-banner button { font-size: 0.78rem !important; padding: 0.4rem 0.85rem !important; }
+    @media (max-width: 480px) {
+        #iubenda-cs-banner .iub-cs-rationale,
+        #iubenda-cs-banner .iubenda-cs-rationale { font-size: 0.74rem !important; }
+        #iubenda-cs-banner button { font-size: 0.74rem !important; padding: 0.35rem 0.7rem !important; }
+    }
+    </style>
 
     <!-- Meta Pixel -->
     <script>
