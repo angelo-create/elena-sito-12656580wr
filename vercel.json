@@ -91,6 +91,36 @@
       "source": "/selezione-email",
       "destination": "https://lp.elenagiordani.com/selezione?utm_source=email&utm_medium=email&utm_campaign=webinar-maggio-costanza&utm_content=selezione",
       "permanent": false
+    },
+    {
+      "source": "/selezione-ig-bio",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=instagram&utm_medium=bio&utm_campaign=organic-instagram-bio&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-ig-story",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=instagram&utm_medium=stories&utm_campaign=organic-instagram-stories&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-ig-dm",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=instagram&utm_medium=dm&utm_campaign=organic-instagram-dm&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-fb-bio",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=facebook&utm_medium=bio&utm_campaign=organic-facebook-bio&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-fb-post",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=facebook&utm_medium=post&utm_campaign=organic-facebook-post&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-newsletter",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=newsletter&utm_medium=email&utm_campaign=newsletter-acquisizione&utm_content=selezione",
+      "permanent": false
     }
   ],
   "headers": [
