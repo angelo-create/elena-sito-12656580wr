@@ -81,6 +81,16 @@
       "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
       "destination": "https://go.elenagiordani.com/club-pagamento",
       "permanent": true
+    },
+    {
+      "source": "/selezione-live",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=webinar-live&utm_medium=chat&utm_campaign=webinar-maggio-costanza&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-email",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=email&utm_medium=email&utm_campaign=webinar-maggio-costanza&utm_content=selezione",
+      "permanent": false
     }
   ],
   "headers": [
