@@ -13,12 +13,19 @@ function hash(value) {
   return crypto.createHash('sha256').update(String(value).toLowerCase().trim()).digest('hex');
 }
 
-// Applica il tag `oto-sfida-7-giorni` al contatto in GHL tramite API diretta.
+// Catalogo OTO: per ogni prodotto, il tag GHL (trigger workflow) + il content_name Meta.
+// Aggiungere qui un nuovo prodotto OTO senza toccare la logica sotto.
+const OTO_CATALOG = {
+  'sfida-7-giorni': { tag: 'oto-sfida-7-giorni', contentName: 'Sfida 7 Giorni' },
+  'mappa-lipedema': { tag: 'oto-mappa-lipedema', contentName: 'La Mappa del Lipedema' },
+};
+
+// Applica il tag OTO (es. `oto-sfida-7-giorni`, `oto-mappa-lipedema`) al contatto in GHL.
 // Pattern in 2 step (vedi api/README.md REGOLA #1): upsert senza `tags`, poi
 // POST /contacts/{id}/tags additivo. NON sovrascrive i tag preesistenti.
 // Il tag funziona da "evento centrale" per workflow GHL con trigger
-// Contact Tag → Added → oto-sfida-7-giorni.
-async function tagOtoBuyerInGHL({ email, firstName, lastName }) {
+// Contact Tag → Added → <tag>.
+async function tagOtoBuyerInGHL({ email, firstName, lastName, tag }) {
   const apiKey = process.env.GHL_API_KEY;
   if (!apiKey || !email) {
     console.log('[oto-tag] skip: GHL_API_KEY o email mancante');
@@ -47,15 +54,16 @@ async function tagOtoBuyerInGHL({ email, firstName, lastName }) {
       console.error('[oto-tag] no contactId in upsert response');
       return null;
     }
+    const tagToApply = tag || 'oto-sfida-7-giorni';
     const tagRes = await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/tags`, {
-      method: 'POST', headers, body: JSON.stringify({ tags: ['oto-sfida-7-giorni'] })
+      method: 'POST', headers, body: JSON.stringify({ tags: [tagToApply] })
     });
     if (!tagRes.ok) {
       const errText = await tagRes.text();
       console.error('[oto-tag] add-tag failed:', tagRes.status, errText.slice(0, 300));
       return contactId;
     }
-    console.log('[oto-tag] Tag applied: oto-sfida-7-giorni |', email, '|', contactId);
+    console.log('[oto-tag] Tag applied:', tagToApply, '|', email, '|', contactId);
     return contactId;
   } catch (err) {
     console.error('[oto-tag] error:', err.message);
@@ -85,7 +93,7 @@ async function notifyGHL(data) {
 // Server-side Purchase event to Meta CAPI — same event_id as the client-side pixel
 // (we use the Stripe payment_intent.id, which the client also reads from the
 // return_url query string). Meta deduplicates by event_id so this is safe.
-async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, value, currency, sourceUrl }) {
+async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, value, currency, sourceUrl, contentName }) {
   const pixelId = process.env.META_PIXEL_ID;
   const accessToken = process.env.META_ACCESS_TOKEN;
   if (!pixelId || !accessToken) {
@@ -107,7 +115,7 @@ async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, value
       action_source: 'website',
       user_data: userData,
       custom_data: {
-        content_name: 'Sfida 7 Giorni',
+        content_name: contentName || 'Sfida 7 Giorni',
         value: value,
         currency: currency,
       },
@@ -130,7 +138,7 @@ async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, value
 
 // Pixel 2 isolato: solo Purchase OTO €27 con EMQ enrichment (external_id GHL + country).
 // Vedi plan: signal stacking per nuovo BM, abbassa CPL ottimizzando con bottom-funnel signal.
-async function notifyMetaCAPIPixel2({ eventId, email, firstName, lastName, value, currency, sourceUrl, contactId }) {
+async function notifyMetaCAPIPixel2({ eventId, email, firstName, lastName, value, currency, sourceUrl, contactId, contentName }) {
   const pixelId = process.env.META_PIXEL_ID_2;
   const accessToken = process.env.META_ACCESS_TOKEN_2;
   if (!pixelId || !accessToken || !eventId) return;
@@ -151,7 +159,7 @@ async function notifyMetaCAPIPixel2({ eventId, email, firstName, lastName, value
       action_source: 'website',
       user_data: userData,
       custom_data: {
-        content_name: 'Sfida 7 Giorni',
+        content_name: contentName || 'Sfida 7 Giorni',
         value: value,
         currency: currency,
       },
@@ -241,9 +249,11 @@ module.exports = async function handler(req, res) {
       const pi = event.data.object;
       console.log('Payment intent succeeded:', pi.id, pi.metadata);
 
-      // Solo per OTO Sfida 7 Giorni (gli altri PaymentIntent del progetto possono avere
-      // product diversi; il filtro evita di firare Purchase fuori contesto).
-      if (pi.metadata?.product === 'sfida-7-giorni') {
+      // Solo per i prodotti OTO censiti nel catalogo (Sfida, Mappa Lipedema, ...).
+      // Gli altri PaymentIntent del progetto hanno product diversi: il filtro
+      // evita di firare Purchase / tag fuori contesto.
+      const otoProduct = OTO_CATALOG[pi.metadata?.product];
+      if (otoProduct) {
         const email = pi.metadata.customer_email || pi.receipt_email || '';
         const name = pi.metadata.customer_name || '';
         const firstName = name.split(' ')[0] || '';
@@ -253,7 +263,7 @@ module.exports = async function handler(req, res) {
 
         // tagOtoBuyerInGHL ritorna contactId → usato come external_id per EMQ boost su pixel 2.
         // Eseguito prima per avere il contactId disponibile, poi gli altri side-effect in parallelo.
-        const contactId = await tagOtoBuyerInGHL({ email, firstName, lastName });
+        const contactId = await tagOtoBuyerInGHL({ email, firstName, lastName, tag: otoProduct.tag });
 
         await Promise.all([
           notifyGHL({
@@ -274,6 +284,7 @@ module.exports = async function handler(req, res) {
             lastName,
             value,
             currency,
+            contentName: otoProduct.contentName,
           }),
           // Pixel 2: stesso event_id (dedup browser↔server su entrambi i pixel) + EMQ enrichment.
           notifyMetaCAPIPixel2({
@@ -284,6 +295,7 @@ module.exports = async function handler(req, res) {
             value,
             currency,
             contactId,
+            contentName: otoProduct.contentName,
           }),
         ]);
       }

@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>if(window.self!==window.top){try{window.top.location.href=window.location.href}catch(e){}}</script>
+    <title>Sei dentro &mdash; Vuoi anche La Mappa del Lipedema? | Elena Giordani</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='95' font-family='Poppins,sans-serif' font-weight='700' fill='%23FF4081'%3EE%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- URL PARAMS — Riceve dati webinar da grazie page e li propaga a thank you finale -->
+    <script>
+    (function() {
+        var raw = location.href;
+        var fixed = raw.replace(/#x3D;/g, '%3D');
+        var qIdx = fixed.indexOf('?');
+        var search = qIdx > -1 ? fixed.substring(qIdx) : '';
+        var hIdx = search.indexOf('#');
+        if (hIdx > -1) search = search.substring(0, hIdx);
+        var p = new URLSearchParams(search);
+
+        window.OTO_PARAMS = {
+            data:   p.get('data')   || 'Martedì 7 Luglio',
+            codice: p.get('codice') || '',
+            link:   p.get('link')   || '',
+            luogo:  p.get('luogo')  || 'Zoom'
+        };
+    })();
+
+    function buildThankYouUrl() {
+        var base = 'webinar-luglio-grazie.html';
+        var params = ['oto=done'];
+        var P = window.OTO_PARAMS;
+        if (P.data)   params.push('data='   + encodeURIComponent(P.data));
+        if (P.codice) params.push('codice=' + encodeURIComponent(P.codice));
+        if (P.link)   params.push('link='   + encodeURIComponent(P.link));
+        if (P.luogo)  params.push('luogo='  + encodeURIComponent(P.luogo));
+        return base + '?' + params.join('&');
+    }
+    </script>
+
+    <style>
+    /* ═══════════════════════════════════════════════════════════
+       OTO Mappa Lipedema — coerente con webinar-luglio.html
+       Cream / bianco dominante + Pink unica accent.
+       ═══════════════════════════════════════════════════════════ */
+
+    :root {
+        --bg:        #FBF6EE;
+        --bg-soft:   #FFFFFF;
+        --bg-warm:   #F4EADD;
+        --bg-mute:   #F3EADF;
+        --bg-cream:  #FBF6EE;
+        --bg-dark:   #2A1C17;
+        --text:      #2A211C;
+        --text-soft: #574638;
+        --text-muted:#8A786B;
+        --border:    #E9DFD0;
+        --border-soft:#F1E8DA;
+        --pink:      #A8475E;
+        --pink-deep: #7E3142;
+        --pink-soft: #C7A565;
+        --green:     #4F7355;
+        --shadow-sm: 0 1px 2px rgba(42,28,23,0.05);
+        --shadow-md: 0 6px 18px rgba(42,28,23,0.06), 0 1px 3px rgba(42,28,23,0.04);
+        --shadow-lg: 0 16px 40px rgba(42,28,23,0.08), 0 3px 8px rgba(42,28,23,0.04);
+        --shadow-pink:0 12px 30px rgba(126,49,66,0.15);
+        --grad-pink: linear-gradient(135deg, #A8475E 0%, #7E3142 100%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+        margin: 0;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 17.5px;
+        line-height: 1.65;
+        color: var(--text);
+        background: #FBF6EE;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--pink); text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    h1, h2, h3, h4 { margin: 0; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 600; line-height: 1.15; letter-spacing: -0.005em; color: var(--text); }
+    p { margin: 0; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    .ei-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+    @media (min-width: 768px) { .ei-container { padding: 0 2rem; } }
+
+    .ei-section { padding: 4rem 0; }
+    @media (min-width: 768px) { .ei-section { padding: 6rem 0; } }
+
+    .ei-eyebrow {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 1rem;
+    }
+
+    .ei-h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+    .ei-h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.15; }
+    .ei-h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.3; }
+    .ei-h1 .accent {
+        background: var(--grad-pink);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* ════════ CONFIRMATION HEADER (sticky top, sostituisce urgency-bar) ════════ */
+    .oto-confirm {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-soft);
+        padding: 0.65rem 0 0.55rem;
+    }
+    .oto-confirm-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: center;
+        text-align: center;
+    }
+    .oto-confirm-msg {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text);
+    }
+    .oto-confirm-msg strong { color: var(--text); font-weight: 700; }
+    .oto-confirm-check {
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 50%;
+        background: var(--green);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 800;
+        flex-shrink: 0;
+    }
+    .oto-steps {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .oto-step {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+    .oto-step-num {
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 50%;
+        font-size: 0.65rem;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .oto-step.done .oto-step-num { background: var(--green); color: #fff; }
+    .oto-step.current .oto-step-num { background: var(--pink); color: #fff; box-shadow: 0 0 0 4px rgba(168,71,94,0.18); animation: ei-pulse 2s infinite; }
+    .oto-step.todo .oto-step-num { background: var(--bg-mute); color: var(--text-muted); }
+    .oto-step.current .oto-step-label { color: var(--text); }
+    .oto-step-arrow { color: var(--text-muted); opacity: 0.6; }
+    @keyframes ei-pulse {
+        0%, 100% { box-shadow: 0 0 0 4px rgba(168,71,94,0.18); }
+        50%      { box-shadow: 0 0 0 8px rgba(168,71,94,0.05); }
+    }
+    @media (max-width: 600px) {
+        .oto-step-label { display: none; }
+        .oto-step.current .oto-step-label { display: inline; }
+    }
+
+    /* ════════ HERO — split layout (copy + checkout) ════════ */
+    .ei-hero {
+        padding: 7rem 0 3rem;
+        background: #FFFFFF;
+        position: relative;
+        overflow: hidden;
+    }
+    @media (min-width: 1024px) {
+        .ei-hero { padding: 8rem 0 4rem; }
+    }
+    .ei-hero-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    @media (min-width: 1024px) {
+        .ei-hero-inner { grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+    }
+
+    .ei-hero-copy { order: 1; }
+    .ei-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1rem;
+        background: #FFFFFF;
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 1rem;
+        box-shadow: var(--shadow-sm);
+    }
+    .ei-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--pink);
+        box-shadow: 0 0 0 4px rgba(168,71,94,0.15);
+        animation: ei-pulse 2s infinite;
+    }
+    .ei-hero-title { margin-bottom: 1rem; }
+    .ei-hero-lead {
+        font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+        color: var(--text-soft);
+        line-height: 1.55;
+        margin-bottom: 1.5rem;
+    }
+    .ei-hero-lead strong { color: var(--text); font-weight: 700; }
+
+    .oto-disclaimer {
+        margin-top: 1.25rem;
+        padding: 0.85rem 1rem;
+        background: var(--bg-mute);
+        border-left: 3px solid var(--green);
+        border-radius: 0 8px 8px 0;
+        font-size: 0.85rem;
+        color: var(--text-soft);
+        line-height: 1.55;
+    }
+    .oto-disclaimer strong { color: var(--text); font-weight: 700; }
+
+    /* ════════ HERO CHECKOUT CARD (form-card cream) ════════ */
+    .oto-checkout-wrap { order: 2; }
+    @media (min-width: 1024px) { .oto-checkout-wrap { position: sticky; top: 6rem; } }
+
+    .ei-form-card {
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-lg);
+    }
+    @media (min-width: 768px) { .ei-form-card { padding: 1.75rem; } }
+
+    .oto-card-eyebrow {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 0.5rem;
+    }
+    .oto-card-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.85rem;
+        line-height: 1.3;
+    }
+    .oto-price {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        margin-bottom: 1.25rem;
+    }
+    .oto-price-old {
+        font-size: 1rem;
+        color: var(--text-muted);
+        text-decoration: line-through;
+        font-weight: 500;
+    }
+    .oto-price-new {
+        font-size: clamp(2rem, 4.5vw, 2.5rem);
+        font-weight: 800;
+        color: var(--text);
+        letter-spacing: -0.025em;
+        line-height: 1;
+    }
+    .oto-price-save {
+        margin-left: auto;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--pink);
+        background: rgba(168,71,94,0.08);
+        padding: 0.3rem 0.6rem;
+        border-radius: 100px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+
+    .oto-benefits {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem 0.85rem;
+        margin-bottom: 1.25rem;
+    }
+    @media (max-width: 480px) { .oto-benefits { grid-template-columns: 1fr; } }
+    .oto-benefit {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.4rem;
+        font-size: 0.85rem;
+        color: var(--text-soft);
+        line-height: 1.4;
+    }
+    .oto-benefit-check {
+        flex-shrink: 0;
+        width: 1.1rem;
+        height: 1.1rem;
+        margin-top: 0.05rem;
+    }
+    .oto-benefit-check svg { width: 100%; height: 100%; stroke: var(--pink); fill: none; stroke-width: 3; }
+
+    .oto-checkout-panel { display: none; }
+    .oto-checkout-panel.active { display: block; }
+
+    .oto-checkout-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        margin-bottom: 0.75rem;
+    }
+    .oto-checkout-field label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text-soft);
+        letter-spacing: 0.02em;
+    }
+    .oto-checkout-field input[type="text"],
+    .oto-checkout-field input[type="email"] {
+        background: #FFFFFF;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.85rem 0.95rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95rem;
+        color: var(--text);
+        transition: border-color 0.2s, box-shadow 0.2s;
+        outline: none;
+    }
+    .oto-checkout-field input::placeholder { color: #9CA3AF; font-size: 0.93rem; }
+    .oto-checkout-field input:focus {
+        border-color: var(--pink);
+        box-shadow: 0 0 0 3px rgba(168,71,94,0.15);
+    }
+    .oto-checkout-field.error input {
+        border-color: #DC2626;
+        background: #FFF5F5;
+    }
+    .oto-field-error {
+        font-size: 0.78rem;
+        color: #DC2626;
+        margin-top: 0.1rem;
+        display: none;
+    }
+    .oto-checkout-field.error .oto-field-error { display: block; }
+
+    .oto-btn-buy {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        background: var(--grad-pink);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 1.1rem 1.25rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        box-shadow: var(--shadow-pink);
+        transition: transform 0.2s, box-shadow 0.2s;
+        text-decoration: none;
+        margin-top: 0.5rem;
+    }
+    .oto-btn-buy:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(168,71,94,0.28); }
+
+    .oto-checkout-error {
+        font-size: 0.85rem;
+        color: #DC2626;
+        text-align: center;
+        margin-top: 0.6rem;
+    }
+
+    .oto-contact-recap {
+        margin-bottom: 0.85rem;
+        padding: 0.7rem 0.9rem;
+        background: var(--bg-mute);
+        border: 1px solid var(--border-soft);
+        border-radius: 10px;
+        font-size: 0.85rem;
+        color: var(--text-soft);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .oto-contact-recap button {
+        background: none;
+        border: none;
+        color: var(--pink);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    #oto-payment-element { margin: 0.5rem 0 0.85rem; min-height: 240px; }
+
+    .oto-payment-error {
+        display: none;
+        font-size: 0.85rem;
+        color: #DC2626;
+        margin-top: 0.6rem;
+        text-align: center;
+    }
+    .oto-payment-error.visible { display: block; }
+    .oto-checkout-back {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+    }
+
+    .oto-trust-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.25rem;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-soft);
+        justify-content: center;
+        text-align: center;
+    }
+    .oto-trust-row span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+    .oto-trust-row svg {
+        width: 0.85rem;
+        height: 0.85rem;
+        stroke: var(--green);
+        fill: none;
+        stroke-width: 2.5;
+        flex-shrink: 0;
+    }
+
+    /* ════════ COS'È — Loop single column ════════ */
+    .ei-loop { background: #FFFFFF; }
+    .ei-loop-inner {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .ei-loop p {
+        font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+        line-height: 1.75;
+        color: var(--text-soft);
+        margin-bottom: 1.25rem;
+    }
+    .ei-loop p strong { color: var(--text); font-weight: 700; }
+    .ei-loop-stat {
+        margin: 2.5rem auto;
+        padding: 2rem 1.5rem;
+        background: var(--bg-warm);
+        border: 1px solid var(--border-soft);
+        border-radius: 20px;
+        max-width: 480px;
+    }
+    .ei-loop-stat-number {
+        font-size: clamp(3rem, 9vw, 5rem);
+        font-weight: 800;
+        background: var(--grad-pink);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+        letter-spacing: -0.04em;
+    }
+    .ei-loop-stat-label {
+        font-size: 0.95rem;
+        color: var(--text-soft);
+        margin-top: 0.75rem;
+        font-weight: 500;
+    }
+
+    /* ════════ COSA CONTIENE — 3 cards bianche ════════ */
+    .oto-contains {
+        background: var(--bg-mute);
+    }
+    .oto-contains-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    @media (min-width: 768px) { .oto-contains-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+    .oto-contains-card {
+        background: #FFFFFF;
+        border: 1px solid var(--border-soft);
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        text-align: left;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .oto-contains-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .oto-contains-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 12px;
+        background: rgba(168,71,94,0.08);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    .oto-contains-icon svg { width: 1.25rem; height: 1.25rem; stroke: var(--pink); fill: none; stroke-width: 2; }
+    .oto-contains-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    .oto-contains-card p {
+        font-size: 0.9rem;
+        color: var(--text-soft);
+        line-height: 1.6;
+    }
+
+    /* ════════ TIMELINE 3 FASI — Dark Island (mirror programma opt-in) ════════ */
+    .ei-program {
+        background: linear-gradient(180deg, #2A1C17 0%, #1C120E 100%);
+        color: #fff;
+        position: relative;
+    }
+    .ei-program h2 { color: #fff; }
+    .ei-program .ei-eyebrow { color: var(--pink-soft); }
+    .ei-program-intro {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        color: rgba(255,255,255,0.75);
+        font-size: 1.05rem;
+        line-height: 1.65;
+    }
+    .ei-program-list { max-width: 760px; margin: 0 auto; }
+    .ei-program-row {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1.25rem;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        align-items: start;
+    }
+    .ei-program-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    @media (min-width: 768px) {
+        .ei-program-row { grid-template-columns: 6rem 1fr; gap: 2.5rem; padding: 2.5rem 0; }
+    }
+    .ei-program-num {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        line-height: 0.9;
+        background: linear-gradient(135deg, #A8475E 0%, #C97B82 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.04em;
+    }
+    .ei-program-date {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--pink-soft);
+        margin-bottom: 0.5rem;
+    }
+    .ei-program-title {
+        font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+        margin-bottom: 0.5rem;
+        color: #fff;
+    }
+    .ei-program-summary {
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.7);
+        line-height: 1.6;
+        margin-bottom: 0.85rem;
+        font-style: italic;
+    }
+    .ei-program-bullets li {
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+    }
+    .ei-program-bullets li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.55rem;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--pink);
+    }
+
+    /* ════════ PERCHÉ ORA — countdown su sfondo cream ════════ */
+    .oto-urgency {
+        background: var(--bg-cream);
+        text-align: center;
+    }
+    .oto-urgency-inner { max-width: 720px; margin: 0 auto; }
+    .oto-urgency p {
+        font-size: 1.05rem;
+        color: var(--text-soft);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+    .oto-urgency p strong { color: var(--text); font-weight: 700; }
+    .oto-countdown {
+        display: inline-flex;
+        gap: 0.6rem;
+        margin: 1.5rem auto 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .oto-countdown-label {
+        width: 100%;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+    }
+    .oto-countdown-box {
+        background: #FFFFFF;
+        border: 1px solid rgba(168,71,94,0.2);
+        border-radius: 12px;
+        padding: 0.85rem 1rem;
+        min-width: 4.5rem;
+        text-align: center;
+    }
+    .oto-countdown-num {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--pink);
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+    }
+    .oto-countdown-unit {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 0.3rem;
+    }
+    .oto-countdown-sep {
+        font-size: 1.5rem;
+        color: var(--text-muted);
+        opacity: 0.4;
+        font-weight: 300;
+    }
+
+    /* ════════ GARANZIA ════════ */
+    .oto-guarantee { background: #FFFFFF; }
+    .oto-guarantee-card {
+        max-width: 640px;
+        margin: 0 auto;
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 2rem 1.75rem;
+        box-shadow: var(--shadow-lg);
+        text-align: center;
+    }
+    .oto-guarantee-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin: 0 auto 1rem;
+        background: rgba(0,135,90,0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .oto-guarantee-icon svg { width: 1.5rem; height: 1.5rem; stroke: var(--green); fill: none; stroke-width: 2.5; }
+    .oto-guarantee-card h3 {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        margin-bottom: 0.6rem;
+    }
+    .oto-guarantee-card p {
+        font-size: 0.95rem;
+        color: var(--text-soft);
+        line-height: 1.65;
+        margin-bottom: 1.25rem;
+    }
+    .oto-guarantee-list {
+        text-align: left;
+        max-width: 480px;
+        margin: 1rem auto 0;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-soft);
+    }
+    .oto-guarantee-list li {
+        display: flex;
+        gap: 0.6rem;
+        align-items: flex-start;
+        padding: 0.5rem 0;
+        font-size: 0.92rem;
+        color: var(--text-soft);
+        line-height: 1.55;
+    }
+    .oto-guarantee-list li svg {
+        flex-shrink: 0;
+        width: 1.1rem;
+        height: 1.1rem;
+        margin-top: 0.15rem;
+        stroke: var(--green);
+        fill: none;
+        stroke-width: 2.5;
+    }
+    .oto-guarantee-list li strong { color: var(--text); font-weight: 700; }
+
+    /* ════════ CTA FINALE — pink island (riuso opt-in) ════════ */
+    .ei-cta-final {
+        background: var(--pink);
+        color: #fff;
+        text-align: center;
+    }
+    .ei-cta-final .ei-eyebrow { color: rgba(255,255,255,0.85); }
+    .ei-cta-final h2 { color: #fff; margin-bottom: 1rem; }
+    .ei-cta-final-lead {
+        max-width: 580px;
+        margin: 0 auto 2rem;
+        font-size: 1.1rem;
+        line-height: 1.65;
+        color: rgba(255,255,255,0.95);
+    }
+    .ei-cta-final-lead strong { color: #fff; font-weight: 700; }
+    .ei-cta-btn-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 1.25rem 2rem;
+        background: #fff;
+        color: var(--pink);
+        font-weight: 800;
+        font-size: 1rem;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        transition: transform 0.2s;
+        cursor: pointer;
+        border: none;
+        font-family: inherit;
+    }
+    .ei-cta-btn-white:hover { transform: translateY(-2px); }
+    .oto-skip-final {
+        display: block;
+        margin-top: 1.25rem;
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.85);
+        text-decoration: underline;
+    }
+    .oto-skip-final:hover { color: #fff; }
+    .ei-cta-final-trust {
+        margin-top: 1.25rem;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.85);
+    }
+
+    /* ════════ FAQ minimal (riuso opt-in) ════════ */
+    .ei-faq { background: #FFFFFF; }
+    .ei-faq-inner { max-width: 720px; margin: 0 auto; }
+    .ei-faq-item {
+        border-bottom: 1px solid var(--border);
+        padding: 1.25rem 0;
+    }
+    .ei-faq-item:first-child { border-top: 1px solid var(--border); }
+    .ei-faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 0.5rem 0;
+        font-size: 1.02rem;
+        font-weight: 600;
+        color: var(--text);
+        text-align: left;
+        cursor: pointer;
+        font-family: inherit;
+    }
+    .ei-faq-toggle {
+        flex-shrink: 0;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        background: var(--bg-mute);
+        color: var(--pink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: 700;
+        transition: transform 0.3s;
+    }
+    .ei-faq-item.open .ei-faq-toggle { transform: rotate(45deg); background: var(--pink); color: #fff; }
+    .ei-faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+        font-size: 0.95rem;
+        color: var(--text-soft);
+        line-height: 1.65;
+    }
+    .ei-faq-item.open .ei-faq-answer { max-height: 360px; padding-top: 0.75rem; }
+
+    /* ════════ FOOTER ════════ */
+    .ei-footer {
+        background: var(--bg-mute);
+        border-top: 1px solid var(--border-soft);
+        padding: 2.5rem 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    .ei-footer-logo {
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        font-size: 0.95rem;
+        color: var(--text);
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+    }
+    .ei-footer p { margin-bottom: 0.5rem; line-height: 1.6; }
+    .ei-footer-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    .ei-footer-links a { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
+    .ei-footer-links a:hover { color: var(--pink); }
+
+    /* ════════ STICKY MOBILE CTA ════════ */
+    .ei-sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid var(--border);
+        display: none;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    }
+    .ei-sticky-cta.visible { display: block; }
+    .ei-sticky-cta button {
+        width: 100%;
+        background: var(--grad-pink);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: var(--shadow-pink);
+    }
+    @media (min-width: 1024px) { .ei-sticky-cta { display: none !important; } }
+
+    /* ════════ FADE IN ════════ */
+    .oto-fade-in { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.7s, transform 0.7s; }
+    .oto-fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    body.has-sticky { padding-bottom: 5.5rem; }
+    @media (min-width: 1024px) { body.has-sticky { padding-bottom: 0; } }
+
+    /* Body offset per confirmation header sticky */
+    body { padding-top: 5.5rem; }
+    @media (min-width: 600px) { body { padding-top: 4.5rem; } }
+    </style>
+
+    <!-- Iubenda Cookie Solution -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('init', '1717291565951434');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'OTO Mappa Lipedema', content_category: 'oto'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1717291565951434&ev=PageView&noscript=1"/></noscript>
+
+    <!-- Micro-signals SOLO su pixel 2: intent retargeting pool per nuovo BM (CPL optimization) -->
+    <script>
+    (function() {
+      var P2 = '1717291565951434';
+      var fired = {};
+      function fire(name, data) {
+        if (fired[name] || !window.fbq) return;
+        fired[name] = 1;
+        window.fbq('trackSingleCustom', P2, name, data || {});
+      }
+      window.addEventListener('scroll', function() {
+        var h = document.documentElement;
+        var pct = (h.scrollTop + window.innerHeight) / h.scrollHeight * 100;
+        if (pct >= 75) fire('ScrollDeep', { depth: 75, content_name: 'OTO Mappa Lipedema' });
+      }, { passive: true });
+      document.addEventListener('click', function(e) {
+        if (e.target.closest && e.target.closest('[data-oto-cta], .oto-cta, button[type="submit"]')) {
+          fire('ClickCTA', { content_name: 'OTO Mappa Lipedema' });
+        }
+      });
+      document.addEventListener('focusin', function(e) {
+        if (e.target.closest && e.target.closest('form, [class*="oto-form"], [id*="oto-form"]')) {
+          fire('FormStart', { content_name: 'OTO Mappa Lipedema' });
+        }
+      });
+    })();
+    </script>
+    <!-- ═══ DESIGN LAYER — Dossier editoriale caldo (skill frontend-design) ═══ -->
+    <style id="ei-design-layer">
+    body::before{content:"";position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+    h1,h2,h3,h4{font-optical-sizing:auto;font-feature-settings:"onum","liga","calt";}
+    ::selection{background:rgba(168,71,94,.17);color:#2A211C;}
+    .ei-eyebrow{display:inline-flex;align-items:center;gap:.7em;letter-spacing:.22em!important;font-weight:600!important;}
+    .ei-eyebrow::before{content:"";width:1.7em;height:1px;background:currentColor;opacity:.5;flex:none;}
+    .ei-btn-primary,.ei-native-submit,.oto-btn-buy,[data-oto-buy]{letter-spacing:.05em;box-shadow:var(--shadow-pink),inset 0 0 0 1px rgba(255,255,255,.14);transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,background .25s,letter-spacing .3s;}
+    .ei-btn-primary:hover,.ei-native-submit:hover,.oto-btn-buy:hover,[data-oto-buy]:hover{letter-spacing:.08em;}
+    .ei-form-card{box-shadow:var(--shadow-lg),inset 0 0 0 1px rgba(255,255,255,.65);}
+    a{text-underline-offset:3px;}
+    @media (prefers-reduced-motion:no-preference){
+      .ei-hero .ei-badge,.ei-hero .ei-hero-title,.ei-hero .ei-hero-lead,.ei-hero .ei-form-card,.ei-hero .oto-disclaimer{opacity:0;transform:translateY(16px);animation:eiRise .9s cubic-bezier(.2,.7,.3,1) forwards;}
+      .ei-hero .ei-badge{animation-delay:.06s}
+      .ei-hero .ei-hero-title{animation-delay:.2s}
+      .ei-hero .ei-hero-lead{animation-delay:.36s}
+      .ei-hero .oto-disclaimer{animation-delay:.5s}
+      .ei-hero .ei-form-card{animation-delay:.32s}
+    }
+    @keyframes eiRise{to{opacity:1;transform:none}}
+    </style>
+
+    <!-- ═══════════ TEMA · DIRECT-RESPONSE CONVICTION (Brunson/Hormozi) ═══════════ -->
+    <style id="alt-conviction">
+    :root{
+      --bg:#FBF7EF;--bg-soft:#FFFFFF;--bg-warm:#FCE4EC;--bg-mute:#F4EEE2;--bg-cream:#FBF7EF;--bg-dark:#16120E;
+      --text:#16120E;--text-soft:#46413A;--text-muted:#7C746A;--border:#E7DFCF;--border-soft:#F0E9DB;
+      --pink:#E5443B;--pink-deep:#16120E;--pink-soft:#E91E63;--green:#2FA56B;--gold:#E91E63;--coral:#E5443B;
+      --grad-pink:#16120E;--shadow-lg:0 18px 44px rgba(22,18,14,.12);
+    }
+    body{background:#FBF7EF!important;color:#16120E;}
+    body::before{display:none!important;}
+    h1,h2,h3,h4{font-family:'Archivo','Poppins',sans-serif!important;font-weight:800!important;letter-spacing:-.02em!important;}
+    .ei-h1{font-weight:900!important;letter-spacing:-.03em!important;line-height:1.0!important;}
+    .ei-h2{font-weight:900!important;letter-spacing:-.025em!important;}
+    .ei-h1 .accent{font-style:normal!important;font-weight:900!important;color:#16120E!important;-webkit-text-fill-color:#16120E!important;background:linear-gradient(180deg,transparent 10%,#E91E63 10%,#E91E63 88%,transparent 88%)!important;padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+
+    .ei-eyebrow,.oto-card-eyebrow{display:inline-block!important;background:#E91E63!important;color:#16120E!important;font-family:'Archivo',sans-serif!important;font-weight:800!important;letter-spacing:.1em!important;padding:.3em .65em!important;border-radius:5px!important;}
+    .ei-eyebrow::before{display:none!important;}
+    .ei-hero{background:#FBF7EF!important;}
+    .ei-hero::before,.ei-hero::after{display:none!important;}
+    .ei-badge{background:#16120E!important;color:#fff!important;border:none!important;}
+    .ei-badge-dot{background:#E91E63!important;}
+
+    /* Bottoni chunky 3D */
+    .ei-native-submit,.ei-btn-primary,.oto-btn-buy,[data-oto-buy]{background:#16120E!important;color:#fff!important;border:none!important;border-radius:12px!important;font-family:'Archivo',sans-serif!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.04em!important;box-shadow:0 6px 0 #AD1457,0 14px 26px rgba(22,18,14,.22)!important;transition:transform .12s ease,box-shadow .12s ease!important;}
+    .oto-btn-buy:hover,[data-oto-buy]:hover{transform:translateY(3px)!important;box-shadow:0 3px 0 #AD1457,0 8px 16px rgba(22,18,14,.2)!important;}
+
+    /* Confirm header → barra ink */
+    .oto-confirm{background:#16120E!important;color:#fff!important;border:none!important;}
+    .oto-confirm-msg,.oto-step{color:#fff!important;}
+    .oto-confirm-check{background:#2FA56B!important;color:#fff!important;}
+    .oto-step.current .oto-step-num{background:#E91E63!important;color:#16120E!important;}
+    .oto-step.done .oto-step-num{background:#2FA56B!important;color:#fff!important;}
+
+    /* Checkout card */
+    .ei-form-card,#otoCheckoutInline{background:#fff!important;border:2px solid #16120E!important;border-radius:16px!important;box-shadow:8px 8px 0 rgba(22,18,14,.14)!important;}
+    .oto-card-title{font-weight:800!important;}
+    .oto-price-new{font-family:'Archivo',sans-serif!important;font-weight:900!important;color:#16120E!important;}
+    .oto-price-old{color:#9A9082!important;}
+    .oto-price-save{background:#E5443B!important;color:#fff!important;font-weight:800!important;}
+    .oto-benefit-check{color:#2FA56B!important;}
+    .oto-benefit-check svg{stroke:#2FA56B!important;}
+    .oto-checkout-field input{border:2px solid #E0D7C6!important;border-radius:10px!important;}
+    .oto-checkout-field input:focus{border-color:#16120E!important;box-shadow:0 0 0 3px rgba(233,30,99,.45)!important;}
+    .oto-disclaimer{background:#FCE4EC!important;border-left:4px solid #E91E63!important;color:#16120E!important;}
+    .oto-trust-row{color:#7C746A!important;}
+
+    /* Loop / contains / guarantee bordati */
+    .ei-loop{background:#FBF7EF!important;}
+    .ei-loop-stat{background:#fff!important;border:2px solid #16120E!important;box-shadow:6px 6px 0 rgba(22,18,14,.1)!important;}
+    .oto-contains{background:#FBF7EF!important;}
+    .oto-contains-card{background:#fff!important;border:2px solid #16120E!important;border-radius:14px!important;box-shadow:6px 6px 0 rgba(22,18,14,.1)!important;}
+    .oto-contains-icon{background:#E91E63!important;color:#16120E!important;}
+    .oto-contains-icon svg{stroke:#16120E!important;}
+    .oto-guarantee-card{background:#16120E!important;color:#F4EEE2!important;border:none!important;}
+    .oto-guarantee-card h3{color:#fff!important;}
+    .oto-guarantee-list svg{stroke:#E91E63!important;}
+
+    /* Programma timeline → blocco nero */
+    .ei-program{background:#16120E!important;border:none!important;}
+    .ei-program .ei-eyebrow{background:#E91E63!important;color:#16120E!important;}
+    .ei-program-date{color:#E91E63!important;}
+    .ei-program-num{background:none!important;-webkit-text-fill-color:#E91E63!important;color:#E91E63!important;}
+    .ei-program-bullets li::before{background:#E91E63!important;}
+
+    /* Urgenza countdown */
+    .oto-urgency{background:#FBF7EF!important;}
+    .oto-countdown-box{background:#16120E!important;}
+    .oto-countdown-num{color:#E91E63!important;}
+
+    /* CTA finale → blocco giallo, testo nero */
+    .ei-cta-final{background:#E91E63!important;}
+    .ei-cta-final .ei-h2,.ei-cta-final .ei-cta-final-lead,.ei-cta-final .ei-cta-final-trust{color:#16120E!important;}
+    .ei-cta-final .ei-eyebrow{background:#16120E!important;color:#E91E63!important;}
+    .oto-skip-final{color:#46413A!important;}
+
+    /* FAQ */
+    .ei-faq{background:#FBF7EF!important;}
+    .ei-faq-toggle{background:#E91E63!important;color:#16120E!important;}
+
+    .ei-footer{background:#16120E!important;}
+    .ei-footer,.ei-footer p,.ei-footer-links a{color:#C7BBAA!important;}
+    .ei-footer-logo{color:#fff!important;}
+    .ei-sticky-cta{background:rgba(251,247,239,.97)!important;border-top:2px solid #16120E!important;}
+    ::selection{background:#E91E63;color:#16120E;}
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════ CONFIRMATION HEADER ═══════════════════ -->
+<div class="oto-confirm" role="status" aria-live="polite">
+    <div class="ei-container oto-confirm-inner">
+        <div class="oto-confirm-msg">
+            <span class="oto-confirm-check">&#10003;</span>
+            <span><strong>Iscrizione confermata</strong> &middot; Webinar <span data-oto-data>Martedì 7 Luglio</span> &middot; ore 18:30</span>
+        </div>
+        <div class="oto-steps">
+            <span class="oto-step done">
+                <span class="oto-step-num">&#10003;</span>
+                <span class="oto-step-label">Iscritta</span>
+            </span>
+            <span class="oto-step-arrow">&rarr;</span>
+            <span class="oto-step current">
+                <span class="oto-step-num">2</span>
+                <span class="oto-step-label">Offerta speciale (sei qui)</span>
+            </span>
+            <span class="oto-step-arrow">&rarr;</span>
+            <span class="oto-step todo">
+                <span class="oto-step-num">3</span>
+                <span class="oto-step-label">Webinar in diretta</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════ HERO — split copy + checkout ═══════════════════ -->
+<section class="ei-section ei-hero" id="iscriviti">
+    <div class="ei-container">
+        <div class="ei-hero-inner">
+
+            <!-- Copy column -->
+            <div class="ei-hero-copy">
+                <div class="ei-badge">
+                    <span class="ei-badge-dot"></span>
+                    <span>Offerta speciale &middot; Solo da questa pagina</span>
+                </div>
+
+                <h1 class="ei-h1 ei-hero-title">
+                    Prima del webinar, <span class="accent">fai chiarezza su di te.</span>
+                </h1>
+
+                <p class="ei-hero-lead">
+                    Ti aspetta <strong><span data-oto-data>Martedì 7 Luglio</span></strong>. Ma la domanda che ti gira in testa &egrave; gi&agrave; un'altra: <em>&ldquo;ce l'ho davvero il lipedema? A che punto sono? Cosa NON devo fare?&rdquo;</em> <strong>La Mappa del Lipedema</strong> ti d&agrave; la risposta oggi. <strong>17&euro;</strong> invece di 27&euro;, una sola volta, solo da questa pagina.
+                </p>
+
+                <div class="oto-disclaimer">
+                    <strong>Non vuoi?</strong> Nessun problema, chiudi pure questa pagina: <strong>la tua iscrizione al webinar resta confermata</strong>. La Mappa &egrave; solo qualcosa in pi&ugrave; per arrivarci con le idee gi&agrave; chiare.
+                </div>
+            </div>
+
+            <!-- Checkout column -->
+            <div class="oto-checkout-wrap">
+                <div class="ei-form-card" id="otoCheckoutInline">
+                    <div class="oto-card-eyebrow">La Mappa del Lipedema &middot; Solo da questa pagina</div>
+                    <div class="oto-card-title">Fai chiarezza oggi. Il primo passo del tuo percorso.</div>
+
+                    <div class="oto-price">
+                        <span class="oto-price-old">27&euro;</span>
+                        <span class="oto-price-new">17&euro;</span>
+                        <span class="oto-price-save">&minus;37%</span>
+                    </div>
+
+                    <div class="oto-benefits">
+                        <div class="oto-benefit">
+                            <span class="oto-benefit-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            Test di auto-riconoscimento del lipedema
+                        </div>
+                        <div class="oto-benefit">
+                            <span class="oto-benefit-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            Lipedema, cellulite o ritenzione? La differenza
+                        </div>
+                        <div class="oto-benefit">
+                            <span class="oto-benefit-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            Cosa evitare subito + i primi gesti sicuri
+                        </div>
+                        <div class="oto-benefit">
+                            <span class="oto-benefit-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            Le domande giuste da fare al medico
+                        </div>
+                    </div>
+
+                    <!-- STEP 1: Contact Info -->
+                    <div class="oto-checkout-panel active" id="checkoutStep1">
+                        <div class="oto-checkout-field">
+                            <label for="oto-nome">Nome</label>
+                            <input type="text" id="oto-nome" placeholder="Il tuo nome" autocomplete="given-name">
+                            <div class="oto-field-error">Inserisci il tuo nome</div>
+                        </div>
+                        <div class="oto-checkout-field">
+                            <label for="oto-email">Email</label>
+                            <input type="email" id="oto-email" placeholder="latua@email.com" autocomplete="email">
+                            <div class="oto-field-error">Inserisci un'email valida</div>
+                        </div>
+
+                        <a href="#" class="oto-btn-buy" id="otoGoStep2">S&igrave;, voglio la Mappa &mdash; 17&euro; &rarr;</a>
+                        <div class="oto-checkout-error" id="otoStep1Error" style="display:none;"></div>
+                    </div>
+
+                    <!-- STEP 2: Stripe Payment Element -->
+                    <div class="oto-checkout-panel" id="checkoutStep2">
+                        <div class="oto-contact-recap" id="otoContactRecap" style="display:none;">
+                            <span id="otoRecapText"></span>
+                            <button type="button" id="otoChangeContact">Modifica</button>
+                        </div>
+                        <div id="oto-payment-element"><!-- Stripe mounts here --></div>
+                        <a href="#" class="oto-btn-buy" id="otoPayBtn">Completa il pagamento &mdash; 17&euro; &rarr;</a>
+                        <div class="oto-payment-error" id="otoPaymentError"></div>
+                        <button type="button" class="oto-checkout-back" id="otoBackStep1" style="display:none;">&larr; Modifica i tuoi dati</button>
+                    </div>
+
+                    <div class="oto-trust-row">
+                        <span><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Pagamento sicuro Stripe</span>
+                        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Accesso immediato</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ COS'È IL KIT — Loop ═══════════════════ -->
+<section class="ei-section ei-loop">
+    <div class="ei-container">
+        <div class="ei-loop-inner oto-fade-in">
+            <span class="ei-eyebrow">Cos'&egrave; La Mappa del Lipedema</span>
+            <h2 class="ei-h2">Non ti serve un'altra dieta lampo. Ti serve <span style="color: var(--pink);">capire da dove parti</span>.</h2>
+
+            <div class="ei-loop-stat">
+                <div class="ei-loop-stat-label" style="font-size: 1.15rem; line-height: 1.7;">Un kit di chiarezza, non l'ennesima promessa di risultati veloci. Lo apri, fai il test, e per la prima volta hai un quadro: <strong>cosa hai, a che punto sei, cosa fare e cosa evitare adesso.</strong></div>
+            </div>
+
+            <p>La parte pi&ugrave; pesante del lipedema, all'inizio, &egrave; la confusione. Un sito dice una cosa, un'amica un'altra, il medico ti liquida in cinque minuti. Cos&igrave; passano gli anni, ti dai la colpa, e provi cose a caso che a volte peggiorano la situazione.</p>
+
+            <p>La Mappa nasce per togliere quella confusione. Dentro trovi un <strong>test di auto-riconoscimento</strong> (segnali e stadi), la differenza tra <strong>lipedema, cellulite e ritenzione</strong>, l'elenco di <strong>cosa evitare subito</strong> e i primi gesti sicuri, le <strong>domande giuste da fare al medico</strong>, e la mappa dei prossimi passi. Lo leggi in meno di un'ora, quando vuoi.</p>
+
+            <p style="font-size: 1.15rem; font-weight: 600; color: var(--text); margin-top: 2rem;">Capire cosa hai non cambia tutto in un giorno. Ma cambia da dove parti. E con il lipedema, partire bene &egrave; met&agrave; del lavoro.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ COSA CONTIENE — 3 cards ═══════════════════ -->
+<section class="ei-section oto-contains">
+    <div class="ei-container">
+        <div style="text-align: center; margin-bottom: 3rem;" class="oto-fade-in">
+            <span class="ei-eyebrow">Cosa trovi dentro</span>
+            <h2 class="ei-h2">Tutto quello che ti serve per fare chiarezza.</h2>
+        </div>
+
+        <div class="oto-contains-grid">
+            <div class="oto-contains-card oto-fade-in">
+                <div class="oto-contains-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3>Il Test di Auto-Riconoscimento</h3>
+                <p>Una checklist guidata dei segnali del lipedema e degli stadi, per capire dove ti collochi. Pi&ugrave; il confronto chiaro tra <strong>lipedema, cellulite, grasso localizzato e ritenzione</strong>: cose diverse, che si gestiscono in modo diverso.</p>
+            </div>
+
+            <div class="oto-contains-card oto-fade-in">
+                <div class="oto-contains-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zM4.93 4.93l14.14 14.14"/></svg>
+                </div>
+                <h3>Cosa Evitare (e cosa fare)</h3>
+                <p>L'elenco di abitudini e allenamenti che <strong>infiammano il lipedema</strong> invece di aiutarti (il cardio intenso e le diete punitive in testa), e i <strong>primi gesti sicuri</strong> da cui partire. Niente programma a tempo: una guida di riferimento da tenere.</p>
+            </div>
+
+            <div class="oto-contains-card oto-fade-in">
+                <div class="oto-contains-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>
+                </div>
+                <h3>Il Kit Medico + la Mappa</h3>
+                <p>Le <strong>domande giuste da portare al medico o allo specialista</strong>, per non perdere altri anni e farti prendere sul serio. Pi&ugrave; la mappa dei prossimi passi: come si imposta un percorso a lungo termine, senza scorciatoie.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ TIMELINE 3 FASI — Dark Island ═══════════════════ -->
+<section class="ei-section ei-program">
+    <div class="ei-container">
+        <div style="text-align: center;">
+            <span class="ei-eyebrow">Come funziona</span>
+            <h2 class="ei-h2">Tre passi per uscire dalla confusione.</h2>
+            <p class="ei-program-intro">La leggi quando vuoi, da telefono o computer, in meno di un'ora. Niente programma a tempo, niente da &laquo;eseguire&raquo;: la Mappa serve a capire, cos&igrave; arrivi al webinar con le idee chiare.</p>
+        </div>
+
+        <div class="ei-program-list">
+
+            <div class="ei-program-row oto-fade-in">
+                <div class="ei-program-num">01</div>
+                <div>
+                    <div class="ei-program-date">Adesso &middot; In 30 secondi</div>
+                    <h3 class="ei-program-title">Apri la Mappa</h3>
+                    <p class="ei-program-summary">Subito dopo il pagamento ricevi tutto via email: il test, le guide in PDF, il kit di domande per il medico. La apri sul telefono mentre prendi un caff&egrave;.</p>
+                    <ul class="ei-program-bullets">
+                        <li>Accesso immediato via email a tutti i materiali</li>
+                        <li>Funziona su telefono, tablet, computer</li>
+                        <li>La consulti quando vuoi, accesso a vita</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ei-program-row oto-fade-in">
+                <div class="ei-program-num">02</div>
+                <div>
+                    <div class="ei-program-date">In meno di un'ora &middot; Quando vuoi</div>
+                    <h3 class="ei-program-title">Fai chiarezza su di te</h3>
+                    <p class="ei-program-summary">Compili il test di auto-riconoscimento, capisci a che punto sei e cosa distingue il lipedema da cellulite e ritenzione. Poi leggi cosa evitare e i primi gesti sicuri.</p>
+                    <ul class="ei-program-bullets">
+                        <li>Il test: segnali e stadi, sul tuo corpo e la tua storia</li>
+                        <li>La differenza tra lipedema, cellulite, grasso e ritenzione</li>
+                        <li>Cosa evitare subito (e perch&eacute;), senza peggiorare</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ei-program-row oto-fade-in">
+                <div class="ei-program-num">03</div>
+                <div>
+                    <div class="ei-program-date">7 Luglio &middot; Inizio webinar</div>
+                    <h3 class="ei-program-title">Arrivi al webinar con le idee chiare</h3>
+                    <p class="ei-program-summary">Non parti pi&ugrave; da zero. Sai cosa hai, sai cosa chiedere, e tutto quello che ti dico in diretta lo agganci a quello che hai gi&agrave; capito di te. Il webinar diventa il <strong>moltiplicatore</strong>, non il punto di partenza.</p>
+                    <ul class="ei-program-bullets">
+                        <li>Sai gi&agrave; riconoscere i tuoi segnali</li>
+                        <li>Hai le domande giuste pronte per il tuo medico</li>
+                        <li>Quello che spiego in diretta lo applichi subito, su di te</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ PERCHÉ ORA ═══════════════════ -->
+<section class="ei-section oto-urgency">
+    <div class="ei-container">
+        <div class="oto-urgency-inner oto-fade-in">
+            <span class="ei-eyebrow">Perch&eacute; te lo offro adesso</span>
+            <h2 class="ei-h2" style="margin-bottom: 1rem;">Quest'offerta esiste solo qui.</h2>
+
+            <p>La Mappa del Lipedema, sul sito, costa <strong>27&euro;</strong>. Te la lascio a <strong>17&euro;</strong> solo perch&eacute; sei appena entrata nel webinar e voglio darti un vantaggio in pi&ugrave; per arrivarci con le idee chiare.</p>
+
+            <p>Una volta sola, da questa pagina. <strong>Se la chiudi e ci torni dopo, il prezzo &egrave; quello pieno.</strong> Niente tranelli, niente fake scarcity: te lo dico chiaro perch&eacute; voglio che tu decida adesso, con i fatti in mano.</p>
+
+            <div class="oto-countdown">
+                <div class="oto-countdown-label">Questa pagina si chiude tra</div>
+                <div class="oto-countdown-box">
+                    <div class="oto-countdown-num"><span data-oto-mins>15</span></div>
+                    <div class="oto-countdown-unit">Min</div>
+                </div>
+                <div class="oto-countdown-sep">:</div>
+                <div class="oto-countdown-box">
+                    <div class="oto-countdown-num"><span data-oto-secs>00</span></div>
+                    <div class="oto-countdown-unit">Sec</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ PARLIAMOCI CHIARO — objection handling ═══════════════════ -->
+<section class="ei-section oto-guarantee">
+    <div class="ei-container">
+        <div class="oto-guarantee-card oto-fade-in">
+            <h3>Parliamoci chiaro prima di iniziare.</h3>
+            <p>La Mappa non promette di guarirti e non &egrave; una diagnosi medica. &Egrave; uno strumento di chiarezza, fatto bene, per smettere di brancolare e capire da dove partire.</p>
+
+            <ul class="oto-guarantee-list">
+                <li>
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span><strong>Cos'&egrave;:</strong> un kit di auto-valutazione e chiarezza sul lipedema, in PDF, da leggere quando vuoi.</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span><strong>A chi serve:</strong> a chi ha provato di tutto, si d&agrave; la colpa e non sa pi&ugrave; da dove ricominciare.</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span><strong>Cosa non &egrave;:</strong> non &egrave; una diagnosi, non promette di &laquo;eliminare il lipedema&raquo; e non &egrave; una scorciatoia. &Egrave; il <em>primo</em> passo di un percorso a lungo termine.</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span><strong>Quanto tempo serve:</strong> meno di un'ora per leggerla e compilarla, con i tuoi tempi.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ CTA FINALE — pink island ═══════════════════ -->
+<section class="ei-section ei-cta-final">
+    <div class="ei-container">
+        <span class="ei-eyebrow">Una sola pagina &middot; Solo ora</span>
+        <h2 class="ei-h2">Vuoi arrivare al webinar con le idee chiare?</h2>
+        <p class="ei-cta-final-lead">
+            17&euro; invece di 27&euro;. La chiarezza che cerchi da anni, in meno di un'ora. <strong>Il webinar resta tuo in entrambi i casi</strong>: la Mappa &egrave; per chi non vuole aspettare la serata per iniziare a capire.
+        </p>
+
+        <button type="button" class="ei-cta-btn-white" data-oto-buy>S&igrave;, voglio la Mappa adesso &mdash; 17&euro; &rarr;</button>
+
+        <a href="#" class="oto-skip-final" data-oto-skip>No grazie, mi vedo solo il webinar</a>
+
+        <p class="ei-cta-final-trust">Pagamento sicuro Stripe &middot; Accesso immediato via email</p>
+    </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section class="ei-section ei-faq">
+    <div class="ei-container">
+        <div class="ei-faq-inner oto-fade-in">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <span class="ei-eyebrow">Domande</span>
+                <h2 class="ei-h2">Quello che le altre mi hanno chiesto.</h2>
+            </div>
+
+            <div class="ei-faq-item">
+                <button class="ei-faq-question" type="button">Devo per forza comprare per partecipare al webinar?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>No, assolutamente. Il webinar &egrave; <strong>e resta gratuito</strong>. La tua iscrizione &egrave; gi&agrave; confermata, ti arriva il link Zoom via email. La Mappa &egrave; solo un'offerta extra, opzionale, per chi vuole arrivare al webinar con le idee gi&agrave; chiare. Se non la prendi, il 7 luglio sei comunque dentro.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question" type="button">La Mappa mi dice se ho il lipedema?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>Ti d&agrave; gli strumenti per <strong>riconoscere i segnali</strong> e capire quanto il tuo quadro assomiglia al lipedema, distinguendolo da cellulite e ritenzione. <strong>Non &egrave; una diagnosi medica</strong>: la diagnosi la fa il medico. Ma arrivi da lui con le idee chiare e le domande giuste, e non perdi altri anni.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question" type="button">Quanto tempo serve per leggerla?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p><strong>Meno di un'ora</strong>, con i tuoi tempi. La apri dal telefono o dal computer, fai il test e leggi le guide quando vuoi. Resta tua per sempre, quindi puoi tornarci ogni volta che ti serve.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question" type="button">Non &egrave; la solita roba che trovo gratis online?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>Online trovi mille pezzi sparsi e contraddittori: &egrave; proprio quello che ti confonde. La Mappa mette in ordine quello che conta, in un percorso chiaro: cosa hai, cosa evitare, cosa chiedere al medico, da dove partire. Niente da cercare, niente da incrociare.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question" type="button">Promette di farmi sgonfiare o dimagrire?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>No, e te lo dico chiaro. Il lipedema &egrave; una condizione cronica: nessuno onesto pu&ograve; prometterti di &laquo;eliminarlo&raquo;. La Mappa serve a <strong>capire</strong> e a partire bene. I miglioramenti veri arrivano da un percorso a lungo termine, e di quello parliamo al webinar.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question" type="button">Quando ricevo l'accesso?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>Subito. Appena completi il pagamento ti arriva una mail con tutti i materiali: il test, le guide in PDF e il kit di domande per il medico. <strong>Accesso immediato, accesso a vita</strong>: la consulti quando vuoi.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question" type="button">Cosa succede se non compro adesso?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>Niente di drammatico, semplicemente la Mappa sul sito la trovi a 27&euro;. Lo sconto a 17&euro; &egrave; solo da questa pagina, una volta sola, perch&eacute; sei appena entrata nel webinar.</p></div>
+            </div>
+            <div class="ei-faq-item">
+                <button class="ei-faq-question" type="button">Posso pagare con carta normale? &Egrave; sicuro?<span class="ei-faq-toggle">+</span></button>
+                <div class="ei-faq-answer"><p>S&igrave;, accetto tutte le carte di credito e debito (Visa, Mastercard, Amex), Apple Pay e Google Pay. Il pagamento passa da Stripe, lo standard usato da Booking, Deliveroo e migliaia di altre realt&agrave; europee. Le tue informazioni sono crittografate, io non le vedo mai.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="ei-footer">
+    <div class="ei-container">
+        <div class="ei-footer-logo">Elena Giordani</div>
+        <p>Il primo percorso italiano dedicato alle donne, tutto in diretta. Corpo, alimentazione e mente, sempre insieme.</p>
+        <p style="opacity: 0.7; font-size: 0.78rem;">X77 SSD a.r.l &middot; P.IVA IT17336811009 &middot; Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)</p>
+        <div class="ei-footer-links">
+            <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy</a>
+            <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie</a>
+            <a href="/terms-and-conditions">Termini</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6;">&copy; 2026 Elena Giordani. Tutti i diritti riservati.</p>
+    </div>
+</footer>
+
+<!-- ═══════════════════ STICKY MOBILE CTA ═══════════════════ -->
+<div class="ei-sticky-cta" id="eiStickyCta">
+    <button type="button" data-oto-buy>S&igrave;, voglio la Mappa &mdash; 17&euro; &rarr;</button>
+</div>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+// ===== Inietta data webinar nel confirmation header e altri spot =====
+(function() {
+    var data = (window.OTO_PARAMS && window.OTO_PARAMS.data) || 'Martedì 7 Luglio';
+    document.querySelectorAll('[data-oto-data]').forEach(function(el) {
+        el.textContent = data;
+    });
+})();
+
+// ===== COUNTDOWN TIMER (15 minuti, sessionStorage) =====
+(function() {
+    var STORAGE_KEY = 'oto_countdown_end_luglio_v1';
+    var DURATION = 15 * 60 * 1000;
+
+    var endTime = sessionStorage.getItem(STORAGE_KEY);
+    if (!endTime || parseInt(endTime, 10) <= Date.now()) {
+        endTime = Date.now() + DURATION;
+        sessionStorage.setItem(STORAGE_KEY, endTime);
+    }
+    endTime = parseInt(endTime, 10);
+
+    function updateTimer() {
+        var remaining = endTime - Date.now();
+        if (remaining <= 0) {
+            window.location.href = buildThankYouUrl();
+            return;
+        }
+        var mins = Math.floor(remaining / 60000);
+        var secs = Math.floor((remaining % 60000) / 1000);
+        var mStr = mins.toString().padStart(2, '0');
+        var sStr = secs.toString().padStart(2, '0');
+        document.querySelectorAll('[data-oto-mins]').forEach(function(el) { el.textContent = mStr; });
+        document.querySelectorAll('[data-oto-secs]').forEach(function(el) { el.textContent = sStr; });
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+})();
+
+// ===== CTA ROUTING + STRIPE ELEMENTS CHECKOUT =====
+(function() {
+    var thankYouUrl = buildThankYouUrl();
+
+    // Skip links → thank you page con params
+    document.querySelectorAll('[data-oto-skip]').forEach(function(link) {
+        link.href = thankYouUrl;
+    });
+
+    // DOM refs
+    var checkoutEl = document.getElementById('otoCheckoutInline');
+    var step1 = document.getElementById('checkoutStep1');
+    var step2 = document.getElementById('checkoutStep2');
+    var goStep2Btn = document.getElementById('otoGoStep2');
+    var payBtn = document.getElementById('otoPayBtn');
+    var step1Error = document.getElementById('otoStep1Error');
+    var paymentError = document.getElementById('otoPaymentError');
+    var payBtnOriginalHTML = payBtn.innerHTML;
+
+    // Stripe state
+    var stripeInstance = null;
+    var stripeElements = null;
+    var paymentElement = null;
+    var clientSecret = null;
+
+    // ===== STICKY CONTACT: pre-fill from URL params or localStorage =====
+    var CONTACT_KEY = 'oto_contact';
+    var nomeInput = document.getElementById('oto-nome');
+    var emailInput = document.getElementById('oto-email');
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlNome = urlParams.get('nome') || urlParams.get('name') || '';
+    var urlEmail = urlParams.get('email') || '';
+
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(CONTACT_KEY)) || {}; } catch(e) {}
+
+    if (urlNome || saved.nome) nomeInput.value = urlNome || saved.nome;
+    if (urlEmail || saved.email) emailInput.value = urlEmail || saved.email;
+
+    function saveContact() {
+        var data = { nome: nomeInput.value.trim(), email: emailInput.value.trim() };
+        try { localStorage.setItem(CONTACT_KEY, JSON.stringify(data)); } catch(e) {}
+    }
+    nomeInput.addEventListener('input', saveContact);
+    emailInput.addEventListener('input', saveContact);
+
+    // Contact recap refs
+    var contactRecap = document.getElementById('otoContactRecap');
+    var recapText = document.getElementById('otoRecapText');
+    var changeContactBtn = document.getElementById('otoChangeContact');
+
+    var contactNome = urlNome || saved.nome || '';
+    var contactEmail = urlEmail || saved.email || '';
+    var hasContact = contactNome.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail);
+
+    function scrollToCheckout() {
+        checkoutEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function() {
+            if (step1.classList.contains('active')) nomeInput.focus();
+        }, 600);
+    }
+
+    function showStep1() {
+        step1.classList.add('active');
+        step2.classList.remove('active');
+        contactRecap.style.display = 'none';
+        setTimeout(function() { nomeInput.focus(); }, 300);
+    }
+
+    function showStep2() {
+        step1.classList.remove('active');
+        step2.classList.add('active');
+        recapText.textContent = contactNome + ' \u2014 ' + contactEmail;
+        contactRecap.style.display = 'flex';
+    }
+
+    function validateFields() {
+        var valid = true;
+        var fields = [
+            { id: 'oto-nome', test: function(v) { return v.length > 0; } },
+            { id: 'oto-email', test: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } }
+        ];
+        fields.forEach(function(f) {
+            var el = document.getElementById(f.id);
+            var wrapper = el.closest('.oto-checkout-field');
+            if (!f.test(el.value.trim())) {
+                wrapper.classList.add('error');
+                valid = false;
+            } else {
+                wrapper.classList.remove('error');
+            }
+        });
+        return valid;
+    }
+
+    // Core: create PaymentIntent + mount Stripe Element (light theme)
+    function initStripePayment(nome, email, onError) {
+        fetch('/api/create-oto-checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ customerEmail: email, customerName: nome, product: 'mappa-lipedema' })
+        })
+        .then(function(response) {
+            var ct = response.headers.get('content-type') || '';
+            if (!ct.includes('application/json')) {
+                throw new Error('Servizio di pagamento non disponibile.');
+            }
+            return response.json().then(function(data) {
+                return { ok: response.ok, data: data };
+            });
+        })
+        .then(function(result) {
+            if (!result.ok) throw new Error(result.data.error || 'Errore nel pagamento');
+
+            clientSecret = result.data.clientSecret;
+            contactNome = nome;
+            contactEmail = email;
+
+            if (!stripeInstance) stripeInstance = Stripe(result.data.publishableKey);
+
+            stripeElements = stripeInstance.elements({
+                clientSecret: clientSecret,
+                appearance: {
+                    theme: 'stripe',
+                    variables: {
+                        colorPrimary: '#A8475E',
+                        colorBackground: '#FFFFFF',
+                        colorText: '#2A1C17',
+                        colorTextSecondary: '#8B7363',
+                        colorDanger: '#DC2626',
+                        fontFamily: 'Poppins, sans-serif',
+                        borderRadius: '10px',
+                        spacingUnit: '4px'
+                    },
+                    rules: {
+                        '.Input': {
+                            border: '1px solid #E8E8E8',
+                            backgroundColor: '#FFFFFF',
+                            padding: '0.85rem 0.95rem',
+                            fontSize: '0.95rem'
+                        },
+                        '.Input:focus': {
+                            borderColor: '#A8475E',
+                            boxShadow: '0 0 0 3px rgba(168,71,94,0.15)'
+                        },
+                        '.Label': {
+                            fontSize: '0.78rem',
+                            fontWeight: '600',
+                            color: '#4D3829'
+                        }
+                    }
+                },
+                locale: 'it'
+            });
+
+            var mountEl = document.getElementById('oto-payment-element');
+            mountEl.innerHTML = '';
+            paymentElement = stripeElements.create('payment');
+            paymentElement.mount(mountEl);
+
+            // InitiateCheckout SOLO pixel 2: signal per ottimizzazione campagne sul nuovo BM
+            try {
+                if (window.fbq) {
+                    var icEid = 'ic_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    window.fbq('trackSingle', '1717291565951434', 'InitiateCheckout', {
+                        content_name: 'La Mappa del Lipedema',
+                        content_category: 'oto',
+                        value: 27,
+                        currency: 'EUR'
+                    }, { eventID: icEid });
+                }
+            } catch(e) {}
+
+            showStep2();
+        })
+        .catch(function(err) {
+            if (onError) onError(err);
+        });
+    }
+
+    function handleGoStep2() {
+        if (!validateFields()) return;
+        var nome = nomeInput.value.trim();
+        var email = emailInput.value.trim();
+        saveContact();
+
+        goStep2Btn.innerHTML = 'Caricamento...';
+        goStep2Btn.style.pointerEvents = 'none';
+        goStep2Btn.style.opacity = '0.6';
+        step1Error.style.display = 'none';
+
+        initStripePayment(nome, email, function(err) {
+            step1Error.textContent = err.message;
+            step1Error.style.display = 'block';
+            goStep2Btn.innerHTML = 'S\u00ec, voglio la Mappa \u2014 17\u20ac \u2192';
+            goStep2Btn.style.pointerEvents = '';
+            goStep2Btn.style.opacity = '';
+        });
+    }
+
+    function handlePayment() {
+        payBtn.innerHTML = 'Elaborazione...';
+        payBtn.style.pointerEvents = 'none';
+        payBtn.style.opacity = '0.6';
+        paymentError.classList.remove('visible');
+
+        stripeInstance.confirmPayment({
+            elements: stripeElements,
+            confirmParams: {
+                return_url: window.location.origin + '/' + thankYouUrl.replace('oto=done', 'paid=true')
+            }
+        }).then(function(result) {
+            if (result.error) {
+                paymentError.textContent = result.error.message;
+                paymentError.classList.add('visible');
+            }
+            payBtn.innerHTML = payBtnOriginalHTML;
+            payBtn.style.pointerEvents = '';
+            payBtn.style.opacity = '';
+        });
+    }
+
+    // Buy buttons → scroll to checkout
+    document.querySelectorAll('[data-oto-buy]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            scrollToCheckout();
+        });
+    });
+
+    goStep2Btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        handleGoStep2();
+    });
+
+    document.getElementById('otoBackStep1').addEventListener('click', function() { showStep1(); });
+    changeContactBtn.addEventListener('click', function() { showStep1(); });
+
+    payBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        handlePayment();
+    });
+
+    document.querySelectorAll('.oto-checkout-field input').forEach(function(input) {
+        input.addEventListener('input', function() {
+            this.closest('.oto-checkout-field').classList.remove('error');
+        });
+    });
+
+    // ===== AUTO-SKIP: if contact data exists, go straight to payment =====
+    if (hasContact) {
+        nomeInput.value = contactNome;
+        emailInput.value = contactEmail;
+        saveContact();
+        initStripePayment(contactNome, contactEmail, function(err) {
+            console.error('Auto-init failed:', err.message);
+            showStep1();
+        });
+    }
+})();
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.ei-faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var item = this.closest('.ei-faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.ei-faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+    });
+});
+
+// ===== FADE-IN ON SCROLL =====
+(function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.oto-fade-in').forEach(function(el) { observer.observe(el); });
+})();
+
+// ===== STICKY CTA mobile (visibile dopo 500px scroll) =====
+(function() {
+    document.body.classList.add('has-sticky');
+    var sticky = document.getElementById('eiStickyCta');
+    var hero = document.getElementById('iscriviti');
+    var finalCta = document.querySelector('.ei-cta-final');
+    function inViewport(el) {
+        if (!el) return false;
+        var r = el.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom > 0;
+    }
+    function update() {
+        var scrolled = window.scrollY > 500;
+        var inHero = inViewport(hero);
+        var inFinal = inViewport(finalCta);
+        if (scrolled && !inHero && !inFinal) sticky.classList.add('visible');
+        else sticky.classList.remove('visible');
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+})();
+</script>
+
+<!-- Iubenda embed loader -->
+<script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</body>
+</html>

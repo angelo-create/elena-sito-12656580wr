@@ -49,6 +49,12 @@
       "permanent": true
     },
     {
+      "source": "/webinar-luglio",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/webinar-luglio",
+      "permanent": true
+    },
+    {
       "source": "/lunedi-inarrestabili",
       "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
       "destination": "https://go.elenagiordani.com/lunedi-inarrestabili",

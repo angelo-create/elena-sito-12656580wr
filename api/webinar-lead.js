@@ -155,8 +155,13 @@ module.exports = async function handler(req, res) {
 
     // Tag dedicati al webinar — riconoscibili dai workflow GHL.
     // Il primo è universale per tutte le iscrizioni webinar Elena, il
-    // secondo è specifico dell'evento.
-    const tags = ['webinar-iscritta', 'webinar-maggio-2026'];
+    // secondo è specifico dell'evento (deriva dal source così un nuovo
+    // evento non richiede modifiche all'endpoint per i prossimi mesi).
+    const srcLc = source.toLowerCase();
+    const eventTag = (srcLc.includes('luglio') || srcLc.includes('lipedema'))
+      ? 'webinar-luglio-lipedema'
+      : 'webinar-maggio-2026';
+    const tags = ['webinar-iscritta', eventTag];
 
     // NB: NON passiamo `tags` in upsert. /contacts/upsert con `tags` sovrascrive
     // l'array tag del contatto (cancella newsletter/altri tag preesistenti).

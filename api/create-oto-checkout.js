@@ -1,5 +1,12 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+// Catalogo OTO lato server: l'importo NON arriva mai dal client (anti-tampering).
+// Il client passa solo la chiave `product`; default = sfida-7-giorni (retro-compat OTO maggio).
+const OTO_PRODUCTS = {
+  'sfida-7-giorni': 2700, // €27.00
+  'mappa-lipedema': 1700, // €17.00
+};
+
 module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -10,15 +17,17 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { customerEmail, customerName } = req.body || {};
+    const { customerEmail, customerName, product } = req.body || {};
+    const productKey = OTO_PRODUCTS[product] ? product : 'sfida-7-giorni';
+    const amount = OTO_PRODUCTS[productKey];
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: 2700, // €27.00
+      amount,
       currency: 'eur',
       automatic_payment_methods: { enabled: true },
       receipt_email: customerEmail || undefined,
       metadata: {
-        product: 'sfida-7-giorni',
+        product: productKey,
         customer_name: customerName || '',
         customer_email: customerEmail || '',
       },
