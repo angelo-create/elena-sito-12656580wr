@@ -55,6 +55,12 @@
       "permanent": true
     },
     {
+      "source": "/lipedema",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/lipedema",
+      "permanent": true
+    },
+    {
       "source": "/lunedi-inarrestabili",
       "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
       "destination": "https://go.elenagiordani.com/lunedi-inarrestabili",
