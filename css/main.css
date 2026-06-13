@@ -3453,6 +3453,11 @@ body {
 .method-intro-content h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.method-intro-content .highlight {
+    color: var(--pink-primary);
 }
 
 .method-intro-content p {
