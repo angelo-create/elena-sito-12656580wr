@@ -1972,8 +1972,7 @@
             if (!r.ok || !r.data || !r.data.success) {
                 throw new Error(r.data && r.data.error ? r.data.error : 'Errore submit');
             }
-            // Success: redirect diretto alla OTO (la thank-you resta come destinazione
-            // finale post-OTO: skip → ?oto=done, paid → ?paid=true).
+            // Success: redirect diretto alla thank-you (la OTO è stata rimossa dal funnel).
             // Propaga i custom values GHL (link Zoom + codice + id riunione) come
             // query params, così la thank-you li mostra senza ricontattare l'API.
             form.style.display = 'none';
@@ -1985,7 +1984,7 @@
                 if (w.link)        qs.set('link', w.link);
                 if (w.codice)      qs.set('codice', w.codice);
                 if (w.idRiunione)  qs.set('id', w.idRiunione);
-                location.href = 'webinar-luglio-oto.html?' + qs.toString();
+                location.href = 'webinar-luglio-grazie.html?' + qs.toString();
             }, 1200);
         })
         .catch(function(err) {
