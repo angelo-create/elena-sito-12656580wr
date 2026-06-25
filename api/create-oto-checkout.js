@@ -4,7 +4,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // Il client passa solo la chiave `product`; default = sfida-7-giorni (retro-compat OTO maggio).
 const OTO_PRODUCTS = {
   'sfida-7-giorni': 2700, // €27.00
-  'mappa-lipedema': 1700, // €17.00
+  'mappa-lipedema': 700, // €7.00
 };
 
 module.exports = async function handler(req, res) {
