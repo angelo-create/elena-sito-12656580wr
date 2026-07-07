@@ -318,21 +318,22 @@
         </div>
     </section>
 
-    <!-- TESTIMONIANZE (galleria curata a mano, stesso pattern/asset di webinar-marzo.html) -->
+    <!-- TRASFORMAZIONI (stesso asset/pattern di risultati.html: img/prima-e-dopo-webp/37..186) -->
     <section class="section section-black">
         <div class="container">
             <div class="section-header center">
-                <span class="section-number">COSA DICONO LE ALTRE DONNE</span>
-                <h2 class="section-title">Non sei la prima a fidarti di me.</h2>
+                <span class="section-number">PRIMA E DOPO</span>
+                <h2 class="section-title">I corpi non mentono.</h2>
             </div>
-            <div class="scroll-rows-wrapper scroll-rows-masonry">
+            <div class="scroll-rows-wrapper">
                 <div class="scroll-row" id="rgTestiRow1"></div>
                 <div class="scroll-row" id="rgTestiRow2"></div>
+                <div class="scroll-row" id="rgTestiRow3"></div>
             </div>
 
             <div class="wa-lightbox" id="rgTestiLightbox" onclick="closeRgTestiLightbox()">
                 <button class="wa-lightbox-close">&times;</button>
-                <img src="" alt="Testimonianza" id="rgTestiLightboxImg" loading="lazy">
+                <img src="" alt="Trasformazione" id="rgTestiLightboxImg" loading="lazy">
             </div>
 
             <script>
@@ -350,51 +351,71 @@
                 };
                 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') window.closeRgTestiLightbox(); });
 
-                // Stesso set di screenshot gia' usato in webinar-marzo.html
-                // (img/commenti-webp/). Per aggiungerne di nuovi: caricare il
-                // .webp nella cartella e aggiungere il nome file qui sotto.
-                var imgs = [
-                    'IMG_7065','IMG_7066','IMG_7067','IMG_7068','IMG_7069','IMG_7070',
-                    'IMG_7071','IMG_7073','IMG_7074','IMG_7075','IMG_7077','IMG_7083',
-                    'IMG_7085','IMG_7086','IMG_7091','IMG_7092','IMG_7093','IMG_7094',
-                    '132AC079-5BB6-4188-AB60-AC4C1392E935'
-                ];
-                for (var j = imgs.length - 1; j > 0; j--) {
+                // Stesso set gia' usato in risultati.html (img/prima-e-dopo-webp/,
+                // numerate 37..186). Per aggiungerne: caricare i .webp nella
+                // cartella e allargare il range qui sotto.
+                var images = [];
+                for (var i = 37; i <= 186; i++) images.push('img/prima-e-dopo-webp/' + i + '.webp');
+                for (var j = images.length - 1; j > 0; j--) {
                     var k = Math.floor(Math.random() * (j + 1));
-                    var tmp = imgs[j]; imgs[j] = imgs[k]; imgs[k] = tmp;
+                    var tmp = images[j]; images[j] = images[k]; images[k] = tmp;
                 }
-                var half = Math.ceil(imgs.length / 2);
+                var isMobile = window.innerWidth <= 768;
                 var rows = [
-                    { el: document.getElementById('rgTestiRow1'), imgs: imgs.slice(0, half), speed: 0.4, dir: 1 },
-                    { el: document.getElementById('rgTestiRow2'), imgs: imgs.slice(half), speed: 0.35, dir: -1 }
+                    { el: document.getElementById('rgTestiRow1'), imgs: images.slice(0, 50), speed: 0.5, dir: 1 },
+                    { el: document.getElementById('rgTestiRow2'), imgs: images.slice(50, 100), speed: 0.4, dir: -1 },
+                    { el: document.getElementById('rgTestiRow3'), imgs: images.slice(100), speed: 0.45, dir: 1 }
                 ];
                 rows.forEach(function(row) {
                     var html = '';
-                    row.imgs.forEach(function(name) {
-                        html += '<div class="scroll-item" onclick="openRgTestiLightbox(this)"><img src="img/commenti-webp/' + name + '.webp" alt="Testimonianza" loading="lazy"></div>';
+                    row.imgs.forEach(function(src) {
+                        html += '<div class="scroll-item" onclick="openRgTestiLightbox(this)"><img src="' + src + '" alt="Trasformazione" loading="lazy"></div>';
                     });
-                    row.el.innerHTML = html;
+                    if (isMobile) {
+                        var track = document.createElement('div');
+                        track.style.cssText = 'display:flex;gap:1.25rem;will-change:transform;';
+                        track.innerHTML = html;
+                        row.el.appendChild(track);
+                        row.track = track;
+                        row.offset = 0;
+                    } else {
+                        row.el.innerHTML = html;
+                    }
                     var isDown = false, startX, scrollLeft;
                     row.el.addEventListener('mousedown', function(e) { isDown = true; row.el.classList.add('grabbing'); startX = e.pageX - row.el.offsetLeft; scrollLeft = row.el.scrollLeft; row.paused = true; });
                     row.el.addEventListener('mouseleave', function() { isDown = false; row.el.classList.remove('grabbing'); row.paused = false; });
                     row.el.addEventListener('mouseup', function() { isDown = false; row.el.classList.remove('grabbing'); setTimeout(function() { row.paused = false; }, 2000); });
                     row.el.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); row.el.scrollLeft = scrollLeft - (e.pageX - row.el.offsetLeft - startX); });
-                    row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; scrollLeft = row.el.scrollLeft; row.paused = true; }, {passive: true});
-                    row.el.addEventListener('touchmove', function(e) { row.el.scrollLeft = scrollLeft - (e.touches[0].pageX - startX); }, {passive: true});
-                    row.el.addEventListener('touchend', function() { setTimeout(function() { row.paused = false; }, 2000); });
+                    if (isMobile) {
+                        var startY, isHorizontal, savedOffset;
+                        row.el.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; startY = e.touches[0].pageY; savedOffset = row.offset; isHorizontal = false; }, {passive: true});
+                        row.el.addEventListener('touchmove', function(e) { var dx = Math.abs(e.touches[0].pageX - startX), dy = Math.abs(e.touches[0].pageY - startY); if (!isHorizontal && dx > dy && dx > 10) { isHorizontal = true; row.paused = true; } if (isHorizontal) { row.offset = savedOffset - (e.touches[0].pageX - startX); row.track.style.transform = 'translateX(' + (-row.offset) + 'px)'; } }, {passive: true});
+                        row.el.addEventListener('touchend', function() { if (isHorizontal) { setTimeout(function() { row.paused = false; }, 2000); } });
+                    }
                 });
                 rows.forEach(function(row) {
-                    if (row.dir === -1) row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth;
+                    if (isMobile) {
+                        row.totalWidth = row.track.scrollWidth;
+                        if (row.dir === -1) { row.offset = row.totalWidth - row.el.clientWidth; }
+                        row.track.style.transform = 'translateX(' + (-row.offset) + 'px)';
+                    } else {
+                        if (row.dir === -1) { row.el.scrollLeft = row.el.scrollWidth - row.el.clientWidth; }
+                    }
                 });
                 function autoScroll() {
                     rows.forEach(function(row) {
                         if (!row.paused) {
-                            row.el.scrollLeft += row.speed * row.dir;
-                            var halfScroll = row.el.scrollWidth / 2;
-                            if (row.dir === 1 && row.el.scrollLeft >= halfScroll) {
-                                row.el.scrollLeft -= halfScroll;
-                            } else if (row.dir === -1 && row.el.scrollLeft <= 0) {
-                                row.el.scrollLeft += halfScroll;
+                            if (isMobile) {
+                                row.offset += row.speed * row.dir;
+                                var maxOffset = row.totalWidth - row.el.clientWidth;
+                                if (row.dir === 1 && row.offset >= maxOffset) row.offset = 0;
+                                else if (row.dir === -1 && row.offset <= 0) row.offset = maxOffset;
+                                row.track.style.transform = 'translateX(' + (-row.offset) + 'px)';
+                            } else {
+                                row.el.scrollLeft += row.speed * row.dir;
+                                var maxScroll = row.el.scrollWidth - row.el.clientWidth;
+                                if (row.dir === 1 && row.el.scrollLeft >= maxScroll) { row.el.scrollLeft = 0; }
+                                else if (row.dir === -1 && row.el.scrollLeft <= 0) { row.el.scrollLeft = maxScroll; }
                             }
                         }
                     });
