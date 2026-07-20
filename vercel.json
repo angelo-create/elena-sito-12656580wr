@@ -131,6 +131,11 @@
       "source": "/selezione-newsletter",
       "destination": "https://lp.elenagiordani.com/selezione?utm_source=newsletter&utm_medium=email&utm_campaign=newsletter-acquisizione&utm_content=selezione",
       "permanent": false
+    },
+    {
+      "source": "/whatsapp",
+      "destination": "https://wa.me/message/NFTDARMM3PX6C1",
+      "permanent": false
     }
   ],
   "headers": [
