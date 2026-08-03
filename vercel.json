@@ -55,6 +55,12 @@
       "permanent": true
     },
     {
+      "source": "/webinar-ricominci",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/webinar-ricominci",
+      "permanent": true
+    },
+    {
       "source": "/lipedema",
       "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
       "destination": "https://go.elenagiordani.com/lipedema",
@@ -95,6 +101,11 @@
     {
       "source": "/selezione-live",
       "destination": "https://lp.elenagiordani.com/selezione?utm_source=webinar-live&utm_medium=chat&utm_campaign=webinar-luglio-lipedema&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-ricominci",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=webinar-live&utm_medium=chat&utm_campaign=webinar-25-26-27-agosto-2026&utm_content=selezione",
       "permanent": false
     },
     {

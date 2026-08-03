@@ -16,7 +16,7 @@ function hash(value) {
   return crypto.createHash('sha256').update(String(value).toLowerCase().trim()).digest('hex');
 }
 
-async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, phone, fbc, fbp, sourceUrl, userAgent, clientIp }) {
+async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, phone, fbc, fbp, sourceUrl, userAgent, clientIp, contentName, landingUrl }) {
   const pixelId = process.env.META_PIXEL_ID;
   const accessToken = process.env.META_ACCESS_TOKEN;
   if (!pixelId || !accessToken || !eventId) return;
@@ -36,11 +36,11 @@ async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, phone
       event_name: 'Lead',
       event_time: Math.floor(Date.now() / 1000),
       event_id: eventId,
-      event_source_url: sourceUrl || 'https://go.elenagiordani.com/webinar-maggio',
+      event_source_url: sourceUrl || landingUrl,
       action_source: 'website',
       user_data: userData,
       custom_data: {
-        content_name: 'Estate Inarrestabile 2026',
+        content_name: contentName,
         content_category: 'webinar',
       },
     }],
@@ -65,7 +65,7 @@ async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, phone
 async function notifyMetaCAPIPixel2({
   eventIdLead, eventIdRegister,
   email, firstName, lastName, phone, fbc, fbp,
-  sourceUrl, userAgent, clientIp, contactId
+  sourceUrl, userAgent, clientIp, contactId, contentName, landingUrl
 }) {
   const pixelId = process.env.META_PIXEL_ID_2;
   const accessToken = process.env.META_ACCESS_TOKEN_2;
@@ -85,11 +85,11 @@ async function notifyMetaCAPIPixel2({
 
   const baseEvent = {
     event_time: Math.floor(Date.now() / 1000),
-    event_source_url: sourceUrl || 'https://www.elenagiordani.com/webinar-maggio',
+    event_source_url: sourceUrl || landingUrl,
     action_source: 'website',
     user_data: userData,
     custom_data: {
-      content_name: 'Estate Inarrestabile 2026',
+      content_name: contentName,
       content_category: 'webinar',
     },
   };
@@ -150,17 +150,49 @@ module.exports = async function handler(req, res) {
 
     // Source identifica il webinar specifico — il workflow GHL
     // può differenziare tag/email per webinar diversi guardando
-    // questo campo source.
-    const source = body.source ? String(body.source).slice(0, 120) : 'webinar-maggio-2026';
+    // questo campo source. Tutte le LP lo passano esplicitamente:
+    // il default qui sotto è solo una rete di sicurezza.
+    const source = body.source ? String(body.source).slice(0, 120) : 'webinar-25-26-27-agosto-2026';
+    const srcLc = source.toLowerCase();
+
+    // Registro degli eventi webinar. Per lanciare un nuovo webinar si aggiunge
+    // UNA riga qui, con lo stesso `source` che passa la landing.
+    //
+    // Perché una mappa e non un if/else: la versione precedente derivava il tag
+    // con `srcLc.includes('luglio') ? ... : 'webinar-maggio-2026'`, quindi
+    // QUALSIASI source nuovo ereditava silenziosamente il tag di maggio,
+    // inquinando la coorte di un evento passato e facendo partire il workflow
+    // GHL sbagliato.
+    //
+    // `slug` è la pagina pubblica (l'URL non cambia quando si rinomina il tag)
+    // e serve solo come fallback di event_source_url per Meta CAPI.
+    const WEBINAR_EVENTS = {
+      'webinar-25-26-27-agosto-2026':        { tag: 'webinar-25-26-27-agosto-2026', contentName: 'Webinar 25-26-27 Agosto 2026', slug: 'webinar-ricominci' },
+      'webinar-luglio-lipedema':             { tag: 'webinar-luglio-lipedema',      contentName: 'Webinar Lipedema 2026',        slug: 'webinar-luglio'    },
+      'webinar-maggio-estate-inarrestabile': { tag: 'webinar-maggio-2026',          contentName: 'Estate Inarrestabile 2026',    slug: 'webinar-maggio'    },
+      'webinar-maggio-2026':                 { tag: 'webinar-maggio-2026',          contentName: 'Estate Inarrestabile 2026',    slug: 'webinar-maggio'    },
+    };
+
+    function slugify(s) {
+      return s.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
+    }
+
+    let event = WEBINAR_EVENTS[srcLc];
+    if (!event) {
+      // Source non registrato: non ereditiamo MAI il tag di un evento esistente.
+      // Deriviamo uno slug dal source, così il lead resta attribuito al suo
+      // evento e il tag orfano si nota subito in GHL.
+      const derived = slugify(source) || 'webinar-non-attribuito';
+      event = { tag: derived, contentName: source, slug: derived };
+      console.warn('[webinar-lead] source non registrato in WEBINAR_EVENTS:', source, '-> tag derivato:', derived);
+    }
 
     // Tag dedicati al webinar — riconoscibili dai workflow GHL.
-    // Il primo è universale per tutte le iscrizioni webinar Elena, il
-    // secondo è specifico dell'evento (deriva dal source così un nuovo
-    // evento non richiede modifiche all'endpoint per i prossimi mesi).
-    const srcLc = source.toLowerCase();
-    const eventTag = (srcLc.includes('luglio') || srcLc.includes('lipedema'))
-      ? 'webinar-luglio-lipedema'
-      : 'webinar-maggio-2026';
+    // Il primo è universale per tutte le iscrizioni webinar Elena,
+    // il secondo è specifico dell'evento.
+    const eventTag = event.tag;
+    const contentName = event.contentName;
+    const landingUrl = `https://go.elenagiordani.com/${event.slug}`;
     const tags = ['webinar-iscritta', eventTag];
 
     // NB: NON passiamo `tags` in upsert. /contacts/upsert con `tags` sovrascrive
@@ -241,15 +273,41 @@ module.exports = async function handler(req, res) {
       });
       if (cvRes.ok) {
         const cvData = await cvRes.json();
+
+        // GHL espone DUE identificatori per ogni custom value e non coincidono:
+        //   name     = etichetta leggibile, es. "Link Webinar", "Codice accesso"
+        //   fieldKey = "{{ custom_values.link_webinar }}"
+        // Le chiavi snake_case che cerchiamo vivono solo in fieldKey. Indicizzare
+        // per il solo `name` (com'era prima) faceva fallire tutti e tre i lookup
+        // in silenzio: webinarInfo tornava sempre vuoto e la thank-you restava
+        // senza link Zoom. Ora indicizziamo per fieldKey, per name e per lo slug
+        // normalizzato del name, così rinominare l'etichetta dalla UI non rompe più niente.
+        const slug = (s) => String(s)
+          .normalize('NFD').replace(/[̀-ͯ]/g, '')   // via gli accenti
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '_')
+          .replace(/^_+|_+$/g, '');
+
         const map = {};
         (cvData.customValues || []).forEach((cv) => {
-          if (cv && cv.name) map[cv.name] = cv.value;
+          if (!cv) return;
+          if (cv.name) {
+            map[cv.name] = cv.value;
+            map[slug(cv.name)] = cv.value;
+          }
+          // "{{ custom_values.link_webinar }}" -> "link_webinar"
+          const fk = /custom_values\.([a-z0-9_]+)/i.exec(cv.fieldKey || '');
+          if (fk) map[fk[1]] = cv.value;
         });
+
         webinarInfo = {
           link: map['link_webinar'] || '',
-          codice: map['codice_accesso_webinar'] || '',
+          codice: map['codice_accesso_webinar'] || map['codice_accesso'] || '',
           idRiunione: map['id_riunione'] || ''
         };
+        if (!webinarInfo.link) {
+          console.warn('[webinar-lead] link_webinar non risolto. Chiavi disponibili:', Object.keys(map).join(', '));
+        }
       } else {
         const errText = await cvRes.text();
         console.warn('[webinar-lead] Custom values fetch failed:', cvRes.status, errText.slice(0, 200));
@@ -275,6 +333,8 @@ module.exports = async function handler(req, res) {
         sourceUrl: body.event_source_url,
         userAgent,
         clientIp,
+        contentName,
+        landingUrl,
       }).catch((err) => console.error('[webinar-lead] CAPI pixel 1 fire-and-forget error:', err.message));
 
       notifyMetaCAPIPixel2({
@@ -290,6 +350,8 @@ module.exports = async function handler(req, res) {
         userAgent,
         clientIp,
         contactId,
+        contentName,
+        landingUrl,
       }).catch((err) => console.error('[webinar-lead] CAPI pixel 2 fire-and-forget error:', err.message));
     }
 

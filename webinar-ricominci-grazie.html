@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>if(window.self!==window.top){try{window.top.location.href=window.location.href}catch(e){}}</script>
+    <title>Sei dentro. Tre sere con Elena, 25-26-27 Agosto | Elena Giordani</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║  CONFIGURAZIONE THANK YOU — MODIFICA SOLO QUI!              ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <script>
+    var THANKYOU = {
+        data:         "25-26-27 Agosto",
+        orario:       "18:30",
+        countdownISO: "2026-08-25T18:30:00+02:00",
+        luogo:         "Zoom",
+        // TODO Angelo: incollare qui il link Zoom delle 3 sere di agosto.
+        // Nel flusso normale arriva da GHL come ?link=, questo e' solo il fallback:
+        // lasciarlo vuoto e' meglio che lasciarci il link di un webinar passato.
+        linkWebinar:   "",
+        whatsappLink:      "https://wa.me/message/2BDLYKM7476IK1",
+        whatsappNumero:    "393773892181",
+        whatsappMessaggio: "Ci sar\u00f2 alle 3 sere (25-26-27 Agosto)!"
+    };
+    // URL params da GHL sovrascrivono il config (se presenti)
+    // ─── REDIRECT URL DA INCOLLARE IN GHL (Form → Settings → Thank You) ───
+    // https://go.elenagiordani.com/webinar-ricominci-grazie.html?data={{custom_values.data}}&link={{custom_values.link_webinar}}&luogo={{custom_values.luogo_webinar}}
+    (function() {
+        // GHL entity-encoda gli `=` dei merge field come `#x3D;`, e il `#` spezza
+        // la query string: va rimesso a posto prima di leggere i parametri.
+        var raw = location.href;
+        var fixed = raw.replace(/#x3D;/g, '%3D');
+        var qIdx = fixed.indexOf('?');
+        var search = qIdx > -1 ? fixed.substring(qIdx) : '';
+        var hIdx = search.indexOf('#');
+        if (hIdx > -1) search = search.substring(0, hIdx);
+        var p = new URLSearchParams(search);
+        if (p.get('data'))   THANKYOU.data = p.get('data');
+        if (p.get('link'))   THANKYOU.linkWebinar = p.get('link');
+        if (p.get('luogo'))  THANKYOU.luogo = p.get('luogo');
+    })();
+    </script>
+
+    <style>
+    /* ═══════════════════════════════════════════════════════════
+       Thank You: L'ultima volta che ricominci (cream/bianco coerente)
+       ═══════════════════════════════════════════════════════════ */
+
+    :root {
+        --bg:        #FFFFFF;
+        --bg-soft:   #FFFFFF;
+        --bg-warm:   #FAFAFA;
+        --bg-mute:   #F7F7F7;
+        --bg-cream:  #FFFAF3;
+        --text:      #1A0F00;
+        --text-soft: #4D3829;
+        --text-muted:#8B7363;
+        --border:    #E8E8E8;
+        --border-soft:#F0F0F0;
+        --pink:      #E91E63;
+        --pink-deep: #C2185B;
+        --green:     #00875A;
+        --green-soft:#E8F5EE;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+        --shadow-lg: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
+        --shadow-pink:0 8px 24px rgba(233,30,99,0.18);
+        --grad-pink: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+        margin: 0;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text);
+        background: #FFFFFF;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--pink); text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); }
+    p { margin: 0; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    .ei-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+    @media (min-width: 768px) { .ei-container { padding: 0 2rem; } }
+
+    .ei-section { padding: 4rem 0; }
+    @media (min-width: 768px) { .ei-section { padding: 5rem 0; } }
+
+    .ei-eyebrow {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 1rem;
+    }
+
+    .ei-h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+    .ei-h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; line-height: 1.2; }
+    .ei-h1 .accent {
+        background: var(--grad-pink);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* ════════ HERO SUCCESS ════════ */
+    .ty-hero {
+        padding: 4rem 0 2rem;
+        text-align: center;
+        background: #FFFFFF;
+    }
+    @media (min-width: 768px) { .ty-hero { padding: 5rem 0 2rem; } }
+    .ty-hero-inner { max-width: 720px; margin: 0 auto; }
+    .ty-check-icon {
+        width: 4.5rem;
+        height: 4.5rem;
+        background: var(--green);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 24px rgba(0,135,90,0.25);
+        animation: ty-scale 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .ty-check-icon svg {
+        width: 2.2rem;
+        height: 2.2rem;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    @keyframes ty-scale {
+        0% { transform: scale(0); opacity: 0; }
+        60% { transform: scale(1.12); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    .ty-hero h1 { margin-bottom: 1rem; }
+    .ty-hero-lead {
+        font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+        color: var(--text-soft);
+        line-height: 1.55;
+        max-width: 580px;
+        margin: 0 auto;
+    }
+    .ty-hero-lead strong { color: var(--text); }
+
+    /* ════════ WEBINAR INFO CARD ════════ */
+    .ty-info-section {
+        background: var(--bg-mute);
+        padding: 3rem 0 4rem;
+        border-top: 1px solid var(--border-soft);
+    }
+    .ty-info-card {
+        max-width: 720px;
+        margin: 0 auto;
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        box-shadow: var(--shadow-lg);
+    }
+    @media (min-width: 768px) { .ty-info-card { padding: 2.5rem 2rem; } }
+    .ty-info-eyebrow {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--pink);
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    .ty-info-title {
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+    .ty-info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+    @media (max-width: 480px) {
+        .ty-info-grid { grid-template-columns: 1fr; gap: 0.6rem; }
+    }
+    .ty-info-item {
+        background: var(--bg-warm);
+        border: 1px solid var(--border-soft);
+        border-radius: 14px;
+        padding: 1rem 0.75rem;
+        text-align: center;
+    }
+    .ty-info-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 0.4rem;
+    }
+    .ty-info-value {
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--text);
+    }
+    /* ════════ WARNING ════════ */
+    .ty-warning {
+        background: var(--bg-cream);
+        padding: 2rem 0;
+    }
+    .ty-warning-card {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 1.25rem 1.25rem;
+        background: rgba(255, 182, 39, 0.1);
+        border-left: 4px solid #FFB627;
+        border-radius: 0 12px 12px 0;
+        font-size: 0.95rem;
+        color: var(--text);
+        line-height: 1.6;
+    }
+    .ty-warning-card strong { color: var(--text); font-weight: 700; }
+
+    /* ════════ STEPS ════════ */
+    .ty-steps-section { background: #FFFFFF; }
+    .ty-steps-header { text-align: center; margin-bottom: 2.5rem; }
+    .ty-steps-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    @media (min-width: 768px) { .ty-steps-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+    .ty-step-card {
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.75rem 1.5rem;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ty-step-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .ty-step-num {
+        width: 2.2rem;
+        height: 2.2rem;
+        background: var(--grad-pink);
+        color: #fff;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(233,30,99,0.25);
+    }
+    .ty-step-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    .ty-step-card p {
+        font-size: 0.93rem;
+        color: var(--text-soft);
+        line-height: 1.55;
+        margin-bottom: 1.25rem;
+    }
+    .ty-step-card p strong { color: var(--text); }
+    .ty-step-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: center;
+        background: var(--text);
+        color: #fff;
+        padding: 0.85rem 1rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.2s, opacity 0.2s;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+    }
+    .ty-step-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    .ty-btn-whatsapp { background: #25D366; }
+    .ty-btn-calendar { background: #4285F4; }
+    .ty-btn-instagram { background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%); }
+
+    /* ════════ REFERRAL — pink island ════════ */
+    .ty-referral {
+        background: var(--pink);
+        color: #fff;
+        text-align: center;
+    }
+    .ty-referral .ei-eyebrow { color: rgba(255,255,255,0.85); }
+    .ty-referral h2 { color: #fff; margin-bottom: 1rem; }
+    .ty-referral-lead {
+        max-width: 580px;
+        margin: 0 auto 1.5rem;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: rgba(255,255,255,0.95);
+    }
+    .ty-referral-quote {
+        max-width: 560px;
+        margin: 1.5rem auto 2rem;
+        padding: 1.25rem 1.5rem;
+        background: rgba(255,255,255,0.12);
+        border-left: 3px solid rgba(255,255,255,0.5);
+        border-radius: 0 12px 12px 0;
+        font-style: italic;
+        color: rgba(255,255,255,0.95);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: left;
+    }
+    .ty-referral-buttons {
+        display: flex;
+        gap: 0.85rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .ty-btn-share {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+        background: #fff;
+        color: var(--pink);
+        font-weight: 800;
+        font-size: 0.95rem;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        transition: transform 0.2s;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+    }
+    .ty-btn-share:hover { transform: translateY(-2px); }
+    .ty-btn-copy {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+        background: transparent;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        border-radius: 12px;
+        border: 2px solid rgba(255,255,255,0.4);
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.2s;
+    }
+    .ty-btn-copy:hover { background: rgba(255,255,255,0.1); }
+    .ty-copy-feedback {
+        display: none;
+        width: 100%;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.95);
+        margin-top: 0.75rem;
+    }
+    .ty-copy-feedback.show { display: block; }
+
+    /* ════════ DONE ════════ */
+    .ty-done {
+        background: var(--bg-mute);
+        text-align: center;
+        padding: 3rem 0;
+    }
+    .ty-done h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+    }
+    .ty-done p {
+        font-size: 1rem;
+        color: var(--text-soft);
+        margin-bottom: 0.5rem;
+    }
+    .ty-signature {
+        margin-top: 1rem !important;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--pink);
+        font-style: italic;
+    }
+
+    /* ════════ FOOTER ════════ */
+    .ei-footer {
+        background: #FFFFFF;
+        border-top: 1px solid var(--border-soft);
+        padding: 2.5rem 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    .ei-footer-logo {
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        font-size: 0.95rem;
+        color: var(--text);
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+    }
+    .ei-footer p { margin-bottom: 0.5rem; line-height: 1.6; }
+    .ei-footer-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    .ei-footer-links a { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
+    .ei-footer-links a:hover { color: var(--pink); }
+    </style>
+
+    <!-- Iubenda Cookie Solution -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('init', '1717291565951434');
+    fbq('track', 'PageView');
+    // Nessun evento Purchase qui: questo funnel non ha OTO, dopo l'opt-in non si
+    // vende niente. Il blocco Purchase (Sfida 7 Giorni, 27 EUR) e' stato rimosso
+    // insieme alla OTO: vedi webinar-maggio-grazie.html se serve riattivarlo.
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+    /></noscript>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1717291565951434&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<!-- ═══════════════════ HERO SUCCESS ═══════════════════ -->
+<section class="ty-hero">
+    <div class="ei-container">
+        <div class="ty-hero-inner">
+            <div class="ty-check-icon">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h1 class="ei-h1">Iscrizione confermata, <span class="accent">sei dentro!</span></h1>
+            <p class="ty-hero-lead">
+                <strong>Le tre sere iniziano <span data-cfg="data">25-26-27 Agosto</span> alle <span data-cfg="orario">18:30</span>.</strong>
+                Ti ho appena mandato l'email con il link Zoom. Segui i 3 passi qui sotto per non perdere il posto.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ WEBINAR INFO CARD ═══════════════════ -->
+<section class="ty-info-section">
+    <div class="ei-container">
+        <div class="ty-info-card">
+            <div class="ty-info-eyebrow">Il tuo webinar</div>
+            <h2 class="ty-info-title">L'ultima volta che ricominci: 3 sere con Elena</h2>
+
+            <div class="ty-info-grid">
+                <div class="ty-info-item">
+                    <div class="ty-info-label">Quando</div>
+                    <div class="ty-info-value" data-cfg="data">25-26-27 Agosto</div>
+                </div>
+                <div class="ty-info-item">
+                    <div class="ty-info-label">Orario</div>
+                    <div class="ty-info-value" data-cfg="orario-display">Ore 18:30</div>
+                </div>
+                <div class="ty-info-item">
+                    <div class="ty-info-label">Dove</div>
+                    <div class="ty-info-value" data-cfg="luogo">Zoom</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ WARNING ═══════════════════ -->
+<div class="ty-warning">
+    <div class="ei-container">
+        <div class="ty-warning-card">
+            &#9888;&#65039; <strong>Solo chi completa i 3 passi qui sotto ricever&agrave; il link di accesso.</strong> Se non lo fai ora, perderai il tuo posto.
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════ STEPS ═══════════════════ -->
+<section class="ei-section ty-steps-section">
+    <div class="ei-container">
+        <div class="ty-steps-header">
+            <span class="ei-eyebrow">3 passi fondamentali</span>
+            <h2 class="ei-h2">Cosa devi fare <span style="color: var(--pink);">adesso</span></h2>
+            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">Non rimandare. Bastano 2 minuti.</p>
+        </div>
+
+        <div class="ty-steps-grid">
+
+            <div class="ty-step-card">
+                <div class="ty-step-num">1</div>
+                <h3>Conferma su WhatsApp</h3>
+                <p>Clicca il pulsante e scrivimi <strong>&ldquo;Ci sar&ograve;!&rdquo;</strong> per confermare la tua presenza e ricevere i promemoria.</p>
+                <a href="#" id="tyWhatsapp" class="ty-step-btn ty-btn-whatsapp">Conferma su WhatsApp &rarr;</a>
+            </div>
+
+            <div class="ty-step-card">
+                <div class="ty-step-num">2</div>
+                <h3>Blocca le date</h3>
+                <p>Aggiungi l'evento al calendario cos&igrave; non rischi di dimenticartene. <strong data-cfg="dates-text">25-26-27 Agosto alle 18:30.</strong></p>
+                <a href="#" id="tyCalendar" target="_blank" class="ty-step-btn ty-btn-calendar">Aggiungi al Calendario &rarr;</a>
+            </div>
+
+            <div class="ty-step-card">
+                <div class="ty-step-num">3</div>
+                <h3>Seguimi su Instagram</h3>
+                <p>Vieni in Direct e scrivimi <strong>&ldquo;METABOLISMO&rdquo;</strong> per ricevere contenuti esclusivi che non condivido altrove.</p>
+                <a href="https://www.instagram.com/elenagiordani_lifecoach" target="_blank" class="ty-step-btn ty-btn-instagram">Vai su Instagram &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ REFERRAL — pink island ═══════════════════ -->
+<section class="ei-section ty-referral">
+    <div class="ei-container">
+        <span class="ei-eyebrow">Invita un'amica</span>
+        <h2 class="ei-h2">Hai un'amica che <span style="text-decoration: underline; text-decoration-thickness: 3px;">deve</span> diventare Inarrestabile?</h2>
+        <p class="ty-referral-lead">
+            Sai quella che si allena, mangia bene e ti dice sempre che non cambia niente? Quella che ogni gennaio ricomincia da zero? Invitala. Le trasformazioni pi&ugrave; belle le ho viste quando arrivano in due.
+        </p>
+
+        <div class="ty-referral-quote">
+            &ldquo;Le trasformazioni pi&ugrave; belle le ho viste quando le donne arrivano in coppia. Si sostengono, si motivano, e un anno dopo ci sono ancora.&rdquo;
+        </div>
+
+        <div class="ty-referral-buttons">
+            <button type="button" onclick="shareWithFriend()" class="ty-btn-share">Condividi con un'amica &rarr;</button>
+            <button type="button" onclick="copyLink()" class="ty-btn-copy">Copia il link</button>
+            <p class="ty-copy-feedback" id="copyFeedback">&#10003; Link copiato!</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ DONE ═══════════════════ -->
+<section class="ty-done">
+    <div class="ei-container">
+        <h3>Fatto tutto?</h3>
+        <p>Perfetto! Ora puoi chiudere questa pagina.</p>
+        <p>Ci vediamo al webinar.</p>
+        <p class="ty-signature">Elena</p>
+    </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="ei-footer">
+    <div class="ei-container">
+        <div class="ei-footer-logo">Elena Giordani</div>
+        <p>Il primo percorso italiano dedicato alle donne, tutto in diretta. Corpo, alimentazione e mente, sempre insieme.</p>
+        <p style="opacity: 0.7; font-size: 0.78rem;">X77 SSD a.r.l &middot; P.IVA IT17336811009 &middot; Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)</p>
+        <div class="ei-footer-links">
+            <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy</a>
+            <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie</a>
+            <a href="/terms-and-conditions">Termini</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6;">&copy; 2026 Elena Giordani. Tutti i diritti riservati.</p>
+    </div>
+</footer>
+
+<script>
+// ===== Popola pagina dal config (data, orario, codice, ecc.) =====
+(function() {
+    var C = THANKYOU;
+    var map = {
+        'data':            C.data,
+        'orario':          C.orario,
+        'orario-display':  'Ore ' + C.orario,
+        'luogo':           C.luogo,
+        'dates-text':      C.data + ' alle ' + C.orario + '.'
+    };
+    document.querySelectorAll('[data-cfg]').forEach(function(el) {
+        var val = map[el.getAttribute('data-cfg')];
+        if (val) el.textContent = val;
+    });
+
+    // WhatsApp link (step 1)
+    var wa = document.getElementById('tyWhatsapp');
+    if (wa) wa.href = C.whatsappLink;
+
+    // Google Calendar link (step 2)
+    var cal = document.getElementById('tyCalendar');
+    if (cal) {
+        var start = new Date(C.countdownISO);
+        var end = new Date(start.getTime() + 2 * 3600000);
+        function fmtGcal(d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
+        // Il link arriva da GHL via ?link=. Se manca non scriviamo una riga vuota
+        // (ne' peggio, un link di un webinar passato) nei dettagli dell'evento.
+        var details = 'Webinar gratuito con Elena Giordani.';
+        if (C.linkWebinar) details += '\n\nLink accesso: ' + C.linkWebinar;
+        cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%27ultima+volta+che+ricominci+con+Elena+Giordani&dates=' + fmtGcal(start) + '/' + fmtGcal(end) + '&details=' + encodeURIComponent(details) + '&location=Online&recur=RRULE:FREQ=DAILY;COUNT=3';
+    }
+})();
+
+// ===== Referral share =====
+var referralLink = 'https://go.elenagiordani.com/webinar-ricominci?utm_source=referral&utm_medium=thankyou&utm_campaign=ricominci-2026';
+var shareText = 'Ho appena trovato tre sere gratuite di Elena Giordani sul perch\u00e9 dopo i 40 ti alleni e non cambia niente. In diretta, 25-26-27 agosto. Te le passo \ud83d\udc47';
+
+function shareWithFriend() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'L\'ultima volta che ricominci: 3 sere gratuite con Elena Giordani',
+            text: shareText,
+            url: referralLink
+        }).catch(function() { fallbackToWhatsApp(); });
+    } else {
+        fallbackToWhatsApp();
+    }
+}
+
+function fallbackToWhatsApp() {
+    var message = encodeURIComponent(shareText + '\n\n' + referralLink);
+    window.open('https://wa.me/?text=' + message, '_blank');
+}
+
+function copyLink() {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(referralLink).then(function() {
+        var feedback = document.getElementById('copyFeedback');
+        if (!feedback) return;
+        feedback.classList.add('show');
+        setTimeout(function() { feedback.classList.remove('show'); }, 2000);
+    });
+}
+</script>
+
+<!-- Iubenda embed loader -->
+<script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</body>
+</html>
