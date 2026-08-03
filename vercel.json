@@ -15,19 +15,34 @@
     },
     {
       "source": "/webinar-coach",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/webinar-coach",
       "permanent": true
     },
     {
       "source": "/webinar-marzo",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/webinar-marzo",
       "permanent": true
     },
     {
       "source": "/evento-maggio",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/evento-novembre",
       "permanent": true
     },
@@ -38,37 +53,72 @@
     },
     {
       "source": "/evento-novembre",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/evento-novembre",
       "permanent": true
     },
     {
       "source": "/webinar-maggio",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/webinar-maggio",
       "permanent": true
     },
     {
       "source": "/webinar-luglio",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/webinar-luglio",
       "permanent": true
     },
     {
+      "source": "/webinar-agosto",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
+      "destination": "https://go.elenagiordani.com/webinar-agosto",
+      "permanent": true
+    },
+    {
       "source": "/webinar-ricominci",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
-      "destination": "https://go.elenagiordani.com/webinar-ricominci",
+      "destination": "/webinar-agosto",
       "permanent": true
     },
     {
       "source": "/lipedema",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/lipedema",
       "permanent": true
     },
     {
       "source": "/lunedi-inarrestabili",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/lunedi-inarrestabili",
       "permanent": true
     },
@@ -84,7 +134,12 @@
     },
     {
       "source": "/club-delle-inarrestabili",
-      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
       "destination": "https://go.elenagiordani.com/club-delle-inarrestabili",
       "permanent": true
     },
@@ -105,6 +160,11 @@
     },
     {
       "source": "/selezione-ricominci",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=webinar-live&utm_medium=chat&utm_campaign=webinar-25-26-27-agosto-2026&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-agosto",
       "destination": "https://lp.elenagiordani.com/selezione?utm_source=webinar-live&utm_medium=chat&utm_campaign=webinar-25-26-27-agosto-2026&utm_content=selezione",
       "permanent": false
     },
@@ -153,27 +213,47 @@
     {
       "source": "/api/(.*)",
       "headers": [
-        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
+        }
       ]
     },
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "go.elenagiordani.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "go.elenagiordani.com"
+        }
+      ],
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
       ]
     },
     {
       "source": "/img/(.*)\\.(webp|jpg|jpeg|png|svg|gif|avif|ico)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(woff|woff2|ttf|otf|eot)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ],

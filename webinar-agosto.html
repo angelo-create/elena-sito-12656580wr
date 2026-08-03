@@ -46,7 +46,7 @@
         whatsappMessaggio: "Ciao Elena! Voglio iscrivermi alle 3 sere gratuite (25-26-27 Agosto)!"
     };
     // GHL custom values URL params:
-    // https://go.elenagiordani.com/webinar-ricominci.html?data={{custom_values.data}}&luogo={{custom_values.luogo_webinar}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}
+    // https://go.elenagiordani.com/webinar-agosto.html?data={{custom_values.data}}&luogo={{custom_values.luogo_webinar}}&codice={{custom_values.codice_accesso_webinar}}&link={{custom_values.link_webinar}}
     (function() {
         var p = new URLSearchParams(location.search);
         if (p.get('data')) WEBINAR.dateBrief = p.get('data');
@@ -1964,7 +1964,7 @@
                 if (w.link)        qs.set('link', w.link);
                 if (w.codice)      qs.set('codice', w.codice);
                 if (w.idRiunione)  qs.set('id', w.idRiunione);
-                location.href = 'webinar-ricominci-grazie.html?' + qs.toString();
+                location.href = 'webinar-agosto-grazie.html?' + qs.toString();
             }, 1200);
         })
         .catch(function(err) {

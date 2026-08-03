@@ -167,7 +167,7 @@ module.exports = async function handler(req, res) {
     // `slug` è la pagina pubblica (l'URL non cambia quando si rinomina il tag)
     // e serve solo come fallback di event_source_url per Meta CAPI.
     const WEBINAR_EVENTS = {
-      'webinar-25-26-27-agosto-2026':        { tag: 'webinar-25-26-27-agosto-2026', contentName: 'Webinar 25-26-27 Agosto 2026', slug: 'webinar-ricominci' },
+      'webinar-25-26-27-agosto-2026':        { tag: 'webinar-25-26-27-agosto-2026', contentName: 'Webinar 25-26-27 Agosto 2026', slug: 'webinar-agosto' },
       'webinar-luglio-lipedema':             { tag: 'webinar-luglio-lipedema',      contentName: 'Webinar Lipedema 2026',        slug: 'webinar-luglio'    },
       'webinar-maggio-estate-inarrestabile': { tag: 'webinar-maggio-2026',          contentName: 'Estate Inarrestabile 2026',    slug: 'webinar-maggio'    },
       'webinar-maggio-2026':                 { tag: 'webinar-maggio-2026',          contentName: 'Estate Inarrestabile 2026',    slug: 'webinar-maggio'    },
