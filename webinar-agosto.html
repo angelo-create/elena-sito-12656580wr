@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/agosto/genn-02.png" fetchpriority="high">
+<link rel="preload" as="image" href="img/elena-webp/IMG_9825.webp" fetchpriority="high">
 <!-- Meta Pixel (dual) + UTM capture -->
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -47,6 +47,8 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 .eyebrow{font:700 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--fucsia);margin-bottom:16px;display:block}
 .voice{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--rosa);letter-spacing:0}
 .mk{width:15px;height:15px;flex:none;margin-top:6px}
+.solo-mobile{display:none}
+@media (max-width:899px){.solo-mobile{display:block}.solo-desktop{display:none}}
 :focus-visible{outline:2px solid var(--rosa);outline-offset:3px;border-radius:4px}
 
 /* ── URGENCY BAR ── */
@@ -61,9 +63,11 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;opacity:.13}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,10,15,.35),var(--notte) 92%)}
-.elena-cut{display:none;position:relative;pointer-events:none}
-.elena-cut::before{content:'';position:absolute;inset:6% -10% -16% -10%;background:radial-gradient(50% 46% at 50% 58%,rgba(233,30,99,.30),rgba(242,199,206,.08) 55%,transparent 75%)}
-.elena-cut img{height:100%;width:auto;position:relative;filter:drop-shadow(0 30px 60px rgba(0,0,0,.55));-webkit-mask-image:linear-gradient(180deg,#000 78%,transparent 99%);mask-image:linear-gradient(180deg,#000 78%,transparent 99%)}
+.elena-cut{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--filo-forte);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 140px rgba(233,30,99,.22)}
+.elena-cut img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;max-width:none;display:block}
+.elena-cut::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(13,10,15,.62));pointer-events:none}
+.elena-caption{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(13,10,15,.72);backdrop-filter:blur(6px);border:1px solid var(--filo);border-radius:999px;padding:8px 16px;font:600 12.5px var(--body);letter-spacing:.03em}
+.elena-caption b{color:var(--rosa);font-weight:700}
 .hero .container{position:relative;z-index:2}
 .hero-content{max-width:580px}
 .event-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(233,30,99,.14);border:1px solid var(--fucsia);padding:9px 18px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.04em;margin-bottom:26px}
@@ -147,7 +151,8 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 
 /* ── CHI SONO ── */
 .bio-grid{display:grid;gap:40px;align-items:start}
-.bio-photo{max-width:300px;border-radius:20px;overflow:hidden;border:1px solid var(--filo-forte);box-shadow:0 24px 60px rgba(0,0,0,.5);background:radial-gradient(80% 70% at 50% 40%,rgba(233,30,99,.22),transparent 70%),var(--quinta);padding:18px 18px 0}
+.bio-photo{max-width:300px;border-radius:20px;overflow:hidden;border:1px solid var(--filo-forte);box-shadow:0 24px 60px rgba(0,0,0,.5);aspect-ratio:3/4}
+.bio-photo img{width:100%;height:100%;object-fit:cover}
 .bio h3{font-size:32px;font-weight:900;margin-bottom:4px}
 .bio .age{font-size:14px;color:var(--cipria);margin-bottom:20px;letter-spacing:.04em}
 .bio p{color:var(--cipria);margin-bottom:16px;max-width:58ch}
@@ -231,8 +236,8 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 
 /* ── DESKTOP ── */
 @media (min-width:900px){
-  .hero .container{display:grid;grid-template-columns:minmax(0,600px) minmax(0,1fr);gap:28px;align-items:start;width:100%}
-  .elena-cut{display:flex;justify-content:flex-end;height:min(78vh,660px);align-self:start;position:sticky;top:70px;margin-top:10px}
+  .hero .container{display:grid;grid-template-columns:minmax(0,600px) minmax(0,1fr);gap:36px;align-items:start;width:100%}
+  .elena-cut{align-self:start;position:sticky;top:80px;margin-top:14px;aspect-ratio:3/4;max-height:calc(100vh - 140px)}
   .sere-grid{grid-template-columns:repeat(3,1fr)}
   .problemi{grid-template-columns:1fr 1fr;column-gap:40px}
   .bio-grid{grid-template-columns:300px 1fr;gap:60px}
@@ -245,9 +250,8 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
   .sezione{padding:64px 0}
   .hero{padding:40px 0 64px}
   .hero-bg img{object-position:50% 20%;opacity:.14}
-  .elena-cut{display:block;position:absolute;left:50%;transform:translateX(-50%);top:26px;height:56vh;opacity:.15;z-index:0}
-  .elena-cut img{height:100%}
-  .elena-cut::before{display:none}
+  .elena-cut{margin:6px 0 4px;aspect-ratio:4/3}
+  .elena-cut img{object-position:50% 14%}
   .quote{font-size:19px}
   .bio-photo{margin:0 auto}
   .bio{text-align:left}
@@ -272,6 +276,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
       <h1 class="rv">Il Percorso in 3 Serate per <span class="voice">Ripartire a Settembre</span>, non con buoni propositi&hellip; ma con un metodo semplice e sostenibile</h1>
       <p class="hero-subtitle rv">Ogni settembre ricomincia sempre allo stesso modo: tanti buoni propositi&hellip; che durano meno di due settimane.</p>
       <p class="hero-subtitle rv">In queste tre serate capirai perch&eacute; succede, come uscire dal loop &ldquo;inizio&ndash;mollo&ndash;colpa&rdquo; e cosa serve davvero ad una donna over 40 per ripartire con metodo, chiarezza ed energia.</p>
+      <div class="elena-cut solo-mobile rv"><img src="img/elena-webp/IMG_9825.webp" alt="Elena Giordani si allena con un manubrio" loading="eager"><span class="elena-caption"><b>Elena Giordani</b> &middot; Fondatrice X-Fit Academy</span></div>
       <ul class="hero-list rv">
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Perch&eacute; sei bloccata da cos&igrave; tanto tempo (e perch&eacute; non &egrave; colpa tua)</span></li>
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cosa funziona davvero nel corpo femminile 40+</span></li>
@@ -297,7 +302,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
   <p class="form-note">&#128274; I tuoi dati sono al sicuro. Zero spam.</p>
 </div></div>
     </div>
-    <div class="elena-cut"><img src="img/agosto/genn-02.png" alt="" fetchpriority="high"></div>
+    <div class="elena-cut solo-desktop"><img src="img/elena-webp/IMG_9825.webp" alt="Elena Giordani si allena con un manubrio" fetchpriority="high"><span class="elena-caption"><b>Elena Giordani</b> &middot; Fondatrice X-Fit Academy</span></div>
   </div>
 </section>
 
@@ -410,7 +415,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
   <div class="container">
     <span class="eyebrow rv">Chi sono</span>
     <div class="bio-grid">
-      <div class="bio-photo rv"><img src="img/agosto/genn-02.png" alt="Elena Giordani" loading="lazy"></div>
+      <div class="bio-photo rv"><img src="img/elena-webp/IMG_9184.webp" alt="Elena Giordani" loading="lazy"></div>
       <div class="bio rv">
         <h3>Elena Giordani</h3>
         <p class="age">48 anni &middot; Fondatrice X-Fit Academy</p>
