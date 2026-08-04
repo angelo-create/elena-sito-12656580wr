@@ -9,6 +9,8 @@
 <meta property="og:title" content="Ripartire a Settembre: 3 serate gratuite con Elena Giordani">
 <meta property="og:description" content="Perch&eacute; sei bloccata (e perch&eacute; non &egrave; colpa tua), cosa funziona davvero nel corpo femminile 40+, il tuo piano d'azione. Con Check-Up Live su donne reali. 25-26-27 agosto alle 18:30.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://go.elenagiordani.com/img/elena-webp/IMG_9825.webp">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -231,6 +233,12 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 .popup-skip{display:block;margin-top:14px;font-size:11.5px;color:#B6ABB2;cursor:pointer}
 .popup .agosto-form{text-align:left}
 
+/* ── STICKY CTA MOBILE ── */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(251,247,243,.92);backdrop-filter:blur(8px);border-top:1px solid var(--filo);transform:translateY(110%);transition:transform .25s ease;display:none}
+.sticky-cta .cta-button{width:100%;justify-content:center;padding:15px}
+.sticky-cta.visibile{transform:none}
+@media (max-width:899px){.sticky-cta{display:block}}
+
 /* ── REVEAL ── */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .rv.on{opacity:1;transform:none}
@@ -451,13 +459,13 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <h4>Elena forever</h4>
         <blockquote>&ldquo;Sono in Academy da novembre 2023 e oggi posso ritenermi fortunata di aver incontrato Elena, grande professionista ma soprattutto una donna straordinaria! Elena mi ha guidato e aiutato con allenamento costante, mi ha insegnato a nutrirmi e a non avere paura del cibo vero! Il risultato? La normalit&agrave; dei valori clinici e ritrovarmi in un corpo forte ma soprattutto mentalmente libera e felice.&rdquo;</blockquote>
-        <div class="autrice"><span class="avatar">TE</span><div class="autrice-info"><h5>Teresa</h5><span>Ottobre 2025</span></div></div>
+        <div class="autrice"><span class="avatar">TE</span><div class="autrice-info"><h5>Teresa</h5></div></div>
       </article>
       <article class="testi-card rv">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <h4>X-Fit Academy.. il posto giusto &#128156;</h4>
         <blockquote>&ldquo;Elena e la X-fit Academy &egrave; uno dei doni pi&ugrave; belli che la vita potesse farmi. Professionista altamente qualificata, donna, mamma ed incredibile coach. Con lei non ci si sente a &ldquo;dieta&rdquo;... non ho mai mangiato cos&igrave; bene ed in modo abbondante, libera da bilancia e conteggio calorie! Mai pi&ugrave; senza la mia Elena &#128156;&rdquo;</blockquote>
-        <div class="autrice"><span class="avatar">EM</span><div class="autrice-info"><h5>Emiliana</h5><span>Ottobre 2025</span></div></div>
+        <div class="autrice"><span class="avatar">EM</span><div class="autrice-info"><h5>Emiliana</h5></div></div>
       </article>
       <article class="testi-card rv">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -561,6 +569,9 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
   <p><a href="https://www.iubenda.com/privacy-policy/49397266" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="/terms-and-conditions">Termini e Condizioni</a></p>
 </footer>
 
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta" id="stickyCta"><a class="cta-button" href="#prenota">Prenota il Tuo Posto Gratuito <span class="fr">&rarr;</span></a></div>
+
 <!-- POPUP EXIT -->
 <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
   <div class="popup-card">
@@ -597,6 +608,17 @@ document.addEventListener('mouseleave', e => {
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') document.getElementById('popup').classList.remove('active');
 });
+
+// Sticky CTA mobile: appare superato il form dell'hero, sparisce sul form finale
+(function(){
+  var bar=document.getElementById('stickyCta');
+  var heroForm=document.querySelector('.hero .form-card');
+  var finale=document.getElementById('prenota');
+  if(!bar||!heroForm||!finale)return;
+  function vis(el){var r=el.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0;}
+  function up(){ bar.classList.toggle('visibile', innerWidth<900 && !vis(heroForm) && !vis(finale) && scrollY>400); }
+  addEventListener('scroll',up,{passive:true}); addEventListener('resize',up); up();
+})();
 
 // Reveal on scroll
 (function(){
