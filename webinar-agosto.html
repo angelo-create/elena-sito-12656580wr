@@ -233,6 +233,11 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 .popup-skip{display:block;margin-top:14px;font-size:11.5px;color:#B6ABB2;cursor:pointer}
 .popup .agosto-form{text-align:left}
 
+/* ── COUNTDOWN ── */
+.cd-strip{display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(233,30,99,.07);border:1px solid rgba(233,30,99,.22);border-radius:10px;padding:9px 14px;margin-bottom:16px;font:600 13.5px var(--body);color:var(--grafite)}
+.cd-strip b{font:800 17px var(--disp);color:var(--fucsia);font-variant-numeric:tabular-nums;margin-right:1px}
+.cd-strip .cd-u{font-size:11.5px;letter-spacing:.04em;margin-right:4px}
+
 /* ── STICKY CTA MOBILE ── */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(251,247,243,.92);backdrop-filter:blur(8px);border-top:1px solid var(--filo);transform:translateY(110%);transition:transform .25s ease;display:none}
 .sticky-cta .cta-button{width:100%;justify-content:center;padding:15px}
@@ -296,6 +301,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Check-Up Live in diretta:</strong> il momento pi&ugrave; trasformativo dell'evento</span></li>
       </ul>
       <div class="rv"><div class="form-card">
+  <div class="cd-strip" data-cd><span>Inizia tra</span> <b data-cd-g>0</b><span class="cd-u">g</span> <b data-cd-h>00</b><span class="cd-u">h</span> <b data-cd-m>00</b><span class="cd-u">m</span></div>
   <div class="form-head">
     <div>
       <h3>Prenota il Tuo Posto Gratuito</h3>
@@ -544,6 +550,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
     <h2 class="final-title rv">Riparti a settembre non con promesse&hellip; <span class="voice">ma con un metodo</span></h2>
     <p class="lead rv" style="margin:0 auto;">Semplice, sostenibile e realmente fattibile per la tua vita.</p>
     <div class="rv"><div class="form-card">
+  <div class="cd-strip" data-cd><span>Inizia tra</span> <b data-cd-g>0</b><span class="cd-u">g</span> <b data-cd-h>00</b><span class="cd-u">h</span> <b data-cd-m>00</b><span class="cd-u">m</span></div>
   <div class="form-head">
     <div>
       <h3>Prenota il Tuo Posto Gratuito</h3>
@@ -608,6 +615,33 @@ document.addEventListener('mouseleave', e => {
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') document.getElementById('popup').classList.remove('active');
 });
+
+// Countdown all'evento (25 agosto 2026, 18:30 CEST)
+(function(){
+  var strips=document.querySelectorAll('[data-cd]');
+  if(!strips.length)return;
+  var start=new Date('2026-08-25T18:30:00+02:00').getTime();
+  var fine=new Date('2026-08-27T23:59:00+02:00').getTime();
+  function pad(n){return String(n).padStart(2,'0');}
+  function tick(){
+    var now=Date.now();
+    if(now>=start){
+      strips.forEach(function(el){
+        el.innerHTML = now<=fine
+          ? '<span>Siamo in diretta &middot; 25-26-27 agosto, ore 18:30</span>'
+          : '<span>Evento concluso</span>';
+      });
+      return;
+    }
+    var d=start-now;
+    var g=Math.floor(d/86400000), h=Math.floor(d%86400000/3600000), m=Math.floor(d%3600000/60000);
+    strips.forEach(function(el){
+      var eg=el.querySelector('[data-cd-g]'), eh=el.querySelector('[data-cd-h]'), em=el.querySelector('[data-cd-m]');
+      if(eg){eg.textContent=g; eh.textContent=pad(h); em.textContent=pad(m);}
+    });
+  }
+  tick(); setInterval(tick,30000);
+})();
 
 // Sticky CTA mobile: appare superato il form dell'hero, sparisce sul form finale
 (function(){
