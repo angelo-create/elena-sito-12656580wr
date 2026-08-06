@@ -201,6 +201,17 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 .bonus-total{margin-top:30px;text-align:center;background:var(--velo);border:1px solid var(--filo);border-radius:16px;padding:26px}
 .bonus-total p{color:var(--grafite)}
 .bonus-total .amount{font:900 34px var(--disp);color:var(--fucsia);display:block;margin-top:4px}
+.faq-list{max-width:720px;margin:40px auto 0;text-align:left}
+.faq-item{background:var(--carta);border:1px solid var(--filo);border-radius:14px;margin-bottom:12px}
+.faq-item summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;font:800 16px/1.35 var(--disp)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:focus-visible{outline:2px solid var(--fucsia);outline-offset:2px;border-radius:14px}
+.faq-x{flex:0 0 auto;width:22px;height:22px;position:relative}
+.faq-x::before,.faq-x::after{content:"";position:absolute;inset:0;margin:auto;background:var(--fucsia);border-radius:2px;transition:transform .2s}
+.faq-x::before{width:14px;height:2px}
+.faq-x::after{width:2px;height:14px}
+.faq-item[open] .faq-x::after{transform:rotate(90deg)}
+.faq-item p{padding:0 20px 18px;color:var(--grafite);font-size:15.5px}
 
 /* ── CTA BUTTONS ── */
 .cta-wrapper{text-align:center;margin-top:44px}
@@ -541,6 +552,40 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
       <span class="amount">Totale valore: 444&euro;</span>
     </div>
     <div class="cta-wrapper rv"><a class="cta-button" href="#prenota">Voglio i Bonus! Iscrivimi <span class="fr">&rarr;</span></a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sezione" id="faq">
+  <div class="container center">
+    <span class="eyebrow rv">Prima di prenotare</span>
+    <h2 class="section-title rv">Domande?</h2>
+    <div class="faq-list rv">
+      <details class="faq-item">
+        <summary>Mi vedono in diretta? <span class="faq-x" aria-hidden="true"></span></summary>
+        <p>Solo se vuoi tu. Il Check-Up Live lo faccio su casi reali di donne che seguiamo, non su chi guarda. La telecamera puoi accenderla, e a me fa piacere vedervi, ma non &egrave; obbligatoria: se preferisci guardi e basta, in tuta, in cucina, come sei.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Alle 18:30 sono ancora al lavoro, o sto facendo la cena <span class="faq-x" aria-hidden="true"></span></summary>
+        <p>Le serate restano registrate: se una sera non ce la fai, recuperi. Ma il Check-Up Live e le risposte alle domande succedono dal vivo: se puoi esserci, esserci conviene.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Perch&eacute; vi serve il mio telefono? <span class="faq-x" aria-hidden="true"></span></summary>
+        <p>Solo per mandarti il promemoria WhatsApp col link Zoom prima di ogni serata. Nessuna telefonata a sorpresa.</p>
+      </details>
+      <details class="faq-item">
+        <summary>&Egrave; davvero gratis? Poi mi vendete qualcosa? <span class="faq-x" aria-hidden="true"></span></summary>
+        <p>Le tre serate sono gratuite, tutte e tre. La terza sera ti racconto anche come funziona la X-Fit Academy, per chi vuole continuare con me: te lo dico adesso, cos&igrave; nessuna sorpresa.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Sono ferma da anni, o la mia situazione &egrave; particolare <span class="faq-x" aria-hidden="true"></span></summary>
+        <p>Le serate sono pensate per il corpo femminile 40+, anche se sei ferma da tempo. I casi reali che porto sono donne che partivano proprio da l&igrave;: guardandoli capisci qual &egrave; il tuo punto di partenza. Se hai una patologia in corso parlane col tuo medico: io non faccio diagnosi.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Come partecipo? <span class="faq-x" aria-hidden="true"></span></summary>
+        <p>Ti serve un telefono, un tablet o un computer con la connessione. Dopo l'iscrizione ricevi link Zoom e promemoria via email e WhatsApp.</p>
+      </details>
+    </div>
   </div>
 </section>
 
