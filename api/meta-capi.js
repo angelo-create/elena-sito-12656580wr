@@ -17,7 +17,7 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
-  const { event_name, event_id, event_source_url, user_data = {}, custom_data = {} } = req.body;
+  const { event_name, event_id, event_source_url, user_data = {}, custom_data = {} } = req.body || {};
 
   if (!event_name || !event_id) {
     return res.status(400).json({ error: 'Missing event_name or event_id' });

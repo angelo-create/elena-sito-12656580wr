@@ -111,14 +111,27 @@
                     muted: true,
                     loop: true,
                     playsInline: true,
-                    controls: true,
                     poster: '/assets/video/hero-poster.webp'
                 },
                     React.createElement('source', {
-                        src: '/assets/video/hero-720.mp4',
+                        src: '/assets/video/hero-loop.mp4',
                         type: 'video/mp4'
                     })
-                )
+                ),
+                React.createElement('button', {
+                    className: 'hero-video-play',
+                    type: 'button',
+                    'aria-label': 'Guarda il video completo con audio',
+                    onClick: function(e) {
+                        var btn = e.currentTarget;
+                        var vid = btn.parentNode.querySelector('video');
+                        if (!vid) return;
+                        vid.src = '/assets/video/hero-720.mp4';
+                        vid.loop = false; vid.muted = false; vid.controls = true;
+                        btn.style.display = 'none';
+                        vid.play().catch(function() {});
+                    }
+                }, '▶ Guarda il video completo')
             ),
 
             // CTA Buttons

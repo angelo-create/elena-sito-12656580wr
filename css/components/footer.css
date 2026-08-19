@@ -57,6 +57,23 @@
     color: var(--white);
 }
 
+.footer-legal {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-bottom a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover {
+    color: var(--pink-primary);
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: 2rem;

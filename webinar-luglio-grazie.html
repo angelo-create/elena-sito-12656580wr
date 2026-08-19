@@ -510,7 +510,7 @@
             var firstName = nome.split(' ')[0] || '';
             var lastName = nome.split(' ').slice(1).join(' ') || '';
 
-            fbq('track', 'Purchase', {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'}, {eventID: eid});
+            fbq('track', 'Purchase', {content_name: 'La Mappa del Lipedema', value: 7, currency: 'EUR'}, {eventID: eid});
 
             var ck = document.cookie.split(';').reduce(function(a, c) {
                 var p = c.trim().split('='); a[p[0]] = p.slice(1).join('='); return a;
@@ -529,7 +529,7 @@
                         fbc: ck._fbc || '',
                         fbp: ck._fbp || ''
                     },
-                    custom_data: {content_name: 'Sfida 7 Giorni', value: 27, currency: 'EUR'}
+                    custom_data: {content_name: 'La Mappa del Lipedema', value: 7, currency: 'EUR'}
                 })
             }).catch(function() {});
         })();
