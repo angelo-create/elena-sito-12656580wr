@@ -122,8 +122,8 @@
             </div>
             <div class="hero-video-container">
                 <div class="hero-video-box">
-                    <video class="hero-video" autoplay muted loop playsinline controls>
-                        <source src="https://storage.googleapis.com/msgsndr/whfxv9CQCrjAmBTZJwMw/media/68f9475cc3bfa481489d26b7.mp4" type="video/mp4">
+                    <video class="hero-video" autoplay muted loop playsinline controls poster="/assets/video/hero-poster.webp">
+                        <source src="/assets/video/hero-720.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -384,10 +384,13 @@
                 function autoScroll() {
                     rows.forEach(function(row) {
                         if (!row.paused) {
-                            row.el.scrollLeft += row.speed * row.dir;
+                            // Accumula in float: scrollLeft arrotonda e perde gli incrementi < 0.5px
+                            if (row.pos === undefined || Math.abs(row.el.scrollLeft - Math.round(row.pos)) > 1) { row.pos = row.el.scrollLeft; }
+                            row.pos += row.speed * row.dir;
                             var maxScroll = row.el.scrollWidth - row.el.clientWidth;
-                            if (row.dir === 1 && row.el.scrollLeft >= maxScroll) { row.el.scrollLeft = 0; }
-                            else if (row.dir === -1 && row.el.scrollLeft <= 0) { row.el.scrollLeft = maxScroll; }
+                            if (row.dir === 1 && row.pos >= maxScroll) { row.pos = 0; }
+                            else if (row.dir === -1 && row.pos <= 0) { row.pos = maxScroll; }
+                            row.el.scrollLeft = row.pos;
                         }
                     });
                     requestAnimationFrame(autoScroll);
@@ -449,10 +452,13 @@
                 function autoScroll() {
                     rows.forEach(function(row) {
                         if (!row.paused) {
-                            row.el.scrollLeft += row.speed * row.dir;
+                            // Accumula in float: scrollLeft arrotonda e perde gli incrementi < 0.5px
+                            if (row.pos === undefined || Math.abs(row.el.scrollLeft - Math.round(row.pos)) > 1) { row.pos = row.el.scrollLeft; }
+                            row.pos += row.speed * row.dir;
                             var maxScroll = row.el.scrollWidth - row.el.clientWidth;
-                            if (row.dir === 1 && row.el.scrollLeft >= maxScroll) { row.el.scrollLeft = 0; }
-                            else if (row.dir === -1 && row.el.scrollLeft <= 0) { row.el.scrollLeft = maxScroll; }
+                            if (row.dir === 1 && row.pos >= maxScroll) { row.pos = 0; }
+                            else if (row.dir === -1 && row.pos <= 0) { row.pos = maxScroll; }
+                            row.el.scrollLeft = row.pos;
                         }
                     });
                     requestAnimationFrame(autoScroll);

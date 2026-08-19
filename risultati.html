@@ -252,10 +252,13 @@
                                 else if (row.dir === -1 && row.offset <= 0) row.offset = maxOffset;
                                 row.track.style.transform = 'translateX(' + (-row.offset) + 'px)';
                             } else {
-                                row.el.scrollLeft += row.speed * row.dir;
+                                // Accumula in float: scrollLeft arrotonda e perde gli incrementi < 0.5px
+                                if (row.pos === undefined || Math.abs(row.el.scrollLeft - Math.round(row.pos)) > 1) { row.pos = row.el.scrollLeft; }
+                                row.pos += row.speed * row.dir;
                                 var maxScroll = row.el.scrollWidth - row.el.clientWidth;
-                                if (row.dir === 1 && row.el.scrollLeft >= maxScroll) { row.el.scrollLeft = 0; }
-                                else if (row.dir === -1 && row.el.scrollLeft <= 0) { row.el.scrollLeft = maxScroll; }
+                                if (row.dir === 1 && row.pos >= maxScroll) { row.pos = 0; }
+                                else if (row.dir === -1 && row.pos <= 0) { row.pos = maxScroll; }
+                                row.el.scrollLeft = row.pos;
                             }
                         }
                     });
@@ -359,10 +362,13 @@
                                 else if (row.dir === -1 && row.offset <= 0) row.offset = maxOffset;
                                 row.track.style.transform = 'translateX(' + (-row.offset) + 'px)';
                             } else {
-                                row.el.scrollLeft += row.speed * row.dir;
+                                // Accumula in float: scrollLeft arrotonda e perde gli incrementi < 0.5px
+                                if (row.pos === undefined || Math.abs(row.el.scrollLeft - Math.round(row.pos)) > 1) { row.pos = row.el.scrollLeft; }
+                                row.pos += row.speed * row.dir;
                                 var maxScroll = row.el.scrollWidth - row.el.clientWidth;
-                                if (row.dir === 1 && row.el.scrollLeft >= maxScroll) { row.el.scrollLeft = 0; }
-                                else if (row.dir === -1 && row.el.scrollLeft <= 0) { row.el.scrollLeft = maxScroll; }
+                                if (row.dir === 1 && row.pos >= maxScroll) { row.pos = 0; }
+                                else if (row.dir === -1 && row.pos <= 0) { row.pos = maxScroll; }
+                                row.el.scrollLeft = row.pos;
                             }
                         }
                     });

@@ -408,6 +408,11 @@
 .method-intro-content h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.method-intro-content .highlight {
+    color: var(--pink-primary);
 }
 
 .method-intro-content p {
@@ -614,7 +619,168 @@
 
 
 /* ===== VS COMPARISON DUO ===== */
-/* (main styles in main.css bundled file) */
+.vs-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.vs-card {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.vs-card-header {
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+.vs-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* Hero card - X-Fit Academy */
+.vs-card-hero {
+    background: var(--black);
+    border: 2px solid var(--pink-primary);
+}
+
+.vs-card-hero .vs-card-header {
+    background: var(--pink-primary);
+}
+
+.vs-card-hero .vs-card-title {
+    color: var(--white);
+}
+
+.vs-card-hero .vs-card-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vs-card-hero .vs-card-list li:last-child {
+    border-bottom: none;
+}
+
+.vs-card-hero .vs-card-list strong {
+    color: var(--white);
+}
+
+.vs-card-hero .vs-card-list span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Other card */
+.vs-card-other {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vs-card-other .vs-card-header {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.vs-card-other .vs-card-title {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.vs-card-other .vs-card-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vs-card-other .vs-card-list li:last-child {
+    border-bottom: none;
+}
+
+.vs-card-other .vs-card-list strong {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.vs-card-other .vs-card-list span {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Shared list styles */
+.vs-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vs-card-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 2rem;
+}
+
+.vs-card-list li div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.vs-card-list strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.vs-card-list span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Check / X icons */
+.vs-check,
+.vs-x {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+}
+
+.vs-check svg,
+.vs-x svg {
+    width: 0.85rem;
+    height: 0.85rem;
+}
+
+.vs-check {
+    background: rgba(233, 30, 99, 0.15);
+    color: var(--pink-primary);
+}
+
+.vs-x {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .vs-duo {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 28rem;
+    }
+
+    .vs-card-list li {
+        padding: 1rem 2rem;
+    }
+
+    .vs-card-header {
+        padding: 1.5rem 2rem;
+    }
+}
 
 /* ===== TESTIMONIAL METHOD ===== */
 .method-testimonial {
@@ -2430,6 +2596,13 @@
     .newsletter-form,
     .notify-form {
         flex-direction: column;
+    }
+
+    /* In colonna il flex-basis orizzontale (180px/220px) diventerebbe l'altezza */
+    .newsletter-form .newsletter-input,
+    .newsletter-form input[type="email"],
+    .notify-form .notify-input {
+        flex: 0 0 auto;
     }
 
     .contact-options {

@@ -5643,6 +5643,13 @@ body {
         flex-direction: column;
     }
 
+    /* In colonna il flex-basis orizzontale (180px/220px) diventerebbe l'altezza */
+    .newsletter-form .newsletter-input,
+    .newsletter-form input[type="email"],
+    .notify-form .notify-input {
+        flex: 0 0 auto;
+    }
+
     .contact-options {
         grid-template-columns: 1fr;
     }

@@ -662,13 +662,16 @@
                     function autoScroll() {
                         rows.forEach(function(row) {
                             if (!row.paused) {
-                                row.el.scrollLeft += row.speed * row.dir;
+                                // Accumula in float: scrollLeft arrotonda e perde gli incrementi < 0.5px
+                                if (row.pos === undefined || Math.abs(row.el.scrollLeft - Math.round(row.pos)) > 1) { row.pos = row.el.scrollLeft; }
+                                row.pos += row.speed * row.dir;
                                 var halfScroll = row.el.scrollWidth / 2;
-                                if (row.dir === 1 && row.el.scrollLeft >= halfScroll) {
-                                    row.el.scrollLeft -= halfScroll;
-                                } else if (row.dir === -1 && row.el.scrollLeft <= 0) {
-                                    row.el.scrollLeft += halfScroll;
+                                if (row.dir === 1 && row.pos >= halfScroll) {
+                                    row.pos -= halfScroll;
+                                } else if (row.dir === -1 && row.pos <= 0) {
+                                    row.pos += halfScroll;
                                 }
+                                row.el.scrollLeft = row.pos;
                             }
                         });
                         requestAnimationFrame(autoScroll);
@@ -729,10 +732,13 @@
                 function autoScroll() {
                     rows.forEach(function(row) {
                         if (!row.paused) {
-                            row.el.scrollLeft += row.speed * row.dir;
+                            // Accumula in float: scrollLeft arrotonda e perde gli incrementi < 0.5px
+                            if (row.pos === undefined || Math.abs(row.el.scrollLeft - Math.round(row.pos)) > 1) { row.pos = row.el.scrollLeft; }
+                            row.pos += row.speed * row.dir;
                             var maxScroll = row.el.scrollWidth - row.el.clientWidth;
-                            if (row.dir === 1 && row.el.scrollLeft >= maxScroll) row.el.scrollLeft = 0;
-                            else if (row.dir === -1 && row.el.scrollLeft <= 0) row.el.scrollLeft = maxScroll;
+                            if (row.dir === 1 && row.pos >= maxScroll) row.pos = 0;
+                            else if (row.dir === -1 && row.pos <= 0) row.pos = maxScroll;
+                            row.el.scrollLeft = row.pos;
                         }
                     });
                     requestAnimationFrame(autoScroll);

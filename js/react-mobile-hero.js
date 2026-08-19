@@ -111,10 +111,11 @@
                     muted: true,
                     loop: true,
                     playsInline: true,
-                    controls: true
+                    controls: true,
+                    poster: '/assets/video/hero-poster.webp'
                 },
                     React.createElement('source', {
-                        src: 'https://res.cloudinary.com/dbuk5abrs/video/upload/v1767391460/68f9475cc3bfa481489d26b7_1_upgy0f.mp4',
+                        src: '/assets/video/hero-720.mp4',
                         type: 'video/mp4'
                     })
                 )
