@@ -159,6 +159,11 @@
       "permanent": false
     },
     {
+      "source": "/email-invito",
+      "destination": "https://go.elenagiordani.com/webinar-agosto?utm_source=email&utm_medium=email&utm_campaign=webinar-25-26-27-agosto-2026&utm_content=invito-webinar",
+      "permanent": false
+    },
+    {
       "source": "/selezione-live",
       "destination": "https://lp.elenagiordani.com/selezione?utm_source=webinar-live&utm_medium=chat&utm_campaign=webinar-luglio-lipedema&utm_content=selezione",
       "permanent": false
