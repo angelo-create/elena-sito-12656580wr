@@ -111,7 +111,7 @@ async function notifyMetaCAPIPixel1({ eventId, email, firstName, lastName, value
       event_name: 'Purchase',
       event_time: Math.floor(Date.now() / 1000),
       event_id: eventId,
-      event_source_url: sourceUrl || 'https://go.elenagiordani.com/webinar-maggio-grazie.html?paid=true',
+      event_source_url: sourceUrl || 'https://go.elenagiordani.com/',
       action_source: 'website',
       user_data: userData,
       custom_data: {
@@ -155,7 +155,7 @@ async function notifyMetaCAPIPixel2({ eventId, email, firstName, lastName, value
       event_name: 'Purchase',
       event_time: Math.floor(Date.now() / 1000),
       event_id: eventId,
-      event_source_url: sourceUrl || 'https://www.elenagiordani.com/webinar-maggio-grazie.html?paid=true',
+      event_source_url: sourceUrl || 'https://www.elenagiordani.com/',
       action_source: 'website',
       user_data: userData,
       custom_data: {

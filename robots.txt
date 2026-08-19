@@ -13,13 +13,7 @@ Disallow: /lipedema-grazie
 Disallow: /club-grazie
 Disallow: /chiamata-coach-grazie
 Disallow: /webinar-agosto-grazie
-Disallow: /webinar-luglio-grazie
-Disallow: /webinar-maggio-grazie
-Disallow: /webinar-marzo-grazie
 Disallow: /webinar-coach-grazie
-Disallow: /webinar-luglio-oto
-Disallow: /webinar-maggio-oto
-Disallow: /webinar-marzo-oto
 Disallow: /api/
 
 Sitemap: https://www.elenagiordani.com/sitemap.xml

@@ -26,14 +26,8 @@
     },
     {
       "source": "/webinar-marzo",
-      "has": [
-        {
-          "type": "host",
-          "value": "(?!go\\.elenagiordani\\.com).*"
-        }
-      ],
-      "destination": "https://go.elenagiordani.com/webinar-marzo",
-      "permanent": true
+      "destination": "/webinar-agosto",
+      "permanent": false
     },
     {
       "source": "/evento-maggio",
@@ -64,25 +58,13 @@
     },
     {
       "source": "/webinar-maggio",
-      "has": [
-        {
-          "type": "host",
-          "value": "(?!go\\.elenagiordani\\.com).*"
-        }
-      ],
-      "destination": "https://go.elenagiordani.com/webinar-maggio",
-      "permanent": true
+      "destination": "/webinar-agosto",
+      "permanent": false
     },
     {
       "source": "/webinar-luglio",
-      "has": [
-        {
-          "type": "host",
-          "value": "(?!go\\.elenagiordani\\.com).*"
-        }
-      ],
-      "destination": "https://go.elenagiordani.com/webinar-luglio",
-      "permanent": true
+      "destination": "/webinar-agosto",
+      "permanent": false
     },
     {
       "source": "/webinar-agosto",
@@ -221,6 +203,36 @@
     {
       "source": "/whatsapp",
       "destination": "https://wa.me/message/NFTDARMM3PX6C1",
+      "permanent": false
+    },
+    {
+      "source": "/webinar-marzo-grazie",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/webinar-marzo-oto",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/webinar-maggio-grazie",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/webinar-maggio-oto",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/webinar-luglio-grazie",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/webinar-luglio-oto",
+      "destination": "/",
       "permanent": false
     }
   ],

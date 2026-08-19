@@ -46,6 +46,7 @@
     src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+    <script src="/js/utm-capture.js"></script>
 </head>
 <body>
 
@@ -335,7 +336,7 @@
                     </div>
                 </div>
                 <div class="partner-contact-form">
-                    <form class="partner-form">
+                    <form class="partner-form" id="partnerForm">
                         <div class="form-group">
                             <label for="company">Nome Azienda *</label>
                             <input type="text" id="company" name="company" required>
@@ -378,11 +379,45 @@
                             <label for="message">Descrivi la tua proposta *</label>
                             <textarea id="message" name="message" rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="btn-primary">
+                        <button type="submit" class="btn-primary" id="partnerSubmit">
                             Invia richiesta
                             <span>&rarr;</span>
                         </button>
+                        <p id="partnerSuccess" style="display:none; color:#10b981; font-weight:600; margin-top:1rem;">Richiesta inviata! Ti risponderemo entro 2 giorni lavorativi.</p>
+                        <p id="partnerError" style="display:none; color:#e00; font-weight:600; margin-top:1rem;">Si &egrave; verificato un errore. Riprova tra qualche istante o scrivici via Instagram.</p>
                     </form>
+                    <script>
+                    (function() {
+                        var form = document.getElementById('partnerForm');
+                        var btn = document.getElementById('partnerSubmit');
+                        var ok = document.getElementById('partnerSuccess');
+                        var ko = document.getElementById('partnerError');
+                        form.addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            ok.style.display = 'none'; ko.style.display = 'none';
+                            btn.disabled = true;
+                            var data = {};
+                            new FormData(form).forEach(function(v, k) { data[k] = v; });
+                            var attr = (typeof window.getAttribution === 'function') ? window.getAttribution() : {};
+                            Object.keys(attr).forEach(function(k) { if (attr[k] && !data[k]) data[k] = attr[k]; });
+                            fetch('/api/partner-lead', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(data)
+                            })
+                            .then(function(r) { if (!r.ok) throw new Error('server'); return r.json(); })
+                            .then(function() {
+                                form.reset();
+                                ok.style.display = 'block';
+                                btn.disabled = false;
+                            })
+                            .catch(function() {
+                                ko.style.display = 'block';
+                                btn.disabled = false;
+                            });
+                        });
+                    })();
+                    </script>
                 </div>
             </div>
         </div>
