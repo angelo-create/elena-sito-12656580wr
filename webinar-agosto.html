@@ -105,6 +105,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 .hero-video-play:hover{background:var(--fucsia);transform:translateX(-50%) scale(1.04)}
 .hero-video-play svg{width:14px;height:14px;fill:currentColor}
 .hero-video-cta{margin-top:16px;width:100%;justify-content:center}
+@media (max-width:899px){.hero-video-box.solo-mobile{width:100vw;max-width:none;margin:16px 0 0;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-radius:0;border:none;box-shadow:0 16px 34px rgba(36,27,33,.2)}}
 
 /* ── FORM CARD ── */
 .form-card{color:var(--inchiostro);background:var(--carta);border:1px solid var(--filo);border-radius:18px;padding:26px 24px;max-width:480px;box-shadow:0 24px 60px rgba(36,27,33,.12)}
@@ -325,8 +326,6 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
       <div class="event-badge rv"><span class="live-dot"></span>Evento Live &middot; 25-26-27 Agosto &middot; Ore 18:30</div>
       <span class="eyebrow rv">Speciale X-Fit Academy</span>
       <h1 class="rv">Il Percorso in 3 Serate per <span class="voice">Ripartire a Settembre</span>, non con buoni propositi&hellip; ma con un metodo semplice e sostenibile</h1>
-      <p class="hero-subtitle rv">Ogni settembre ricomincia sempre allo stesso modo: tanti buoni propositi&hellip; che durano meno di due settimane.</p>
-      <p class="hero-subtitle rv">In queste tre serate capirai perch&eacute; succede, come uscire dal loop &ldquo;inizio&ndash;mollo&ndash;colpa&rdquo; e cosa serve davvero ad una donna over 40 per ripartire con metodo, chiarezza ed energia.</p>
       <div class="hero-video-box eg-hv solo-mobile rv">
         <video class="hero-video" autoplay muted loop playsinline poster="/assets/video/hero-poster.webp">
           <source src="/assets/video/hero-loop.mp4" type="video/mp4">
@@ -334,6 +333,8 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
         <button class="hero-video-play" type="button" aria-label="Guarda il video completo con audio"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Guarda il video completo</button>
       </div>
       <a class="cta-button hero-video-cta solo-mobile rv" href="#iscriviti">Prenota il Tuo Posto Gratuito <span class="fr">&rarr;</span></a>
+      <p class="hero-subtitle rv">Ogni settembre ricomincia sempre allo stesso modo: tanti buoni propositi&hellip; che durano meno di due settimane.</p>
+      <p class="hero-subtitle rv">In queste tre serate capirai perch&eacute; succede, come uscire dal loop &ldquo;inizio&ndash;mollo&ndash;colpa&rdquo; e cosa serve davvero ad una donna over 40 per ripartire con metodo, chiarezza ed energia.</p>
       <ul class="hero-list rv">
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Perch&eacute; sei bloccata da cos&igrave; tanto tempo (e perch&eacute; non &egrave; colpa tua)</span></li>
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cosa funziona davvero nel corpo femminile 40+</span></li>
