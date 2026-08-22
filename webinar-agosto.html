@@ -98,6 +98,12 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 .elena-cut::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(36,27,33,.28));pointer-events:none}
 .elena-caption{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);border:1px solid var(--filo);border-radius:999px;padding:8px 16px;font:600 12.5px var(--body);letter-spacing:.03em;color:var(--inchiostro)}
 .elena-caption b{color:var(--fucsia-deep);font-weight:700}
+.hero-video-box{position:relative;width:100%;max-width:560px;aspect-ratio:16/9;border-radius:24px;overflow:hidden;border:1px solid var(--filo);box-shadow:0 30px 70px rgba(36,27,33,.16),0 0 0 6px #fff;background:linear-gradient(145deg,var(--fucsia),var(--fucsia-deep))}
+.hero-video{width:100%;height:100%;object-fit:cover;display:block}
+.hero-video-box.solo-mobile{margin:6px 0 4px}
+.hero-video-play{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(0,0,0,.65);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;font:600 12.5px var(--body);cursor:pointer;transition:background .2s ease,transform .2s ease;z-index:2;white-space:nowrap}
+.hero-video-play:hover{background:var(--fucsia);transform:translateX(-50%) scale(1.04)}
+.hero-video-play svg{width:14px;height:14px;fill:currentColor}
 
 /* ── FORM CARD ── */
 .form-card{color:var(--inchiostro);background:var(--carta);border:1px solid var(--filo);border-radius:18px;padding:26px 24px;max-width:480px;box-shadow:0 24px 60px rgba(36,27,33,.12)}
@@ -284,6 +290,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 @media (min-width:900px){
   .hero .container{display:grid;grid-template-columns:minmax(0,600px) minmax(0,1fr);gap:36px;align-items:start;width:100%}
   .elena-cut.solo-desktop{align-self:start;position:sticky;top:80px;margin-top:14px;aspect-ratio:3/4;max-height:calc(100vh - 140px)}
+  .hero-video-box.solo-desktop{align-self:start;position:sticky;top:80px;margin-top:14px}
   .sere-grid{grid-template-columns:repeat(3,1fr)}
   .problemi{grid-template-columns:1fr 1fr;column-gap:40px}
   .bio-grid{grid-template-columns:300px 1fr;gap:60px}
@@ -319,7 +326,12 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
       <h1 class="rv">Il Percorso in 3 Serate per <span class="voice">Ripartire a Settembre</span>, non con buoni propositi&hellip; ma con un metodo semplice e sostenibile</h1>
       <p class="hero-subtitle rv">Ogni settembre ricomincia sempre allo stesso modo: tanti buoni propositi&hellip; che durano meno di due settimane.</p>
       <p class="hero-subtitle rv">In queste tre serate capirai perch&eacute; succede, come uscire dal loop &ldquo;inizio&ndash;mollo&ndash;colpa&rdquo; e cosa serve davvero ad una donna over 40 per ripartire con metodo, chiarezza ed energia.</p>
-      <div class="elena-cut solo-mobile rv"><img src="img/elena-webp/IMG_9825.webp" alt="Elena Giordani si allena con un manubrio" loading="eager"><span class="elena-caption"><b>Elena Giordani</b> &middot; Fondatrice X-Fit Academy</span></div>
+      <div class="hero-video-box eg-hv solo-mobile rv">
+        <video class="hero-video" autoplay muted loop playsinline poster="/assets/video/hero-poster.webp">
+          <source src="/assets/video/hero-loop.mp4" type="video/mp4">
+        </video>
+        <button class="hero-video-play" type="button" aria-label="Guarda il video completo con audio"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Guarda il video completo</button>
+      </div>
       <ul class="hero-list rv">
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Perch&eacute; sei bloccata da cos&igrave; tanto tempo (e perch&eacute; non &egrave; colpa tua)</span></li>
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cosa funziona davvero nel corpo femminile 40+</span></li>
@@ -346,7 +358,15 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
   <p class="form-note">&#128274; I tuoi dati sono al sicuro. Zero spam.</p>
 </div></div>
     </div>
-    <div class="elena-cut solo-desktop"><img src="img/elena-webp/IMG_9825.webp" alt="Elena Giordani si allena con un manubrio" fetchpriority="high"><span class="elena-caption"><b>Elena Giordani</b> &middot; Fondatrice X-Fit Academy</span></div>
+    <div class="hero-video-box eg-hv solo-desktop">
+      <video class="hero-video" autoplay muted loop playsinline poster="/assets/video/hero-poster.webp">
+        <source src="/assets/video/hero-loop.mp4" type="video/mp4">
+      </video>
+      <button class="hero-video-play" type="button" aria-label="Guarda il video completo con audio"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Guarda il video completo</button>
+    </div>
+    <script>
+    document.querySelectorAll('.eg-hv .hero-video-play').forEach(function(b){b.addEventListener('click',function(){var v=b.parentNode.querySelector('.hero-video');v.src='/assets/video/hero-720.mp4';v.loop=false;v.muted=false;v.controls=true;b.style.display='none';v.play().catch(function(){});});});
+    </script>
   </div>
 </section>
 
