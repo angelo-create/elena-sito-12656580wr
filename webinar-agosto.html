@@ -104,6 +104,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
 .hero-video-play{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(0,0,0,.65);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;font:600 12.5px var(--body);cursor:pointer;transition:background .2s ease,transform .2s ease;z-index:2;white-space:nowrap}
 .hero-video-play:hover{background:var(--fucsia);transform:translateX(-50%) scale(1.04)}
 .hero-video-play svg{width:14px;height:14px;fill:currentColor}
+.hero-video-cta{margin-top:16px;width:100%;justify-content:center}
 
 /* ── FORM CARD ── */
 .form-card{color:var(--inchiostro);background:var(--carta);border:1px solid var(--filo);border-radius:18px;padding:26px 24px;max-width:480px;box-shadow:0 24px 60px rgba(36,27,33,.12)}
@@ -332,6 +333,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
         </video>
         <button class="hero-video-play" type="button" aria-label="Guarda il video completo con audio"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Guarda il video completo</button>
       </div>
+      <a class="cta-button hero-video-cta solo-mobile rv" href="#iscriviti">Prenota il Tuo Posto Gratuito <span class="fr">&rarr;</span></a>
       <ul class="hero-list rv">
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Perch&eacute; sei bloccata da cos&igrave; tanto tempo (e perch&eacute; non &egrave; colpa tua)</span></li>
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cosa funziona davvero nel corpo femminile 40+</span></li>
@@ -339,7 +341,7 @@ h1,h2,h3{font-family:var(--disp);line-height:1.08;letter-spacing:-.015em}
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cosa devi assolutamente evitare a settembre per non ricominciare da capo</span></li>
         <li><svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Check-Up Live su casi reali di donne:</strong> il momento pi&ugrave; trasformativo dell'evento</span></li>
       </ul>
-      <div class="rv"><div class="form-card">
+      <div class="rv"><div class="form-card" id="iscriviti">
   <div class="cd-strip" data-cd><span>Inizia tra</span> <b data-cd-g>0</b><span class="cd-u">g</span> <b data-cd-h>00</b><span class="cd-u">h</span> <b data-cd-m>00</b><span class="cd-u">m</span></div>
   <div class="form-head">
     <div>
