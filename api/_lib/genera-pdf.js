@@ -228,26 +228,14 @@ function drawConsensi(ctx, data) {
   const items = [
     {
       key: 'C1',
-      label: CONSENSI.C1_LIBERATORIA.label,
+      label: CONSENSI.OBBLIGATORIO.label,
       value: data.consensoLiberatoria,
       tag: 'OBBLIGATORIO'
     },
     {
       key: 'C2',
-      label: CONSENSI.C2_DATI.label,
-      value: data.consensoDati,
-      tag: 'OBBLIGATORIO'
-    },
-    {
-      key: 'C3',
-      label: CONSENSI.C3_NEWSLETTER.label,
+      label: CONSENSI.NEWSLETTER.label,
       value: data.consensoNewsletter,
-      tag: 'FACOLTATIVO'
-    },
-    {
-      key: 'C4',
-      label: CONSENSI.C4_IMMAGINI.label,
-      value: data.consensoImmagini,
       tag: 'FACOLTATIVO'
     }
   ];

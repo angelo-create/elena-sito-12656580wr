@@ -54,6 +54,7 @@ function validatePayload(body) {
   if (!body.provincia || !/^[A-Z]{2}$/.test(body.provincia)) errors.push('provincia');
   if (body.consensoLiberatoria !== true) errors.push('consensoLiberatoria');
   if (body.consensoDati !== true) errors.push('consensoDati');
+  if (body.consensoImmagini !== true) errors.push('consensoImmagini');
   if (!body.firmaPng || typeof body.firmaPng !== 'string' || !body.firmaPng.startsWith('data:image/png;base64,')) {
     errors.push('firma');
   }
@@ -223,7 +224,7 @@ module.exports = async function handler(req, res) {
 
   const timestamp = new Date().toISOString();
   const userAgent = String(req.headers['user-agent'] || '').slice(0, 500);
-  const eventTag = String(body.eventTag || process.env.LIBERATORIA_DEFAULT_TAG || 'liberatoria-firmata-ncv-live-2026').slice(0, 80);
+  const eventTag = String(body.eventTag || process.env.LIBERATORIA_DEFAULT_TAG || 'liberatoria-firmata-coach-1liv-2026').slice(0, 80);
 
   try {
     const firmaBase64 = body.firmaPng.replace(/^data:image\/png;base64,/, '');

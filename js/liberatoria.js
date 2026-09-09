@@ -159,7 +159,9 @@
       if (!input) return;
       input.addEventListener('change', () => {
         block.classList.toggle('checked', input.checked);
-        state.data[input.dataset.key] = input.checked;
+        // Un checkbox può governare più consensi (data-keys="a,b,c") o uno solo (data-key="x").
+        const keys = input.dataset.keys ? input.dataset.keys.split(',') : [input.dataset.key];
+        keys.forEach(k => { if (k) state.data[k.trim()] = input.checked; });
         updatePrimaryStateConsents();
       });
     });
@@ -190,10 +192,8 @@
     $('#sum-cf').textContent = d.codiceFiscale;
     $('#sum-residenza').textContent = `${d.indirizzo}, ${d.cap} ${d.citta} (${d.provincia})`;
     $('#sum-data-nascita').textContent = formatDateIT(d.dataNascita);
-    setSumConsent('#sum-c1', d.consensoLiberatoria);
-    setSumConsent('#sum-c2', d.consensoDati);
+    setSumConsent('#sum-c-obblig', d.consensoLiberatoria);
     setSumConsent('#sum-c3', d.consensoNewsletter);
-    setSumConsent('#sum-c4', d.consensoImmagini);
 
     // Firma preview
     if (signaturePad && !signaturePad.isEmpty()) {
