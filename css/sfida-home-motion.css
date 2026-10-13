@@ -1,0 +1,428 @@
+/* Content-led visual direction: original photos, genuine proof, lightweight motion. */
+body.sfida-home-motion{--motion-paper:#fff8f6;--motion-soft:#fff0f5;--motion-ink:#211c20;--motion-line:#e6dce0;font-family:Poppins,sans-serif;color:var(--motion-ink)}
+body.sfida-home-motion :is(.motion-section,.motion-header,.motion-media-dialog){font-family:Poppins,sans-serif}
+body.sfida-home-motion :is(.motion-section,.motion-header,.motion-hero-copy,.hero-video-section-opt) *{box-sizing:border-box}
+body.sfida-home-motion :is(.hero-container-opt,.story-container,.forwhom-container-fixed,.results-container,.includes-container-v2,.why-works-container,.what-not-container,.cost-container,.about-container,.motion-container){max-width:1180px;margin-inline:auto;width:100%}
+body.sfida-home-motion :is(.motion-section,.story-section,.includes-section-v2,.about-section,.results-section,.cost-section){padding:88px 28px}
+body.sfida-home-motion .motion-eyebrow{margin:0 0 18px;font-size:10px;font-weight:600;line-height:1.6;letter-spacing:.16em;color:#a81359}
+body.sfida-home-motion :is(.motion-section-heading h2,.story-headline,.includes-title-v2,.about-title,.results-title){font-size:clamp(30px,3.2vw,44px);line-height:1.2;letter-spacing:-.045em;font-weight:600}
+body.sfida-home-motion .motion-section-heading{display:grid;grid-template-columns:1.15fr 1fr;align-items:end;gap:70px;margin:0 0 38px}
+body.sfida-home-motion .motion-section-heading h2{margin:0}
+body.sfida-home-motion .motion-section-heading h2 span{color:var(--sfida-pink)}
+body.sfida-home-motion .motion-section-heading>p{font-size:14px;line-height:1.8;color:#685d64;margin:0;max-width:420px;justify-self:end}
+/* A real portrait replaces the black placeholder. */
+body.sfida-home-motion .hero-section-optimized{padding:0 28px 56px;background:var(--motion-paper)}
+body.sfida-home-motion .hero-container-opt{display:grid;grid-template-columns:1.12fr 1fr;gap:34px 60px;text-align:left;align-items:center}
+body.sfida-home-motion .motion-header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:112px;border-bottom:1px solid var(--motion-line);margin-bottom:6px}
+body.sfida-home-motion .hero-logo-opt{margin:0;animation:none;flex-shrink:0;line-height:0}
+body.sfida-home-motion .logo-image-opt{width:160px;height:auto;max-width:none}
+body.sfida-home-motion .motion-header nav{display:flex;gap:32px;margin-left:auto}
+body.sfida-home-motion .motion-header a{font-size:12px;color:var(--motion-ink);text-decoration:none;padding-block:12px}
+body.sfida-home-motion .motion-header a:hover{color:#a81359}
+body.sfida-home-motion .motion-toggle{display:flex;align-items:center;justify-content:center;gap:7px;background:transparent;border:1px solid #d9cbd2;border-radius:30px;font:500 10px Poppins,sans-serif;min-height:38px;padding:6px 12px;cursor:pointer;color:#5e4c57;white-space:nowrap}
+body.sfida-home-motion .motion-toggle[hidden]{display:none}
+body.sfida-home-motion .motion-toggle:disabled{cursor:default}
+body.sfida-home-motion .motion-toggle-icon{font-size:13px;line-height:1;width:12px}
+body.sfida-home-motion .hero-content-opt{animation:none}
+body.sfida-home-motion .tagline-text-opt{font-size:14px;font-weight:500;line-height:1.7;color:#645b61}
+body.sfida-home-motion .hero-tagline-opt{margin-bottom:15px}
+body.sfida-home-motion .headline-problem-opt{font-size:clamp(27px,2.72vw,39px);line-height:1.22;letter-spacing:-.042em;font-weight:600;max-width:580px;text-wrap:pretty}
+body.sfida-home-motion .headline-problem-opt :is(.underline-pink-opt,.highlight-pink-opt){font-weight:700}
+body.sfida-home-motion .underline-pink-opt{color:var(--sfida-pink)}
+body.sfida-home-motion .headline-small-opt{font-size:13px;line-height:1.7;letter-spacing:0;margin-top:18px}
+body.sfida-home-motion .hero-proof-compact-opt{padding:18px 0 0;border-top:1px solid var(--motion-line);margin:0}
+body.sfida-home-motion .proof-compact-text-opt{font-size:13px;line-height:1.8;margin-bottom:10px;max-width:480px}
+body.sfida-home-motion .proof-compact-text-opt strong{font-weight:600;color:var(--motion-ink)}
+body.sfida-home-motion .method-compact-opt{justify-content:flex-start}
+body.sfida-home-motion .method-text-opt{font-size:10px;letter-spacing:.055em}
+body.sfida-home-motion .hero-cta-compact-opt{margin-top:25px;display:flex;flex-wrap:wrap;align-items:center;gap:15px;animation:none}
+body.sfida-home-motion :is(.hero-cta-btn-compact-opt,.cta-button-main-fixed,.includes-cta-button-v2,.why-cta-button,.what-not-button,.cost-cta-button,.about-cta-button,.faq-cta-button){border-radius:6px;font-weight:600;transition:background .2s,transform .2s}
+body.sfida-home-motion :is(.hero-cta-btn-compact-opt,.includes-cta-button-v2):hover{transform:translateY(-2px)}
+body.sfida-home-motion .hero-cta-btn-compact-opt{font-size:13px;gap:15px;padding:17px 21px;min-height:54px;white-space:normal}
+body.sfida-home-motion .hero-cta-btn-compact-opt::before{display:none}
+body.sfida-home-motion .motion-text-link{font-size:11px;font-weight:500;color:var(--motion-ink);display:flex;align-items:center;gap:14px;text-decoration:underline;text-underline-offset:5px;min-height:36px}
+body.sfida-home-motion .motion-text-link span{font-size:19px}
+body.sfida-home-motion .hero-video-section-opt{position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:center;min-width:0;padding-top:16px;animation:none}
+body.sfida-home-motion .video-wrapper-compact-opt{aspect-ratio:4/5;min-height:520px;width:100%;padding:0;max-width:none;margin:0;border-radius:8px;overflow:hidden;background:#171315;box-shadow:none}
+body.sfida-home-motion .video-thumbnail-opt,body.sfida-home-motion .video-thumbnail-opt:hover{background:transparent;transition:none;display:block}
+body.sfida-home-motion .motion-hero-photo{width:100%;height:100%;object-fit:cover;object-position:50% 35%;transition:transform .8s cubic-bezier(.2,.6,.3,1)}
+body.sfida-home-motion .video-thumbnail-opt:hover .motion-hero-photo{transform:scale(1.025)}
+body.sfida-home-motion .video-thumbnail-opt::after{content:"";position:absolute;inset:50% 0 0;background:linear-gradient(transparent,rgba(17,12,16,.82));pointer-events:none}
+body.sfida-home-motion .motion-photo-name{position:absolute;top:26px;right:24px;text-align:right;font-size:12px;line-height:1.5;color:#fff;text-shadow:0 1px 12px #20101780}
+body.sfida-home-motion .motion-photo-name strong{font-size:21px;font-weight:500}
+body.sfida-home-motion .video-overlay-text-opt{left:28px;right:100px;top:auto;bottom:32px;transform:none;animation:none;text-align:left;width:auto}
+body.sfida-home-motion .overlay-message-opt{font-size:16px;text-transform:none;font-weight:500;line-height:1.4;margin-bottom:8px}
+body.sfida-home-motion .overlay-submessage-opt{font-size:11px;line-height:1.6;font-weight:400;opacity:.9}
+body.sfida-home-motion .play-button-opt{position:absolute;right:24px;bottom:35px;z-index:5;line-height:0}
+body.sfida-home-motion .play-button-opt svg{width:56px;height:56px}
+body.sfida-home-motion .hero-video-player-opt{object-fit:contain}
+body.sfida-home-motion .video-controls-opt{opacity:1;bottom:auto;top:15px;left:auto;right:15px;transform:none}
+body.sfida-home-motion .control-btn-opt{width:40px;height:40px;box-shadow:none}
+body.sfida-home-motion .motion-stamp{position:absolute;left:-25px;top:0;z-index:6;display:flex;align-items:center;gap:12px;background:var(--sfida-pink);color:#fff;padding:13px 16px;transform:rotate(-6deg);box-shadow:0 5px 0 #381a2820;pointer-events:none;animation:sfida-stamp 6s ease-in-out infinite;animation-play-state:paused}
+body.sfida-home-motion .motion-stamp>span{font-size:51px;font-weight:600;letter-spacing:-.07em;line-height:1}
+body.sfida-home-motion .motion-stamp>div{font-size:13px;font-weight:600;line-height:1.5;letter-spacing:.07em}
+body.sfida-home-motion .motion-stamp small{font-size:10px;font-weight:400;letter-spacing:0}
+body.sfida-home-motion .motion-stamp svg{width:34px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+body.sfida-home-motion .motion-video-caption{display:flex;justify-content:space-between;gap:10px;margin:12px 0 0;font-size:9px;letter-spacing:.09em;line-height:1.6;color:#6c5c65}
+/* A slow typographic ribbon uses the three pillars already present in the offer. */
+body.sfida-home-motion .motion-method{background:var(--sfida-pink);color:#fff;overflow:hidden;padding:18px 0;user-select:none}
+body.sfida-home-motion .motion-method-track{display:flex;width:max-content;animation:sfida-ribbon 32s linear infinite;animation-play-state:paused}
+body.sfida-home-motion .motion-method-track>div{flex-shrink:0;display:flex;align-items:center;gap:42px;padding-right:42px;font-size:23px;font-weight:600;letter-spacing:-.02em;line-height:1.5;white-space:nowrap}
+body.sfida-home-motion .motion-method-track span{font-size:32px;font-weight:400}
+body.sfida-home-motion .motion-method:hover .motion-method-track{animation-play-state:paused}
+/* Actual source thumbnails and readable, attributed reviews. */
+body.sfida-home-motion .motion-proof{background:#fff}
+body.sfida-home-motion .motion-video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+body.sfida-home-motion .motion-video-card{min-width:0}
+body.sfida-home-motion .motion-video-link{display:block;color:var(--motion-ink);text-decoration:none}
+body.sfida-home-motion .motion-video-poster{position:relative;border:1px solid var(--motion-line);border-radius:6px;overflow:hidden;background:white;aspect-ratio:700/393}
+body.sfida-home-motion .motion-video-poster img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .5s}
+body.sfida-home-motion .motion-video-link:hover img{transform:scale(1.025)}
+body.sfida-home-motion .motion-play-small{position:absolute;bottom:10px;right:10px;background:var(--sfida-pink);color:white;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;font-size:12px;padding-left:2px}
+body.sfida-home-motion .motion-video-info{display:flex;align-items:center;justify-content:space-between;padding:14px 0;font-size:11px;font-weight:500}
+body.sfida-home-motion .motion-video-info>span:last-child{font-size:20px;color:#b31661}
+body.sfida-home-motion .motion-quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;border-top:1px solid var(--motion-line);margin-top:25px;padding-top:25px}
+body.sfida-home-motion .motion-quote{margin:0;display:flex;flex-direction:column}
+body.sfida-home-motion .motion-quote-mark{font-family:Georgia,serif;font-size:64px;line-height:.9;color:var(--sfida-pink);height:44px}
+body.sfida-home-motion .motion-quote blockquote{font-size:16px;line-height:1.7;font-weight:500;margin:0 0 22px}
+body.sfida-home-motion .motion-quote figcaption{margin-top:auto;display:grid;gap:6px}
+body.sfida-home-motion .motion-quote figcaption strong{font-size:12px;font-weight:600}
+body.sfida-home-motion .motion-quote figcaption a{color:#71666c;font-size:10px;line-height:1.8;text-underline-offset:3px;text-decoration:underline}
+/* Real coaching photography gives the long-form story a face. */
+body.sfida-home-motion .story-section{background:var(--motion-paper)}
+body.sfida-home-motion .motion-story-lead{display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:center;margin-bottom:48px}
+body.sfida-home-motion .story-intro{margin-bottom:24px}
+body.sfida-home-motion .story-origin{margin:28px 0 0}
+body.sfida-home-motion .motion-story-photo{position:relative;margin:0;align-self:start}
+body.sfida-home-motion .motion-story-photo img{display:block;width:100%;height:490px;object-fit:cover;object-position:50% 40%;border-radius:6px}
+body.sfida-home-motion .motion-story-photo figcaption{display:flex;justify-content:space-between;gap:15px;font-size:11px;line-height:1.7;margin-top:15px}
+body.sfida-home-motion .motion-story-photo figcaption span{color:#807079;font-size:10px}
+body.sfida-home-motion .motion-story-photo svg{position:absolute;left:-35px;bottom:55px;width:150px;fill:none;stroke:var(--sfida-pink);stroke-width:2.7;transform:rotate(-17deg);pointer-events:none}
+body.sfida-home-motion .motion-story-photo path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s ease .25s}
+body.sfida-home-motion .motion-story-photo.is-revealed path{stroke-dashoffset:0}
+body.sfida-home-motion .principle-card{border-top-color:#d8c5ce}
+body.sfida-home-motion .principle-number{display:block!important;position:static;background:none;color:#c091a8;font-size:12px;margin-bottom:16px;opacity:1}
+body.sfida-home-motion .practice-box{border-radius:6px;padding:44px;background:#291e25;position:relative;overflow:hidden}
+body.sfida-home-motion .practice-box::after{content:"7";position:absolute;right:0;top:-46px;font-size:330px;font-weight:700;line-height:1;color:#ffffff09;pointer-events:none}
+body.sfida-home-motion .practice-box>*{position:relative;z-index:1}
+body.sfida-home-motion .results-section{background:#2a1c25}
+body.sfida-home-motion .results-title{color:#fff}
+body.sfida-home-motion .result-card,body.sfida-home-motion .result-card:hover{border-color:#ffffff24}
+body.sfida-home-motion .result-title{color:#fff}
+body.sfida-home-motion .result-text{color:#ded0d8}
+body.sfida-home-motion .motion-result-number{display:block;color:#f59bc5;font-size:12px;letter-spacing:.1em;margin-bottom:16px}
+body.sfida-home-motion .results-section :is(.closing-question,.closing-answer){color:white}
+body.sfida-home-motion .results-section :is(.closing-text,.closing-highlight,.closing-final){color:#ded0d8}
+body.sfida-home-motion .results-section .closing-box{border-color:#ffffff24}
+/* Varied content modules, built from the six items already included in the offer. */
+body.sfida-home-motion .includes-section-v2{background:#fff}
+body.sfida-home-motion .includes-grid-v2{grid-template-columns:repeat(3,minmax(0,1fr));gap:42px 26px;align-items:start}
+body.sfida-home-motion .include-card-v2{position:relative;padding:0;border:0;min-width:0}
+body.sfida-home-motion .motion-content-index{display:block;font-size:10px;letter-spacing:.08em;color:#947b89;margin-bottom:14px;border-bottom:1px solid var(--motion-line);padding-bottom:9px}
+body.sfida-home-motion .include-title-v2{font-size:19px;line-height:1.5;margin-top:20px}
+body.sfida-home-motion .include-description-v2,body.sfida-home-motion .include-list-v2 li,body.sfida-home-motion .include-list-simple-v2 li{font-size:13px;line-height:1.85}
+body.sfida-home-motion .motion-include-2{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;column-gap:26px;align-content:start}
+body.sfida-home-motion .motion-include-2>.motion-content-index{grid-column:1/-1}
+body.sfida-home-motion .motion-include-2>.motion-content-photo{grid-row:2/5;height:340px}
+body.sfida-home-motion .motion-include-2>.include-title-v2{grid-column:2;margin-top:0}
+body.sfida-home-motion .motion-include-2>.include-list-v2{grid-column:2;margin:0}
+body.sfida-home-motion .motion-include-2>.include-badge-v2{grid-column:2;font-size:12px}
+body.sfida-home-motion .motion-content-photo{position:relative;overflow:hidden;height:250px;border-radius:5px;background:#e8e1df}
+body.sfida-home-motion .motion-content-photo img{width:100%;height:100%;object-fit:cover;display:block}
+body.sfida-home-motion .motion-workout-photo img{object-position:center 48%}
+body.sfida-home-motion .motion-workout-counts{position:absolute;inset:auto 12px 12px;display:flex;justify-content:space-around;padding:12px 8px;background:#fff5f8f2;gap:8px;border-radius:3px}
+body.sfida-home-motion .motion-workout-counts span{display:flex;flex-direction:column;gap:5px;font-size:7px;letter-spacing:.06em;text-align:center}
+body.sfida-home-motion .motion-workout-counts b{font-size:25px;font-weight:500;line-height:1}
+body.sfida-home-motion .motion-week{background:#fbe5ef;padding:22px 18px;border-radius:5px;height:250px;display:flex;flex-direction:column;justify-content:space-between}
+body.sfida-home-motion .motion-week-heading{display:flex;justify-content:space-between;align-items:start}
+body.sfida-home-motion .motion-week-heading>span{font-size:11px;line-height:1.6;letter-spacing:.08em;font-weight:500}
+body.sfida-home-motion .motion-week-heading>strong{font-size:76px;font-weight:500;letter-spacing:-.07em;line-height:.9;display:flex;flex-direction:column;text-align:center;color:#bb075c}
+body.sfida-home-motion .motion-week-heading strong span{font-size:11px;letter-spacing:0;margin-top:8px}
+body.sfida-home-motion .motion-week svg{display:block;width:100%;height:62px;fill:none;stroke-width:2;stroke-linecap:round}
+body.sfida-home-motion .motion-week-base{stroke:#d7a2bc}
+body.sfida-home-motion .motion-week-draw{stroke:#b90860;stroke-dasharray:1;stroke-dashoffset:1;animation:sfida-week-line 7s ease-in-out infinite;animation-play-state:paused}
+body.sfida-home-motion .motion-week-days{display:flex;justify-content:space-between;gap:3px}
+body.sfida-home-motion .motion-week-days span{width:27px;height:27px;display:grid;place-items:center;font-size:10px;border-radius:50%;background:#ffffff80;color:#854863;animation:sfida-day 7s linear infinite;animation-delay:calc(var(--day) * 1s);animation-play-state:paused}
+body.sfida-home-motion .motion-menu-graphic{height:250px;padding:25px;background:#eef0e9;border-radius:5px;display:flex;flex-direction:column;align-items:center;text-align:center;color:#384431}
+body.sfida-home-motion .motion-menu-graphic>span{font-size:9px;letter-spacing:.16em}
+body.sfida-home-motion .motion-menu-circle svg{width:122px;height:122px;fill:none;stroke:#718469;stroke-width:1.2}
+body.sfida-home-motion .motion-menu-graphic strong{font-size:22px;font-weight:500;margin-top:7px;line-height:1.2}
+body.sfida-home-motion .motion-menu-graphic small{font-size:8px;letter-spacing:.12em;margin-top:12px}
+body.sfida-home-motion .motion-coaching-photo img{object-position:50% 28%}
+body.sfida-home-motion .motion-audio{position:absolute;inset:auto 16px 12px;background:#20111ade;border-radius:4px;padding:10px 16px;color:white;display:flex;align-items:center;gap:12px}
+body.sfida-home-motion .motion-audio>span{font-size:8px;letter-spacing:.07em;white-space:nowrap}
+body.sfida-home-motion .motion-wave{display:flex;align-items:center;justify-content:space-between;gap:3px;height:35px;flex:1;min-width:0}
+body.sfida-home-motion .motion-wave i{display:block;background:#ff87c2;width:3px;min-width:2px;height:var(--height);border-radius:2px;transform-origin:center;animation:sfida-wave 1.2s ease-in-out infinite alternate;animation-delay:calc(var(--bar) * -.12s);animation-play-state:paused}
+body.sfida-home-motion .motion-tools-photo img{object-position:50% 48%}
+body.sfida-home-motion .motion-include-6{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;column-gap:42px;padding:32px 38px;background:var(--motion-paper);border-radius:5px}
+body.sfida-home-motion .motion-include-6>.motion-content-index{grid-column:1/-1}
+body.sfida-home-motion .motion-include-6 .include-title-v2{margin-top:10px;grid-column:2;grid-row:2}
+body.sfida-home-motion .motion-include-6 .include-description-v2{grid-column:2;grid-row:3}
+body.sfida-home-motion .motion-formats{display:flex;gap:10px;align-items:center;grid-row:2/4;padding:16px 0;min-width:0}
+body.sfida-home-motion .motion-formats>span{flex:1;border:1px solid #d9bccb;padding:18px 10px;min-width:0;display:flex;flex-direction:column;gap:18px;font-size:17px;letter-spacing:-.02em;transform:rotate(-4deg);background:#fff}
+body.sfida-home-motion .motion-formats>span:nth-child(2){transform:translateY(-8px) rotate(3deg);background:#ffdbe9}
+body.sfida-home-motion .motion-formats>span:nth-child(3){transform:rotate(-2deg);background:#2a1c25;color:white;border-color:#2a1c25}
+body.sfida-home-motion .motion-formats>span>span{align-self:end;font-size:20px}
+body.sfida-home-motion .includes-cta-box-v2{padding-top:34px;text-align:center}
+body.sfida-home-motion .motion-transformations{background:var(--motion-soft)}
+body.sfida-home-motion .motion-results-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+body.sfida-home-motion .motion-results-gallery figure{margin:0}
+body.sfida-home-motion .motion-results-gallery a{display:block;position:relative;border:1px solid #eacbd9;border-radius:5px;overflow:hidden;background:#fff}
+body.sfida-home-motion .motion-results-gallery img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
+body.sfida-home-motion .motion-expand{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:32px;height:32px;background:#261822;color:#fff;border-radius:50%;font-size:19px}
+body.sfida-home-motion .motion-results-gallery figcaption{font-size:12px;line-height:1.6;margin-top:15px;color:#694354}
+body.sfida-home-motion .about-section{background:var(--motion-paper)}
+body.sfida-home-motion .about-content{grid-template-columns:390px minmax(0,1fr);gap:65px}
+body.sfida-home-motion .about-image-wrap{max-width:100%;border-radius:6px}
+body.sfida-home-motion .about-image{border-radius:6px}
+body.sfida-home-motion .investment-box{border-radius:6px;background:#2a1c25}
+body.sfida-home-motion .faq-container{max-width:1180px}
+body.sfida-home-motion .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
+body.sfida-home-motion .faq-item{align-self:start}
+/* Native media viewer: no video is fetched until someone asks to watch it. */
+body.sfida-home-motion .motion-media-dialog{border:0;border-radius:8px;background:#201a1e;color:#fff;padding:20px;width:min(960px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);overflow:auto;margin:auto;position:fixed;inset:0}
+body.sfida-home-motion .motion-media-dialog::backdrop{background:#110c10db}
+body.sfida-home-motion .motion-modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:15px}
+body.sfida-home-motion #motion-media-title{font-size:14px;line-height:1.6;margin:0}
+body.sfida-home-motion .motion-modal-close{display:flex;gap:12px;align-items:center;font:400 12px Poppins,sans-serif;border:1px solid #65515c;border-radius:4px;background:transparent;color:white;cursor:pointer;min-height:42px;padding:6px 12px;flex-shrink:0}
+body.sfida-home-motion .motion-modal-close span{font-size:24px;line-height:1}
+body.sfida-home-motion .motion-modal-video{display:block;width:100%;max-height:calc(100dvh - 190px);background:black}
+body.sfida-home-motion .motion-modal-image{display:block;width:auto;max-width:100%;max-height:calc(100dvh - 190px);object-fit:contain;margin:auto;background:white}
+body.sfida-home-motion .motion-media-dialog [hidden]{display:none!important}
+body.sfida-home-motion .motion-modal-context,body.sfida-home-motion .motion-media-error{font-size:11px;line-height:1.7;color:#dbccd4;margin:15px 0 0}
+body.sfida-home-motion .motion-media-error a{color:#fff;text-decoration:underline}
+body.sfida-home-motion:has(.motion-media-dialog[open]){overflow:hidden}
+body.sfida-home-motion :is(a,button,[role=button]):focus-visible{outline:3px solid #990749;outline-offset:5px}
+body.sfida-home-motion .motion-media-dialog :focus-visible{outline-color:#ff9aca}
+/* Reveals only become pending after an observer is successfully attached. */
+body.sfida-home-motion .motion-reveal-pending{opacity:0;transform:translateY(22px);transition:opacity .7s ease var(--reveal-delay,0ms),transform .7s cubic-bezier(.16,1,.3,1) var(--reveal-delay,0ms)}
+body.sfida-home-motion .motion-reveal-pending.is-revealed{opacity:1;transform:none}
+body.sfida-home-motion .is-motion-visible :is(.motion-stamp,.motion-method-track,.motion-week-draw,.motion-week-days span,.motion-wave i){animation-play-state:running}
+body.sfida-home-motion[data-motion-paused] *,body.sfida-home-motion[data-media-open] *{animation-play-state:paused!important}
+body.sfida-home-motion[data-motion-paused] .motion-reveal-pending{opacity:1;transform:none;transition:none}
+body.sfida-home-motion[data-motion-paused] .motion-story-photo path{stroke-dashoffset:0;transition:none}
+@keyframes sfida-ribbon{to{transform:translateX(-50%)}}
+@keyframes sfida-stamp{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-6px) rotate(-3deg)}}
+@keyframes sfida-week-line{0%,8%{stroke-dashoffset:1}85%,100%{stroke-dashoffset:0}}
+@keyframes sfida-day{0%,13%{background:#b90860;color:white}14%,100%{background:#ffffff80;color:#854863}}
+@keyframes sfida-wave{from{transform:scaleY(.4)}to{transform:scaleY(1)}}
+@media(min-width:1500px){body.sfida-home-motion .headline-problem-opt{font-size:39px}}
+@media(max-width:1100px){
+ body.sfida-home-motion .hero-container-opt{gap:28px 36px;grid-template-columns:1.1fr 1fr}
+ body.sfida-home-motion .headline-problem-opt{font-size:30px}
+ body.sfida-home-motion .motion-stamp{left:-15px}
+ body.sfida-home-motion .video-wrapper-compact-opt{min-height:510px}
+ body.sfida-home-motion .motion-story-lead{gap:40px}
+ body.sfida-home-motion .motion-story-photo img{height:450px}
+ body.sfida-home-motion .motion-include-2{column-gap:18px}
+ body.sfida-home-motion .about-content{grid-template-columns:310px 1fr;gap:40px}
+}
+@media(max-width:800px){
+ body.sfida-home-motion :is(.motion-section,.story-section,.includes-section-v2,.about-section,.results-section,.cost-section){padding:54px 22px}
+ body.sfida-home-motion .hero-section-optimized{padding:0 22px 36px}
+ body.sfida-home-motion .hero-container-opt{grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+ body.sfida-home-motion .motion-header{min-height:88px;gap:12px;margin-bottom:0}
+ body.sfida-home-motion .logo-image-opt{width:125px}
+ body.sfida-home-motion .motion-header nav{gap:18px}
+ body.sfida-home-motion .motion-header a{font-size:11px}
+ body.sfida-home-motion .motion-toggle{font-size:9px;padding:5px 10px;min-height:34px}
+ body.sfida-home-motion .motion-eyebrow{font-size:9px;margin-bottom:12px;letter-spacing:.12em}
+ body.sfida-home-motion .headline-problem-opt{font-size:26px;line-height:1.27;letter-spacing:-.035em}
+ body.sfida-home-motion .tagline-text-opt{font-size:12px}
+ body.sfida-home-motion .hero-proof-compact-opt{padding-top:15px}
+ body.sfida-home-motion .method-text-opt{font-size:9px}
+ body.sfida-home-motion .video-wrapper-compact-opt{min-height:480px;aspect-ratio:auto}
+ body.sfida-home-motion .hero-cta-compact-opt{margin-top:20px;gap:8px}
+ body.sfida-home-motion .hero-cta-btn-compact-opt{width:100%;font-size:12px;padding:14px;gap:10px}
+ body.sfida-home-motion .hero-video-section-opt{justify-content:flex-start}
+ body.sfida-home-motion .video-overlay-text-opt{left:18px;right:75px;bottom:22px}
+ body.sfida-home-motion .overlay-message-opt{font-size:13px}
+ body.sfida-home-motion .overlay-submessage-opt{font-size:10px}
+ body.sfida-home-motion .play-button-opt{right:16px;bottom:26px}
+ body.sfida-home-motion .play-button-opt svg{width:44px;height:44px}
+ body.sfida-home-motion .motion-section-heading{gap:30px;margin-bottom:28px}
+ body.sfida-home-motion .motion-section-heading>p{font-size:12px;line-height:1.8}
+ body.sfida-home-motion .motion-video-grid{gap:14px}
+ body.sfida-home-motion .motion-video-info{font-size:10px;gap:6px}
+ body.sfida-home-motion .motion-quotes{gap:22px}
+ body.sfida-home-motion .motion-quote blockquote{font-size:13px}
+ body.sfida-home-motion .motion-story-lead{gap:28px}
+ body.sfida-home-motion .motion-story-photo img{height:440px}
+ body.sfida-home-motion .motion-story-photo figcaption{flex-direction:column;gap:0}
+ body.sfida-home-motion .includes-grid-v2{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 22px}
+ body.sfida-home-motion .motion-include-2{grid-column:auto;display:block}
+ body.sfida-home-motion .motion-include-2>.motion-content-photo{height:250px}
+ body.sfida-home-motion .motion-include-2>.include-title-v2{margin-top:20px}
+ body.sfida-home-motion .motion-include-6{grid-column:auto;display:block;padding:0;background:transparent}
+ body.sfida-home-motion .motion-formats{height:250px;padding:25px 10px;background:var(--motion-paper)}
+ body.sfida-home-motion .motion-include-6 .include-title-v2{margin-top:20px}
+ body.sfida-home-motion .motion-results-gallery{gap:16px}
+ body.sfida-home-motion .motion-results-gallery figcaption{font-size:10px}
+ body.sfida-home-motion .about-content{grid-template-columns:1fr 1.3fr;gap:30px}
+ body.sfida-home-motion .faq-list{gap:0 30px}
+ body.sfida-home-motion .question-text{font-size:16px}
+}
+@media(max-width:600px){
+ body.sfida-home-motion .hero-container-opt{grid-template-columns:1fr;gap:25px}
+ body.sfida-home-motion .motion-header nav{display:none}
+ body.sfida-home-motion .motion-header{grid-column:1;min-height:82px}
+ body.sfida-home-motion .headline-problem-opt{font-size:29px;line-height:1.22;max-width:460px}
+ body.sfida-home-motion .hero-headline-opt{margin-bottom:16px}
+ body.sfida-home-motion .headline-small-opt{font-size:12px;margin-top:14px}
+ body.sfida-home-motion .proof-compact-text-opt{font-size:12px;line-height:1.7}
+ body.sfida-home-motion .hero-cta-compact-opt{gap:8px;margin-top:17px}
+ body.sfida-home-motion .hero-cta-btn-compact-opt{width:auto;font-size:12px;padding:15px 18px;min-height:50px}
+ body.sfida-home-motion .motion-text-link{font-size:10px;gap:8px}
+ body.sfida-home-motion .hero-video-section-opt{padding-top:9px;margin-top:6px}
+ body.sfida-home-motion .video-wrapper-compact-opt{min-height:0;aspect-ratio:4/4.6}
+ body.sfida-home-motion .motion-hero-photo{object-position:50% 33%}
+ body.sfida-home-motion .motion-stamp{left:-9px;padding:10px 12px;gap:10px}
+ body.sfida-home-motion .motion-stamp>span{font-size:43px}
+ body.sfida-home-motion .motion-stamp>div{font-size:10px}
+ body.sfida-home-motion .motion-stamp small{font-size:9px}
+ body.sfida-home-motion .motion-stamp svg{width:28px}
+ body.sfida-home-motion .motion-photo-name{top:24px;right:18px;font-size:11px}
+ body.sfida-home-motion .motion-photo-name strong{font-size:19px}
+ body.sfida-home-motion .video-overlay-text-opt{left:22px;right:85px;bottom:24px}
+ body.sfida-home-motion .overlay-message-opt{font-size:15px}
+ body.sfida-home-motion .overlay-submessage-opt{font-size:10px}
+ body.sfida-home-motion .play-button-opt{right:22px;bottom:30px}
+ body.sfida-home-motion .play-button-opt svg{width:48px;height:48px}
+ body.sfida-home-motion .motion-method{padding:12px 0}
+ body.sfida-home-motion .motion-method-track>div{font-size:17px;gap:25px;padding-right:25px}
+ body.sfida-home-motion .motion-method-track span{font-size:24px}
+ body.sfida-home-motion .motion-section-heading{grid-template-columns:1fr;gap:18px}
+ body.sfida-home-motion .motion-section-heading>p{max-width:100%;justify-self:start;font-size:12px}
+ body.sfida-home-motion :is(.motion-section-heading h2,.story-headline,.includes-title-v2,.about-title,.results-title){font-size:30px}
+ body.sfida-home-motion .motion-video-grid{grid-template-columns:1fr;gap:18px}
+ body.sfida-home-motion .motion-video-info{font-size:12px;padding:9px 0}
+ body.sfida-home-motion .motion-play-small{width:40px;height:40px;right:12px;bottom:12px}
+ body.sfida-home-motion .motion-quotes{grid-template-columns:1fr;gap:26px;margin-top:20px;padding-top:25px}
+ body.sfida-home-motion .motion-quote{position:relative;padding-left:26px}
+ body.sfida-home-motion .motion-quote-mark{position:absolute;left:0;top:-5px;font-size:48px}
+ body.sfida-home-motion .motion-quote blockquote{font-size:15px;margin-bottom:12px}
+ body.sfida-home-motion .motion-story-lead{grid-template-columns:1fr;gap:30px;margin-bottom:34px}
+ body.sfida-home-motion .motion-story-photo img{height:380px;object-position:50% 38%}
+ body.sfida-home-motion .motion-story-photo figcaption{flex-direction:row}
+ body.sfida-home-motion .motion-story-photo svg{left:-15px;bottom:55px;width:125px}
+ body.sfida-home-motion .practice-box{padding:26px 22px}
+ body.sfida-home-motion .results-grid{grid-template-columns:1fr 1fr;gap:0 24px}
+ body.sfida-home-motion .result-title{font-size:16px}
+ body.sfida-home-motion .result-text{font-size:12px;line-height:1.75}
+ body.sfida-home-motion .includes-grid-v2{grid-template-columns:1fr;gap:34px}
+ body.sfida-home-motion .include-card-v2{padding:0}
+ body.sfida-home-motion .include-title-v2{font-size:20px}
+ body.sfida-home-motion .include-description-v2,body.sfida-home-motion .include-list-v2 li,body.sfida-home-motion .include-list-simple-v2 li{font-size:14px}
+ body.sfida-home-motion .motion-content-photo,body.sfida-home-motion .motion-include-2>.motion-content-photo{height:320px}
+ body.sfida-home-motion .motion-workout-photo img{object-position:50% 48%}
+ body.sfida-home-motion .motion-workout-counts span{font-size:8px}
+ body.sfida-home-motion .motion-week{height:240px;padding:24px}
+ body.sfida-home-motion .motion-menu-graphic{height:260px}
+ body.sfida-home-motion .motion-formats{height:220px;padding:25px}
+ body.sfida-home-motion .motion-results-gallery{grid-template-columns:1fr;gap:28px}
+ body.sfida-home-motion .motion-results-gallery figcaption{font-size:12px;margin-top:10px}
+ body.sfida-home-motion .about-content{grid-template-columns:1fr;gap:28px}
+ body.sfida-home-motion .about-image-wrap{max-width:100%}
+ body.sfida-home-motion .faq-list{grid-template-columns:1fr}
+ body.sfida-home-motion .motion-media-dialog{padding:14px;width:calc(100vw - 20px);max-height:calc(100dvh - 20px)}
+ body.sfida-home-motion #motion-media-title{font-size:12px}
+ body.sfida-home-motion .motion-modal-close{font-size:10px;gap:6px;padding:6px 9px}
+}
+@media(max-width:360px){
+ body.sfida-home-motion .headline-problem-opt{font-size:25px}
+ body.sfida-home-motion .hero-cta-btn-compact-opt{font-size:11px;padding-inline:12px;gap:8px}
+ body.sfida-home-motion .motion-header{gap:8px}
+ body.sfida-home-motion .logo-image-opt{width:115px}
+ body.sfida-home-motion .motion-toggle{font-size:8px;padding:5px 8px}
+ body.sfida-home-motion .method-text-opt{font-size:8px}
+ body.sfida-home-motion .results-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+ body.sfida-home-motion *,body.sfida-home-motion *::before,body.sfida-home-motion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ body.sfida-home-motion .motion-reveal-pending{opacity:1;transform:none}
+ body.sfida-home-motion .motion-week-draw{stroke-dashoffset:0}
+ body.sfida-home-motion .motion-story-photo path{stroke-dashoffset:0}
+}
+
+/* Approved story/origin section: book, portrait and three principles. */
+body.sfida-home-motion .story-section{background:#f8f1ed;padding:88px 28px 60px}
+body.sfida-home-motion .story-section .story-container{max-width:1240px}
+body.sfida-home-motion .story-section .motion-story-lead{grid-template-columns:minmax(0,1.01fr) minmax(320px,.99fr);gap:86px;align-items:center;margin-bottom:72px}
+body.sfida-home-motion .story-section .motion-story-copy{min-width:0}
+body.sfida-home-motion .story-section .story-intro{margin:0 0 47px}
+body.sfida-home-motion .story-section .story-intro .motion-eyebrow{font-size:10px;line-height:1.6;letter-spacing:.17em;color:#a20d55;font-weight:600;margin:0 0 17px}
+body.sfida-home-motion .story-section .story-headline{font-size:clamp(48px,5.3vw,78px);line-height:1.02;letter-spacing:-.075em;font-weight:600;max-width:760px;margin:0 0 26px;color:#241b21}
+body.sfida-home-motion .story-section .story-headline .highlight-text{color:#ff0080;background:none;-webkit-text-fill-color:currentColor}
+body.sfida-home-motion .story-section .story-text{font-size:17px;line-height:1.8;color:#74666e;max-width:550px;margin:0}
+body.sfida-home-motion .story-section .story-text strong{color:#241b21;font-weight:600}
+body.sfida-home-motion .story-section .story-origin{border-left:2px solid #ff0080;padding:3px 0 3px 26px;max-width:570px;margin:0;background:transparent;border-radius:0}
+body.sfida-home-motion .story-section .badge-origin{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#a20d55;font-weight:600;margin:0 0 19px;padding:0;background:none;border:0;box-shadow:none;border-radius:0}
+body.sfida-home-motion .story-section .origin-text{font-size:17px;line-height:1.82;margin:0 0 19px;color:#53464e;max-width:none}
+body.sfida-home-motion .story-section .origin-text:last-child{margin-bottom:0}
+body.sfida-home-motion .story-section .origin-text strong,body.sfida-home-motion .story-section .origin-text .emphasis{color:#241b21;font-weight:600}
+body.sfida-home-motion .story-section .motion-story-photo{position:relative;min-height:515px;margin:0;align-self:start;padding:0}
+body.sfida-home-motion .story-section .motion-story-photo>img{position:absolute;right:0;top:0;width:83%;height:515px;display:block;object-fit:cover;object-position:53% 30%;border-radius:6px}
+body.sfida-home-motion .story-section .motion-visual-index{position:absolute;z-index:3;left:0;top:-26px;color:transparent;font-size:192px;line-height:1;font-weight:600;letter-spacing:-.13em;-webkit-text-stroke:1px #ff0080;opacity:.75;pointer-events:none}
+body.sfida-home-motion .story-section .motion-story-book{position:absolute;z-index:4;left:0;bottom:34px;width:202px;background:#fff;box-shadow:0 15px 32px rgba(43,20,30,.18);padding:10px 10px 14px;transform:rotate(-5deg)}
+body.sfida-home-motion .story-section .motion-story-book img{display:block;width:100%;height:auto;object-fit:contain}
+body.sfida-home-motion .story-section .motion-story-book>span{display:block;text-align:center;color:#79646d;font-size:9px;line-height:1.5;margin-top:9px}
+body.sfida-home-motion .story-section .motion-story-book strong{display:block;color:#241b21;font-size:10px;font-weight:600}
+body.sfida-home-motion .story-section .motion-story-note{position:absolute;right:-4px;bottom:4px;z-index:5;color:#fff;background:#2a1b23;font-size:10px;line-height:1.5;padding:10px 13px;letter-spacing:.04em}
+body.sfida-home-motion .story-section .motion-story-photo figcaption{position:absolute;right:0;bottom:-31px;left:17%;display:flex;justify-content:space-between;gap:15px;font-size:11px;line-height:1.7;margin:0;color:#241b21}
+body.sfida-home-motion .story-section .motion-story-photo figcaption span{color:#807079;font-size:10px}
+body.sfida-home-motion .story-section .motion-story-photo>svg{display:none}
+body.sfida-home-motion .story-section .principles-grid{border-top:1px solid #d9c8ca;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:38px;padding-top:26px;margin:0}
+body.sfida-home-motion .story-section .principle-card,body.sfida-home-motion .story-section .principle-card:hover{min-height:139px;border:0;border-left:1px solid #d9c8ca;border-radius:0;padding:0 0 0 19px;background:transparent;box-shadow:none;transform:none}
+body.sfida-home-motion .story-section .principle-card:first-child{border-left:0;padding-left:0}
+body.sfida-home-motion .story-section .principle-number{display:block!important;color:#ff0080;font-size:11px;letter-spacing:.1em;font-weight:600;background:none;padding:0;margin:0 0 29px}
+body.sfida-home-motion .story-section .principle-icon{display:none!important}
+body.sfida-home-motion .story-section .principle-title{font-size:20px;line-height:1.35;letter-spacing:-.035em;font-weight:500;color:#241b21;margin:0 0 10px}
+body.sfida-home-motion .story-section .principle-text{font-size:12px;color:#74666e;line-height:1.7;margin:0;max-width:225px}
+body.sfida-home-motion .story-section .practice-box{margin-top:50px}
+@media(max-width:1100px){
+ body.sfida-home-motion .story-section .motion-story-lead{gap:50px}
+ body.sfida-home-motion .story-section .story-headline{font-size:56px}
+ body.sfida-home-motion .story-section .motion-story-photo,body.sfida-home-motion .story-section .motion-story-photo>img{height:475px;min-height:475px}
+ body.sfida-home-motion .story-section .motion-story-photo>img{height:475px}
+}
+@media(max-width:800px){
+ body.sfida-home-motion .story-section{padding:54px 22px 48px}
+ body.sfida-home-motion .story-section .motion-story-lead{grid-template-columns:1fr;gap:45px;margin-bottom:60px}
+ body.sfida-home-motion .story-section .story-intro{margin-bottom:34px}
+ body.sfida-home-motion .story-section .story-headline{font-size:clamp(42px,7.6vw,58px);line-height:1.03}
+ body.sfida-home-motion .story-section .story-text{font-size:15px;line-height:1.78}
+ body.sfida-home-motion .story-section .origin-text{font-size:15px;line-height:1.78}
+ body.sfida-home-motion .story-section .motion-story-photo{width:min(100%,520px);min-height:465px;justify-self:center}
+ body.sfida-home-motion .story-section .motion-story-photo>img{height:465px;width:82%}
+ body.sfida-home-motion .story-section .motion-visual-index{font-size:170px;top:-24px}
+ body.sfida-home-motion .story-section .motion-story-book{bottom:30px;width:182px}
+ body.sfida-home-motion .story-section .motion-story-note{font-size:9px;padding:9px 11px}
+ body.sfida-home-motion .story-section .motion-story-photo figcaption{bottom:-31px;left:18%;font-size:10px}
+ body.sfida-home-motion .story-section .motion-story-photo figcaption span{font-size:9px}
+ body.sfida-home-motion .story-section .principles-grid{gap:0;display:block}
+ body.sfida-home-motion .story-section .principle-card,body.sfida-home-motion .story-section .principle-card:first-child{border-left:0;border-top:1px solid #d9c8ca;padding:20px 0 21px;min-height:0}
+ body.sfida-home-motion .story-section .principle-card:first-child{border-top:0}
+ body.sfida-home-motion .story-section .principle-number{margin-bottom:13px}
+ body.sfida-home-motion .story-section .principle-title{font-size:18px}
+ body.sfida-home-motion .story-section .principle-text{font-size:11px}
+ body.sfida-home-motion .story-section .practice-box{margin-top:25px}
+}
+@media(max-width:560px){
+ body.sfida-home-motion .story-section{padding:39px 16px 40px}
+ body.sfida-home-motion .story-section .motion-story-lead{gap:37px;margin-bottom:57px}
+ body.sfida-home-motion .story-section .story-intro .motion-eyebrow{font-size:8px;margin-bottom:12px}
+ body.sfida-home-motion .story-section .story-headline{font-size:42px;line-height:1.03;letter-spacing:-.075em;margin-bottom:22px}
+ body.sfida-home-motion .story-section .story-text{font-size:14px;line-height:1.75}
+ body.sfida-home-motion .story-section .story-origin{padding-left:16px}
+ body.sfida-home-motion .story-section .badge-origin{font-size:8px;margin-bottom:14px}
+ body.sfida-home-motion .story-section .origin-text{font-size:14px;line-height:1.78;margin-bottom:15px}
+ body.sfida-home-motion .story-section .motion-story-photo{min-height:420px}
+ body.sfida-home-motion .story-section .motion-story-photo>img{height:420px;width:83%}
+ body.sfida-home-motion .story-section .motion-visual-index{font-size:126px;top:-21px;left:-2px}
+ body.sfida-home-motion .story-section .motion-story-book{width:150px;bottom:30px;left:1px;padding:7px 7px 10px}
+ body.sfida-home-motion .story-section .motion-story-book>span{font-size:7px;margin-top:6px}
+ body.sfida-home-motion .story-section .motion-story-book strong{font-size:8px}
+ body.sfida-home-motion .story-section .motion-story-note{right:0;bottom:0;font-size:8px;padding:8px 10px}
+ body.sfida-home-motion .story-section .motion-story-photo figcaption{bottom:-31px;left:17%;font-size:9px;flex-direction:column;gap:0}
+ body.sfida-home-motion .story-section .motion-story-photo figcaption span{font-size:8px}
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>La Mappa del Lipedema | Elena Giordani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#E91E63; --pink-deep:#C2185B; --coral:#FF8C5A; --gold:#FFB627;
+  --cream:#FFFAF3; --warm:#FFF1E0; --dark:#1A0F00; --muted:#6B5D4F; --green:#00875A;
+  --line:#EADFce;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',-apple-system,sans-serif;color:var(--dark);background:#E7E2DA;line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{position:relative;width:210mm;min-height:297mm;margin:14px auto;background:var(--cream);padding:24mm 22mm;box-shadow:0 10px 40px rgba(0,0,0,.12);overflow:hidden}
+.page--cover{background:linear-gradient(160deg,#2A1A08 0%,#1A0F00 60%);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:26mm 22mm}
+h1,h2,h3{line-height:1.18;font-weight:700;letter-spacing:-.01em}
+p{margin-bottom:.85rem}
+strong{font-weight:600}
+em{font-style:italic;color:var(--pink-deep)}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:.7rem}
+.kicker-line{width:46px;height:4px;background:linear-gradient(90deg,var(--gold),var(--coral),var(--pink));border-radius:4px;margin-bottom:1.4rem}
+
+/* COVER */
+.cover-top{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7;font-weight:600}
+.cover-mid h1{font-size:3.3rem;font-weight:800;margin-bottom:1.1rem}
+.cover-mid h1 .hl{color:var(--coral)}
+.cover-sub{font-size:1.15rem;opacity:.88;max-width:80%;font-weight:300}
+.cover-badge{display:inline-block;margin-top:1.6rem;font-size:.78rem;font-weight:600;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:.45rem 1rem;opacity:.9}
+.cover-bottom{display:flex;align-items:center;gap:14px;border-top:1px solid rgba(255,255,255,.18);padding-top:18px}
+.cover-bottom .avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--coral));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.4rem;color:#fff;flex-shrink:0}
+.cover-bottom .who b{display:block;font-size:1rem}
+.cover-bottom .who span{font-size:.82rem;opacity:.72}
+.cover-disclaimer{margin-top:14px;font-size:.72rem;opacity:.6;line-height:1.5}
+
+/* SECTIONS */
+.sec-head{margin-bottom:1.4rem}
+.sec-head h2{font-size:2rem;color:var(--dark)}
+.sec-num{font-size:.8rem;font-weight:700;color:var(--coral);letter-spacing:.1em;text-transform:uppercase}
+.lead{font-size:1.08rem;color:var(--muted)}
+.divider{height:1px;background:var(--line);margin:1.5rem 0}
+
+.callout{background:var(--warm);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin:1.3rem 0;font-size:.95rem}
+.callout.pink{background:#FDE7EF;border-left-color:var(--pink)}
+.callout.green{background:#E3F5EE;border-left-color:var(--green)}
+.callout b{color:var(--dark)}
+
+.note-elena{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem;margin:1.2rem 0;position:relative}
+.note-elena:before{content:"\201C";position:absolute;top:-6px;left:14px;font-size:3.2rem;color:var(--coral);opacity:.35;font-family:Georgia,serif}
+.note-elena p{font-size:1rem;font-style:italic;color:#3A2C1C}
+.note-elena .sign{font-style:normal;font-weight:600;color:var(--pink-deep);margin-top:.4rem;margin-bottom:0}
+
+/* CHECKLIST */
+.check-group{margin:1.1rem 0}
+.check-group h3{font-size:1.05rem;margin-bottom:.2rem}
+.check-group .grp-hint{font-size:.82rem;color:var(--muted);margin-bottom:.7rem}
+.check-item{display:flex;gap:.7rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.check-box{flex-shrink:0;width:20px;height:20px;border:2px solid var(--pink);border-radius:5px;margin-top:2px}
+.tagA{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.08em;background:var(--pink);color:#fff;border-radius:4px;padding:1px 6px;vertical-align:middle;margin-left:6px}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.83rem}
+th,td{text-align:left;padding:.6rem .7rem;border:1px solid var(--line);vertical-align:top}
+thead th{background:var(--dark);color:#fff;font-weight:600;font-size:.8rem}
+tbody tr:nth-child(even){background:#fff}
+td b{color:var(--pink-deep)}
+
+/* TWO COL avoid/do */
+.cols{display:flex;gap:16px;margin:1.2rem 0}
+.col{flex:1;border-radius:12px;padding:1.1rem 1.2rem}
+.col.avoid{background:#FDE7EF;border:1px solid #F5C6D8}
+.col.do{background:#E3F5EE;border:1px solid #BFE6D6}
+.col h3{font-size:1rem;margin-bottom:.7rem;display:flex;align-items:center;gap:.4rem}
+.col ul{list-style:none}
+.col li{font-size:.9rem;padding:.35rem 0 .35rem 1.3rem;position:relative}
+.col.avoid li:before{content:"\2715";position:absolute;left:0;color:var(--pink);font-weight:700}
+.col.do li:before{content:"\2713";position:absolute;left:0;color:var(--green);font-weight:700}
+
+/* QUESTIONS */
+.q-list{counter-reset:q;list-style:none;margin:1rem 0}
+.q-list li{counter-increment:q;position:relative;padding:.7rem 0 .7rem 2.6rem;border-bottom:1px solid var(--line);font-size:.95rem}
+.q-list li:before{content:counter(q);position:absolute;left:0;top:.6rem;width:26px;height:26px;background:linear-gradient(135deg,var(--pink),var(--coral));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+
+/* PATH */
+.phase{display:flex;gap:16px;margin:1rem 0;align-items:flex-start}
+.phase-num{flex-shrink:0;width:42px;height:42px;border-radius:12px;background:var(--dark);color:var(--gold);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.phase-body h3{font-size:1.05rem;margin-bottom:.2rem}
+.phase-body p{font-size:.9rem;color:var(--muted);margin-bottom:0}
+
+.footer-note{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:.72rem;color:var(--muted);display:flex;justify-content:space-between}
+.pagenum{font-weight:600;color:var(--pink)}
+
+.final-cta{background:linear-gradient(135deg,var(--pink),var(--coral));color:#fff;border-radius:16px;padding:1.6rem 1.8rem;margin:1.4rem 0}
+.final-cta h3{font-size:1.3rem;margin-bottom:.5rem}
+.final-cta p{opacity:.95;font-size:.95rem;margin-bottom:0}
+
+@media print{
+  body{background:#fff}
+  .page{margin:0;box-shadow:none;width:auto;min-height:auto;page-break-after:always;padding:18mm 16mm}
+  .page:last-child{page-break-after:auto}
+  @page{size:A4;margin:0}
+}
+</style>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png?v=elena-symbol-v1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png?v=elena-symbol-v1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png?v=elena-symbol-v1">
+</head>
+<body>
+
+<!-- ░░░ COVER ░░░ -->
+<section class="page page--cover">
+  <div class="cover-top">Elena Giordani &middot; Guida pratica</div>
+  <div class="cover-mid">
+    <div class="kicker-line"></div>
+    <h1>La Mappa del <span class="hl">Lipedema</span></h1>
+    <p class="cover-sub">Capire cosa sta succedendo al tuo corpo, distinguere il lipedema da cellulite e ritenzione, e fare il primo passo giusto. Senza diete punitive e senza false promesse.</p>
+    <span class="cover-badge">Test di auto-riconoscimento + Cosa evitare + Kit per il medico</span>
+  </div>
+  <div>
+    <div class="cover-bottom">
+      <div class="avatar">E</div>
+      <div class="who"><b>Elena Giordani</b><span>Life Health Coach &middot; 20 anni a fianco delle donne</span></div>
+    </div>
+    <p class="cover-disclaimer">Questa guida ha scopo informativo e di consapevolezza. Non &egrave; uno strumento diagnostico e non sostituisce il parere di un medico. Il lipedema va diagnosticato e seguito da un professionista.</p>
+  </div>
+</section>
+
+<!-- ░░░ PAG 1 — LETTERA + COS'È ░░░ -->
+<section class="page">
+  <div class="sec-head">
+    <span class="sec-num">Prima di tutto</span>
+    <h2>Se sei qui, probabilmente non &egrave; colpa tua.</h2>
+  </div>
+
+  <div class="note-elena">
+    <p>Ho conosciuto centinaia di donne che hanno passato anni a darsi della pigra, della golosa, della "senza forza di volont&agrave;". Si allenavano, seguivano diete, e le gambe restavano l&igrave;: gonfie, pesanti, doloranti. Poi scoprivano una parola che nessuno aveva mai pronunciato: lipedema. E per la prima volta tutto aveva un senso.</p>
+    <p class="sign">Questa guida nasce per dare a te quella stessa chiarezza. Oggi. &mdash; Elena</p>
+  </div>
+
+  <p>Facciamo subito una cosa importante: togliamoci la colpa di dosso. Il lipedema <strong>non &egrave; causato dal mangiare troppo</strong> e non si risolve "mangiando di meno e muovendosi di pi&ugrave;". &Egrave; una condizione del tessuto adiposo, riconosciuta dalla medicina, che colpisce quasi esclusivamente le donne ed &egrave; spesso legata ai grandi cambiamenti ormonali della vita: pubert&agrave;, gravidanza, menopausa.</p>
+
+  <h3 style="margin:1.2rem 0 .4rem;font-size:1.15rem">Cos'&egrave; il lipedema, in parole semplici</h3>
+  <p>&Egrave; un accumulo anomalo e <strong>simmetrico</strong> di tessuto adiposo, di solito su gambe e spesso braccia, che tende a risparmiare piedi e mani. Questo grasso &egrave; diverso: spesso fa male al tatto, si gonfia, dà un senso di pesantezza, e <strong>non se ne va in proporzione</strong> quando dimagrisci nel resto del corpo. &Egrave; per questo che diete ed esercizio, da soli, sembrano non funzionare: stai usando gli strumenti giusti per il problema sbagliato.</p>
+
+  <div class="callout pink">
+    <b>Cosa NON &egrave; il lipedema.</b> Non &egrave; semplice sovrappeso, non &egrave; "solo cellulite", non &egrave; mancanza di disciplina. &Egrave; una condizione cronica: questo significa che non si "guarisce" con una cura lampo, ma si pu&ograve; <b>gestire</b>, e si pu&ograve; stare molto meglio. Il primo passo &egrave; capirlo.
+  </div>
+
+  <p class="lead">Nelle prossime pagine trovi: un test per riconoscere i segnali, la differenza tra lipedema e altre cose che gli somigliano, cosa evitare subito, le domande giuste da fare al medico, e la mappa dei passi successivi.</p>
+
+  <div class="footer-note"><span>La Mappa del Lipedema &middot; Elena Giordani</span><span class="pagenum">01</span></div>
+</section>
+
+<!-- ░░░ PAG 2 — TEST PARTE 1 ░░░ -->
+<section class="page">
+  <div class="sec-head">
+    <span class="sec-num">Parte 1 &middot; Il Test</span>
+    <h2>Riconosci i segnali</h2>
+    <p class="lead">Leggi ogni frase e spunta quelle in cui ti riconosci. Le voci con l'etichetta <span class="tagA">PI&Ugrave; TIPICO</span> sono quelle pi&ugrave; caratteristiche del lipedema.</p>
+  </div>
+
+  <div class="check-group">
+    <h3>A. Come appare il corpo</h3>
+    <div class="grp-hint">Guardati allo specchio, con calma e senza giudizio.</div>
+    <div class="check-item"><span class="check-box"></span><span>Gambe e fianchi sproporzionati rispetto alla parte alta del corpo (vita stretta, gambe abbondanti). <span class="tagA">PI&Ugrave; TIPICO</span></span></div>
+    <div class="check-item"><span class="check-box"></span><span>L'accumulo &egrave; <strong>simmetrico</strong>: uguale a destra e a sinistra. <span class="tagA">PI&Ugrave; TIPICO</span></span></div>
+    <div class="check-item"><span class="check-box"></span><span>I piedi (o le mani) restano "normali", con una specie di gradino alla caviglia o al polso. <span class="tagA">PI&Ugrave; TIPICO</span></span></div>
+    <div class="check-item"><span class="check-box"></span><span>La pelle sembra a materasso/bucciata d'arancia, a volte con piccoli noduli sotto le dita.</span></div>
+    <div class="check-item"><span class="check-box"></span><span>Anche da magra, o dopo aver perso peso, le gambe sono rimaste abbondanti.</span></div>
+  </div>
+
+  <div class="check-group">
+    <h3>B. Come si sente il corpo</h3>
+    <div class="grp-hint">Le sensazioni contano quanto l'aspetto.</div>
+    <div class="check-item"><span class="check-box"></span><span>Le gambe fanno male o sono sensibili al tatto, anche con una pressione leggera. <span class="tagA">PI&Ugrave; TIPICO</span></span></div>
+    <div class="check-item"><span class="check-box"></span><span>Senso di pesantezza e tensione, soprattutto a fine giornata o col caldo.</span></div>
+    <div class="check-item"><span class="check-box"></span><span>Ti vengono lividi con facilit&agrave;, anche senza ricordare il colpo. <span class="tagA">PI&Ugrave; TIPICO</span></span></div>
+    <div class="check-item"><span class="check-box"></span><span>Gambe stanche, che "tirano", a volte formicolio.</span></div>
+  </div>
+
+  <div class="footer-note"><span>La Mappa del Lipedema &middot; Elena Giordani</span><span class="pagenum">02</span></div>
+</section>
+
+<!-- ░░░ PAG 3 — TEST PARTE 2 + LETTURA ░░░ -->
+<section class="page">
+  <div class="check-group">
+    <h3>C. La tua storia</h3>
+    <div class="grp-hint">Il quando e il come dicono tanto.</div>
+    <div class="check-item"><span class="check-box"></span><span>Il problema &egrave; comparso o peggiorato dopo pubert&agrave;, gravidanza o menopausa. <span class="tagA">PI&Ugrave; TIPICO</span></span></div>
+    <div class="check-item"><span class="check-box"></span><span>C'&egrave; un'altra donna in famiglia (mamma, nonna, sorella) con gambe simili.</span></div>
+    <div class="check-item"><span class="check-box"></span><span>Hai fatto diete anche rigide senza vedere cambiare le gambe. <span class="tagA">PI&Ugrave; TIPICO</span></span></div>
+    <div class="check-item"><span class="check-box"></span><span>Il cardio intenso o gli allenamenti molto duri ti hanno gonfiata o fatta sentire peggio.</span></div>
+    <div class="check-item"><span class="check-box"></span><span>Ti &egrave; stato detto "&egrave; solo cellulite" o "basta che dimagrisci", ma tu sentivi che non era cos&igrave;.</span></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3 style="font-size:1.2rem;margin-bottom:.5rem">Come leggere le tue risposte</h3>
+  <p>Non esiste un punteggio magico, e <strong>questo non &egrave; una diagnosi</strong>. Ma un'indicazione onesta s&igrave;:</p>
+  <div class="callout">
+    <p style="margin-bottom:.5rem"><b>Ti riconosci in diverse voci, soprattutto in quelle <span class="tagA">PI&Ugrave; TIPICO</span>?</b></p>
+    <p style="margin-bottom:0">&Egrave; un motivo concreto e valido per chiederne conferma a un medico che conosce il lipedema. Non te lo stai inventando, e non sei "esagerata". Porta con te questa guida e il Kit della Parte 3.</p>
+  </div>
+  <div class="callout green">
+    <b>Ricorda.</b> Il valore di questo test non &egrave; "metterti un'etichetta". &Egrave; darti le parole per spiegare quello che senti, e il coraggio di farti prendere sul serio.
+  </div>
+
+  <div class="footer-note"><span>La Mappa del Lipedema &middot; Elena Giordani</span><span class="pagenum">03</span></div>
+</section>
+
+<!-- ░░░ PAG 4 — TABELLA DIFFERENZE ░░░ -->
+<section class="page">
+  <div class="sec-head">
+    <span class="sec-num">Parte 1 &middot; Chiarezza</span>
+    <h2>Lipedema, cellulite o ritenzione?</h2>
+    <p class="lead">Sono cose diverse, e si gestiscono in modo diverso. Ecco come distinguerle a grandi linee.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th style="width:20%"></th><th>Lipedema</th><th>Cellulite comune</th><th>Ritenzione idrica</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>Cos'&egrave;</b></td><td>Condizione cronica del tessuto adiposo</td><td>Aspetto della pelle molto diffuso, non una malattia</td><td>Accumulo di liquidi nei tessuti</td></tr>
+      <tr><td><b>Dolore</b></td><td>S&igrave;, spesso dolente al tatto</td><td>In genere no</td><td>Tensione pi&ugrave; che dolore</td></tr>
+      <tr><td><b>Simmetria</b></td><td>Marcata e simmetrica, risparmia piedi/mani</td><td>Localizzata, variabile</td><td>Spesso peggiora la sera, cambia nel tempo</td></tr>
+      <tr><td><b>Dieta/sport</b></td><td>Le gambe restano, anche dimagrendo</td><td>Pu&ograve; migliorare con stile di vita</td><td>Migliora con idratazione, movimento, meno sale</td></tr>
+      <tr><td><b>Lividi facili</b></td><td>S&igrave;, frequente</td><td>No</td><td>No</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout pink">
+    <b>Importante.</b> Si pu&ograve; avere pi&ugrave; di una cosa insieme (per esempio lipedema e ritenzione). E il lipedema va distinto anche dal <b>linfedema</b>, che &egrave; un'altra condizione: questo lo valuta il medico. Lo scopo di questa tabella &egrave; aiutarti a fare le domande giuste, non a auto-diagnosticarti.
+  </div>
+
+  <div class="note-elena">
+    <p>Per anni mi hanno detto che bastava impegnarmi di pi&ugrave;. Quando ho capito la differenza, ho smesso di combattere il mio corpo e ho iniziato ad ascoltarlo. &Egrave; l&igrave; che &egrave; cambiato tutto.</p>
+    <p class="sign">&mdash; Una donna della mia community</p>
+  </div>
+
+  <div class="footer-note"><span>La Mappa del Lipedema &middot; Elena Giordani</span><span class="pagenum">04</span></div>
+</section>
+
+<!-- ░░░ PAG 5 — COSA EVITARE / COSA FARE ░░░ -->
+<section class="page">
+  <div class="sec-head">
+    <span class="sec-num">Parte 2 &middot; I primi passi</span>
+    <h2>Cosa evitare (e cosa fare invece)</h2>
+    <p class="lead">Non per "rimetterti in riga". Per smettere di fare cose che, con il lipedema, rischiano di peggiorare le cose.</p>
+  </div>
+
+  <div class="cols">
+    <div class="col avoid">
+      <h3>Cosa evitare</h3>
+      <ul>
+        <li>Diete drastiche e digiuni: stress per il corpo, effetto yo-yo, non agiscono sul tessuto lipedemico</li>
+        <li>Cardio intenso e ad alto impatto come unica strategia: in molte aumenta dolore e infiammazione</li>
+        <li>Pesarti ogni giorno e legare il tuo valore al numero</li>
+        <li>Creme e drenanti che promettono di "eliminare il lipedema"</li>
+        <li>Darti la colpa: non &egrave; mai stata pigrizia</li>
+      </ul>
+    </div>
+    <div class="col do">
+      <h3>Cosa fare invece</h3>
+      <ul>
+        <li>Movimento a basso impatto: camminata, bici, e soprattutto l'acqua (nuoto, acquagym)</li>
+        <li>Forza dolce e progressiva, per sostenere muscoli e tessuti</li>
+        <li>Alimentazione anti-infiammatoria, senza restrizioni punitive n&eacute; bilancino</li>
+        <li>Valutare con il medico la compressione (calze/leggings adatti)</li>
+        <li>Idratazione, sonno, gestione dello stress: alleati veri</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <b>Perch&eacute; l'acqua.</b> In acqua la pressione sul corpo aiuta la circolazione e il senso di leggerezza, e il basso impatto protegge le articolazioni. Per molte donne con lipedema &egrave; il punto di partenza pi&ugrave; gentile e sostenibile.
+  </div>
+
+  <div class="callout">
+    <b>Il principio guida.</b> Non "di pi&ugrave;, pi&ugrave; forte, pi&ugrave; in fretta". Ma "il movimento giusto, fatto con costanza". Il lipedema chiede gentilezza e continuit&agrave;, non punizione.
+  </div>
+
+  <div class="footer-note"><span>La Mappa del Lipedema &middot; Elena Giordani</span><span class="pagenum">05</span></div>
+</section>
+
+<!-- ░░░ PAG 6 — KIT MEDICO ░░░ -->
+<section class="page">
+  <div class="sec-head">
+    <span class="sec-num">Parte 3 &middot; Il Kit per il medico</span>
+    <h2>Vai dal medico preparata</h2>
+    <p class="lead">Il lipedema &egrave; ancora poco conosciuto: arrivare preparata fa una differenza enorme nel farti prendere sul serio.</p>
+  </div>
+
+  <h3 style="font-size:1.1rem;margin-bottom:.4rem">A chi rivolgerti</h3>
+  <p>Oltre al medico di base, le figure che si occupano pi&ugrave; spesso di lipedema sono <strong>angiologo, flebologo o specialista in linfologia</strong>. Se uno non ti ascolta, hai il diritto di cercarne un altro: non &egrave; testardaggine, &egrave; prenderti cura di te.</p>
+
+  <h3 style="font-size:1.1rem;margin:1.1rem 0 .4rem">Come prepararti alla visita</h3>
+  <div class="callout">
+    Porta: qualche <b>foto delle gambe</b> (anche nel tempo, se le hai), un piccolo <b>diario dei sintomi</b> (quando peggiorano, dolore, lividi), la tua <b>storia familiare</b>, e questa guida con le risposte del test.
+  </div>
+
+  <h3 style="font-size:1.1rem;margin:1.1rem 0 .4rem">Le domande giuste da fare</h3>
+  <ol class="q-list">
+    <li>Potrebbe trattarsi di lipedema, e non solo di sovrappeso o cellulite?</li>
+    <li>Se s&igrave;, a che stadio e tipo sono, secondo lei?</li>
+    <li>&Egrave; il caso di valutare la compressione? Quale tipo &egrave; adatto a me?</li>
+    <li>Quale attivit&agrave; fisica mi consiglia, e cosa &egrave; meglio evitare?</li>
+    <li>Mi indirizza a uno specialista (angiologo, linfologo) o a esami specifici?</li>
+    <li>Ci sono accorgimenti alimentari utili nel mio caso, senza diete estreme?</li>
+  </ol>
+
+  <div class="footer-note"><span>La Mappa del Lipedema &middot; Elena Giordani</span><span class="pagenum">06</span></div>
+</section>
+
+<!-- ░░░ PAG 7 — LA MAPPA DEL PERCORSO ░░░ -->
+<section class="page">
+  <div class="sec-head">
+    <span class="sec-num">Parte 4 &middot; La Mappa</span>
+    <h2>I prossimi passi, senza scorciatoie</h2>
+    <p class="lead">Il lipedema &egrave; un percorso, non un weekend. Ecco le quattro fasi che vivono insieme le donne che seguo.</p>
+  </div>
+
+  <div class="phase">
+    <div class="phase-num">1</div>
+    <div class="phase-body"><h3>Capire</h3><p>Dove sei oggi. Riconoscere i segnali, avere una diagnosi, smettere di darti la colpa. &Egrave; la fase in cui sei adesso: stai gi&agrave; facendo la cosa pi&ugrave; importante.</p></div>
+  </div>
+  <div class="phase">
+    <div class="phase-num">2</div>
+    <div class="phase-body"><h3>Stabilizzare</h3><p>Togliere ci&ograve; che peggiora (diete punitive, cardio sbagliato) e introdurre il movimento giusto, l'alimentazione anti-infiammatoria e, se serve, la compressione. Niente fretta.</p></div>
+  </div>
+  <div class="phase">
+    <div class="phase-num">3</div>
+    <div class="phase-body"><h3>Costruire</h3><p>Una routine sostenibile e tua: forza dolce, costanza, gestione dell'energia. Qui le gambe si sentono pi&ugrave; leggere e la testa pi&ugrave; serena. E non sei sola nel farlo.</p></div>
+  </div>
+  <div class="phase">
+    <div class="phase-num">4</div>
+    <div class="phase-body"><h3>Mantenere</h3><p>Essendo cronico, il lipedema si accompagna, non si "finisce". Ma diventa una parte della vita che sai gestire, non un nemico che ti spaventa.</p></div>
+  </div>
+
+  <div class="final-cta">
+    <h3>Il prossimo passo lo facciamo insieme.</h3>
+    <p>Hai gi&agrave; il posto per il mio webinar gratuito sul lipedema. L&igrave;, in diretta, trasformiamo questa mappa in azione: cosa fare davvero, partendo da dove sei. Ti aspetto.</p>
+  </div>
+
+  <div class="footer-note"><span>La Mappa del Lipedema &middot; Elena Giordani</span><span class="pagenum">07</span></div>
+</section>
+
+<!-- ░░░ PAG 8 — DISCLAIMER / CHIUSURA ░░░ -->
+<section class="page">
+  <div class="sec-head">
+    <span class="sec-num">Per chiudere</span>
+    <h2>Una promessa onesta</h2>
+  </div>
+  <div class="note-elena">
+    <p>Non ti ho promesso di guarirti, perch&eacute; non sarebbe vero. Ti ho promesso chiarezza, e spero di avertela data. Da qui in poi non sei pi&ugrave; quella che "non ci riesce": sei una donna che ha capito il suo corpo e sa da dove ripartire. Questo, credimi, cambia tutto.</p>
+    <p class="sign">Con affetto, Elena</p>
+  </div>
+
+  <h3 style="font-size:1.05rem;margin:1.2rem 0 .4rem">Nota importante</h3>
+  <p style="font-size:.86rem;color:var(--muted)">Questa guida ha finalit&agrave; puramente informative ed educative. Non costituisce un parere medico, una diagnosi o una prescrizione, e non sostituisce in alcun modo la consulenza di un medico o di uno specialista qualificato. Il lipedema deve essere diagnosticato e gestito da professionisti sanitari. Le indicazioni su movimento e alimentazione sono di carattere generale: confrontati sempre con il tuo medico prima di apportare cambiamenti, soprattutto in presenza di altre condizioni di salute.</p>
+
+  <div class="divider"></div>
+  <p style="font-size:.8rem;color:var(--muted)">&copy; Elena Giordani &middot; La Mappa del Lipedema. Uso personale. Riproduzione e condivisione non autorizzate non consentite.</p>
+
+  <div class="footer-note"><span>La Mappa del Lipedema &middot; Elena Giordani</span><span class="pagenum">08</span></div>
+</section>
+
+</body>
+</html>

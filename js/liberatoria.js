@@ -2,6 +2,8 @@
   'use strict';
 
   const TOTAL_STEPS = 6;
+  const isEscape = document.body.dataset.signingEvent === 'escape';
+  let submitting = false;
   const PROVINCE_IT = ['AG','AL','AN','AO','AP','AQ','AR','AT','AV','BA','BG','BI','BL','BN','BO','BR','BS','BT','BZ','CA','CB','CE','CH','CL','CN','CO','CR','CS','CT','CZ','EN','FC','FE','FG','FI','FM','FR','GE','GO','GR','IM','IS','KR','LC','LE','LI','LO','LT','LU','MB','MC','ME','MI','MN','MO','MS','MT','NA','NO','NU','OR','PA','PC','PD','PE','PG','PI','PN','PO','PR','PT','PU','PV','PZ','RA','RC','RE','RG','RI','RM','RN','RO','SA','SI','SO','SP','SR','SS','SU','SV','TA','TE','TN','TO','TP','TR','TS','TV','UD','VA','VB','VC','VE','VI','VR','VT','VV'];
   const CF_REGEX = /^[A-Z0-9]{16}$/;
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,7 +30,7 @@
   function isAdult(isoDate) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) return false;
     const d = new Date(isoDate + 'T00:00:00Z');
-    if (Number.isNaN(d.getTime())) return false;
+    if (Number.isNaN(d.getTime()) || d.toISOString().slice(0, 10) !== isoDate) return false;
     const min = new Date();
     min.setUTCFullYear(min.getUTCFullYear() - 18);
     return d <= min;
@@ -219,31 +221,45 @@
 
   // ----- Submit
   async function handleSubmit() {
+    if (submitting) return;
     if (!signaturePad || signaturePad.isEmpty()) {
       showToast('Manca la firma. Torna allo step firma.');
       return;
     }
     state.data.firmaPng = signaturePad.toDataURL('image/png');
 
+    submitting = true;
+    $('#btn-step5-confirm').disabled = true;
     showLoading(true);
     try {
-      const res = await fetch('/api/liberatoria', {
+      const res = await fetch(isEscape ? '/api/liberatoria-escape' : '/api/liberatoria', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(state.data)
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
+      if (!res.ok || !data.success || (isEscape && !/^https:\/\//.test(data.pdfUrl || ''))) {
         const msg = data && data.error ? data.error : 'Errore di invio. Riprova.';
         showToast(msg);
         showLoading(false);
         return;
       }
       showLoading(false);
+      if (isEscape) {
+        const link = $('#escape-pdf-link');
+        link.href = data.pdfUrl;
+        link.hidden = false;
+        $('#escape-email-status').textContent = data.emailStatus === 'requested'
+          ? 'Abbiamo richiesto l’invio della copia via email. La consegna non è ancora confermata: puoi già scaricare il PDF.'
+          : 'La consegna via email non è confermata. Scarica ora la tua copia; per assistenza scrivi a info.xfitacademy@gmail.com.';
+      }
       showStep(6);
     } catch (err) {
       showLoading(false);
       showToast('Errore di rete. Riprova tra qualche secondo.');
+    } finally {
+      submitting = false;
+      $('#btn-step5-confirm').disabled = false;
     }
   }
 
@@ -275,6 +291,18 @@
 
   // ----- Init
   function init() {
+    if (isEscape) {
+      const text = window.EscapeText;
+      if (!text || !window.crypto.randomUUID) {
+        showToast('Impossibile caricare il documento. Ricarica la pagina con un browser aggiornato.');
+        return;
+      }
+      $$('[data-escape-text]').forEach(el => { el.textContent = text[el.dataset.escapeText]; });
+      $$('[data-escape-consent]').forEach(el => { el.textContent = text.CONSENSI[el.dataset.escapeConsent].label; });
+      state.data.textVersion = text.TEXT_VERSION;
+      state.data.submissionId = window.crypto.randomUUID();
+      $('#btn-step1-next').disabled = false;
+    }
     // Step 1 next
     $('#btn-step1-next').addEventListener('click', () => {
       if (validateStep1()) showStep(2);

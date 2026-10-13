@@ -9,6 +9,11 @@
   },
   "redirects": [
     {
+      "source": "/bio",
+      "destination": "https://wa.me/393773692181?text=Ciao%20Elena%21%20Arrivo%20dalla%20tua%20bio%20e%20vorrei%20informazioni%20sul%20tuo%20percorso.",
+      "permanent": false
+    },
+    {
       "source": "/risorse-gratuite",
       "destination": "/",
       "permanent": false
@@ -238,6 +243,19 @@
   ],
   "headers": [
     {
+      "source": "/lib-escape-2026-pgv(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
       "source": "/api/(.*)",
       "headers": [
         {
@@ -298,6 +316,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/js/escape-text.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
         }
       ]
     }

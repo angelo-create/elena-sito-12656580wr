@@ -9,3 +9,16 @@ scripts/
 
 # Brief creativi ads (file marketing interni, non pubblicati)
 ads/
+
+# Test locali con dati fittizi
+tests/
+
+# Istruzioni per gli agenti AI (interne)
+AGENTS.md
+CLAUDE.md
+
+# Materiale interno del funnel di luglio: resta nel workspace, mai online
+webinar-luglio/docx/
+webinar-luglio/copy/
+webinar-luglio/research/
+webinar-luglio/INDICE.md

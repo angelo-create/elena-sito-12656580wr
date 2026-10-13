@@ -2,17 +2,7 @@
 // Layout A4, font Helvetica (WinAnsi), word-wrap manuale, multi-pagina con footer.
 
 const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
-const {
-  TEXT_VERSION,
-  TITOLO,
-  EVENTO,
-  DETTAGLI_EVENTO,
-  INFORMATIVA,
-  LIBERATORIA,
-  CLAUSOLA_FIRMA_DIGITALE,
-  PRIVACY_NOTICE,
-  CONSENSI
-} = require('./liberatoria-text.js');
+const defaultText = require('./liberatoria-text.js');
 
 const A4 = { width: 595.28, height: 841.89 };
 const MARGIN = { top: 56, bottom: 64, left: 56, right: 56 };
@@ -228,13 +218,13 @@ function drawConsensi(ctx, data) {
   const items = [
     {
       key: 'C1',
-      label: CONSENSI.OBBLIGATORIO.label,
+      label: ctx.text.CONSENSI.OBBLIGATORIO.label,
       value: data.consensoLiberatoria,
       tag: 'OBBLIGATORIO'
     },
     {
       key: 'C2',
-      label: CONSENSI.NEWSLETTER.label,
+      label: ctx.text.CONSENSI.NEWSLETTER.label,
       value: data.consensoNewsletter,
       tag: 'FACOLTATIVO'
     }
@@ -325,6 +315,7 @@ async function drawFirma(ctx, data) {
       });
     } catch (err) {
       // Non bloccante: se il PNG è corrotto disegno solo il box
+      if (ctx.strictSignature) throw new Error('Firma PNG non valida');
       console.warn('[genera-pdf] firma embed failed:', err.message);
     }
   }
@@ -377,12 +368,14 @@ function drawMetadati(ctx, data) {
     ['Versione testo firmato', data.textVersion],
     ['Timestamp ISO 8601 (UTC)', data.timestamp],
     ['Indirizzo IP firmatario', data.ip || '(non disponibile)'],
-    ['User agent', truncate(data.userAgent || '', 110)]
+    ['User agent', data.userAgent || '']
   ];
+  if (data.submissionId) rows.unshift(['Identificativo firma', data.submissionId]);
   const labelWidth = 180;
   const size = 9;
   for (const [label, value] of rows) {
-    ensureSpace(ctx, 14);
+    const lines = wrapText(value || '(non disponibile)', CONTENT_WIDTH - labelWidth, ctx.helv, size);
+    ensureSpace(ctx, Math.max(1, lines.length) * (size + 5));
     ctx.page.drawText(sanitize(label), {
       x: MARGIN.left,
       y: ctx.y - size,
@@ -390,17 +383,19 @@ function drawMetadati(ctx, data) {
       font: ctx.helv,
       color: GRAY
     });
-    ctx.page.drawText(sanitize(value), {
-      x: MARGIN.left + labelWidth,
-      y: ctx.y - size,
-      size,
-      font: ctx.helv,
-      color: DARK
-    });
-    ctx.y -= size + 5;
+    for (const line of lines) {
+      ctx.page.drawText(line, {
+        x: MARGIN.left + labelWidth,
+        y: ctx.y - size,
+        size,
+        font: ctx.helv,
+        color: DARK
+      });
+      ctx.y -= size + 5;
+    }
   }
   ctx.y -= 6;
-  const note = 'L\u2019hash SHA-256 di integrit\u00E0 di questo documento \u00E8 calcolato dopo la generazione del PDF e archiviato come metadato del contatto sul CRM (custom field "liberatoria_pdf_hash_sha256"). Per verificare l\u2019integrit\u00E0 del documento, calcolare l\u2019hash SHA-256 del file e confrontarlo con il valore archiviato.';
+  const note = ctx.text.HASH_NOTICE || 'L\u2019hash SHA-256 di integrit\u00E0 di questo documento \u00E8 calcolato dopo la generazione del PDF e archiviato come metadato del contatto sul CRM (custom field "liberatoria_pdf_hash_sha256"). Per verificare l\u2019integrit\u00E0 del documento, calcolare l\u2019hash SHA-256 del file e confrontarlo con il valore archiviato.';
   drawParagraph(ctx, note, { size: 8, lineHeight: 11 });
 }
 
@@ -408,7 +403,7 @@ function applyFooters(ctx) {
   const pages = ctx.doc.getPages();
   const total = pages.length;
   const size = 7;
-  const footerLine1 = `Liberatoria training Elena Giordani  -  versione testo ${ctx.data.textVersion}  -  firmato il ${ctx.data.timestamp}`;
+  const footerLine1 = `Liberatoria ${ctx.text.FOOTER_NAME || "training Elena Giordani"} - ${ctx.data.textVersion} - ${ctx.data.timestamp}`;
   const footerLine2 = `IP firmatario: ${ctx.data.ip || 'n/d'}  -  Documento con valore di firma elettronica semplice (FES) ai sensi del Reg. UE 910/2014 (eIDAS)`;
   pages.forEach((page, idx) => {
     page.drawLine({
@@ -449,17 +444,14 @@ function formatDataIT(iso) {
   return `${pad(d.getUTCDate())}/${pad(d.getUTCMonth() + 1)}/${d.getUTCFullYear()} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())} UTC`;
 }
 
-function truncate(s, n) {
-  if (!s) return '';
-  return s.length > n ? s.slice(0, n - 1) + '\u2026' : s;
-}
-
-async function generaPDF(data) {
+async function generaPDF(data, text = defaultText, options = {}) {
+  const { TEXT_VERSION, TITOLO, EVENTO, DETTAGLI_EVENTO, INFORMATIVA,
+    LIBERATORIA, CLAUSOLA_FIRMA_DIGITALE, PRIVACY_NOTICE } = text;
   const doc = await PDFDocument.create();
 
-  doc.setTitle(`Liberatoria training - ${data.nome} ${data.cognome}`);
-  doc.setAuthor('Elena Giordani - X-Fit Academy');
-  doc.setSubject(`Liberatoria training firmata - versione ${TEXT_VERSION}`);
+  doc.setTitle(`Liberatoria ${text.FOOTER_NAME || "training"} - ${data.nome} ${data.cognome}`);
+  doc.setAuthor(EVENTO.organizzatore);
+  doc.setSubject(`Liberatoria ${text.FOOTER_NAME || "training"} firmata - versione ${TEXT_VERSION}`);
   doc.setKeywords([
     `textVersion:${TEXT_VERSION}`,
     `signedAt:${data.timestamp}`,
@@ -478,6 +470,8 @@ async function generaPDF(data) {
 
   const ctx = {
     doc,
+    text,
+    strictSignature: options.strictSignature === true,
     helv,
     helvBold,
     helvOblique,

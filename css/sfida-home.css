@@ -1,0 +1,158 @@
+/* Visual cleanup for the Sfida home. Copy, media and checkout behavior are preserved. */
+body.sfida-home-clean{--sfida-pink:#ff0080;--sfida-ink:#1a1a1a;--sfida-muted:#626262;--sfida-line:#e8e8e8;background:#fff}
+body.sfida-home-clean :is(.hero-shapes-opt,.shape-opt,.whatsapp-pulse,.principle-icon,.principle-number,.card-icon-box-fixed,.card-check-fixed,.result-icon,.result-number,.include-icon-wrap-v2,.why-icon,.not-icon,.what-is-icon,.faq-icon,.image-overlay,.visual-decoration){display:none!important}
+body.sfida-home-clean :is(.results-section,.why-works-section,.what-not-section,.cost-section,.about-section,.faq-section,.footer-section,.practice-box,.cta-box-fixed,.result-card,.closing-box,.why-block,.closing-card,.not-card,.what-is-box,.investment-box,.faq-cta-box)::before{display:none}
+body.sfida-home-clean :is(.hero-section-optimized,.story-section,.forwhom-section-fixed,.results-section,.includes-section-v2,.why-works-section,.what-not-section,.cost-section,.about-section,.faq-section){background:#fff;padding:76px 24px;min-height:0}
+body.sfida-home-clean :is(.includes-section-v2,.about-section){background:#fafafa}
+body.sfida-home-clean :is(.hero-container-opt,.story-container,.forwhom-container-fixed,.results-container,.includes-container-v2,.why-works-container,.what-not-container,.cost-container,.about-container,.faq-container){max-width:1040px}
+body.sfida-home-clean :is(.story-intro,.forwhom-header-fixed,.results-header,.includes-header-v2,.why-works-header,.what-not-header,.cost-header,.about-header,.faq-header){text-align:left;margin:0 0 36px}
+body.sfida-home-clean :is(.story-headline,.forwhom-title-fixed,.results-title,.includes-title-v2,.why-works-title,.what-not-title,.cost-title,.about-title,.faq-title){font-size:36px;line-height:1.3;font-weight:700;letter-spacing:-.03em;margin:0 0 18px;max-width:920px}
+body.sfida-home-clean :is(.story-text,.origin-text,.forwhom-subtitle-fixed,.includes-subtitle-v2,.why-paragraph,.not-description,.about-role,.mission-text,.cost-intro-text,.faq-answer p){font-size:16px;line-height:1.8;font-weight:400;color:var(--sfida-muted);max-width:760px;margin-left:0;margin-right:0}
+body.sfida-home-clean :is(.title-gradient,.highlight-text,.highlight-pink-opt,.title-emphasis,.title-highlight,.text-highlight,.cost-highlight,.investment-price){background:none;-webkit-text-fill-color:currentColor;color:var(--sfida-pink);text-shadow:none}
+body.sfida-home-clean strong{font-weight:600}
+body.sfida-home-clean :is(.principle-card,.forwhom-card-fixed,.result-card,.include-card-v2,.why-block,.not-card,.cost-item,.story-block,.method-item,.faq-item){box-shadow:none;transform:none;transition:none;border-radius:0;background:transparent;border:0;border-top:1px solid var(--sfida-line);padding:26px 0}
+body.sfida-home-clean :is(.principle-card,.forwhom-card-fixed,.result-card,.include-card-v2,.why-block,.not-card,.cost-item,.story-block,.method-item,.faq-item):hover{transform:none;box-shadow:none;border-color:var(--sfida-line);background:transparent}
+body.sfida-home-clean :is(.principle-title,.card-title-fixed,.result-title,.include-title-v2,.not-title,.story-title,.question-text){color:var(--sfida-ink);font-size:20px;font-weight:600;line-height:1.45;margin:0 0 10px}
+body.sfida-home-clean :is(.principle-text,.card-text-fixed,.result-text,.include-description-v2,.include-list-v2 li,.include-list-simple-v2 li,.include-note-v2,.method-description){font-size:15px;line-height:1.8;font-weight:400;color:var(--sfida-muted)}
+/* A restrained hero and one clear video action. */
+body.sfida-home-clean .hero-section-optimized{padding-top:32px;padding-bottom:56px}
+body.sfida-home-clean .hero-container-opt{gap:18px}
+body.sfida-home-clean .hero-logo-opt{margin:0 0 12px}
+body.sfida-home-clean .tagline-text-opt{font-size:17px;font-weight:500;line-height:1.6}
+body.sfida-home-clean .hero-headline-opt{margin-bottom:20px}
+body.sfida-home-clean .headline-problem-opt{font-size:32px;font-weight:700;line-height:1.4;letter-spacing:-.035em}
+body.sfida-home-clean .headline-small-opt{font-size:17px;font-weight:400;line-height:1.6;font-style:normal;margin-top:16px;color:var(--sfida-muted)}
+body.sfida-home-clean .underline-pink-opt{text-decoration:none;border:0;background:none}
+body.sfida-home-clean .hero-proof-compact-opt{border:0;border-radius:0;background:none;padding:0 20px 18px;margin:0}
+body.sfida-home-clean .proof-compact-text-opt{font-size:15px;font-weight:400;line-height:1.7}
+body.sfida-home-clean .method-text-opt{font-size:12px;letter-spacing:.07em;font-weight:600}
+body.sfida-home-clean :is(.video-wrapper-opt,.video-wrapper){box-shadow:none;border-radius:12px;overflow:hidden}
+body.sfida-home-clean .video-thumbnail-opt{background:#1a1a1a}
+body.sfida-home-clean :is(.overlay-message-opt,.overlay-submessage-opt){text-shadow:none;letter-spacing:0;font-weight:500}
+body.sfida-home-clean :is(.play-button-opt,.play-button){box-shadow:none;background:var(--sfida-pink);animation:none}
+body.sfida-home-clean :is(.hero-cta-btn-compact-opt,.cta-button-main-fixed,.includes-cta-button-v2,.why-cta-button,.what-not-button,.cost-cta-button,.about-cta-button,.faq-cta-button){background:var(--sfida-pink);color:#fff;border:0;border-radius:999px;box-shadow:none;text-shadow:none;font-size:16px;font-weight:600;line-height:1.5;padding:17px 28px;max-width:100%;min-height:54px;transform:none;transition:background .15s}
+body.sfida-home-clean :is(.hero-cta-btn-compact-opt,.cta-button-main-fixed,.includes-cta-button-v2,.why-cta-button,.what-not-button,.cost-cta-button,.about-cta-button,.faq-cta-button):hover{background:#df006f;color:#fff;box-shadow:none;transform:none}
+body.sfida-home-clean :is(.arrow-down,.cta-arrow-fixed,.why-cta-arrow,.button-arrow,.hero-cta-arrow-opt,.play-button-opt,.play-button){animation:none;transform:none}
+body.sfida-home-clean .scroll-down-button{border:0;background:none;box-shadow:none;transform:none;padding:12px 20px}
+body.sfida-home-clean .scroll-down-button:hover{background:none;box-shadow:none;transform:none}
+body.sfida-home-clean .scroll-button-section{padding:20px}
+body.sfida-home-clean :is(.line-1,.line-2){font-size:15px;font-weight:600;letter-spacing:0}
+body.sfida-home-clean .line-1::after{display:none}
+/* Replace repeated nested cards with sections and simple rules. */
+body.sfida-home-clean .divider-line{display:none}
+body.sfida-home-clean .story-origin{background:none;border-radius:0;border-left:2px solid var(--sfida-pink);padding:0 0 0 28px;margin:32px 0 42px}
+body.sfida-home-clean :is(.badge-origin,.practice-badge){background:none;color:var(--sfida-pink);border:0;border-radius:0;padding:0;font-size:11px;letter-spacing:.12em;font-weight:600;box-shadow:none}
+body.sfida-home-clean .origin-text{margin-bottom:16px}
+body.sfida-home-clean .principles-grid{gap:32px;margin-bottom:40px}
+body.sfida-home-clean .principle-card{text-align:left}
+body.sfida-home-clean .principle-title{font-size:18px}
+body.sfida-home-clean .practice-box{border-radius:12px;background:#1a1a1a;padding:38px;text-align:left}
+body.sfida-home-clean .practice-title{font-size:24px;font-weight:600;line-height:1.5}
+body.sfida-home-clean :is(.practice-text,.promise-text){font-size:15px;font-weight:400;line-height:1.8}
+body.sfida-home-clean .practice-promise{background:none;border:0;border-radius:0;padding:22px 0 0;margin-top:20px;border-top:1px solid #444}
+body.sfida-home-clean .promise-highlight{font-size:20px;line-height:1.6;font-weight:500}
+body.sfida-home-clean .forwhom-grid-fixed{gap:0 42px;margin-bottom:26px}
+body.sfida-home-clean .forwhom-card-fixed{display:block}
+body.sfida-home-clean .featured-card-fixed{grid-column:1/-1}
+body.sfida-home-clean .results-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 36px;margin-bottom:36px}
+body.sfida-home-clean .result-card{display:block}
+body.sfida-home-clean .featured-result{grid-column:auto}
+body.sfida-home-clean :is(.cta-box-fixed,.includes-cta-box-v2,.closing-box,.closing-card,.what-is-box,.faq-cta-box){background:none;border:0;border-top:1px solid var(--sfida-line);border-radius:0;padding:32px 0 0;box-shadow:none;text-align:left;color:var(--sfida-ink)}
+body.sfida-home-clean :is(.cta-question-fixed,.includes-cta-title-v2,.closing-question,.closing-answer,.what-is-title,.faq-cta-text){color:var(--sfida-ink);font-size:23px;line-height:1.5;font-weight:600;margin-bottom:14px}
+body.sfida-home-clean :is(.cta-subtext-fixed,.includes-cta-text-v2,.includes-cta-subtext-v2,.closing-text,.closing-highlight,.closing-final,.why-cta-subtext,.what-is-description,.what-not-subtext){font-size:15px;line-height:1.8;color:var(--sfida-muted);font-weight:400}
+body.sfida-home-clean .closing-bold{font-size:inherit;font-weight:500;color:inherit}
+body.sfida-home-clean :is(.closing-cta,.includes-cta-v2,.forwhom-cta-fixed,.faq-cta){margin-top:24px}
+body.sfida-home-clean .includes-grid-v2{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;margin-bottom:32px}
+body.sfida-home-clean :is(.featured-include-v2,.app-card-v2){grid-column:auto}
+body.sfida-home-clean .app-card-v2 :is(.include-title-v2,.include-description-v2){color:var(--sfida-ink)}
+body.sfida-home-clean .include-highlight-v2{background:none;border:0;border-radius:0;padding:10px 0;text-align:left;font-weight:500;color:var(--sfida-ink)}
+body.sfida-home-clean :is(.include-list-v2,.include-list-simple-v2){margin-top:12px}
+body.sfida-home-clean .include-list-v2 li{padding-left:18px}
+body.sfida-home-clean .include-list-v2 li::before{content:'•';color:var(--sfida-ink);font-size:15px;left:0}
+body.sfida-home-clean .why-works-content{gap:0;max-width:820px;margin:0 0 30px}
+body.sfida-home-clean .why-block{display:block}
+body.sfida-home-clean .why-paragraph{margin:0}
+body.sfida-home-clean .why-closing{max-width:820px}
+body.sfida-home-clean .what-not-grid{gap:0 32px;margin-bottom:28px}
+body.sfida-home-clean .not-card{display:block}
+body.sfida-home-clean .what-is-box{display:block}
+body.sfida-home-clean .cost-intro{text-align:left;margin-bottom:24px}
+body.sfida-home-clean .cost-list{max-width:800px;margin:0 0 30px;gap:0}
+body.sfida-home-clean .cost-item{padding:16px 0}
+body.sfida-home-clean .cost-text{font-size:16px;font-weight:400;line-height:1.8}
+body.sfida-home-clean .cost-bullet{font-size:18px}
+body.sfida-home-clean .turning-point{text-align:left;margin:28px 0}
+body.sfida-home-clean .turning-title{font-size:25px;font-weight:600}
+body.sfida-home-clean .investment-box{background:#1a1a1a;border:0;border-radius:12px;padding:40px;box-shadow:none}
+body.sfida-home-clean .investment-label{background:none;border:0;box-shadow:none;border-radius:0;padding:0;font-size:13px;letter-spacing:.1em;font-weight:500}
+body.sfida-home-clean .investment-price{font-size:64px;font-weight:700;line-height:1.3}
+body.sfida-home-clean .investment-subtitle{font-size:16px;font-weight:400}
+/* Keep Elena's photographs prominent; make the biography readable. */
+body.sfida-home-clean .about-content{grid-template-columns:310px minmax(0,1fr);gap:52px;margin-bottom:32px}
+body.sfida-home-clean .about-image-wrap{border:0;box-shadow:none;border-radius:10px;transform:none}
+body.sfida-home-clean .about-image{border-radius:10px;filter:none;transform:none}
+body.sfida-home-clean .about-name{font-size:27px;font-weight:600;line-height:1.4}
+body.sfida-home-clean .about-mission{background:none;border:0;border-radius:0;padding:22px 0 0;border-top:1px solid var(--sfida-line)}
+body.sfida-home-clean .mission-quote{font-size:16px;font-weight:400;line-height:1.8;color:var(--sfida-muted)}
+body.sfida-home-clean .about-story{gap:0;margin-bottom:32px}
+body.sfida-home-clean .story-block{padding:26px 0}
+body.sfida-home-clean :is(.method-box,.about-method,.about-closing,.closing-quote){box-shadow:none;background:none;border-radius:0;border:0;padding:24px 0;text-align:left}
+body.sfida-home-clean .method-item{padding:18px 0}
+body.sfida-home-clean .method-letter{background:none;border:0;border-radius:0;color:var(--sfida-pink);font-size:22px;box-shadow:none}
+body.sfida-home-clean .method-title{font-size:24px;font-weight:600}
+body.sfida-home-clean :is(.quote-text,.quote-bold){font-size:25px;font-weight:600;line-height:1.5}
+body.sfida-home-clean .closing-signature{font-size:16px;font-weight:400}
+/* FAQ rows remain fully readable, with no new accordion interaction. */
+body.sfida-home-clean .faq-container{max-width:900px}
+body.sfida-home-clean .faq-list{gap:0}
+body.sfida-home-clean .faq-question{gap:0;margin-bottom:10px}
+body.sfida-home-clean .faq-item{padding:24px 0}
+body.sfida-home-clean .faq-answer p{max-width:none}
+body.sfida-home-clean .featured-faq :is(.question-text,.faq-answer p,.faq-answer strong){color:var(--sfida-ink)}
+body.sfida-home-clean .answer-emphasis{border:0;background:none;padding:8px 0;color:var(--sfida-muted)}
+body.sfida-home-clean .footer-section{background:#1a1a1a;border:0}
+body.sfida-home-clean .footer-logo{font-size:25px;font-weight:600}
+body.sfida-home-clean .footer-tagline{font-size:14px;line-height:1.7}
+body.sfida-home-clean a:focus-visible{outline:3px solid #9c0050;outline-offset:5px}
+@media(max-width:800px){
+ body.sfida-home-clean :is(.story-section,.forwhom-section-fixed,.results-section,.includes-section-v2,.why-works-section,.what-not-section,.cost-section,.about-section,.faq-section){padding:48px 22px}
+ body.sfida-home-clean .hero-section-optimized{padding:24px 20px 40px}
+ body.sfida-home-clean :is(.story-headline,.forwhom-title-fixed,.results-title,.includes-title-v2,.why-works-title,.what-not-title,.cost-title,.about-title,.faq-title){font-size:28px;line-height:1.35;letter-spacing:-.035em}
+ body.sfida-home-clean :is(.story-intro,.forwhom-header-fixed,.results-header,.includes-header-v2,.why-works-header,.what-not-header,.cost-header,.about-header,.faq-header){margin-bottom:25px}
+ body.sfida-home-clean .headline-problem-opt{font-size:24px;line-height:1.4}
+ body.sfida-home-clean .headline-small-opt{font-size:14px;line-height:1.7;margin-top:14px}
+ body.sfida-home-clean .tagline-text-opt{font-size:14px}
+ body.sfida-home-clean .hero-proof-compact-opt{padding:0 0 12px}
+ body.sfida-home-clean .proof-compact-text-opt{font-size:13px}
+ body.sfida-home-clean .method-text-opt{font-size:10px;letter-spacing:.02em}
+ body.sfida-home-clean :is(.story-text,.origin-text,.forwhom-subtitle-fixed,.includes-subtitle-v2,.why-paragraph,.not-description,.about-role,.mission-text,.cost-intro-text,.faq-answer p){font-size:15px;line-height:1.8}
+ body.sfida-home-clean .story-origin{padding-left:18px;margin:26px 0 32px}
+ body.sfida-home-clean :is(.principles-grid,.forwhom-grid-fixed,.results-grid,.includes-grid-v2,.what-not-grid){grid-template-columns:1fr;gap:0;margin-bottom:24px}
+ body.sfida-home-clean :is(.principle-card,.forwhom-card-fixed,.result-card,.include-card-v2,.why-block,.not-card,.story-block){padding:22px 0}
+ body.sfida-home-clean :is(.principle-title,.card-title-fixed,.result-title,.include-title-v2,.not-title,.story-title,.question-text){font-size:18px}
+ body.sfida-home-clean :is(.featured-card-fixed,.featured-result,.featured-include-v2,.app-card-v2){grid-column:auto}
+ body.sfida-home-clean :is(.practice-box,.investment-box){padding:26px 22px;border-radius:10px}
+ body.sfida-home-clean :is(.practice-title,.turning-title){font-size:22px}
+ body.sfida-home-clean .promise-highlight{font-size:18px}
+ body.sfida-home-clean :is(.hero-cta-btn-compact-opt,.cta-button-main-fixed,.includes-cta-button-v2,.why-cta-button,.what-not-button,.cost-cta-button,.about-cta-button,.faq-cta-button){padding:15px 19px;font-size:14px;min-height:50px;white-space:normal;word-break:normal}
+ body.sfida-home-clean :is(.cta-question-fixed,.includes-cta-title-v2,.closing-question,.closing-answer,.what-is-title,.faq-cta-text){font-size:21px}
+ body.sfida-home-clean .about-content{grid-template-columns:1fr;gap:26px}
+ body.sfida-home-clean .about-image-wrap{max-width:330px;margin:0}
+ body.sfida-home-clean .about-name{font-size:24px}
+ body.sfida-home-clean :is(.quote-text,.quote-bold){font-size:22px}
+ body.sfida-home-clean .investment-price{font-size:54px}
+ body.sfida-home-clean .faq-item{padding:22px 0}
+}
+@media(prefers-reduced-motion:reduce){body.sfida-home-clean *,body.sfida-home-clean *::before,body.sfida-home-clean *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Remove the remaining ornamental treatments around the actual content. */
+body.sfida-home-clean :is(.play-pulse-opt,.overlay-arrow-opt){display:none}
+body.sfida-home-clean :is(.logo-image-opt,.play-button-opt svg){filter:none}
+body.sfida-home-clean .video-wrapper-compact-opt{box-shadow:none;border-radius:12px}
+body.sfida-home-clean .play-button-opt{background:none;border-radius:50%;box-shadow:none}
+body.sfida-home-clean .play-button-opt circle{fill:var(--sfida-pink)}
+body.sfida-home-clean :is(.include-badge-v2,.include-note-v2){background:none;border:0;border-radius:0;padding:12px 0 0;margin:12px 0 0;text-align:left;color:var(--sfida-muted);font-size:14px;font-weight:400;line-height:1.8}
+body.sfida-home-clean .include-list-simple-v2 li::before{color:var(--sfida-ink);font-size:17px;font-weight:400}
+body.sfida-home-clean .about-intro{border:0;padding-bottom:0}
+body.sfida-home-clean .mission-quote{background:none;border:0;border-radius:0;padding:0;margin:18px 0 0}
+body.sfida-home-clean .story-emphasis{font-size:18px;font-weight:600;text-align:left}
+@media(max-width:800px){body.sfida-home-clean :is(.include-badge-v2,.include-note-v2){font-size:14px}}

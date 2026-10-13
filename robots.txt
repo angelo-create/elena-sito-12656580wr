@@ -17,3 +17,5 @@ Disallow: /webinar-coach-grazie
 Disallow: /api/
 
 Sitemap: https://www.elenagiordani.com/sitemap.xml
+
+Disallow: /lib-escape-2026-pgv
