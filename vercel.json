@@ -83,6 +83,17 @@
       "permanent": true
     },
     {
+      "source": "/webinar-novembre",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
+      "destination": "https://go.elenagiordani.com/webinar-novembre",
+      "permanent": true
+    },
+    {
       "source": "/webinar-ricominci",
       "destination": "/webinar-agosto",
       "permanent": true
@@ -163,6 +174,41 @@
     {
       "source": "/selezione-agosto",
       "destination": "https://lp.elenagiordani.com/selezione?utm_source=webinar-live&utm_medium=chat&utm_campaign=webinar-25-26-27-agosto-2026&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/selezione-novembre",
+      "destination": "https://lp.elenagiordani.com/selezione?utm_source=webinar-live&utm_medium=chat&utm_campaign=webinar-10-novembre-2026&utm_content=selezione",
+      "permanent": false
+    },
+    {
+      "source": "/ig-storie-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre?utm_source=instagram&utm_medium=stories&utm_campaign=webinar-10-novembre-2026&utm_content=storie",
+      "permanent": false
+    },
+    {
+      "source": "/ig-bio-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre?utm_source=instagram&utm_medium=bio&utm_campaign=webinar-10-novembre-2026&utm_content=bio",
+      "permanent": false
+    },
+    {
+      "source": "/wa-lipedema-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre?utm_source=whatsapp&utm_medium=canale&utm_campaign=webinar-10-novembre-2026&utm_content=canale-lipedema",
+      "permanent": false
+    },
+    {
+      "source": "/wa-agosto-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre?utm_source=whatsapp&utm_medium=canale&utm_campaign=webinar-10-novembre-2026&utm_content=canale-agosto",
+      "permanent": false
+    },
+    {
+      "source": "/chat-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre?utm_source=flinky&utm_medium=chat&utm_campaign=webinar-10-novembre-2026&utm_content=chat-flinky",
+      "permanent": false
+    },
+    {
+      "source": "/email-invito-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre?utm_source=email&utm_medium=email&utm_campaign=webinar-10-novembre-2026&utm_content=invito-webinar",
       "permanent": false
     },
     {

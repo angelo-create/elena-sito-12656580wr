@@ -166,8 +166,15 @@ module.exports = async function handler(req, res) {
     //
     // `slug` è la pagina pubblica (l'URL non cambia quando si rinomina il tag)
     // e serve solo come fallback di event_source_url per Meta CAPI.
+    //
+    // `fonti` (opzionale): i valori di utm_content dei link tracciati
+    // dell'organico (vercel.json). Chi arriva da uno di questi riceve anche il
+    // tag `<fontePrefix>-<utm_content>`: serve per le già in lista, a cui il
+    // form calendario sovrascrive gli UTM quando prenotano la call con Marco.
     const WEBINAR_EVENTS = {
-      'webinar-25-26-27-agosto-2026':        { tag: 'webinar-25-26-27-agosto-2026', contentName: 'Webinar 25-26-27 Agosto 2026', slug: 'webinar-agosto' },
+      'webinar-10-novembre-2026':            { tag: 'webinar-10-novembre-2026',     contentName: 'Webinar Pancia Sonno Menopausa 10 Novembre 2026', slug: 'webinar-novembre',
+                                               fontePrefix: 'fonte-novembre', fonti: ['storie', 'bio', 'invito-webinar', 'canale-lipedema', 'canale-agosto', 'chat-flinky'] },
+      'webinar-25-26-27-agosto-2026':      { tag: 'webinar-25-26-27-agosto-2026', contentName: 'Webinar 25-26-27 Agosto 2026', slug: 'webinar-agosto' },
       'webinar-luglio-lipedema':             { tag: 'webinar-luglio-lipedema',      contentName: 'Webinar Lipedema 2026',        slug: 'webinar-luglio'    },
       'webinar-maggio-estate-inarrestabile': { tag: 'webinar-maggio-2026',          contentName: 'Estate Inarrestabile 2026',    slug: 'webinar-maggio'    },
       'webinar-maggio-2026':                 { tag: 'webinar-maggio-2026',          contentName: 'Estate Inarrestabile 2026',    slug: 'webinar-maggio'    },
@@ -194,6 +201,8 @@ module.exports = async function handler(req, res) {
     const contentName = event.contentName;
     const landingUrl = `https://go.elenagiordani.com/${event.slug}`;
     const tags = ['webinar-iscritta', eventTag];
+    const utmContent = body.utm_content ? String(body.utm_content).trim().toLowerCase() : '';
+    if (event.fonti && event.fonti.includes(utmContent)) tags.push(`${event.fontePrefix}-${utmContent}`);
 
     // NB: NON passiamo `tags` in upsert. /contacts/upsert con `tags` sovrascrive
     // l'array tag del contatto (cancella newsletter/altri tag preesistenti).
