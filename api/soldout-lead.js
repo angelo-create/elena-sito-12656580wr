@@ -14,6 +14,7 @@
 // vanno rilinkati per triggerare sul tag corrispondente.
 
 const { buildUtmPayload } = require('./_lib/build-utm-payload');
+const { normalizePhone } = require('./_lib/normalize-phone');
 
 module.exports = async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -38,7 +39,7 @@ module.exports = async function handler(req, res) {
         const rawName = body.name ? String(body.name).trim() : '';
         const email = body.email ? String(body.email).trim().toLowerCase() : '';
         const phoneRaw = body.phone ? String(body.phone).trim() : '';
-        const phoneDigits = phoneRaw.replace(/[^\d+]/g, '');
+        const phone = normalizePhone(phoneRaw);
 
         if (!rawName) return res.status(400).json({ error: 'Nome obbligatorio' });
         if (!email)   return res.status(400).json({ error: 'Email obbligatoria' });
@@ -67,7 +68,7 @@ module.exports = async function handler(req, res) {
             firstName,
             lastName,
             name: rawName.slice(0, 160),
-            phone: phoneDigits,
+            phone,
             locationId,
             source
         };
