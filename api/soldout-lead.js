@@ -1,5 +1,5 @@
 // /api/soldout-lead — endpoint per liste d'attesa eventi sold-out.
-// Usato da evento-novembre.html e lista-attesa-eventi.html.
+// Usato da evento-novembre.html, lista-attesa-eventi.html e lista-attesa-escape.html.
 //
 // Convertito da webhook a upsert API diretta per uniformità con webinar-lead.js
 // e per poter passare gli UTM come custom field GHL (vedi api/README.md REGOLA #4).
@@ -7,6 +7,7 @@
 // Il tag applicato dipende dal `source` passato dal client:
 //   - 'evento-novembre-lista-attesa' (default) -> tag 'lista-attesa-evento-novembre'
 //   - 'lista-attesa-eventi-generica'           -> tag 'lista-attesa-eventi-generica'
+//   - 'lista-attesa-escape-2027'               -> tag 'lista-attesa-escape-2027'
 //   - altrimenti                               -> tag 'lista-attesa-eventi-' + source (sanificato)
 //
 // Eventuali workflow GHL esistenti agganciati al webhook GHL_SOLDOUT_WEBHOOK
@@ -54,7 +55,8 @@ module.exports = async function handler(req, res) {
         const source = body.source ? String(body.source).slice(0, 120) : 'evento-novembre-lista-attesa';
         const tagBySource = {
             'evento-novembre-lista-attesa': 'lista-attesa-evento-novembre',
-            'lista-attesa-eventi-generica': 'lista-attesa-eventi-generica'
+            'lista-attesa-eventi-generica': 'lista-attesa-eventi-generica',
+            'lista-attesa-escape-2027': 'lista-attesa-escape-2027'
         };
         const tag = tagBySource[source]
             || ('lista-attesa-eventi-' + source.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80));
