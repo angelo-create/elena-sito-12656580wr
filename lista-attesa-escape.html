@@ -88,22 +88,6 @@
             text-transform: uppercase;
             line-height: 1.6;
         }
-        .la-hero-ph {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            border: none;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 1.25rem 1.5rem 0;
-        }
-        .la-location-card .la-ph {
-            width: 180px;
-            height: 120px;
-            border-radius: 12px;
-            flex-shrink: 0;
-        }
-
         .la-sold-badge {
             display: inline-flex;
             align-items: center;
@@ -215,8 +199,8 @@
         }
         .la-photostrip-track:hover { animation-play-state: paused; }
         .la-photostrip-img {
-            width: 280px;
-            height: 200px;
+            width: 240px;
+            height: 320px;
             border-radius: 12px;
             overflow: hidden;
             flex-shrink: 0;
@@ -252,12 +236,11 @@
         }
         .la-beat-text p:last-child { margin-bottom: 0; }
         .la-beat-photo {
-            aspect-ratio: 4/3;
+            aspect-ratio: 4/5;
             border-radius: 16px;
             overflow: hidden;
         }
         .la-beat-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .la-beat-photo .la-ph { border-radius: 16px; }
         .la-story-line {
             text-align: center;
             max-width: 600px;
@@ -521,11 +504,11 @@
             .la-hero-content { padding: 6rem 1.5rem 4rem; }
             .la-stats { gap: 1.5rem; padding: 2.5rem 1.5rem; flex-wrap: wrap; }
             .la-stat-number { font-size: 1.4rem; }
-            .la-photostrip-img { width: 220px; height: 160px; }
+            .la-photostrip-img { width: 180px; height: 240px; }
             .la-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
             .la-video-play { width: 50px; height: 50px; font-size: 1.25rem; }
             .la-location-card { flex-direction: column; text-align: center; }
-            .la-location-card img, .la-location-card .la-ph { width: 100%; height: 160px; }
+            .la-location-card img { width: 100%; height: 160px; }
             .la-beat { grid-template-columns: 1fr; gap: 1.5rem; margin: 2.5rem 0; }
             .la-beat-reverse .la-beat-text { order: 0; }
             .la-beat-text p, .la-story-line { font-size: 1.05rem; }
@@ -542,7 +525,7 @@
             .la-fade-in { transform: translateY(1.25rem); }
         }
         @media (max-width: 576px) {
-            .la-photostrip-img { width: 180px; height: 130px; }
+            .la-photostrip-img { width: 150px; height: 200px; }
             .la-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
             .la-video-play { width: 40px; height: 40px; font-size: 1rem; }
             .la-form-card { padding: 2rem 1.25rem; }
@@ -584,8 +567,7 @@
 
     <!-- HERO -->
     <section class="la-hero">
-        <!-- PLACEHOLDER: sostituire con <img src="img/escape/2026-hero.webp" alt="Escape 2026" class="la-hero-bg" loading="eager"> (orizzontale, almeno 1920x1080) -->
-        <div class="la-ph la-hero-ph">Foto hero Escape 2026<br>orizzontale 1920&times;1080</div>
+        <img src="img/escape/2026-hero-allenamento-tramonto.webp" alt="Allenamento all'aperto al tramonto, Escape 2026" class="la-hero-bg" style="object-position: center 55%;" loading="eager">
         <div class="la-hero-gradient"></div>
         <div class="la-hero-content">
             <img src="img/escape/logo-escape.webp" alt="Escape, il Retreat che cambia la tua Storia" class="la-hero-logo" width="900" height="427">
@@ -617,28 +599,26 @@
         </div>
     </div>
 
-    <!-- GALLERIA: PLACEHOLDER, sostituire ogni <div class="la-ph"> con <img src="img/escape/2026-....webp" alt="..." loading="lazy"> (orizzontali, 560x400). Nessuna didascalia con i giorni. La seconda serie e' il duplicato per lo scorrimento continuo: stesse foto, stesso ordine. -->
+    <!-- GALLERIA: foto di Escape 2026, senza didascalie sui giorni. La seconda serie e' il duplicato per lo scorrimento continuo: stesse foto, stesso ordine. -->
     <div class="la-photostrip">
         <div class="la-photostrip-track">
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 1</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 2</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 3</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 4</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 5</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 6</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 7</div></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-elena-slide.webp" alt="Elena in sala durante Escape 2026" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-sorrisi.webp" alt="Due partecipanti sorridenti a Escape 2026" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-stretching.webp" alt="Allenamento sui tappetini nella sala a volte" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-sessione.webp" alt="Una sessione in sala con Elena" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-gruppo.webp" alt="Partecipanti di Escape 2026 in posa" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-elena-schermo.webp" alt="Elena davanti allo schermo in sala" loading="lazy"></div>
             <!-- Duplicate for seamless loop -->
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 1</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 2</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 3</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 4</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 5</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 6</div></div>
-            <div class="la-photostrip-img"><div class="la-ph">Foto Escape 7</div></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-elena-slide.webp" alt="Elena in sala durante Escape 2026" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-sorrisi.webp" alt="Due partecipanti sorridenti a Escape 2026" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-stretching.webp" alt="Allenamento sui tappetini nella sala a volte" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-sessione.webp" alt="Una sessione in sala con Elena" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-gruppo.webp" alt="Partecipanti di Escape 2026 in posa" loading="lazy"></div>
+            <div class="la-photostrip-img"><img src="img/escape/2026-elena-schermo.webp" alt="Elena davanti allo schermo in sala" loading="lazy"></div>
         </div>
     </div>
 
-    <!-- COSA E' STATO ESCAPE 2026. Foto: sostituire ogni <div class="la-ph"> dentro .la-beat-photo con <img src="img/escape/2026-....webp" alt="..." loading="lazy"> (4:3). -->
+    <!-- COSA E' STATO ESCAPE 2026 -->
     <section class="section section-black">
         <div class="container">
             <div class="la-story">
@@ -651,21 +631,21 @@
                     <div class="la-beat-text">
                         <p>Trenta donne sul bordo di una piscina. Un conto alla rovescia. E poi gi&ugrave;, a bomba. Proprio quel tuffo che &ldquo;non si fa&rdquo;. E invece s&igrave;. Ridendo come bambine.</p>
                     </div>
-                    <div class="la-beat-photo"><div class="la-ph">Foto piscina</div></div>
+                    <div class="la-beat-photo"><img src="img/escape/2026-risate.webp" alt="Tre partecipanti che ridono a Escape 2026" loading="lazy"></div>
                 </div>
 
                 <div class="la-beat la-beat-reverse la-fade-in">
                     <div class="la-beat-text">
                         <p>La musica che parte e tutte a ballare, libere. I balli in acqua, leggere come a casa. E tutte intorno ad applaudire.</p>
                     </div>
-                    <div class="la-beat-photo"><div class="la-ph">Foto balli</div></div>
+                    <div class="la-beat-photo"><img src="img/escape/2026-allenamento-giardino.webp" alt="Allenamento di gruppo in giardino a Poggio Valle" loading="lazy"></div>
                 </div>
 
                 <div class="la-beat la-fade-in">
                     <div class="la-beat-text">
                         <p>Chilometri a piedi tra le colline, in mezzo alle mucche. Le gambe stanche, la testa finalmente in silenzio.</p>
                     </div>
-                    <div class="la-beat-photo"><div class="la-ph">Foto camminata</div></div>
+                    <div class="la-beat-photo"><img src="img/escape/2026-camminata.webp" alt="Il gruppo in cammino lungo il viale della tenuta" loading="lazy"></div>
                 </div>
 
                 <p class="la-story-line la-fade-in">Le colazioni lunghe, sedute, con calma. Le risate a tavola fino alle lacrime.</p>
@@ -675,7 +655,7 @@
                         <p>E poi c'&egrave; la parte che resta fuori dalle foto. Quello che succedeva in sala, a telefoni spenti.</p>
                         <p>Una donna che dice ad alta voce una cosa che teneva dentro da anni. Le altre in silenzio, ad ascoltare. Le mani strette. Gli abbracci senza parole. Il momento esatto in cui capisci che quella frase era anche la tua.</p>
                     </div>
-                    <div class="la-beat-photo"><div class="la-ph">Foto sala</div></div>
+                    <div class="la-beat-photo"><img src="img/escape/2026-sala.webp" alt="Elena davanti al gruppo in sala" loading="lazy"></div>
                 </div>
 
                 <div class="la-story-close la-fade-in">
@@ -684,8 +664,7 @@
                 </div>
 
                 <div class="la-location-card la-fade-in">
-                    <!-- PLACEHOLDER: sostituire con <img src="img/escape/poggio-valle.webp" alt="Poggio Valle" loading="lazy"> -->
-                    <div class="la-ph">Foto location</div>
+                    <img src="img/escape/2026-poggio-valle.webp" alt="La tenuta di Poggio Valle al tramonto" loading="lazy">
                     <div>
                         <div class="la-location-name">Poggio Valle</div>
                         <div class="la-location-address">Citt&agrave; della Pieve (PG), Umbria</div>
