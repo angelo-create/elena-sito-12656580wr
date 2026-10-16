@@ -530,6 +530,51 @@
             .la-video-play { width: 40px; height: 40px; font-size: 1rem; }
             .la-form-card { padding: 2rem 1.25rem; }
         }
+        /* ===== TEMA CHIARO: tutto bianco tranne il primo schermo (il logo argentato vuole il fondo scuro) ===== */
+        body.la-light { background: var(--white); color: #333; }
+        .la-light .section-black { background: var(--white); color: #1a1a1a; }
+        .la-light .section-title { color: #111; }
+        .la-light .section-subtitle { color: #666; }
+        .la-light .la-stats { background: var(--white); border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .la-light .la-stat-number { color: #111; }
+        .la-light .la-stat-label { color: #888; }
+        .la-light .la-photostrip { background: var(--white); }
+        .la-light .la-photostrip::before { background: linear-gradient(90deg, #fff, transparent); }
+        .la-light .la-photostrip::after { background: linear-gradient(-90deg, #fff, transparent); }
+        .la-light .la-photostrip-img { box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+        .la-light .la-beat-text p,
+        .la-light .la-story-line { color: #444; }
+        .la-light .la-beat-photo { box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+        .la-light .la-story-close p { color: #444; }
+        .la-light .la-story-close .la-story-punch { color: #111; }
+        .la-light .la-location-card { background: #faf7f8; border-color: rgba(0,0,0,0.06); }
+        .la-light .la-location-name { color: #111; }
+        .la-light .la-location-address { color: #777; }
+        .la-light .la-ph {
+            background: repeating-linear-gradient(135deg, rgba(233,30,99,0.05) 0 12px, transparent 12px 24px), #faf7f8;
+            border-color: rgba(233,30,99,0.35);
+            color: #b3a3a9;
+        }
+        .la-light .la-video-card { background: #faf7f8; border-color: rgba(0,0,0,0.08); }
+        .la-light .la-why { border-color: rgba(0,0,0,0.08); }
+        .la-light .la-why p { color: #555; }
+        .la-light .la-form-card { background: var(--white); border-color: rgba(233,30,99,0.25); box-shadow: 0 25px 60px rgba(0,0,0,0.08); backdrop-filter: none; }
+        .la-light .la-form-title { color: #111; }
+        .la-light .la-form-subtitle { color: #666; }
+        .la-light .la-form-label { color: #888; }
+        .la-light .la-form-input { background: #f7f7f7; border-color: rgba(0,0,0,0.12); color: #111; }
+        .la-light .la-form-input::placeholder { color: #aaa; }
+        .la-light .la-form-input:focus { background: var(--white); border-color: var(--pink-primary); }
+        .la-light .la-form-privacy { color: #999; }
+        .la-light .la-form-success h3 { color: #111; }
+        .la-light .la-form-success p { color: #555; }
+        .la-form-sign { margin-top: 1rem; font-style: italic; }
+        .la-light .la-faq-item { background: #fafafa; border-color: rgba(0,0,0,0.08); }
+        .la-light .la-faq-question { color: #111; }
+        .la-light .la-faq-question:hover { background: rgba(233,30,99,0.06); }
+        .la-light .la-faq-answer p { color: #555; }
+        .la-light .la-final-cta-fade { background: linear-gradient(180deg, var(--white) 0%, var(--pink-primary) 100%); }
+        .la-light .la-sticky-cta { background: var(--white); border-top-color: rgba(233,30,99,0.25); box-shadow: 0 -4px 30px rgba(0,0,0,0.1); }
     </style>
 
     <!-- Iubenda Cookie Solution -->
@@ -563,7 +608,7 @@
     <!-- UTM capture: first-touch persistente in sessionStorage -->
     <script src="/js/utm-capture.js"></script>
 </head>
-<body>
+<body class="la-light">
 
     <!-- HERO -->
     <section class="la-hero">
@@ -624,7 +669,7 @@
             <div class="la-story">
                 <div class="section-header center la-fade-in">
                     <span class="section-number">ESCAPE 2026</span>
-                    <h2 class="section-title" style="color: var(--white);">Cosa &egrave; stato <span class="highlight"><em>Escape 2026</em></span></h2>
+                    <h2 class="section-title">Cosa &egrave; stato <span class="highlight"><em>Escape 2026</em></span></h2>
                 </div>
 
                 <div class="la-beat la-fade-in">
@@ -681,8 +726,8 @@
         <div class="container">
             <div class="section-header center la-fade-in">
                 <span class="section-number">TESTIMONIANZE</span>
-                <h2 class="section-title" style="color: var(--white);">Chi c'era <span class="highlight"><em>racconta</em></span></h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Ascolta direttamente da loro com'&egrave; stato.</p>
+                <h2 class="section-title">Chi c'era <span class="highlight"><em>racconta</em></span></h2>
+                <p class="section-subtitle">Ascolta direttamente da loro com'&egrave; stato.</p>
             </div>
 
             <div class="la-video-grid la-fade-in">
@@ -714,7 +759,7 @@
     <section class="section section-black" style="padding-top: 0;">
         <div class="container">
             <div class="la-why la-fade-in">
-                <h2 class="section-title" style="color: var(--white);">Perch&eacute; solo <span class="highlight"><em>30 posti</em></span></h2>
+                <h2 class="section-title">Perch&eacute; solo <span class="highlight"><em>30 posti</em></span></h2>
                 <p>Escape &egrave; un ritiro immersivo, a numero chiuso. &Egrave; fatto di connessione e di scambio vero, e per seguire ogni donna da vicino i posti sono 30.</p>
             </div>
         </div>
@@ -749,7 +794,7 @@
                         <div class="la-form-success-icon">&#10003;</div>
                         <h3>Sei in lista.</h3>
                         <p>Se si libera un posto per Escape 2027, ti contattiamo noi, per email o al telefono.</p>
-                        <p style="margin-top: 1rem; font-style: italic; color: rgba(255,255,255,0.8);">Elena.</p>
+                        <p class="la-form-sign">Elena.</p>
                     </div>
                 </div>
             </div>
@@ -761,7 +806,7 @@
         <div class="container">
             <div class="section-header center la-fade-in">
                 <span class="section-number">DOMANDE</span>
-                <h2 class="section-title" style="color: var(--white);">Info <span class="highlight"><em>utili</em></span></h2>
+                <h2 class="section-title">Info <span class="highlight"><em>utili</em></span></h2>
             </div>
             <div class="la-faq-list la-fade-in">
                 <div class="la-faq-item">
