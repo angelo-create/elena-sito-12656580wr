@@ -67,27 +67,6 @@
             margin: 0 auto 2rem;
         }
 
-        /* ===== PLACEHOLDER FOTO (da sostituire con <img>) ===== */
-        .la-ph {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1rem;
-            box-sizing: border-box;
-            width: 100%;
-            height: 100%;
-            background:
-                repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 12px, transparent 12px 24px),
-                linear-gradient(160deg, #2a1420 0%, #141414 70%);
-            border: 1px dashed rgba(233,30,99,0.45);
-            color: rgba(255,255,255,0.45);
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            line-height: 1.6;
-        }
         .la-sold-badge {
             display: inline-flex;
             align-items: center;
@@ -287,7 +266,6 @@
             color: rgba(255,255,255,0.7);
             margin: 1.5rem 0 0;
         }
-        .la-cta-row { text-align: center; margin-top: 3rem; }
 
         .la-location-card {
             display: flex;
@@ -317,24 +295,6 @@
             color: rgba(255,255,255,0.5);
             font-weight: 300;
         }
-
-        /* ===== VIDEO TESTIMONIALS (from evento-maggio) ===== */
-        .la-video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
-        .la-video-card { border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; background: #1A1A1A; position: relative; display: block; aspect-ratio: 9/16; cursor: pointer; }
-        .la-video-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .la-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(233,30,99,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--white); transition: all 0.3s ease; }
-        .la-video-card:hover { border-color: rgba(233,30,99,0.5); transform: scale(1.03); }
-        .la-video-card:hover .la-video-play { background: var(--pink-primary); transform: translate(-50%, -50%) scale(1.1); }
-
-        /* Video Modal */
-        .la-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; align-items: center; justify-content: center; }
-        .la-modal.active { display: flex; }
-        .la-modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); cursor: pointer; }
-        .la-modal-content { position: relative; z-index: 2; width: 90%; max-width: 400px; }
-        .la-modal-close { position: absolute; top: -50px; right: 0; background: none; border: none; color: var(--white); font-size: 2.5rem; cursor: pointer; transition: color 0.3s ease; line-height: 1; }
-        .la-modal-close:hover { color: var(--pink-primary); }
-        .la-modal-wrapper { position: relative; width: 100%; aspect-ratio: 9/16; background: #000; border-radius: 12px; overflow: hidden; }
-        .la-modal-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
         /* ===== FORM ===== */
         .la-form-section {
@@ -505,8 +465,6 @@
             .la-stats { gap: 1.5rem; padding: 2.5rem 1.5rem; flex-wrap: wrap; }
             .la-stat-number { font-size: 1.4rem; }
             .la-photostrip-img { width: 180px; height: 240px; }
-            .la-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-            .la-video-play { width: 50px; height: 50px; font-size: 1.25rem; }
             .la-location-card { flex-direction: column; text-align: center; }
             .la-location-card img { width: 100%; height: 160px; }
             .la-beat { grid-template-columns: 1fr; gap: 1.5rem; margin: 2.5rem 0; }
@@ -526,8 +484,6 @@
         }
         @media (max-width: 576px) {
             .la-photostrip-img { width: 150px; height: 200px; }
-            .la-video-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-            .la-video-play { width: 40px; height: 40px; font-size: 1rem; }
             .la-form-card { padding: 2rem 1.25rem; }
         }
         /* ===== TEMA CHIARO: tutto bianco tranne il primo schermo (il logo argentato vuole il fondo scuro) ===== */
@@ -550,12 +506,6 @@
         .la-light .la-location-card { background: #faf7f8; border-color: rgba(0,0,0,0.06); }
         .la-light .la-location-name { color: #111; }
         .la-light .la-location-address { color: #777; }
-        .la-light .la-ph {
-            background: repeating-linear-gradient(135deg, rgba(233,30,99,0.05) 0 12px, transparent 12px 24px), #faf7f8;
-            border-color: rgba(233,30,99,0.35);
-            color: #b3a3a9;
-        }
-        .la-light .la-video-card { background: #faf7f8; border-color: rgba(0,0,0,0.08); }
         .la-light .la-why { border-color: rgba(0,0,0,0.08); }
         .la-light .la-why p { color: #555; }
         .la-light .la-form-card { background: var(--white); border-color: rgba(233,30,99,0.25); box-shadow: 0 25px 60px rgba(0,0,0,0.08); backdrop-filter: none; }
@@ -719,42 +669,6 @@
         </div>
     </section>
 
-    <!-- VIDEO TESTIMONIANZE: PLACEHOLDER. Per ogni video: sostituire il contenuto della card con
-         <img src="https://drive.google.com/thumbnail?id=ID_DRIVE&sz=w400" alt="Testimonianza" loading="lazy"><div class="la-video-play">&#9654;</div>
-         e aggiungere data-video="ID_DRIVE" alla card (il file Drive deve essere condiviso "chiunque abbia il link"). -->
-    <section class="section section-black" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header center la-fade-in">
-                <span class="section-number">TESTIMONIANZE</span>
-                <h2 class="section-title">Chi c'era <span class="highlight"><em>racconta</em></span></h2>
-                <p class="section-subtitle">Ascolta direttamente da loro com'&egrave; stato.</p>
-            </div>
-
-            <div class="la-video-grid la-fade-in">
-                <div class="la-video-card"><div class="la-ph">Video testimonianza 1</div></div>
-                <div class="la-video-card"><div class="la-ph">Video testimonianza 2</div></div>
-                <div class="la-video-card"><div class="la-ph">Video testimonianza 3</div></div>
-            </div>
-
-            <div class="la-cta-row la-fade-in">
-                <a href="#form" class="btn-primary">
-                    Entra in lista d'attesa
-                    <span>&rarr;</span>
-                </a>
-            </div>
-
-            <div class="la-modal" id="videoModal">
-                <div class="la-modal-overlay"></div>
-                <div class="la-modal-content">
-                    <button class="la-modal-close">&times;</button>
-                    <div class="la-modal-wrapper">
-                        <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- PERCHE' SOLO 30 POSTI -->
     <section class="section section-black" style="padding-top: 0;">
         <div class="container">
@@ -888,30 +802,6 @@
                 if (!isOpen) item.classList.add('open');
             });
         });
-
-        // Video Modal
-        var videoModal = document.getElementById('videoModal');
-        var videoFrame = document.getElementById('videoFrame');
-        var modalClose = document.querySelector('.la-modal-close');
-        var modalOverlay = document.querySelector('.la-modal-overlay');
-
-        document.querySelectorAll('.la-video-card[data-video]').forEach(function(card) {
-            card.addEventListener('click', function() {
-                var videoId = card.getAttribute('data-video');
-                videoFrame.src = 'https://drive.google.com/file/d/' + videoId + '/preview';
-                videoModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        function closeVideoModal() {
-            videoModal.classList.remove('active');
-            videoFrame.src = '';
-            document.body.style.overflow = '';
-        }
-        modalClose.addEventListener('click', closeVideoModal);
-        modalOverlay.addEventListener('click', closeVideoModal);
-        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeVideoModal(); });
 
         // Form Submit Handler
         document.getElementById('waitlistForm').addEventListener('submit', function(e) {
