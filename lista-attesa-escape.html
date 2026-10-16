@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape 2027 | Lista d'Attesa | Elena Giordani</title>
+    <title>Escape 2027 | Lista d'attesa | Elena Giordani</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png?v=elena-symbol-v1">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png?v=elena-symbol-v1">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png?v=elena-symbol-v1">
-    <meta name="description" content="Escape 2027, dal 30 settembre al 3 ottobre 2027, è già sold out. Entra in lista d'attesa: se si libera un posto, chi è in lista lo sa per prima.">
+    <meta name="description" content="Escape 2027 è già sold out. Entra in lista d'attesa: se si libera un posto, ti contattiamo noi.">
     <meta name="robots" content="noindex, nofollow">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Escape 2027 | Lista d'Attesa">
-    <meta property="og:description" content="Escape 2027 è già sold out. Entra in lista d'attesa: se si libera un posto, lo sai per prima.">
+    <meta property="og:title" content="Escape 2027 | Lista d'attesa | Elena Giordani">
+    <meta property="og:description" content="Escape 2027 è già sold out. Entra in lista d'attesa: se si libera un posto, ti contattiamo noi.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,21 +60,11 @@
             max-width: 800px;
             padding: 8rem 2rem 5rem;
         }
-        .la-hero-wordmark {
-            font-size: clamp(2.25rem, 6vw, 3.5rem);
-            font-weight: 300;
-            letter-spacing: 0.45em;
-            margin-right: -0.45em;
-            color: var(--white);
-            margin-bottom: 2rem;
-        }
-        .la-hero-wordmark span {
+        .la-hero-logo {
             display: block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            color: rgba(255,255,255,0.5);
-            margin-top: 0.75rem;
+            width: clamp(16rem, 42vw, 28rem);
+            height: auto;
+            margin: 0 auto 2rem;
         }
 
         /* ===== PLACEHOLDER FOTO (da sostituire con <img>) ===== */
@@ -240,33 +230,82 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* ===== COSA TI SEI PERSA ===== */
-        .la-what-section {
-            max-width: 800px;
+        /* ===== COSA E' STATO ESCAPE 2026 ===== */
+        .la-story {
+            max-width: 960px;
             margin: 0 auto;
         }
-        .la-checklist {
-            list-style: none;
-            padding: 0;
-            margin: 2.5rem 0;
+        .la-beat {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 3.5rem 0;
         }
-        .la-checklist li {
-            padding: 1rem 0;
-            padding-left: 2rem;
-            position: relative;
-            font-size: 1.05rem;
+        .la-beat-reverse .la-beat-text { order: 2; }
+        .la-beat-text p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            line-height: 1.85;
             color: rgba(255,255,255,0.8);
+            margin: 0 0 1rem;
+        }
+        .la-beat-text p:last-child { margin-bottom: 0; }
+        .la-beat-photo {
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .la-beat-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .la-beat-photo .la-ph { border-radius: 16px; }
+        .la-story-line {
+            text-align: center;
+            max-width: 600px;
+            margin: 3.5rem auto;
+            font-size: 1.15rem;
+            font-weight: 300;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.8);
+        }
+        .la-story-close {
+            text-align: center;
+            max-width: 680px;
+            margin: 4.5rem auto 3rem;
+        }
+        .la-story-close p {
+            font-size: 1.25rem;
+            font-weight: 300;
             line-height: 1.7;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.85);
+            margin: 0;
         }
-        .la-checklist li:last-child { border-bottom: none; }
-        .la-checklist li::before {
-            content: '\2713';
-            position: absolute;
-            left: 0;
-            color: var(--pink-primary);
+        .la-story-close .la-story-punch {
+            font-size: clamp(1.4rem, 3vw, 1.85rem);
             font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: var(--white);
+            margin-top: 1.25rem;
         }
+
+        /* ===== PERCHE' SOLO 30 POSTI ===== */
+        .la-why {
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .la-why p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+            margin: 1.5rem 0 0;
+        }
+        .la-cta-row { text-align: center; margin-top: 3rem; }
+
         .la-location-card {
             display: flex;
             gap: 2rem;
@@ -487,6 +526,12 @@
             .la-video-play { width: 50px; height: 50px; font-size: 1.25rem; }
             .la-location-card { flex-direction: column; text-align: center; }
             .la-location-card img, .la-location-card .la-ph { width: 100%; height: 160px; }
+            .la-beat { grid-template-columns: 1fr; gap: 1.5rem; margin: 2.5rem 0; }
+            .la-beat-reverse .la-beat-text { order: 0; }
+            .la-beat-text p, .la-story-line { font-size: 1.05rem; }
+            .la-story-line { margin: 2.5rem auto; }
+            .la-story-close { margin: 3rem auto 2.5rem; }
+            .la-story-close p { font-size: 1.1rem; }
             .la-form-card { padding: 2.5rem 1.75rem; }
             .la-final-cta { padding: 4rem 1.5rem 7rem; }
             .la-final-cta-fade { height: 5rem; }
@@ -539,18 +584,15 @@
 
     <!-- HERO -->
     <section class="la-hero">
-        <!-- PLACEHOLDER: sostituire con <img src="img/escape-2026/hero.webp" alt="Escape 2026" class="la-hero-bg" loading="eager"> (orizzontale, almeno 1920x1080) -->
+        <!-- PLACEHOLDER: sostituire con <img src="img/escape/2026-hero.webp" alt="Escape 2026" class="la-hero-bg" loading="eager"> (orizzontale, almeno 1920x1080) -->
         <div class="la-ph la-hero-ph">Foto hero Escape 2026<br>orizzontale 1920&times;1080</div>
         <div class="la-hero-gradient"></div>
         <div class="la-hero-content">
-            <div class="la-hero-wordmark">ESCAPE<span>con Elena Giordani</span></div>
+            <img src="img/escape/logo-escape.webp" alt="Escape, il Retreat che cambia la tua Storia" class="la-hero-logo" width="900" height="427">
             <div class="la-sold-badge">Escape 2027 &middot; Sold out</div>
-            <h1 class="la-hero-title">
-                Escape 2027 &egrave; gi&agrave; sold out.<br><span class="accent">Un anno prima di partire.</span>
-            </h1>
+            <h1 class="la-hero-title">Escape 2027 &egrave; gi&agrave; sold&nbsp;out.</h1>
             <p class="la-hero-subtitle">
-                <strong>Escape 2027</strong>: dal 30 settembre al 3 ottobre.<br>
-                Se si libera un posto, chi &egrave; in lista d'attesa lo sa per prima.
+                I posti sono stati prenotati in pochi giorni. C'&egrave; ancora una possibilit&agrave;: entra in lista d'attesa. Se si libera un posto, ti contattiamo noi.
             </p>
             <a href="#form" class="btn-primary">
                 Entra in lista d'attesa
@@ -559,23 +601,23 @@
         </div>
     </section>
 
-    <!-- SOCIAL PROOF STATS -->
+    <!-- STRISCIA NUMERI -->
     <div class="la-stats">
         <div class="la-stat">
-            <div class="la-stat-number">2026</div>
-            <div class="la-stat-label">Sold out</div>
+            <div class="la-stat-number">30</div>
+            <div class="la-stat-label">Posti in tutto</div>
+        </div>
+        <div class="la-stat">
+            <div class="la-stat-number">Sold out</div>
+            <div class="la-stat-label">In pochi giorni</div>
         </div>
         <div class="la-stat">
             <div class="la-stat-number">2027</div>
-            <div class="la-stat-label">Gi&agrave; sold out</div>
-        </div>
-        <div class="la-stat">
-            <div class="la-stat-number">5<span>gg</span></div>
-            <div class="la-stat-label">In Umbria con Elena</div>
+            <div class="la-stat-label">Dal 30 settembre al 3 ottobre</div>
         </div>
     </div>
 
-    <!-- PHOTOSTRIP: PLACEHOLDER, sostituire ogni <div class="la-ph"> con <img src="img/escape-2026/..." alt="..." loading="lazy"> (orizzontali, 560x400). La seconda serie e' il duplicato per lo scorrimento continuo: stesse foto, stesso ordine. -->
+    <!-- GALLERIA: PLACEHOLDER, sostituire ogni <div class="la-ph"> con <img src="img/escape/2026-....webp" alt="..." loading="lazy"> (orizzontali, 560x400). Nessuna didascalia con i giorni. La seconda serie e' il duplicato per lo scorrimento continuo: stesse foto, stesso ordine. -->
     <div class="la-photostrip">
         <div class="la-photostrip-track">
             <div class="la-photostrip-img"><div class="la-ph">Foto Escape 1</div></div>
@@ -596,28 +638,57 @@
         </div>
     </div>
 
-    <!-- COSA E' SUCCESSO -->
+    <!-- COSA E' STATO ESCAPE 2026. Foto: sostituire ogni <div class="la-ph"> dentro .la-beat-photo con <img src="img/escape/2026-....webp" alt="..." loading="lazy"> (4:3). -->
     <section class="section section-black">
         <div class="container">
-            <div class="la-what-section la-fade-in">
-                <div class="section-header center">
+            <div class="la-story">
+                <div class="section-header center la-fade-in">
                     <span class="section-number">ESCAPE 2026</span>
-                    <h2 class="section-title" style="color: var(--white);">Ecco cosa &egrave; <span class="highlight"><em>successo</em></span></h2>
-                    <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Cinque giorni fuori dalla solita vita. Allenamento, respiro e sonno, con Elena dal vivo.</p>
+                    <h2 class="section-title" style="color: var(--white);">Cosa &egrave; stato <span class="highlight"><em>Escape 2026</em></span></h2>
                 </div>
-                <ul class="la-checklist">
-                    <li>5 giorni con Elena a Poggiovalle, in Umbria</li>
-                    <li>Allenamento con il <strong>Metodo E.A.S.Y.</strong>, camminate e corsa all'aperto</li>
-                    <li>Respirazione e meditazione, per far rallentare il sistema nervoso</li>
-                    <li>Una giornata intera sul sonno: perch&eacute; dormire poco frena la ricomposizione e come costruire la routine serale 3-2-1</li>
-                    <li>Donne che per cinque giorni hanno messo s&eacute; stesse al primo posto</li>
-                </ul>
-                <div class="la-location-card">
-                    <!-- PLACEHOLDER: sostituire con <img src="img/escape-2026/poggiovalle.webp" alt="Poggiovalle" loading="lazy"> -->
+
+                <div class="la-beat la-fade-in">
+                    <div class="la-beat-text">
+                        <p>Trenta donne sul bordo di una piscina. Un conto alla rovescia. E poi gi&ugrave;, a bomba. Proprio quel tuffo che &ldquo;non si fa&rdquo;. E invece s&igrave;. Ridendo come bambine.</p>
+                    </div>
+                    <div class="la-beat-photo"><div class="la-ph">Foto piscina</div></div>
+                </div>
+
+                <div class="la-beat la-beat-reverse la-fade-in">
+                    <div class="la-beat-text">
+                        <p>La musica che parte e tutte a ballare, libere. I balli in acqua, leggere come a casa. E tutte intorno ad applaudire.</p>
+                    </div>
+                    <div class="la-beat-photo"><div class="la-ph">Foto balli</div></div>
+                </div>
+
+                <div class="la-beat la-fade-in">
+                    <div class="la-beat-text">
+                        <p>Chilometri a piedi tra le colline, in mezzo alle mucche. Le gambe stanche, la testa finalmente in silenzio.</p>
+                    </div>
+                    <div class="la-beat-photo"><div class="la-ph">Foto camminata</div></div>
+                </div>
+
+                <p class="la-story-line la-fade-in">Le colazioni lunghe, sedute, con calma. Le risate a tavola fino alle lacrime.</p>
+
+                <div class="la-beat la-beat-reverse la-fade-in">
+                    <div class="la-beat-text">
+                        <p>E poi c'&egrave; la parte che resta fuori dalle foto. Quello che succedeva in sala, a telefoni spenti.</p>
+                        <p>Una donna che dice ad alta voce una cosa che teneva dentro da anni. Le altre in silenzio, ad ascoltare. Le mani strette. Gli abbracci senza parole. Il momento esatto in cui capisci che quella frase era anche la tua.</p>
+                    </div>
+                    <div class="la-beat-photo"><div class="la-ph">Foto sala</div></div>
+                </div>
+
+                <div class="la-story-close la-fade-in">
+                    <p>Questo &egrave; stato Escape. Pi&ugrave; di una vacanza: una promessa fatta a s&eacute; stesse.</p>
+                    <p class="la-story-punch">Ed &egrave; per questo che Escape 2027 si &egrave; riempito in pochi giorni.</p>
+                </div>
+
+                <div class="la-location-card la-fade-in">
+                    <!-- PLACEHOLDER: sostituire con <img src="img/escape/poggio-valle.webp" alt="Poggio Valle" loading="lazy"> -->
                     <div class="la-ph">Foto location</div>
                     <div>
-                        <div class="la-location-name">Poggiovalle</div>
-                        <div class="la-location-address">Citt&agrave; della Pieve (PG), Umbria &middot; Edizione 2026</div>
+                        <div class="la-location-name">Poggio Valle</div>
+                        <div class="la-location-address">Citt&agrave; della Pieve (PG), Umbria</div>
                     </div>
                 </div>
             </div>
@@ -632,13 +703,20 @@
             <div class="section-header center la-fade-in">
                 <span class="section-number">TESTIMONIANZE</span>
                 <h2 class="section-title" style="color: var(--white);">Chi c'era <span class="highlight"><em>racconta</em></span></h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Ascolta direttamente da loro com'&egrave; stato</p>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Ascolta direttamente da loro com'&egrave; stato.</p>
             </div>
 
             <div class="la-video-grid la-fade-in">
                 <div class="la-video-card"><div class="la-ph">Video testimonianza 1</div></div>
                 <div class="la-video-card"><div class="la-ph">Video testimonianza 2</div></div>
                 <div class="la-video-card"><div class="la-ph">Video testimonianza 3</div></div>
+            </div>
+
+            <div class="la-cta-row la-fade-in">
+                <a href="#form" class="btn-primary">
+                    Entra in lista d'attesa
+                    <span>&rarr;</span>
+                </a>
             </div>
 
             <div class="la-modal" id="videoModal">
@@ -653,14 +731,24 @@
         </div>
     </section>
 
+    <!-- PERCHE' SOLO 30 POSTI -->
+    <section class="section section-black" style="padding-top: 0;">
+        <div class="container">
+            <div class="la-why la-fade-in">
+                <h2 class="section-title" style="color: var(--white);">Perch&eacute; solo <span class="highlight"><em>30 posti</em></span></h2>
+                <p>Escape &egrave; un ritiro immersivo, a numero chiuso. &Egrave; fatto di connessione e di scambio vero, e per seguire ogni donna da vicino i posti sono 30.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- FORM LISTA D'ATTESA -->
     <section class="section section-black" id="form">
         <div class="container">
             <div class="la-form-section la-fade-in">
                 <div class="la-form-card">
                     <div id="formContent">
-                        <div class="la-form-title">Escape 2027: entra in lista</div>
-                        <p class="la-form-subtitle">I posti sono finiti. Lascia i tuoi dati: se per Escape 2027 si libera un posto, chi &egrave; in lista viene contattata per prima.</p>
+                        <div class="la-form-title">Escape 2027: entra in lista d'attesa</div>
+                        <p class="la-form-subtitle">Tutti i posti sono prenotati. Se se ne libera uno, contattiamo le donne in lista. Lascia i tuoi dati.</p>
                         <form id="waitlistForm" action="" method="POST">
                             <div class="la-form-group">
                                 <label class="la-form-label" for="nome">Nome</label>
@@ -674,14 +762,14 @@
                                 <label class="la-form-label" for="telefono">Telefono</label>
                                 <input class="la-form-input" type="tel" id="telefono" name="telefono" placeholder="Il tuo numero" required>
                             </div>
-                            <button type="submit" class="la-form-btn">Voglio Essere Avvisata</button>
+                            <button type="submit" class="la-form-btn">Voglio entrare in lista</button>
                         </form>
-                        <p class="la-form-privacy">I tuoi dati sono al sicuro. Non li condivideremo con nessuno.</p>
+                        <p class="la-form-privacy">I tuoi dati restano tra noi e servono solo per contattarti.</p>
                     </div>
                     <div class="la-form-success" id="formSuccess">
                         <div class="la-form-success-icon">&#10003;</div>
                         <h3>Sei in lista.</h3>
-                        <p>Se si libera un posto per Escape 2027 ti scriviamo, per email o al telefono. Intanto segnati le date: dal 30 settembre al 3 ottobre 2027.</p>
+                        <p>Se si libera un posto per Escape 2027, ti contattiamo noi, per email o al telefono.</p>
                         <p style="margin-top: 1rem; font-style: italic; color: rgba(255,255,255,0.8);">Elena.</p>
                     </div>
                 </div>
@@ -698,20 +786,24 @@
             </div>
             <div class="la-faq-list la-fade-in">
                 <div class="la-faq-item">
-                    <button class="la-faq-question">Quando si svolge Escape 2027?<span class="la-faq-toggle">+</span></button>
-                    <div class="la-faq-answer"><p>Da gioved&igrave; 30 settembre a domenica 3 ottobre 2027. I posti sono gi&agrave; tutti presi: la lista d'attesa serve per quelli che si liberano.</p></div>
+                    <button class="la-faq-question">Escape 2027 &egrave; davvero sold out?<span class="la-faq-toggle">+</span></button>
+                    <div class="la-faq-answer"><p>S&igrave;. Tutti i 30 posti sono stati prenotati in pochi giorni.</p></div>
+                </div>
+                <div class="la-faq-item">
+                    <button class="la-faq-question">Come funziona la lista d'attesa?<span class="la-faq-toggle">+</span></button>
+                    <div class="la-faq-answer"><p>Se si libera un posto, contattiamo le donne in lista.</p></div>
                 </div>
                 <div class="la-faq-item">
                     <button class="la-faq-question">Entrare in lista mi impegna a partecipare?<span class="la-faq-toggle">+</span></button>
-                    <div class="la-faq-answer"><p>No. Non paghi niente e non ti impegni a niente. Se si libera un posto ti scriviamo, poi decidi tu.</p></div>
-                </div>
-                <div class="la-faq-item">
-                    <button class="la-faq-question">E se non si libera nessun posto?<span class="la-faq-toggle">+</span></button>
-                    <div class="la-faq-answer"><p>Resti in lista. Quando apriamo la prossima edizione di Escape, chi &egrave; in lista lo sa per prima.</p></div>
+                    <div class="la-faq-answer"><p>&Egrave; gratuito e senza impegno. Se si libera un posto ti scriviamo, e decidi tu.</p></div>
                 </div>
                 <div class="la-faq-item">
                     <button class="la-faq-question">Come vengo avvisata?<span class="la-faq-toggle">+</span></button>
                     <div class="la-faq-answer"><p>Per email o al telefono, ai contatti che lasci nel modulo. Controlla di aver scritto bene il numero.</p></div>
+                </div>
+                <div class="la-faq-item">
+                    <button class="la-faq-question">Quando si svolge Escape 2027?<span class="la-faq-toggle">+</span></button>
+                    <div class="la-faq-answer"><p>Dal 30 settembre al 3 ottobre 2027, in Umbria.</p></div>
                 </div>
             </div>
         </div>
@@ -719,14 +811,12 @@
 
     <div class="la-final-cta-fade"></div>
 
-    <!-- FINAL CTA -->
+    <!-- CHIUSURA -->
     <section class="la-final-cta">
         <div class="la-final-cta-content">
-            <h2>Quante volte hai rimandato qualcosa per te a &ldquo;quando avr&ograve; tempo&rdquo;?</h2>
-            <p>Il tempo non arriva da solo. Si sceglie.</p>
-            <p>Escape 2027 &egrave; pieno. <strong>La lista d'attesa no.</strong></p>
-            <p class="la-question">Questa volta scegli te.</p>
-            <a href="#form" class="la-btn-white">
+            <h2>Escape 2027 &egrave; al completo.<br>La lista d'attesa &egrave; aperta.</h2>
+            <p>Se senti che &egrave; il tuo momento, lascia il tuo nome. Se si libera un posto, ti contattiamo noi.</p>
+            <a href="#form" class="la-btn-white" style="margin-top: 2rem;">
                 Entra in lista
                 <span>&rarr;</span>
             </a>
