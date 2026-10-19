@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>if(window.self!==window.top){try{window.top.location.href=window.location.href}catch(e){}}</script>
-    <title>Sei dentro. Pancia, sonno e menopausa: martedì 10 novembre | Elena Giordani</title>
+    <title>Sei dentro: martedì 10 novembre con Elena Giordani</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png?v=elena-symbol-v1">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png?v=elena-symbol-v1">
@@ -18,7 +18,7 @@
          ╚══════════════════════════════════════════════════════════════╝ -->
     <script>
     var THANKYOU = {
-        data:         "Marted\u00ec 10 Novembre",
+        data:         "marted\u00ec 10 novembre",
         orario:       "18:30",
         countdownISO: "2026-11-10T18:30:00+01:00",
         luogo:         "Zoom",
@@ -26,6 +26,7 @@
         // Nel flusso normale arriva da GHL come ?link=, questo e' solo il fallback:
         // lasciarlo vuoto e' meglio che lasciarci il link di un webinar passato.
         linkWebinar:   "",
+        whatsappGruppo:    "https://chat.whatsapp.com/EBPV12gXyyW0TDz8zyr4CB",
         whatsappLink:      "https://wa.me/message/2BDLYKM7476IK1",
         whatsappNumero:    "393773892181",
         whatsappMessaggio: "Ci sar\u00f2 marted\u00ec 10 novembre!"
@@ -46,6 +47,9 @@
         if (p.get('data'))   THANKYOU.data = p.get('data');
         if (p.get('link'))   THANKYOU.linkWebinar = p.get('link');
         if (p.get('luogo'))  THANKYOU.luogo = p.get('luogo');
+        // Id del contatto GHL, passato dalla landing: serve per il link d'invito personale
+        var c = p.get('c') || '';
+        THANKYOU.contactId = /^[A-Za-z0-9]{15,40}$/.test(c) ? c : '';
     })();
     </script>
 
@@ -219,11 +223,23 @@
         letter-spacing: 0.12em;
         margin-bottom: 0.4rem;
     }
+    .ty-info-value::first-letter { text-transform: uppercase; }
     .ty-info-value {
         font-size: 0.92rem;
         font-weight: 700;
         color: var(--text);
     }
+    .ty-regalo {
+        background: rgba(233,30,99,0.06);
+        border: 1px solid rgba(233,30,99,0.25);
+        border-radius: 14px;
+        padding: 1rem 1.25rem;
+        text-align: center;
+        font-size: 0.95rem;
+        color: var(--text-soft);
+    }
+    .ty-regalo strong { color: var(--pink-deep); }
+
     /* ════════ WARNING ════════ */
     .ty-warning {
         background: var(--bg-cream);
@@ -252,7 +268,7 @@
         max-width: 1000px;
         margin: 0 auto;
     }
-    @media (min-width: 768px) { .ty-steps-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+    @media (min-width: 768px) { .ty-steps-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 820px; } }
     .ty-step-card {
         background: var(--bg-soft);
         border: 1px solid var(--border);
@@ -486,8 +502,8 @@
             </div>
             <h1 class="ei-h1">Iscrizione confermata, <span class="accent">sei dentro!</span></h1>
             <p class="ty-hero-lead">
-                <strong>Ci vediamo <span data-cfg="data">Marted&igrave; 10 Novembre</span> alle <span data-cfg="orario">18:30</span>.</strong>
-                Ti ho appena mandato l'email con il link Zoom. Fai i 3 passi qui sotto per non perderti la serata.
+                <strong>Ci vediamo <span data-cfg="data">marted&igrave; 10 novembre</span> alle <span data-cfg="orario">18:30</span>.</strong>
+                Ti ho appena mandato l'email con il link Zoom. Ora fai le quattro cose qui sotto, cos&igrave; non ti perdi la serata.
             </p>
         </div>
     </div>
@@ -497,13 +513,13 @@
 <section class="ty-info-section">
     <div class="ei-container">
         <div class="ty-info-card">
-            <div class="ty-info-eyebrow">Il tuo webinar</div>
-            <h2 class="ty-info-title">Pancia, sonno e menopausa: la serata con Elena</h2>
+            <div class="ty-info-eyebrow">La tua serata</div>
+            <h2 class="ty-info-title">Pancia, ormoni e sonno in menopausa: l&rsquo;evento live gratuito</h2>
 
             <div class="ty-info-grid">
                 <div class="ty-info-item">
                     <div class="ty-info-label">Quando</div>
-                    <div class="ty-info-value" data-cfg="data">Marted&igrave; 10 Novembre</div>
+                    <div class="ty-info-value" data-cfg="data">marted&igrave; 10 novembre</div>
                 </div>
                 <div class="ty-info-item">
                     <div class="ty-info-label">Orario</div>
@@ -515,6 +531,8 @@
                 </div>
             </div>
 
+            <p class="ty-regalo"><strong>Resta collegata fino alla fine:</strong> prima di salutarci faccio un regalo a chi &egrave; ancora con me. Cosa sia, lo scopri marted&igrave;.</p>
+
         </div>
     </div>
 </section>
@@ -523,7 +541,7 @@
 <div class="ty-warning">
     <div class="ei-container">
         <div class="ty-warning-card">
-            &#9888;&#65039; <strong>Fai subito i 3 passi qui sotto:</strong> ricevi i promemoria e il link Zoom ti arriva anche su WhatsApp.
+            &#9888;&#65039; <strong>La cosa pi&ugrave; importante:</strong> entra nel gruppo WhatsApp della serata, cos&igrave; il link Zoom e i promemoria ti arrivano anche l&igrave;.
         </div>
     </div>
 </div>
@@ -532,31 +550,38 @@
 <section class="ei-section ty-steps-section">
     <div class="ei-container">
         <div class="ty-steps-header">
-            <span class="ei-eyebrow">3 passi fondamentali</span>
-            <h2 class="ei-h2">Cosa devi fare <span style="color: var(--pink);">adesso</span></h2>
-            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">Non rimandare. Bastano 2 minuti.</p>
+            <span class="ei-eyebrow">Prima di chiudere la pagina</span>
+            <h2 class="ei-h2">Cosa fare <span style="color: var(--pink);">adesso</span></h2>
+            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">Ci vogliono due minuti.</p>
         </div>
 
         <div class="ty-steps-grid">
 
             <div class="ty-step-card">
                 <div class="ty-step-num">1</div>
-                <h3>Conferma su WhatsApp</h3>
-                <p>Clicca il pulsante e scrivimi <strong>&ldquo;Ci sar&ograve;!&rdquo;</strong> per confermare la tua presenza e ricevere i promemoria.</p>
-                <a href="#" id="tyWhatsapp" class="ty-step-btn ty-btn-whatsapp">Conferma su WhatsApp &rarr;</a>
+                <h3>Entra nel gruppo WhatsApp</h3>
+                <p>&Egrave; il gruppo della serata: l&igrave; arrivano <strong>il link Zoom e i promemoria</strong>, cos&igrave; non devi cercarli tra le email.</p>
+                <a href="#" id="tyGruppo" target="_blank" rel="noopener" class="ty-step-btn ty-btn-whatsapp">Entra nel gruppo &rarr;</a>
             </div>
 
             <div class="ty-step-card">
                 <div class="ty-step-num">2</div>
-                <h3>Blocca la data</h3>
-                <p>Aggiungi l'evento al calendario cos&igrave; non rischi di dimenticartene. <strong data-cfg="dates-text">Marted&igrave; 10 Novembre alle 18:30.</strong></p>
-                <a href="#" id="tyCalendar" target="_blank" class="ty-step-btn ty-btn-calendar">Aggiungi al Calendario &rarr;</a>
+                <h3>Segnati la data</h3>
+                <p>Aggiungi la serata al calendario, cos&igrave; non te ne dimentichi: <strong data-cfg="dates-text">marted&igrave; 10 novembre alle 18:30.</strong></p>
+                <a href="#" id="tyCalendar" target="_blank" class="ty-step-btn ty-btn-calendar">Aggiungi al calendario &rarr;</a>
             </div>
 
             <div class="ty-step-card">
                 <div class="ty-step-num">3</div>
+                <h3>Conferma su WhatsApp</h3>
+                <p>Tocca il pulsante e scrivimi <strong>&ldquo;Ci sar&ograve;!&rdquo;</strong>: cos&igrave; so che ci sei.</p>
+                <a href="#" id="tyWhatsapp" class="ty-step-btn ty-btn-whatsapp">Conferma su WhatsApp &rarr;</a>
+            </div>
+
+            <div class="ty-step-card">
+                <div class="ty-step-num">4</div>
                 <h3>Seguimi su Instagram</h3>
-                <p>Vieni in Direct e scrivimi <strong>&ldquo;METABOLISMO&rdquo;</strong> per ricevere contenuti esclusivi che non condivido altrove.</p>
+                <p>Scrivimi in direct la parola <strong>&ldquo;METABOLISMO&rdquo;</strong>: ti mando contenuti che non pubblico da nessun&rsquo;altra parte.</p>
                 <a href="https://www.instagram.com/elenagiordani_lifecoach" target="_blank" class="ty-step-btn ty-btn-instagram">Vai su Instagram &rarr;</a>
             </div>
 
@@ -567,14 +592,14 @@
 <!-- ═══════════════════ REFERRAL — pink island ═══════════════════ -->
 <section class="ei-section ty-referral">
     <div class="ei-container">
-        <span class="ei-eyebrow">Invita un'amica</span>
-        <h2 class="ei-h2">Hai un'amica che <span style="text-decoration: underline; text-decoration-thickness: 3px;">deve</span> diventare Inarrestabile?</h2>
-        <p class="ty-referral-lead">
-            Sai quella che mangia poco, dorme male e ti dice sempre che la pancia non va via? Invitala. Le trasformazioni pi&ugrave; belle le ho viste quando arrivano in due.
+        <span class="ei-eyebrow">Porta un'amica</span>
+        <h2 class="ei-h2">Hai un'amica che mangia poco, dorme male e ha la pancia che non va via?</h2>
+        <p class="ty-referral-lead" id="tyInvitoLead">
+            Mandale il link della serata: marted&igrave; vi collegate insieme e il regalo di fine serata lo ricevete tutte e due.
         </p>
 
         <div class="ty-referral-quote">
-            &ldquo;Le trasformazioni pi&ugrave; belle le ho viste quando le donne arrivano in coppia. Si sostengono, si motivano, e un anno dopo ci sono ancora.&rdquo;
+            &ldquo;I cambiamenti pi&ugrave; belli li ho visti nelle donne che arrivano in coppia: si sostengono nei giorni storti e un anno dopo ci sono ancora.&rdquo;
         </div>
 
         <div class="ty-referral-buttons">
@@ -590,7 +615,7 @@
     <div class="ei-container">
         <h3>Fatto tutto?</h3>
         <p>Perfetto! Ora puoi chiudere questa pagina.</p>
-        <p>Ci vediamo al webinar.</p>
+        <p>Ci vediamo marted&igrave;.</p>
         <p class="ty-signature">Elena</p>
     </div>
 </section>
@@ -626,9 +651,20 @@
         if (val) el.textContent = val;
     });
 
-    // WhatsApp link (step 1)
+    // Gruppo WhatsApp della serata (step 1)
+    var gr = document.getElementById('tyGruppo');
+    if (gr) gr.href = C.whatsappGruppo;
+
+    // Conferma "Ci saro'!" su WhatsApp (step 3)
     var wa = document.getElementById('tyWhatsapp');
     if (wa) wa.href = C.whatsappLink;
+
+    // Con l'id del contatto il link d'invito e' personale: se l'amica si iscrive,
+    // GHL tagga chi l'ha invitata e le manda il regalo anche se non si collega.
+    if (C.contactId) {
+        var lead = document.getElementById('tyInvitoLead');
+        if (lead) lead.textContent = 'Mandale il tuo link personale. Se si iscrive, il regalo di fine serata te lo mando comunque, anche se marted\u00ec non riesci a collegarti. Lei lo riceve se \u00e8 collegata, come tutte.';
+    }
 
     // Google Calendar link (step 2)
     var cal = document.getElementById('tyCalendar');
@@ -638,20 +674,21 @@
         function fmtGcal(d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
         // Il link arriva da GHL via ?link=. Se manca non scriviamo una riga vuota
         // (ne' peggio, un link di un webinar passato) nei dettagli dell'evento.
-        var details = 'Webinar gratuito con Elena Giordani.';
+        var details = 'Evento live gratuito con Elena Giordani.';
         if (C.linkWebinar) details += '\n\nLink accesso: ' + C.linkWebinar;
-        cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pancia%2C+sonno+e+menopausa+con+Elena+Giordani&dates=' + fmtGcal(start) + '/' + fmtGcal(end) + '&details=' + encodeURIComponent(details) + '&location=Online';
+        cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pancia%2C+ormoni+e+sonno+in+menopausa+con+Elena+Giordani&dates=' + fmtGcal(start) + '/' + fmtGcal(end) + '&details=' + encodeURIComponent(details) + '&location=Online';
     }
 })();
 
 // ===== Referral share =====
-var referralLink = 'https://go.elenagiordani.com/webinar-novembre?utm_source=referral&utm_medium=thankyou&utm_campaign=webinar-10-novembre-2026';
-var shareText = 'Ho trovato una serata gratuita di Elena Giordani su pancia, sonno e menopausa: perch\u00e9 la pancia cresce anche se mangi poco. In diretta marted\u00ec 10 novembre alle 18:30. Te la passo \ud83d\udc47';
+var referralLink = 'https://go.elenagiordani.com/webinar-novembre?utm_source=referral&utm_medium=thankyou&utm_campaign=webinar-10-novembre-2026'
+    + (THANKYOU.contactId ? '&invito=' + THANKYOU.contactId : '');
+var shareText = 'Ho trovato una serata gratuita di Elena Giordani su pancia, ormoni e sonno in menopausa: spiega perch\u00e9 la pancia cresce anche se mangi poco. \u00c8 in diretta marted\u00ec 10 novembre alle 18:30 e a fine serata fa un regalo a chi \u00e8 collegata. Iscriviti dal mio link, cos\u00ec ci andiamo insieme \ud83d\udc47';
 
 function shareWithFriend() {
     if (navigator.share) {
         navigator.share({
-            title: 'Pancia, sonno e menopausa: la serata gratuita con Elena Giordani',
+            title: 'Pancia, ormoni e sonno in menopausa: la serata gratuita con Elena Giordani',
             text: shareText,
             url: referralLink
         }).catch(function() { fallbackToWhatsApp(); });

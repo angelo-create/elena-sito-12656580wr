@@ -113,6 +113,31 @@ async function notifyMetaCAPIPixel2({
   }
 }
 
+// POST /contacts/{id}/tags e' additivo: non tocca i tag gia' presenti.
+async function addTags(apiKey, contactId, tags, label) {
+  try {
+    const r = await fetch(`https://services.leadconnectorhq.com/contacts/${encodeURIComponent(contactId)}/tags`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Version': '2021-07-28',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ tags })
+    });
+    if (!r.ok) {
+      const errText = await r.text();
+      console.error(`[webinar-lead] Add tags ${label} failed:`, r.status, errText.slice(0, 200));
+      return false;
+    }
+    console.log(`[webinar-lead] Tags ${label} added (additive):`, tags.join(', '), '|', contactId);
+    return true;
+  } catch (tagErr) {
+    console.error(`[webinar-lead] Add tags ${label} error (non-blocking):`, tagErr.message);
+    return false;
+  }
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -171,9 +196,13 @@ module.exports = async function handler(req, res) {
     // dell'organico (vercel.json). Chi arriva da uno di questi riceve anche il
     // tag `<fontePrefix>-<utm_content>`: serve per le già in lista, a cui il
     // form calendario sovrascrive gli UTM quando prenotano la call con Marco.
+    //
+    // `invito` (opzionale): tag dell'invito di un'amica dalla pagina grazie.
+    // Vedi il blocco "Invito di un'amica" piu' sotto.
     const WEBINAR_EVENTS = {
       'webinar-10-novembre-2026':            { tag: 'webinar-10-novembre-2026',     contentName: 'Webinar Pancia Sonno Menopausa 10 Novembre 2026', slug: 'webinar-novembre',
-                                               fontePrefix: 'fonte-novembre', fonti: ['storie', 'bio', 'invito-webinar', 'canale-lipedema', 'canale-agosto', 'chat-flinky'] },
+                                               fontePrefix: 'fonte-novembre', fonti: ['storie', 'bio', 'invito-webinar', 'canale-lipedema', 'canale-agosto', 'chat-flinky'],
+                                               invito: { tagInvitante: 'ha-invitato-amica-novembre', tagInvitata: 'invitata-da-amica-novembre' } },
       'webinar-25-26-27-agosto-2026':      { tag: 'webinar-25-26-27-agosto-2026', contentName: 'Webinar 25-26-27 Agosto 2026', slug: 'webinar-agosto' },
       'webinar-luglio-lipedema':             { tag: 'webinar-luglio-lipedema',      contentName: 'Webinar Lipedema 2026',        slug: 'webinar-luglio'    },
       'webinar-maggio-estate-inarrestabile': { tag: 'webinar-maggio-2026',          contentName: 'Estate Inarrestabile 2026',    slug: 'webinar-maggio'    },
@@ -248,26 +277,19 @@ module.exports = async function handler(req, res) {
 
     console.log('[webinar-lead] Lead captured:', email, '| source:', source, '| contactId:', contactId);
 
+    // Invito di un'amica: la landing passa `invitata_da`, l'id GHL di chi ha
+    // condiviso il link dalla pagina grazie. La nuova iscritta riceve
+    // tagInvitata, chi l'ha invitata riceve tagInvitante: e' il trigger del
+    // workflow GHL che le manda il regalo di fine serata anche se non si collega.
+    // Si ignora un id con formato diverso da quello GHL o uguale al proprio.
+    const invitante = typeof body.invitata_da === 'string' && /^[A-Za-z0-9]{15,40}$/.test(body.invitata_da)
+      ? body.invitata_da : '';
+    const invitoValido = Boolean(event.invito && invitante && contactId && invitante !== contactId);
+    if (invitoValido) tags.push(event.invito.tagInvitata);
+
     if (contactId) {
-      try {
-        const addTagsRes = await fetch(`https://services.leadconnectorhq.com/contacts/${encodeURIComponent(contactId)}/tags`, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Version': '2021-07-28',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ tags })
-        });
-        if (!addTagsRes.ok) {
-          const errText = await addTagsRes.text();
-          console.error('[webinar-lead] Add tags failed:', addTagsRes.status, errText.slice(0, 200));
-        } else {
-          console.log('[webinar-lead] Tags added (additive):', tags.join(', '), '|', contactId);
-        }
-      } catch (tagErr) {
-        console.error('[webinar-lead] Add tags error (non-blocking):', tagErr.message);
-      }
+      await addTags(apiKey, contactId, tags, 'iscritta');
+      if (invitoValido) await addTags(apiKey, invitante, [event.invito.tagInvitante], 'invitante');
     }
 
     // Fetch custom values GHL per la thank-you page (link Zoom, passcode, ecc.)
