@@ -229,16 +229,6 @@
         font-weight: 700;
         color: var(--text);
     }
-    .ty-regalo {
-        background: rgba(233,30,99,0.06);
-        border: 1px solid rgba(233,30,99,0.25);
-        border-radius: 14px;
-        padding: 1rem 1.25rem;
-        text-align: center;
-        font-size: 0.95rem;
-        color: var(--text-soft);
-    }
-    .ty-regalo strong { color: var(--pink-deep); }
 
     /* ════════ WARNING ════════ */
     .ty-warning {
@@ -531,8 +521,6 @@
                 </div>
             </div>
 
-            <p class="ty-regalo"><strong>Resta collegata fino alla fine:</strong> prima di salutarci regalo a chi &egrave; ancora con me il mio Protocollo Re-Shape e la mia Guida sul sonno.</p>
-
         </div>
     </div>
 </section>
@@ -595,7 +583,7 @@
         <span class="ei-eyebrow">Porta un'amica</span>
         <h2 class="ei-h2">Hai un'amica che mangia poco, dorme male e ha la pancia che non va via?</h2>
         <p class="ty-referral-lead" id="tyInvitoLead">
-            Mandale il link della serata: marted&igrave; vi collegate insieme e i regali di fine serata li ricevete tutte e due.
+            Mandale il link della serata: marted&igrave; vi collegate insieme.
         </p>
 
         <div class="ty-referral-quote">
@@ -659,13 +647,6 @@
     var wa = document.getElementById('tyWhatsapp');
     if (wa) wa.href = C.whatsappLink;
 
-    // Con l'id del contatto il link d'invito e' personale: se l'amica si iscrive,
-    // GHL tagga chi l'ha invitata e le manda i regali anche se non si collega.
-    if (C.contactId) {
-        var lead = document.getElementById('tyInvitoLead');
-        if (lead) lead.textContent = 'Mandale il tuo link personale. Se si iscrive, i regali di fine serata te li mando comunque, anche se marted\u00ec non riesci a collegarti. Lei li riceve se \u00e8 collegata, come tutte.';
-    }
-
     // Google Calendar link (step 2)
     var cal = document.getElementById('tyCalendar');
     if (cal) {
@@ -683,7 +664,7 @@
 // ===== Referral share =====
 var referralLink = 'https://go.elenagiordani.com/webinar-novembre?utm_source=referral&utm_medium=thankyou&utm_campaign=webinar-10-novembre-2026'
     + (THANKYOU.contactId ? '&invito=' + THANKYOU.contactId : '');
-var shareText = 'Ho trovato una serata gratuita di Elena Giordani su pancia, ormoni e sonno in menopausa: spiega perch\u00e9 la pancia cresce anche se mangi poco. \u00c8 in diretta marted\u00ec 10 novembre alle 18:30 e a fine serata regala a chi \u00e8 collegata il suo Protocollo Re-Shape e la sua Guida sul sonno. Iscriviti dal mio link, cos\u00ec ci andiamo insieme \ud83d\udc47';
+var shareText = 'Ho trovato una serata gratuita di Elena Giordani su pancia, ormoni e sonno in menopausa: spiega perch\u00e9 la pancia cresce anche se mangi poco. \u00c8 in diretta marted\u00ec 10 novembre alle 18:30. Iscriviti dal mio link, cos\u00ec ci andiamo insieme \ud83d\udc47';
 
 function shareWithFriend() {
     if (navigator.share) {
