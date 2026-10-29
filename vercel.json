@@ -132,14 +132,8 @@
     },
     {
       "source": "/club-delle-inarrestabili",
-      "has": [
-        {
-          "type": "host",
-          "value": "(?!go\\.elenagiordani\\.com).*"
-        }
-      ],
-      "destination": "https://go.elenagiordani.com/club-delle-inarrestabili",
-      "permanent": true
+      "destination": "https://www.elenagiordani.com/",
+      "permanent": false
     },
     {
       "source": "/evento-checkout-pubblico",
