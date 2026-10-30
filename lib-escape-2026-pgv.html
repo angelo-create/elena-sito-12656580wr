@@ -105,12 +105,12 @@
       <p class="lib-sub">Prenditi un minuto. È importante che tu la conosca.</p>
 
       <div class="lib-textbox" tabindex="0" aria-label="Testo completo della liberatoria">
-        <h3 data-escape-text="TITOLO" style="white-space:pre-line"></h3>
-        <p data-escape-text="DETTAGLI_EVENTO"></p>
-        <p data-escape-text="INFORMATIVA" style="white-space:pre-line"></p>
-        <p data-escape-text="LIBERATORIA" style="white-space:pre-line"></p>
-        <p data-escape-text="CLAUSOLA_FIRMA_DIGITALE" style="white-space:pre-line"></p>
-        <p>Versione: <strong data-escape-text="TEXT_VERSION"></strong></p>
+        <h3 data-doc-text="TITOLO" style="white-space:pre-line"></h3>
+        <p data-doc-text="DETTAGLI_EVENTO"></p>
+        <p data-doc-text="INFORMATIVA" style="white-space:pre-line"></p>
+        <p data-doc-text="LIBERATORIA" style="white-space:pre-line"></p>
+        <p data-doc-text="CLAUSOLA_FIRMA_DIGITALE" style="white-space:pre-line"></p>
+        <p>Versione: <strong data-doc-text="TEXT_VERSION"></strong></p>
       </div>
       <p class="lib-textbox-hint">— scorri per leggere il testo completo —</p>
 
@@ -131,7 +131,7 @@
           <label class="lib-consent-row">
             <input type="checkbox" data-keys="consensoLiberatoria,consensoDati,consensoImmagini">
             <span class="lib-checkbox" aria-hidden="true"></span>
-            <span class="lib-consent-text"><span data-escape-consent="OBBLIGATORIO"></span>
+            <span class="lib-consent-text"><span data-doc-consent="OBBLIGATORIO"></span>
               <span class="lib-tag required">Obbligatorio</span>
             </span>
           </label>
@@ -142,7 +142,7 @@
             <input type="checkbox" data-key="consensoNewsletter">
             <span class="lib-checkbox" aria-hidden="true"></span>
             <span class="lib-consent-text">
-              <span data-escape-consent="NEWSLETTER"></span>
+              <span data-doc-consent="NEWSLETTER"></span>
               <span class="lib-tag optional">Facoltativo</span>
             </span>
           </label>
@@ -202,8 +202,8 @@
         <div class="lib-thanks-check"></div>
         <h2>Tutto fatto.</h2>
         <p>La tua liberatoria è stata salvata. Puoi scaricarne una copia qui sotto.</p>
-        <p id="escape-email-status" role="status"></p>
-        <a id="escape-pdf-link" class="lib-btn-primary" target="_blank" rel="noopener noreferrer" hidden>Scarica la liberatoria firmata</a>
+        <p id="doc-email-status" role="status"></p>
+        <a id="doc-pdf-link" class="lib-btn-primary" target="_blank" rel="noopener noreferrer" hidden>Scarica la liberatoria firmata</a>
         <p class="lib-italic">Ci vediamo a Escape.</p>
         <p class="lib-signature-line-elena">— Elena</p>
       </div>
@@ -217,7 +217,7 @@
   <div class="lib-modal">
     <button class="lib-modal-close" id="close-privacy" aria-label="Chiudi" type="button">&times;</button>
     <h3>Informativa sulla privacy</h3>
-    <p data-escape-text="PRIVACY_NOTICE" style="white-space:pre-line"></p>
+    <p data-doc-text="PRIVACY_NOTICE" style="white-space:pre-line"></p>
   </div>
 </div>
 
@@ -232,7 +232,7 @@
 
 <script src="/js/lib/signature_pad.umd.min.js"></script>
 <script src="/js/escape-text.js?v=escape-2026-v1.0"></script>
-<script src="/js/liberatoria.js?v=escape-2026-v1.0"></script>
+<script src="/js/liberatoria.js?v=20261030"></script>
 
 </body>
 </html>

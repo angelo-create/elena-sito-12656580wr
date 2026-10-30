@@ -283,6 +283,19 @@
   ],
   "headers": [
     {
+      "source": "/lib-ncv-7nov-2026-ijrkov(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
       "source": "/lib-escape-2026-pgv(.*)",
       "headers": [
         {

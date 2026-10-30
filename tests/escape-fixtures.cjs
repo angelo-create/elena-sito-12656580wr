@@ -1,5 +1,5 @@
 const { deflateSync } = require('node:zlib');
-const { FIELDS, FOLDER_NAME } = require('../api/_lib/escape-ghl');
+const { fields: FIELDS, folderName: FOLDER_NAME } = require('../api/_lib/firma-eventi').EVENTI.escape;
 const text = require('../js/escape-text');
 
 function pngSignature() {
@@ -34,8 +34,8 @@ function payload(overrides = {}) {
     textVersion: text.TEXT_VERSION, submissionId: require('node:crypto').randomUUID(), firmaPng: `data:image/png;base64,${pngSignature().toString('base64')}`, ...overrides };
 }
 
-function mockGhl() {
-  const state = { notes: [{ id: 'coach-note', body: 'Historical Coach signature' }], uploads: [], calls: [], fail: '',
+function mockGhl(folders = [{ _id: 'escape-folder', name: FOLDER_NAME, type: 'folder' }]) {
+  const state = { notes: [{ id: 'coach-note', body: 'Historical Coach signature' }], uploads: [], parents: [], calls: [], fail: '',
     fields: { legacy: 'previous-coach.pdf', marketing: 'true' }, tags: ['coach', 'newsletter-existing'] };
   const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
   state.fetch = async (url, options = {}) => {
@@ -44,14 +44,14 @@ function mockGhl() {
     state.calls.push({ path, method, body });
     if (state.fail && `${method} ${path}`.includes(state.fail)) return json({ message: 'Failure fixture' }, 503);
     if (path.endsWith('/customFields')) return json({ customFields: FIELDS.map(f => ({ id: f.key, fieldKey: 'contact.' + f.key })) });
-    if (path === '/medias/files') return json({ files: [{ _id: 'escape-folder', name: FOLDER_NAME, type: 'folder' }] });
+    if (path === '/medias/files') return json({ files: folders });
     if (path === '/contacts/upsert') return json({ contact: { id: 'existing-contact' } });
     if (path.endsWith('/notes') && method === 'GET') return json({ notes: state.notes });
     if (path.endsWith('/notes') && method === 'POST') {
       const note = { id: `note-${state.notes.length}`, body: body.body }; state.notes.push(note); return json({ note });
     }
     if (path === '/medias/upload-file') {
-      state.uploads.push(Buffer.from(await body.get('file').arrayBuffer()));
+      state.uploads.push(Buffer.from(await body.get('file').arrayBuffer())); state.parents.push(body.get('parentId'));
       return json({ fileId: `pdf-${state.uploads.length}`, url: `https://storage.example.invalid/escape-${state.uploads.length}.pdf` });
     }
     if (path.endsWith('/existing-contact') && method === 'PUT') { for (const field of body.customFields) state.fields[field.id] = field.field_value; return json({ success: true }); }

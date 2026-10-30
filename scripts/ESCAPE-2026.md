@@ -29,8 +29,8 @@ Variabili server necessarie: `GHL_PIT_TOKEN`, `GHL_LOCATION_ID`.
 Variabile opzionale per l'email: `GHL_ESCAPE_EMAIL_WEBHOOK_URL`, da configurare separatamente per ambiente Vercel. Non utilizzare il webhook Coach/NCV senza verificare le sue azioni.
 
 ```sh
-node --env-file=.env.vercel.local scripts/setup-ghl-escape.js
-node --env-file=.env.vercel.local scripts/setup-ghl-escape.js --apply
+node --env-file=.env.vercel.local scripts/setup-ghl-firma.js escape
+node --env-file=.env.vercel.local scripts/setup-ghl-firma.js escape --apply
 node --test tests/escape.test.cjs
 ```
 
