@@ -139,12 +139,18 @@ footer { background: var(--night); color: var(--mute-d); font-size: .8rem; paddi
 .photo-band img { display: block; width: 100%; height: clamp(260px, 52vw, 560px); object-fit: cover; object-position: center 40%; }
 .shots { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 12px; align-self: stretch; margin-top: 8px; }
 .shots img { display: block; width: 100%; height: 260px; object-fit: cover; border-radius: 14px; min-width: 0; }
+.mosaic { margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: var(--night); }
+.mosaic img { display: block; width: 100%; height: clamp(240px, 28vw, 420px); object-fit: cover; min-width: 0; }
+.wide-shot { align-self: stretch; margin: 8px 0 0; }
+.wide-shot img { display: block; width: 100%; height: clamp(220px, 40vw, 400px); object-fit: cover; border-radius: 18px; }
 
 @media (max-width: 640px) {
   .band { padding-block: 56px; }
   .shots { grid-template-columns: 1fr 1fr; gap: 8px; }
   .shots img { height: 180px; border-radius: 10px; }
   .shots img:first-child { grid-column: 1 / -1; height: 220px; }
+  .mosaic { grid-template-columns: 1fr 1fr; }
+  .mosaic img { height: 210px; }
   .days, .pillars, .incl { grid-template-columns: 1fr; }
   .week div { grid-template-columns: 1fr; gap: 0; }
   .relay { height: 180px; gap: 6px; }
@@ -224,12 +230,22 @@ src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
   </div>
 </section>
 
+<figure class="mosaic">
+  <img src="/img/evento-live/DSC00362-Enhanced-NR.webp" alt="Due partecipanti che ridono insieme in sala" loading="lazy" width="1365" height="2048">
+  <img src="/img/evento-live/DSC00766.webp" alt="Elena abbracciata a una partecipante per una foto" loading="lazy" width="1365" height="2048">
+  <img src="/img/evento-live/DSC00711.webp" alt="Un abbraccio commosso durante l'evento" loading="lazy" width="1066" height="1600">
+  <img src="/img/evento-live/DSC00312.webp" alt="Due amiche che si abbracciano all'ingresso" loading="lazy" width="1365" height="2048">
+</figure>
+
 <!-- 2b. ANTEPRIMA -->
 <section class="band light">
   <div class="wrap">
     <span class="eyebrow" style="color:var(--wine)">Prima delle altre</span>
     <h2>Tu prenoti in anteprima.</h2>
     <p class="lead">Le iscrizioni non sono ancora aperte a tutte. Tu, che c'eri, puoi prendere il tuo posto adesso, prima dell'annuncio ufficiale e a un prezzo riservato. I posti sono 140 e quando apriamo vanno via in fretta.</p>
+    <figure class="wide-shot">
+      <img src="/img/evento-live/DSC00967-Enhanced-NR.webp" alt="La sala piena con le mani alzate ed Elena sul palco" loading="lazy" width="2048" height="1365">
+    </figure>
   </div>
 </section>
 
@@ -298,8 +314,13 @@ src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
     <h2>Da qui a marzo non sei sola.</h2>
     <div class="pillars">
       <div class="pillar"><h3>Il tuo programma</h3><p>Ti mando io l'allenamento, settimana per settimana, fino al 14 marzo. Che tu parta da zero o corra già.</p></div>
-      <div class="pillar"><h3>La tua squadra</h3><p>Ti mettiamo in una squadra di quattro Inarrestabili. Vi scrivete, vi aspettate, vi tirate su.</p></div>
+      <div class="pillar"><h3>La tua squadra</h3><p>Fai squadra con le tue amiche, oppure ti mettiamo in contatto con altre Inarrestabili. Vi scrivete, vi aspettate, vi tirate su.</p></div>
       <div class="pillar"><h3>La sfida</h3><p>Classifica tra squadre. La squadra migliore vince il kit esclusivo Academy.</p></div>
+    </div>
+    <div class="shots">
+      <img src="/img/evento-live/DSC05733.webp" alt="Partecipanti che fanno squat all'aperto" loading="lazy" width="1365" height="2048" style="object-position:center 72%">
+      <img src="/img/evento-live/DSC05737.webp" alt="Allenamento di gruppo all'aperto" loading="lazy" width="1365" height="2048" style="object-position:center 20%">
+      <img src="/img/evento-live/DSC05729.webp" alt="Una coach sorridente durante l'allenamento all'aperto" loading="lazy" width="1365" height="2048">
     </div>
   </div>
 </section>
@@ -315,7 +336,7 @@ src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
           <h3>Comprende</h3>
           <ul>
             <li>La giornata di sabato 13 marzo in sala con Elena, dalle 10 alle 18</li>
-            <li>La staffetta di domenica 14, per chi vuole: formiamo noi le squadre e ti diamo tutte le indicazioni</li>
+            <li>La staffetta di domenica 14: fai squadra con le tue amiche, oppure ti mettiamo in contatto con altre partecipanti</li>
             <li>Il programma di allenamento, la squadra e la sfida fino a marzo</li>
           </ul>
         </div>
@@ -355,6 +376,10 @@ src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
     <p>Altre domande? <a class="wa" href="https://wa.me/message/IT7CCQQOPIE2E1" target="_blank" rel="noopener">Scrivici su WhatsApp</a></p>
   </div>
 </section>
+
+<figure class="photo-band">
+  <img src="/img/evento-live/DSC05386-Enhanced-NR.webp" alt="Elena a braccia alzate davanti alla sala piena" loading="lazy" width="2048" height="1365" style="object-position:center 35%">
+</figure>
 
 <!-- 7. CHIUSURA -->
 <section class="band dark closing">
