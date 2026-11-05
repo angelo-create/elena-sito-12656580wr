@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arrivederci a marzo | Nel Corpo Che Vuoi Live</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png?v=elena-symbol-v1">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png?v=elena-symbol-v1">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png?v=elena-symbol-v1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arrivederci a marzo: il tuo posto in anteprima">
+<meta property="og:description" content="Sabato 13 marzo 2027 ci ritroviamo in sala a Roma. Per chi era in sala il 7 novembre, 127 € invece di 157 €.">
+<meta property="og:image" content="https://go.elenagiordani.com/img/evento-live/DSC05405.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap">
+<style>
+/* Layout: lettera che continua. Bande piene alternate bordeaux / bianco, colonna stretta, un solo pulsante ripetuto. */
+:root {
+  --night: #2A0A14;      /* bordeaux notte, fondo delle bande scure */
+  --wine: #5C0E25;       /* bordeaux del brand */
+  --rose: #C98AA0;       /* rosa cipria, accento */
+  --blush: #F6ECEF;      /* fondo chiaro caldo */
+  --paper: #FFFFFF;
+  --ink: #2B1219;        /* testo su chiaro */
+  --mute-d: #D9B8C3;     /* testo secondario su scuro */
+  --mute-l: #7A5A64;     /* testo secondario su chiaro */
+  --f: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.band { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 72px; }
+.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+.wrap > * { max-width: 100%; }
+.lead { max-width: 34em; }
+.dark { background: var(--night); color: #fff; }
+.wine { background: var(--wine); color: #fff; }
+.blush { background: var(--blush); }
+h1, h2, h3 { margin: 0; text-wrap: balance; line-height: 1.12; font-weight: 700; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.5rem, 9vw, 4.4rem); font-weight: 800; }
+h2 { font-size: clamp(1.9rem, 6vw, 2.8rem); }
+h3 { font-size: 1.15rem; }
+p { margin: 0; }
+.eyebrow { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); }
+.dark .lead, .wine .lead { color: var(--mute-d); }
+.lead { font-size: 1.15rem; font-weight: 300; }
+.blush .lead, .light .lead { color: var(--mute-l); }
+
+/* top bar */
+.top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 56px; align-self: stretch; }
+.top img.nccv { height: 34px; width: auto; }
+.top img.eg { height: 28px; width: auto; }
+
+/* CTA */
+.cta { display: inline-flex; align-items: center; justify-content: center; gap: 12px; align-self: flex-start;
+  background: var(--rose); color: var(--night); font-family: var(--f); font-weight: 700; font-size: 1.05rem;
+  padding: 18px 32px; border-radius: 999px; text-decoration: none; transition: transform .15s ease, background .15s ease; align-self: center; }
+.cta:hover { background: #fff; transform: translateY(-1px); }
+.cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.light .cta, .blush .cta { background: var(--wine); color: #fff; }
+.light .cta:hover, .blush .cta:hover { background: var(--night); }
+.light .cta:focus-visible, .blush .cta:focus-visible { outline-color: var(--wine); }
+.cta .price { font-weight: 800; }
+.small { font-size: 0.85rem; }
+.dark .small { color: var(--mute-d); }
+
+/* settimana */
+.week { display: grid; gap: 14px; margin-top: 8px; text-align: left; }
+.week div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 12px; align-items: baseline; font-size: 1.15rem; }
+.week b { color: var(--rose); font-weight: 600; }
+.turn { font-size: 1.35rem; font-weight: 600; color: #fff; border-top: 2px solid var(--rose); padding-top: 22px; max-width: 30em; }
+
+/* due giorni */
+.days { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-self: stretch; text-align: left; }
+.day { background: var(--paper); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.day .date { font-size: 0.8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--wine); }
+.day p { color: var(--mute-l); font-size: 0.98rem; }
+
+/* percorso */
+.route { position: relative; margin: 8px 0 4px; padding: 0; list-style: none; display: grid; gap: 0; text-align: left; }
+.route li { position: relative; padding: 0 0 18px 30px; font-size: 1rem; }
+.route li::before { content: ""; position: absolute; left: 5px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--rose); }
+.route li::after { content: ""; position: absolute; left: 10px; top: 22px; bottom: -6px; border-left: 2px dashed rgba(201,138,160,.55); }
+.route li:last-child::after { display: none; }
+.route li:first-child::before { background: #fff; }
+.route li span { color: var(--mute-d); font-size: .85rem; margin-left: 6px; }
+
+/* staffetta */
+.relay { align-self: stretch; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: end; height: 220px; margin-top: 8px; }
+.leg { display: flex; flex-direction: column; justify-content: flex-start; align-items: center; background: var(--wine); color: #fff; border-radius: 12px 12px 4px 4px; padding-top: 14px; min-width: 0; }
+.leg b { font-size: clamp(1rem, 4.4vw, 1.5rem); font-weight: 700; font-variant-numeric: tabular-nums; }
+.leg.short { background: var(--rose); color: var(--night); }
+.relay-labels { align-self: stretch; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center; font-size: .8rem; color: var(--mute-l); }
+.total { justify-content: center; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.total b { font-size: 2.4rem; font-weight: 800; color: var(--wine); font-variant-numeric: tabular-nums; }
+.note { background: var(--blush); border-radius: 14px; padding: 16px 20px; font-size: .95rem; color: var(--mute-l); }
+
+/* non sei sola */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-self: stretch; }
+.pillar { border-top: 2px solid var(--rose); padding-top: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.pillar p { color: var(--mute-d); font-size: .95rem; }
+
+/* prezzo */
+.offer { align-self: stretch; align-items: center; background: var(--night); color: #fff; border-radius: 24px; padding: 40px 32px; display: flex; flex-direction: column; gap: 20px; }
+.prices { justify-content: center; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+.old { font-size: 1.6rem; color: var(--mute-d); text-decoration: line-through; text-decoration-thickness: 2px; }
+.new { font-size: clamp(3.6rem, 14vw, 5.2rem); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.incl { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; text-align: left; align-self: stretch; }
+.incl h3 { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rose); margin-bottom: 10px; }
+.incl ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .95rem; }
+.incl li { padding-left: 22px; position: relative; }
+.incl .yes li::before { content: ""; position: absolute; left: 0; top: .62em; width: 10px; height: 10px; border-radius: 50%; background: var(--rose); }
+.incl .no li { color: var(--mute-d); }
+.incl .no li::before { content: ""; position: absolute; left: 0; top: .85em; width: 10px; height: 2px; background: var(--mute-d); }
+.blush .offer .cta { align-self: center; background: var(--rose); color: var(--night); }
+.blush .offer .cta:hover { background: #fff; }
+.cta .price { white-space: nowrap; }
+
+/* FAQ */
+.faq { align-self: stretch; text-align: left; }
+details { border-bottom: 1px solid #E9D9DE; padding: 20px 0; }
+details:first-of-type { border-top: 1px solid #E9D9DE; }
+summary { cursor: pointer; list-style: none; font-weight: 600; font-size: 1.08rem; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--wine); font-size: 1.4rem; line-height: 1; }
+details[open] summary::after { content: "–"; }
+details p { margin-top: 10px; color: var(--mute-l); }
+.wa { color: var(--wine); font-weight: 600; }
+
+/* chiusura */
+.closing h2 { font-weight: 300; }
+.closing h2 strong { font-weight: 700; color: var(--rose); display: block; margin-top: 8px; }
+footer { background: var(--night); color: var(--mute-d); font-size: .8rem; padding-block: 28px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); text-align: center; border-top: 1px solid rgba(201,138,160,.2); }
+
+/* foto */
+.photo-band { margin: 0; background: var(--night); line-height: 0; }
+.photo-band img { display: block; width: 100%; height: clamp(260px, 52vw, 560px); object-fit: cover; object-position: center 40%; }
+.shots { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 12px; align-self: stretch; margin-top: 8px; }
+.shots img { display: block; width: 100%; height: 260px; object-fit: cover; border-radius: 14px; min-width: 0; }
+
+@media (max-width: 640px) {
+  .band { padding-block: 56px; }
+  .shots { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .shots img { height: 180px; border-radius: 10px; }
+  .shots img:first-child { grid-column: 1 / -1; height: 220px; }
+  .days, .pillars, .incl { grid-template-columns: 1fr; }
+  .week div { grid-template-columns: 1fr; gap: 0; }
+  .relay { height: 180px; gap: 6px; }
+  .relay-labels { gap: 6px; }
+  .offer { padding: 32px 22px; }
+  .cta { align-self: stretch !important; }
+  .week div { text-align: center; }
+  .week { text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<!-- Iubenda Cookie Solution -->
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+_iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+</script>
+<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '446130387840122');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {content_name: 'Evento Marzo 2027 Anteprima', content_category: 'event'});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script src="/js/utm-capture.js"></script>
+
+</head>
+<body>
+<!-- Pagina riservata a chi era in sala il 7 novembre: si raggiunge solo dal QR o dal link diretto, nessuna scadenza.
+     Link Stripe a 127 € senza codice (plink_1UYTiLFmScSpdTWrUUitcabf, metadata plan=evento-marzo-2027): stesso tag GHL della landing pubblica. -->
+
+<!-- 1. APERTURA -->
+<section class="band dark">
+  <div class="wrap">
+    <div class="top">
+      <img class="nccv" src="/img/nel-corpo-che-vuoi/logo-ncv-bianco.png" alt="Nel Corpo Che Vuoi">
+      <img class="eg" src="/img/nel-corpo-che-vuoi/logo-eg-bianco.png" alt="Elena Giordani">
+    </div>
+    <span class="eyebrow">Accesso in anteprima · Solo per chi era in sala il 7 novembre</span>
+    <h1>Questo non è un saluto.</h1>
+    <p class="lead">È un arrivederci. Sabato 13 marzo 2027 ci ritroviamo in sala a Roma. E domenica 14 corriamo insieme la Maratona di Roma.</p>
+    <a class="cta" href="https://buy.stripe.com/cNi3cv0rHas0dSSanf77O0M" data-checkout>Prendo il mio posto <span class="price">· 127 €</span></a>
+    <p class="small">Prenoti prima che lo annunciamo a tutte, a 127 € invece di 157 €.</p>
+  </div>
+</section>
+
+<figure class="photo-band">
+  <img src="/img/evento-live/DSC05405.webp" alt="Le donne di Nel Corpo Che Vuoi Live tutte insieme davanti al palco" width="2048" height="1365">
+</figure>
+
+<!-- 2. IL DOPO -->
+<section class="band wine">
+  <div class="wrap">
+    <h2>Poi si torna a casa.</h2>
+    <p class="lead">A novembre sei arrivata con una domanda e hai trovato una risposta. Poi la settimana riparte.</p>
+    <div class="week">
+      <div><b>Lunedì</b><span>la sveglia, il lavoro, la casa. Tutto come prima.</span></div>
+      <div><b>Mercoledì</b><span>questa giornata è già un bel ricordo.</span></div>
+      <div><b>Venerdì</b><span>la voce di sempre torna a dirti: fermati.</span></div>
+    </div>
+    <p class="turn">Quello che hai acceso qui ha bisogno di qualcuno che lo tenga acceso. Per questo non ci salutiamo. Ci diamo una data.</p>
+  </div>
+</section>
+
+<!-- 2b. ANTEPRIMA -->
+<section class="band light">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--wine)">Prima delle altre</span>
+    <h2>Tu prenoti in anteprima.</h2>
+    <p class="lead">Le iscrizioni non sono ancora aperte a tutte. Tu, che c'eri, puoi prendere il tuo posto adesso, prima dell'annuncio ufficiale e a un prezzo riservato. I posti sono 140 e quando apriamo vanno via in fretta.</p>
+  </div>
+</section>
+
+<!-- 3. DUE GIORNI -->
+<section class="band blush">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--wine)">13 e 14 marzo 2027</span>
+    <h2>Due giorni. Uno in sala, uno dentro Roma.</h2>
+    <div class="days">
+      <div class="day">
+        <span class="date">Sabato 13 marzo</span>
+        <h3>In sala</h3>
+        <p>Shangri-La Roma, dalle 10 alle 18. Una giornata intera insieme, dal vivo. La sera, apericena tutte insieme.</p>
+      </div>
+      <div class="day">
+        <span class="date">Domenica 14 marzo</span>
+        <h3>Dentro Roma</h3>
+        <p>La Maratona di Roma, in staffetta. Squadre da quattro: ognuna corre la sua frazione, e insieme arrivate in fondo.</p>
+      </div>
+    </div>
+    <div class="shots">
+      <img src="/img/evento-live/DSC00480-Enhanced-NR.webp" alt="Elena sul palco a braccia aperte" loading="lazy" width="1365" height="2048" style="object-position:center 45%">
+      <img src="/img/evento-live/DSC00519-Enhanced-NR.webp" alt="Partecipanti che prendono appunti in sala" loading="lazy" width="1365" height="2048">
+      <img src="/img/evento-live/DSC00385-Enhanced-NR.webp" alt="Selfie di gruppo sotto il palco" loading="lazy" width="1365" height="2048">
+    </div>
+  </div>
+</section>
+
+<!-- 3b. PERCORSO -->
+<section class="band dark">
+  <div class="wrap">
+    <span class="eyebrow">Domenica 14 marzo · Run Rome The Marathon</span>
+    <h2>Si parte dai Fori Imperiali.</h2>
+    <ul class="route">
+      <li>Fori Imperiali <span>con il Colosseo alle spalle</span></li>
+      <li>Piazza Venezia</li>
+      <li>Circo Massimo</li>
+      <li>Lungotevere</li>
+      <li>Castel Sant'Angelo</li>
+      <li>San Pietro</li>
+    </ul>
+    <p class="lead">A novembre hai scelto di correre dentro Roma. A marzo lo fai con la tua squadra.</p>
+  </div>
+</section>
+
+<!-- 3c. STAFFETTA -->
+<section class="band light">
+  <div class="wrap">
+    <h2>In staffetta.</h2>
+    <p class="lead">Quattro donne, quattro frazioni. Nessuna corre la maratona da sola.</p>
+    <div class="relay" aria-label="Le quattro frazioni della staffetta">
+      <div class="leg" style="height:88%"><b>11 km</b></div>
+      <div class="leg" style="height:100%"><b>12,5 km</b></div>
+      <div class="leg short" style="height:64%"><b>8 km</b></div>
+      <div class="leg" style="height:85.5%"><b>10,7 km</b></div>
+    </div>
+    <div class="relay-labels"><span>1ª frazione</span><span>2ª frazione</span><span>3ª frazione</span><span>4ª frazione</span></div>
+    <div class="total"><b>42,195 km</b><span>insieme</span></div>
+    <p class="note">La staffetta è facoltativa. Se non te la senti, il 14 vieni a fare il tifo alla tua squadra.</p>
+  </div>
+</section>
+
+<!-- 4. NON SEI SOLA (da confermare) -->
+<section class="band dark">
+  <div class="wrap">
+    <h2>Da qui a marzo non sei sola.</h2>
+    <div class="pillars">
+      <div class="pillar"><h3>Il tuo programma</h3><p>Ti mando io l'allenamento, settimana per settimana, fino al 14 marzo. Che tu parta da zero o corra già.</p></div>
+      <div class="pillar"><h3>La tua squadra</h3><p>Ti mettiamo in una squadra di quattro Inarrestabili. Vi scrivete, vi aspettate, vi tirate su.</p></div>
+      <div class="pillar"><h3>La sfida</h3><p>Classifica tra squadre. La squadra migliore vince il kit esclusivo Academy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PREZZO -->
+<section class="band blush" id="prezzo">
+  <div class="wrap">
+    <div class="offer">
+      <span class="eyebrow">Accesso in anteprima</span>
+      <div class="prices"><span class="old">157 €</span><span class="new">127 €</span></div>
+      <div class="incl">
+        <div class="yes">
+          <h3>Comprende</h3>
+          <ul>
+            <li>La giornata di sabato 13 marzo in sala con Elena, dalle 10 alle 18</li>
+            <li>La staffetta di domenica 14, per chi vuole: formiamo noi le squadre e ti diamo tutte le indicazioni</li>
+            <li>Il programma di allenamento, la squadra e la sfida fino a marzo</li>
+          </ul>
+        </div>
+        <div class="no">
+          <h3>A parte</h3>
+          <ul>
+            <li>Pranzo di sabato e apericena</li>
+            <li>Iscrizione alla staffetta (pettorale)</li>
+            <li>Viaggio e alloggio</li>
+          </ul>
+        </div>
+      </div>
+      <a class="cta" href="https://buy.stripe.com/cNi3cv0rHas0dSSanf77O0M" data-checkout>Prendo il mio posto <span class="price">· 127 €</span></a>
+      <p class="small">Prenoti prima dell'annuncio ufficiale. Poi apriamo a tutte: la sala ha 140 posti e vanno via in fretta. Pagamento sicuro.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DOMANDE -->
+<section class="band light">
+  <div class="wrap">
+    <h2>Domande</h2>
+    <div class="faq">
+      <details>
+        <summary>Devo correre per forza?</summary>
+        <p>No. La staffetta è facoltativa. Puoi venire solo il sabato, o il 14 venire a fare il tifo alla tua squadra.</p>
+      </details>
+      <details>
+        <summary>Non ho mai corso più di qualche km. Ce la faccio?</summary>
+        <p>Le frazioni vanno da 8 a 12,5 km e hai quattro mesi davanti. A novembre hai scelto i 5 o i 15 km: sei già più vicina di quanto pensi.</p>
+      </details>
+      <details>
+        <summary>E se a marzo non posso venire?</summary>
+        <p>Puoi cedere il biglietto a un'amica (ci mandi nome, cognome ed email) o avere un buono di pari valore per le iniziative dell'Academy.</p>
+      </details>
+    </div>
+    <p>Altre domande? <a class="wa" href="https://wa.me/message/IT7CCQQOPIE2E1" target="_blank" rel="noopener">Scrivici su WhatsApp</a></p>
+  </div>
+</section>
+
+<!-- 7. CHIUSURA -->
+<section class="band dark closing">
+  <div class="wrap">
+    <h2>Pensa alla donna che sceglierai di essere. <strong>Il 14 marzo, al traguardo, sarà lei.</strong></h2>
+    <a class="cta" href="https://buy.stripe.com/cNi3cv0rHas0dSSanf77O0M" data-checkout>Prendo il mio posto <span class="price">· 127 €</span></a>
+    <p class="small">Accesso in anteprima e prezzo riservato a chi era in sala il 7 novembre.</p>
+  </div>
+</section>
+<footer>© 2026 Elena Giordani · X77 SSD a.r.l. · Via Leonardo Umile 94, Roma</footer>
+<script>
+document.querySelectorAll('[data-checkout]').forEach(function (a) {
+  a.addEventListener('click', function () {
+    if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', {content_name: 'Evento Marzo 2027 Anteprima', value: 127, currency: 'EUR'});
+  });
+});
+</script>
+
+</body>
+</html>

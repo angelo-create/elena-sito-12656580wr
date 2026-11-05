@@ -73,6 +73,17 @@
       "permanent": true
     },
     {
+      "source": "/ncv-marzo-anteprima-vhqzvr",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
+      "destination": "https://go.elenagiordani.com/ncv-marzo-anteprima-vhqzvr",
+      "permanent": true
+    },
+    {
       "source": "/webinar-maggio",
       "destination": "/webinar-agosto",
       "permanent": false
