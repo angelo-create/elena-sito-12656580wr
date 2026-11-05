@@ -62,6 +62,17 @@
       "permanent": true
     },
     {
+      "source": "/evento-marzo",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?!go\\.elenagiordani\\.com).*"
+        }
+      ],
+      "destination": "https://go.elenagiordani.com/evento-marzo",
+      "permanent": true
+    },
+    {
       "source": "/webinar-maggio",
       "destination": "/webinar-agosto",
       "permanent": false

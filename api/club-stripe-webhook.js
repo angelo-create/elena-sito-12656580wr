@@ -56,7 +56,12 @@ const PLAN_TAGS = {
   'partecipanti-bundle':  ['partecipanti-bundle'],
   'pubblico':             ['pubblico-club'],
   'evento-pubblico':      ['pubblico-evento'],
-  'pubblico-bundle':      ['pubblico-bundle']
+  'pubblico-bundle':      ['pubblico-bundle'],
+  // Nel Corpo Che Vuoi Live 13-14 marzo 2027. Riconosciuto SOLO via
+  // metadata.plan del Payment Link: 157 e 127 euro (codice NOVEMBRE26) sono gli
+  // stessi importi dell'evento di novembre, quindi il fallback per importo
+  // lo etichetterebbe come novembre.
+  'evento-marzo-2027':    ['evento-ncv-marzo-2027']
 };
 
 const PLAN_SOURCES = {
@@ -65,7 +70,8 @@ const PLAN_SOURCES = {
   'partecipanti-bundle':  'stripe-club-partecipanti-bundle',
   'pubblico':             'stripe-club-pubblico',
   'evento-pubblico':      'stripe-evento-pubblico',
-  'pubblico-bundle':      'stripe-club-pubblico-bundle'
+  'pubblico-bundle':      'stripe-club-pubblico-bundle',
+  'evento-marzo-2027':    'stripe-evento-marzo-2027'
 };
 
 // Fallback 1: mappa prezzi unici -> plan key. Si rompe solo se metti coupon

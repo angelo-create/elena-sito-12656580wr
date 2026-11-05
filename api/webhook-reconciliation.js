@@ -41,6 +41,7 @@ const PLAN_TO_TAG = {
   'pubblico':             'pubblico-club',
   'evento-pubblico':      'pubblico-evento',
   'pubblico-bundle':      'pubblico-bundle',
+  'evento-marzo-2027':    'evento-ncv-marzo-2027',
 };
 
 // Eventi Stripe attesi per ciascun webhook endpoint live.
