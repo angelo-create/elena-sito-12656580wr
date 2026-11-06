@@ -61,7 +61,12 @@ const PLAN_TAGS = {
   // metadata.plan del Payment Link: 157 e 127 euro (codice NOVEMBRE26) sono gli
   // stessi importi dell'evento di novembre, quindi il fallback per importo
   // lo etichetterebbe come novembre.
-  'evento-marzo-2027':    ['evento-ncv-marzo-2027']
+  'evento-marzo-2027':    ['evento-ncv-marzo-2027'],
+  // Stesso evento, link a 127 euro senza codice della landing anteprima
+  // (ncv-marzo-anteprima-vhqzvr, solo per chi era in sala il 7/11). Tag a parte
+  // perche' ha un suo workflow GHL: chi compra qui non prende anche il tag
+  // sopra, altrimenti riceverebbe due mail di conferma.
+  'evento-marzo-2027-anteprima': ['evento-ncv-marzo-2027-anteprima']
 };
 
 const PLAN_SOURCES = {
@@ -71,7 +76,8 @@ const PLAN_SOURCES = {
   'pubblico':             'stripe-club-pubblico',
   'evento-pubblico':      'stripe-evento-pubblico',
   'pubblico-bundle':      'stripe-club-pubblico-bundle',
-  'evento-marzo-2027':    'stripe-evento-marzo-2027'
+  'evento-marzo-2027':    'stripe-evento-marzo-2027',
+  'evento-marzo-2027-anteprima': 'stripe-evento-marzo-2027-anteprima'
 };
 
 // Fallback 1: mappa prezzi unici -> plan key. Si rompe solo se metti coupon

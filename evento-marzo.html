@@ -7,14 +7,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png?v=elena-symbol-v1">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png?v=elena-symbol-v1">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png?v=elena-symbol-v1">
-    <meta name="description" content="Nel Corpo Che Vuoi Live con Elena Giordani: sabato 13 marzo 2027 una giornata intera in sala a Roma, dalle 10 alle 18. Domenica, per chi vuole, la Maratona di Roma a staffetta. Solo 140 posti.">
+    <meta name="description" content="Nel Corpo Che Vuoi Live con Elena Giordani, 13-14 marzo 2027 a Roma: sabato in sala con Elena, domenica corriamo la Maratona di Roma in staffetta. Solo 140 posti.">
     <meta name="keywords" content="Elena Giordani, Nel Corpo Che Vuoi Live, evento marzo 2027, Maratona di Roma staffetta, Roma, Shangri-La">
     <meta name="robots" content="noindex, nofollow">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://go.elenagiordani.com/evento-marzo">
     <meta property="og:title" content="Nel Corpo Che Vuoi Live | 13-14 marzo 2027, Roma">
-    <meta property="og:description" content="Una giornata intera in sala con Elena Giordani a Roma, sabato 13 marzo 2027. Solo 140 posti.">
+    <meta property="og:description" content="Sabato in sala con Elena Giordani. Domenica corriamo la Maratona di Roma, in staffetta. 13-14 marzo 2027, solo 140 posti.">
     <meta property="og:image" content="https://go.elenagiordani.com/img/evento-live/DSC00939-Enhanced-NR.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,18 @@
         .ev-community { max-width: 800px; margin: 0 auto; text-align: center; }
         .ev-community p { font-size: 1.15rem; line-height: 1.9; margin-bottom: 1rem; color: rgba(255,255,255,0.8); }
         .ev-community .ev-emphasis { font-size: 1.6rem; font-weight: 700; color: var(--white); margin: 2.5rem 0; }
+        /* Staffetta: le quattro frazioni e la citazione */
+        .ev-relay { max-width: 900px; margin: 3rem auto; }
+        .ev-relay-legs { display: grid; grid-template-columns: 11fr 12.5fr 8fr 10.7fr; gap: 0.75rem; }
+        .ev-relay-leg { background: rgba(233,30,99,0.08); border: 1px solid rgba(233,30,99,0.2); border-radius: 16px; padding: 1.5rem 0.75rem; text-align: center; }
+        .ev-relay-km { display: block; font-size: 1.9rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; line-height: 1.1; }
+        .ev-relay-label { display: block; margin-top: 0.5rem; font-size: 0.6rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.18em; }
+        .ev-relay-total { text-align: center; margin-top: 1.75rem; font-size: 1.1rem; color: rgba(255,255,255,0.6); }
+        .ev-relay-total strong { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 900; color: var(--pink-primary); letter-spacing: -0.03em; margin-right: 0.4rem; }
+        .ev-quote { max-width: 700px; margin: 2.5rem auto; padding: 0; border: 0; }
+        .ev-community .ev-quote p { font-size: 1.35rem; font-style: italic; color: var(--white); line-height: 1.6; margin: 0; }
+        .ev-quote cite { display: block; margin-top: 0.75rem; font-style: normal; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink-primary); }
+        .ev-staffetta-cta { text-align: center; margin-top: 3rem; }
 
         /* Program - Timeline */
         .ev-timeline { position: relative; max-width: 900px; margin: 4rem auto 0; }
@@ -411,6 +423,9 @@
             .ev-fade-in { transform: translateY(1.25rem); }
         }
         @media (max-width: 576px) {
+            .ev-relay-legs { grid-template-columns: 1fr 1fr; }
+            .ev-relay-km { font-size: 1.6rem; }
+            .ev-community .ev-quote p { font-size: 1.15rem; }
             .ev-gallery-collage { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; gap: 0.5rem; }
             .ev-gallery-item { grid-column: auto !important; grid-row: auto !important; aspect-ratio: 1/1; transform: none !important; }
             .ev-photostrip-img { width: 180px; height: 130px; }
@@ -566,12 +581,11 @@
                     13-14 marzo 2027 &bull; Roma
                 </div>
                 <h1 class="hero-title" style="font-size: clamp(2.4rem, 4.6vw, 4.2rem);">
-                    <span>Un giorno in sala con Elena</span>
-                    <span class="accent">e 139 donne che ti capiscono.</span>
+                    <span>2 giorni per riaccendere</span>
+                    <span class="accent">la donna che sei.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Nel Corpo Che Vuoi Live torna a Roma sabato 13 marzo 2027: dalle 10 alle 18 in sala, poi l'apericena tutte insieme.
-                    Il giorno dopo, chi vuole corre con noi la Maratona di Roma a staffetta. Solo 140 posti.
+                    Sabato in sala con Elena. Domenica corriamo la Maratona di Roma, in staffetta.
                 </p>
                 <div class="hero-stats">
                     <div class="hero-stat">
@@ -579,8 +593,8 @@
                         <div class="hero-stat-label">Posti totali</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-number">10<span>-18</span></div>
-                        <div class="hero-stat-label">In sala sabato</div>
+                        <div class="hero-stat-number">2</div>
+                        <div class="hero-stat-label">Giorni di immersione</div>
                     </div>
                     <div class="hero-stat">
                         <div class="hero-stat-number">100<span>%</span></div>
@@ -588,11 +602,11 @@
                     </div>
                 </div>
                 <div class="hero-cta-group">
-                    <a href="#biglietto" class="btn-primary">
-                        Prendi il posto
+                    <a href="https://buy.stripe.com/6oU00j7U92Zy9CCdzr77O0L" class="btn-primary" data-checkout>
+                        Acquista il biglietto
                     </a>
-                    <a href="#programma" class="btn-outline">
-                        Il programma
+                    <a href="#biglietto" class="btn-outline">
+                        Vedi prezzi
                     </a>
                 </div>
             </div>
@@ -613,48 +627,42 @@
         </div>
     </section>
 
-    <!-- PERCHE' SI CORRE -->
+    <!-- CI VEDIAMO A ROMA -->
     <section class="section section-black ev-bg-section">
         <div class="ev-bg-reveal ev-right" data-reveal>
             <img src="img/evento-live/DSC00480-Enhanced-NR.webp" alt="" loading="lazy">
         </div>
         <div class="container">
             <div class="ev-community ev-fade-in">
-                <h2 class="section-title" style="color: var(--white);">Quello che da uno schermo <span class="highlight">non passa.</span></h2>
-                <p>Quante volte hai detto <em>&laquo;ricomincio luned&igrave;&raquo;</em>?</p>
-                <p>A marzo ti chiediamo una giornata sola.</p>
-                <p>Dalle 10 alle 18 in sala con Elena, senza uno schermo in mezzo. Intorno a te 139 donne che hanno la tua et&agrave;, i tuoi impegni e i tuoi dubbi, e che sono l&igrave; per il tuo stesso motivo.</p>
-                <p>Il cervello registra quello che fai, non quello che prometti. Quel sabato registra che sei una donna che si &egrave; presentata.</p>
-                <p>E la domenica, se ti va, corriamo insieme la Maratona di Roma a staffetta.</p>
-                <p class="ev-emphasis">Il 13 marzo ci vediamo a Roma.<br><span class="highlight"><em>Di persona.</em></span></p>
-                <a href="#biglietto" class="btn-outline">
-                    Prendi il tuo biglietto
+                <h2 class="section-title" style="color: var(--white);">Finalmente ci abbracciamo <span class="highlight">dal vivo.</span></h2>
+                <p>Lo sai com'&egrave;.</p>
+                <p>Ci vediamo ogni giorno in live. Ci scriviamo su WhatsApp. Festeggiamo ogni traguardo insieme. Piangiamo insieme. Ci rialziamo insieme.</p>
+                <p>Ma c'&egrave; qualcosa che attraverso uno schermo non passa.</p>
+                <p>L'energia di una sala con 140 Inarrestabili. Gli abbracci veri. Quegli sguardi che dicono <em>"ce l'hai fatta"</em> senza bisogno di parole.</p>
+                <p class="ev-emphasis">Il 13 e 14 marzo ci vediamo a Roma.<br><span class="highlight"><em>Di persona.</em></span></p>
+                <a href="https://buy.stripe.com/6oU00j7U92Zy9CCdzr77O0L" class="btn-outline" data-checkout>
+                    Acquista il biglietto
                 </a>
             </div>
         </div>
     </section>
 
 
-    <!-- PROGRAMMA -->
+    <!-- QUANDO E DOVE -->
     <section class="section section-black ev-bg-section" id="programma" style="padding-top: 0;">
         <div class="ev-bg-reveal ev-left" data-reveal>
             <img src="img/evento-live/DSC00109-Enhanced-NR.webp" alt="" loading="lazy">
         </div>
         <div class="container">
             <div class="section-header center ev-fade-in">
-                <span class="section-number">IL PROGRAMMA</span>
-                <h2 class="section-title" style="color: var(--white);">Il weekend a <span class="highlight"><em>Roma</em></span></h2>
+                <span class="section-number">QUANDO E DOVE</span>
+                <h2 class="section-title" style="color: var(--white);">Due giorni a <span class="highlight"><em>Roma</em></span></h2>
             </div>
             <div class="ev-timeline ev-fade-in">
                 <div class="ev-timeline-day">
                     <div class="ev-timeline-card">
-                        <div class="ev-timeline-label">Sabato 13 marzo &bull; 10-18</div>
-                        <h3 class="ev-timeline-title">In sala con Elena</h3>
-                        <p class="ev-timeline-meta">Shangri-La, Roma (zona EUR)</p>
-                        <ul class="ev-timeline-list" style="margin-top: 1rem;">
-                            <li>Una giornata intera dal vivo, dalle 10 alle 18</li>
-                            <li>Si chiude con l'apericena tutte insieme</li>
-                        </ul>
+                        <div class="ev-timeline-label">Sabato 13 marzo</div>
+                        <h3 class="ev-timeline-title">Shangri-La, Roma</h3>
                     </div>
                     <div class="ev-timeline-dot"></div>
                     <div class="ev-timeline-number">01</div>
@@ -663,17 +671,68 @@
                     <div class="ev-timeline-number">02</div>
                     <div class="ev-timeline-dot"></div>
                     <div class="ev-timeline-card">
-                        <div class="ev-timeline-label">Domenica 14 marzo &bull; Per chi vuole</div>
-                        <h3 class="ev-timeline-title">Maratona di Roma a staffetta</h3>
-                        <ul class="ev-timeline-list" style="margin-top: 1rem;">
-                            <li>Non &egrave; obbligatoria: corre solo chi vuole</li>
-                            <li>Squadre da quattro: ognuna corre il suo tratto</li>
-                            <li>Per iscriverti alla corsa ti diamo noi tutte le indicazioni</li>
-                        </ul>
+                        <div class="ev-timeline-label">Domenica 14 marzo</div>
+                        <h3 class="ev-timeline-title">Run Rome The Marathon, in staffetta</h3>
                     </div>
                 </div>
             </div>
-            <p class="ev-program-note">Pranzo, apericena e iscrizione alla corsa sono a parte: trovi i dettagli pi&ugrave; sotto.</p>
+        </div>
+    </section>
+
+
+    <!-- LA STAFFETTA -->
+    <section class="section section-black ev-bg-section" id="staffetta" style="padding-top: 0;">
+        <div class="ev-bg-reveal ev-right" data-reveal>
+            <img src="img/evento-live/DSC05405.webp" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="section-header center ev-fade-in">
+                <span class="section-number">DOMENICA 14 MARZO</span>
+                <h2 class="section-title" style="color: var(--white);">42 chilometri. Quattro donne. <span class="highlight"><em>Un solo traguardo.</em></span></h2>
+            </div>
+            <div class="ev-community ev-fade-in">
+                <p>Si parte dai Fori Imperiali, con il Colosseo alle spalle. Poi Piazza Venezia, il Circo Massimo, il Lungotevere, Castel Sant'Angelo, fino a San Pietro. Una delle maratone pi&ugrave; affascinanti al mondo, dentro la Citt&agrave; Eterna.</p>
+                <p>E non la corri da sola. Siete in quattro: ognuna corre la sua frazione e passa il testimone alla compagna che la aspetta. Al traguardo arrivate insieme.</p>
+            </div>
+            <div class="ev-relay ev-fade-in" role="img" aria-label="Le quattro frazioni della staffetta: 11 km, 12,5 km, 8 km e 10,7 km, in tutto 42,195 km">
+                <div class="ev-relay-legs">
+                    <div class="ev-relay-leg"><span class="ev-relay-km">11 km</span><span class="ev-relay-label">1&ordf; frazione</span></div>
+                    <div class="ev-relay-leg"><span class="ev-relay-km">12,5 km</span><span class="ev-relay-label">2&ordf; frazione</span></div>
+                    <div class="ev-relay-leg"><span class="ev-relay-km">8 km</span><span class="ev-relay-label">3&ordf; frazione</span></div>
+                    <div class="ev-relay-leg"><span class="ev-relay-km">10,7 km</span><span class="ev-relay-label">4&ordf; frazione</span></div>
+                </div>
+                <p class="ev-relay-total"><strong>42,195 km</strong> insieme</p>
+            </div>
+            <div class="ev-community ev-fade-in">
+                <p>Fino al 1984 alle Olimpiadi la maratona femminile non esisteva. Si pensava che il corpo di una donna non reggesse 42 km. Alla Maratona di Roma del 2026 si sono iscritte pi&ugrave; di 10.000 donne. Il 14 marzo ci siamo anche noi.</p>
+                <blockquote class="ev-quote">
+                    <p>&laquo;Se vuoi correre, corri un miglio. Se vuoi vivere una vita diversa, corri una maratona.&raquo;</p>
+                    <cite>Emil Z&aacute;topek</cite>
+                </blockquote>
+                <p class="ev-emphasis">Da qui a marzo ogni allenamento ha un perch&eacute;:<br><span class="highlight"><em>tre compagne che contano su di te.</em></span></p>
+                <p>E fino a marzo non sei sola:</p>
+            </div>
+            <div class="ev-bento ev-fade-in" style="margin-top: 1.5rem;">
+                <div class="ev-bento-card ev-bento-wide">
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 15l2 2 4-4"/></svg>
+                    <div>
+                        <h4>Il tuo programma</h4>
+                        <p>Ti mando io l'allenamento, settimana per settimana, fino al 14 marzo. Che tu parta da zero o corra gi&agrave;.</p>
+                    </div>
+                </div>
+                <div class="ev-bento-card ev-bento-wide">
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3"/><path d="M7 5H4v2a3 3 0 0 0 3 3"/></svg>
+                    <div>
+                        <h4>La sfida</h4>
+                        <p>Classifica tra squadre. La squadra migliore vince il kit esclusivo Academy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ev-staffetta-cta">
+                <a href="https://buy.stripe.com/6oU00j7U92Zy9CCdzr77O0L" class="btn-outline" data-checkout>
+                    Acquista il biglietto
+                </a>
+            </div>
         </div>
     </section>
 
@@ -685,36 +744,36 @@
         </div>
         <div class="container">
             <div class="section-header center ev-fade-in">
-                <span class="section-number">PERCH&Eacute; ESSERCI</span>
-                <h2 class="section-title" style="color: var(--white);">Cosa ti porti <span class="highlight"><em>a casa</em></span></h2>
+                <span class="section-number">COSA PORTI A CASA</span>
+                <h2 class="section-title" style="color: var(--white);">Non torni a casa solo con <span class="highlight"><em>belle sensazioni.</em></span></h2>
             </div>
 
             <div class="ev-bento ev-fade-in">
                 <div class="ev-bento-card ev-bento-wide">
-                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.6 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.8 1-1.1a5.5 5.5 0 0 0 0-7.7z"/></svg>
                     <div>
-                        <h4>Una giornata intera con Elena</h4>
-                        <p>Dalle 10 alle 18, nella stessa sala. Quello che di solito segui da uno schermo, lo vivi dal vivo.</p>
+                        <h4>La donna che sei, non quella che rimandi</h4>
+                        <p>Smetti di aspettare il luned&igrave; giusto. Esci con le idee chiare su chi vuoi essere e da dove ripartire.</p>
                     </div>
                     <div class="ev-bento-number">01</div>
                 </div>
                 <div class="ev-bento-card">
-                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <h4>139 donne che ti capiscono</h4>
-                    <p>Hanno la tua et&agrave;, i tuoi impegni e i tuoi dubbi. Alcune diventano amiche.</p>
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.6 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                    <h4>Una mente che non molla</h4>
+                    <p>Impari a riconoscere i pensieri che ti frenano e a sostituirli con quelli che ti portano avanti.</p>
                     <div class="ev-bento-number">02</div>
                 </div>
                 <div class="ev-bento-card">
-                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.8 1-1.1a5.5 5.5 0 0 0 0-7.7z"/></svg>
-                    <h4>Una data in agenda</h4>
-                    <p>Da oggi al 13 marzo ogni allenamento ha un motivo in pi&ugrave;.</p>
+                    <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <h4>139 Inarrestabili che ti capiscono</h4>
+                    <p>Alcune diventeranno amiche per la vita. Tre di loro, la tua squadra.</p>
                     <div class="ev-bento-number">03</div>
                 </div>
                 <div class="ev-bento-card ev-bento-wide">
                     <svg class="ev-bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     <div>
-                        <h4>La staffetta, se ti va</h4>
-                        <p>Domenica chi vuole corre la Maratona di Roma a staffetta, in squadre da quattro. Non &egrave; obbligatoria: &egrave; un di pi&ugrave; del weekend.</p>
+                        <h4>L'energia per ricominciare davvero</h4>
+                        <p>Quella scintilla che pensavi di aver perso. Due giorni che cambiano il modo in cui ti vedi, ti parli e ti alleni. E una foto al traguardo di Roma che guarderai ogni volta che pensi di non farcela.</p>
                     </div>
                     <div class="ev-bento-number">04</div>
                 </div>
@@ -727,10 +786,10 @@
         <div class="container">
             <div class="ev-pricing-split ev-fade-in">
                 <div class="ev-pricing-left">
-                    <span class="ev-pricing-urgency">Solo 140 posti</span>
-                    <h2>Esserci &egrave;<br><em>una scelta.</em></h2>
-                    <p>Puoi aspettare il momento giusto, oppure segnarti il 13 marzo in agenda adesso.</p>
-                    <p>La sala ha 140 posti. Quando sono finiti, chiudiamo le iscrizioni.</p>
+                    <span class="ev-pricing-urgency">Solo 140 posti disponibili</span>
+                    <h2>Il tuo posto<br><em>ti aspetta.</em></h2>
+                    <p>Sai gi&agrave; che vuoi esserci. Sai gi&agrave; che questa &egrave; la community che ti ha cambiato la vita. Ora manca solo un passo.</p>
+                    <p>Ogni anno sold-out in pochi giorni.</p>
                     <p class="ev-countdown-text" style="margin: 0 0 0.75rem;">Al 13 marzo mancano</p>
                     <div class="ev-countdown" id="countdown">
                         <div class="ev-countdown-item">
@@ -754,16 +813,9 @@
 
                 <div class="ev-pricing-right">
                     <div class="ev-pricing-card">
-                        <div class="ev-pricing-label">Nel Corpo Che Vuoi Live &bull; 13-14 marzo 2027</div>
+                        <div class="ev-pricing-label">13/14 marzo 2027</div>
                         <div class="ev-pricing-option">
-                            <p class="ev-pricing-option-title">Biglietto</p>
-                            <p class="ev-pricing-price">157&euro;</p>
-                            <p class="ev-pricing-option-subtitle" style="margin: 0.5rem 0 0;">Pranzo, apericena e iscrizione alla corsa a parte</p>
-                        </div>
-
-                        <div style="background: var(--pink-soft); border-radius: 12px; padding: 1.25rem 1.5rem; text-align: left; margin: 0.5rem 0 1.75rem;">
-                            <p style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pink-primary); margin: 0 0 0.5rem 0;">Eri con noi a novembre?</p>
-                            <p style="font-size: 0.9rem; color: var(--black); margin: 0; font-weight: 300;">Se hai partecipato a Nel Corpo Che Vuoi Live il 7 e 8 novembre, al pagamento inserisci il codice sconto riservato a te: il biglietto ti costa <strong>127&euro;</strong>.</p>
+                            <p class="ev-pricing-price"><span class="old">207&euro;</span>157&euro;</p>
                         </div>
 
                         <a href="https://buy.stripe.com/6oU00j7U92Zy9CCdzr77O0L" class="btn-primary ev-btn-pricing" data-checkout>
@@ -772,6 +824,14 @@
                         <div class="ev-pricing-trust">
                             <span>Pagamento sicuro</span>
                             <a href="https://wa.me/message/IT7CCQQOPIE2E1" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">Hai domande? Scrivici su WhatsApp</a>
+                        </div>
+
+                        <div class="ev-pricing-divider" style="margin: 1.5rem 0;"></div>
+
+                        <div style="background: var(--pink-soft); border-radius: 12px; padding: 1.25rem 1.5rem; text-align: left;">
+                            <p style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pink-primary); margin: 0 0 0.5rem 0;">Porta un'amica</p>
+                            <p style="font-size: 0.9rem; color: var(--black); margin: 0 0 0.4rem 0; font-weight: 300;">Vuoi venire con un'amica che non &egrave; iscritta all'Academy?<br>Tu paghi <strong>127&euro;</strong>, lei <strong>147&euro;</strong> (274&euro; in due).</p>
+                            <p style="font-size: 0.85rem; color: var(--black); margin: 0; font-weight: 300;">Per prenotare in due scrivi a <a href="mailto:info.xfitacademy@gmail.com" style="color: var(--pink-primary); text-decoration: underline; font-weight: 600;">info.xfitacademy@gmail.com</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -790,27 +850,54 @@
             <div class="ev-details-grid ev-fade-in" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
                 <!-- COSA COMPRENDE -->
                 <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2.5rem;">
-                    <p style="font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.5rem;">Cosa comprende</p>
+                    <p style="font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem;">Esperienze esclusive</p>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 2rem;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.6;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#8226;</span> Sabato 13 marzo allo Shangri-La (Roma)</li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.6;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#8226;</span> Domenica 14 marzo la squadra per la staffetta della Maratona di Roma: fai squadra con le tue amiche, oppure ti mettiamo in contatto con le altre. L'iscrizione alla gara (pettorale) si paga a parte.</li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.6;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#8226;</span> Il programma di allenamento fino al 14 marzo e la sfida tra squadre, con il kit esclusivo Academy in palio</li>
+                    </ul>
 
-                    <p style="font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem;">Sabato 13 marzo</p>
-                    <p style="font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 1.5rem;">La giornata in sala con Elena, dalle 10 alle 18, allo Shangri-La di Roma.</p>
-
-                    <p style="font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem;">Domenica 14 marzo</p>
-                    <p style="font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 0;">Per chi vuole, la Maratona di Roma a staffetta con le altre partecipanti, in squadre da quattro. Per iscriverti ti diamo noi le indicazioni.</p>
+                    <p style="font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem;">Extra e materiali inclusi</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.6;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#8226;</span> Gadget esclusivi</li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.6;"><span style="position: absolute; left: 0; color: var(--pink-primary);">&#8226;</span> Accesso al canale con aggiornamenti in tempo reale</li>
+                    </ul>
                 </div>
 
                 <!-- COSA NON COMPRENDE -->
                 <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2.5rem;">
-                    <p style="font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.5rem;">Non compreso nel biglietto</p>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 2rem;">
-                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.05);"><span style="position: absolute; left: 0;">&#8211;</span> Pranzo di sabato</li>
-                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.05);"><span style="position: absolute; left: 0;">&#8211;</span> Apericena finale di sabato</li>
-                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.05);"><span style="position: absolute; left: 0;">&#8211;</span> Iscrizione alla Maratona di Roma a staffetta (facoltativa)</li>
-                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6);"><span style="position: absolute; left: 0;">&#8211;</span> Viaggio e alloggio</li>
+                    <p style="font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.5rem;">Non compreso</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.05);"><span style="position: absolute; left: 0;">&#8211;</span> Alloggio</li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.05);"><span style="position: absolute; left: 0;">&#8211;</span> Pasti</li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.05);"><span style="position: absolute; left: 0;">&#8211;</span> Apericena di sabato sera</li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6);"><span style="position: absolute; left: 0;">&#8211;</span> Pettorale della staffetta</li>
                     </ul>
-                    <div style="background: rgba(233,30,99,0.06); border: 1px solid rgba(233,30,99,0.2); border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
-                        <p style="font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.75rem;">Apericena finale</p>
-                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin: 0;">La giornata in sala si chiude con l'apericena tutte insieme. Il costo &egrave; a parte.</p>
+                </div>
+            </div>
+
+            <!-- COSA PORTARE -->
+            <div style="max-width: 900px; margin: 2rem auto 0;">
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem 2.5rem;">
+                    <p style="font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.25rem;">Cosa portare da casa</p>
+                    <div class="ev-details-list-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 3rem;">
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin: 0; padding: 0.4rem 0;">&#8226; Scarpe da ginnastica comode</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin: 0; padding: 0.4rem 0;">&#8226; Bande elastiche <span style="color: rgba(255,255,255,0.4);">(opzionali)</span></p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin: 0; padding: 0.4rem 0;">&#8226; Borraccia</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin: 0; padding: 0.4rem 0;">&#8226; Eventuali integratori</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin: 0; padding: 0.4rem 0;">&#8226; Agenda e penna</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin: 0; padding: 0.4rem 0;">&#8226; Per domenica: scarpe e abbigliamento da corsa</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HOTEL -->
+            <div style="max-width: 900px; margin: 2rem auto 0;">
+                <div class="ev-hotel-card" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem 2.5rem; display: flex; align-items: flex-start; gap: 1.5rem;">
+                    <svg style="width: 2rem; height: 2rem; flex-shrink: 0; margin-top: 0.25rem; color: var(--pink-primary);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"/><path d="M5 21V10.85"/><path d="M19 21V10.85"/><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/></svg>
+                    <div>
+                        <p style="font-size: 0.65rem; font-weight: 700; color: var(--pink-primary); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem;">Hotel convenzionati</p>
+                        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin: 0;">Siete libere di scegliere dove soggiornare. Dopo l'acquisto arriva una mail con gli <strong style="color: var(--white);">hotel convenzionati</strong> vicino all'evento.</p>
                     </div>
                 </div>
             </div>
@@ -908,8 +995,8 @@
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="#biglietto" class="btn-primary">
-                    Prendi il tuo biglietto
+                <a href="https://buy.stripe.com/6oU00j7U92Zy9CCdzr77O0L" class="btn-primary" data-checkout>
+                    Acquista il biglietto
                 </a>
             </div>
         </div>
@@ -1106,24 +1193,38 @@
 
             <div class="ev-faq-list ev-fade-in">
                 <div class="ev-faq-item">
-                    <button class="ev-faq-question">Quando e dove si svolge?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>Sabato 13 marzo 2027, dalle 10 alle 18, allo Shangri-La di Roma (Viale Algeria 141, zona EUR). Domenica 14 marzo, per chi vuole, la Maratona di Roma a staffetta. Prima dell'evento ti mandiamo via email l'indirizzo confermato e tutte le indicazioni.</p></div>
+                    <button class="ev-faq-question">Dove si svolge l'evento?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Shangri-La, Viale Algeria 141, 00144 Roma RM (zona EUR). Indicazioni dettagliate via email dopo l'iscrizione.</p></div>
                 </div>
                 <div class="ev-faq-item">
-                    <button class="ev-faq-question">Quanto costa il biglietto?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>157&euro;. Se hai partecipato a Nel Corpo Che Vuoi Live il 7 e 8 novembre 2026, al pagamento inserisci il codice sconto riservato a te: il biglietto ti costa 127&euro;.</p></div>
+                    <button class="ev-faq-question">Devo per forza correre?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>No. Ma di solito chi ha paura di non farcela &egrave; quella che piange al traguardo. Se non te la senti, vieni a fare il tifo alla tua squadra.</p></div>
                 </div>
                 <div class="ev-faq-item">
-                    <button class="ev-faq-question">Devo correre per forza la maratona?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>No. L'evento &egrave; la giornata in sala di sabato. La staffetta di domenica &egrave; un di pi&ugrave;: corre solo chi vuole, e a chi decide di partecipare diamo noi tutte le indicazioni per iscriversi.</p></div>
+                    <button class="ev-faq-question">Non ho mai corso pi&ugrave; di qualche km. Ce la faccio?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Le frazioni vanno da 8 a 12,5 km e hai quattro mesi davanti. Ci si arriva un passo alla volta.</p></div>
                 </div>
                 <div class="ev-faq-item">
-                    <button class="ev-faq-question">Cosa non &egrave; compreso nel biglietto?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>Il pranzo e l'apericena finale di sabato, l'iscrizione alla Maratona di Roma a staffetta per chi decide di correre, il viaggio e l'alloggio.</p></div>
+                    <button class="ev-faq-question">Dove posso soggiornare?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>Siete libere di scegliere dove soggiornare. Dopo l'acquisto arriva una mail con gli hotel convenzionati vicino all'evento.</p></div>
                 </div>
                 <div class="ev-faq-item">
-                    <button class="ev-faq-question">Dove posso dormire?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>Scegli tu dove dormire. Se ti serve un consiglio sulla zona, <a href="https://wa.me/message/IT7CCQQOPIE2E1" target="_blank" rel="noopener" style="color: var(--pink-primary);">scrivici su WhatsApp</a>.</p></div>
+                    <button class="ev-faq-question">Cosa devo portare?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer">
+                        <p>Ecco cosa mettere in valigia:</p>
+                        <ul style="list-style: none; padding: 0; margin: 0.75rem 0 0;">
+                            <li style="padding: 0.4rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7);"><span style="position: absolute; left: 0;">&#8226;</span> Scarpe da ginnastica comode</li>
+                            <li style="padding: 0.4rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7);"><span style="position: absolute; left: 0;">&#8226;</span> Bande elastiche (opzionali)</li>
+                            <li style="padding: 0.4rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7);"><span style="position: absolute; left: 0;">&#8226;</span> Borraccia</li>
+                            <li style="padding: 0.4rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7);"><span style="position: absolute; left: 0;">&#8226;</span> Eventuali integratori</li>
+                            <li style="padding: 0.4rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7);"><span style="position: absolute; left: 0;">&#8226;</span> Agenda e penna</li>
+                            <li style="padding: 0.4rem 0; padding-left: 1.5rem; position: relative; font-size: 0.9rem; color: rgba(255,255,255,0.7);"><span style="position: absolute; left: 0;">&#8226;</span> Per domenica: scarpe e abbigliamento da corsa</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ev-faq-item">
+                    <button class="ev-faq-question">Posso portare un'amica che non &egrave; in Academy?<span class="ev-faq-toggle">+</span></button>
+                    <div class="ev-faq-answer"><p>S&igrave;! La formula "Porta un'amica" &egrave; pensata proprio per questo: tu paghi 127&euro;, lei 147&euro; (274&euro; in due). Per prenotare in due scrivi a <a href="mailto:info.xfitacademy@gmail.com" style="color: var(--pink-primary);">info.xfitacademy@gmail.com</a>.</p></div>
                 </div>
                 <div class="ev-faq-item">
                     <button class="ev-faq-question">E se non posso pi&ugrave; venire?<span class="ev-faq-toggle">+</span></button>
@@ -1137,7 +1238,7 @@
                 </div>
                 <div class="ev-faq-item">
                     <button class="ev-faq-question">I posti sono davvero limitati?<span class="ev-faq-toggle">+</span></button>
-                    <div class="ev-faq-answer"><p>S&igrave;. La sala ha 140 posti: quando sono finiti, chiudiamo le iscrizioni.</p></div>
+                    <div class="ev-faq-answer"><p>S&igrave;. 140 posti, non uno di pi&ugrave;. Ogni anno sold-out.</p></div>
                 </div>
             </div>
         </div>
@@ -1148,10 +1249,9 @@
     <!-- FINAL CTA -->
     <section class="ev-final-cta">
         <div class="ev-final-cta-content">
-            <h2>Sabato 13 marzo.<br>140 posti.</h2>
-            <p>Una giornata intera insieme, dal vivo, dalle 10 alle 18.</p>
-            <p>L'apericena per chiuderla, e la domenica la staffetta per chi ha voglia di correre.</p>
-            <p>E da oggi a marzo una data in agenda che ti tiene in movimento.</p>
+            <h2>140 posti.<br>140 Inarrestabili.</h2>
+            <p>Sai gi&agrave; cosa significa far parte di questa community. Sai gi&agrave; cosa significa allenarsi insieme, crescere insieme, non mollare insieme.</p>
+            <p>Ora pensa a tutto questo dal vivo. In una sala, con Elena e le altre Inarrestabili. E poi insieme, al traguardo di Roma.</p>
             <p class="ev-question">Tu ci sei?</p>
             <a href="https://buy.stripe.com/6oU00j7U92Zy9CCdzr77O0L" class="ev-btn-white" data-checkout>
                 Acquista il biglietto
@@ -1184,8 +1284,8 @@
 
     <!-- STICKY CTA (mobile) -->
     <div class="ev-sticky-cta">
-        <a href="#biglietto" class="btn-primary">
-            Prendi il tuo biglietto
+        <a href="https://buy.stripe.com/6oU00j7U92Zy9CCdzr77O0L" class="btn-primary" data-checkout>
+            Acquista il biglietto
         </a>
     </div>
 
