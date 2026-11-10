@@ -9,6 +9,7 @@ Si lavora con Angelo Allocca, marketer di Elena Giordani (life coach fitness per
 - `api/`: funzioni serverless Node (Stripe, GoHighLevel, Meta CAPI, form lead). Prima di toccare un endpoint leggi `api/README.md` (regole GHL e runbook dei webhook Stripe).
 - `css/main.css` è un bundle generato: modifica i sorgenti (`css/variables.css`, `css/base.css`, `css/components/*.css`) e ricompila. Mai editare `main.css` a mano. Dettagli in `scripts/README.md`.
 - `vercel.json`: redirect delle landing, header, cron dei webhook.
+- Gli UTM scritti nella destinazione di un redirect vincono su quelli del link cliccato: un `?utm_campaign=` aggiunto nell'email viene sovrascritto. Per questo `/selezione-email` porta sempre l'`utm_campaign` dell'ultimo webinar: quando nasce un webinar nuovo, aggiornalo insieme al suo `/selezione-<mese>`.
 - `scripts/`, `tests/`, `ads/`, `archive/` e `.context/` non vanno in produzione (`.vercelignore`).
 
 ## Comandi
