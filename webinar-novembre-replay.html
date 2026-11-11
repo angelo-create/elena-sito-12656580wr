@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>if(window.self!==window.top){try{window.top.location.href=window.location.href}catch(e){}}</script>
+    <title>La registrazione della serata: pancia, ormoni e sonno in menopausa</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png?v=elena-symbol-v1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png?v=elena-symbol-v1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png?v=elena-symbol-v1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://files.leadconnectorhq.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║  CONFIGURAZIONE REPLAY: MODIFICA SOLO QUI                    ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <script>
+    var REPLAY = {
+        // File della registrazione (storage GHL, lo stesso della pagina lp/recap-webinar-10-novembre)
+        video:    "https://files.leadconnectorhq.com/file/6af36a50ddcd97ce5ab09dc5/webinar-sonno-grasso-viscerale-e-menopausa-1.mp4",
+        // Modulo di candidatura (poi calendario di Marco)
+        selezione: "https://lp.elenagiordani.com/selezione",
+        campagna:  "webinar-10-novembre-2026"
+    };
+    </script>
+
+    <style>
+    :root {
+        --bg:        #FFFFFF;
+        --bg-soft:   #FFFFFF;
+        --bg-warm:   #FAFAFA;
+        --bg-mute:   #F7F7F7;
+        --bg-cream:  #FFFAF3;
+        --text:      #1A0F00;
+        --text-soft: #4D3829;
+        --text-muted:#8B7363;
+        --border:    #E8E8E8;
+        --border-soft:#F0F0F0;
+        --pink:      #E91E63;
+        --pink-deep: #C2185B;
+        --green:     #00875A;
+        --green-soft:#E8F5EE;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+        --shadow-lg: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
+        --shadow-pink:0 8px 24px rgba(233,30,99,0.18);
+        --grad-pink: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+        margin: 0;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text);
+        background: #FFFFFF;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--pink); text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); }
+    p { margin: 0; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    .ei-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+    @media (min-width: 768px) { .ei-container { padding: 0 2rem; } }
+
+    .ei-section { padding: 4rem 0; }
+    @media (min-width: 768px) { .ei-section { padding: 5rem 0; } }
+
+    .ei-eyebrow {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 1rem;
+    }
+
+    .ei-h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+    .ei-h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; line-height: 1.2; }
+    .ei-h1 .accent {
+        background: var(--grad-pink);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* ════════ HERO ════════ */
+    .rp-hero { padding: 3rem 0 1.5rem; text-align: center; }
+    @media (min-width: 768px) { .rp-hero { padding: 4.5rem 0 2rem; } }
+    .rp-hero-inner { max-width: 760px; margin: 0 auto; }
+    .rp-hero h1 { margin-bottom: 1rem; }
+    .rp-lead { font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: var(--text-soft); line-height: 1.55; max-width: 600px; margin: 0 auto; }
+    .rp-lead strong { color: var(--text); }
+
+    /* ════════ VIDEO ════════ */
+    .rp-video-section { padding: 0 0 3rem; }
+    .rp-video-wrap {
+        max-width: 960px; margin: 0 auto; background: #000; border-radius: 16px; overflow: hidden;
+        box-shadow: var(--shadow-lg); aspect-ratio: 1440 / 766;
+    }
+    .rp-video-wrap video { width: 100%; height: 100%; display: block; background: #000; }
+    .rp-video-note { max-width: 960px; margin: 0.9rem auto 0; text-align: center; font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ════════ CONTENUTI ════════ */
+    .rp-points { background: var(--bg-mute); border-top: 1px solid var(--border-soft); padding: 3rem 0; }
+    .rp-points-card { max-width: 720px; margin: 0 auto; }
+    .rp-points h2 { text-align: center; margin-bottom: 1.5rem; }
+    .rp-points li {
+        position: relative; padding: 0.85rem 0 0.85rem 2rem; border-bottom: 1px solid var(--border);
+        color: var(--text-soft); font-size: 1rem; line-height: 1.5;
+    }
+    .rp-points li:last-child { border-bottom: 0; }
+    .rp-points li::before {
+        content: ""; position: absolute; left: 0; top: 1.3rem; width: 0.6rem; height: 0.6rem;
+        border-radius: 50%; background: var(--grad-pink);
+    }
+
+    /* ════════ CANDIDATURA ════════ */
+    .rp-cta-section { padding: 3.5rem 0 4rem; text-align: center; }
+    .rp-cta-card {
+        max-width: 720px; margin: 0 auto; background: var(--bg-cream); border: 1px solid var(--border);
+        border-radius: 20px; padding: 2.25rem 1.5rem; box-shadow: var(--shadow-md);
+    }
+    @media (min-width: 768px) { .rp-cta-card { padding: 3rem 2.5rem; } }
+    .rp-cta-card h2 { margin-bottom: 1rem; }
+    .rp-cta-card p { color: var(--text-soft); max-width: 540px; margin: 0 auto 1rem; }
+    .rp-cta-card p strong { color: var(--text); }
+    .rp-btn {
+        display: inline-block; margin-top: 0.75rem; padding: 1.05rem 2rem; border-radius: 999px;
+        background: var(--grad-pink); color: #fff; font-weight: 700; font-size: 1.05rem;
+        box-shadow: var(--shadow-pink); transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .rp-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(233,30,99,0.26); }
+    .rp-btn:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+    .rp-cta-small { font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem !important; }
+    .rp-signature { font-style: italic; font-weight: 600; color: var(--text); margin-top: 1.5rem !important; }
+
+    /* Barra fissa su mobile: la candidatura resta a portata mentre guardano */
+    .rp-sticky {
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom));
+        background: rgba(255,255,255,0.96); border-top: 1px solid var(--border); text-align: center;
+        transform: translateY(110%); transition: transform 0.25s ease;
+    }
+    .rp-sticky.show { transform: translateY(0); }
+    .rp-sticky .rp-btn { margin-top: 0; padding: 0.8rem 1.5rem; font-size: 0.95rem; width: 100%; max-width: 420px; }
+    @media (min-width: 768px) { .rp-sticky { display: none; } }
+    @media (max-width: 767px) { body { padding-bottom: 4.5rem; } }
+    @media (prefers-reduced-motion: reduce) { .rp-sticky, .rp-btn { transition: none; } }
+
+    /* ════════ FOOTER ════════ */
+    .ei-footer {
+        background: #FFFFFF;
+        border-top: 1px solid var(--border-soft);
+        padding: 2.5rem 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    .ei-footer-logo {
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        font-size: 0.95rem;
+        color: var(--text);
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+    }
+    .ei-footer p { margin-bottom: 0.5rem; line-height: 1.6; }
+    .ei-footer-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    .ei-footer-links a { color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
+    .ei-footer-links a:hover { color: var(--pink); }
+    </style>
+
+    <!-- Iubenda Cookie Solution -->
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"theme":"dark"},"enableFadp":true,"enableLgpd":true,"enableUspr":true,"floatingPreferencesButtonDisplay":"bottom-right","lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2008250,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":49397266,"banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"ownerName":"www.elenagiordani.com","position":"float-top-center","rejectButtonDisplay":true,"showPurposesToggles":true,"showTitle":false,"showTotalNumberOfProviders":true}};
+    _iub.csLangConfiguration = {"it":{"cookiePolicyId":49397266}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/2008250.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '446130387840122');
+    fbq('init', '1717291565951434');
+    fbq('track', 'PageView');
+    // Niente Lead ne' Purchase qui: su questa pagina non ci si iscrive e non si compra.
+    // Gli eventi del replay (ReplayPlay, ReplayVisto5min, ReplayVisto25, ReplayVisto50,
+    // ReplayCandidatura) sono eventi personalizzati, in fondo alla pagina: servono
+    // per i pubblici di retargeting, non per l'ottimizzazione delle campagne.
+    // Gli stessi eventi diventano tag in GHL quando il link porta ?c={{contact.id}}.
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=446130387840122&ev=PageView&noscript=1"
+    /></noscript>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1717291565951434&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="rp-hero">
+    <div class="ei-container">
+        <div class="rp-hero-inner">
+            <span class="ei-eyebrow">La registrazione della serata del 10 novembre</span>
+            <h1 class="ei-h1">Pancia, ormoni e sonno in menopausa: <span class="accent">rivedi la serata</span></h1>
+            <p class="rp-lead">
+                <strong>Marted&igrave; sera eravamo pi&ugrave; di mille in diretta.</strong>
+                Se non c&rsquo;eri, o vuoi riascoltarla con calma, la registrazione &egrave; qui sotto.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ VIDEO ═══════════════════ -->
+<section class="rp-video-section">
+    <div class="ei-container">
+        <div class="rp-video-wrap">
+            <video id="rpVideo" controls playsinline preload="metadata" poster="/img/webinar-novembre/replay-poster.jpg">
+                Il tuo browser non riesce ad aprire il video.
+            </video>
+        </div>
+        <p class="rp-video-note">Dura un&rsquo;ora e dieci. Se la interrompi, puoi riprenderla da dove eri arrivata.</p>
+    </div>
+</section>
+
+<!-- ═══════════════════ COSA TROVI ═══════════════════ -->
+<section class="rp-points">
+    <div class="ei-container">
+        <div class="rp-points-card">
+            <h2 class="ei-h2">Cosa trovi nella registrazione</h2>
+            <ul>
+                <li>Perch&eacute; quando calano gli estrogeni il grasso cambia indirizzo e si sposta sulla pancia</li>
+                <li>Lo studio che pochi conoscono: con la stessa dieta, chi dormiva 5 ore e mezza ha perso il 55% di grasso in meno rispetto a chi ne dormiva 8 e mezza</li>
+                <li>Gli ormoni della fame e della saziet&agrave;, e cosa fanno quando dormi poco</li>
+                <li>L&rsquo;intervento del genetista Alessandro Lisi, ricercatore alla University of Southern California</li>
+                <li>Come funziona la X-Fit Academy, il mio percorso annuale in diretta</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ CANDIDATURA ═══════════════════ -->
+<section class="rp-cta-section" id="candidatura">
+    <div class="ei-container">
+        <div class="rp-cta-card">
+            <span class="ei-eyebrow">Posti limitati</span>
+            <h2 class="ei-h2">Vuoi capire se l&rsquo;Academy fa per te?</h2>
+            <p>
+                Per l&rsquo;ingresso di questo mese ci sono <strong>20 posti</strong>,
+                e le candidature restano aperte <strong>fino a domenica 15 novembre</strong>.
+            </p>
+            <p>
+                Compili un modulo di due minuti. Se ci sono le condizioni per lavorare insieme,
+                scegli giorno e ora della chiamata con il mio team.
+            </p>
+            <a href="#" class="rp-btn" data-rp-cta="card">Prenota la tua chiamata &rarr;</a>
+            <p class="rp-cta-small">La chiamata &egrave; gratuita e non ti impegna a niente.</p>
+            <p class="rp-signature">Elena</p>
+        </div>
+    </div>
+</section>
+
+<div class="rp-sticky" id="rpSticky">
+    <a href="#" class="rp-btn" data-rp-cta="sticky">Prenota la tua chiamata &rarr;</a>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="ei-footer">
+    <div class="ei-container">
+        <div class="ei-footer-logo">Elena Giordani</div>
+        <p>Il primo percorso italiano dedicato alle donne, tutto in diretta. Corpo, alimentazione e mente, sempre insieme.</p>
+        <p style="opacity: 0.7; font-size: 0.78rem;">X77 SSD a.r.l &middot; P.IVA IT17336811009 &middot; Sede legale: Via Leonardo Umile 94, 00144 Roma (RM)</p>
+        <div class="ei-footer-links">
+            <a href="https://www.iubenda.com/privacy-policy/49397266" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy</a>
+            <a href="https://www.iubenda.com/privacy-policy/49397266/cookie-policy" class="iubenda-white no-brand iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie</a>
+            <a href="/terms-and-conditions">Termini</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6;">&copy; 2026 Elena Giordani. Tutti i diritti riservati.</p>
+    </div>
+</footer>
+<script>
+(function() {
+    // ===== UTM in arrivo (annuncio, email, WhatsApp): li portiamo sul modulo =====
+    // GHL a volte scrive gli `=` dei merge field come `#x3D;`, e il `#` spezza
+    // la query string: va rimesso a posto prima di leggere i parametri.
+    var fixed = location.href.replace(/#x3D;/g, '%3D');
+    var qIdx = fixed.indexOf('?');
+    var search = qIdx > -1 ? fixed.substring(qIdx) : '';
+    var hIdx = search.indexOf('#');
+    if (hIdx > -1) search = search.substring(0, hIdx);
+    var p = new URLSearchParams(search);
+
+    // ===== Contatto GHL (?c=) =====
+    // Arriva dai link in email, WhatsApp e chat: ?c={{contact.id}}. Con l'id,
+    // gli eventi del replay diventano tag sul contatto (/api/replay-evento).
+    // Senza id (annunci, link girato a un'amica) restano solo gli eventi pixel.
+    var c = p.get('c') || '';
+    var contactId = /^[A-Za-z0-9]{15,40}$/.test(c) ? c : '';
+
+    function crm(evento) {
+        if (!contactId) return;
+        var chiave = 'rp-novembre-crm-' + contactId + '-' + evento;
+        try {
+            if (localStorage.getItem(chiave)) return;
+            localStorage.setItem(chiave, '1');
+        } catch (e) {}
+        var corpo = JSON.stringify({ c: contactId, replay: REPLAY.campagna, evento: evento });
+        try {
+            // keepalive: la richiesta parte anche se la persona sta lasciando la pagina
+            fetch('/api/replay-evento', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: corpo, keepalive: true, credentials: 'omit'
+            }).catch(function() {});
+        } catch (e) {
+            try { navigator.sendBeacon('/api/replay-evento', new Blob([corpo], { type: 'application/json' })); } catch (e2) {}
+        }
+    }
+    function clean(v, fallback) {
+        v = (v || '').toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+        return v || fallback;
+    }
+    // utm_source resta "replay" (cosi' nel CRM le candidature dal replay si contano
+    // insieme); da dove e' arrivata la persona finisce in utm_medium e utm_content.
+    var q = new URLSearchParams({
+        utm_source:   'replay',
+        utm_medium:   clean(p.get('utm_source'), 'landing'),
+        utm_campaign: REPLAY.campagna,
+        utm_content:  clean(p.get('utm_content'), 'replay-10-novembre')
+    });
+    // Il modulo /selezione legge gli UTM e nient'altro: l'id del contatto non
+    // serve passarlo (GHL riconosce la persona dall'email che scrive nel modulo).
+    var href = REPLAY.selezione + '?' + q.toString();
+
+    function track(name, data) {
+        if (typeof fbq === 'function') fbq('trackCustom', name, data || {});
+    }
+
+    document.querySelectorAll('[data-rp-cta]').forEach(function(a) {
+        a.href = href;
+        a.addEventListener('click', function() {
+            track('ReplayCandidatura', { posizione: a.getAttribute('data-rp-cta') });
+            crm('clic-candidatura');
+        });
+    });
+
+    // ===== Video =====
+    var v = document.getElementById('rpVideo');
+    var KEY = 'rp-novembre-t';
+    v.src = REPLAY.video;
+
+    // Riprende da dove era arrivata (stesso dispositivo)
+    v.addEventListener('loadedmetadata', function() {
+        try {
+            var t = parseFloat(localStorage.getItem(KEY) || '0');
+            if (t > 30 && t < v.duration - 60) v.currentTime = t;
+        } catch (e) {}
+    });
+
+    var sent = {};
+    // Evento pixel sempre; tag sul contatto solo per gli eventi che servono nel CRM.
+    var CRM = { ReplayPlay: 'avviato', ReplayVisto5min: 'visto-5min', ReplayVisto50: 'visto-50' };
+    function once(name) {
+        if (sent[name]) return;
+        sent[name] = 1;
+        track(name);
+        if (CRM[name]) crm(CRM[name]);
+    }
+    var lastSave = 0;
+
+    v.addEventListener('play', function() {
+        once('ReplayPlay');
+        document.getElementById('rpSticky').classList.add('show');
+    });
+    v.addEventListener('timeupdate', function() {
+        var t = v.currentTime, d = v.duration || 0;
+        if (t >= 300) once('ReplayVisto5min');
+        if (d && t / d >= 0.25) once('ReplayVisto25');
+        if (d && t / d >= 0.50) once('ReplayVisto50');
+        if (Math.abs(t - lastSave) > 5) {
+            lastSave = t;
+            try { localStorage.setItem(KEY, String(Math.floor(t))); } catch (e) {}
+        }
+    });
+})();
+</script>
+
+<!-- Iubenda embed loader -->
+<script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+</body>
+</html>

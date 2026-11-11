@@ -228,6 +228,32 @@
       "permanent": false
     },
     {
+      "source": "/webinar-novembre-replay",
+      "has": [{ "type": "host", "value": "(?!go\\.elenagiordani\\.com).*" }],
+      "destination": "https://go.elenagiordani.com/webinar-novembre-replay",
+      "permanent": false
+    },
+    {
+      "source": "/replay-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre-replay",
+      "permanent": false
+    },
+    {
+      "source": "/email-replay-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre-replay?utm_source=email&utm_medium=email&utm_campaign=webinar-10-novembre-2026&utm_content=replay-email",
+      "permanent": false
+    },
+    {
+      "source": "/wa-replay-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre-replay?utm_source=whatsapp&utm_medium=messaggio&utm_campaign=webinar-10-novembre-2026&utm_content=replay-whatsapp",
+      "permanent": false
+    },
+    {
+      "source": "/chat-replay-novembre",
+      "destination": "https://go.elenagiordani.com/webinar-novembre-replay?utm_source=flinky&utm_medium=chat&utm_campaign=webinar-10-novembre-2026&utm_content=replay-chat",
+      "permanent": false
+    },
+    {
       "source": "/selezione-email",
       "destination": "https://lp.elenagiordani.com/selezione?utm_source=email&utm_medium=email&utm_campaign=webinar-10-novembre-2026&utm_content=selezione",
       "permanent": false

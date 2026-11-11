@@ -111,6 +111,7 @@ sopravvive alla navigazione cross-page.
 | `POST /contacts/upsert` con `tags` | SOVRASCRIVE (non usare) | — |
 | `POST /contacts/upsert` senza `tags` | Lascia inalterati | `liberatoria.js`, `webinar-lead.js`, `metabolismo-lead.js` |
 | `POST /contacts/{id}/tags` | ADDITIVO | tutti gli endpoint sopra |
+| `POST /contacts/{id}/tags` da solo (nessun upsert) | ADDITIVO: un tag per evento del replay, lista chiusa lato server, id contatto da `?c=` | `replay-evento.js` |
 | Webhook inbound + workflow "Add Tag" | ADDITIVO | `newsletter.js` |
 
 ## Storia incidente
