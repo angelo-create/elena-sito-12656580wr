@@ -418,3 +418,49 @@ test('replay-evento: ogni evento delle lezioni diventa il tag mangio-meno-<event
     assert.equal(calls.length, 0);
   }
 });
+
+// ───────────────────────── campi personalizzati «Mangio meno · …» ─────────────────────────
+
+const campiGhl = require('../api/_lib/mangio-meno-campi');
+const valoreCampo = (upsert, id) => (upsert.body.customFields.find((f) => f.id === id) || {}).value;
+
+test('lead: le 7 risposte in chiaro e il profilo vanno nei campi, insieme agli UTM', async () => {
+  const calls = mockFetch();
+  await chiama(lead, leadValido({ risposte: { d1: '60-piu', d2: 'regolare', d3: 'tono-forza', d4: 'svuotata', d5: 'cardio', d6: 'proteine', d7: 'fatico' } }));
+  const upsert = calls.find((c) => c.path === '/contacts/upsert');
+  const ID = campiGhl.ID;
+  assert.equal(valoreCampo(upsert, ID.eta), '60 o più');
+  assert.equal(valoreCampo(upsert, ID.ciclo), 'Regolare');
+  assert.equal(valoreCampo(upsert, ID.corpo), 'Ho perso tono e forza');
+  assert.equal(valoreCampo(upsert, ID.mangiare_meno), 'Perdo peso, ma mi sento svuotata e molle');
+  assert.equal(valoreCampo(upsert, ID.allenamento), 'Cammino o faccio cardio, anche tanto');
+  assert.equal(valoreCampo(upsert, ID.colazione), 'Uova, yogurt o altre proteine');
+  assert.equal(valoreCampo(upsert, ID.sonno), 'Fatico ad addormentarmi');
+  assert.equal(valoreCampo(upsert, ID.profilo), 'muscolo');
+  // gli UTM restano: utm_source e utm_campaign del lead di prova
+  assert.ok(upsert.body.customFields.some((f) => f.value === 'ig'));
+  assert.equal(upsert.body.customFields.length, 8 + 2);
+});
+
+test('candidatura: obiettivo e risposte sì/no nei campi; niente campi del quiz', async () => {
+  const calls = mockFetch();
+  await chiama(candidatura, candValida({ iniziare: 'no' }));
+  const upsert = calls.find((c) => c.path === '/contacts/upsert');
+  const ID = campiGhl.ID;
+  assert.equal(valoreCampo(upsert, ID.obiettivo), 'Perdere la pancia e tornare forte');
+  assert.equal(valoreCampo(upsert, ID.anno), 'Sì');
+  assert.equal(valoreCampo(upsert, ID.investire), 'Sì');
+  assert.equal(valoreCampo(upsert, ID.iniziare), 'No');
+  assert.equal(valoreCampo(upsert, ID.call), 'Sì');
+  assert.equal(valoreCampo(upsert, ID.profilo), undefined);
+  assert.equal(valoreCampo(upsert, ID.eta), undefined);
+});
+
+test('campi: 13 ID diversi, e ogni domanda del quiz ha il suo campo', () => {
+  const ids = Object.values(campiGhl.ID);
+  assert.equal(ids.length, 13);
+  assert.equal(new Set(ids).size, 13);
+  const campi = campiGhl.campiQuiz({ d1: '40-44', d2: 'irregolare', d3: 'gonfia', d4: 'non-perdo', d5: 'quasi-mai', d6: 'salto', d7: 'bene' }, 'risparmio');
+  assert.equal(campi.length, 8);
+  assert.ok(campi.every((c) => typeof c.value === 'string' && c.value.length > 0));
+});

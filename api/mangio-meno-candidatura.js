@@ -8,13 +8,15 @@
 //    Se l'upsert trova un contatto diverso da `c`, lo si segnala nel log.
 // 2. tag additivi: mangio-meno-candidatura + mangio-meno-qualificata
 //    (le 4 risposte sì/no tutte «sì») oppure mangio-meno-non-qualificata;
-// 3. una nota sul contatto con le risposte;
+// 3. una nota sul contatto con le risposte; obiettivo e risposte sì/no vanno anche
+//    nei campi «Mangio meno · …» (api/_lib/mangio-meno-campi.js);
 // 4. SubmitApplication a Meta CAPI, solo per le qualificate, con lo stesso
 //    event_id del pixel nel browser.
 //
 // Risponde { success, contactId, qualificata }. Nei log niente dati personali.
 
 const mm = require('./_lib/mangio-meno');
+const campiGhl = require('./_lib/mangio-meno-campi');
 
 const ETICHETTA = 'mangio-meno-candidatura';
 const PAGINA = 'https://go.elenagiordani.com/mangio-meno-candidatura';
@@ -73,7 +75,9 @@ module.exports = async function handler(req, res) {
 
   let contactId;
   try {
-    contactId = await mm.upsertContatto(apiKey, contatto, body, ETICHETTA);
+    contactId = await mm.upsertContatto(apiKey, {
+      ...contatto, campi: campiGhl.campiCandidatura(obiettivo, risposte)
+    }, body, ETICHETTA);
   } catch (err) {
     if (err.message !== 'upsert') console.error(`[${ETICHETTA}] errore upsert:`, err.name);
     return mm.rispondiErrore(res, 502, 'Invio non riuscito');

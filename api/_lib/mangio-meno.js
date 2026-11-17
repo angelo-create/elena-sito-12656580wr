@@ -72,12 +72,15 @@ function ghlHeaders(apiKey) {
 // /contacts/upsert con `tags` sostituisce tutti i tag gia' presenti.
 // Niente lastName se vuoto: un contatto esistente tiene il suo cognome.
 // Restituisce l'id del contatto (o null). Lancia un errore se GHL rifiuta.
-async function upsertContatto(apiKey, { firstName, email, phone, source }, body, etichetta) {
+// `campi`: campi personalizzati in piu' (risposte del quiz o della candidatura,
+// api/_lib/mangio-meno-campi.js), insieme a quelli degli UTM.
+async function upsertContatto(apiKey, { firstName, email, phone, source, campi }, body, etichetta) {
   const payload = { locationId: LOCATION_ID, email, firstName, phone };
   if (source) payload.source = source;
   const utm = buildUtmPayload(body);
   if (utm.attributionSource) payload.attributionSource = utm.attributionSource;
-  if (utm.customFields.length > 0) payload.customFields = utm.customFields;
+  const customFields = utm.customFields.concat(Array.isArray(campi) ? campi : []);
+  if (customFields.length > 0) payload.customFields = customFields;
 
   const r = await fetch(`${GHL_API_BASE}/contacts/upsert`, {
     method: 'POST',

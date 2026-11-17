@@ -5,7 +5,8 @@
 // 2. tag aggiunti dopo, con POST /contacts/{id}/tags (additivo):
 //    mangio-meno-quiz, mangio-meno-profilo-<profilo>, e se servono mangio-meno-sonno
 //    e mangio-meno-eta. Il workflow GHL di email e WhatsApp parte da mangio-meno-quiz;
-// 3. una nota sul contatto con le 7 risposte in chiaro;
+// 3. una nota sul contatto con le 7 risposte in chiaro; le stesse risposte e il
+//    profilo vanno anche nei campi «Mangio meno · …» (api/_lib/mangio-meno-campi.js);
 // 4. Lead a Meta CAPI sui due pixel, con lo stesso event_id del pixel nel browser.
 //
 // Il profilo si ricalcola qui con lo stesso file del browser (js/mangio-meno-quiz.js):
@@ -15,6 +16,7 @@
 
 const quiz = require('../js/mangio-meno-quiz.js');
 const mm = require('./_lib/mangio-meno');
+const campiGhl = require('./_lib/mangio-meno-campi');
 
 const ETICHETTA = 'mangio-meno-lead';
 const LANDING = 'https://go.elenagiordani.com/mangio-meno';
@@ -59,7 +61,9 @@ module.exports = async function handler(req, res) {
 
   let contactId;
   try {
-    contactId = await mm.upsertContatto(apiKey, { ...contatto, source: 'mangio-meno-quiz' }, body, ETICHETTA);
+    contactId = await mm.upsertContatto(apiKey, {
+      ...contatto, source: 'mangio-meno-quiz', campi: campiGhl.campiQuiz(risposte, esito.profilo)
+    }, body, ETICHETTA);
   } catch (err) {
     if (err.message !== 'upsert') console.error(`[${ETICHETTA}] errore upsert:`, err.name);
     return mm.rispondiErrore(res, 502, 'Invio non riuscito');
