@@ -188,7 +188,9 @@ h2:focus{outline:none}
       <h2 tabindex="-1">Perfetto. Scegli il giorno e l&rsquo;ora della tua call.</h2>
       <p>La call dura 30 minuti, al telefono. Marco ti chiama al numero che hai lasciato.</p>
     </div>
-    <!-- Calendario GHL «Consulenza Sbloccata Marco - Mangio meno»: dopo la prenotazione porta a /mangio-meno-grazie (impostato su GHL) -->
+    <!-- Calendario GHL classico «Consulenza Sbloccata Marco» (decisione di Angelo, 18/11/2026): la provenienza
+         si legge dagli UTM, che finiscono nella submission del form del calendario. Dopo la prenotazione GHL porta
+         alla sua pagina di grazie (lp.elenagiordani.com/thank-you574013), non a /mangio-meno-grazie. -->
     <div class="calendario-box" id="calendarioBox"></div>
   </section>
 
@@ -218,8 +220,8 @@ h2:focus{outline:none}
 <script>
 (function () {
   'use strict';
-  var CALENDARIO = 'https://api.leadconnectorhq.com/widget/booking/0t3dCQegKmIHcc8LnmrF';
-  var CALENDARIO_ID = '0t3dCQegKmIHcc8LnmrF';
+  var CALENDARIO = 'https://api.leadconnectorhq.com/widget/booking/HiNWYwGpEGZvIesthFA6';
+  var CALENDARIO_ID = 'HiNWYwGpEGZvIesthFA6';
   var SI_NO = ['anno', 'investire', 'iniziare', 'call'];
 
   var form = document.getElementById('formCandidatura');
@@ -255,6 +257,9 @@ h2:focus{outline:none}
     if (tel) q.set('phone', tel);
     var u = MM.utm();
     Object.keys(u).forEach(function (k) { q.set(k, u[k]); });
+    // Sul calendario classico arrivano call da tutti i funnel: senza campagna nell'URL
+    // (visita diretta o organica) la prenotazione resta comunque riconoscibile come quiz.
+    if (!u.utm_campaign) q.set('utm_campaign', 'mangio-meno-quiz');
 
     var f = document.createElement('iframe');
     f.src = CALENDARIO + '?' + q.toString();
