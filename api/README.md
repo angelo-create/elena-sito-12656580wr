@@ -86,7 +86,8 @@ GET /api/debug-fields?key=<DEBUG_SECRET>
 ```
 
 Endpoint che usano l'helper: `webinar-lead.js`, `metabolismo-lead.js`,
-`candidatura.js`, `soldout-lead.js`. `newsletter.js` passa via webhook GHL,
+`candidatura.js`, `soldout-lead.js`, `mangio-meno-lead.js`, `mangio-meno-candidatura.js`
+(questi due tramite `_lib/mangio-meno.js`). `newsletter.js` passa via webhook GHL,
 quindi gli UTM nel body devono essere mappati ai custom field dal workflow GHL
 inbound (action "Update Custom Field").
 
@@ -111,7 +112,8 @@ sopravvive alla navigazione cross-page.
 | `POST /contacts/upsert` con `tags` | SOVRASCRIVE (non usare) | — |
 | `POST /contacts/upsert` senza `tags` | Lascia inalterati | `liberatoria.js`, `webinar-lead.js`, `metabolismo-lead.js` |
 | `POST /contacts/{id}/tags` | ADDITIVO | tutti gli endpoint sopra |
-| `POST /contacts/{id}/tags` da solo (nessun upsert) | ADDITIVO: un tag per evento del replay, lista chiusa lato server, id contatto da `?c=` | `replay-evento.js` |
+| `POST /contacts/{id}/tags` da solo (nessun upsert) | ADDITIVO: un tag per evento del replay e delle lezioni «Mangio meno», lista chiusa lato server, id contatto da `?c=` | `replay-evento.js` |
+| Upsert senza `tags` + `POST /contacts/{id}/tags` + `POST /contacts/{id}/notes` | ADDITIVO, nota con le risposte in chiaro | `mangio-meno-lead.js`, `mangio-meno-candidatura.js` |
 | Webhook inbound + workflow "Add Tag" | ADDITIVO | `newsletter.js` |
 
 ## Storia incidente

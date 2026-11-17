@@ -1,5 +1,6 @@
 // /api/replay-evento: segna in GHL cosa fa un contatto sulla pagina della
-// registrazione del webinar (webinar-novembre-replay.html).
+// registrazione del webinar (webinar-novembre-replay.html) e sulle pagine del
+// funnel «Mangio meno» (mangio-meno-risultato.html, mangio-meno-lezioni.html).
 //
 // La pagina riceve l'id del contatto GHL in ?c= (dai link in email, WhatsApp
 // e chat) e chiama questo endpoint una volta per evento. Qui si aggiunge UN
@@ -19,11 +20,21 @@ const REPLAY = {
     'visto-5min':        'replay-10-novembre-visto-5min',
     'visto-50':          'replay-10-novembre-visto-50',
     'clic-candidatura':  'replay-10-novembre-clic-candidatura'
+  },
+  // Funnel «Mangio meno»: lezione avviata, lezione finita (90% visto), clic sulla candidatura.
+  'mangio-meno': {
+    'lezione-1-avviata': 'mangio-meno-lezione-1-avviata',
+    'lezione-2-avviata': 'mangio-meno-lezione-2-avviata',
+    'lezione-3-avviata': 'mangio-meno-lezione-3-avviata',
+    'lezione-1-finita':  'mangio-meno-lezione-1-finita',
+    'lezione-2-finita':  'mangio-meno-lezione-2-finita',
+    'lezione-3-finita':  'mangio-meno-lezione-3-finita',
+    'clic-candidatura':  'mangio-meno-clic-candidatura'
   }
 };
 
 // Freno minimo contro le raffiche: per istanza, in memoria. Una persona vera
-// manda al massimo 4 eventi; 20 al minuto per indirizzo bastano e avanzano.
+// manda al massimo 7 eventi (le 3 lezioni); 20 al minuto per indirizzo bastano e avanzano.
 const WINDOW_MS = 60 * 1000;
 const MAX_PER_WINDOW = 20;
 const hits = new Map();
