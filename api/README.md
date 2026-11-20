@@ -159,6 +159,14 @@ I webhook skippano payload con `metadata.product='healthcheck'` o `metadata.plan
 
 Quando aggiungi un nuovo product/plan al checkout, aggiorna le mappe `PRODUCT_TO_TAG` e `PLAN_TO_TAG` in `api/webhook-reconciliation.js` per includere il nuovo tag atteso, altrimenti il reconciliation lo riporterà come "unknown product/plan".
 
+## Call prenotata del funnel «Mangio meno» a Meta
+
+Dal 18/11/2026 la candidatura «Mangio meno» usa il calendario classico di Marco, che dopo la prenotazione porta alla pagina di grazie di GHL: il sito non vede la prenotazione. Il cron `/api/mangio-meno-call-meta` (`*/15 * * * *`) legge le prenotazioni del calendario `HiNWYwGpEGZvIesthFA6` create nelle ultime 48 ore e, per i contatti con il tag `mangio-meno-quiz`, manda `Schedule` «Call Marco Mangio meno» a Meta CAPI sui due pixel (event_id `schedule_<id appuntamento>`), poi aggiunge il tag `mangio-meno-call-prenotata`. Chi ha già il tag viene saltato. Se Meta rifiuta, il tag non si mette e il giro dopo riprova. Auth: solo `Authorization: Bearer $CRON_SECRET`.
+
+```
+curl -H "Authorization: Bearer $CRON_SECRET" https://go.elenagiordani.com/api/mangio-meno-call-meta
+```
+
 ## Checklist: aggiungere/rotare un webhook Stripe in sicurezza
 
 ### Creare un nuovo endpoint Stripe via API

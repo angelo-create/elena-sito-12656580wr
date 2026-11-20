@@ -78,17 +78,43 @@
     return percorso + (s ? '?' + s : '');
   }
 
-  // Evento sul contatto GHL (tag `mangio-meno-<evento>`, lista chiusa in
-  // api/replay-evento.js). Solo se la pagina conosce l'id del contatto; una
-  // volta per contatto ed evento su questo dispositivo.
+  // Eventi per Meta: stessi nomi di META_MANGIO_MENO in api/replay-evento.js.
+  var META = {
+    'lezione-1-avviata': ['LezioneAvviata', 'Lezione 1 Mangio meno'],
+    'lezione-2-avviata': ['LezioneAvviata', 'Lezione 2 Mangio meno'],
+    'lezione-3-avviata': ['LezioneAvviata', 'Lezione 3 Mangio meno'],
+    'lezione-1-finita': ['LezioneFinita', 'Lezione 1 Mangio meno'],
+    'lezione-2-finita': ['LezioneFinita', 'Lezione 2 Mangio meno'],
+    'lezione-3-finita': ['LezioneFinita', 'Lezione 3 Mangio meno'],
+    'clic-candidatura': ['ClicCandidatura', 'Candidatura Mangio meno'],
+    'clic-whatsapp': ['ClicWhatsApp', 'WhatsApp Mangio meno']
+  };
+
+  // Lezione avviata o finita, clic sulla candidatura o su WhatsApp: una volta per evento su
+  // questo dispositivo (e per contatto, se la pagina lo conosce).
+  // - a Meta: evento del pixel nel browser con un eventID;
+  // - se la pagina conosce l'id del contatto, ad api/replay-evento.js, che mette
+  //   il tag `mangio-meno-<evento>` in GHL e manda lo stesso evento via CAPI con lo
+  //   stesso eventID (Meta ne tiene uno).
   function crm(evento) {
-    if (!c) return;
-    var chiave = 'mm-crm-' + c + '-' + evento;
+    var chiave = 'mm-crm-' + (c || 'anonimo') + '-' + evento;
     try {
       if (localStorage.getItem(chiave)) return;
       localStorage.setItem(chiave, '1');
     } catch (e) {}
-    var corpo = JSON.stringify({ c: c, replay: 'mangio-meno', evento: evento });
+    var id = eventId('mm');
+    var meta = META[evento];
+    if (meta && typeof window.fbq === 'function') {
+      try { window.fbq('trackCustom', meta[0], { content_name: meta[1], content_category: 'mangio-meno' }, { eventID: id }); } catch (e) {}
+    }
+    if (!c) return;
+    var corpo = JSON.stringify({
+      c: c, replay: 'mangio-meno', evento: evento, event_id: id,
+      fbc: cookie('_fbc'), fbp: cookie('_fbp'),
+      // senza query string: l'URL della pagina contiene l'id del contatto
+      event_source_url: location.origin + location.pathname,
+      user_agent: navigator.userAgent
+    });
     try {
       // keepalive: la richiesta parte anche se la persona sta lasciando la pagina
       fetch('/api/replay-evento', {
@@ -120,6 +146,21 @@
     return '+39' + t;
   }
 
+  // Pulsante «Scrivi al mio team su WhatsApp» (elementi con data-whatsapp).
+  // Stesso numero da cui parte il WhatsApp automatico del quiz, cosi' la chat e' una sola.
+  // Il testo precompilato dice a Flinky da dove arriva la persona e ci fa contare chi
+  // scrive da sola (in GHL il workflow aspetta 10 minuti prima del messaggio automatico).
+  // Deve restare uguale al redirect /whatsapp-check-up di vercel.json (usato nelle email):
+  // il test lo controlla. Nell'HTML l'href e' gia' /whatsapp-check-up, cosi' funziona anche senza JS.
+  var WHATSAPP = 'https://wa.me/393773692181?text=Ciao%20Elena%21%20Ho%20fatto%20il%20Check-Up%20e%20vorrei%20sapere%20come%20funziona%20l%27X-Fit%20Academy.';
+
+  function collegaWhatsapp() {
+    document.querySelectorAll('[data-whatsapp]').forEach(function (a) {
+      a.href = WHATSAPP;
+      a.addEventListener('click', function () { crm('clic-whatsapp'); });
+    });
+  }
+
   // Il riquadro del video prende le proporzioni vere del file (orizzontale o verticale).
   function adattaVideo(video) {
     var box = video.parentNode;
@@ -146,6 +187,11 @@
     eventId: eventId,
     telefonoInternazionale: telefonoInternazionale,
     adattaVideo: adattaVideo,
+    whatsapp: WHATSAPP,
     ID_RE: ID_RE
   };
+
+  // Gli script vanno in fondo al body: i pulsanti ci sono gia'.
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', collegaWhatsapp);
+  else collegaWhatsapp();
 })();

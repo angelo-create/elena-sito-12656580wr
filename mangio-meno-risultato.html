@@ -64,8 +64,6 @@ a{color:var(--berry)}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:62px;padding:16px 24px;border:0;border-radius:14px;background:var(--berry);color:#fff;font:700 20px/1.25 var(--body);text-align:center;text-decoration:none;cursor:pointer;box-shadow:0 8px 22px rgba(194,24,91,.28);transition:background .15s,transform .15s}
 .btn:hover{background:var(--berry-scuro)}
 .btn:active{transform:translateY(1px)}
-.btn-chiaro{background:var(--carta);color:var(--berry);border:2px solid var(--berry);box-shadow:none}
-.btn-chiaro:hover{background:var(--rosa-chiaro)}
 @media (min-width:700px){.btn{width:auto;min-width:340px;display:inline-flex}}
 
 .blocco{padding:0 0 40px}
@@ -114,9 +112,17 @@ a{color:var(--berry)}
 
 /* ── ADESSO ── */
 .adesso{text-align:center}
-.candidatura{margin-top:28px;text-align:left;background:var(--carta);border:2px solid var(--berry);border-radius:18px;padding:24px 20px}
-.candidatura h2{font-size:clamp(23px,5.8vw,29px);margin-bottom:12px}
-.candidatura p{margin-bottom:18px}
+.invito{text-align:left;background:var(--carta);border:2px solid var(--berry);border-radius:18px;padding:24px 20px}
+.invito h2{font-size:clamp(23px,5.8vw,29px);margin-bottom:12px}
+.invito p{margin-bottom:18px}
+.invito .nota-wa{margin:12px 0 0;font-size:16px;color:var(--grafite);text-align:center}
+.altro{margin-top:26px;font-weight:600}
+.altro a{font-weight:700}
+
+/* ── WHATSAPP: la persona scrive per prima (testo precompilato, link in js/mangio-meno.js) ── */
+.btn-wa{background:#1B6E47;box-shadow:0 8px 22px rgba(27,110,71,.25)}
+.btn-wa:hover{background:#145536}
+.btn-wa svg{width:24px;height:24px;flex:none}
 
 /* ── FOOTER ── */
 .footer{border-top:1px solid var(--filo);padding:32px 0 40px;text-align:center;font-size:15px;color:var(--grafite)}
@@ -126,7 +132,7 @@ a{color:var(--berry)}
 
 @media (min-width:700px){
   .testa{padding-top:56px}
-  .scheda,.candidatura{padding:32px 32px}
+  .scheda,.invito{padding:32px 32px}
   .regole{grid-template-columns:1fr 1fr}
   .riquadro{padding:24px 26px}
 }
@@ -272,15 +278,19 @@ a{color:var(--berry)}
     </div>
   </section>
 
-  <!-- ═══════ COSA FARE ADESSO ═══════ -->
+  <!-- ═══════ COSA FARE ADESSO ═══════
+       Funnel lineare (Angelo, 20/11/2026): dopo il risultato si scrive al team su WhatsApp.
+       La candidatura arriva dopo, con il link che il team manda in chat: qui non c'e'. -->
   <section class="blocco adesso">
     <div class="wrap">
-      <a class="btn" href="/mangio-meno-lezioni" id="vaiLezioni">Guarda le 3 lezioni gratuite</a>
-      <div class="candidatura">
+      <div class="invito">
         <h2>Vuoi che le regole nuove le applichiamo insieme?</h2>
-        <p>Nella mia X-Fit Academy imposto io il piano sul tuo corpo e sul tempo che hai. Gli ingressi sono ogni mese, a posti limitati. Si entra con una candidatura e una call conoscitiva.</p>
-        <a class="btn btn-chiaro" href="/mangio-meno-candidatura" data-candidatura>Candidati alla X-Fit Academy</a>
+        <p>Nella mia X-Fit Academy il piano lo imposti direttamente con me, sul tuo corpo e sul tempo che hai. Ogni mese accetto 20 donne.</p>
+        <p>Il primo passo &egrave; scrivere al mio team su WhatsApp. Ti spiega come funziona l&rsquo;Academy e se fa per te.</p>
+        <a class="btn btn-wa" href="/whatsapp-check-up" target="_blank" rel="noopener" data-whatsapp><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Scrivi al mio team su WhatsApp</a>
+        <p class="nota-wa">Il messaggio &egrave; gi&agrave; scritto: ti basta premere invio.</p>
       </div>
+      <p class="altro">Vuoi prima capire perch&eacute; il tuo corpo fa cos&igrave;? <a href="/mangio-meno-lezioni" id="vaiLezioni">Guarda le 3 lezioni gratuite</a></p>
     </div>
   </section>
 </main>
@@ -327,10 +337,6 @@ a{color:var(--berry)}
   document.getElementById('vaiLezioni').href = lezioni;
   document.querySelectorAll('[data-link-lezione]').forEach(function (a) {
     a.href = lezioni + '#lezione-' + a.getAttribute('data-link-lezione');
-  });
-  document.querySelectorAll('[data-candidatura]').forEach(function (a) {
-    a.href = MM.link('/mangio-meno-candidatura', { p: p });
-    a.addEventListener('click', function () { MM.crm('clic-candidatura'); });
   });
 
   MM.adattaVideo(document.getElementById('videoBenvenuto'));

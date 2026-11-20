@@ -92,15 +92,10 @@ a{color:var(--berry)}
 .chiusura{padding:44px 0 40px}
 .scheda{background:var(--carta);border:2px solid var(--berry);border-radius:20px;padding:26px 20px}
 .scheda h2{font-size:clamp(25px,6.4vw,32px);margin-bottom:14px}
-.scheda h3{font-size:clamp(21px,5.4vw,25px);margin:28px 0 12px}
 .punti{list-style:none;padding:0}
 .punti li{position:relative;padding:11px 0 11px 28px;border-top:1px solid var(--filo)}
 .punti li:first-child{border-top:0}
 .punti li::before{content:'';position:absolute;left:4px;top:21px;width:11px;height:11px;border-radius:50%;background:var(--berry)}
-.controlli{list-style:none;padding:0;counter-reset:c;margin-bottom:24px}
-.controlli li{position:relative;counter-increment:c;padding:12px 0 12px 58px;min-height:62px;border-top:1px solid var(--filo)}
-.controlli li:first-child{border-top:0}
-.controlli li::before{content:counter(c);position:absolute;left:0;top:10px;width:42px;height:42px;border-radius:50%;background:var(--berry);color:#fff;font:800 21px/42px var(--disp);text-align:center}
 
 /* ── BARRA FISSA ── */
 .barra-fissa{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.97);border-top:1px solid var(--filo);box-shadow:0 -6px 20px rgba(36,27,33,.08);padding:10px 16px calc(10px + env(safe-area-inset-bottom));transition:transform .25s ease}
@@ -108,6 +103,13 @@ a{color:var(--berry)}
 .barra-dentro{display:flex;align-items:center;gap:14px;max-width:760px;margin:0 auto}
 .barra-dentro p{flex:1;font-weight:600;line-height:1.3}
 .barra-dentro .btn{flex:none;width:auto;min-width:0;min-height:56px;padding:12px 22px;box-shadow:none}
+
+/* ── WHATSAPP: la persona scrive per prima (testo precompilato, link in js/mangio-meno.js) ── */
+.btn-wa{background:#1B6E47;box-shadow:0 8px 22px rgba(27,110,71,.25)}
+.btn-wa:hover{background:#145536}
+.btn-wa svg{width:24px;height:24px;flex:none}
+.nota-wa{margin-top:12px;font-size:16px;color:var(--grafite)}
+.chiusura-invito{margin:26px 0 16px;font-weight:700;font-size:19px}
 
 /* ── FOOTER ── */
 .footer{border-top:1px solid var(--filo);padding:32px 0 40px;text-align:center;font-size:15px;color:var(--grafite)}
@@ -158,8 +160,8 @@ a{color:var(--berry)}
         </video>
       </div>
       <div class="dopo">
-        <p>Vuoi applicare queste regole con un piano fatto sul tuo corpo?</p>
-        <a class="btn" href="/mangio-meno-candidatura" data-candidatura>Candidati alla X-Fit Academy</a>
+        <p>Vuoi applicare queste regole con un piano che imposti direttamente con me?</p>
+        <a class="btn btn-wa" href="/whatsapp-check-up" target="_blank" rel="noopener" data-whatsapp><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Scrivi al mio team su WhatsApp</a>
       </div>
     </article>
 
@@ -175,8 +177,8 @@ a{color:var(--berry)}
         </video>
       </div>
       <div class="dopo">
-        <p>Vuoi applicare queste regole con un piano fatto sul tuo corpo?</p>
-        <a class="btn" href="/mangio-meno-candidatura" data-candidatura>Candidati alla X-Fit Academy</a>
+        <p>Vuoi applicare queste regole con un piano che imposti direttamente con me?</p>
+        <a class="btn btn-wa" href="/whatsapp-check-up" target="_blank" rel="noopener" data-whatsapp><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Scrivi al mio team su WhatsApp</a>
       </div>
     </article>
 
@@ -192,8 +194,8 @@ a{color:var(--berry)}
         </video>
       </div>
       <div class="dopo">
-        <p>Vuoi applicare queste regole con un piano fatto sul tuo corpo?</p>
-        <a class="btn" href="/mangio-meno-candidatura" data-candidatura>Candidati alla X-Fit Academy</a>
+        <p>Vuoi applicare queste regole con un piano che imposti direttamente con me?</p>
+        <a class="btn btn-wa" href="/whatsapp-check-up" target="_blank" rel="noopener" data-whatsapp><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Scrivi al mio team su WhatsApp</a>
       </div>
     </article>
 
@@ -207,17 +209,12 @@ a{color:var(--berry)}
         <ul class="punti">
           <li>&Egrave; un percorso di un anno, non una dieta di 30 giorni.</li>
           <li>Lavori con me in un gruppo di donne come te, con lezioni in diretta.</li>
-          <li>Il piano lo imposto sul tempo che hai: le mie donne si allenano 3-4 ore a settimana.</li>
-          <li>Gli ingressi sono ogni mese, a posti limitati.</li>
+          <li>Il piano lo imposti direttamente con me, sul tempo che hai: le mie donne si allenano 3-4 ore a settimana.</li>
+          <li>Ogni mese accetto 20 donne.</li>
         </ul>
-        <h3>Prima di candidarti, controlla 4 cose:</h3>
-        <ol class="controlli">
-          <li>Sai che &egrave; un percorso di un anno.</li>
-          <li>Sei pronta a investire su di te ogni mese. Il costo e le rate te li spiega Marco in call.</li>
-          <li>Puoi iniziare entro 15 giorni.</li>
-          <li>Ci sarai alla call, nel giorno e all&rsquo;ora che scegli.</li>
-        </ol>
-        <a class="btn" href="/mangio-meno-candidatura" data-candidatura id="ctaChiusura">Candidati alla X-Fit Academy</a>
+        <p class="chiusura-invito">Vuoi sapere se la mia Academy fa per te? Scrivi al mio team su WhatsApp: ti fa qualche domanda e ti spiega come si entra.</p>
+        <a class="btn btn-wa" href="/whatsapp-check-up" target="_blank" rel="noopener" data-whatsapp id="ctaChiusura"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Scrivi al mio team su WhatsApp</a>
+        <p class="nota-wa">Il messaggio &egrave; gi&agrave; scritto: ti basta premere invio.</p>
       </div>
     </div>
   </section>
@@ -225,8 +222,8 @@ a{color:var(--berry)}
 
 <div class="barra-fissa" id="barraFissa">
   <div class="barra-dentro">
-    <p>Gli ingressi nella mia Academy sono a posti limitati.</p>
-    <a class="btn" href="/mangio-meno-candidatura" data-candidatura>Candidati</a>
+    <p>Vuoi sapere se la mia Academy fa per te?</p>
+    <a class="btn btn-wa" href="/whatsapp-check-up" target="_blank" rel="noopener" data-whatsapp><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>Scrivi</a>
   </div>
 </div>
 
@@ -297,14 +294,7 @@ a{color:var(--berry)}
     v.addEventListener('ended', fine);
   });
 
-  // Candidatura: p, c e UTM nel link; tag clic-candidatura sul contatto.
-  var candidatura = MM.link('/mangio-meno-candidatura');
-  document.querySelectorAll('[data-candidatura]').forEach(function (a) {
-    a.href = candidatura;
-    a.addEventListener('click', function () { MM.crm('clic-candidatura'); });
-  });
-
-  // La barra fissa si toglie quando il bottone della chiusura e' sullo schermo.
+  // La barra fissa si toglie quando il pulsante WhatsApp della chiusura e' sullo schermo.
   var barra = document.getElementById('barraFissa');
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (voci) {

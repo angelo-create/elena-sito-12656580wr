@@ -5,14 +5,23 @@
 // La pagina riceve l'id del contatto GHL in ?c= (dai link in email, WhatsApp
 // e chat) e chiama questo endpoint una volta per evento. Qui si aggiunge UN
 // tag al contatto, con POST /contacts/{id}/tags: e' additivo, non tocca i tag
-// gia' presenti (vedi api/README.md, REGOLA #1). Nessun upsert, nessun dato
-// personale in ingresso o nei log.
+// gia' presenti (vedi api/README.md, REGOLA #1). Nessun upsert, nei log niente
+// dati personali (l'id del contatto solo a 6 caratteri).
 //
 // Gli eventi ammessi sono una lista chiusa: dal client non puo' arrivare un
 // nome di tag arbitrario.
+//
+// Solo per «Mangio meno»: se la pagina manda anche event_id, lo stesso evento va
+// a Meta CAPI sui due pixel (LezioneAvviata, LezioneFinita, ClicCandidatura, ClicWhatsApp), con
+// lo stesso event_id dell'evento del pixel nel browser (js/mangio-meno.js).
+// Per riconoscere la persona: id del contatto (external_id, come il Lead), paese,
+// cookie _fbc/_fbp, IP e browser. Niente email ne' telefono: non arrivano qui.
+
+const mm = require('./_lib/mangio-meno');
 
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 const ID_RE = /^[A-Za-z0-9]{15,40}$/;
+const LEZIONI_URL = 'https://go.elenagiordani.com/mangio-meno-lezioni';
 
 const REPLAY = {
   'webinar-10-novembre-2026': {
@@ -21,7 +30,8 @@ const REPLAY = {
     'visto-50':          'replay-10-novembre-visto-50',
     'clic-candidatura':  'replay-10-novembre-clic-candidatura'
   },
-  // Funnel «Mangio meno»: lezione avviata, lezione finita (90% visto), clic sulla candidatura.
+  // Funnel «Mangio meno»: lezione avviata, lezione finita (90% visto), clic sulla candidatura
+  // e sul pulsante «Scrivi al mio team su WhatsApp».
   'mangio-meno': {
     'lezione-1-avviata': 'mangio-meno-lezione-1-avviata',
     'lezione-2-avviata': 'mangio-meno-lezione-2-avviata',
@@ -29,12 +39,26 @@ const REPLAY = {
     'lezione-1-finita':  'mangio-meno-lezione-1-finita',
     'lezione-2-finita':  'mangio-meno-lezione-2-finita',
     'lezione-3-finita':  'mangio-meno-lezione-3-finita',
-    'clic-candidatura':  'mangio-meno-clic-candidatura'
+    'clic-candidatura':  'mangio-meno-clic-candidatura',
+    'clic-whatsapp':     'mangio-meno-clic-whatsapp'
   }
 };
 
+// Eventi Meta di «Mangio meno»: stessi nomi di js/mangio-meno.js (il test lo controlla),
+// altrimenti Meta non unisce l'evento del browser con quello del server.
+const META_MANGIO_MENO = {
+  'lezione-1-avviata': { nome: 'LezioneAvviata', contenuto: 'Lezione 1 Mangio meno' },
+  'lezione-2-avviata': { nome: 'LezioneAvviata', contenuto: 'Lezione 2 Mangio meno' },
+  'lezione-3-avviata': { nome: 'LezioneAvviata', contenuto: 'Lezione 3 Mangio meno' },
+  'lezione-1-finita':  { nome: 'LezioneFinita',  contenuto: 'Lezione 1 Mangio meno' },
+  'lezione-2-finita':  { nome: 'LezioneFinita',  contenuto: 'Lezione 2 Mangio meno' },
+  'lezione-3-finita':  { nome: 'LezioneFinita',  contenuto: 'Lezione 3 Mangio meno' },
+  'clic-candidatura':  { nome: 'ClicCandidatura', contenuto: 'Candidatura Mangio meno' },
+  'clic-whatsapp':     { nome: 'ClicWhatsApp',    contenuto: 'WhatsApp Mangio meno' }
+};
+
 // Freno minimo contro le raffiche: per istanza, in memoria. Una persona vera
-// manda al massimo 7 eventi (le 3 lezioni); 20 al minuto per indirizzo bastano e avanzano.
+// manda al massimo 8 eventi (le 3 lezioni e i due clic); 20 al minuto per indirizzo bastano e avanzano.
 const WINDOW_MS = 60 * 1000;
 const MAX_PER_WINDOW = 20;
 const hits = new Map();
@@ -51,8 +75,9 @@ function tooMany(ip) {
 function parseBody(req) {
   let b = req.body;
   // sendBeacon puo' arrivare come testo: lo leggiamo comunque come JSON.
+  // 4000 caratteri: con i dati per Meta (browser, URL con gli UTM, cookie) il corpo cresce.
   if (typeof b === 'string') {
-    if (b.length > 500) return null;
+    if (b.length > 4000) return null;
     try { b = JSON.parse(b); } catch (e) { return null; }
   }
   return b && typeof b === 'object' ? b : null;
@@ -77,15 +102,32 @@ module.exports = async function handler(req, res) {
   const ip = String((req.headers && req.headers['x-forwarded-for']) || '').split(',')[0].trim() || 'sconosciuto';
   if (tooMany(ip)) return res.status(429).json({ error: 'Troppe richieste' });
 
-  const apiKey = process.env.GHL_API_KEY;
-  if (!apiKey) {
-    console.error('[replay-evento] GHL_API_KEY mancante');
-    return res.status(204).end();
-  }
-
   // Da qui in poi si risponde sempre 204: la pagina non deve accorgersi di
   // niente, e un id che in GHL non esiste (link vecchio, contatto cancellato)
   // non e' un errore da mostrare.
+  const lavori = [aggiungiTag(contactId, tag)];
+  const meta = body.replay === 'mangio-meno' ? META_MANGIO_MENO[body.evento] : null;
+  if (meta && typeof body.event_id === 'string') {
+    lavori.push(mm.inviaCapi({
+      eventName: meta.nome,
+      eventId: body.event_id,
+      contactId,
+      richiesta: mm.datiRichiesta(req, body),
+      sourceUrlPredefinito: LEZIONI_URL,
+      customData: { content_name: meta.contenuto, content_category: 'mangio-meno' },
+      etichetta: 'replay-evento'
+    }));
+  }
+  await Promise.allSettled(lavori);
+  return res.status(204).end();
+};
+
+async function aggiungiTag(contactId, tag) {
+  const apiKey = process.env.GHL_API_KEY;
+  if (!apiKey) {
+    console.error('[replay-evento] GHL_API_KEY mancante');
+    return;
+  }
   try {
     const r = await fetch(`${GHL_API_BASE}/contacts/${encodeURIComponent(contactId)}/tags`, {
       method: 'POST',
@@ -102,7 +144,7 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     console.error('[replay-evento] errore GHL (non bloccante):', err.name);
   }
-  return res.status(204).end();
-};
+}
 
 module.exports.REPLAY = REPLAY;
+module.exports.META_MANGIO_MENO = META_MANGIO_MENO;

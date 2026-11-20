@@ -12,6 +12,9 @@ const realFetch = global.fetch;
 const savedEnv = { ...process.env };
 afterEach(() => { global.fetch = realFetch; process.env = { ...savedEnv }; });
 
+const crypto = require('crypto');
+const sha = (v) => crypto.createHash('sha256').update(v).digest('hex');
+
 const CONTATTO = 'ContattoMangioMeno01';
 const ALTRO = 'AltroContatto0000001';
 
@@ -207,9 +210,14 @@ test('lead: upsert senza tag, tag additivi, nota con le 7 risposte, Lead CAPI su
     assert.match(ev.user_data.em[0], /^[a-f0-9]{64}$/);
     assert.equal(ev.user_data.fbc, 'fb.1.1.abc');
   }
-  const px2 = capi.find((c) => c.path === '/v21.0/222/events').body.data[0];
-  assert.ok(px2.user_data.external_id);
-  assert.ok(px2.user_data.country);
+  // id del contatto e paese su tutti e due i pixel (il pixel 1 e' quello della campagna)
+  for (const c of capi) {
+    const u = c.body.data[0].user_data;
+    assert.deepEqual(u.external_id, [sha(CONTATTO.toLowerCase())]);
+    assert.deepEqual(u.country, [sha('it')]);
+    assert.deepEqual(u.fn, [sha('anna')]);
+    assert.equal(u.ln, undefined);
+  }
 });
 
 test('lead: il profilo lo decide il server dalle risposte, non un campo del client', async () => {
@@ -397,7 +405,7 @@ test('candidatura: nei log niente dati personali', async () => {
 // ───────────────────────── /api/replay-evento: eventi mangio-meno ─────────────────────────
 
 test('replay-evento: ogni evento delle lezioni diventa il tag mangio-meno-<evento>', async () => {
-  const eventi = ['lezione-1-avviata', 'lezione-2-avviata', 'lezione-3-avviata', 'lezione-1-finita', 'lezione-2-finita', 'lezione-3-finita', 'clic-candidatura'];
+  const eventi = ['lezione-1-avviata', 'lezione-2-avviata', 'lezione-3-avviata', 'lezione-1-finita', 'lezione-2-finita', 'lezione-3-finita', 'clic-candidatura', 'clic-whatsapp'];
   let ip = 0;
   for (const evento of eventi) {
     const calls = mockFetch();
@@ -463,4 +471,130 @@ test('campi: 13 ID diversi, e ogni domanda del quiz ha il suo campo', () => {
   const campi = campiGhl.campiQuiz({ d1: '40-44', d2: 'irregolare', d3: 'gonfia', d4: 'non-perdo', d5: 'quasi-mai', d6: 'salto', d7: 'bene' }, 'risparmio');
   assert.equal(campi.length, 8);
   assert.ok(campi.every((c) => typeof c.value === 'string' && c.value.length > 0));
+});
+
+// ───────────────────────── nome e cognome per Meta ─────────────────────────
+
+const mm = require('../api/_lib/mangio-meno');
+
+test('nomeMeta: nome e cognome scritti insieme nel campo Nome si dividono; punteggiatura via', () => {
+  assert.deepEqual(mm.nomeMeta('Anna'), { fn: 'Anna', ln: '' });
+  assert.deepEqual(mm.nomeMeta('  Anna   Rossi '), { fn: 'Anna', ln: 'Rossi' });
+  assert.deepEqual(mm.nomeMeta('Maria Grazia Rossi'), { fn: 'Maria Grazia', ln: 'Rossi' });
+  assert.deepEqual(mm.nomeMeta("Anna D'Angelo"), { fn: 'Anna', ln: 'DAngelo' });
+  assert.deepEqual(mm.nomeMeta('Maria Grazia', 'Rossi'), { fn: 'Maria Grazia', ln: 'Rossi' });
+  assert.deepEqual(mm.nomeMeta('', ''), { fn: '', ln: '' });
+});
+
+test('lead: «Anna Rossi» nel campo Nome -> fn anna e ln rossi a Meta; GHL riceve il nome come scritto', async () => {
+  const calls = mockFetch();
+  const r = await chiama(lead, leadValido({ first_name: 'Anna Rossi' }));
+  assert.equal(r.status, 200);
+  assert.equal(calls.find((c) => c.path === '/contacts/upsert').body.firstName, 'Anna Rossi');
+  for (const c of meta(calls)) {
+    assert.deepEqual(c.body.data[0].user_data.fn, [sha('anna')]);
+    assert.deepEqual(c.body.data[0].user_data.ln, [sha('rossi')]);
+  }
+});
+
+// ───────────────────────── lezioni a Meta (replay-evento) ─────────────────────────
+
+async function evento(body, ip) {
+  const out = {};
+  const res = { setHeader() {}, status(c) { out.status = c; return this; }, json() { return this; }, end() { return this; } };
+  await replay({ method: 'POST', body, headers: { 'x-forwarded-for': ip, 'user-agent': 'ua-server' } }, res);
+  return out;
+}
+
+test('replay-evento mangio-meno con event_id: tag in GHL e lo stesso evento a Meta CAPI sui due pixel', async () => {
+  const calls = mockFetch();
+  const out = await evento({
+    c: CONTATTO, replay: 'mangio-meno', evento: 'lezione-2-finita', event_id: 'mm_1700000000000_abc123xyz',
+    fbc: 'fb.1.1.abc', fbp: 'fb.1.1.def', event_source_url: 'https://go.elenagiordani.com/mangio-meno-lezioni',
+    user_agent: 'Mozilla/5.0 test'
+  }, '198.51.100.201');
+  assert.equal(out.status, 204);
+  assert.deepEqual(tagsDi(calls, CONTATTO), ['mangio-meno-lezione-2-finita']);
+  const capi = meta(calls);
+  assert.deepEqual(capi.map((c) => c.path).sort(), ['/v21.0/111/events', '/v21.0/222/events']);
+  for (const c of capi) {
+    const ev = c.body.data[0];
+    assert.equal(ev.event_name, 'LezioneFinita');
+    assert.equal(ev.event_id, 'mm_1700000000000_abc123xyz');
+    assert.deepEqual(ev.custom_data, { content_name: 'Lezione 2 Mangio meno', content_category: 'mangio-meno' });
+    assert.equal(ev.event_source_url, 'https://go.elenagiordani.com/mangio-meno-lezioni');
+    assert.deepEqual(ev.user_data.external_id, [sha(CONTATTO.toLowerCase())]);
+    assert.equal(ev.user_data.fbc, 'fb.1.1.abc');
+    assert.equal(ev.user_data.client_user_agent, 'Mozilla/5.0 test');
+    assert.equal(ev.user_data.client_ip_address, '198.51.100.201');
+    assert.equal(ev.user_data.em, undefined);
+    assert.equal(ev.user_data.ph, undefined);
+  }
+});
+
+test('replay-evento: senza event_id valido, o per il replay del webinar, nessuna CAPI', async () => {
+  let calls = mockFetch();
+  await evento({ c: CONTATTO, replay: 'mangio-meno', evento: 'clic-candidatura' }, '198.51.100.202');
+  assert.equal(meta(calls).length, 0);
+  calls = mockFetch();
+  await evento({ c: CONTATTO, replay: 'mangio-meno', evento: 'clic-candidatura', event_id: 'x' }, '198.51.100.203');
+  assert.equal(meta(calls).length, 0);
+  calls = mockFetch();
+  await evento({ c: CONTATTO, replay: 'webinar-10-novembre-2026', evento: 'avviato', event_id: 'mm_1700000000000_abc123xyz' }, '198.51.100.204');
+  assert.equal(meta(calls).length, 0);
+  assert.equal(ghl(calls).length, 1);
+});
+
+test('replay-evento: senza chiave GHL l\'evento va comunque a Meta, e risponde 204', async () => {
+  const calls = mockFetch();
+  delete process.env.GHL_API_KEY;
+  const righe = await catturaLog(async () => {
+    const out = await evento({ c: CONTATTO, replay: 'mangio-meno', evento: 'lezione-1-avviata', event_id: 'mm_1700000000000_abc123xyz' }, '198.51.100.205');
+    assert.equal(out.status, 204);
+  });
+  assert.equal(ghl(calls).length, 0);
+  assert.equal(meta(calls).length, 2);
+  assert.ok(righe.every((x) => !x.includes(CONTATTO)));
+});
+
+test('nomi degli eventi Meta uguali nel browser (js/mangio-meno.js) e nel server (replay-evento)', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const js = fs.readFileSync(path.join(__dirname, '..', 'js', 'mangio-meno.js'), 'utf8');
+  const blocco = js.slice(js.indexOf('var META = {'), js.indexOf('};', js.indexOf('var META = {')));
+  const browser = {};
+  for (const m of blocco.matchAll(/'([a-z0-9-]+)': \['([A-Za-z]+)', '([^']+)'\]/g)) browser[m[1]] = { nome: m[2], contenuto: m[3] };
+  assert.deepEqual(browser, replay.META_MANGIO_MENO);
+  assert.deepEqual(Object.keys(replay.META_MANGIO_MENO).sort(), Object.keys(replay.REPLAY['mangio-meno']).sort());
+});
+
+test('pulsante WhatsApp: unico passo dopo risultato e lezioni, stesso link nel JS e nel redirect delle email, stesso numero del link in bio', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const leggi = (f) => fs.readFileSync(path.join(__dirname, '..', f), 'utf8');
+  const redirects = JSON.parse(leggi('vercel.json')).redirects;
+  const email = redirects.find((x) => x.source === '/whatsapp-check-up');
+  const bio = redirects.find((x) => x.source === '/bio');
+  assert.ok(email && email.permanent === false);
+  const js = leggi('js/mangio-meno.js').match(/var WHATSAPP = '([^']+)';/);
+  assert.ok(js);
+  assert.equal(js[1], email.destination);
+  const u = new URL(email.destination);
+  assert.equal(u.hostname, 'wa.me');
+  assert.equal(u.pathname, new URL(bio.destination).pathname);
+  // il testo che Flinky riconosce e che usiamo per contare chi scrive da sola
+  assert.equal(u.searchParams.get('text'), "Ciao Elena! Ho fatto il Check-Up e vorrei sapere come funziona l'X-Fit Academy.");
+  // Funnel lineare: dopo il risultato e le lezioni si scrive su WhatsApp; la candidatura arriva
+  // dopo, con il link mandato in chat. Su queste due pagine non ci deve essere.
+  for (const pagina of ['mangio-meno-risultato.html', 'mangio-meno-lezioni.html']) {
+    const html = leggi(pagina);
+    assert.doesNotMatch(html, /mangio-meno-candidatura|data-candidatura/, pagina + ': niente candidatura');
+    const bottoni = [...html.matchAll(/<a\b[^>]*\bdata-whatsapp\b[^>]*>/g)].map((m) => m[0]);
+    assert.ok(bottoni.length >= 1, pagina);
+    for (const b of bottoni) assert.match(b, /href="\/whatsapp-check-up"/, pagina);
+    // ogni pulsante porta l'icona di WhatsApp (non un'altra icona della pagina)
+    const conIcona = [...html.matchAll(/<a\b[^>]*\bdata-whatsapp\b[^>]*><svg[^>]*><path[^>]*d="M17\.47 14\.38/g)];
+    assert.equal(conIcona.length, bottoni.length, pagina + ': icona WhatsApp');
+    assert.ok(html.indexOf('/js/mangio-meno.js') > html.lastIndexOf('data-whatsapp'), pagina + ': lo script va dopo i pulsanti');
+  }
 });
