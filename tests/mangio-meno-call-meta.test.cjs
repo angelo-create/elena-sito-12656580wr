@@ -18,6 +18,7 @@ const ORE = 3600 * 1000;
 const QUIZ = 'ContattoQuizCall00001';
 const ALTRA = 'ContattoWebinar000001';
 const FATTA = 'ContattoGiaInviato001';
+const DA_GHL = 'ContattoTagDaGhl00001';
 
 const CONTATTI = {
   [QUIZ]: {
@@ -26,7 +27,9 @@ const CONTATTI = {
     attributionSource: { utmSource: 'meta', campaign: 'mangio-meno-quiz', fbclid: 'IwAR1abcDEF_ghi-123' }
   },
   [ALTRA]: { id: ALTRA, email: 'b@example.com', phone: '+393330000000', firstName: 'Bea', tags: ['webinar-10-novembre-2026'], dateAdded: '2026-10-01T10:00:00.000Z' },
-  [FATTA]: { id: FATTA, email: 'c@example.com', phone: '+393331111111', firstName: 'Carla', tags: ['mangio-meno-quiz', 'mangio-meno-call-prenotata'], dateAdded: '2026-11-17T10:00:00.000Z' }
+  [FATTA]: { id: FATTA, email: 'c@example.com', phone: '+393331111111', firstName: 'Carla', tags: ['mangio-meno-quiz', 'mangio-meno-call-prenotata', 'mangio-meno-call-meta-inviata'], dateAdded: '2026-11-17T10:00:00.000Z' },
+  // il workflow GHL «Mangio Meno: Call prenotata» mette il tag appena lei prenota, prima del cron
+  [DA_GHL]: { id: DA_GHL, email: 'd@example.com', phone: '+393332222222', firstName: 'Dora', tags: ['mangio-meno-quiz', 'mangio-meno-call-prenotata'], dateAdded: '2026-11-20T10:00:00.000Z' }
 };
 
 const EVENTI = [
@@ -116,9 +119,21 @@ test('call del quiz: Schedule a Meta sui due pixel con l\'ora della prenotazione
   const t = tag(calls);
   assert.equal(t.length, 1);
   assert.equal(t[0].path, `/contacts/${QUIZ}/tags`);
-  assert.deepEqual(t[0].body, { tags: ['mangio-meno-call-prenotata'] });
+  assert.deepEqual(t[0].body, { tags: ['mangio-meno-call-prenotata', 'mangio-meno-call-meta-inviata'] });
   // sola lettura per il resto: nessun upsert, nessuna scrittura sugli altri contatti
   assert.ok(calls.filter((c) => c.host === 'services.leadconnectorhq.com' && c.method !== 'GET').every((c) => c.path.endsWith('/tags')));
+});
+
+test('tag call-prenotata gia\' messo dal workflow GHL: Schedule parte lo stesso, una volta sola', async () => {
+  const eventi = [{ id: 'appGhl', contactId: DA_GHL, dateAdded: iso(1 * ORE), appointmentStatus: 'confirmed' }];
+  const calls = mockFetch({ eventi });
+  const r = await chiama();
+  assert.deepEqual(r.body, { prenotazioni: 1, quiz: 1, inviate: 1, gia_inviate: 0, errori: 0 });
+  assert.equal(meta(calls).length, 2);
+  assert.equal(meta(calls)[0].body.data[0].event_id, 'schedule_appGhl');
+  const t = tag(calls);
+  assert.equal(t.length, 1);
+  assert.deepEqual(t[0].body, { tags: ['mangio-meno-call-prenotata', 'mangio-meno-call-meta-inviata'] });
 });
 
 test('il calendario si legge da 2 giorni fa a 28 giorni avanti, solo quello di Marco', async () => {

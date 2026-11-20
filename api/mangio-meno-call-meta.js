@@ -8,13 +8,16 @@
 // 1. legge da GHL le prenotazioni del calendario di Marco create nelle ultime 48 ore
 //    (non annullate);
 // 2. per ogni contatto con il tag mangio-meno-quiz che non ha ancora il tag
-//    mangio-meno-call-prenotata manda Schedule «Call Marco Mangio meno» a Meta CAPI
+//    mangio-meno-call-meta-inviata manda Schedule «Call Marco Mangio meno» a Meta CAPI
 //    sui due pixel (la conversione personalizzata «MANGIO MENO · Call prenotata»
 //    conta Schedule con questo content_name). event_id = schedule_<id appuntamento>,
 //    event_time = ora della prenotazione;
-// 3. se almeno un pixel l'ha accettato, aggiunge il tag mangio-meno-call-prenotata
-//    (POST /contacts/{id}/tags, additivo). Il tag dice «ha prenotato la call»:
-//    evita il secondo invio ed e' anche l'uscita della sequenza email del quiz.
+// 3. se almeno un pixel l'ha accettato, aggiunge i tag mangio-meno-call-prenotata e
+//    mangio-meno-call-meta-inviata (POST /contacts/{id}/tags, additivo).
+//    mangio-meno-call-prenotata dice «ha prenotato la call» ed e' l'uscita della
+//    sequenza email del quiz. Dal 20/11 lo mette anche il workflow GHL «Mangio Meno:
+//    Call prenotata» appena lei prenota, prima di questo cron: per questo il secondo
+//    invio lo evita mangio-meno-call-meta-inviata, che mette solo questo endpoint.
 //
 // Dati per riconoscere la persona: email, telefono, nome e cognome, id del contatto
 // (external_id, come Lead e lezioni), paese, e _fbc ricostruito dal fbclid
@@ -30,6 +33,7 @@ const CALENDARIO = 'HiNWYwGpEGZvIesthFA6'; // Consulenza Sbloccata Marco
 const PAGINA_CALENDARIO = `https://api.leadconnectorhq.com/widget/booking/${CALENDARIO}`;
 const TAG_QUIZ = 'mangio-meno-quiz';
 const TAG_FATTO = 'mangio-meno-call-prenotata';
+const TAG_INVIATA = 'mangio-meno-call-meta-inviata';
 const FINESTRA_MS = 48 * 3600 * 1000;
 const GIORNO_MS = 24 * 3600 * 1000;
 const MAX_CONTATTI = 40;
@@ -122,7 +126,7 @@ module.exports = async function handler(req, res) {
     const tag = Array.isArray(contatto && contatto.tags) ? contatto.tags : [];
     if (!tag.includes(TAG_QUIZ)) continue;
     esito.quiz += 1;
-    if (tag.includes(TAG_FATTO)) { esito.gia_inviate += 1; continue; }
+    if (tag.includes(TAG_INVIATA)) { esito.gia_inviate += 1; continue; }
 
     const accettato = await mm.inviaCapi({
       eventName: 'Schedule',
@@ -140,7 +144,7 @@ module.exports = async function handler(req, res) {
     });
     if (accettato > 0) {
       esito.inviate += 1;
-      await mm.aggiungiTag(apiKey, p.contactId, [TAG_FATTO], ETICHETTA);
+      await mm.aggiungiTag(apiKey, p.contactId, [TAG_FATTO, TAG_INVIATA], ETICHETTA);
     } else {
       esito.errori += 1;
     }
