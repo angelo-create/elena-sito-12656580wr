@@ -1,6 +1,8 @@
 // /api/replay-evento: segna in GHL cosa fa un contatto sulla pagina della
-// registrazione del webinar (webinar-novembre-replay.html) e sulle pagine del
-// funnel «Mangio meno» (mangio-meno-risultato.html, mangio-meno-lezioni.html).
+// registrazione del webinar (webinar-novembre-replay.html), sulle pagine del
+// funnel «Mangio meno» (mangio-meno-risultato.html, mangio-meno-lezioni.html)
+// e sulla pagina di grazie dell'ebook «La pancia che non se ne va» (ebook-pancia-grazie.html,
+// che prende l'id del contatto dalla risposta del modulo, non da ?c=).
 //
 // La pagina riceve l'id del contatto GHL in ?c= (dai link in email, WhatsApp
 // e chat) e chiama questo endpoint una volta per evento. Qui si aggiunge UN
@@ -41,6 +43,12 @@ const REPLAY = {
     'lezione-3-finita':  'mangio-meno-lezione-3-finita',
     'clic-candidatura':  'mangio-meno-clic-candidatura',
     'clic-whatsapp':     'mangio-meno-clic-whatsapp'
+  },
+  // Ebook «La pancia che non se ne va» (ebook-pancia-grazie.html): download del PDF
+  // e clic su «Scrivi al mio team su WhatsApp». Solo tag, niente CAPI.
+  'ebook-pancia': {
+    'scaricato':         'ebook-pancia-scaricato',
+    'clic-whatsapp':     'ebook-pancia-clic-whatsapp'
   }
 };
 
