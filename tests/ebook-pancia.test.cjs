@@ -240,3 +240,12 @@ test('vercel.json: redirect WhatsApp, landing su go., PDF noindex', () => {
   const h = cfg.headers.find((x) => x.source === '/assets/ebook/(.*)');
   assert.ok(h.headers.some((x) => x.key === 'X-Robots-Tag' && /noindex/.test(x.value)));
 });
+
+test('landing: immagine di anteprima per Instagram e WhatsApp che esiste, 1200x630', () => {
+  const html = leggi('ebook-pancia.html');
+  const m = html.match(/<meta property="og:image" content="https:\/\/go\.elenagiordani\.com\/([^"]+)"/);
+  assert.ok(m, 'og:image assoluto');
+  assert.ok(fs.existsSync(path.join(ROOT, m[1])), 'manca ' + m[1]);
+  assert.match(html, /og:image:width" content="1200"/);
+  assert.match(html, /og:image:height" content="630"/);
+});
