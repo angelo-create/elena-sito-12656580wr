@@ -47,6 +47,13 @@ Si lavora con Angelo Allocca, marketer di Elena Giordani (life coach fitness per
 - Calendari: "Consulenza Sbloccata Marco" = call di vendita con il setter. "One to one Elena" = cliente iscritta.
 - Webhook Stripe di Club e OTO: endpoint e secret separati (`STRIPE_WEBHOOK_SECRET_CLUB`, `STRIPE_WEBHOOK_SECRET_OTO`). Mai lo stesso secret per due endpoint.
 
+## Meta Ads
+
+- I gruppi di inserzioni a conversione ottimizzano sempre su una **conversione personalizzata**, mai sull'evento standard del pixel (regola di Angelo del 17/11/2026). Il pixel 446130387840122 riceve Lead, SubmitApplication e Schedule da più funnel: l'evento standard mescola i risultati e Meta impara anche dalle conversioni degli altri funnel.
+- La regola della conversione filtra l'evento più il `content_name` (o l'URL) che solo le pagine di quel funnel mandano, sia dal browser sia dalla CAPI. La regola non si cambia dopo la creazione.
+- Crea la conversione prima del gruppo: Meta non permette di cambiare pixel, evento o conversione di un gruppo già pubblicato. Per cambiarlo serve un gruppo nuovo con gli annunci ricreati.
+- Nell'API il gruppo vuole `promoted_object: {"custom_conversion_id": "<id>"}` da solo: insieme a `pixel_id` o `custom_event_type` Meta lo rifiuta.
+
 ## Copy
 
 - Niente em dash (—) e niente en dash usato come pausa: due punti, virgola, oppure punto e frase nuova.
