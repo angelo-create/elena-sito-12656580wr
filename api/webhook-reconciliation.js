@@ -32,6 +32,7 @@ const GHL_LOCATION_ID = 'whfxv9CQCrjAmBTZJwMw';
 const PRODUCT_TO_TAG = {
   'sfida-7-giorni': 'oto-sfida-7-giorni',
   'sfida-7-giorni-go': 's7g-go-acquisto',
+  'sfida-7-giorni-bf-2026': 's7g-bf-acquisto',
   'mappa-lipedema': 'oto-mappa-lipedema',
 };
 

@@ -6,10 +6,29 @@ const { buildUtmPayload } = require('./build-utm-payload');
 const { nomeMeta } = require('./mangio-meno');
 const { normalizePhone } = require('./normalize-phone');
 
-const PRODUCT = 'sfida-7-giorni-go';
-const AMOUNT = 3700;
+const OFFERS = {
+  standard: {
+    product: 'sfida-7-giorni-go',
+    amount: 3700,
+    content_name: 'Sfida 7 Giorni go',
+    cartTags: ['s7g-go-carrello'],
+    purchaseTags: ['il_primo_passo', 'sfida-purchased-day0', 's7g-go-acquisto'],
+    cartPath: '/carrello-sfida-7giorni',
+    orderPath: '/riepilogo-ordine'
+  },
+  bf: {
+    product: 'sfida-7-giorni-bf-2026',
+    amount: 700,
+    content_name: 'Sfida 7 Giorni Black Friday', // COPY-BF: nome in Meta e nella nota GHL, allineato a js/s7g.js.
+    cartTags: ['s7g-go-carrello', 's7g-bf-carrello'],
+    purchaseTags: ['il_primo_passo', 'sfida-purchased-day0', 's7g-go-acquisto', 's7g-bf-acquisto'],
+    cartPath: '/carrello-sfida-7giorni-black-friday',
+    orderPath: '/riepilogo-ordine',
+    landingPath: '/s7g-black-friday',
+    endsAt: Date.parse('2026-12-01T00:00:00+01:00')
+  }
+};
 const CURRENCY = 'eur';
-const CONTENT_NAME = 'Sfida 7 Giorni go';
 const SITE = 'https://go.elenagiordani.com';
 const INTENT_RE = /^pi_[A-Za-z0-9]{8,100}$/;
 const EVENT_RE = /^s7g_[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12}$/i;
@@ -75,7 +94,7 @@ function addTags(id, tags) {
   return ghl(`${contactPath(id)}/tags`, 'POST', { tags });
 }
 
-async function addPaymentNote(id, intent) {
+async function addPaymentNote(id, intent, offer) {
   const path = `${contactPath(id)}/notes`;
   const { notes } = await (await ghl(path, 'GET')).json();
   if (!Array.isArray(notes)) throw new Error('Elenco note GHL non disponibile');
@@ -85,14 +104,14 @@ async function addPaymentNote(id, intent) {
   const details = intent.latest_charge?.payment_method_details;
   const method = details?.card?.wallet?.type || details?.type || intent.payment_method?.type || 'Stripe';
   const amount = (intent.amount_received / 100).toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
-  await ghl(path, 'POST', { body: `Il Primo Passo (Sfida 7 Giorni go)\nImporto: ${amount}\n${reference}\nMetodo: ${method}` });
+  await ghl(path, 'POST', { body: `Il Primo Passo (${offer.content_name})\nImporto: ${amount}\n${reference}\nMetodo: ${method}` });
 }
 
 function hash(value) {
   return crypto.createHash('sha256').update(value.toLowerCase().trim()).digest('hex');
 }
 
-async function sendCapi(eventName, contact, metadata, eventTime, completed = {}) {
+async function sendCapi(eventName, contact, metadata, eventTime, offer, completed = {}) {
   const suffixes = ['', '_2'];
   const { fn, ln } = nomeMeta(contact.firstName, contact.lastName);
   const user = {};
@@ -111,10 +130,10 @@ async function sendCapi(eventName, contact, metadata, eventTime, completed = {})
     event_name: eventName,
     event_id: metadata.event_id,
     event_time: eventTime,
-    event_source_url: SITE + (purchase ? '/riepilogo-ordine' : '/carrello-sfida-7giorni'),
+    event_source_url: SITE + (purchase ? offer.orderPath : offer.cartPath),
     action_source: 'website',
     user_data: user,
-    custom_data: { value: AMOUNT / 100, currency: 'EUR', content_name: CONTENT_NAME }
+    custom_data: { value: offer.amount / 100, currency: 'EUR', content_name: offer.content_name }
   };
 
   const results = await Promise.all(suffixes.map(async (suffix, index) => {
@@ -144,11 +163,14 @@ async function sendCapi(eventName, contact, metadata, eventTime, completed = {})
   return Object.fromEntries(results);
 }
 
-function isS7gIntent(intent) {
-  return intent?.metadata?.product === PRODUCT && intent.amount === AMOUNT && intent.currency === CURRENCY;
+function offerFromIntent(intent) {
+  if (intent?.currency !== CURRENCY) return undefined;
+  return Object.values(OFFERS).find(offer =>
+    intent.metadata?.product === offer.product && intent.amount === offer.amount
+  );
 }
 
 module.exports = {
-  PRODUCT, AMOUNT, CURRENCY, INTENT_RE, EVENT_RE, ATTR_KEYS,
-  stripeClient, clip, contactFrom, upsert, addTags, addPaymentNote, sendCapi, isS7gIntent
+  OFFERS, CURRENCY, INTENT_RE, EVENT_RE, ATTR_KEYS,
+  stripeClient, clip, contactFrom, upsert, addTags, addPaymentNote, sendCapi, offerFromIntent
 };

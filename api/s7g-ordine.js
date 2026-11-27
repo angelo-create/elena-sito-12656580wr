@@ -1,6 +1,6 @@
 'use strict';
 
-const { INTENT_RE, EVENT_RE, stripeClient, isS7gIntent } = require('./_lib/s7g');
+const { INTENT_RE, EVENT_RE, stripeClient, offerFromIntent } = require('./_lib/s7g');
 
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -13,10 +13,14 @@ module.exports = async function handler(req, res) {
 
   try {
     const intent = await stripeClient().paymentIntents.retrieve(id);
-    if (!isS7gIntent(intent)) return res.status(404).json({ error: 'not_found' });
+    const offer = offerFromIntent(intent);
+    if (!offer) return res.status(404).json({ error: 'not_found' });
     return res.status(200).json({
       status: intent.status,
       amount: intent.amount,
+      value: offer.amount / 100,
+      content_name: offer.content_name,
+      cart_path: offer.cartPath,
       event_id: EVENT_RE.test(intent.metadata.event_id || '') ? intent.metadata.event_id : null
     });
   } catch (error) {

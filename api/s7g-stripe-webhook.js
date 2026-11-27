@@ -3,9 +3,8 @@
 const { randomUUID } = require('node:crypto');
 const { buffer } = require('micro');
 const { normalizePhone } = require('./_lib/normalize-phone');
-const { AMOUNT, EVENT_RE, stripeClient, isS7gIntent, upsert, addTags, addPaymentNote, sendCapi } = require('./_lib/s7g');
+const { EVENT_RE, stripeClient, offerFromIntent, upsert, addTags, addPaymentNote, sendCapi } = require('./_lib/s7g');
 
-const PURCHASE_TAGS = ['il_primo_passo', 'sfida-purchased-day0', 's7g-go-acquisto'];
 const LEASE_MS = 120000;
 
 function buyerFrom(intent) {
@@ -24,8 +23,9 @@ function buyerFrom(intent) {
 
 async function fulfill(stripe, id, eventTime) {
   const intent = await stripe.paymentIntents.retrieve(id, { expand: ['latest_charge', 'payment_method'] });
+  const offer = offerFromIntent(intent);
+  if (!offer || intent.status !== 'succeeded' || intent.amount_received !== offer.amount) return;
   const md = intent.metadata;
-  if (!isS7gIntent(intent) || intent.status !== 'succeeded' || intent.amount_received !== AMOUNT) return;
   if (md.s7g_fulfilled === '1') return;
 
   // Stripe serializza la prima scrittura con questa chiave. Consegne concorrenti
@@ -45,8 +45,8 @@ async function fulfill(stripe, id, eventTime) {
   if (!crmOk) {
     try {
       const idContatto = await upsert(buyer, md.ghl_contact_id ? {} : md);
-      await addTags(idContatto, PURCHASE_TAGS);
-      await addPaymentNote(idContatto, intent);
+      await addTags(idContatto, offer.purchaseTags);
+      await addPaymentNote(idContatto, intent, offer);
       await stripe.paymentIntents.update(id, { metadata: { s7g_crm: '1', ghl_contact_id: idContatto } });
       crmOk = true;
     } catch (error) {
@@ -54,7 +54,7 @@ async function fulfill(stripe, id, eventTime) {
     }
   }
 
-  const results = await sendCapi('Purchase', buyer, md, eventTime, md);
+  const results = await sendCapi('Purchase', buyer, md, eventTime, offer, md);
   const checkpoints = Object.fromEntries(Object.entries(results).filter(([, ok]) => ok).map(([key]) => [key, '1']));
   const completed = crmOk && Object.values(results).every(Boolean);
   await stripe.paymentIntents.update(id, {
@@ -93,7 +93,7 @@ module.exports = async function handler(req, res) {
   }
 
   const intent = event.data.object;
-  if (!isS7gIntent(intent)) return res.status(200).json({ received: true });
+  if (!offerFromIntent(intent)) return res.status(200).json({ received: true });
   if (event.type === 'payment_intent.payment_failed') {
     console.info('[s7g-webhook] Pagamento fallito:', String(intent.id).slice(-6));
   } else if (event.type === 'payment_intent.succeeded') {

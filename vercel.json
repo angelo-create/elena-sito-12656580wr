@@ -363,7 +363,7 @@
   ],
   "headers": [
     {
-      "source": "/:page(s7g|carrello-sfida-7giorni|riepilogo-ordine)",
+      "source": "/:page(s7g|s7g-black-friday|carrello-sfida-7giorni|carrello-sfida-7giorni-black-friday|riepilogo-ordine)",
       "headers": [
         {
           "key": "X-Robots-Tag",

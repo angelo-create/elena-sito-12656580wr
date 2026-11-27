@@ -42,6 +42,12 @@
 .s7g-summary-total { display: none; margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--border); }
 .s7g-summary-total small, .s7g-mobile-total small { display: block; font-size: .75rem; font-weight: 400; color: var(--muted); }
 .s7g-summary-total > strong:last-child, .s7g-mobile-total > strong:last-child { white-space: nowrap; color: var(--pink); font-size: 1.2rem; }
+.s7g-checkout .s7g-bf-old-price {
+  margin-inline-end: .25em;
+  color: var(--muted);
+  font-size: .75em;
+  font-weight: 500;
+}
 .s7g-mobile-total {
   display: flex;
   position: sticky;

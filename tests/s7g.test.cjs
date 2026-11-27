@@ -17,6 +17,9 @@ const input = {
   event_id: requestId, utm_source: 'meta', utm_campaign: 'c'.repeat(501), fbp: 'fb.1.123.456', fbc: 'fb.1.123.abc'
 };
 const created = 1795770000;
+const bfEndsAt = Date.parse('2026-11-30T23:00:00Z');
+const bfContentName = 'Sfida 7 Giorni Black Friday';
+const bfCartPath = '/carrello-sfida-7giorni-black-friday';
 
 let intent, createdWith, updateKeys, fetchCalls, notes, ghlDown, rejectedPixel;
 const paymentIntents = {
@@ -49,6 +52,7 @@ const paymentIntents = {
 };
 
 require.cache[stripePath].exports = () => ({ paymentIntents, webhooks: signatureApi });
+const { OFFERS, offerFromIntent } = require('../api/_lib/s7g');
 const checkout = require('../api/s7g-checkout');
 const order = require('../api/s7g-ordine');
 const webhook = require('../api/s7g-stripe-webhook');
@@ -130,12 +134,12 @@ function webhookRequest(type, validSignature = true) {
   return req;
 }
 
-async function paidIntent() {
-  const res = await invoke(checkout, checkoutRequest(input));
+async function paidIntent(body = input) {
+  const res = await invoke(checkout, checkoutRequest(body));
   assert.equal(res.code, 200);
   Object.assign(intent, {
     status: 'succeeded',
-    amount_received: 3700,
+    amount_received: intent.amount,
     payment_method: { billing_details: { name: input.name, email: input.email, phone: '+393331234567' }, type: 'card' },
     latest_charge: { payment_method_details: { type: 'card', card: { wallet: { type: 'apple_pay' } } } }
   });
@@ -200,7 +204,10 @@ test('riepilogo risponde con i soli campi pubblici e rifiuta gli intent degli al
   const req = { method: 'GET', query: { payment_intent: fabricatedPaymentId } };
   let res = await invoke(order, req);
   assert.equal(res.code, 200);
-  assert.deepEqual(res.body, { status: 'succeeded', amount: 3700, event_id: requestId });
+  assert.deepEqual(res.body, {
+    status: 'succeeded', amount: 3700, value: 37, content_name: 'Sfida 7 Giorni go',
+    cart_path: '/carrello-sfida-7giorni', event_id: requestId
+  });
   intent.metadata.product = 'altro';
   res = await invoke(order, req);
   assert.equal(res.code, 404);
@@ -259,4 +266,91 @@ test('webhook riprende dal checkpoint quando un solo pixel rifiuta il Purchase',
   assert.equal((await invoke(webhook, webhookRequest('payment_intent.succeeded'))).code, 200);
   assert.deepEqual(fetchCalls.map(call => call.pathname), ['/v21.0/102/events']);
   assert.equal(notes.length, 1);
+});
+
+test('Black Friday usa 700 centesimi, entrambi i tag carrello e CAPI distinta', async t => {
+  t.mock.method(Date, 'now', () => bfEndsAt - 1);
+  const res = await invoke(checkout, checkoutRequest({ ...input, offer: 'bf' }));
+  assert.equal(res.code, 200);
+  assert.equal(createdWith.params.amount, 700);
+  assert.equal(createdWith.params.currency, 'eur');
+  assert.equal(createdWith.params.metadata.product, 'sfida-7-giorni-bf-2026');
+  assert.equal(createdWith.idempotencyKey, `s7g-checkout-bf-${requestId}`);
+  const [upsert, tags, ...pixels] = fetchCalls;
+  assert.equal(Object.hasOwn(upsert.data, 'tags'), false);
+  assert.deepEqual(tags.data.tags, ['s7g-go-carrello', 's7g-bf-carrello']);
+  assert.equal(pixels.length, 2);
+  for (const { data } of pixels) {
+    const [event] = data.data;
+    assert.equal(event.event_name, 'InitiateCheckout');
+    assert.equal(event.event_source_url, `https://go.elenagiordani.com${bfCartPath}`);
+    assert.deepEqual(event.custom_data, { value: 7, currency: 'EUR', content_name: bfContentName });
+  }
+});
+
+test('alla scadenza il checkout rifiuta Black Friday, accetta ancora standard e rifiuta offerte sconosciute', async t => {
+  t.mock.method(Date, 'now', () => bfEndsAt);
+  for (const offer of ['altro', '__proto__', null]) {
+    assert.equal((await invoke(checkout, checkoutRequest({ ...input, offer }))).code, 400);
+  }
+  const expired = await invoke(checkout, checkoutRequest({ ...input, offer: 'bf' }));
+  assert.equal(expired.code, 410);
+  assert.deepEqual(expired.body, { error: 'expired' });
+  assert.equal(fetchCalls.length, 0);
+  assert.equal(createdWith, undefined);
+
+  const standard = await invoke(checkout, checkoutRequest({ ...input, offer: 'standard' }));
+  assert.equal(standard.code, 200);
+  assert.equal(createdWith.params.amount, 3700);
+  assert.equal(createdWith.idempotencyKey, `s7g-checkout-${requestId}`);
+});
+
+test('il riepilogo riconosce la variante Black Friday e rifiuta intent con importo o valuta incoerenti', async t => {
+  t.mock.method(Date, 'now', () => bfEndsAt - 1000);
+  await paidIntent({ ...input, offer: 'bf' });
+  assert.equal(offerFromIntent(intent), OFFERS.bf);
+  const req = { method: 'GET', query: { payment_intent: fabricatedPaymentId } };
+  const res = await invoke(order, req);
+  assert.equal(res.code, 200);
+  assert.deepEqual(res.body, {
+    status: 'succeeded', amount: 700, value: 7, content_name: bfContentName,
+    cart_path: bfCartPath, event_id: requestId
+  });
+
+  intent.amount = 3700;
+  assert.equal(offerFromIntent(intent), undefined);
+  assert.equal((await invoke(order, req)).code, 404);
+  intent.amount = 700;
+  intent.currency = 'usd';
+  assert.equal(offerFromIntent(intent), undefined);
+  assert.equal((await invoke(order, req)).code, 404);
+});
+
+test('il webhook consegna un ordine Black Friday già creato anche dopo la scadenza', async t => {
+  let now = bfEndsAt - 1000;
+  t.mock.method(Date, 'now', () => now);
+  await paidIntent({ ...input, offer: 'bf' });
+  now = bfEndsAt + 1000;
+  const type = 'payment_intent.succeeded';
+
+  intent.amount_received = 699;
+  assert.equal((await invoke(webhook, webhookRequest(type))).code, 200);
+  assert.equal(fetchCalls.length, 0);
+  assert.equal(intent.metadata.s7g_fulfilled, undefined);
+
+  intent.amount_received = 700;
+  assert.equal((await invoke(webhook, webhookRequest(type))).code, 200);
+  assert.equal(intent.metadata.s7g_fulfilled, '1');
+  const [upsert, tags, , , ...pixels] = fetchCalls;
+  assert.equal(Object.hasOwn(upsert.data, 'tags'), false);
+  assert.deepEqual(tags.data.tags, ['il_primo_passo', 'sfida-purchased-day0', 's7g-go-acquisto', 's7g-bf-acquisto']);
+  assert.match(notes[0].body, /Il Primo Passo \(Sfida 7 Giorni Black Friday\)/);
+  assert.equal(pixels.length, 2);
+  for (const { data } of pixels) {
+    const [event] = data.data;
+    assert.equal(event.event_name, 'Purchase');
+    assert.equal(event.event_id, requestId);
+    assert.equal(event.event_source_url, 'https://go.elenagiordani.com/riepilogo-ordine');
+    assert.deepEqual(event.custom_data, { value: 7, currency: 'EUR', content_name: bfContentName });
+  }
 });

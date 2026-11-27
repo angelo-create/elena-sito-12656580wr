@@ -1,6 +1,15 @@
 'use strict';
 
 (() => {
+  if (window.s7gOfferExpired) return;
+  const isBf = document.body.dataset.s7gOffer === 'bf';
+  const copyBf = {
+    title: 'Il Primo Passo: la Sfida dei 7 giorni di Elena Giordani', // COPY-BF
+    subtitle: 'Black Friday: 7 € invece di 37 € (prezzo più basso degli ultimi 30 giorni), pagamento unico, IVA inclusa. Offerta valida fino a lunedì 30 novembre alle 23:59.', // COPY-BF
+    pay: 'Paga 7 € e inizia', // COPY-BF
+    expired: 'L’offerta Black Friday è terminata il 30 novembre. Se vuoi partire subito, la mia Sfida dei 7 giorni ti aspetta a 37 €.', // COPY-BF
+    expiredLink: 'Torna alla pagina della sfida' // COPY-BF
+  };
   // Microcopy del carrello scritto da Gemini 4 Neon il 27/11/2026 (.context/s7g-go-2026-11-27/microcopy-carrello-neon.md).
   const copy = {
     title: 'Iscriviti alla mia sfida: «Il Primo Passo»',
@@ -28,7 +37,8 @@
     checkoutError: 'Non siamo riusciti ad avviare il pagamento. Riprova tra poco.',
     paymentError: 'Verifica i dati di pagamento e riprova.',
     declined: 'Il pagamento non è passato: controlla i dati o prova un altro metodo.',
-    redirectFailed: 'Il pagamento non è stato completato. Puoi riprovare.'
+    redirectFailed: 'Il pagamento non è stato completato. Puoi riprovare.',
+    ...(isBf ? copyBf : {})
   };
 
   const form = document.getElementById('checkout-form');
@@ -45,7 +55,7 @@
   let attempt;
 
   document.querySelectorAll('[data-copy]').forEach(node => { node.textContent = copy[node.dataset.copy]; });
-  document.title = 'Il Primo Passo · Carrello';
+  if (!isBf) document.title = 'Il Primo Passo · Carrello';
   fields.forEach(input => {
     input.placeholder = copy[`${input.name}Placeholder`];
     input.addEventListener('input', () => setFieldError(input, false));
@@ -104,7 +114,7 @@
       stripe = window.Stripe(publishableKey, { locale: 'it' });
       elements = stripe.elements({
         mode: 'payment',
-        amount: 3700,
+        amount: isBf ? 700 : 3700,
         currency: 'eur',
         appearance: { variables: { colorPrimary: '#c01868', fontSizeBase: '16px', borderRadius: '10px' } }
       });
@@ -153,7 +163,10 @@
     const fbc = fbclid && !savedFbc.endsWith(`.${fbclid}`) ? `fb.1.${Date.now()}.${fbclid}` : savedFbc;
     attempt = {
       fingerprint,
-      payload: { ...attribution, ...details, fbp, fbc, event_id: `s7g_${crypto.randomUUID()}` }
+      payload: {
+        ...attribution, ...details, fbp, fbc, event_id: `s7g_${crypto.randomUUID()}`,
+        ...(isBf ? { offer: 'bf' } : {})
+      }
     };
     return attempt;
   }
@@ -208,6 +221,16 @@
           body: JSON.stringify(payload),
           signal: AbortSignal.timeout(30000)
         });
+        if (response.status === 410 && isBf) {
+          ready = false;
+          showError(copyBf.expired + ' ', false);
+          const link = document.createElement('a');
+          link.href = '/s7g' + location.search;
+          link.textContent = copyBf.expiredLink;
+          errorMessage.append(link);
+          errorMessage.focus();
+          return;
+        }
         const result = await response.json();
         if (result.fields) {
           for (const input of fields) setFieldError(input, Boolean(result.fields[input.name]));
