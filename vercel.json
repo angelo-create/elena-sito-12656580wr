@@ -10,17 +10,17 @@
   "redirects": [
     {
       "source": "/bio",
-      "destination": "https://wa.me/393773692181?text=Ciao%20Elena%21%20Arrivo%20dalla%20tua%20bio%20e%20vorrei%20informazioni%20sul%20tuo%20percorso.",
+      "destination": "https://wa.me/393295859935?text=Ciao%20Elena%21%20Arrivo%20dalla%20tua%20bio%20e%20vorrei%20informazioni%20sul%20tuo%20percorso.",
       "permanent": false
     },
     {
       "source": "/whatsapp-check-up",
-      "destination": "https://wa.me/393773692181?text=Ciao%20Elena%21%20Ho%20fatto%20il%20Check-Up%20e%20vorrei%20sapere%20come%20funziona%20l%27X-Fit%20Academy.",
+      "destination": "https://wa.me/393295859935?text=Ciao%20Elena%21%20Ho%20fatto%20il%20Check-Up%20e%20vorrei%20sapere%20come%20funziona%20l%27X-Fit%20Academy.",
       "permanent": false
     },
     {
       "source": "/whatsapp-ebook-pancia",
-      "destination": "https://wa.me/393773692181?text=Ciao%20Elena%21%20Ho%20scaricato%20l%27ebook%20sulla%20pancia%20e%20vorrei%20capire%20da%20dove%20partire.",
+      "destination": "https://wa.me/393295859935?text=Ciao%20Elena%21%20Ho%20scaricato%20l%27ebook%20sulla%20pancia%20e%20vorrei%20capire%20da%20dove%20partire.",
       "permanent": false
     },
     {
@@ -327,7 +327,7 @@
     },
     {
       "source": "/whatsapp",
-      "destination": "https://wa.me/message/NFTDARMM3PX6C1",
+      "destination": "https://wa.me/393295859935?text=Ciao%20Irene%2C%20ti%20scrivo%20da%20Instagram%2C%20volevo%20pi%C3%B9%20informazioni%20sull%27Academy",
       "permanent": false
     },
     {

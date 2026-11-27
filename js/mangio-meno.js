@@ -152,7 +152,7 @@
   // scrive da sola (in GHL il workflow aspetta 10 minuti prima del messaggio automatico).
   // Deve restare uguale al redirect /whatsapp-check-up di vercel.json (usato nelle email):
   // il test lo controlla. Nell'HTML l'href e' gia' /whatsapp-check-up, cosi' funziona anche senza JS.
-  var WHATSAPP = 'https://wa.me/393773692181?text=Ciao%20Elena%21%20Ho%20fatto%20il%20Check-Up%20e%20vorrei%20sapere%20come%20funziona%20l%27X-Fit%20Academy.';
+  var WHATSAPP = 'https://wa.me/393295859935?text=Ciao%20Elena%21%20Ho%20fatto%20il%20Check-Up%20e%20vorrei%20sapere%20come%20funziona%20l%27X-Fit%20Academy.';
 
   function collegaWhatsapp() {
     document.querySelectorAll('[data-whatsapp]').forEach(function (a) {
