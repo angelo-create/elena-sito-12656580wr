@@ -278,7 +278,7 @@ test('Black Friday usa 700 centesimi, entrambi i tag carrello e CAPI distinta', 
   assert.equal(createdWith.idempotencyKey, `s7g-checkout-bf-${requestId}`);
   const [upsert, tags, ...pixels] = fetchCalls;
   assert.equal(Object.hasOwn(upsert.data, 'tags'), false);
-  assert.deepEqual(tags.data.tags, ['s7g-go-carrello', 's7g-bf-carrello']);
+  assert.deepEqual(tags.data.tags, ['s7g-go-carrello']);
   assert.equal(pixels.length, 2);
   for (const { data } of pixels) {
     const [event] = data.data;
@@ -343,7 +343,7 @@ test('il webhook consegna un ordine Black Friday già creato anche dopo la scade
   assert.equal(intent.metadata.s7g_fulfilled, '1');
   const [upsert, tags, , , ...pixels] = fetchCalls;
   assert.equal(Object.hasOwn(upsert.data, 'tags'), false);
-  assert.deepEqual(tags.data.tags, ['il_primo_passo', 'sfida-purchased-day0', 's7g-go-acquisto', 's7g-bf-acquisto']);
+  assert.deepEqual(tags.data.tags, ['il_primo_passo', 'sfida-purchased-day0', 's7g-go-acquisto']);
   assert.match(notes[0].body, /Il Primo Passo \(Sfida 7 Giorni Black Friday\)/);
   assert.equal(pixels.length, 2);
   for (const { data } of pixels) {

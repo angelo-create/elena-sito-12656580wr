@@ -20,8 +20,8 @@ const OFFERS = {
     product: 'sfida-7-giorni-bf-2026',
     amount: 700,
     content_name: 'Sfida 7 Giorni Black Friday', // COPY-BF: nome in Meta e nella nota GHL, allineato a js/s7g.js.
-    cartTags: ['s7g-go-carrello', 's7g-bf-carrello'],
-    purchaseTags: ['il_primo_passo', 'sfida-purchased-day0', 's7g-go-acquisto', 's7g-bf-acquisto'],
+    cartTags: ['s7g-go-carrello'], // stessi tag della Sfida a 37 € (Angelo, 27/11)
+    purchaseTags: ['il_primo_passo', 'sfida-purchased-day0', 's7g-go-acquisto'], // le vendite BF si distinguono da metadata.product su Stripe e dalla nota GHL
     cartPath: '/carrello-sfida-7giorni-black-friday',
     orderPath: '/riepilogo-ordine',
     landingPath: '/s7g-black-friday',
