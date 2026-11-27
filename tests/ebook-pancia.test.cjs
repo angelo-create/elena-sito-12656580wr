@@ -229,7 +229,7 @@ test('grazie: PDF che esiste, WhatsApp dal redirect, eventi della lista chiusa',
 test('vercel.json: redirect WhatsApp, landing su go., PDF noindex', () => {
   const cfg = JSON.parse(leggi('vercel.json'));
   const wa = cfg.redirects.find((r) => r.source === '/whatsapp-ebook-pancia');
-  assert.ok(wa && wa.destination.startsWith('https://wa.me/393773692181?text='));
+  assert.ok(wa && wa.destination.startsWith('https://wa.me/393295859935?text='));
   assert.match(decodeURIComponent(wa.destination), /ebook sulla pancia/);
   for (const s of ['/ebook-pancia', '/ebook-pancia-grazie']) {
     const r = cfg.redirects.find((x) => x.source === s);
