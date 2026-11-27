@@ -363,6 +363,15 @@
   ],
   "headers": [
     {
+      "source": "/:page(s7g|carrello-sfida-7giorni|riepilogo-ordine)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
       "source": "/assets/ebook/(.*)",
       "headers": [
         {

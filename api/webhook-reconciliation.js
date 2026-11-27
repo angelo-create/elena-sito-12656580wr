@@ -31,6 +31,7 @@ const GHL_LOCATION_ID = 'whfxv9CQCrjAmBTZJwMw';
 // Aggiornare se aggiungi nuovi prodotti / cambi convention tag.
 const PRODUCT_TO_TAG = {
   'sfida-7-giorni': 'oto-sfida-7-giorni',
+  'sfida-7-giorni-go': 's7g-go-acquisto',
   'mappa-lipedema': 'oto-mappa-lipedema',
 };
 
