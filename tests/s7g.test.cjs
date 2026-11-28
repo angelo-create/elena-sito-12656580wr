@@ -20,6 +20,7 @@ const created = 1795770000;
 const bfEndsAt = Date.parse('2026-11-30T23:00:00Z');
 const bfContentName = 'Sfida 7 Giorni Black Friday';
 const bfCartPath = '/carrello-sfida-7giorni-black-friday';
+const sha = value => createHash('sha256').update(String(value).toLowerCase().trim()).digest('hex');
 
 let intent, createdWith, updateKeys, fetchCalls, notes, ghlDown, rejectedPixel;
 const paymentIntents = {
@@ -185,6 +186,10 @@ test('checkout con UTM, tag additivi, PaymentIntent idempotente e CAPI sui due p
   assert.equal(idempotencyKey, `s7g-checkout-${requestId}`);
   assert.deepEqual(pixels.map(call => call.pathname), ['/v21.0/101/events', '/v21.0/102/events']);
   assert.ok(pixels.every(({ data }) => data.data[0].event_id === requestId && data.data[0].event_name === 'InitiateCheckout'));
+  for (const { data } of pixels) {
+    assert.deepEqual(data.data[0].user_data.external_id, [sha(contactId)]);
+    assert.deepEqual(data.data[0].user_data.country, [sha('it')]);
+  }
   assert.deepEqual((await invoke(checkout, checkoutRequest(input))).body, res.body);
 });
 
@@ -255,6 +260,26 @@ test('webhook idempotente su retry e consegne simultanee, con Purchase deduplica
   assert.deepEqual(event.user_data.em, [createHash('sha256').update(input.email).digest('hex')]);
   for (const field of ['fn', 'ln', 'ph']) assert.match(event.user_data[field][0], /^[0-9a-f]{64}$/);
   assert.equal(event.user_data.fbc, input.fbc);
+  assert.deepEqual(event.user_data.external_id, [sha(contactId)]);
+  assert.deepEqual(event.user_data.country, [sha('it')]);
+});
+
+test('riepilogo dà i dati cifrati per il pixel solo con il codice segreto del pagamento', async () => {
+  await paidIntent();
+  intent.payment_method.billing_details.address = { country: 'CH' };
+  const query = { payment_intent: fabricatedPaymentId };
+  const wrong = await invoke(order, { method: 'GET', query: { ...query, payment_intent_client_secret: 'altro-segreto-lungo' } });
+  assert.equal(wrong.body.user, undefined);
+  const res = await invoke(order, { method: 'GET', query: { ...query, payment_intent_client_secret: intent.client_secret } });
+  assert.equal(res.code, 200);
+  assert.deepEqual(res.body.user, {
+    em: sha(input.email), ph: sha('393331234567'), fn: sha('maria'), ln: sha('rossi'),
+    external_id: sha(contactId), country: sha('ch')
+  });
+  assert.equal(JSON.stringify(res.body).includes(input.email), false);
+  intent.status = 'processing';
+  const pending = await invoke(order, { method: 'GET', query: { ...query, payment_intent_client_secret: intent.client_secret } });
+  assert.equal(pending.body.user, undefined);
 });
 
 test('webhook riprende dal checkpoint quando un solo pixel rifiuta il Purchase', async () => {

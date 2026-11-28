@@ -192,6 +192,8 @@
     if (!['succeeded', 'processing', 'requires_capture'].includes(intent?.status)) return false;
     const url = orderUrl();
     url.searchParams.set('payment_intent', intent.id);
+    // Come nel ritorno da PayPal e Klarna: il riepilogo lo usa per i dati cifrati del pixel.
+    if (intent.client_secret) url.searchParams.set('payment_intent_client_secret', intent.client_secret);
     location.assign(url);
     return true;
   }

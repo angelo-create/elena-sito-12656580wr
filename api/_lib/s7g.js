@@ -111,15 +111,44 @@ function hash(value) {
   return crypto.createHash('sha256').update(value.toLowerCase().trim()).digest('hex');
 }
 
+// Dati della persona cifrati come li vuole Meta, uguali per server e browser.
+// external_id = id del contatto GHL, cifrato come in api/_lib/mangio-meno.js e
+// api/webinar-lead.js: la stessa persona ha lo stesso codice in tutti i funnel.
+// Paese dall'indirizzo di fatturazione Stripe; senza indirizzo, Italia solo se il
+// telefono è italiano (gli altri funnel mandano sempre Italia).
+function userHashes(contact) {
+  const { fn, ln } = nomeMeta(contact.firstName, contact.lastName);
+  const out = {};
+  for (const [key, value] of Object.entries({
+    em: contact.email, ph: contact.phone?.replace(/\D/g, ''), fn, ln,
+    external_id: contact.externalId,
+    country: /^[A-Za-z]{2}$/.test(contact.country || '') ? contact.country
+      : (!contact.phone || contact.phone.startsWith('+39') ? 'it' : undefined)
+  })) {
+    if (value) out[key] = hash(value);
+  }
+  return out;
+}
+
+function buyerFrom(intent) {
+  const charge = intent.latest_charge?.billing_details || {};
+  const method = intent.payment_method?.billing_details || {};
+  const parts = (method.name || charge.name || '').trim().split(/\s+/);
+  const lastName = parts.length > 1 ? parts.pop() : '';
+  const phone = normalizePhone(method.phone || charge.phone);
+  return {
+    email: intent.receipt_email || method.email || charge.email,
+    firstName: parts.join(' ') || undefined,
+    lastName: lastName || undefined,
+    phone: phone || undefined,
+    country: method.address?.country || charge.address?.country || undefined,
+    externalId: intent.metadata?.ghl_contact_id || undefined
+  };
+}
+
 async function sendCapi(eventName, contact, metadata, eventTime, offer, completed = {}) {
   const suffixes = ['', '_2'];
-  const { fn, ln } = nomeMeta(contact.firstName, contact.lastName);
-  const user = {};
-  for (const [key, value] of Object.entries({
-    em: contact.email, ph: contact.phone?.replace(/\D/g, ''), fn, ln
-  })) {
-    if (value) user[key] = [hash(value)];
-  }
+  const user = Object.fromEntries(Object.entries(userHashes(contact)).map(([key, value]) => [key, [value]]));
   for (const [key, value] of Object.entries({
     fbp: metadata.fbp, fbc: metadata.fbc, client_ip_address: metadata.client_ip, client_user_agent: metadata.user_agent
   })) {
@@ -172,5 +201,6 @@ function offerFromIntent(intent) {
 
 module.exports = {
   OFFERS, CURRENCY, INTENT_RE, EVENT_RE, ATTR_KEYS,
-  stripeClient, clip, contactFrom, upsert, addTags, addPaymentNote, sendCapi, offerFromIntent
+  stripeClient, clip, contactFrom, upsert, addTags, addPaymentNote, sendCapi, offerFromIntent,
+  userHashes, buyerFrom
 };

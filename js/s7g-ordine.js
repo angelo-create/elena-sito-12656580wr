@@ -3,7 +3,14 @@
 (() => {
   const params = new URLSearchParams(location.search);
   const id = params.get('payment_intent');
-  if (!id) return;
+  const startPixel = user => window.s7gStartPixel?.(user);
+  if (!id) {
+    startPixel();
+    return;
+  }
+  // Lo script in testa a riepilogo-ordine.html l'ha già tolto dall'indirizzo.
+  const secret = window.s7gReturnSecret || '';
+  window.s7gReturnSecret = '';
 
   const status = document.getElementById('order-status');
   const message = document.getElementById('order-message');
@@ -20,10 +27,13 @@
   async function check() {
     retry.hidden = true;
     try {
-      const response = await fetch(`/api/s7g-ordine?payment_intent=${encodeURIComponent(id)}`, {
+      const query = new URLSearchParams({ payment_intent: id });
+      if (secret) query.set('payment_intent_client_secret', secret);
+      const response = await fetch(`/api/s7g-ordine?${query}`, {
         signal: AbortSignal.timeout(10000)
       });
       if (response.status === 400 || response.status === 404) {
+        startPixel();
         returnToCheckout();
         return;
       }
@@ -35,6 +45,7 @@
         document.documentElement.classList.remove('s7g-pending');
         status.hidden = true;
         order.hidden = false;
+        startPixel(result.user);
         window.s7gTrackOnce('Purchase', result.event_id, {
           value: result.value, currency: 'EUR', content_name: result.content_name
         });
@@ -44,9 +55,11 @@
         if (checks < 15) setTimeout(check, 4000);
         else retry.hidden = false;
       } else {
+        startPixel();
         returnToCheckout(result.cart_path);
       }
     } catch {
+      startPixel();
       message.textContent = 'Non riusciamo a verificare il pagamento in questo momento. Riprova tra poco.';
       retry.hidden = false;
     }

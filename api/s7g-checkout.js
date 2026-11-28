@@ -89,7 +89,7 @@ module.exports = async function handler(req, res) {
         console.error('[s7g-checkout] Riferimento GHL non salvato:', error.type || error.name);
       }
     }
-    await sendCapi('InitiateCheckout', contact, metadata, intent.created, offer);
+    await sendCapi('InitiateCheckout', { ...contact, externalId: contactId }, metadata, intent.created, offer);
     return res.status(200).json({ client_secret: intent.client_secret });
   } catch (error) {
     console.error('[s7g-checkout] Stripe:', error.type || error.name);

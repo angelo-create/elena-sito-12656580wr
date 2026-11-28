@@ -2,24 +2,9 @@
 
 const { randomUUID } = require('node:crypto');
 const { buffer } = require('micro');
-const { normalizePhone } = require('./_lib/normalize-phone');
-const { EVENT_RE, stripeClient, offerFromIntent, upsert, addTags, addPaymentNote, sendCapi } = require('./_lib/s7g');
+const { EVENT_RE, stripeClient, offerFromIntent, upsert, addTags, addPaymentNote, sendCapi, buyerFrom } = require('./_lib/s7g');
 
 const LEASE_MS = 120000;
-
-function buyerFrom(intent) {
-  const charge = intent.latest_charge?.billing_details || {};
-  const method = intent.payment_method?.billing_details || {};
-  const parts = (method.name || charge.name || '').trim().split(/\s+/);
-  const lastName = parts.length > 1 ? parts.pop() : '';
-  const phone = normalizePhone(method.phone || charge.phone);
-  return {
-    email: intent.receipt_email || method.email || charge.email,
-    firstName: parts.join(' ') || undefined,
-    lastName: lastName || undefined,
-    phone: phone || undefined
-  };
-}
 
 async function fulfill(stripe, id, eventTime) {
   const intent = await stripe.paymentIntents.retrieve(id, { expand: ['latest_charge', 'payment_method'] });
@@ -44,16 +29,20 @@ async function fulfill(stripe, id, eventTime) {
   let crmOk = md.s7g_crm === '1';
   if (!crmOk) {
     try {
-      const idContatto = await upsert(buyer, md.ghl_contact_id ? {} : md);
+      // A GHL solo i campi di sempre: paese e codice Meta servono solo alla CAPI.
+      const { email, firstName, lastName, phone } = buyer;
+      const idContatto = await upsert({ email, firstName, lastName, phone }, md.ghl_contact_id ? {} : md);
       await addTags(idContatto, offer.purchaseTags);
       await addPaymentNote(idContatto, intent, offer);
       await stripe.paymentIntents.update(id, { metadata: { s7g_crm: '1', ghl_contact_id: idContatto } });
+      buyer.externalId = idContatto;
       crmOk = true;
     } catch (error) {
       console.error('[s7g-webhook] GHL non completato:', error.type || error.name);
     }
   }
 
+  // external_id: id GHL del checkout o quello appena restituito dall'upsert.
   const results = await sendCapi('Purchase', buyer, md, eventTime, offer, md);
   const checkpoints = Object.fromEntries(Object.entries(results).filter(([, ok]) => ok).map(([key]) => [key, '1']));
   const completed = crmOk && Object.values(results).every(Boolean);

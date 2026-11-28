@@ -102,8 +102,21 @@
   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-  window.fbq('init', '446130387840122');
-  window.fbq('init', '1717291565951434');
-  window.fbq('track', 'PageView');
-  if (page === 'landing') window.fbq('track', 'ViewContent', data);
+  // Sul riepilogo il pixel parte quando js/s7g-ordine.js ha i dati cifrati di chi ha
+  // pagato (advanced matching); se non arrivano, parte comunque dopo 12 secondi.
+  let pixelStarted = false;
+  function startPixel(user) {
+    if (pixelStarted) return;
+    pixelStarted = true;
+    const matching = user && typeof user === 'object' && Object.keys(user).length ? user : undefined;
+    for (const id of ['446130387840122', '1717291565951434']) {
+      if (matching) window.fbq('init', id, matching);
+      else window.fbq('init', id);
+    }
+    window.fbq('track', 'PageView');
+    if (page === 'landing') window.fbq('track', 'ViewContent', data);
+  }
+  window.s7gStartPixel = startPixel;
+  if (page === 'order') setTimeout(() => startPixel(), 12000);
+  else startPixel();
 })();
